@@ -1510,10 +1510,10 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_target_parties_comp_fields = funct
   -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
   index, target_party_id_executing_trader = eurex_cash_eti_t7_v9_0_dissect.target_party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Target Party Executing Firm: 5 Byte Ascii String
+  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
   index, target_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_firm(buffer, index, packet, parent)
 
-  -- Target Party Executing Trader: 6 Byte Ascii String
+  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
   index, target_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_trader(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -1971,7 +1971,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_update_negotiation_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_update_negotiation_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -2010,13 +2010,13 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_update_negotiation_request_fields 
   -- Quote Cancel Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, quote_cancel_type = eurex_cash_eti_t7_v9_0_dissect.quote_cancel_type(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 5: 132 Byte Ascii String
+  -- Free Text 5: 132 Byte Ascii String Nullable
   index, free_text_5 = eurex_cash_eti_t7_v9_0_dissect.free_text_5(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -2531,7 +2531,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_quoting_status_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_quoting_status_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -2549,10 +2549,10 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_quoting_status_request_fields = fu
   -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quoting_status = eurex_cash_eti_t7_v9_0_dissect.quoting_status(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -2724,7 +2724,7 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_quote_response_fields = function(b
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
   index, negotiation_id = eurex_cash_eti_t7_v9_0_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Quote Req Id: 20 Byte Ascii String
+  -- Quote Req Id: 20 Byte Ascii String Nullable
   index, quote_req_id = eurex_cash_eti_t7_v9_0_dissect.quote_req_id(buffer, index, packet, parent)
 
   return index
@@ -2952,13 +2952,13 @@ eurex_cash_eti_t7_v9_0_dissect.srqs_quote_entry_grp_comp_fields = function(buffe
   -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quoting_status = eurex_cash_eti_t7_v9_0_dissect.quoting_status(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -3053,7 +3053,7 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_quote_requester_notification_field
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
   index, trade_id = eurex_cash_eti_t7_v9_0_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Quote Req Id: 20 Byte Ascii String
+  -- Quote Req Id: 20 Byte Ascii String Nullable
   index, quote_req_id = eurex_cash_eti_t7_v9_0_dissect.quote_req_id(buffer, index, packet, parent)
 
   -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer
@@ -3282,25 +3282,25 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_quote_notification_fields = functi
   -- Quote Event Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, quote_event_reason = eurex_cash_eti_t7_v9_0_dissect.quote_event_reason(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Quote Req Id: 20 Byte Ascii String
+  -- Quote Req Id: 20 Byte Ascii String Nullable
   index, quote_req_id = eurex_cash_eti_t7_v9_0_dissect.quote_req_id(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -3597,19 +3597,19 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_open_negotiation_requester_notific
   -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, respondent_type = eurex_cash_eti_t7_v9_0_dissect.respondent_type(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Firm Negotiation Id: 20 Byte Ascii String
+  -- Firm Negotiation Id: 20 Byte Ascii String Nullable
   index, firm_negotiation_id = eurex_cash_eti_t7_v9_0_dissect.firm_negotiation_id(buffer, index, packet, parent)
 
-  -- Free Text 5: 132 Byte Ascii String
+  -- Free Text 5: 132 Byte Ascii String Nullable
   index, free_text_5 = eurex_cash_eti_t7_v9_0_dissect.free_text_5(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -3736,7 +3736,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_open_negotiation_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -3784,16 +3784,16 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_open_negotiation_request_fields = 
   -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, respondent_type = eurex_cash_eti_t7_v9_0_dissect.respondent_type(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 5: 132 Byte Ascii String
+  -- Free Text 5: 132 Byte Ascii String Nullable
   index, free_text_5 = eurex_cash_eti_t7_v9_0_dissect.free_text_5(buffer, index, packet, parent)
 
-  -- Quote Req Id: 20 Byte Ascii String
+  -- Quote Req Id: 20 Byte Ascii String Nullable
   index, quote_req_id = eurex_cash_eti_t7_v9_0_dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -3940,25 +3940,25 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_open_negotiation_notification_fiel
   -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, respondent_type = eurex_cash_eti_t7_v9_0_dissect.respondent_type(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Target Party Executing Firm: 5 Byte Ascii String
+  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
   index, target_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_firm(buffer, index, packet, parent)
 
-  -- Target Party Executing Trader: 6 Byte Ascii String
+  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
   index, target_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_trader(buffer, index, packet, parent)
 
-  -- Firm Negotiation Id: 20 Byte Ascii String
+  -- Firm Negotiation Id: 20 Byte Ascii String Nullable
   index, firm_negotiation_id = eurex_cash_eti_t7_v9_0_dissect.firm_negotiation_id(buffer, index, packet, parent)
 
-  -- Free Text 5: 132 Byte Ascii String
+  -- Free Text 5: 132 Byte Ascii String Nullable
   index, free_text_5 = eurex_cash_eti_t7_v9_0_dissect.free_text_5(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -4017,7 +4017,7 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_negotiation_status_notification_fi
   -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, quote_status = eurex_cash_eti_t7_v9_0_dissect.quote_status(buffer, index, packet, parent)
 
-  -- Firm Negotiation Id: 20 Byte Ascii String
+  -- Firm Negotiation Id: 20 Byte Ascii String Nullable
   index, firm_negotiation_id = eurex_cash_eti_t7_v9_0_dissect.firm_negotiation_id(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -4136,19 +4136,19 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_negotiation_requester_notification
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = eurex_cash_eti_t7_v9_0_dissect.side(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Firm Negotiation Id: 20 Byte Ascii String
+  -- Firm Negotiation Id: 20 Byte Ascii String Nullable
   index, firm_negotiation_id = eurex_cash_eti_t7_v9_0_dissect.firm_negotiation_id(buffer, index, packet, parent)
 
-  -- Free Text 5: 132 Byte Ascii String
+  -- Free Text 5: 132 Byte Ascii String Nullable
   index, free_text_5 = eurex_cash_eti_t7_v9_0_dissect.free_text_5(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -4250,25 +4250,25 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_negotiation_notification_fields = 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = eurex_cash_eti_t7_v9_0_dissect.side(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Target Party Executing Firm: 5 Byte Ascii String
+  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
   index, target_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_firm(buffer, index, packet, parent)
 
-  -- Target Party Executing Trader: 6 Byte Ascii String
+  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
   index, target_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_trader(buffer, index, packet, parent)
 
-  -- Firm Negotiation Id: 20 Byte Ascii String
+  -- Firm Negotiation Id: 20 Byte Ascii String Nullable
   index, firm_negotiation_id = eurex_cash_eti_t7_v9_0_dissect.firm_negotiation_id(buffer, index, packet, parent)
 
-  -- Free Text 5: 132 Byte Ascii String
+  -- Free Text 5: 132 Byte Ascii String Nullable
   index, free_text_5 = eurex_cash_eti_t7_v9_0_dissect.free_text_5(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -4550,7 +4550,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_hit_quote_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_hit_quote_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -4610,22 +4610,22 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_hit_quote_request_fields = functio
   -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, order_origination = eurex_cash_eti_t7_v9_0_dissect.order_origination(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Firm Trade Id: 20 Byte Ascii String
+  -- Firm Trade Id: 20 Byte Ascii String Nullable
   index, firm_trade_id = eurex_cash_eti_t7_v9_0_dissect.firm_trade_id(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   return index
@@ -4666,7 +4666,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_enter_quote_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_enter_quote_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -4720,19 +4720,19 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_enter_quote_request_fields = funct
   -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v9_0_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -4817,10 +4817,10 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_deal_response_fields = function(bu
   -- Secondary Trade Id: 4 Byte Unsigned Fixed Width Integer
   index, secondary_trade_id = eurex_cash_eti_t7_v9_0_dissect.secondary_trade_id(buffer, index, packet, parent)
 
-  -- Firm Trade Id: 20 Byte Ascii String
+  -- Firm Trade Id: 20 Byte Ascii String Nullable
   index, firm_trade_id = eurex_cash_eti_t7_v9_0_dissect.firm_trade_id(buffer, index, packet, parent)
 
-  -- Firm Negotiation Id: 20 Byte Ascii String
+  -- Firm Negotiation Id: 20 Byte Ascii String Nullable
   index, firm_negotiation_id = eurex_cash_eti_t7_v9_0_dissect.firm_negotiation_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -5304,34 +5304,34 @@ eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_create_deal_notification_fields = 
   -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v9_0_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Root Party Executing Firm: 5 Byte Ascii String
+  -- Root Party Executing Firm: 5 Byte Ascii String Nullable
   index, root_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_firm(buffer, index, packet, parent)
 
-  -- Root Party Executing Trader: 6 Byte Ascii String
+  -- Root Party Executing Trader: 6 Byte Ascii String Nullable
   index, root_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_trader(buffer, index, packet, parent)
 
-  -- Root Party Entering Trader: 6 Byte Ascii String
+  -- Root Party Entering Trader: 6 Byte Ascii String Nullable
   index, root_party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.root_party_entering_trader(buffer, index, packet, parent)
 
-  -- Target Party Executing Firm: 5 Byte Ascii String
+  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
   index, target_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_firm(buffer, index, packet, parent)
 
-  -- Target Party Executing Trader: 6 Byte Ascii String
+  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
   index, target_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.target_party_executing_trader(buffer, index, packet, parent)
 
-  -- Firm Trade Id: 20 Byte Ascii String
+  -- Firm Trade Id: 20 Byte Ascii String Nullable
   index, firm_trade_id = eurex_cash_eti_t7_v9_0_dissect.firm_trade_id(buffer, index, packet, parent)
 
-  -- Firm Negotiation Id: 20 Byte Ascii String
+  -- Firm Negotiation Id: 20 Byte Ascii String Nullable
   index, firm_negotiation_id = eurex_cash_eti_t7_v9_0_dissect.firm_negotiation_id(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -5444,7 +5444,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.user_logout_request_fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -5561,7 +5561,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.user_login_request_fields = function(buffer, offset, packet, parent, size_of_user_login_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -5573,7 +5573,7 @@ eurex_cash_eti_t7_v9_0_dissect.user_login_request_fields = function(buffer, offs
   -- Username: 4 Byte Unsigned Fixed Width Integer
   index, username = eurex_cash_eti_t7_v9_0_dissect.username(buffer, index, packet, parent)
 
-  -- Password: 32 Byte Ascii String
+  -- Password: 32 Byte Ascii String Nullable
   index, password = eurex_cash_eti_t7_v9_0_dissect.password(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -5681,7 +5681,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.unsubscribe_request_fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -6346,7 +6346,7 @@ eurex_cash_eti_t7_v9_0_dissect.trailing_stop_update_notification_fields = functi
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = eurex_cash_eti_t7_v9_0_dissect.side(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -8024,22 +8024,22 @@ eurex_cash_eti_t7_v9_0_dissect.trade_broadcast_fields = function(buffer, offset,
   -- Root Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, root_party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v9_0_dissect.root_party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Account: 2 Byte Ascii String
+  -- Account: 2 Byte Ascii String Nullable
   index, account = eurex_cash_eti_t7_v9_0_dissect.account(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String
+  -- Settl Currency: 3 Byte Ascii String Nullable
   index, settl_currency = eurex_cash_eti_t7_v9_0_dissect.settl_currency(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: 3 Byte Ascii String Nullable
   index, currency = eurex_cash_eti_t7_v9_0_dissect.currency(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   -- Order Category: 1 Byte Ascii String Enum with 2 values
@@ -8048,52 +8048,52 @@ eurex_cash_eti_t7_v9_0_dissect.trade_broadcast_fields = function(buffer, offset,
   -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, ord_type = eurex_cash_eti_t7_v9_0_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Root Party Executing Firm: 5 Byte Ascii String
+  -- Root Party Executing Firm: 5 Byte Ascii String Nullable
   index, root_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_firm(buffer, index, packet, parent)
 
-  -- Root Party Executing Trader: 6 Byte Ascii String
+  -- Root Party Executing Trader: 6 Byte Ascii String Nullable
   index, root_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_trader(buffer, index, packet, parent)
 
-  -- Root Party Clearing Firm: 5 Byte Ascii String
+  -- Root Party Clearing Firm: 5 Byte Ascii String Nullable
   index, root_party_clearing_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_clearing_firm(buffer, index, packet, parent)
 
-  -- Root Party Executing Firm Kv Number: 4 Byte Ascii String
+  -- Root Party Executing Firm Kv Number: 4 Byte Ascii String Nullable
   index, root_party_executing_firm_kv_number = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_firm_kv_number(buffer, index, packet, parent)
 
-  -- Root Party Settlement Account: 35 Byte Ascii String
+  -- Root Party Settlement Account: 35 Byte Ascii String Nullable
   index, root_party_settlement_account = eurex_cash_eti_t7_v9_0_dissect.root_party_settlement_account(buffer, index, packet, parent)
 
   -- Root Party Settlement Location: 3 Byte Ascii String Enum with 18 values
   index, root_party_settlement_location = eurex_cash_eti_t7_v9_0_dissect.root_party_settlement_location(buffer, index, packet, parent)
 
-  -- Root Party Settlement Firm: 5 Byte Ascii String
+  -- Root Party Settlement Firm: 5 Byte Ascii String Nullable
   index, root_party_settlement_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_settlement_firm(buffer, index, packet, parent)
 
-  -- Root Party Contra Firm: 5 Byte Ascii String
+  -- Root Party Contra Firm: 5 Byte Ascii String Nullable
   index, root_party_contra_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_firm(buffer, index, packet, parent)
 
-  -- Root Party Contra Settlement Firm: 5 Byte Ascii String
+  -- Root Party Contra Settlement Firm: 5 Byte Ascii String Nullable
   index, root_party_contra_settlement_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_settlement_firm(buffer, index, packet, parent)
 
-  -- Root Party Contra Firm Kv Number: 4 Byte Ascii String
+  -- Root Party Contra Firm Kv Number: 4 Byte Ascii String Nullable
   index, root_party_contra_firm_kv_number = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_firm_kv_number(buffer, index, packet, parent)
 
-  -- Root Party Contra Settlement Account: 35 Byte Ascii String
+  -- Root Party Contra Settlement Account: 35 Byte Ascii String Nullable
   index, root_party_contra_settlement_account = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_settlement_account(buffer, index, packet, parent)
 
   -- Root Party Contra Settlement Location: 3 Byte Ascii String Enum with 18 values
   index, root_party_contra_settlement_location = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_settlement_location(buffer, index, packet, parent)
 
-  -- Party Specialist Firm: 5 Byte Ascii String
+  -- Party Specialist Firm: 5 Byte Ascii String Nullable
   index, party_specialist_firm = eurex_cash_eti_t7_v9_0_dissect.party_specialist_firm(buffer, index, packet, parent)
 
-  -- Party Specialist Trader: 6 Byte Ascii String
+  -- Party Specialist Trader: 6 Byte Ascii String Nullable
   index, party_specialist_trader = eurex_cash_eti_t7_v9_0_dissect.party_specialist_trader(buffer, index, packet, parent)
 
-  -- Regulatory Trade Id: 52 Byte Ascii String
+  -- Regulatory Trade Id: 52 Byte Ascii String Nullable
   index, regulatory_trade_id = eurex_cash_eti_t7_v9_0_dissect.regulatory_trade_id(buffer, index, packet, parent)
 
-  -- Root Party Id Execution Venue: 4 Byte Ascii String
+  -- Root Party Id Execution Venue: 4 Byte Ascii String Nullable
   index, root_party_id_execution_venue = eurex_cash_eti_t7_v9_0_dissect.root_party_id_execution_venue(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -8625,61 +8625,61 @@ eurex_cash_eti_t7_v9_0_dissect.tes_trade_broadcast_fields = function(buffer, off
   -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, order_origination = eurex_cash_eti_t7_v9_0_dissect.order_origination(buffer, index, packet, parent)
 
-  -- Account: 2 Byte Ascii String
+  -- Account: 2 Byte Ascii String Nullable
   index, account = eurex_cash_eti_t7_v9_0_dissect.account(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
-  -- Settl Currency: 3 Byte Ascii String
+  -- Settl Currency: 3 Byte Ascii String Nullable
   index, settl_currency = eurex_cash_eti_t7_v9_0_dissect.settl_currency(buffer, index, packet, parent)
 
-  -- Root Party Executing Firm: 5 Byte Ascii String
+  -- Root Party Executing Firm: 5 Byte Ascii String Nullable
   index, root_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_firm(buffer, index, packet, parent)
 
-  -- Root Party Executing Trader: 6 Byte Ascii String
+  -- Root Party Executing Trader: 6 Byte Ascii String Nullable
   index, root_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_trader(buffer, index, packet, parent)
 
-  -- Root Party Clearing Firm: 5 Byte Ascii String
+  -- Root Party Clearing Firm: 5 Byte Ascii String Nullable
   index, root_party_clearing_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_clearing_firm(buffer, index, packet, parent)
 
-  -- Root Party Executing Firm Kv Number: 4 Byte Ascii String
+  -- Root Party Executing Firm Kv Number: 4 Byte Ascii String Nullable
   index, root_party_executing_firm_kv_number = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_firm_kv_number(buffer, index, packet, parent)
 
-  -- Root Party Settlement Account: 35 Byte Ascii String
+  -- Root Party Settlement Account: 35 Byte Ascii String Nullable
   index, root_party_settlement_account = eurex_cash_eti_t7_v9_0_dissect.root_party_settlement_account(buffer, index, packet, parent)
 
   -- Root Party Settlement Location: 3 Byte Ascii String Enum with 18 values
   index, root_party_settlement_location = eurex_cash_eti_t7_v9_0_dissect.root_party_settlement_location(buffer, index, packet, parent)
 
-  -- Root Party Settlement Firm: 5 Byte Ascii String
+  -- Root Party Settlement Firm: 5 Byte Ascii String Nullable
   index, root_party_settlement_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_settlement_firm(buffer, index, packet, parent)
 
-  -- Root Party Contra Firm: 5 Byte Ascii String
+  -- Root Party Contra Firm: 5 Byte Ascii String Nullable
   index, root_party_contra_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_firm(buffer, index, packet, parent)
 
-  -- Root Party Contra Settlement Firm: 5 Byte Ascii String
+  -- Root Party Contra Settlement Firm: 5 Byte Ascii String Nullable
   index, root_party_contra_settlement_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_settlement_firm(buffer, index, packet, parent)
 
-  -- Root Party Contra Firm Kv Number: 4 Byte Ascii String
+  -- Root Party Contra Firm Kv Number: 4 Byte Ascii String Nullable
   index, root_party_contra_firm_kv_number = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_firm_kv_number(buffer, index, packet, parent)
 
-  -- Root Party Contra Settlement Account: 35 Byte Ascii String
+  -- Root Party Contra Settlement Account: 35 Byte Ascii String Nullable
   index, root_party_contra_settlement_account = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_settlement_account(buffer, index, packet, parent)
 
   -- Root Party Contra Settlement Location: 3 Byte Ascii String Enum with 18 values
   index, root_party_contra_settlement_location = eurex_cash_eti_t7_v9_0_dissect.root_party_contra_settlement_location(buffer, index, packet, parent)
 
-  -- Root Party Id Execution Venue: 4 Byte Ascii String
+  -- Root Party Id Execution Venue: 4 Byte Ascii String Nullable
   index, root_party_id_execution_venue = eurex_cash_eti_t7_v9_0_dissect.root_party_id_execution_venue(buffer, index, packet, parent)
 
-  -- Regulatory Trade Id: 52 Byte Ascii String
+  -- Regulatory Trade Id: 52 Byte Ascii String Nullable
   index, regulatory_trade_id = eurex_cash_eti_t7_v9_0_dissect.regulatory_trade_id(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -8772,7 +8772,7 @@ eurex_cash_eti_t7_v9_0_dissect.tes_response_fields = function(buffer, offset, pa
   -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
   index, tes_exec_id = eurex_cash_eti_t7_v9_0_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
   return index
@@ -8973,7 +8973,7 @@ eurex_cash_eti_t7_v9_0_dissect.tes_delete_broadcast_fields = function(buffer, of
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
   index, message_event_source = eurex_cash_eti_t7_v9_0_dissect.message_event_source(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -9158,10 +9158,10 @@ eurex_cash_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp_fields = function(buffer, 
   -- Tes Enrichment Rule Id: 4 Byte Unsigned Fixed Width Integer
   index, tes_enrichment_rule_id = eurex_cash_eti_t7_v9_0_dissect.tes_enrichment_rule_id(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -9362,16 +9362,16 @@ eurex_cash_eti_t7_v9_0_dissect.tes_broadcast_fields = function(buffer, offset, p
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
   index, message_event_source = eurex_cash_eti_t7_v9_0_dissect.message_event_source(buffer, index, packet, parent)
 
-  -- Trade Report Text: 20 Byte Ascii String
+  -- Trade Report Text: 20 Byte Ascii String Nullable
   index, trade_report_text = eurex_cash_eti_t7_v9_0_dissect.trade_report_text(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
-  -- Root Party Executing Firm: 5 Byte Ascii String
+  -- Root Party Executing Firm: 5 Byte Ascii String Nullable
   index, root_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_firm(buffer, index, packet, parent)
 
-  -- Root Party Executing Trader: 6 Byte Ascii String
+  -- Root Party Executing Trader: 6 Byte Ascii String Nullable
   index, root_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_trader(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -9382,7 +9382,7 @@ eurex_cash_eti_t7_v9_0_dissect.tes_broadcast_fields = function(buffer, offset, p
     index = eurex_cash_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
   end
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -9522,37 +9522,37 @@ eurex_cash_eti_t7_v9_0_dissect.tes_approve_broadcast_fields = function(buffer, o
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
   index, message_event_source = eurex_cash_eti_t7_v9_0_dissect.message_event_source(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
   -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v9_0_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Root Party Executing Firm: 5 Byte Ascii String
+  -- Root Party Executing Firm: 5 Byte Ascii String Nullable
   index, root_party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_firm(buffer, index, packet, parent)
 
-  -- Root Party Executing Trader: 6 Byte Ascii String
+  -- Root Party Executing Trader: 6 Byte Ascii String Nullable
   index, root_party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.root_party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -9717,7 +9717,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.subscribe_request_fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -10024,7 +10024,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.specialist_security_state_change_request_fields = function(buffer, offset, packet, parent, size_of_specialist_security_state_change_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -10130,7 +10130,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.specialist_rfq_reply_request_fields = function(buffer, offset, packet, parent, size_of_specialist_rfq_reply_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -10160,7 +10160,7 @@ eurex_cash_eti_t7_v9_0_dissect.specialist_rfq_reply_request_fields = function(bu
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = eurex_cash_eti_t7_v9_0_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -10234,7 +10234,7 @@ eurex_cash_eti_t7_v9_0_dissect.specialist_rfq_reply_notification_fields = functi
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer
   index, market_segment_id = eurex_cash_eti_t7_v9_0_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -10323,7 +10323,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.specialist_rfq_reject_request_fields = function(buffer, offset, packet, parent, size_of_specialist_rfq_reject_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -10344,7 +10344,7 @@ eurex_cash_eti_t7_v9_0_dissect.specialist_rfq_reject_request_fields = function(b
   -- Quote Request Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, quote_request_reject_reason = eurex_cash_eti_t7_v9_0_dissect.quote_request_reject_reason(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -11087,19 +11087,19 @@ eurex_cash_eti_t7_v9_0_dissect.specialist_order_book_notification_fields = funct
   -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v9_0_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Party Entering Firm: 5 Byte Ascii String
+  -- Party Entering Firm: 5 Byte Ascii String Nullable
   index, party_entering_firm = eurex_cash_eti_t7_v9_0_dissect.party_entering_firm(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
   -- Fills Grp Comp: Struct of 6 fields
@@ -11686,7 +11686,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.single_quote_request_fields = function(buffer, offset, packet, parent, size_of_single_quote_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -11755,13 +11755,13 @@ eurex_cash_eti_t7_v9_0_dissect.single_quote_request_fields = function(buffer, of
   -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v9_0_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -12433,7 +12433,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.retransmit_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -12591,7 +12591,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.retransmit_me_message_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -12815,7 +12815,7 @@ eurex_cash_eti_t7_v9_0_dissect.reject_fields = function(buffer, offset, packet, 
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v9_0_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -12880,7 +12880,7 @@ eurex_cash_eti_t7_v9_0_dissect.rfq_specialist_broadcast_fields = function(buffer
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = eurex_cash_eti_t7_v9_0_dissect.side(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -13037,7 +13037,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.rfq_request_fields = function(buffer, offset, packet, parent, size_of_rfq_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -13129,7 +13129,7 @@ eurex_cash_eti_t7_v9_0_dissect.rfq_reject_notification_fields = function(buffer,
   -- Quote Request Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, quote_request_reject_reason = eurex_cash_eti_t7_v9_0_dissect.quote_request_reject_reason(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -13194,7 +13194,7 @@ eurex_cash_eti_t7_v9_0_dissect.rfq_broadcast_fields = function(buffer, offset, p
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = eurex_cash_eti_t7_v9_0_dissect.side(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -13790,7 +13790,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.quote_activation_request_fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -14144,10 +14144,10 @@ eurex_cash_eti_t7_v9_0_dissect.party_entitlements_update_report_fields = functio
   -- List Update Action: 1 Byte Ascii String Enum with 2 values
   index, list_update_action = eurex_cash_eti_t7_v9_0_dissect.list_update_action(buffer, index, packet, parent)
 
-  -- Requesting Party Entering Firm: 9 Byte Ascii String
+  -- Requesting Party Entering Firm: 9 Byte Ascii String Nullable
   index, requesting_party_entering_firm = eurex_cash_eti_t7_v9_0_dissect.requesting_party_entering_firm(buffer, index, packet, parent)
 
-  -- Requesting Party Clearing Firm: 9 Byte Ascii String
+  -- Requesting Party Clearing Firm: 9 Byte Ascii String Nullable
   index, requesting_party_clearing_firm = eurex_cash_eti_t7_v9_0_dissect.requesting_party_clearing_firm(buffer, index, packet, parent)
 
   -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -14905,28 +14905,28 @@ eurex_cash_eti_t7_v9_0_dissect.order_exec_report_broadcast_fields = function(buf
   -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v9_0_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Party Entering Firm: 5 Byte Ascii String
+  -- Party Entering Firm: 5 Byte Ascii String Nullable
   index, party_entering_firm = eurex_cash_eti_t7_v9_0_dissect.party_entering_firm(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
   -- No Fills: 1 Byte Unsigned Fixed Width Integer
@@ -15050,7 +15050,7 @@ eurex_cash_eti_t7_v9_0_dissect.order_exec_notification_fields = function(buffer,
   -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, crossed_indicator = eurex_cash_eti_t7_v9_0_dissect.crossed_indicator(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
   -- No Fills: 1 Byte Unsigned Fixed Width Integer
@@ -15158,13 +15158,13 @@ eurex_cash_eti_t7_v9_0_dissect.news_broadcast_fields = function(buffer, offset, 
   -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
   index, var_text_len = eurex_cash_eti_t7_v9_0_dissect.var_text_len(buffer, index, packet, parent)
 
-  -- Headline: 256 Byte Ascii String
+  -- Headline: 256 Byte Ascii String Nullable
   index, headline = eurex_cash_eti_t7_v9_0_dissect.headline(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v9_0_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -15225,7 +15225,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.new_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_short_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -15338,7 +15338,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.new_order_single_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -15449,22 +15449,22 @@ eurex_cash_eti_t7_v9_0_dissect.new_order_single_request_fields = function(buffer
   -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v9_0_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -15698,10 +15698,10 @@ eurex_cash_eti_t7_v9_0_dissect.side_alloc_grp_comp_fields = function(buffer, off
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = eurex_cash_eti_t7_v9_0_dissect.side(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -15741,7 +15741,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.modify_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -15777,10 +15777,10 @@ eurex_cash_eti_t7_v9_0_dissect.modify_tes_trade_request_fields = function(buffer
   -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer
   index, no_side_allocs = eurex_cash_eti_t7_v9_0_dissect.no_side_allocs(buffer, index, packet, parent)
 
-  -- Trade Report Text: 20 Byte Ascii String
+  -- Trade Report Text: 20 Byte Ascii String Nullable
   index, trade_report_text = eurex_cash_eti_t7_v9_0_dissect.trade_report_text(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -15829,7 +15829,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.modify_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -15999,7 +15999,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.modify_order_single_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -16116,22 +16116,22 @@ eurex_cash_eti_t7_v9_0_dissect.modify_order_single_request_fields = function(buf
   -- Ownership Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ownership_indicator = eurex_cash_eti_t7_v9_0_dissect.ownership_indicator(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -16807,7 +16807,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.mass_quote_request_fields = function(buffer, offset, packet, parent, size_of_mass_quote_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -16954,7 +16954,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.logout_request_fields = function(buffer, offset, packet, parent, size_of_logout_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -17148,7 +17148,7 @@ eurex_cash_eti_t7_v9_0_dissect.logon_response_fields = function(buffer, offset, 
   -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, trad_ses_mode = eurex_cash_eti_t7_v9_0_dissect.trad_ses_mode(buffer, index, packet, parent)
 
-  -- Default Cstm Appl Ver Id: 30 Byte Ascii String
+  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
   index, default_cstm_appl_ver_id = eurex_cash_eti_t7_v9_0_dissect.default_cstm_appl_ver_id(buffer, index, packet, parent)
 
   -- Default Cstm Appl Ver Sub Id: 5 Byte Ascii String Enum with 1 values
@@ -17408,7 +17408,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.logon_request_fields = function(buffer, offset, packet, parent, size_of_logon_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -17423,10 +17423,10 @@ eurex_cash_eti_t7_v9_0_dissect.logon_request_fields = function(buffer, offset, p
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
   index, party_id_session_id = eurex_cash_eti_t7_v9_0_dissect.party_id_session_id(buffer, index, packet, parent)
 
-  -- Default Cstm Appl Ver Id: 30 Byte Ascii String
+  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
   index, default_cstm_appl_ver_id = eurex_cash_eti_t7_v9_0_dissect.default_cstm_appl_ver_id(buffer, index, packet, parent)
 
-  -- Password: 32 Byte Ascii String
+  -- Password: 32 Byte Ascii String Nullable
   index, password = eurex_cash_eti_t7_v9_0_dissect.password(buffer, index, packet, parent)
 
   -- Appl Usage Orders: 1 Byte Ascii String Enum with 4 values
@@ -17438,22 +17438,22 @@ eurex_cash_eti_t7_v9_0_dissect.logon_request_fields = function(buffer, offset, p
   -- Order Routing Indicator: 1 Byte Ascii String Enum with 2 values
   index, order_routing_indicator = eurex_cash_eti_t7_v9_0_dissect.order_routing_indicator(buffer, index, packet, parent)
 
-  -- Fix Engine Name: 30 Byte Ascii String
+  -- Fix Engine Name: 30 Byte Ascii String Nullable
   index, fix_engine_name = eurex_cash_eti_t7_v9_0_dissect.fix_engine_name(buffer, index, packet, parent)
 
-  -- Fix Engine Version: 30 Byte Ascii String
+  -- Fix Engine Version: 30 Byte Ascii String Nullable
   index, fix_engine_version = eurex_cash_eti_t7_v9_0_dissect.fix_engine_version(buffer, index, packet, parent)
 
-  -- Fix Engine Vendor: 30 Byte Ascii String
+  -- Fix Engine Vendor: 30 Byte Ascii String Nullable
   index, fix_engine_vendor = eurex_cash_eti_t7_v9_0_dissect.fix_engine_vendor(buffer, index, packet, parent)
 
-  -- Application System Name: 30 Byte Ascii String
+  -- Application System Name: 30 Byte Ascii String Nullable
   index, application_system_name = eurex_cash_eti_t7_v9_0_dissect.application_system_name(buffer, index, packet, parent)
 
-  -- Application System Version: 30 Byte Ascii String
+  -- Application System Version: 30 Byte Ascii String Nullable
   index, application_system_version = eurex_cash_eti_t7_v9_0_dissect.application_system_version(buffer, index, packet, parent)
 
-  -- Application System Vendor: 30 Byte Ascii String
+  -- Application System Vendor: 30 Byte Ascii String Nullable
   index, application_system_vendor = eurex_cash_eti_t7_v9_0_dissect.application_system_vendor(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -17545,7 +17545,7 @@ eurex_cash_eti_t7_v9_0_dissect.legal_notification_broadcast_fields = function(bu
   -- Pad 5: 5 Byte
   index, pad_5 = eurex_cash_eti_t7_v9_0_dissect.pad_5(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -17808,7 +17808,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.issuer_security_state_change_request_fields = function(buffer, offset, packet, parent, size_of_issuer_security_state_change_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -18137,7 +18137,7 @@ eurex_cash_eti_t7_v9_0_dissect.party_details_grp_comp_fields = function(buffer, 
   -- Party Detail Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
   index, party_detail_id_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_detail_id_executing_trader(buffer, index, packet, parent)
 
-  -- Party Detail Executing Trader: 6 Byte Ascii String
+  -- Party Detail Executing Trader: 6 Byte Ascii String Nullable
   index, party_detail_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_detail_executing_trader(buffer, index, packet, parent)
 
   -- Party Detail Role Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -18146,7 +18146,7 @@ eurex_cash_eti_t7_v9_0_dissect.party_details_grp_comp_fields = function(buffer, 
   -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, party_detail_status = eurex_cash_eti_t7_v9_0_dissect.party_detail_status(buffer, index, packet, parent)
 
-  -- Party Detail Desk Id: 3 Byte Ascii String
+  -- Party Detail Desk Id: 3 Byte Ascii String Nullable
   index, party_detail_desk_id = eurex_cash_eti_t7_v9_0_dissect.party_detail_desk_id(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -18284,7 +18284,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.inquire_user_request_fields = function(buffer, offset, packet, parent, size_of_inquire_user_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -18521,7 +18521,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.inquire_session_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -18579,13 +18579,13 @@ eurex_cash_eti_t7_v9_0_dissect.enrichment_rules_grp_comp_fields = function(buffe
   -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer
   index, enrichment_rule_id = eurex_cash_eti_t7_v9_0_dissect.enrichment_rule_id(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -18703,7 +18703,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.inquire_enrichment_rule_id_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -18797,7 +18797,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.heartbeat_fields = function(buffer, offset, packet, parent, size_of_heartbeat)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -18859,7 +18859,7 @@ eurex_cash_eti_t7_v9_0_dissect.forced_user_logout_notification_fields = function
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v9_0_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -18912,7 +18912,7 @@ eurex_cash_eti_t7_v9_0_dissect.forced_logout_notification_fields = function(buff
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v9_0_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -19070,28 +19070,28 @@ eurex_cash_eti_t7_v9_0_dissect.extended_deletion_report_fields = function(buffer
   -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v9_0_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
-  -- Party Entering Firm: 5 Byte Ascii String
+  -- Party Entering Firm: 5 Byte Ascii String Nullable
   index, party_entering_firm = eurex_cash_eti_t7_v9_0_dissect.party_entering_firm(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
   -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -19138,7 +19138,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.enter_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19174,10 +19174,10 @@ eurex_cash_eti_t7_v9_0_dissect.enter_tes_trade_request_fields = function(buffer,
   -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer
   index, no_side_allocs = eurex_cash_eti_t7_v9_0_dissect.no_side_allocs(buffer, index, packet, parent)
 
-  -- Trade Report Text: 20 Byte Ascii String
+  -- Trade Report Text: 20 Byte Ascii String Nullable
   index, trade_report_text = eurex_cash_eti_t7_v9_0_dissect.trade_report_text(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -19226,7 +19226,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.delete_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19250,7 +19250,7 @@ eurex_cash_eti_t7_v9_0_dissect.delete_tes_trade_request_fields = function(buffer
   -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, trade_report_type = eurex_cash_eti_t7_v9_0_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -19294,7 +19294,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.delete_order_single_request_fields = function(buffer, offset, packet, parent, size_of_delete_order_single_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19336,13 +19336,13 @@ eurex_cash_eti_t7_v9_0_dissect.delete_order_single_request_fields = function(buf
   -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v9_0_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -19612,13 +19612,13 @@ eurex_cash_eti_t7_v9_0_dissect.delete_order_broadcast_fields = function(buffer, 
   -- Order Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, order_event_type = eurex_cash_eti_t7_v9_0_dissect.order_event_type(buffer, index, packet, parent)
 
-  -- Fix Cl Ord Id: 20 Byte Ascii String
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v9_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
-  -- Party Entering Firm: 5 Byte Ascii String
+  -- Party Entering Firm: 5 Byte Ascii String Nullable
   index, party_entering_firm = eurex_cash_eti_t7_v9_0_dissect.party_entering_firm(buffer, index, packet, parent)
 
-  -- Party Entering Trader: 6 Byte Ascii String
+  -- Party Entering Trader: 6 Byte Ascii String Nullable
   index, party_entering_trader = eurex_cash_eti_t7_v9_0_dissect.party_entering_trader(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19720,7 +19720,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.delete_all_quote_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19841,7 +19841,7 @@ eurex_cash_eti_t7_v9_0_dissect.delete_all_quote_broadcast_fields = function(buff
   -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v9_0_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
-  -- Target Party Id Desk Id: 3 Byte Ascii String
+  -- Target Party Id Desk Id: 3 Byte Ascii String Nullable
   index, target_party_id_desk_id = eurex_cash_eti_t7_v9_0_dissect.target_party_id_desk_id(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -20046,7 +20046,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.delete_all_order_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -20386,7 +20386,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.cross_request_fields = function(buffer, offset, packet, parent, size_of_cross_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -20493,7 +20493,7 @@ eurex_cash_eti_t7_v9_0_dissect.broadcast_error_notification_fields = function(bu
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v9_0_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String
+  -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_cash_eti_t7_v9_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   return index
@@ -20534,7 +20534,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.approve_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
   local index = offset
 
-  -- Network Msg Id: 8 Byte Ascii String
+  -- Network Msg Id: 8 Byte Ascii String Nullable
   index, network_msg_id = eurex_cash_eti_t7_v9_0_dissect.network_msg_id(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -20597,22 +20597,22 @@ eurex_cash_eti_t7_v9_0_dissect.approve_tes_trade_request_fields = function(buffe
   -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, order_origination = eurex_cash_eti_t7_v9_0_dissect.order_origination(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String
+  -- Trade Report Id: 20 Byte Ascii String Nullable
   index, trade_report_id = eurex_cash_eti_t7_v9_0_dissect.trade_report_id(buffer, index, packet, parent)
 
-  -- Party Executing Firm: 5 Byte Ascii String
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_cash_eti_t7_v9_0_dissect.party_executing_firm(buffer, index, packet, parent)
 
-  -- Party Executing Trader: 6 Byte Ascii String
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v9_0_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Free Text 1: 12 Byte Ascii String
+  -- Free Text 1: 12 Byte Ascii String Nullable
   index, free_text_1 = eurex_cash_eti_t7_v9_0_dissect.free_text_1(buffer, index, packet, parent)
 
-  -- Free Text 2: 12 Byte Ascii String
+  -- Free Text 2: 12 Byte Ascii String Nullable
   index, free_text_2 = eurex_cash_eti_t7_v9_0_dissect.free_text_2(buffer, index, packet, parent)
 
-  -- Free Text 4: 16 Byte Ascii String
+  -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v9_0_dissect.free_text_4(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte

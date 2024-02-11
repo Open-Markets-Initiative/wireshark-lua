@@ -4981,7 +4981,7 @@ eurex_derivatives_eobi_t7_v11_1_dissect.add_flexible_instrument_fields = functio
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = eurex_derivatives_eobi_t7_v11_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security Desc: 40 Byte Ascii String
+  -- Security Desc: 40 Byte Ascii String Nullable
   index, security_desc = eurex_derivatives_eobi_t7_v11_1_dissect.security_desc(buffer, index, packet, parent)
 
   -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -5371,7 +5371,7 @@ eurex_derivatives_eobi_t7_v11_1_dissect.add_complex_instrument_fields = function
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = eurex_derivatives_eobi_t7_v11_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security Desc: 40 Byte Ascii String
+  -- Security Desc: 40 Byte Ascii String Nullable
   index, security_desc = eurex_derivatives_eobi_t7_v11_1_dissect.security_desc(buffer, index, packet, parent)
 
   -- Security Sub Type: 4 Byte Signed Fixed Width Integer
