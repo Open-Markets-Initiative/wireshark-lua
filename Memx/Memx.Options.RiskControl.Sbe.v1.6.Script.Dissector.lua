@@ -61,8 +61,6 @@ memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_state_mes
 memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_change_req_message = ProtoField.new("Cp Volume Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.6.cpvolumethresholdchangereqmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_state_message = ProtoField.new("Cp Volume Threshold State Message", "memx.options.riskcontrol.sbe.v1.6.cpvolumethresholdstatemessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_6.fields.data = ProtoField.new("Data", "memx.options.riskcontrol.sbe.v1.6.data", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.efi_d_active_risk_quantity_update_notification_efid = ProtoField.new("Efi D Active Risk Quantity Update Notification Efid", "memx.options.riskcontrol.sbe.v1.6.efidactiveriskquantityupdatenotificationefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_6.fields.efi_d_passive_risk_threshold_notification_efid = ProtoField.new("Efi D Passive Risk Threshold Notification Efid", "memx.options.riskcontrol.sbe.v1.6.efidpassiveriskthresholdnotificationefid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_6.fields.efid = ProtoField.new("Efid", "memx.options.riskcontrol.sbe.v1.6.efid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_6.fields.last_px = ProtoField.new("Last Px", "memx.options.riskcontrol.sbe.v1.6.lastpx", ftypes.DOUBLE)
 memx_options_riskcontrol_sbe_v1_6.fields.last_qty = ProtoField.new("Last Qty", "memx.options.riskcontrol.sbe.v1.6.lastqty", ftypes.UINT32)
@@ -2070,49 +2068,13 @@ memx_options_riskcontrol_sbe_v1_6_dissect.rule_type = function(buffer, offset, p
   return offset + length, value
 end
 
--- Size: Efi D Passive Risk Threshold Notification Efid
-memx_options_riskcontrol_sbe_v1_6_size_of.efi_d_passive_risk_threshold_notification_efid = 4
-
--- Display: Efi D Passive Risk Threshold Notification Efid
-memx_options_riskcontrol_sbe_v1_6_display.efi_d_passive_risk_threshold_notification_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Passive Risk Threshold Notification Efid: No Value"
-  end
-
-  return "Efi D Passive Risk Threshold Notification Efid: "..value
-end
-
--- Dissect: Efi D Passive Risk Threshold Notification Efid
-memx_options_riskcontrol_sbe_v1_6_dissect.efi_d_passive_risk_threshold_notification_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6_size_of.efi_d_passive_risk_threshold_notification_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6_display.efi_d_passive_risk_threshold_notification_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.efi_d_passive_risk_threshold_notification_efid, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Passive Risk Threshold Notification Message
 memx_options_riskcontrol_sbe_v1_6_size_of.passive_risk_threshold_notification_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_riskcontrol_sbe_v1_6_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_6_size_of.efi_d_passive_risk_threshold_notification_efid
+  index = index + memx_options_riskcontrol_sbe_v1_6_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_6_size_of.risk_group_id
 
@@ -2141,8 +2103,8 @@ memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_me
   -- Underlier: 6 Byte Ascii String
   index, underlier = memx_options_riskcontrol_sbe_v1_6_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Passive Risk Threshold Notification Efid: 4 Byte Ascii String Nullable
-  index, efi_d_passive_risk_threshold_notification_efid = memx_options_riskcontrol_sbe_v1_6_dissect.efi_d_passive_risk_threshold_notification_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_6_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_6_dissect.risk_group_id(buffer, index, packet, parent)
@@ -2957,42 +2919,6 @@ memx_options_riskcontrol_sbe_v1_6_dissect.option_security_id = function(buffer, 
   return offset + length, value
 end
 
--- Size: Efi D Active Risk Quantity Update Notification Efid
-memx_options_riskcontrol_sbe_v1_6_size_of.efi_d_active_risk_quantity_update_notification_efid = 4
-
--- Display: Efi D Active Risk Quantity Update Notification Efid
-memx_options_riskcontrol_sbe_v1_6_display.efi_d_active_risk_quantity_update_notification_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Quantity Update Notification Efid: No Value"
-  end
-
-  return "Efi D Active Risk Quantity Update Notification Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Quantity Update Notification Efid
-memx_options_riskcontrol_sbe_v1_6_dissect.efi_d_active_risk_quantity_update_notification_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6_size_of.efi_d_active_risk_quantity_update_notification_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6_display.efi_d_active_risk_quantity_update_notification_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.efi_d_active_risk_quantity_update_notification_efid, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Trd Match Id
 memx_options_riskcontrol_sbe_v1_6_size_of.trd_match_id = 8
 
@@ -3065,7 +2991,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_quantity_update_notificati
 
   index = index + memx_options_riskcontrol_sbe_v1_6_size_of.trd_match_id
 
-  index = index + memx_options_riskcontrol_sbe_v1_6_size_of.efi_d_active_risk_quantity_update_notification_efid
+  index = index + memx_options_riskcontrol_sbe_v1_6_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_6_size_of.underlier
 
@@ -3105,8 +3031,8 @@ memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notificati
   -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_match_id = memx_options_riskcontrol_sbe_v1_6_dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Quantity Update Notification Efid: 4 Byte Ascii String
-  index, efi_d_active_risk_quantity_update_notification_efid = memx_options_riskcontrol_sbe_v1_6_dissect.efi_d_active_risk_quantity_update_notification_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_6_dissect.efid(buffer, index, packet, parent)
 
   -- Underlier: 6 Byte Ascii String
   index, underlier = memx_options_riskcontrol_sbe_v1_6_dissect.underlier(buffer, index, packet, parent)
