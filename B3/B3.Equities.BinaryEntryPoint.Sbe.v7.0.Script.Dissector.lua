@@ -226,15 +226,16 @@ b3_equities_binaryentrypoint_sbe_v7_0.fields.sending_time = ProtoField.new("Send
 b3_equities_binaryentrypoint_sbe_v7_0.fields.sequence_message = ProtoField.new("Sequence Message", "b3.equities.binaryentrypoint.sbe.v7.0.sequencemessage", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.session_id = ProtoField.new("Session Id", "b3.equities.binaryentrypoint.sbe.v7.0.sessionid", ftypes.UINT32)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.session_ver_id = ProtoField.new("Session Ver Id", "b3.equities.binaryentrypoint.sbe.v7.0.sessionverid", ftypes.UINT64)
-b3_equities_binaryentrypoint_sbe_v7_0.fields.settl_type = ProtoField.new("Settl Type", "b3.equities.binaryentrypoint.sbe.v7.0.settltype", ftypes.STRING)
+b3_equities_binaryentrypoint_sbe_v7_0.fields.settltype = ProtoField.new("SettlType", "b3.equities.binaryentrypoint.sbe.v7.0.settltype", ftypes.STRING)
+b3_equities_binaryentrypoint_sbe_v7_0.fields.settltype_optional = ProtoField.new("SettlType Optional", "b3.equities.binaryentrypoint.sbe.v7.0.settltypeoptional", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.short_qty = ProtoField.new("Short Qty", "b3.equities.binaryentrypoint.sbe.v7.0.shortqty", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.side = ProtoField.new("Side", "b3.equities.binaryentrypoint.sbe.v7.0.side", ftypes.STRING)
+b3_equities_binaryentrypoint_sbe_v7_0.fields.side_optional = ProtoField.new("Side Optional", "b3.equities.binaryentrypoint.sbe.v7.0.sideoptional", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_modify_order_message = ProtoField.new("Simple Modify Order Message", "b3.equities.binaryentrypoint.sbe.v7.0.simplemodifyordermessage", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_new_order_message = ProtoField.new("Simple New Order Message", "b3.equities.binaryentrypoint.sbe.v7.0.simplenewordermessage", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "b3.equities.binaryentrypoint.sbe.v7.0.simpleopenframe", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "b3.equities.binaryentrypoint.sbe.v7.0.simpleopenframingheader", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_ordtype = ProtoField.new("Simple OrdType", "b3.equities.binaryentrypoint.sbe.v7.0.simpleordtype", ftypes.STRING)
-b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_time_in_force = ProtoField.new("Simple Time In Force", "b3.equities.binaryentrypoint.sbe.v7.0.simpletimeinforce", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.single_cancel_restatement_reason = ProtoField.new("Single Cancel Restatement Reason", "b3.equities.binaryentrypoint.sbe.v7.0.singlecancelrestatementreason", ftypes.UINT8)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.stop_px = ProtoField.new("Stop Px", "b3.equities.binaryentrypoint.sbe.v7.0.stoppx", ftypes.DOUBLE)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "b3.equities.binaryentrypoint.sbe.v7.0.symbol", ftypes.STRING)
@@ -244,6 +245,8 @@ b3_equities_binaryentrypoint_sbe_v7_0.fields.termination_code = ProtoField.new("
 b3_equities_binaryentrypoint_sbe_v7_0.fields.text = ProtoField.new("Text", "b3.equities.binaryentrypoint.sbe.v7.0.text", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.threshold_amount = ProtoField.new("Threshold Amount", "b3.equities.binaryentrypoint.sbe.v7.0.thresholdamount", ftypes.DOUBLE)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.time_in_force = ProtoField.new("Time In Force", "b3.equities.binaryentrypoint.sbe.v7.0.timeinforce", ftypes.STRING)
+b3_equities_binaryentrypoint_sbe_v7_0.fields.time_in_force_optional = ProtoField.new("Time In Force Optional", "b3.equities.binaryentrypoint.sbe.v7.0.timeinforceoptional", ftypes.STRING)
+b3_equities_binaryentrypoint_sbe_v7_0.fields.time_in_force_simple = ProtoField.new("Time In Force Simple", "b3.equities.binaryentrypoint.sbe.v7.0.timeinforcesimple", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.timestamp = ProtoField.new("Timestamp", "b3.equities.binaryentrypoint.sbe.v7.0.timestamp", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.equities.binaryentrypoint.sbe.v7.0.totnorelatedsym", ftypes.UINT8)
 b3_equities_binaryentrypoint_sbe_v7_0.fields.trade_date = ProtoField.new("Trade Date", "b3.equities.binaryentrypoint.sbe.v7.0.tradedate", ftypes.UINT16)
@@ -1189,27 +1192,27 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.asset = function(buffer, offset, p
   return offset + length, value
 end
 
--- Size: Side
-b3_equities_binaryentrypoint_sbe_v7_0_size_of.side = 1
+-- Size: Side Optional
+b3_equities_binaryentrypoint_sbe_v7_0_size_of.side_optional = 1
 
--- Display: Side
-b3_equities_binaryentrypoint_sbe_v7_0_display.side = function(value)
+-- Display: Side Optional
+b3_equities_binaryentrypoint_sbe_v7_0_display.side_optional = function(value)
   if value == "1" then
-    return "Side: Buy (1)"
+    return "Side Optional: Buy (1)"
   end
   if value == "2" then
-    return "Side: Sell (2)"
+    return "Side Optional: Sell (2)"
   end
   if value == 0 then
-    return "Side: No Value"
+    return "Side Optional: No Value"
   end
 
-  return "Side: Unknown("..value..")"
+  return "Side Optional: Unknown("..value..")"
 end
 
--- Dissect: Side
-b3_equities_binaryentrypoint_sbe_v7_0_dissect.side = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.side
+-- Dissect: Side Optional
+b3_equities_binaryentrypoint_sbe_v7_0_dissect.side_optional = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.side_optional
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1222,9 +1225,9 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.side = function(buffer, offset, pa
     value = range:string()
   end
 
-  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.side(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.side_optional(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.side, range, value, display)
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.side_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1665,7 +1668,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.order_mass_action_report_message =
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.ord_tag_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.side
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.side_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.asset
 
@@ -1723,8 +1726,8 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_mass_action_report_message_f
   -- Ord Tag Id: 1 Byte Unsigned Fixed Width Integer
   index, ord_tag_id = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ord_tag_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
-  index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
+  -- Side Optional: 1 Byte Ascii String Enum with 3 values
+  index, side_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side_optional(buffer, index, packet, parent)
 
   -- Asset: 6 Byte Ascii String
   index, asset = b3_equities_binaryentrypoint_sbe_v7_0_dissect.asset(buffer, index, packet, parent)
@@ -1856,7 +1859,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.order_mass_action_request_message 
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.ord_tag_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.side
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.side_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.asset
 
@@ -1898,8 +1901,8 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_mass_action_request_message_
   -- Ord Tag Id: 1 Byte Unsigned Fixed Width Integer
   index, ord_tag_id = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ord_tag_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
-  index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
+  -- Side Optional: 1 Byte Ascii String Enum with 3 values
+  index, side_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side_optional(buffer, index, packet, parent)
 
   -- Asset: 6 Byte Ascii String
   index, asset = b3_equities_binaryentrypoint_sbe_v7_0_dissect.asset(buffer, index, packet, parent)
@@ -2000,6 +2003,43 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.sender_location = function(buffer,
   local display = b3_equities_binaryentrypoint_sbe_v7_0_display.sender_location(value, buffer, offset, packet, parent)
 
   parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.sender_location, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Side
+b3_equities_binaryentrypoint_sbe_v7_0_size_of.side = 1
+
+-- Display: Side
+b3_equities_binaryentrypoint_sbe_v7_0_display.side = function(value)
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+b3_equities_binaryentrypoint_sbe_v7_0_dissect.side = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.side
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.side(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -2353,7 +2393,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.allocation_report_message_fields =
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = b3_equities_binaryentrypoint_sbe_v7_0_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Sender Location: 10 Byte Ascii String
@@ -3700,7 +3740,7 @@ end
 b3_equities_binaryentrypoint_sbe_v7_0_dissect.no_sides_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Account: 4 Byte Unsigned Fixed Width Integer
@@ -3925,30 +3965,30 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.price_optional = function(buffer, 
   return offset + length, value
 end
 
--- Size: Settl Type
-b3_equities_binaryentrypoint_sbe_v7_0_size_of.settl_type = 1
+-- Size: SettlType Optional
+b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype_optional = 1
 
--- Display: Settl Type
-b3_equities_binaryentrypoint_sbe_v7_0_display.settl_type = function(value)
+-- Display: SettlType Optional
+b3_equities_binaryentrypoint_sbe_v7_0_display.settltype_optional = function(value)
   if value == "0" then
-    return "Settl Type: Buyersdiscretion (0)"
+    return "SettlType Optional: Buyersdiscretion (0)"
   end
   if value == "8" then
-    return "Settl Type: Sellersdiscretion (8)"
+    return "SettlType Optional: Sellersdiscretion (8)"
   end
   if value == "X" then
-    return "Settl Type: Mutual (X)"
+    return "SettlType Optional: Mutual (X)"
   end
   if value == 0 then
-    return "Settl Type: No Value"
+    return "SettlType Optional: No Value"
   end
 
-  return "Settl Type: Unknown("..value..")"
+  return "SettlType Optional: Unknown("..value..")"
 end
 
--- Dissect: Settl Type
-b3_equities_binaryentrypoint_sbe_v7_0_dissect.settl_type = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.settl_type
+-- Dissect: SettlType Optional
+b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype_optional = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype_optional
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -3961,9 +4001,9 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.settl_type = function(buffer, offs
     value = range:string()
   end
 
-  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.settl_type(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.settltype_optional(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.settl_type, range, value, display)
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.settltype_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4132,7 +4172,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.quote_request_reject_message = fun
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.entering_trader
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settl_type
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.price_optional
 
@@ -4195,8 +4235,8 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.quote_request_reject_message_field
   -- Entering Trader: 5 Byte Ascii String
   index, entering_trader = b3_equities_binaryentrypoint_sbe_v7_0_dissect.entering_trader(buffer, index, packet, parent)
 
-  -- Settl Type: 1 Byte Ascii String Enum with 4 values
-  index, settl_type = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settl_type(buffer, index, packet, parent)
+  -- SettlType Optional: 1 Byte Ascii String Enum with 4 values
+  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype_optional(buffer, index, packet, parent)
 
   -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, price_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.price_optional(buffer, index, packet, parent)
@@ -4420,6 +4460,46 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.fixed_rate = function(buffer, offs
   return offset + length, value
 end
 
+-- Size: SettlType
+b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype = 1
+
+-- Display: SettlType
+b3_equities_binaryentrypoint_sbe_v7_0_display.settltype = function(value)
+  if value == "0" then
+    return "SettlType: Buyersdiscretion (0)"
+  end
+  if value == "8" then
+    return "SettlType: Sellersdiscretion (8)"
+  end
+  if value == "X" then
+    return "SettlType: Mutual (X)"
+  end
+
+  return "SettlType: Unknown("..value..")"
+end
+
+-- Dissect: SettlType
+b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.settltype(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.settltype, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Order Qty
 b3_equities_binaryentrypoint_sbe_v7_0_size_of.order_qty = 8
 
@@ -4480,7 +4560,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.quote_message = function(buffer, o
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.side
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settl_type
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.account
 
@@ -4535,11 +4615,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.quote_message_fields = function(bu
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
-  -- Settl Type: 1 Byte Ascii String Enum with 4 values
-  index, settl_type = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settl_type(buffer, index, packet, parent)
+  -- SettlType: 1 Byte Ascii String Enum with 3 values
+  index, settltype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype(buffer, index, packet, parent)
 
   -- Account: 4 Byte Unsigned Fixed Width Integer
   index, account = b3_equities_binaryentrypoint_sbe_v7_0_dissect.account(buffer, index, packet, parent)
@@ -4721,9 +4801,9 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.quote_status_report_message = func
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.account
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.side
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.side_optional
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settl_type
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.price_optional
 
@@ -4794,11 +4874,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.quote_status_report_message_fields
   -- Account: 4 Byte Unsigned Fixed Width Integer
   index, account = b3_equities_binaryentrypoint_sbe_v7_0_dissect.account(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
-  index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
+  -- Side Optional: 1 Byte Ascii String Enum with 3 values
+  index, side_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Settl Type: 1 Byte Ascii String Enum with 4 values
-  index, settl_type = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settl_type(buffer, index, packet, parent)
+  -- SettlType Optional: 1 Byte Ascii String Enum with 4 values
+  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype_optional(buffer, index, packet, parent)
 
   -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, price_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.price_optional(buffer, index, packet, parent)
@@ -4898,7 +4978,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.quote_request_message = function(b
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.price
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settl_type
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.execute_underlying_trade
 
@@ -4958,8 +5038,8 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.quote_request_message_fields = fun
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = b3_equities_binaryentrypoint_sbe_v7_0_dissect.price(buffer, index, packet, parent)
 
-  -- Settl Type: 1 Byte Ascii String Enum with 4 values
-  index, settl_type = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settl_type(buffer, index, packet, parent)
+  -- SettlType: 1 Byte Ascii String Enum with 3 values
+  index, settltype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype(buffer, index, packet, parent)
 
   -- Execute Underlying Trade: 1 Byte Ascii String Enum with 3 values
   index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v7_0_dissect.execute_underlying_trade(buffer, index, packet, parent)
@@ -6146,7 +6226,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.execution_report_forward_message =
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.aggressor_indicator
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settl_type
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.trade_date
 
@@ -6179,7 +6259,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_forward_message_f
   -- Outbound Business Header: Struct of 5 fields
   index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v7_0_dissect.outbound_business_header(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -6230,8 +6310,8 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_forward_message_f
   -- Aggressor Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, aggressor_indicator = b3_equities_binaryentrypoint_sbe_v7_0_dissect.aggressor_indicator(buffer, index, packet, parent)
 
-  -- Settl Type: 1 Byte Ascii String Enum with 4 values
-  index, settl_type = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settl_type(buffer, index, packet, parent)
+  -- SettlType Optional: 1 Byte Ascii String Enum with 4 values
+  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype_optional(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = b3_equities_binaryentrypoint_sbe_v7_0_dissect.trade_date(buffer, index, packet, parent)
@@ -6447,9 +6527,6 @@ b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force = function(value)
   end
   if value == "A" then
     return "Time In Force: Goodforauction (A)"
-  end
-  if value == 0 then
-    return "Time In Force: No Value"
   end
 
   return "Time In Force: Unknown("..value..")"
@@ -6710,7 +6787,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_reject_message_fi
   -- Outbound Business Header: Struct of 5 fields
   index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v7_0_dissect.outbound_business_header(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Cxl Rej Response To: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -6749,7 +6826,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_reject_message_fi
   -- OrdType: 1 Byte Ascii String Enum with 7 values
   index, ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ordtype(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 8 values
+  -- Time In Force: 1 Byte Ascii String Enum with 7 values
   index, time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer
@@ -7035,7 +7112,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_trade_message_fie
   -- Outbound Business Header: Struct of 5 fields
   index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v7_0_dissect.outbound_business_header(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -7382,7 +7459,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_cancel_message_fi
   -- Outbound Business Header: Struct of 5 fields
   index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v7_0_dissect.outbound_business_header(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -7439,7 +7516,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_cancel_message_fi
   -- OrdType: 1 Byte Ascii String Enum with 7 values
   index, ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ordtype(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 8 values
+  -- Time In Force: 1 Byte Ascii String Enum with 7 values
   index, time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer
@@ -7595,7 +7672,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_modify_message_fi
   -- Outbound Business Header: Struct of 5 fields
   index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v7_0_dissect.outbound_business_header(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -7652,7 +7729,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_modify_message_fi
   -- OrdType: 1 Byte Ascii String Enum with 7 values
   index, ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ordtype(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 8 values
+  -- Time In Force: 1 Byte Ascii String Enum with 7 values
   index, time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer
@@ -7768,7 +7845,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_new_message_field
   -- Outbound Business Header: Struct of 5 fields
   index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v7_0_dissect.outbound_business_header(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -7816,7 +7893,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execution_report_new_message_field
   -- OrdType: 1 Byte Ascii String Enum with 7 values
   index, ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ordtype(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 8 values
+  -- Time In Force: 1 Byte Ascii String Enum with 7 values
   index, time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer
@@ -8102,7 +8179,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_cancel_request_message_field
   -- OrigClOrdId: 8 Byte Unsigned Fixed Width Integer
   index, origclordid = b3_equities_binaryentrypoint_sbe_v7_0_dissect.origclordid(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Single Cancel Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -8325,6 +8402,61 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.routing_instruction = function(buf
   return offset + length, value
 end
 
+-- Size: Time In Force Optional
+b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_optional = 1
+
+-- Display: Time In Force Optional
+b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force_optional = function(value)
+  if value == "0" then
+    return "Time In Force Optional: Day (0)"
+  end
+  if value == "1" then
+    return "Time In Force Optional: Goodtillcancel (1)"
+  end
+  if value == "3" then
+    return "Time In Force Optional: Immediateorcancel (3)"
+  end
+  if value == "4" then
+    return "Time In Force Optional: Fillorkill (4)"
+  end
+  if value == "6" then
+    return "Time In Force Optional: Goodtilldate (6)"
+  end
+  if value == "7" then
+    return "Time In Force Optional: Attheclose (7)"
+  end
+  if value == "A" then
+    return "Time In Force Optional: Goodforauction (A)"
+  end
+  if value == 0 then
+    return "Time In Force Optional: No Value"
+  end
+
+  return "Time In Force Optional: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force Optional
+b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force_optional = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_optional
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force_optional(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.time_in_force_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Self Trade Prevention Instruction
 b3_equities_binaryentrypoint_sbe_v7_0_size_of.self_trade_prevention_instruction = 1
 
@@ -8413,7 +8545,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.order_cancel_replace_request_messa
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.ordtype
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.account_type
 
@@ -8487,14 +8619,14 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_cancel_replace_request_messa
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_0_dissect.security_exchange(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- OrdType: 1 Byte Ascii String Enum with 7 values
   index, ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ordtype(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 8 values
-  index, time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force(buffer, index, packet, parent)
+  -- Time In Force Optional: 1 Byte Ascii String Enum with 8 values
+  index, time_in_force_optional = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force_optional(buffer, index, packet, parent)
 
   -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, account_type = b3_equities_binaryentrypoint_sbe_v7_0_dissect.account_type(buffer, index, packet, parent)
@@ -8653,13 +8785,13 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.new_order_single_message_fields = 
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_0_dissect.security_exchange(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- OrdType: 1 Byte Ascii String Enum with 7 values
   index, ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.ordtype(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 8 values
+  -- Time In Force: 1 Byte Ascii String Enum with 7 values
   index, time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
@@ -8714,27 +8846,27 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.new_order_single_message = functio
   return b3_equities_binaryentrypoint_sbe_v7_0_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Simple Time In Force
-b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_time_in_force = 1
+-- Size: Time In Force Simple
+b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_simple = 1
 
--- Display: Simple Time In Force
-b3_equities_binaryentrypoint_sbe_v7_0_display.simple_time_in_force = function(value)
+-- Display: Time In Force Simple
+b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force_simple = function(value)
   if value == "0" then
-    return "Simple Time In Force: Day (0)"
+    return "Time In Force Simple: Day (0)"
   end
   if value == "3" then
-    return "Simple Time In Force: Immediateorcancel (3)"
+    return "Time In Force Simple: Immediateorcancel (3)"
   end
   if value == "4" then
-    return "Simple Time In Force: Fillorkill (4)"
+    return "Time In Force Simple: Fillorkill (4)"
   end
 
-  return "Simple Time In Force: Unknown("..value..")"
+  return "Time In Force Simple: Unknown("..value..")"
 end
 
--- Dissect: Simple Time In Force
-b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_time_in_force = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_time_in_force
+-- Dissect: Time In Force Simple
+b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force_simple = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_simple
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -8747,9 +8879,9 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_time_in_force = function(bu
     value = range:string()
   end
 
-  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.simple_time_in_force(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force_simple(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.simple_time_in_force, range, value, display)
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_0.fields.time_in_force_simple, range, value, display)
 
   return offset + length, value
 end
@@ -8819,7 +8951,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_modify_order_message = func
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_ordtype
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_time_in_force
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_simple
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.order_qty
 
@@ -8875,14 +9007,14 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_modify_order_message_fields
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_0_dissect.security_exchange(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Simple OrdType: 1 Byte Ascii String Enum with 2 values
   index, simple_ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_ordtype(buffer, index, packet, parent)
 
-  -- Simple Time In Force: 1 Byte Ascii String Enum with 3 values
-  index, simple_time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_time_in_force(buffer, index, packet, parent)
+  -- Time In Force Simple: 1 Byte Ascii String Enum with 3 values
+  index, time_in_force_simple = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force_simple(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_qty(buffer, index, packet, parent)
@@ -8946,7 +9078,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_new_order_message = functio
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_ordtype
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_time_in_force
+  index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_simple
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_0_size_of.order_qty
 
@@ -8998,14 +9130,14 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_new_order_message_fields = 
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_0_dissect.security_exchange(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_0_dissect.side(buffer, index, packet, parent)
 
   -- Simple OrdType: 1 Byte Ascii String Enum with 2 values
   index, simple_ordtype = b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_ordtype(buffer, index, packet, parent)
 
-  -- Simple Time In Force: 1 Byte Ascii String Enum with 3 values
-  index, simple_time_in_force = b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_time_in_force(buffer, index, packet, parent)
+  -- Time In Force Simple: 1 Byte Ascii String Enum with 3 values
+  index, time_in_force_simple = b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force_simple(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_qty(buffer, index, packet, parent)
