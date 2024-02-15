@@ -85,6 +85,7 @@ coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_canceled_message = ProtoFie
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_entered_message = ProtoField.new("Order Entered Message", "coinbase.derivatives.ordersapi.sbe.v1.3.orderenteredmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_filled_message = ProtoField.new("Order Filled Message", "coinbase.derivatives.ordersapi.sbe.v1.3.orderfilledmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "coinbase.derivatives.ordersapi.sbe.v1.3.orderid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_id_optional = ProtoField.new("Order Id Optional", "coinbase.derivatives.ordersapi.sbe.v1.3.orderidoptional", ftypes.INT64)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_reject_details = ProtoField.new("Order Reject Details", "coinbase.derivatives.ordersapi.sbe.v1.3.orderrejectdetails", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_reject_message = ProtoField.new("Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.3.orderrejectmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.3.orderrejectreason", ftypes.UINT8)
@@ -1916,6 +1917,31 @@ coinbase_derivatives_ordersapi_sbe_v1_3_dissect.cancel_order_reject_reason = fun
   return offset + length, value
 end
 
+-- Size: Order Id Optional
+coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_id_optional = 8
+
+-- Display: Order Id Optional
+coinbase_derivatives_ordersapi_sbe_v1_3_display.order_id_optional = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Order Id Optional: No Value"
+  end
+
+  return "Order Id Optional: "..value
+end
+
+-- Dissect: Order Id Optional
+coinbase_derivatives_ordersapi_sbe_v1_3_dissect.order_id_optional = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_id_optional
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_ordersapi_sbe_v1_3_display.order_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_3.fields.order_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_3_size_of.cancel_order_reject_message = function(buffer, offset)
   local index = 0
@@ -1926,7 +1952,7 @@ coinbase_derivatives_ordersapi_sbe_v1_3_size_of.cancel_order_reject_message = fu
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.correlation_id
 
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_id
+  index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_id_optional
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.cancel_order_reject_reason
 
@@ -1953,8 +1979,8 @@ coinbase_derivatives_ordersapi_sbe_v1_3_dissect.cancel_order_reject_message_fiel
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
-  index, order_id = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
+  -- Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, order_id_optional = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.order_id_optional(buffer, index, packet, parent)
 
   -- Cancel Order Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, cancel_order_reject_reason = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.cancel_order_reject_reason(buffer, index, packet, parent)
@@ -2333,7 +2359,7 @@ coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_reject_message = function(
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.correlation_id
 
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_id
+  index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_id_optional
 
   index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.order_reject_reason
 
@@ -2360,8 +2386,8 @@ coinbase_derivatives_ordersapi_sbe_v1_3_dissect.order_reject_message_fields = fu
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
-  index, order_id = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
+  -- Order Id Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, order_id_optional = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.order_id_optional(buffer, index, packet, parent)
 
   -- Order Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, order_reject_reason = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.order_reject_reason(buffer, index, packet, parent)
