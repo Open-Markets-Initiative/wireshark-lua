@@ -118,7 +118,8 @@ b3_equities_binaryumdf_sbe_v1_7.fields.message_length = ProtoField.new("Message 
 b3_equities_binaryumdf_sbe_v1_7.fields.min_cross_qty = ProtoField.new("Min Cross Qty", "b3.equities.binaryumdf.sbe.v1.7.mincrossqty", ftypes.INT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.min_lot_size = ProtoField.new("Min Lot Size", "b3.equities.binaryumdf.sbe.v1.7.minlotsize", ftypes.INT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.min_order_qty = ProtoField.new("Min Order Qty", "b3.equities.binaryumdf.sbe.v1.7.minorderqty", ftypes.INT64)
-b3_equities_binaryumdf_sbe_v1_7.fields.min_price_increment = ProtoField.new("Min Price Increment", "b3.equities.binaryumdf.sbe.v1.7.minpriceincrement", ftypes.DOUBLE)
+b3_equities_binaryumdf_sbe_v1_7.fields.min_price_increment_legacy = ProtoField.new("Min Price Increment Legacy", "b3.equities.binaryumdf.sbe.v1.7.minpriceincrementlegacy", ftypes.DOUBLE)
+b3_equities_binaryumdf_sbe_v1_7.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "b3.equities.binaryumdf.sbe.v1.7.minpriceincrementoptional", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_7.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "b3.equities.binaryumdf.sbe.v1.7.mintradevol", ftypes.INT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.month = ProtoField.new("Month", "b3.equities.binaryumdf.sbe.v1.7.month", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.multi_leg_model = ProtoField.new("Multi Leg Model", "b3.equities.binaryumdf.sbe.v1.7.multilegmodel", ftypes.UINT8)
@@ -221,9 +222,8 @@ b3_equities_binaryumdf_sbe_v1_7.fields.trade_id = ProtoField.new("Trade Id", "b3
 b3_equities_binaryumdf_sbe_v1_7.fields.trade_on_behalf = ProtoField.new("Trade On Behalf", "b3.equities.binaryumdf.sbe.v1.7.tradeonbehalf", ftypes.UINT16, nil, base.DEC, "0x1FC0")
 b3_equities_binaryumdf_sbe_v1_7.fields.trade_volume = ProtoField.new("Trade Volume", "b3.equities.binaryumdf.sbe.v1.7.tradevolume", ftypes.INT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.traded_hidden_qty = ProtoField.new("Traded Hidden Qty", "b3.equities.binaryumdf.sbe.v1.7.tradedhiddenqty", ftypes.INT64)
-b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "b3.equities.binaryumdf.sbe.v1.7.tradingreferenceprice", ftypes.DOUBLE)
+b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price_legacy = ProtoField.new("Trading Reference Price Legacy", "b3.equities.binaryumdf.sbe.v1.7.tradingreferencepricelegacy", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price_optional = ProtoField.new("Trading Reference Price Optional", "b3.equities.binaryumdf.sbe.v1.7.tradingreferencepriceoptional", ftypes.DOUBLE)
-b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price_price_optional = ProtoField.new("Trading Reference Price Price Optional", "b3.equities.binaryumdf.sbe.v1.7.tradingreferencepricepriceoptional", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_7.fields.trading_session_id = ProtoField.new("Trading Session Id", "b3.equities.binaryumdf.sbe.v1.7.tradingsessionid", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "b3.equities.binaryumdf.sbe.v1.7.tradingsessionsubid", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.transact_time = ProtoField.new("Transact Time", "b3.equities.binaryumdf.sbe.v1.7.transacttime", ftypes.UINT64)
@@ -3295,21 +3295,21 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.high_price_24_message = function(buffer,
   return b3_equities_binaryumdf_sbe_v1_7_dissect.high_price_24_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Trading Reference Price
-b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price = 8
+-- Size: Trading Reference Price Optional
+b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_optional = 8
 
--- Display: Trading Reference Price
-b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price = function(raw, value)
+-- Display: Trading Reference Price Optional
+b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_optional = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Trading Reference Price: No Value"
+    return "Trading Reference Price Optional: No Value"
   end
 
-  return "Trading Reference Price: "..value
+  return "Trading Reference Price Optional: "..value
 end
 
--- Translate: Trading Reference Price
-translate.trading_reference_price = function(raw)
+-- Translate: Trading Reference Price Optional
+translate.trading_reference_price_optional = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -3318,15 +3318,15 @@ translate.trading_reference_price = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Trading Reference Price
-b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price
+-- Dissect: Trading Reference Price Optional
+b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_optional = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_optional
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_reference_price(raw)
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price(raw, value, buffer, offset, packet, parent)
+  local value = translate.trading_reference_price_optional(raw)
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3525,7 +3525,7 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.price_band_22_message = function(buffer,
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.high_limit_price
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_optional
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_timestamp
 
@@ -3567,8 +3567,8 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.price_band_22_message_fields = function(
   -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = b3_equities_binaryumdf_sbe_v1_7_dissect.high_limit_price(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price = b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price(buffer, index, packet, parent)
+  -- Trading Reference Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_optional = b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_optional(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_timestamp(buffer, index, packet, parent)
@@ -3699,21 +3699,21 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.quantity_band_21_message = function(buff
   return b3_equities_binaryumdf_sbe_v1_7_dissect.quantity_band_21_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Trading Reference Price Price Optional
-b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_price_optional = 8
+-- Size: Trading Reference Price Legacy
+b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_legacy = 8
 
--- Display: Trading Reference Price Price Optional
-b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_price_optional = function(raw, value)
+-- Display: Trading Reference Price Legacy
+b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_legacy = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Trading Reference Price Price Optional: No Value"
+    return "Trading Reference Price Legacy: No Value"
   end
 
-  return "Trading Reference Price Price Optional: "..value
+  return "Trading Reference Price Legacy: "..value
 end
 
--- Translate: Trading Reference Price Price Optional
-translate.trading_reference_price_price_optional = function(raw)
+-- Translate: Trading Reference Price Legacy
+translate.trading_reference_price_legacy = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -3722,15 +3722,15 @@ translate.trading_reference_price_price_optional = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Trading Reference Price Price Optional
-b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_price_optional = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_price_optional
+-- Dissect: Trading Reference Price Legacy
+b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_legacy = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_legacy
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_reference_price_price_optional(raw)
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_price_optional(raw, value, buffer, offset, packet, parent)
+  local value = translate.trading_reference_price_legacy(raw)
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_legacy(raw, value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price_price_optional, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price_legacy, range, value, display)
 
   return offset + length, value
 end
@@ -3755,7 +3755,7 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.price_band_20_message = function(buffer,
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.high_limit_price
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_price_optional
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_legacy
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_timestamp
 
@@ -3797,8 +3797,8 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.price_band_20_message_fields = function(
   -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = b3_equities_binaryumdf_sbe_v1_7_dissect.high_limit_price(buffer, index, packet, parent)
 
-  -- Trading Reference Price Price Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price_price_optional = b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_price_optional(buffer, index, packet, parent)
+  -- Trading Reference Price Legacy: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_legacy = b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_legacy(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_timestamp(buffer, index, packet, parent)
@@ -6906,21 +6906,21 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.strike_price = function(buffer, offset, 
   return offset + length, value
 end
 
--- Size: Min Price Increment
-b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment = 8
+-- Size: Min Price Increment Optional
+b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment_optional = 8
 
--- Display: Min Price Increment
-b3_equities_binaryumdf_sbe_v1_7_display.min_price_increment = function(raw, value)
+-- Display: Min Price Increment Optional
+b3_equities_binaryumdf_sbe_v1_7_display.min_price_increment_optional = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Min Price Increment: No Value"
+    return "Min Price Increment Optional: No Value"
   end
 
-  return "Min Price Increment: "..value
+  return "Min Price Increment Optional: "..value
 end
 
--- Translate: Min Price Increment
-translate.min_price_increment = function(raw)
+-- Translate: Min Price Increment Optional
+translate.min_price_increment_optional = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -6929,15 +6929,15 @@ translate.min_price_increment = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Min Price Increment
-b3_equities_binaryumdf_sbe_v1_7_dissect.min_price_increment = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment
+-- Dissect: Min Price Increment Optional
+b3_equities_binaryumdf_sbe_v1_7_dissect.min_price_increment_optional = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment_optional
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.min_price_increment(raw)
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.min_price_increment(raw, value, buffer, offset, packet, parent)
+  local value = translate.min_price_increment_optional(raw)
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.min_price_increment_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.min_price_increment, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.min_price_increment_optional, range, value, display)
 
   return offset + length, value
 end
@@ -7225,7 +7225,7 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.security_definition_12_message = functio
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.tot_no_related_sym
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment_optional
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.strike_price
 
@@ -7356,8 +7356,8 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_definition_12_message_fields = 
   -- Tot No Related Sym: 4 Byte Unsigned Fixed Width Integer
   index, tot_no_related_sym = b3_equities_binaryumdf_sbe_v1_7_dissect.tot_no_related_sym(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment = b3_equities_binaryumdf_sbe_v1_7_dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_optional = b3_equities_binaryumdf_sbe_v1_7_dissect.min_price_increment_optional(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
   index, strike_price = b3_equities_binaryumdf_sbe_v1_7_dissect.strike_price(buffer, index, packet, parent)
@@ -7510,21 +7510,21 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_definition_12_message = functio
   return b3_equities_binaryumdf_sbe_v1_7_dissect.security_definition_12_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Trading Reference Price Optional
-b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_optional = 8
+-- Size: Min Price Increment Legacy
+b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment_legacy = 8
 
--- Display: Trading Reference Price Optional
-b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_optional = function(raw, value)
+-- Display: Min Price Increment Legacy
+b3_equities_binaryumdf_sbe_v1_7_display.min_price_increment_legacy = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Trading Reference Price Optional: No Value"
+    return "Min Price Increment Legacy: No Value"
   end
 
-  return "Trading Reference Price Optional: "..value
+  return "Min Price Increment Legacy: "..value
 end
 
--- Translate: Trading Reference Price Optional
-translate.trading_reference_price_optional = function(raw)
+-- Translate: Min Price Increment Legacy
+translate.min_price_increment_legacy = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -7533,15 +7533,15 @@ translate.trading_reference_price_optional = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Trading Reference Price Optional
-b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_optional = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_optional
+-- Dissect: Min Price Increment Legacy
+b3_equities_binaryumdf_sbe_v1_7_dissect.min_price_increment_legacy = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment_legacy
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.trading_reference_price_optional(raw)
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.trading_reference_price_optional(raw, value, buffer, offset, packet, parent)
+  local value = translate.min_price_increment_legacy(raw)
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.min_price_increment_legacy(raw, value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.trading_reference_price_optional, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.min_price_increment_legacy, range, value, display)
 
   return offset + length, value
 end
@@ -7568,7 +7568,7 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.security_definition_4_message = function
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.tot_no_related_sym
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_reference_price_optional
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.min_price_increment_legacy
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.strike_price
 
@@ -7699,8 +7699,8 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_definition_4_message_fields = f
   -- Tot No Related Sym: 4 Byte Unsigned Fixed Width Integer
   index, tot_no_related_sym = b3_equities_binaryumdf_sbe_v1_7_dissect.tot_no_related_sym(buffer, index, packet, parent)
 
-  -- Trading Reference Price Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price_optional = b3_equities_binaryumdf_sbe_v1_7_dissect.trading_reference_price_optional(buffer, index, packet, parent)
+  -- Min Price Increment Legacy: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_legacy = b3_equities_binaryumdf_sbe_v1_7_dissect.min_price_increment_legacy(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
   index, strike_price = b3_equities_binaryumdf_sbe_v1_7_dissect.strike_price(buffer, index, packet, parent)
