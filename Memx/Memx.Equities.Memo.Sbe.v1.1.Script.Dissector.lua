@@ -57,7 +57,9 @@ memx_equities_memo_sbe_v1_1.fields.intermarket_sweep = ProtoField.new("Intermark
 memx_equities_memo_sbe_v1_1.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "memx.equities.memo.sbe.v1.1.lastliquidityind", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.last_mkt = ProtoField.new("Last Mkt", "memx.equities.memo.sbe.v1.1.lastmkt", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.last_px = ProtoField.new("Last Px", "memx.equities.memo.sbe.v1.1.lastpx", ftypes.DOUBLE)
+memx_equities_memo_sbe_v1_1.fields.last_px_optional = ProtoField.new("Last Px Optional", "memx.equities.memo.sbe.v1.1.lastpxoptional", ftypes.DOUBLE)
 memx_equities_memo_sbe_v1_1.fields.last_qty = ProtoField.new("Last Qty", "memx.equities.memo.sbe.v1.1.lastqty", ftypes.UINT32)
+memx_equities_memo_sbe_v1_1.fields.last_qty_optional = ProtoField.new("Last Qty Optional", "memx.equities.memo.sbe.v1.1.lastqtyoptional", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.last_shares = ProtoField.new("Last Shares", "memx.equities.memo.sbe.v1.1.lastshares", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.leaves_qty = ProtoField.new("Leaves Qty", "memx.equities.memo.sbe.v1.1.leavesqty", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.locate_reqd = ProtoField.new("Locate Reqd", "memx.equities.memo.sbe.v1.1.locatereqd", ftypes.STRING)
@@ -84,6 +86,7 @@ memx_equities_memo_sbe_v1_1.fields.order_cancel_replace_request_message = ProtoF
 memx_equities_memo_sbe_v1_1.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "memx.equities.memo.sbe.v1.1.ordercancelrequestmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.order_capacity = ProtoField.new("Order Capacity", "memx.equities.memo.sbe.v1.1.ordercapacity", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.order_id = ProtoField.new("Order Id", "memx.equities.memo.sbe.v1.1.orderid", ftypes.UINT64)
+memx_equities_memo_sbe_v1_1.fields.order_id_optional = ProtoField.new("Order Id Optional", "memx.equities.memo.sbe.v1.1.orderidoptional", ftypes.UINT64)
 memx_equities_memo_sbe_v1_1.fields.order_qty = ProtoField.new("Order Qty", "memx.equities.memo.sbe.v1.1.orderqty", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "memx.equities.memo.sbe.v1.1.orderrejectreason", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.equities.memo.sbe.v1.1.origclordid", ftypes.STRING)
@@ -1074,28 +1077,38 @@ memx_equities_memo_sbe_v1_1_dissect.leaves_qty = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Size: Last Px
-memx_equities_memo_sbe_v1_1_size_of.last_px = 8
+-- Size: Last Px Optional
+memx_equities_memo_sbe_v1_1_size_of.last_px_optional = 8
 
--- Display: Last Px
-memx_equities_memo_sbe_v1_1_display.last_px = function(value)
-  return "Last Px: "..value
+-- Display: Last Px Optional
+memx_equities_memo_sbe_v1_1_display.last_px_optional = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Last Px Optional: No Value"
+  end
+
+  return "Last Px Optional: "..value
 end
 
--- Translate: Last Px
-translate.last_px = function(raw)
+-- Translate: Last Px Optional
+translate.last_px_optional = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
--- Dissect: Last Px
-memx_equities_memo_sbe_v1_1_dissect.last_px = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_1_size_of.last_px
+-- Dissect: Last Px Optional
+memx_equities_memo_sbe_v1_1_dissect.last_px_optional = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_1_size_of.last_px_optional
   local range = buffer(offset, length)
   local raw = range:int64()
-  local value = translate.last_px(raw)
-  local display = memx_equities_memo_sbe_v1_1_display.last_px(value, buffer, offset, packet, parent)
+  local value = translate.last_px_optional(raw)
+  local display = memx_equities_memo_sbe_v1_1_display.last_px_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_1.fields.last_px, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_1.fields.last_px_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1176,11 +1189,6 @@ memx_equities_memo_sbe_v1_1_size_of.order_id = 8
 
 -- Display: Order Id
 memx_equities_memo_sbe_v1_1_display.order_id = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Order Id: No Value"
-  end
-
   return "Order Id: "..value
 end
 
@@ -1210,7 +1218,7 @@ memx_equities_memo_sbe_v1_1_size_of.execution_report_restatement_message = funct
 
   index = index + memx_equities_memo_sbe_v1_1_size_of.ord_status
 
-  index = index + memx_equities_memo_sbe_v1_1_size_of.last_px
+  index = index + memx_equities_memo_sbe_v1_1_size_of.last_px_optional
 
   index = index + memx_equities_memo_sbe_v1_1_size_of.leaves_qty
 
@@ -1237,7 +1245,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_restatement_message_fields 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -1249,8 +1257,8 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_restatement_message_fields 
   -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = memx_equities_memo_sbe_v1_1_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = memx_equities_memo_sbe_v1_1_dissect.last_px(buffer, index, packet, parent)
+  -- Last Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, last_px_optional = memx_equities_memo_sbe_v1_1_dissect.last_px_optional(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
   index, leaves_qty = memx_equities_memo_sbe_v1_1_dissect.leaves_qty(buffer, index, packet, parent)
@@ -1360,7 +1368,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_trade_break_message_fields 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -1400,22 +1408,53 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_trade_break_message = funct
   return memx_equities_memo_sbe_v1_1_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Last Qty
-memx_equities_memo_sbe_v1_1_size_of.last_qty = 4
+-- Size: Last Qty Optional
+memx_equities_memo_sbe_v1_1_size_of.last_qty_optional = 4
 
--- Display: Last Qty
-memx_equities_memo_sbe_v1_1_display.last_qty = function(value)
-  return "Last Qty: "..value
+-- Display: Last Qty Optional
+memx_equities_memo_sbe_v1_1_display.last_qty_optional = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Qty Optional: No Value"
+  end
+
+  return "Last Qty Optional: "..value
 end
 
--- Dissect: Last Qty
-memx_equities_memo_sbe_v1_1_dissect.last_qty = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_1_size_of.last_qty
+-- Dissect: Last Qty Optional
+memx_equities_memo_sbe_v1_1_dissect.last_qty_optional = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_1_size_of.last_qty_optional
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_equities_memo_sbe_v1_1_display.last_qty(value, buffer, offset, packet, parent)
+  local display = memx_equities_memo_sbe_v1_1_display.last_qty_optional(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_1.fields.last_qty, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_1.fields.last_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Last Px
+memx_equities_memo_sbe_v1_1_size_of.last_px = 8
+
+-- Display: Last Px
+memx_equities_memo_sbe_v1_1_display.last_px = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+translate.last_px = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Last Px
+memx_equities_memo_sbe_v1_1_dissect.last_px = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_1_size_of.last_px
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = translate.last_px(raw)
+  local display = memx_equities_memo_sbe_v1_1_display.last_px(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -1440,7 +1479,7 @@ memx_equities_memo_sbe_v1_1_size_of.execution_report_trade_correction_message = 
 
   index = index + memx_equities_memo_sbe_v1_1_size_of.last_px
 
-  index = index + memx_equities_memo_sbe_v1_1_size_of.last_qty
+  index = index + memx_equities_memo_sbe_v1_1_size_of.last_qty_optional
 
   index = index + memx_equities_memo_sbe_v1_1_size_of.leaves_qty
 
@@ -1461,7 +1500,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_trade_correction_message_fi
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -1482,8 +1521,8 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_trade_correction_message_fi
   -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = memx_equities_memo_sbe_v1_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
-  index, last_qty = memx_equities_memo_sbe_v1_1_dissect.last_qty(buffer, index, packet, parent)
+  -- Last Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, last_qty_optional = memx_equities_memo_sbe_v1_1_dissect.last_qty_optional(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
   index, leaves_qty = memx_equities_memo_sbe_v1_1_dissect.leaves_qty(buffer, index, packet, parent)
@@ -1745,7 +1784,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_replaced_message_fields = f
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -1860,7 +1899,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_pending_replace_message_fie
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -2080,7 +2119,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_canceled_message_fields = f
   -- OrigClOrdId: 16 Byte Ascii String
   index, origclordid = memx_equities_memo_sbe_v1_1_dissect.origclordid(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
@@ -2228,7 +2267,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_pending_cancel_message_fiel
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -2418,6 +2457,26 @@ memx_equities_memo_sbe_v1_1_dissect.last_liquidity_ind = function(buffer, offset
   return offset + length, value
 end
 
+-- Size: Last Qty
+memx_equities_memo_sbe_v1_1_size_of.last_qty = 4
+
+-- Display: Last Qty
+memx_equities_memo_sbe_v1_1_display.last_qty = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+memx_equities_memo_sbe_v1_1_dissect.last_qty = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_1_size_of.last_qty
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memo_sbe_v1_1_display.last_qty(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Report Trade Message
 memx_equities_memo_sbe_v1_1_size_of.execution_report_trade_message = function(buffer, offset)
   local index = 0
@@ -2463,7 +2522,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_trade_message_fields = func
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -3511,7 +3570,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_new_message_fields = functi
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -3711,7 +3770,7 @@ memx_equities_memo_sbe_v1_1_dissect.execution_report_pending_new_message_fields 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -3890,13 +3949,38 @@ memx_equities_memo_sbe_v1_1_dissect.mass_cancel_request_message = function(buffe
   return memx_equities_memo_sbe_v1_1_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Order Id Optional
+memx_equities_memo_sbe_v1_1_size_of.order_id_optional = 8
+
+-- Display: Order Id Optional
+memx_equities_memo_sbe_v1_1_display.order_id_optional = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Id Optional: No Value"
+  end
+
+  return "Order Id Optional: "..value
+end
+
+-- Dissect: Order Id Optional
+memx_equities_memo_sbe_v1_1_dissect.order_id_optional = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_1_size_of.order_id_optional
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_equities_memo_sbe_v1_1_display.order_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.order_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Order Cancel Request Message
 memx_equities_memo_sbe_v1_1_size_of.order_cancel_request_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_equities_memo_sbe_v1_1_size_of.origclordid
 
-  index = index + memx_equities_memo_sbe_v1_1_size_of.order_id
+  index = index + memx_equities_memo_sbe_v1_1_size_of.order_id_optional
 
   index = index + memx_equities_memo_sbe_v1_1_size_of.clordid
 
@@ -3919,8 +4003,8 @@ memx_equities_memo_sbe_v1_1_dissect.order_cancel_request_message_fields = functi
   -- OrigClOrdId: 16 Byte Ascii String
   index, origclordid = memx_equities_memo_sbe_v1_1_dissect.origclordid(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = memx_equities_memo_sbe_v1_1_dissect.order_id(buffer, index, packet, parent)
+  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id_optional = memx_equities_memo_sbe_v1_1_dissect.order_id_optional(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
   index, clordid = memx_equities_memo_sbe_v1_1_dissect.clordid(buffer, index, packet, parent)
