@@ -34,8 +34,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12.fields.bf_trade_message = ProtoField.
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.bfnav_message = ProtoField.new("Bfnav Message", "euronext.optiq.marketdatagateway.sbe.v4.12.bfnavmessage", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.bid_offer_date_time = ProtoField.new("Bid Offer Date Time", "euronext.optiq.marketdatagateway.sbe.v4.12.bidofferdatetime", ftypes.UINT64)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.bid_price = ProtoField.new("Bid Price", "euronext.optiq.marketdatagateway.sbe.v4.12.bidprice", ftypes.INT64)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length_uint_16 = ProtoField.new("Block Length uint 16", "euronext.optiq.marketdatagateway.sbe.v4.12.blocklengthuint16", ftypes.UINT16)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "euronext.optiq.marketdatagateway.sbe.v4.12.blocklengthuint8", ftypes.UINT8)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length = ProtoField.new("Block Length", "euronext.optiq.marketdatagateway.sbe.v4.12.blocklength", ftypes.UINT16)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length_short = ProtoField.new("Block Length Short", "euronext.optiq.marketdatagateway.sbe.v4.12.blocklengthshort", ftypes.UINT8)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_trade_code = ProtoField.new("Block Trade Code", "euronext.optiq.marketdatagateway.sbe.v4.12.blocktradecode", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.book_state = ProtoField.new("Book State", "euronext.optiq.marketdatagateway.sbe.v4.12.bookstate", ftypes.UINT8)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.box = ProtoField.new("Box", "euronext.optiq.marketdatagateway.sbe.v4.12.box", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, "0x0000000000200000")
@@ -68,8 +68,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12.fields.condor = ProtoField.new("Condo
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.condor_versus_underlying = ProtoField.new("Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.12.condorversusunderlying", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, "0x0000020000000000")
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.confirmed_reference_level = ProtoField.new("Confirmed Reference Level", "euronext.optiq.marketdatagateway.sbe.v4.12.confirmedreferencelevel", ftypes.INT64)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.confirmed_reference_time = ProtoField.new("Confirmed Reference Time", "euronext.optiq.marketdatagateway.sbe.v4.12.confirmedreferencetime", ftypes.UINT64)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_em_m_properties_group = ProtoField.new("Contract Em M Properties Group", "euronext.optiq.marketdatagateway.sbe.v4.12.contractemmpropertiesgroup", ftypes.STRING)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_em_m_properties_groups = ProtoField.new("Contract Em M Properties Groups", "euronext.optiq.marketdatagateway.sbe.v4.12.contractemmpropertiesgroups", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_emm_properties_group = ProtoField.new("Contract Emm Properties Group", "euronext.optiq.marketdatagateway.sbe.v4.12.contractemmpropertiesgroup", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_emm_properties_groups = ProtoField.new("Contract Emm Properties Groups", "euronext.optiq.marketdatagateway.sbe.v4.12.contractemmpropertiesgroups", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_event_date = ProtoField.new("Contract Event Date", "euronext.optiq.marketdatagateway.sbe.v4.12.contracteventdate", ftypes.UINT16)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_name = ProtoField.new("Contract Name", "euronext.optiq.marketdatagateway.sbe.v4.12.contractname", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_standing_data_message = ProtoField.new("Contract Standing Data Message", "euronext.optiq.marketdatagateway.sbe.v4.12.contractstandingdatamessage", ftypes.STRING)
@@ -80,9 +80,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12.fields.conversion_reversal = ProtoFie
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.country_of_exchange = ProtoField.new("Country Of Exchange", "euronext.optiq.marketdatagateway.sbe.v4.12.countryofexchange", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.country_of_exchange_optional = ProtoField.new("Country Of Exchange Optional", "euronext.optiq.marketdatagateway.sbe.v4.12.countryofexchangeoptional", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.coupon = ProtoField.new("Coupon", "euronext.optiq.marketdatagateway.sbe.v4.12.coupon", ftypes.INT64)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency_char_3 = ProtoField.new("Currency char 3", "euronext.optiq.marketdatagateway.sbe.v4.12.currencychar3", ftypes.STRING)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency_char_3_optional = ProtoField.new("Currency char 3 optional", "euronext.optiq.marketdatagateway.sbe.v4.12.currencychar3optional", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency = ProtoField.new("Currency", "euronext.optiq.marketdatagateway.sbe.v4.12.currency", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency_coefficient = ProtoField.new("Currency Coefficient", "euronext.optiq.marketdatagateway.sbe.v4.12.currencycoefficient", ftypes.UINT32)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency_optional = ProtoField.new("Currency optional", "euronext.optiq.marketdatagateway.sbe.v4.12.currencyoptional", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.dark_eligibility = ProtoField.new("Dark Eligibility", "euronext.optiq.marketdatagateway.sbe.v4.12.darkeligibility", ftypes.UINT8)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.dark_lis_threshold = ProtoField.new("Dark Lis Threshold", "euronext.optiq.marketdatagateway.sbe.v4.12.darklisthreshold", ftypes.UINT64)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.dark_min_quantity = ProtoField.new("Dark Min Quantity", "euronext.optiq.marketdatagateway.sbe.v4.12.darkminquantity", ftypes.UINT32)
@@ -128,8 +128,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12.fields.end_of_day_message = ProtoFiel
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "euronext.optiq.marketdatagateway.sbe.v4.12.endofsnapshotmessage", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.end_time_vwap = ProtoField.new("End Time Vwap", "euronext.optiq.marketdatagateway.sbe.v4.12.endtimevwap", ftypes.UINT32)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.evaluated_price = ProtoField.new("Evaluated Price", "euronext.optiq.marketdatagateway.sbe.v4.12.evaluatedprice", ftypes.INT64)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time_uint_64t = ProtoField.new("Event Time uint 64t", "euronext.optiq.marketdatagateway.sbe.v4.12.eventtimeuint64t", ftypes.UINT64)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time_uint_64t_optional = ProtoField.new("Event Time uint 64t optional", "euronext.optiq.marketdatagateway.sbe.v4.12.eventtimeuint64toptional", ftypes.UINT64)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.marketdatagateway.sbe.v4.12.eventtime", ftypes.UINT64)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time_optional = ProtoField.new("Event Time Optional", "euronext.optiq.marketdatagateway.sbe.v4.12.eventtimeoptional", ftypes.UINT64)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.ex_dividend_date = ProtoField.new("Ex Dividend Date", "euronext.optiq.marketdatagateway.sbe.v4.12.exdividenddate", ftypes.UINT16)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.exceptional_market_conditions = ProtoField.new("Exceptional Market Conditions", "euronext.optiq.marketdatagateway.sbe.v4.12.exceptionalmarketconditions", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0080")
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.exchange_code = ProtoField.new("Exchange Code", "euronext.optiq.marketdatagateway.sbe.v4.12.exchangecode", ftypes.STRING)
@@ -229,25 +229,25 @@ euronext_optiq_marketdatagateway_sbe_v4_12.fields.mdg_restart_count = ProtoField
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.message = ProtoField.new("Message", "euronext.optiq.marketdatagateway.sbe.v4.12.message", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v4.12.messageheader", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.marketdatagateway.sbe.v4.12.messagepricenotation", ftypes.UINT8)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_clearing_flag = ProtoField.new("Mi Fid Clearing Flag", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidclearingflag", ftypes.STRING)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_emission_allowance_type = ProtoField.new("Mi Fid Emission Allowance Type", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidemissionallowancetype", ftypes.STRING)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_notional_amount = ProtoField.new("Mi Fid Notional Amount", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidnotionalamount", ftypes.STRING)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_qtyin_msrmt_unit_notation = ProtoField.new("Mi Fid Qtyin Msrmt Unit Notation", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidqtyinmsrmtunitnotation", ftypes.STRING)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_transaction_id = ProtoField.new("Mi Fid Transaction Id", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidtransactionid", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mic = ProtoField.new("Mic", "euronext.optiq.marketdatagateway.sbe.v4.12.mic", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mic_list = ProtoField.new("Mic List", "euronext.optiq.marketdatagateway.sbe.v4.12.miclist", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mic_optional = ProtoField.new("mic Optional", "euronext.optiq.marketdatagateway.sbe.v4.12.micoptional", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_clearing_flag = ProtoField.new("Mifid Clearing Flag", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidclearingflag", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_currency = ProtoField.new("Mifid Currency", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidcurrency", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_emission_allowance_type = ProtoField.new("Mifid Emission Allowance Type", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidemissionallowancetype", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_execution_id = ProtoField.new("Mifid Execution Id", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidexecutionid", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_instrument_id = ProtoField.new("Mifid Instrument Id", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidinstrumentid", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_instrument_id_optional = ProtoField.new("Mifid Instrument Id Optional", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidinstrumentidoptional", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_instrument_id_type = ProtoField.new("Mifid Instrument Id Type", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidinstrumentidtype", ftypes.STRING)
-euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_instrument_id_type_char_4_optional = ProtoField.new("Mifid Instrument Id Type char 4 optional", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidinstrumentidtypechar4optional", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_instrument_id_type_optional = ProtoField.new("Mifid Instrument Id Type Optional", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidinstrumentidtypeoptional", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_notional_amount = ProtoField.new("Mifid Notional Amount", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidnotionalamount", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_price = ProtoField.new("Mifid Price", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidprice", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_price_notation = ProtoField.new("Mifid Price Notation", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidpricenotation", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_price_optional = ProtoField.new("Mifid Price Optional", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidpriceoptional", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_qty_in_msrmt_unit_notation = ProtoField.new("Mifid Qty In Msrmt Unit Notation", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidqtyinmsrmtunitnotation", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_quantity = ProtoField.new("Mifid Quantity", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidquantity", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_quantity_measurement_unit = ProtoField.new("Mifid Quantity Measurement Unit", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidquantitymeasurementunit", ftypes.STRING)
+euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_transaction_id = ProtoField.new("Mifid Transaction Id", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidtransactionid", ftypes.STRING)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifidii_liquid_flag = ProtoField.new("Mifidii Liquid Flag", "euronext.optiq.marketdatagateway.sbe.v4.12.mifidiiliquidflag", ftypes.UINT8)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.minimum_amount = ProtoField.new("Minimum Amount", "euronext.optiq.marketdatagateway.sbe.v4.12.minimumamount", ftypes.INT64)
 euronext_optiq_marketdatagateway_sbe_v4_12.fields.mm_protections = ProtoField.new("Mm Protections", "euronext.optiq.marketdatagateway.sbe.v4.12.mmprotections", ftypes.STRING)
@@ -481,8 +481,8 @@ show.bf_instrument_reference_message = true
 show.bf_instrument_suspension_message = true
 show.bf_trade_message = true
 show.bfnav_message = true
-show.contract_em_m_properties_group = true
-show.contract_em_m_properties_groups = true
+show.contract_emm_properties_group = true
+show.contract_emm_properties_groups = true
 show.contract_standing_data_message = true
 show.em_m_pattern_rep_group = true
 show.em_m_pattern_rep_groups = true
@@ -548,8 +548,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_bf_instrument_reference_me
 euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_bf_instrument_suspension_message = Pref.bool("Show Bf Instrument Suspension Message", show.bf_instrument_suspension_message, "Parse and add Bf Instrument Suspension Message to protocol tree")
 euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_bf_trade_message = Pref.bool("Show Bf Trade Message", show.bf_trade_message, "Parse and add Bf Trade Message to protocol tree")
 euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_bfnav_message = Pref.bool("Show Bfnav Message", show.bfnav_message, "Parse and add Bfnav Message to protocol tree")
-euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_em_m_properties_group = Pref.bool("Show Contract Em M Properties Group", show.contract_em_m_properties_group, "Parse and add Contract Em M Properties Group to protocol tree")
-euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_em_m_properties_groups = Pref.bool("Show Contract Em M Properties Groups", show.contract_em_m_properties_groups, "Parse and add Contract Em M Properties Groups to protocol tree")
+euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_emm_properties_group = Pref.bool("Show Contract Emm Properties Group", show.contract_emm_properties_group, "Parse and add Contract Emm Properties Group to protocol tree")
+euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_emm_properties_groups = Pref.bool("Show Contract Emm Properties Groups", show.contract_emm_properties_groups, "Parse and add Contract Emm Properties Groups to protocol tree")
 euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_standing_data_message = Pref.bool("Show Contract Standing Data Message", show.contract_standing_data_message, "Parse and add Contract Standing Data Message to protocol tree")
 euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_em_m_pattern_rep_group = Pref.bool("Show Em M Pattern Rep Group", show.em_m_pattern_rep_group, "Parse and add Em M Pattern Rep Group to protocol tree")
 euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_em_m_pattern_rep_groups = Pref.bool("Show Em M Pattern Rep Groups", show.em_m_pattern_rep_groups, "Parse and add Em M Pattern Rep Groups to protocol tree")
@@ -640,12 +640,12 @@ function euronext_optiq_marketdatagateway_sbe_v4_12.prefs_changed()
     show.bfnav_message = euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_bfnav_message
     changed = true
   end
-  if show.contract_em_m_properties_group ~= euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_em_m_properties_group then
-    show.contract_em_m_properties_group = euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_em_m_properties_group
+  if show.contract_emm_properties_group ~= euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_emm_properties_group then
+    show.contract_emm_properties_group = euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_emm_properties_group
     changed = true
   end
-  if show.contract_em_m_properties_groups ~= euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_em_m_properties_groups then
-    show.contract_em_m_properties_groups = euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_em_m_properties_groups
+  if show.contract_emm_properties_groups ~= euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_emm_properties_groups then
+    show.contract_emm_properties_groups = euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_emm_properties_groups
     changed = true
   end
   if show.contract_standing_data_message ~= euronext_optiq_marketdatagateway_sbe_v4_12.prefs.show_contract_standing_data_message then
@@ -1068,22 +1068,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.security_condition = function
   return offset + length, value
 end
 
--- Size: Event Time uint 64t
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t = 8
+-- Size: Event Time
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time = 8
 
--- Display: Event Time uint 64t
-euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time_uint_64t = function(value)
-  return "Event Time uint 64t: "..value
+-- Display: Event Time
+euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time = function(value)
+  return "Event Time: "..value
 end
 
--- Dissect: Event Time uint 64t
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+-- Dissect: Event Time
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time_uint_64t(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time_uint_64t, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time, range, value, display)
 
   return offset + length, value
 end
@@ -1163,7 +1163,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.bf_instrument_suspension_mess
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.symbol_index
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.security_condition
 
@@ -1188,8 +1188,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.bf_instrument_suspension_mess
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Security Condition: 1 Byte Ascii String Enum with 8 values
   index, security_condition = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.security_condition(buffer, index, packet, parent)
@@ -1260,27 +1260,27 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.nav_bid_price = function(buff
   return offset + length, value
 end
 
--- Size: Event Time uint 64t optional
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t_optional = 8
+-- Size: Event Time Optional
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_optional = 8
 
--- Display: Event Time uint 64t optional
-euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time_uint_64t_optional = function(value)
+-- Display: Event Time Optional
+euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time_optional = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Event Time uint 64t optional: No Value"
+    return "Event Time Optional: No Value"
   end
 
-  return "Event Time uint 64t optional: "..value
+  return "Event Time Optional: "..value
 end
 
--- Dissect: Event Time uint 64t optional
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t_optional = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t_optional
+-- Dissect: Event Time Optional
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_optional = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_optional
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time_uint_64t_optional(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.event_time_optional(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time_uint_64t_optional, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.event_time_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1346,22 +1346,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mmt_modification_indicator = 
   return offset + length, value
 end
 
--- Size: Mi Fid Transaction Id
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_transaction_id = 52
+-- Size: Mifid Transaction Id
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_transaction_id = 52
 
--- Display: Mi Fid Transaction Id
-euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_transaction_id = function(value)
+-- Display: Mifid Transaction Id
+euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_transaction_id = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Mi Fid Transaction Id: No Value"
+    return "Mifid Transaction Id: No Value"
   end
 
-  return "Mi Fid Transaction Id: "..value
+  return "Mifid Transaction Id: "..value
 end
 
--- Dissect: Mi Fid Transaction Id
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_transaction_id = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_transaction_id
+-- Dissect: Mifid Transaction Id
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_transaction_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_transaction_id
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1375,9 +1375,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_transaction_id = funct
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_transaction_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_transaction_id(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_transaction_id, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_transaction_id, range, value, display)
 
   return offset + length, value
 end
@@ -1419,13 +1419,13 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.bfnav_message = function(buff
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.bid_offer_date_time
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_transaction_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_transaction_id
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mmt_modification_indicator
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.nav_price
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t_optional
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_optional
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.nav_bid_price
 
@@ -1455,8 +1455,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.bfnav_message_fields = functi
   -- Bid Offer Date Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_offer_date_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.bid_offer_date_time(buffer, index, packet, parent)
 
-  -- Mi Fid Transaction Id: 52 Byte Ascii String
-  index, mi_fid_transaction_id = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_transaction_id(buffer, index, packet, parent)
+  -- Mifid Transaction Id: 52 Byte Ascii String
+  index, mifid_transaction_id = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_transaction_id(buffer, index, packet, parent)
 
   -- Mmt Modification Indicator: 4 Byte Ascii String
   index, mmt_modification_indicator = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mmt_modification_indicator(buffer, index, packet, parent)
@@ -1464,8 +1464,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.bfnav_message_fields = functi
   -- Nav Price: 8 Byte Signed Fixed Width Integer Nullable
   index, nav_price = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.nav_price(buffer, index, packet, parent)
 
-  -- Event Time uint 64t optional: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, event_time_uint_64t_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t_optional(buffer, index, packet, parent)
+  -- Event Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, event_time_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_optional(buffer, index, packet, parent)
 
   -- Nav Bid Price: 8 Byte Signed Fixed Width Integer Nullable
   index, nav_bid_price = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.nav_bid_price(buffer, index, packet, parent)
@@ -1902,9 +1902,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.bf_trade_message = function(b
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.symbol_index
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_transaction_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_transaction_id
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.bid_offer_date_time
 
@@ -1955,11 +1955,11 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.bf_trade_message_fields = fun
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Mi Fid Transaction Id: 52 Byte Ascii String
-  index, mi_fid_transaction_id = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_transaction_id(buffer, index, packet, parent)
+  -- Mifid Transaction Id: 52 Byte Ascii String
+  index, mifid_transaction_id = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_transaction_id(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Bid Offer Date Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_offer_date_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.bid_offer_date_time(buffer, index, packet, parent)
@@ -2101,22 +2101,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.num_in_group = function(buffe
   return offset + length, value
 end
 
--- Size: Block Length uint 8
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_uint_8 = 1
+-- Size: Block Length Short
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_short = 1
 
--- Display: Block Length uint 8
-euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length_uint_8 = function(value)
-  return "Block Length uint 8: "..value
+-- Display: Block Length Short
+euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length_short = function(value)
+  return "Block Length Short: "..value
 end
 
--- Dissect: Block Length uint 8
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length_uint_8 = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_uint_8
+-- Dissect: Block Length Short
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length_short = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_short
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length_uint_8(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length_short(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length_uint_8, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -2125,7 +2125,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_12_size_of.group_size_encoding = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_uint_8
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_short
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.num_in_group
 
@@ -2141,8 +2141,8 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_12_dissect.group_size_encoding_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: 1 Byte Unsigned Fixed Width Integer
-  index, block_length_uint_8 = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length_uint_8(buffer, index, packet, parent)
+  -- Block Length Short: 1 Byte Unsigned Fixed Width Integer
+  index, block_length_short = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length_short(buffer, index, packet, parent)
 
   -- Num In Group: 1 Byte Unsigned Fixed Width Integer
   index, num_in_group = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.num_in_group(buffer, index, packet, parent)
@@ -3075,22 +3075,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.date_of_initial_listing = fun
   return offset + length, value
 end
 
--- Size: Currency char 3 optional
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_char_3_optional = 3
+-- Size: Currency optional
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_optional = 3
 
--- Display: Currency char 3 optional
-euronext_optiq_marketdatagateway_sbe_v4_12_display.currency_char_3_optional = function(value)
+-- Display: Currency optional
+euronext_optiq_marketdatagateway_sbe_v4_12_display.currency_optional = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Currency char 3 optional: No Value"
+    return "Currency optional: No Value"
   end
 
-  return "Currency char 3 optional: "..value
+  return "Currency optional: "..value
 end
 
--- Dissect: Currency char 3 optional
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_char_3_optional = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_char_3_optional
+-- Dissect: Currency optional
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_optional = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_optional
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3104,9 +3104,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_char_3_optional = fu
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.currency_char_3_optional(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.currency_optional(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency_char_3_optional, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3344,7 +3344,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.bf_instrument_reference_messa
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.long_instrument_name
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_char_3_optional
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_optional
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.date_of_initial_listing
 
@@ -3444,8 +3444,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.bf_instrument_reference_messa
   -- Long Instrument Name: 250 Byte Ascii String Nullable
   index, long_instrument_name = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.long_instrument_name(buffer, index, packet, parent)
 
-  -- Currency char 3 optional: 3 Byte Ascii String Nullable
-  index, currency_char_3_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_char_3_optional(buffer, index, packet, parent)
+  -- Currency optional: 3 Byte Ascii String Nullable
+  index, currency_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_optional(buffer, index, packet, parent)
 
   -- Date Of Initial Listing: 2 Byte Unsigned Fixed Width Integer Nullable
   index, date_of_initial_listing = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.date_of_initial_listing(buffer, index, packet, parent)
@@ -3628,22 +3628,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.long_trade_reference = functi
   return offset + length, value
 end
 
--- Size: Mi Fid Emission Allowance Type
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_emission_allowance_type = 4
+-- Size: Mifid Emission Allowance Type
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_emission_allowance_type = 4
 
--- Display: Mi Fid Emission Allowance Type
-euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_emission_allowance_type = function(value)
+-- Display: Mifid Emission Allowance Type
+euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_emission_allowance_type = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Mi Fid Emission Allowance Type: No Value"
+    return "Mifid Emission Allowance Type: No Value"
   end
 
-  return "Mi Fid Emission Allowance Type: "..value
+  return "Mifid Emission Allowance Type: "..value
 end
 
--- Dissect: Mi Fid Emission Allowance Type
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_emission_allowance_type = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_emission_allowance_type
+-- Dissect: Mifid Emission Allowance Type
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_emission_allowance_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_emission_allowance_type
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3657,9 +3657,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_emission_allowance_typ
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_emission_allowance_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_emission_allowance_type(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_emission_allowance_type, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_emission_allowance_type, range, value, display)
 
   return offset + length, value
 end
@@ -4490,22 +4490,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.efficient_mmt_market_mechanis
   return offset + length, value
 end
 
--- Size: Mi Fid Clearing Flag
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_clearing_flag = 5
+-- Size: Mifid Clearing Flag
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_clearing_flag = 5
 
--- Display: Mi Fid Clearing Flag
-euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_clearing_flag = function(value)
+-- Display: Mifid Clearing Flag
+euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_clearing_flag = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Mi Fid Clearing Flag: No Value"
+    return "Mifid Clearing Flag: No Value"
   end
 
-  return "Mi Fid Clearing Flag: "..value
+  return "Mifid Clearing Flag: "..value
 end
 
--- Dissect: Mi Fid Clearing Flag
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_clearing_flag = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_clearing_flag
+-- Dissect: Mifid Clearing Flag
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_clearing_flag = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_clearing_flag
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4519,9 +4519,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_clearing_flag = functi
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_clearing_flag(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_clearing_flag(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_clearing_flag, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_clearing_flag, range, value, display)
 
   return offset + length, value
 end
@@ -4562,22 +4562,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.notional_currency = function(
   return offset + length, value
 end
 
--- Size: Mi Fid Notional Amount
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_notional_amount = 20
+-- Size: Mifid Notional Amount
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_notional_amount = 20
 
--- Display: Mi Fid Notional Amount
-euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_notional_amount = function(value)
+-- Display: Mifid Notional Amount
+euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_notional_amount = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Mi Fid Notional Amount: No Value"
+    return "Mifid Notional Amount: No Value"
   end
 
-  return "Mi Fid Notional Amount: "..value
+  return "Mifid Notional Amount: "..value
 end
 
--- Dissect: Mi Fid Notional Amount
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_notional_amount = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_notional_amount
+-- Dissect: Mifid Notional Amount
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_notional_amount = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_notional_amount
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4591,9 +4591,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_notional_amount = func
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_notional_amount(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_notional_amount(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_notional_amount, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_notional_amount, range, value, display)
 
   return offset + length, value
 end
@@ -4634,22 +4634,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_quantity_measurement_un
   return offset + length, value
 end
 
--- Size: Mi Fid Qtyin Msrmt Unit Notation
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_qtyin_msrmt_unit_notation = 25
+-- Size: Mifid Qty In Msrmt Unit Notation
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_qty_in_msrmt_unit_notation = 25
 
--- Display: Mi Fid Qtyin Msrmt Unit Notation
-euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_qtyin_msrmt_unit_notation = function(value)
+-- Display: Mifid Qty In Msrmt Unit Notation
+euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_qty_in_msrmt_unit_notation = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Mi Fid Qtyin Msrmt Unit Notation: No Value"
+    return "Mifid Qty In Msrmt Unit Notation: No Value"
   end
 
-  return "Mi Fid Qtyin Msrmt Unit Notation: "..value
+  return "Mifid Qty In Msrmt Unit Notation: "..value
 end
 
--- Dissect: Mi Fid Qtyin Msrmt Unit Notation
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_qtyin_msrmt_unit_notation = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_qtyin_msrmt_unit_notation
+-- Dissect: Mifid Qty In Msrmt Unit Notation
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_qty_in_msrmt_unit_notation = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_qty_in_msrmt_unit_notation
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4663,9 +4663,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_qtyin_msrmt_unit_notat
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mi_fid_qtyin_msrmt_unit_notation(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_qty_in_msrmt_unit_notation(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mi_fid_qtyin_msrmt_unit_notation, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_qty_in_msrmt_unit_notation, range, value, display)
 
   return offset + length, value
 end
@@ -4814,22 +4814,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_optional 
   return offset + length, value
 end
 
--- Size: Mifid Instrument Id Type char 4 optional
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_char_4_optional = 4
+-- Size: Mifid Instrument Id Type Optional
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_optional = 4
 
--- Display: Mifid Instrument Id Type char 4 optional
-euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_instrument_id_type_char_4_optional = function(value)
+-- Display: Mifid Instrument Id Type Optional
+euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_instrument_id_type_optional = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Mifid Instrument Id Type char 4 optional: No Value"
+    return "Mifid Instrument Id Type Optional: No Value"
   end
 
-  return "Mifid Instrument Id Type char 4 optional: "..value
+  return "Mifid Instrument Id Type Optional: "..value
 end
 
--- Dissect: Mifid Instrument Id Type char 4 optional
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_type_char_4_optional = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_char_4_optional
+-- Dissect: Mifid Instrument Id Type Optional
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_type_optional = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_optional
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4843,9 +4843,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_type_char
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_instrument_id_type_char_4_optional(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.mifid_instrument_id_type_optional(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_instrument_id_type_char_4_optional, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.mifid_instrument_id_type_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5168,7 +5168,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.apa_full_trade_information_me
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.trading_date_time
 
@@ -5176,11 +5176,11 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.apa_full_trade_information_me
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.trade_type
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_char_4_optional
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_optional
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_optional
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_transaction_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_transaction_id
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_price_optional
 
@@ -5190,15 +5190,15 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.apa_full_trade_information_me
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_currency
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_qtyin_msrmt_unit_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_qty_in_msrmt_unit_notation
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_quantity_measurement_unit
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_notional_amount
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_notional_amount
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.notional_currency
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_clearing_flag
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_clearing_flag
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.efficient_mmt_market_mechanism
 
@@ -5238,7 +5238,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.apa_full_trade_information_me
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.venue
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_emission_allowance_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_emission_allowance_type
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.long_trade_reference
 
@@ -5265,8 +5265,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.apa_full_trade_information_me
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Trading Date Time: 27 Byte Ascii String
   index, trading_date_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.trading_date_time(buffer, index, packet, parent)
@@ -5277,14 +5277,14 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.apa_full_trade_information_me
   -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 48 values
   index, trade_type = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.trade_type(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Type char 4 optional: 4 Byte Ascii String Nullable
-  index, mifid_instrument_id_type_char_4_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_type_char_4_optional(buffer, index, packet, parent)
+  -- Mifid Instrument Id Type Optional: 4 Byte Ascii String Nullable
+  index, mifid_instrument_id_type_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_type_optional(buffer, index, packet, parent)
 
   -- Mifid Instrument Id Optional: 12 Byte Ascii String Nullable
   index, mifid_instrument_id_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_optional(buffer, index, packet, parent)
 
-  -- Mi Fid Transaction Id: 52 Byte Ascii String
-  index, mi_fid_transaction_id = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_transaction_id(buffer, index, packet, parent)
+  -- Mifid Transaction Id: 52 Byte Ascii String
+  index, mifid_transaction_id = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_transaction_id(buffer, index, packet, parent)
 
   -- Mifid Price Optional: 20 Byte Ascii String Nullable
   index, mifid_price_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_price_optional(buffer, index, packet, parent)
@@ -5298,20 +5298,20 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.apa_full_trade_information_me
   -- Mifid Currency: 3 Byte Ascii String Nullable
   index, mifid_currency = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_currency(buffer, index, packet, parent)
 
-  -- Mi Fid Qtyin Msrmt Unit Notation: 25 Byte Ascii String Nullable
-  index, mi_fid_qtyin_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_qtyin_msrmt_unit_notation(buffer, index, packet, parent)
+  -- Mifid Qty In Msrmt Unit Notation: 25 Byte Ascii String Nullable
+  index, mifid_qty_in_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_qty_in_msrmt_unit_notation(buffer, index, packet, parent)
 
   -- Mifid Quantity Measurement Unit: 20 Byte Ascii String Nullable
   index, mifid_quantity_measurement_unit = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_quantity_measurement_unit(buffer, index, packet, parent)
 
-  -- Mi Fid Notional Amount: 20 Byte Ascii String Nullable
-  index, mi_fid_notional_amount = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_notional_amount(buffer, index, packet, parent)
+  -- Mifid Notional Amount: 20 Byte Ascii String Nullable
+  index, mifid_notional_amount = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_notional_amount(buffer, index, packet, parent)
 
   -- Notional Currency: 3 Byte Ascii String Nullable
   index, notional_currency = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.notional_currency(buffer, index, packet, parent)
 
-  -- Mi Fid Clearing Flag: 5 Byte Ascii String Nullable
-  index, mi_fid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_clearing_flag(buffer, index, packet, parent)
+  -- Mifid Clearing Flag: 5 Byte Ascii String Nullable
+  index, mifid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_clearing_flag(buffer, index, packet, parent)
 
   -- Efficient Mmt Market Mechanism: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, efficient_mmt_market_mechanism = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.efficient_mmt_market_mechanism(buffer, index, packet, parent)
@@ -5370,8 +5370,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.apa_full_trade_information_me
   -- Venue: 11 Byte Ascii String
   index, venue = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.venue(buffer, index, packet, parent)
 
-  -- Mi Fid Emission Allowance Type: 4 Byte Ascii String Nullable
-  index, mi_fid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_emission_allowance_type(buffer, index, packet, parent)
+  -- Mifid Emission Allowance Type: 4 Byte Ascii String Nullable
+  index, mifid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_emission_allowance_type(buffer, index, packet, parent)
 
   -- Long Trade Reference: 52 Byte Ascii String Nullable
   index, long_trade_reference = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.long_trade_reference(buffer, index, packet, parent)
@@ -6074,22 +6074,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.lei_code = function(buffer, o
   return offset + length, value
 end
 
--- Size: Currency char 3
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_char_3 = 3
+-- Size: Currency
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency = 3
 
--- Display: Currency char 3
-euronext_optiq_marketdatagateway_sbe_v4_12_display.currency_char_3 = function(value)
+-- Display: Currency
+euronext_optiq_marketdatagateway_sbe_v4_12_display.currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Currency char 3: No Value"
+    return "Currency: No Value"
   end
 
-  return "Currency char 3: "..value
+  return "Currency: "..value
 end
 
--- Dissect: Currency char 3
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_char_3 = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_char_3
+-- Dissect: Currency
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -6103,9 +6103,9 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_char_3 = function(bu
     value = range:string()
   end
 
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.currency_char_3(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.currency(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency_char_3, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -6160,11 +6160,11 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.apa_quotes_message = function
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mic
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency_char_3
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.currency
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.lei_code
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.quote_update_type
 
@@ -6201,14 +6201,14 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.apa_quotes_message_fields = f
   -- Mic: 4 Byte Ascii String
   index, mic = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mic(buffer, index, packet, parent)
 
-  -- Currency char 3: 3 Byte Ascii String
-  index, currency_char_3 = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency_char_3(buffer, index, packet, parent)
+  -- Currency: 3 Byte Ascii String
+  index, currency = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.currency(buffer, index, packet, parent)
 
   -- Lei Code: 20 Byte Ascii String
   index, lei_code = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.lei_code(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Quote Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_update_type = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.quote_update_type(buffer, index, packet, parent)
@@ -6670,7 +6670,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.lis_package_structure_message
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_symbol_index
 
@@ -6701,8 +6701,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.lis_package_structure_message
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, contract_symbol_index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_symbol_index(buffer, index, packet, parent)
@@ -7125,7 +7125,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.long_order_update_message = f
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.orders_groups(buffer, offset + index)
 
@@ -7150,8 +7150,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.long_order_update_message_fie
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Orders Groups: Struct of 2 fields
   index, orders_groups = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.orders_groups(buffer, index, packet, parent)
@@ -8321,8 +8321,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm_optional = function(buffe
   return offset + length, value
 end
 
--- Calculate size of: Contract Em M Properties Group
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_em_m_properties_group = function(buffer, offset)
+-- Calculate size of: Contract Emm Properties Group
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_emm_properties_group = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm_optional
@@ -8344,13 +8344,13 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_em_m_properties_grou
   return index
 end
 
--- Display: Contract Em M Properties Group
-euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_em_m_properties_group = function(buffer, offset, size, packet, parent)
+-- Display: Contract Emm Properties Group
+euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_emm_properties_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Contract Em M Properties Group
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_group_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Contract Emm Properties Group
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
@@ -8380,39 +8380,39 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_grou
   return index
 end
 
--- Dissect: Contract Em M Properties Group
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_group = function(buffer, offset, packet, parent)
+-- Dissect: Contract Emm Properties Group
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.contract_em_m_properties_group then
-    local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_em_m_properties_group(buffer, offset)
+  if show.contract_emm_properties_group then
+    local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_emm_properties_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_em_m_properties_group(buffer, packet, parent)
-    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_em_m_properties_group, range, display)
+    local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_emm_properties_group(buffer, packet, parent)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_emm_properties_group, range, display)
   end
 
-  return euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_group_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Contract Em M Properties Groups
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_em_m_properties_groups = function(buffer, offset)
+-- Calculate size of: Contract Emm Properties Groups
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_emm_properties_groups = function(buffer, offset)
   local index = 0
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
-  local contract_em_m_properties_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + contract_em_m_properties_group_count * 27
+  local contract_emm_properties_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + contract_emm_properties_group_count * 27
 
   return index
 end
 
--- Display: Contract Em M Properties Groups
-euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_em_m_properties_groups = function(buffer, offset, size, packet, parent)
+-- Display: Contract Emm Properties Groups
+euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_emm_properties_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Contract Em M Properties Groups
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_groups_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Contract Emm Properties Groups
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
@@ -8421,25 +8421,25 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Contract Em M Properties Group: Struct of 8 fields
+  -- Contract Emm Properties Group: Struct of 8 fields
   for i = 1, num_in_group do
-    index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
--- Dissect: Contract Em M Properties Groups
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_groups = function(buffer, offset, packet, parent)
+-- Dissect: Contract Emm Properties Groups
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.contract_em_m_properties_groups then
-    local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_em_m_properties_groups(buffer, offset)
+  if show.contract_emm_properties_groups then
+    local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_emm_properties_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_em_m_properties_groups(buffer, packet, parent)
-    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_em_m_properties_groups, range, display)
+    local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.contract_emm_properties_groups(buffer, packet, parent)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.contract_emm_properties_groups, range, display)
   end
 
-  return euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pricing Algorithm
@@ -9753,7 +9753,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_standing_data_messag
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.pricing_algorithm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_em_m_properties_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.contract_emm_properties_groups(buffer, offset + index)
 
   return index
 end
@@ -9899,8 +9899,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_standing_data_messag
   -- Pricing Algorithm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, pricing_algorithm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.pricing_algorithm(buffer, index, packet, parent)
 
-  -- Contract Em M Properties Groups: Struct of 2 fields
-  index, contract_em_m_properties_groups = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_em_m_properties_groups(buffer, index, packet, parent)
+  -- Contract Emm Properties Groups: Struct of 2 fields
+  index, contract_emm_properties_groups = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.contract_emm_properties_groups(buffer, index, packet, parent)
 
   return index
 end
@@ -10494,7 +10494,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.index_summary_message = funct
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.symbol_index
 
@@ -10545,8 +10545,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.index_summary_message_fields 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
@@ -11007,7 +11007,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.real_time_index_message = fun
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.symbol_index
 
@@ -11044,8 +11044,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.real_time_index_message_field
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
@@ -13785,7 +13785,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.market_states_group = functio
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.symbol_index
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.book_state
 
@@ -13829,8 +13829,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.market_states_group_fields = 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Book State: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, book_state = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.book_state(buffer, index, packet, parent)
@@ -14814,7 +14814,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.full_trade_information_messag
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.symbol_index_optional
 
@@ -14824,7 +14824,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.full_trade_information_messag
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.trade_type
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_char_4_optional
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_type_optional
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_instrument_id_optional
 
@@ -14838,15 +14838,15 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.full_trade_information_messag
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_currency
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_qtyin_msrmt_unit_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_qty_in_msrmt_unit_notation
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_quantity_measurement_unit
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_notional_amount
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_notional_amount
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.notional_currency
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_clearing_flag
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_clearing_flag
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mmt_market_mechanism
 
@@ -14902,7 +14902,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.full_trade_information_messag
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.end_time_vwap
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mi_fid_emission_allowance_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.mifid_emission_allowance_type
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.market_of_reference_mic
 
@@ -14937,8 +14937,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.full_trade_information_messag
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Symbol Index Optional: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.symbol_index_optional(buffer, index, packet, parent)
@@ -14952,8 +14952,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.full_trade_information_messag
   -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 48 values
   index, trade_type = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.trade_type(buffer, index, packet, parent)
 
-  -- Mifid Instrument Id Type char 4 optional: 4 Byte Ascii String Nullable
-  index, mifid_instrument_id_type_char_4_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_type_char_4_optional(buffer, index, packet, parent)
+  -- Mifid Instrument Id Type Optional: 4 Byte Ascii String Nullable
+  index, mifid_instrument_id_type_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_type_optional(buffer, index, packet, parent)
 
   -- Mifid Instrument Id Optional: 12 Byte Ascii String Nullable
   index, mifid_instrument_id_optional = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_instrument_id_optional(buffer, index, packet, parent)
@@ -14973,20 +14973,20 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.full_trade_information_messag
   -- Mifid Currency: 3 Byte Ascii String Nullable
   index, mifid_currency = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_currency(buffer, index, packet, parent)
 
-  -- Mi Fid Qtyin Msrmt Unit Notation: 25 Byte Ascii String Nullable
-  index, mi_fid_qtyin_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_qtyin_msrmt_unit_notation(buffer, index, packet, parent)
+  -- Mifid Qty In Msrmt Unit Notation: 25 Byte Ascii String Nullable
+  index, mifid_qty_in_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_qty_in_msrmt_unit_notation(buffer, index, packet, parent)
 
   -- Mifid Quantity Measurement Unit: 20 Byte Ascii String Nullable
   index, mifid_quantity_measurement_unit = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_quantity_measurement_unit(buffer, index, packet, parent)
 
-  -- Mi Fid Notional Amount: 20 Byte Ascii String Nullable
-  index, mi_fid_notional_amount = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_notional_amount(buffer, index, packet, parent)
+  -- Mifid Notional Amount: 20 Byte Ascii String Nullable
+  index, mifid_notional_amount = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_notional_amount(buffer, index, packet, parent)
 
   -- Notional Currency: 3 Byte Ascii String Nullable
   index, notional_currency = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.notional_currency(buffer, index, packet, parent)
 
-  -- Mi Fid Clearing Flag: 5 Byte Ascii String Nullable
-  index, mi_fid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_clearing_flag(buffer, index, packet, parent)
+  -- Mifid Clearing Flag: 5 Byte Ascii String Nullable
+  index, mifid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_clearing_flag(buffer, index, packet, parent)
 
   -- Mmt Market Mechanism: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, mmt_market_mechanism = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mmt_market_mechanism(buffer, index, packet, parent)
@@ -15069,8 +15069,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.full_trade_information_messag
   -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
   index, end_time_vwap = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.end_time_vwap(buffer, index, packet, parent)
 
-  -- Mi Fid Emission Allowance Type: 4 Byte Ascii String Nullable
-  index, mi_fid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mi_fid_emission_allowance_type(buffer, index, packet, parent)
+  -- Mifid Emission Allowance Type: 4 Byte Ascii String Nullable
+  index, mifid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.mifid_emission_allowance_type(buffer, index, packet, parent)
 
   -- Market Of Reference Mic: 4 Byte Ascii String Nullable
   index, market_of_reference_mic = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.market_of_reference_mic(buffer, index, packet, parent)
@@ -15397,7 +15397,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.price_update_message = functi
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.prices_groups(buffer, offset + index)
 
@@ -15422,8 +15422,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.price_update_message_fields =
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Prices Groups: Struct of 2 fields
   index, prices_groups = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.prices_groups(buffer, index, packet, parent)
@@ -15454,7 +15454,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.order_update_message = functi
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.orders_groups(buffer, offset + index)
 
@@ -15479,8 +15479,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.order_update_message_fields =
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Orders Groups: Struct of 2 fields
   index, orders_groups = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.orders_groups(buffer, index, packet, parent)
@@ -15930,7 +15930,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.market_update_message = funct
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.emm
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.updates_groups(buffer, offset + index)
 
@@ -15955,8 +15955,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.market_update_message_fields 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.emm(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   -- Updates Groups: Struct of 2 fields
   index, updates_groups = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.updates_groups(buffer, index, packet, parent)
@@ -16125,7 +16125,7 @@ euronext_optiq_marketdatagateway_sbe_v4_12_size_of.health_status_message = funct
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.md_seq_num
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time_uint_64t
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.event_time
 
   return index
 end
@@ -16142,8 +16142,8 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.health_status_message_fields 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer
   index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.md_seq_num(buffer, index, packet, parent)
 
-  -- Event Time uint 64t: 8 Byte Unsigned Fixed Width Integer
-  index, event_time_uint_64t = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time_uint_64t(buffer, index, packet, parent)
+  -- Event Time: 8 Byte Unsigned Fixed Width Integer
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.event_time(buffer, index, packet, parent)
 
   return index
 end
@@ -16671,22 +16671,22 @@ euronext_optiq_marketdatagateway_sbe_v4_12_dissect.template_id = function(buffer
   return offset + length, value
 end
 
--- Size: Block Length uint 16
-euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_uint_16 = 2
+-- Size: Block Length
+euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length = 2
 
--- Display: Block Length uint 16
-euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length_uint_16 = function(value)
-  return "Block Length uint 16: "..value
+-- Display: Block Length
+euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect: Block Length uint 16
-euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length_uint_16 = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_uint_16
+-- Dissect: Block Length
+euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length_uint_16(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v4_12_display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length_uint_16, range, value, display)
+  parent:add(euronext_optiq_marketdatagateway_sbe_v4_12.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -16695,7 +16695,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_12_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length_uint_16
+  index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.block_length
 
   index = index + euronext_optiq_marketdatagateway_sbe_v4_12_size_of.template_id
 
@@ -16715,8 +16715,8 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_12_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 16: 2 Byte Unsigned Fixed Width Integer
-  index, block_length_uint_16 = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length_uint_16(buffer, index, packet, parent)
+  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  index, block_length = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.block_length(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 28 values
   index, template_id = euronext_optiq_marketdatagateway_sbe_v4_12_dissect.template_id(buffer, index, packet, parent)
