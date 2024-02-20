@@ -133,6 +133,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trading_status_update_message
 coinbase_derivatives_marketdataapi_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "coinbase.derivatives.marketdataapi.sbe.v1.2.transacttime", ftypes.INT64)
 coinbase_derivatives_marketdataapi_sbe_v1_2.fields.version = ProtoField.new("Version", "coinbase.derivatives.marketdataapi.sbe.v1.2.version", ftypes.UINT16)
 coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.derivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.INT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -954,22 +955,27 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.settlement_price = function(
   return offset + length, value
 end
 
--- Size: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price = 8
+-- Size: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price_optional = 8
 
--- Display: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_2_display.vwap_price = function(value)
-  return "Vwap Price: "..value
+-- Display: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_2_display.vwap_price_optional = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Vwap Price Optional: No Value"
+  end
+
+  return "Vwap Price Optional: "..value
 end
 
--- Dissect: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price
+-- Dissect: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price_optional = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price_optional
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2_display.vwap_price(value, buffer, offset, packet, parent)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2_display.vwap_price_optional(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1157,7 +1163,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.end_of_snapshot_message = fu
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.high_price
 
-  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price_optional
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.settlement_price
 
@@ -1226,8 +1232,8 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.end_of_snapshot_message_fiel
   -- High Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_price = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.high_price(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer
-  index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price(buffer, index, packet, parent)
+  -- Vwap Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, vwap_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price_optional(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.settlement_price(buffer, index, packet, parent)
@@ -2367,6 +2373,26 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.open_interest_message = func
   end
 
   return coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.open_interest_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price = 8
+
+-- Display: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_2_display.vwap_price = function(value)
+  return "Vwap Price: "..value
+end
+
+-- Dissect: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2_display.vwap_price(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Trade Session Volume Message

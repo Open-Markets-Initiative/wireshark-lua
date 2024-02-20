@@ -101,6 +101,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.fields.payload = ProtoField.new("Pay
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price = ProtoField.new("Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.price", ftypes.DOUBLE)
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price_increment = ProtoField.new("Price Increment", "coinbase.derivatives.marketdataapi.sbe.v1.3.priceincrement", ftypes.DOUBLE)
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.priorsettlementprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price_optional = ProtoField.new("Prior Settlement Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.3.priorsettlementpriceoptional", ftypes.DOUBLE)
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_code = ProtoField.new("Product Code", "coinbase.derivatives.marketdataapi.sbe.v1.3.productcode", ftypes.STRING)
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_group = ProtoField.new("Product Group", "coinbase.derivatives.marketdataapi.sbe.v1.3.productgroup", ftypes.INT8)
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_id = ProtoField.new("Product Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.productid", ftypes.INT32)
@@ -143,6 +144,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3.fields.transact_time = ProtoField.ne
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.underlyinginstrumentid", ftypes.INT32)
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.version = ProtoField.new("Version", "coinbase.derivatives.marketdataapi.sbe.v1.3.version", ftypes.UINT16)
 coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.vwapprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.derivatives.marketdataapi.sbe.v1.3.vwappriceoptional", ftypes.DOUBLE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -630,21 +632,21 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.definition_flags = function(
   return offset + 2, range
 end
 
--- Size: Prior Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price = 8
+-- Size: Prior Settlement Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price_optional = 8
 
--- Display: Prior Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_3_display.prior_settlement_price = function(raw, value)
+-- Display: Prior Settlement Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_3_display.prior_settlement_price_optional = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Prior Settlement Price: No Value"
+    return "Prior Settlement Price Optional: No Value"
   end
 
-  return "Prior Settlement Price: "..value
+  return "Prior Settlement Price Optional: "..value
 end
 
--- Translate: Prior Settlement Price
-translate.prior_settlement_price = function(raw)
+-- Translate: Prior Settlement Price Optional
+translate.prior_settlement_price_optional = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -653,15 +655,15 @@ translate.prior_settlement_price = function(raw)
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Prior Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price
+-- Dissect: Prior Settlement Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price_optional = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price_optional
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.prior_settlement_price(raw)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.prior_settlement_price(raw, value, buffer, offset, packet, parent)
+  local value = translate.prior_settlement_price_optional(raw)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.prior_settlement_price_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1079,28 +1081,38 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.settlement_price = function(
   return offset + length, value
 end
 
--- Size: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price = 8
+-- Size: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price_optional = 8
 
--- Display: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price = function(value)
-  return "Vwap Price: "..value
+-- Display: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price_optional = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Vwap Price Optional: No Value"
+  end
+
+  return "Vwap Price Optional: "..value
 end
 
--- Translate: Vwap Price
-translate.vwap_price = function(raw)
+-- Translate: Vwap Price Optional
+translate.vwap_price_optional = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price
+-- Dissect: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price_optional = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price_optional
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = translate.vwap_price(raw)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price(value, buffer, offset, packet, parent)
+  local value = translate.vwap_price_optional(raw)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price_optional(raw, value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1343,7 +1355,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.end_of_snapshot_message = fu
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.high_price
 
-  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price_optional
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.settlement_price
 
@@ -1375,7 +1387,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.end_of_snapshot_message = fu
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.next_ask_implied_qty
 
-  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price_optional
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.definition_flags
 
@@ -1412,8 +1424,8 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.end_of_snapshot_message_fiel
   -- High Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.high_price(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer
-  index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price(buffer, index, packet, parent)
+  -- Vwap Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, vwap_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price_optional(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.settlement_price(buffer, index, packet, parent)
@@ -1460,8 +1472,8 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.end_of_snapshot_message_fiel
   -- Next Ask Implied Qty: 4 Byte Signed Fixed Width Integer
   index, next_ask_implied_qty = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.next_ask_implied_qty(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, prior_settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price(buffer, index, packet, parent)
+  -- Prior Settlement Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, prior_settlement_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price_optional(buffer, index, packet, parent)
 
   -- Definition Flags: Struct of 4 fields
   index, definition_flags = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.definition_flags(buffer, index, packet, parent)
@@ -2818,6 +2830,32 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.open_interest_message = func
   return coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.open_interest_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price = 8
+
+-- Display: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price = function(value)
+  return "Vwap Price: "..value
+end
+
+-- Translate: Vwap Price
+translate.vwap_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = translate.vwap_price(raw)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Trade Session Volume Message
 coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.trade_session_volume_message = function(buffer, offset)
   local index = 0
@@ -3891,6 +3929,32 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.trading_status_update_messag
   return coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.trading_status_update_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Prior Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price = 8
+
+-- Display: Prior Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_3_display.prior_settlement_price = function(value)
+  return "Prior Settlement Price: "..value
+end
+
+-- Translate: Prior Settlement Price
+translate.prior_settlement_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Prior Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = translate.prior_settlement_price(raw)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.prior_settlement_price(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Option Instrument Definition Message
 coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.option_instrument_definition_message = function(buffer, offset)
   local index = 0
@@ -3976,7 +4040,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.option_instrument_definition
   -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
   index, last_trading_session_date = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.last_trading_session_date(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer
   index, prior_settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
@@ -4037,7 +4101,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.spread_instrument_definition
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.contract_size
 
-  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price_optional
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.settlement_price
 
@@ -4101,8 +4165,8 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.spread_instrument_definition
   -- Contract Size: 4 Byte Signed Fixed Width Integer
   index, contract_size = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.contract_size(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, prior_settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price(buffer, index, packet, parent)
+  -- Prior Settlement Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, prior_settlement_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price_optional(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.settlement_price(buffer, index, packet, parent)
@@ -4174,7 +4238,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.outright_instrument_definiti
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.contract_size
 
-  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price
+  index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.prior_settlement_price_optional
 
   index = index + coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.settlement_price
 
@@ -4232,8 +4296,8 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.outright_instrument_definiti
   -- Contract Size: 4 Byte Signed Fixed Width Integer
   index, contract_size = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.contract_size(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, prior_settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price(buffer, index, packet, parent)
+  -- Prior Settlement Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, prior_settlement_price_optional = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.prior_settlement_price_optional(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.settlement_price(buffer, index, packet, parent)
