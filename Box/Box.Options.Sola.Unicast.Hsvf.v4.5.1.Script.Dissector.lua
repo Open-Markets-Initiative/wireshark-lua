@@ -62,8 +62,8 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_day = ProtoField.new("Expiry 
 box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_month_code = ProtoField.new("Expiry Month Code", "box.options.sola.unicast.hsvf.v4.5.1.expirymonthcode", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_year = ProtoField.new("Expiry Year", "box.options.sola.unicast.hsvf.v4.5.1.expiryyear", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.filler_1 = ProtoField.new("Filler 1", "box.options.sola.unicast.hsvf.v4.5.1.filler1", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.filler_2 = ProtoField.new("Filler 2", "box.options.sola.unicast.hsvf.v4.5.1.filler2", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.filler_6 = ProtoField.new("Filler 6", "box.options.sola.unicast.hsvf.v4.5.1.filler6", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.filler_x_2 = ProtoField.new("Filler X 2", "box.options.sola.unicast.hsvf.v4.5.1.fillerx2", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.firm_id = ProtoField.new("Firm Id", "box.options.sola.unicast.hsvf.v4.5.1.firmid", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.gap_control = ProtoField.new("Gap Control", "box.options.sola.unicast.hsvf.v4.5.1.gapcontrol", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.gap_sequence_message = ProtoField.new("Gap Sequence Message", "box.options.sola.unicast.hsvf.v4.5.1.gapsequencemessage", ftypes.STRING)
@@ -628,7 +628,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.deletion_type = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.deletion_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.deletion_type(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.deletion_type, range, value, display)
@@ -648,7 +653,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.complex_order_instrument_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.complex_order_instrument_symbol(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_symbol, range, value, display)
@@ -954,7 +959,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.root_symbol = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.root_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.root_symbol(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.root_symbol, range, value, display)
@@ -1212,7 +1217,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.order_quantity = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.order_quantity
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.order_quantity(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.order_quantity, range, value, display)
@@ -1545,7 +1555,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_quantity_for_improvement_order = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.minimum_quantity_for_improvement_order
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.minimum_quantity_for_improvement_order(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order, range, value, display)
@@ -1590,7 +1605,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_expiry_time = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.improvement_phase_expiry_time
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.improvement_phase_expiry_time(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time, range, value, display)
@@ -2017,7 +2032,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.continue_marker = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.continue_marker
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.continue_marker(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.continue_marker, range, value, display)
@@ -2037,7 +2057,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.bulletin_contents = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.bulletin_contents
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.bulletin_contents(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bulletin_contents, range, value, display)
@@ -2824,7 +2844,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_size = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.ask_size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.ask_size(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.ask_size, range, value, display)
@@ -2921,7 +2946,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_size = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.bid_size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_size, range, value, display)
@@ -3213,7 +3243,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol, range, value, display)
@@ -3534,7 +3564,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.leg_symbol = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.leg_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.leg_symbol(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.leg_symbol, range, value, display)
@@ -3708,7 +3738,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_external_code = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.instrument_external_code
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.instrument_external_code(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_external_code, range, value, display)
@@ -3756,22 +3786,22 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.group = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Size: Filler X 2
-box_options_sola_unicast_hsvf_v4_5_1_size_of.filler_x_2 = 2
+-- Size: Filler 2
+box_options_sola_unicast_hsvf_v4_5_1_size_of.filler_2 = 2
 
--- Display: Filler X 2
-box_options_sola_unicast_hsvf_v4_5_1_display.filler_x_2 = function(value)
-  return "Filler X 2: "..value
+-- Display: Filler 2
+box_options_sola_unicast_hsvf_v4_5_1_display.filler_2 = function(value)
+  return "Filler 2: "..value
 end
 
--- Dissect: Filler X 2
-box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_x_2 = function(buffer, offset, packet, parent)
-  local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.filler_x_2
+-- Dissect: Filler 2
+box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_2 = function(buffer, offset, packet, parent)
+  local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.filler_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = box_options_sola_unicast_hsvf_v4_5_1_display.filler_x_2(value, buffer, offset, packet, parent)
+  local display = box_options_sola_unicast_hsvf_v4_5_1_display.filler_2(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.filler_x_2, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.filler_2, range, value, display)
 
   return offset + length, value
 end
@@ -3853,7 +3883,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.min_threshold_price = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.min_threshold_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.min_threshold_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.min_threshold_price, range, value, display)
@@ -3920,7 +3955,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.max_threshold_price = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.max_threshold_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.max_threshold_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price, range, value, display)
@@ -3967,7 +4007,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.min_number_of_contracts_per_order = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.min_number_of_contracts_per_order
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.min_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order, range, value, display)
@@ -3987,7 +4032,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.max_number_of_contracts_per_order = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.max_number_of_contracts_per_order
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.max_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order, range, value, display)
@@ -4083,7 +4133,7 @@ box_options_sola_unicast_hsvf_v4_5_1_size_of.complex_order_instrument_keys_messa
 
   index = index + box_options_sola_unicast_hsvf_v4_5_1_size_of.tick_increment_fraction_indicator
 
-  index = index + box_options_sola_unicast_hsvf_v4_5_1_size_of.filler_x_2
+  index = index + box_options_sola_unicast_hsvf_v4_5_1_size_of.filler_2
 
   index = index + box_options_sola_unicast_hsvf_v4_5_1_size_of.group
 
@@ -4156,8 +4206,8 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_keys_messa
   -- Tick Increment Fraction Indicator: 1 Byte Ascii String
   index, tick_increment_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.tick_increment_fraction_indicator(buffer, index, packet, parent)
 
-  -- Filler X 2: 2 Byte Ascii String
-  index, filler_x_2 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_x_2(buffer, index, packet, parent)
+  -- Filler 2: 2 Byte Ascii String
+  index, filler_2 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_2(buffer, index, packet, parent)
 
   -- Group: 2 Byte Ascii String
   index, group = box_options_sola_unicast_hsvf_v4_5_1_dissect.group(buffer, index, packet, parent)
@@ -4207,7 +4257,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.underlying_symbol_root = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.underlying_symbol_root
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.underlying_symbol_root(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol_root, range, value, display)
@@ -4391,7 +4441,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_threshold_price = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.minimum_threshold_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.minimum_threshold_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_threshold_price, range, value, display)
@@ -4431,7 +4486,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.maximum_threshold_price = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.maximum_threshold_price
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.maximum_threshold_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_threshold_price, range, value, display)
@@ -4451,7 +4511,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_number_of_contracts_per_order = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.minimum_number_of_contracts_per_order
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.minimum_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order, range, value, display)
@@ -4471,7 +4536,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.maximum_number_of_contracts_per_order = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.maximum_number_of_contracts_per_order
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.maximum_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order, range, value, display)
@@ -5066,8 +5136,8 @@ box_options_sola_unicast_hsvf_v4_5_1_size_of.complex_market_depth_level = functi
 end
 
 -- Display: Complex Market Depth Level
-box_options_sola_unicast_hsvf_v4_5_1_display.complex_market_depth_level = function(buffer, offset, value, packet, parent)
-  return "Complex Market Depth Level: "..value
+box_options_sola_unicast_hsvf_v4_5_1_display.complex_market_depth_level = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Complex Market Depth Level
@@ -5116,9 +5186,8 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_market_depth_level = functi
   if show.complex_market_depth_level then
     local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.complex_market_depth_level(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:string()
-    local display = box_options_sola_unicast_hsvf_v4_5_1_display.complex_market_depth_level(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_market_depth_level, range, value, display)
+    local display = box_options_sola_unicast_hsvf_v4_5_1_display.complex_market_depth_level(buffer, packet, parent)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_market_depth_level, range, display)
   end
 
   return box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_market_depth_level_fields(buffer, offset, packet, parent)
@@ -5414,7 +5483,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.public_customer_ask_size = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.public_customer_ask_size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.public_customer_ask_size(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.public_customer_ask_size, range, value, display)
@@ -5434,7 +5508,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.public_customer_bid_size = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.public_customer_bid_size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.public_customer_bid_size(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.public_customer_bid_size, range, value, display)
@@ -5643,7 +5722,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.requested_size = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.requested_size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.requested_size(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.requested_size, range, value, display)
@@ -6149,7 +6233,12 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.gap_control = function(buffer, offset, packet, parent)
   local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.gap_control
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = box_options_sola_unicast_hsvf_v4_5_1_display.gap_control(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.gap_control, range, value, display)
