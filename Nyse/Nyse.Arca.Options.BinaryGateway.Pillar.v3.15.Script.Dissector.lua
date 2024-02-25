@@ -4807,7 +4807,18 @@ end
 nyse_arca_options_binarygateway_pillar_v3_15_dissect.pre_liquidity_indicator = function(buffer, offset, packet, parent)
   local length = nyse_arca_options_binarygateway_pillar_v3_15_size_of.pre_liquidity_indicator
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arca_options_binarygateway_pillar_v3_15_display.pre_liquidity_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nyse_arca_options_binarygateway_pillar_v3_15.fields.pre_liquidity_indicator, range, value, display)
