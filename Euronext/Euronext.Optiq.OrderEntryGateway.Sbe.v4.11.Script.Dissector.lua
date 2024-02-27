@@ -7592,6 +7592,11 @@ euronext_optiq_orderentrygateway_sbe_v4_11_size_of.strategy_code_optional = 1
 
 -- Display: Strategy Code Optional
 euronext_optiq_orderentrygateway_sbe_v4_11_display.strategy_code_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Strategy Code Optional: No Value"
+  end
+
   if value == "A" then
     return "Strategy Code Optional: Jelly Roll (A)"
   end
@@ -7752,9 +7757,7 @@ euronext_optiq_orderentrygateway_sbe_v4_11_dissect.strategy_code_optional = func
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9598,6 +9601,11 @@ euronext_optiq_orderentrygateway_sbe_v4_11_size_of.strategy_code = 1
 
 -- Display: Strategy Code
 euronext_optiq_orderentrygateway_sbe_v4_11_display.strategy_code = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Strategy Code: No Value"
+  end
+
   if value == "A" then
     return "Strategy Code: Jelly Roll (A)"
   end
@@ -9755,9 +9763,7 @@ euronext_optiq_orderentrygateway_sbe_v4_11_dissect.strategy_code = function(buff
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

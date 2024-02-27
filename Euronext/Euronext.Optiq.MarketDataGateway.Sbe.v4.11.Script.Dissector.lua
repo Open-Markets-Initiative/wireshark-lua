@@ -1018,6 +1018,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.security_condition = 1
 
 -- Display: Security Condition
 euronext_optiq_marketdatagateway_sbe_v4_11_display.security_condition = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Condition: No Value"
+  end
+
   if value == "O" then
     return "Security Condition: Normal (O)"
   end
@@ -1055,9 +1060,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.security_condition = function
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1627,6 +1630,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.mmt_trading_mode = 1
 
 -- Display: Mmt Trading Mode
 euronext_optiq_marketdatagateway_sbe_v4_11_display.mmt_trading_mode = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mmt Trading Mode: No Value"
+  end
+
   if value == "1" then
     return "Mmt Trading Mode: Undefined Auctionequal Uncrossing (1)"
   end
@@ -1676,9 +1684,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.mmt_trading_mode = function(b
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2605,6 +2611,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.tax_description_attaching_to_
 
 -- Display: Tax Description Attaching To A Dividend
 euronext_optiq_marketdatagateway_sbe_v4_11_display.tax_description_attaching_to_a_dividend = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Tax Description Attaching To A Dividend: No Value"
+  end
+
   if value == "D" then
     return "Tax Description Attaching To A Dividend: Deducedat Source (D)"
   end
@@ -2624,9 +2635,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.tax_description_attaching_to_
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2925,6 +2934,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.gross_of_cdsc_indicator = 1
 
 -- Display: Gross Of Cdsc Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.gross_of_cdsc_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Gross Of Cdsc Indicator: No Value"
+  end
+
   if value == "N" then
     return "Gross Of Cdsc Indicator: No (N)"
   end
@@ -2947,9 +2961,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.gross_of_cdsc_indicator = fun
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2990,6 +3002,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.opened_closed_fund = 1
 
 -- Display: Opened Closed Fund
 euronext_optiq_marketdatagateway_sbe_v4_11_display.opened_closed_fund = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Opened Closed Fund: No Value"
+  end
+
   if value == "O" then
     return "Opened Closed Fund: Open (O)"
   end
@@ -3012,9 +3029,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.opened_closed_fund = function
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3816,6 +3831,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_duplicative_ind
 
 -- Display: Efficient Mmt Duplicative Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_duplicative_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Duplicative Indicator: No Value"
+  end
+
   if value == "1" then
     return "Efficient Mmt Duplicative Indicator: Dupl (1)"
   end
@@ -3838,9 +3858,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_duplicative_ind
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3856,6 +3874,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_post_trade_defe
 
 -- Display: Efficient Mmt Post Trade Deferral
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_post_trade_deferral = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Post Trade Deferral: No Value"
+  end
+
   if value == "1" then
     return "Efficient Mmt Post Trade Deferral: Lmtf (1)"
   end
@@ -3908,9 +3931,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_post_trade_defe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3926,6 +3947,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_publication_mod
 
 -- Display: Efficient Mmt Publication Mode
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_publication_mode = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Publication Mode: No Value"
+  end
+
   if value == "1" then
     return "Efficient Mmt Publication Mode: Non Immediate Publication (1)"
   end
@@ -3963,9 +3989,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_publication_mod
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3981,6 +4005,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_algorithmic_ind
 
 -- Display: Efficient Mmt Algorithmic Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_algorithmic_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Algorithmic Indicator: No Value"
+  end
+
   if value == "H" then
     return "Efficient Mmt Algorithmic Indicator: Algo (H)"
   end
@@ -4003,9 +4032,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_algorithmic_ind
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4021,6 +4048,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_contributionto_
 
 -- Display: Efficient Mmt Contributionto Price
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_contributionto_price = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Contributionto Price: No Value"
+  end
+
   if value == "J" then
     return "Efficient Mmt Contributionto Price: Tncp (J)"
   end
@@ -4049,9 +4081,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_contributionto_
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4067,6 +4097,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_off_book_automa
 
 -- Display: Efficient Mmt Off Book Automated Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_off_book_automated_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Off Book Automated Indicator: No Value"
+  end
+
   if value == "M" then
     return "Efficient Mmt Off Book Automated Indicator: Off Book Non Automated (M)"
   end
@@ -4092,9 +4127,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_off_book_automa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4110,6 +4143,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_special_dividen
 
 -- Display: Efficient Mmt Special Dividend Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_special_dividend_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Special Dividend Indicator: No Value"
+  end
+
   if value == "E" then
     return "Efficient Mmt Special Dividend Indicator: Sdiv (E)"
   end
@@ -4132,9 +4170,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_special_dividen
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4150,6 +4186,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_benchmark_indic
 
 -- Display: Efficient Mmt Benchmark Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_benchmark_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Benchmark Indicator: No Value"
+  end
+
   if value == "B" then
     return "Efficient Mmt Benchmark Indicator: Benc (B)"
   end
@@ -4175,9 +4216,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_benchmark_indic
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4193,6 +4232,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_modification_in
 
 -- Display: Efficient Mmt Modification Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_modification_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Modification Indicator: No Value"
+  end
+
   if value == "A" then
     return "Efficient Mmt Modification Indicator: Amnd (A)"
   end
@@ -4218,9 +4262,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_modification_in
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4236,6 +4278,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_agency_cross_tr
 
 -- Display: Efficient Mmt Agency Cross Trade Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_agency_cross_trade_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Agency Cross Trade Indicator: No Value"
+  end
+
   if value == "X" then
     return "Efficient Mmt Agency Cross Trade Indicator: Actx (X)"
   end
@@ -4258,9 +4305,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_agency_cross_tr
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4276,6 +4321,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_negotiation_ind
 
 -- Display: Efficient Mmt Negotiation Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_negotiation_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Negotiation Indicator: No Value"
+  end
+
   if value == "1" then
     return "Efficient Mmt Negotiation Indicator: Nliq (1)"
   end
@@ -4316,9 +4366,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_negotiation_ind
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4334,6 +4382,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_transaction_cat
 
 -- Display: Efficient Mmt Transaction Category
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_transaction_category = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Transaction Category: No Value"
+  end
+
   if value == "D" then
     return "Efficient Mmt Transaction Category: Dark Trade (D)"
   end
@@ -4365,9 +4418,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_transaction_cat
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4383,6 +4434,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.efficient_mmt_trading_mode = 
 
 -- Display: Efficient Mmt Trading Mode
 euronext_optiq_marketdatagateway_sbe_v4_11_display.efficient_mmt_trading_mode = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Efficient Mmt Trading Mode: No Value"
+  end
+
   if value == "1" then
     return "Efficient Mmt Trading Mode: Undefined Auctionequal Uncrossing (1)"
   end
@@ -4432,9 +4488,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.efficient_mmt_trading_mode = 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5417,9 +5471,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.settlement_method = function(
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6434,6 +6486,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.strategy_code = 1
 
 -- Display: Strategy Code
 euronext_optiq_marketdatagateway_sbe_v4_11_display.strategy_code = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Strategy Code: No Value"
+  end
+
   if value == "A" then
     return "Strategy Code: Jelly Roll (A)"
   end
@@ -6591,9 +6648,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.strategy_code = function(buff
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9411,6 +9466,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.underlying_type = 1
 
 -- Display: Underlying Type
 euronext_optiq_marketdatagateway_sbe_v4_11_display.underlying_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Underlying Type: No Value"
+  end
+
   if value == "C" then
     return "Underlying Type: Commodity (C)"
   end
@@ -9439,9 +9499,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.underlying_type = function(bu
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9457,6 +9515,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.contract_type = 1
 
 -- Display: Contract Type
 euronext_optiq_marketdatagateway_sbe_v4_11_display.contract_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Contract Type: No Value"
+  end
+
   if value == "F" then
     return "Contract Type: Future (F)"
   end
@@ -9482,9 +9545,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.contract_type = function(buff
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9536,6 +9597,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.exchange_code = 1
 
 -- Display: Exchange Code
 euronext_optiq_marketdatagateway_sbe_v4_11_display.exchange_code = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "A" then
     return "Exchange Code: Amsterdam Equity Derivatives (A)"
   end
@@ -9603,9 +9669,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.exchange_code = function(buff
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9923,6 +9987,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.leg_buy_sell = 1
 
 -- Display: Leg Buy Sell
 euronext_optiq_marketdatagateway_sbe_v4_11_display.leg_buy_sell = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Buy Sell: No Value"
+  end
+
   if value == "B" then
     return "Leg Buy Sell: Buy (B)"
   end
@@ -9942,9 +10011,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.leg_buy_sell = function(buffe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -11580,6 +11647,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.type_of_market_admission = 1
 
 -- Display: Type Of Market Admission
 euronext_optiq_marketdatagateway_sbe_v4_11_display.type_of_market_admission = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Type Of Market Admission: No Value"
+  end
+
   if value == "A" then
     return "Type Of Market Admission: Instrumentstradedontheprimarymarket (A)"
   end
@@ -11644,9 +11716,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.type_of_market_admission = fu
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -14230,6 +14300,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.block_trade_code = 1
 
 -- Display: Block Trade Code
 euronext_optiq_marketdatagateway_sbe_v4_11_display.block_trade_code = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Block Trade Code: No Value"
+  end
+
   if value == "B" then
     return "Block Trade Code: Block Trade (B)"
   end
@@ -14255,9 +14330,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.block_trade_code = function(b
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -14616,6 +14689,11 @@ euronext_optiq_marketdatagateway_sbe_v4_11_size_of.mmt_off_book_automated_indica
 
 -- Display: Mmt Off Book Automated Indicator
 euronext_optiq_marketdatagateway_sbe_v4_11_display.mmt_off_book_automated_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mmt Off Book Automated Indicator: No Value"
+  end
+
   if value == "M" then
     return "Mmt Off Book Automated Indicator: Off Book Non Automated (M)"
   end
@@ -14641,9 +14719,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11_dissect.mmt_off_book_automated_indica
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
