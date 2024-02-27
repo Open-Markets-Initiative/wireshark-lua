@@ -1197,6 +1197,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.side_optional = 1
 
 -- Display: Side Optional
 b3_equities_binaryentrypoint_sbe_v7_0_display.side_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side Optional: No Value"
+  end
+
   if value == "1" then
     return "Side Optional: Buy (1)"
   end
@@ -1219,9 +1224,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.side_optional = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1320,6 +1323,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.mass_action_response = 1
 
 -- Display: Mass Action Response
 b3_equities_binaryentrypoint_sbe_v7_0_display.mass_action_response = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mass Action Response: No Value"
+  end
+
   if value == "0" then
     return "Mass Action Response: Rejected (0)"
   end
@@ -1339,9 +1347,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.mass_action_response = function(bu
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1494,9 +1500,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.padding = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2012,6 +2016,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.side = 1
 
 -- Display: Side
 b3_equities_binaryentrypoint_sbe_v7_0_display.side = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -2031,9 +2040,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.side = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2069,6 +2076,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.alloc_status = 1
 
 -- Display: Alloc Status
 b3_equities_binaryentrypoint_sbe_v7_0_display.alloc_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Status: No Value"
+  end
+
   if value == "0" then
     return "Alloc Status: Accepted (0)"
   end
@@ -2088,9 +2100,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.alloc_status = function(buffer, of
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2146,6 +2156,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.alloc_no_orders_type = 1
 
 -- Display: Alloc No Orders Type
 b3_equities_binaryentrypoint_sbe_v7_0_display.alloc_no_orders_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc No Orders Type: No Value"
+  end
+
   if value == "0" then
     return "Alloc No Orders Type: Notspecified (0)"
   end
@@ -2162,9 +2177,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.alloc_no_orders_type = function(bu
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2180,6 +2193,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.alloc_report_type = 1
 
 -- Display: Alloc Report Type
 b3_equities_binaryentrypoint_sbe_v7_0_display.alloc_report_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Report Type: No Value"
+  end
+
   if value == "8" then
     return "Alloc Report Type: Requesttointermediary (8)"
   end
@@ -2196,9 +2214,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.alloc_report_type = function(buffe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2214,6 +2230,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.alloc_trans_type = 1
 
 -- Display: Alloc Trans Type
 b3_equities_binaryentrypoint_sbe_v7_0_display.alloc_trans_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Trans Type: No Value"
+  end
+
   if value == "0" then
     return "Alloc Trans Type: New (0)"
   end
@@ -2233,9 +2254,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.alloc_trans_type = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2587,6 +2606,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.alloc_type = 1
 
 -- Display: Alloc Type
 b3_equities_binaryentrypoint_sbe_v7_0_display.alloc_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Type: No Value"
+  end
+
   if value == "8" then
     return "Alloc Type: Requesttointermediary (8)"
   end
@@ -2603,9 +2627,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.alloc_type = function(buffer, offs
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2778,6 +2800,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.pos_type = 1
 
 -- Display: Pos Type
 b3_equities_binaryentrypoint_sbe_v7_0_display.pos_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Pos Type: No Value"
+  end
+
   if value == "T" then
     return "Pos Type: Transactionquantity (T)"
   end
@@ -2809,9 +2836,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.pos_type = function(buffer, offset
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3116,6 +3141,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.pos_maint_status = 1
 
 -- Display: Pos Maint Status
 b3_equities_binaryentrypoint_sbe_v7_0_display.pos_maint_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Pos Maint Status: No Value"
+  end
+
   if value == "0" then
     return "Pos Maint Status: Accepted (0)"
   end
@@ -3141,9 +3171,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.pos_maint_status = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3159,6 +3187,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.pos_maint_action = 1
 
 -- Display: Pos Maint Action
 b3_equities_binaryentrypoint_sbe_v7_0_display.pos_maint_action = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Pos Maint Action: No Value"
+  end
+
   if value == "1" then
     return "Pos Maint Action: New (1)"
   end
@@ -3178,9 +3211,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.pos_maint_action = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3970,6 +4001,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype_optional = 1
 
 -- Display: SettlType Optional
 b3_equities_binaryentrypoint_sbe_v7_0_display.settltype_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "SettlType Optional: No Value"
+  end
+
   if value == "0" then
     return "SettlType Optional: Buyersdiscretion (0)"
   end
@@ -3995,9 +4031,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype_optional = function(buff
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4399,6 +4433,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.execute_underlying_trade = 1
 
 -- Display: Execute Underlying Trade
 b3_equities_binaryentrypoint_sbe_v7_0_display.execute_underlying_trade = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Execute Underlying Trade: No Value"
+  end
+
   if value == "0" then
     return "Execute Underlying Trade: Nounderlyingtrade (0)"
   end
@@ -4421,9 +4460,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.execute_underlying_trade = functio
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4465,6 +4502,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.settltype = 1
 
 -- Display: SettlType
 b3_equities_binaryentrypoint_sbe_v7_0_display.settltype = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "SettlType: No Value"
+  end
+
   if value == "0" then
     return "SettlType: Buyersdiscretion (0)"
   end
@@ -4487,9 +4529,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.settltype = function(buffer, offse
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4672,6 +4712,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.quote_status_response_to = 1
 
 -- Display: Quote Status Response To
 b3_equities_binaryentrypoint_sbe_v7_0_display.quote_status_response_to = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Status Response To: No Value"
+  end
+
   if value == "0" then
     return "Quote Status Response To: Quote (0)"
   end
@@ -4700,9 +4745,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.quote_status_response_to = functio
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5319,6 +5362,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.leg_side = 1
 
 -- Display: Leg Side
 b3_equities_binaryentrypoint_sbe_v7_0_display.leg_side = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Side: No Value"
+  end
+
   if value == "1" then
     return "Leg Side: Buy (1)"
   end
@@ -5341,9 +5389,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.leg_side = function(buffer, offset
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6133,6 +6179,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.ord_status = 1
 
 -- Display: Ord Status
 b3_equities_binaryentrypoint_sbe_v7_0_display.ord_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
   if value == "0" then
     return "Ord Status: New (0)"
   end
@@ -6173,9 +6224,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.ord_status = function(buffer, offs
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6507,6 +6556,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force = 1
 
 -- Display: Time In Force
 b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -6541,9 +6595,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6559,6 +6611,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.ordtype = 1
 
 -- Display: OrdType
 b3_equities_binaryentrypoint_sbe_v7_0_display.ordtype = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "OrdType: No Value"
+  end
+
   if value == "1" then
     return "OrdType: Market (1)"
   end
@@ -6593,9 +6650,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.ordtype = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6903,6 +6958,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.multi_leg_reporting_type = 1
 
 -- Display: Multi Leg Reporting Type
 b3_equities_binaryentrypoint_sbe_v7_0_display.multi_leg_reporting_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Multi Leg Reporting Type: No Value"
+  end
+
   if value == "1" then
     return "Multi Leg Reporting Type: Singlesecurity (1)"
   end
@@ -6928,9 +6988,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.multi_leg_reporting_type = functio
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6946,6 +7004,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.order_category = 1
 
 -- Display: Order Category
 b3_equities_binaryentrypoint_sbe_v7_0_display.order_category = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Category: No Value"
+  end
+
   if value == "B" then
     return "Order Category: Resultofoptionsexercise (B)"
   end
@@ -6983,9 +7046,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.order_category = function(buffer, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7001,6 +7062,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.exec_type = 1
 
 -- Display: Exec Type
 b3_equities_binaryentrypoint_sbe_v7_0_display.exec_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Type: No Value"
+  end
+
   if value == "F" then
     return "Exec Type: Trade (F)"
   end
@@ -7020,9 +7086,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.exec_type = function(buffer, offse
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -8407,6 +8471,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_optional = 1
 
 -- Display: Time In Force Optional
 b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force Optional: No Value"
+  end
+
   if value == "0" then
     return "Time In Force Optional: Day (0)"
   end
@@ -8444,9 +8513,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force_optional = function(
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -8851,6 +8918,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.time_in_force_simple = 1
 
 -- Display: Time In Force Simple
 b3_equities_binaryentrypoint_sbe_v7_0_display.time_in_force_simple = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force Simple: No Value"
+  end
+
   if value == "0" then
     return "Time In Force Simple: Day (0)"
   end
@@ -8873,9 +8945,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.time_in_force_simple = function(bu
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -8891,6 +8961,11 @@ b3_equities_binaryentrypoint_sbe_v7_0_size_of.simple_ordtype = 1
 
 -- Display: Simple OrdType
 b3_equities_binaryentrypoint_sbe_v7_0_display.simple_ordtype = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Simple OrdType: No Value"
+  end
+
   if value == "1" then
     return "Simple OrdType: Market (1)"
   end
@@ -8910,9 +8985,7 @@ b3_equities_binaryentrypoint_sbe_v7_0_dissect.simple_ordtype = function(buffer, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

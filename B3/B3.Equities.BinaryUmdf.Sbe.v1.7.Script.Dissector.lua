@@ -868,6 +868,11 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_type = 1
 
 -- Display: Md Entry Type
 b3_equities_binaryumdf_sbe_v1_7_display.md_entry_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type: No Value"
+  end
+
   if value == "0" then
     return "Md Entry Type: Bid (0)"
   end
@@ -944,9 +949,7 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_type = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7059,6 +7062,11 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.security_update_action = 1
 
 -- Display: Security Update Action
 b3_equities_binaryumdf_sbe_v1_7_display.security_update_action = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Update Action: No Value"
+  end
+
   if value == "A" then
     return "Security Update Action: Add (A)"
   end
@@ -7081,9 +7089,7 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_update_action = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7171,6 +7177,11 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.security_id_source = 1
 
 -- Display: Security Id Source
 b3_equities_binaryumdf_sbe_v1_7_display.security_id_source = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Id Source: No Value"
+  end
+
   if value == "4" then
     return "Security Id Source: Isin (4)"
   end
@@ -7190,9 +7201,7 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_id_source = function(buffer, of
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
