@@ -3201,6 +3201,11 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_size_of.stat_type = 1
 
 -- Display: Stat Type
 coinbase_derivatives_marketdataapi_sbe_v1_7_display.stat_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Stat Type: No Value"
+  end
+
   if value == "4" then
     return "Stat Type: Dayopeningprice (4)"
   end
@@ -3235,9 +3240,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_7_dissect.stat_type = function(buffer,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
