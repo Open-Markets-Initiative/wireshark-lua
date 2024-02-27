@@ -474,6 +474,11 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.order_capacity = 1
 
 -- Display: Order Capacity
 memx_options_memoirdepth_sbe_v1_6_a_display.order_capacity = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Capacity: No Value"
+  end
+
   if value == "C" then
     return "Order Capacity: Customer (C)"
   end
@@ -493,9 +498,7 @@ memx_options_memoirdepth_sbe_v1_6_a_dissect.order_capacity = function(buffer, of
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -608,6 +611,11 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.side = 1
 
 -- Display: Side
 memx_options_memoirdepth_sbe_v1_6_a_display.side = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -627,9 +635,7 @@ memx_options_memoirdepth_sbe_v1_6_a_dissect.side = function(buffer, offset, pack
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1360,6 +1366,11 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.trading_session = 1
 
 -- Display: Trading Session
 memx_options_memoirdepth_sbe_v1_6_a_display.trading_session = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Session: No Value"
+  end
+
   if value == "1" then
     return "Trading Session: Open (1)"
   end
@@ -1379,9 +1390,7 @@ memx_options_memoirdepth_sbe_v1_6_a_dissect.trading_session = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1449,6 +1458,11 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.instrument_trading_status_reason = 1
 
 -- Display: Instrument Trading Status Reason
 memx_options_memoirdepth_sbe_v1_6_a_display.instrument_trading_status_reason = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Trading Status Reason: No Value"
+  end
+
   if value == "X" then
     return "Instrument Trading Status Reason: None (X)"
   end
@@ -1468,9 +1482,7 @@ memx_options_memoirdepth_sbe_v1_6_a_dissect.instrument_trading_status_reason = f
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1486,6 +1498,11 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.instrument_trading_status = 1
 
 -- Display: Instrument Trading Status
 memx_options_memoirdepth_sbe_v1_6_a_display.instrument_trading_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Trading Status: No Value"
+  end
+
   if value == "H" then
     return "Instrument Trading Status: Halted (H)"
   end
@@ -1505,9 +1522,7 @@ memx_options_memoirdepth_sbe_v1_6_a_dissect.instrument_trading_status = function
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

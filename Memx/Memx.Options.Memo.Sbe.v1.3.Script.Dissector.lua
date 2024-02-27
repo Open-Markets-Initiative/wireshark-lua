@@ -880,6 +880,11 @@ memx_options_memo_sbe_v1_3_size_of.open_or_close = 1
 
 -- Display: Open Or Close
 memx_options_memo_sbe_v1_3_display.open_or_close = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Open Or Close: No Value"
+  end
+
   if value == "O" then
     return "Open Or Close: Open (O)"
   end
@@ -902,9 +907,7 @@ memx_options_memo_sbe_v1_3_dissect.open_or_close = function(buffer, offset, pack
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1219,6 +1222,11 @@ memx_options_memo_sbe_v1_3_size_of.side = 1
 
 -- Display: Side
 memx_options_memo_sbe_v1_3_display.side = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -1241,9 +1249,7 @@ memx_options_memo_sbe_v1_3_dissect.side = function(buffer, offset, packet, paren
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1717,6 +1723,11 @@ memx_options_memo_sbe_v1_3_size_of.side_optional = 1
 
 -- Display: Side Optional
 memx_options_memo_sbe_v1_3_display.side_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side Optional: No Value"
+  end
+
   if value == "1" then
     return "Side Optional: Buy (1)"
   end
@@ -1742,9 +1753,7 @@ memx_options_memo_sbe_v1_3_dissect.side_optional = function(buffer, offset, pack
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2000,6 +2009,11 @@ memx_options_memo_sbe_v1_3_size_of.cxl_rej_response_to = 1
 
 -- Display: Cxl Rej Response To
 memx_options_memo_sbe_v1_3_display.cxl_rej_response_to = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cxl Rej Response To: No Value"
+  end
+
   if value == "1" then
     return "Cxl Rej Response To: Order Cancel Request (1)"
   end
@@ -2019,9 +2033,7 @@ memx_options_memo_sbe_v1_3_dissect.cxl_rej_response_to = function(buffer, offset
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2831,6 +2843,11 @@ memx_options_memo_sbe_v1_3_size_of.ord_status = 1
 
 -- Display: Ord Status
 memx_options_memo_sbe_v1_3_display.ord_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
   if value == "0" then
     return "Ord Status: New (0)"
   end
@@ -2868,9 +2885,7 @@ memx_options_memo_sbe_v1_3_dissect.ord_status = function(buffer, offset, packet,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3273,6 +3288,11 @@ memx_options_memo_sbe_v1_3_size_of.ord_type = 1
 
 -- Display: Ord Type
 memx_options_memo_sbe_v1_3_display.ord_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
   if value == "1" then
     return "Ord Type: Market (1)"
   end
@@ -3292,9 +3312,7 @@ memx_options_memo_sbe_v1_3_dissect.ord_type = function(buffer, offset, packet, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3980,9 +3998,7 @@ memx_options_memo_sbe_v1_3_dissect.party_id_source = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5014,6 +5030,11 @@ memx_options_memo_sbe_v1_3_size_of.time_in_force = 1
 
 -- Display: Time In Force
 memx_options_memo_sbe_v1_3_display.time_in_force = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -5033,9 +5054,7 @@ memx_options_memo_sbe_v1_3_dissect.time_in_force = function(buffer, offset, pack
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5258,6 +5277,11 @@ memx_options_memo_sbe_v1_3_size_of.open_or_close_optional = 1
 
 -- Display: Open Or Close Optional
 memx_options_memo_sbe_v1_3_display.open_or_close_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Open Or Close Optional: No Value"
+  end
+
   if value == "O" then
     return "Open Or Close Optional: Open (O)"
   end
@@ -5283,9 +5307,7 @@ memx_options_memo_sbe_v1_3_dissect.open_or_close_optional = function(buffer, off
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

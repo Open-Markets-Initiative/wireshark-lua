@@ -2908,6 +2908,11 @@ memx_options_riskcontrol_sbe_v1_6_size_of.side = 1
 
 -- Display: Side
 memx_options_riskcontrol_sbe_v1_6_display.side = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -2927,9 +2932,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.side = function(buffer, offset, packet
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

@@ -198,6 +198,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.corrected_sale_condition_4 = 1
 
 -- Display: Corrected Sale Condition 4
 memx_equities_memoirlastsale_sbe_v1_1_display.corrected_sale_condition_4 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Corrected Sale Condition 4: No Value"
+  end
+
   if value == "H" then
     return "Corrected Sale Condition 4: Price Variation (H)"
   end
@@ -223,9 +228,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.corrected_sale_condition_4 = funct
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -241,6 +244,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.corrected_sale_condition_3 = 1
 
 -- Display: Corrected Sale Condition 3
 memx_equities_memoirlastsale_sbe_v1_1_display.corrected_sale_condition_3 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Corrected Sale Condition 3: No Value"
+  end
+
   if value == "T" then
     return "Corrected Sale Condition 3: Form T (T)"
   end
@@ -260,9 +268,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.corrected_sale_condition_3 = funct
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -278,6 +284,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.corrected_sale_condition_2 = 1
 
 -- Display: Corrected Sale Condition 2
 memx_equities_memoirlastsale_sbe_v1_1_display.corrected_sale_condition_2 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Corrected Sale Condition 2: No Value"
+  end
+
   if value == "F" then
     return "Corrected Sale Condition 2: Intermarket Sweep (F)"
   end
@@ -297,9 +308,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.corrected_sale_condition_2 = funct
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -315,6 +324,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.corrected_sale_condition_1 = 1
 
 -- Display: Corrected Sale Condition 1
 memx_equities_memoirlastsale_sbe_v1_1_display.corrected_sale_condition_1 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Corrected Sale Condition 1: No Value"
+  end
+
   if value == "@" then
     return "Corrected Sale Condition 1: Regular (@)"
   end
@@ -331,9 +345,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.corrected_sale_condition_1 = funct
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -395,6 +407,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.original_sale_condition_4 = 1
 
 -- Display: Original Sale Condition 4
 memx_equities_memoirlastsale_sbe_v1_1_display.original_sale_condition_4 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Original Sale Condition 4: No Value"
+  end
+
   if value == "H" then
     return "Original Sale Condition 4: Price Variation (H)"
   end
@@ -420,9 +437,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.original_sale_condition_4 = functi
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -438,6 +453,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.original_sale_condition_3 = 1
 
 -- Display: Original Sale Condition 3
 memx_equities_memoirlastsale_sbe_v1_1_display.original_sale_condition_3 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Original Sale Condition 3: No Value"
+  end
+
   if value == "T" then
     return "Original Sale Condition 3: Form T (T)"
   end
@@ -457,9 +477,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.original_sale_condition_3 = functi
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -475,6 +493,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.original_sale_condition_2 = 1
 
 -- Display: Original Sale Condition 2
 memx_equities_memoirlastsale_sbe_v1_1_display.original_sale_condition_2 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Original Sale Condition 2: No Value"
+  end
+
   if value == "F" then
     return "Original Sale Condition 2: Intermarket Sweep (F)"
   end
@@ -494,9 +517,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.original_sale_condition_2 = functi
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -512,6 +533,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.original_sale_condition_1 = 1
 
 -- Display: Original Sale Condition 1
 memx_equities_memoirlastsale_sbe_v1_1_display.original_sale_condition_1 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Original Sale Condition 1: No Value"
+  end
+
   if value == "@" then
     return "Original Sale Condition 1: Regular (@)"
   end
@@ -528,9 +554,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.original_sale_condition_1 = functi
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -763,6 +787,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.sale_condition_4 = 1
 
 -- Display: Sale Condition 4
 memx_equities_memoirlastsale_sbe_v1_1_display.sale_condition_4 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 4: No Value"
+  end
+
   if value == "H" then
     return "Sale Condition 4: Price Variation (H)"
   end
@@ -788,9 +817,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.sale_condition_4 = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -806,6 +833,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.sale_condition_3 = 1
 
 -- Display: Sale Condition 3
 memx_equities_memoirlastsale_sbe_v1_1_display.sale_condition_3 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 3: No Value"
+  end
+
   if value == "T" then
     return "Sale Condition 3: Form T (T)"
   end
@@ -825,9 +857,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.sale_condition_3 = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -843,6 +873,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.sale_condition_2 = 1
 
 -- Display: Sale Condition 2
 memx_equities_memoirlastsale_sbe_v1_1_display.sale_condition_2 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 2: No Value"
+  end
+
   if value == "F" then
     return "Sale Condition 2: Intermarket Sweep (F)"
   end
@@ -862,9 +897,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.sale_condition_2 = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -880,6 +913,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.sale_condition_1 = 1
 
 -- Display: Sale Condition 1
 memx_equities_memoirlastsale_sbe_v1_1_display.sale_condition_1 = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 1: No Value"
+  end
+
   if value == "@" then
     return "Sale Condition 1: Regular (@)"
   end
@@ -896,9 +934,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.sale_condition_1 = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1140,6 +1176,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.trading_session = 1
 
 -- Display: Trading Session
 memx_equities_memoirlastsale_sbe_v1_1_display.trading_session = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Session: No Value"
+  end
+
   if value == "1" then
     return "Trading Session: Opening (1)"
   end
@@ -1165,9 +1206,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.trading_session = function(buffer,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1225,6 +1264,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.security_trading_status_reason = 1
 
 -- Display: Security Trading Status Reason
 memx_equities_memoirlastsale_sbe_v1_1_display.security_trading_status_reason = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status Reason: No Value"
+  end
+
   if value == "X" then
     return "Security Trading Status Reason: None (X)"
   end
@@ -1247,9 +1291,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.security_trading_status_reason = f
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1265,6 +1307,11 @@ memx_equities_memoirlastsale_sbe_v1_1_size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
 memx_equities_memoirlastsale_sbe_v1_1_display.security_trading_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status: No Value"
+  end
+
   if value == "H" then
     return "Security Trading Status: Halted (H)"
   end
@@ -1290,9 +1337,7 @@ memx_equities_memoirlastsale_sbe_v1_1_dissect.security_trading_status = function
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

@@ -899,6 +899,11 @@ memx_equities_memoirdepthfeed_sbe_v1_3_size_of.side = 1
 
 -- Display: Side
 memx_equities_memoirdepthfeed_sbe_v1_3_display.side = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -918,9 +923,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.side = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -998,6 +1001,11 @@ memx_equities_memoirdepthfeed_sbe_v1_3_size_of.trading_session = 1
 
 -- Display: Trading Session
 memx_equities_memoirdepthfeed_sbe_v1_3_display.trading_session = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Session: No Value"
+  end
+
   if value == "1" then
     return "Trading Session: Opening (1)"
   end
@@ -1023,9 +1031,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1083,6 +1089,11 @@ memx_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status_reason = 
 
 -- Display: Security Trading Status Reason
 memx_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status_reason = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status Reason: No Value"
+  end
+
   if value == "X" then
     return "Security Trading Status Reason: None (X)"
   end
@@ -1105,9 +1116,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_reason = 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1123,6 +1132,11 @@ memx_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
 memx_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status: No Value"
+  end
+
   if value == "H" then
     return "Security Trading Status: Halted (H)"
   end
@@ -1148,9 +1162,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status = functio
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

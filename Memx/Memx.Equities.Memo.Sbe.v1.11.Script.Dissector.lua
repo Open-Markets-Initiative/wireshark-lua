@@ -576,6 +576,11 @@ memx_equities_memo_sbe_v1_11_size_of.side_optional = 1
 
 -- Display: Side Optional
 memx_equities_memo_sbe_v1_11_display.side_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side Optional: No Value"
+  end
+
   if value == "1" then
     return "Side Optional: Buy (1)"
   end
@@ -604,9 +609,7 @@ memx_equities_memo_sbe_v1_11_dissect.side_optional = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -999,6 +1002,11 @@ memx_equities_memo_sbe_v1_11_size_of.cxl_rej_response_to = 1
 
 -- Display: Cxl Rej Response To
 memx_equities_memo_sbe_v1_11_display.cxl_rej_response_to = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cxl Rej Response To: No Value"
+  end
+
   if value == "1" then
     return "Cxl Rej Response To: Order Cancel Request (1)"
   end
@@ -1018,9 +1026,7 @@ memx_equities_memo_sbe_v1_11_dissect.cxl_rej_response_to = function(buffer, offs
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1298,6 +1304,11 @@ memx_equities_memo_sbe_v1_11_size_of.ord_status = 1
 
 -- Display: Ord Status
 memx_equities_memo_sbe_v1_11_display.ord_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
   if value == "0" then
     return "Ord Status: New (0)"
   end
@@ -1338,9 +1349,7 @@ memx_equities_memo_sbe_v1_11_dissect.ord_status = function(buffer, offset, packe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1510,9 +1519,7 @@ memx_equities_memo_sbe_v1_11_dissect.security_group = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1820,9 +1827,7 @@ memx_equities_memo_sbe_v1_11_dissect.locate_reqd = function(buffer, offset, pack
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1899,6 +1904,11 @@ memx_equities_memo_sbe_v1_11_size_of.ord_type = 1
 
 -- Display: Ord Type
 memx_equities_memo_sbe_v1_11_display.ord_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
   if value == "1" then
     return "Ord Type: Market (1)"
   end
@@ -1921,9 +1931,7 @@ memx_equities_memo_sbe_v1_11_dissect.ord_type = function(buffer, offset, packet,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1959,6 +1967,11 @@ memx_equities_memo_sbe_v1_11_size_of.side = 1
 
 -- Display: Side
 memx_equities_memo_sbe_v1_11_display.side = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -1984,9 +1997,7 @@ memx_equities_memo_sbe_v1_11_dissect.side = function(buffer, offset, packet, par
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2669,6 +2680,11 @@ memx_equities_memo_sbe_v1_11_size_of.last_mkt = 1
 
 -- Display: Last Mkt
 memx_equities_memo_sbe_v1_11_display.last_mkt = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Last Mkt: No Value"
+  end
+
   if value == "U" then
     return "Last Mkt: Memx (U)"
   end
@@ -2730,9 +2746,7 @@ memx_equities_memo_sbe_v1_11_dissect.last_mkt = function(buffer, offset, packet,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3569,6 +3583,11 @@ memx_equities_memo_sbe_v1_11_size_of.display_method = 1
 
 -- Display: Display Method
 memx_equities_memo_sbe_v1_11_display.display_method = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Display Method: No Value"
+  end
+
   if value == "1" then
     return "Display Method: Initial (1)"
   end
@@ -3594,9 +3613,7 @@ memx_equities_memo_sbe_v1_11_dissect.display_method = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3814,6 +3831,11 @@ memx_equities_memo_sbe_v1_11_size_of.order_capacity = 1
 
 -- Display: Order Capacity
 memx_equities_memo_sbe_v1_11_display.order_capacity = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Capacity: No Value"
+  end
+
   if value == "A" then
     return "Order Capacity: Agency (A)"
   end
@@ -3836,9 +3858,7 @@ memx_equities_memo_sbe_v1_11_dissect.order_capacity = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3854,6 +3874,11 @@ memx_equities_memo_sbe_v1_11_size_of.time_in_force = 1
 
 -- Display: Time In Force
 memx_equities_memo_sbe_v1_11_display.time_in_force = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -3882,9 +3907,7 @@ memx_equities_memo_sbe_v1_11_dissect.time_in_force = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

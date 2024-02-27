@@ -1568,9 +1568,7 @@ memx_equities_memo_sbe_v1_1_dissect.locate_reqd = function(buffer, offset, packe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2335,6 +2333,11 @@ memx_equities_memo_sbe_v1_1_size_of.last_mkt = 1
 
 -- Display: Last Mkt
 memx_equities_memo_sbe_v1_1_display.last_mkt = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Last Mkt: No Value"
+  end
+
   if value == "U" then
     return "Last Mkt: Memx (U)"
   end
@@ -2399,9 +2402,7 @@ memx_equities_memo_sbe_v1_1_dissect.last_mkt = function(buffer, offset, packet, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
