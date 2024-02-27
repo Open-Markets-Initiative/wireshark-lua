@@ -1800,7 +1800,12 @@ end
 finra_otc_bbds_dfi_v2018_1a_dissect.inside_appendage_indicator = function(buffer, offset, packet, parent)
   local length = finra_otc_bbds_dfi_v2018_1a_size_of.inside_appendage_indicator
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = finra_otc_bbds_dfi_v2018_1a_display.inside_appendage_indicator(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator, range, value, display)
