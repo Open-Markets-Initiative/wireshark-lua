@@ -1217,6 +1217,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.short_sale_type = 1
 
 -- Display: Short Sale Type
 cme_futures_ilink3_sbe_v8_8_display.short_sale_type = function(value)
+  if value == 255 then
+    return "Short Sale Type: No Value"
+  end
   if value == 0 then
     return "Short Sale Type: Long Sell (0)"
   end
@@ -1228,9 +1231,6 @@ cme_futures_ilink3_sbe_v8_8_display.short_sale_type = function(value)
   end
   if value == 3 then
     return "Short Sale Type: Undisclosed Sell Information Not Available Undi (3)"
-  end
-  if value == 255 then
-    return "Short Sale Type: No Value"
   end
 
   return "Short Sale Type: Unknown("..value..")"
@@ -1253,14 +1253,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.liquidity_flag = 1
 
 -- Display: Liquidity Flag
 cme_futures_ilink3_sbe_v8_8_display.liquidity_flag = function(value)
+  if value == 255 then
+    return "Liquidity Flag: No Value"
+  end
   if value == 0 then
     return "Liquidity Flag: False (0)"
   end
   if value == 1 then
     return "Liquidity Flag: True (1)"
-  end
-  if value == 255 then
-    return "Liquidity Flag: No Value"
   end
 
   return "Liquidity Flag: Unknown("..value..")"
@@ -1283,6 +1283,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.split_msg = 1
 
 -- Display: Split Msg
 cme_futures_ilink3_sbe_v8_8_display.split_msg = function(value)
+  if value == 255 then
+    return "Split Msg: No Value"
+  end
   if value == 0 then
     return "Split Msg: Split Message Delayed (0)"
   end
@@ -1291,9 +1294,6 @@ cme_futures_ilink3_sbe_v8_8_display.split_msg = function(value)
   end
   if value == 2 then
     return "Split Msg: Complete Message Delayed (2)"
-  end
-  if value == 255 then
-    return "Split Msg: No Value"
   end
 
   return "Split Msg: Unknown("..value..")"
@@ -1370,6 +1370,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.time_in_force = 1
 
 -- Display: Time In Force
 cme_futures_ilink3_sbe_v8_8_display.time_in_force = function(value)
+  if value == 255 then
+    return "Time In Force: No Value"
+  end
   if value == 0 then
     return "Time In Force: Day (0)"
   end
@@ -1387,9 +1390,6 @@ cme_futures_ilink3_sbe_v8_8_display.time_in_force = function(value)
   end
   if value == 99 then
     return "Time In Force: Good For Session (99)"
-  end
-  if value == 255 then
-    return "Time In Force: No Value"
   end
 
   return "Time In Force: Unknown("..value..")"
@@ -1442,6 +1442,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.ord_type_optional = 1
 
 -- Display: Ord Type Optional
 cme_futures_ilink3_sbe_v8_8_display.ord_type_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type Optional: No Value"
+  end
+
   if value == "1" then
     return "Ord Type Optional: Market With Protection (1)"
   end
@@ -1453,9 +1458,6 @@ cme_futures_ilink3_sbe_v8_8_display.ord_type_optional = function(value)
   end
   if value == "K" then
     return "Ord Type Optional: Market With Leftover As Limit (K)"
-  end
-  if value == '' then
-    return "Ord Type Optional: No Value"
   end
 
   return "Ord Type Optional: Unknown("..value..")"
@@ -1470,9 +1472,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2081,7 +2081,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_pending_replace_fields = fu
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = cme_futures_ilink3_sbe_v8_8_dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -2400,7 +2400,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_pending_cancel_fields = fun
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = cme_futures_ilink3_sbe_v8_8_dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -2433,10 +2433,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_pending_cancel_fields = fun
   -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8_dissect.priority_indicator(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String Nullable
+  -- Cancel Text: 8 Byte Ascii String
   index, cancel_text = cme_futures_ilink3_sbe_v8_8_dissect.cancel_text(buffer, index, packet, parent)
 
   return index
@@ -2809,14 +2809,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.quote_entry_open = 1
 
 -- Display: Quote Entry Open
 cme_futures_ilink3_sbe_v8_8_display.quote_entry_open = function(value)
+  if value == 255 then
+    return "Quote Entry Open: No Value"
+  end
   if value == 0 then
     return "Quote Entry Open: False (0)"
   end
   if value == 1 then
     return "Quote Entry Open: True (1)"
-  end
-  if value == 255 then
-    return "Quote Entry Open: No Value"
   end
 
   return "Quote Entry Open: Unknown("..value..")"
@@ -2881,9 +2881,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.unsolicited_cancel_type = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3215,7 +3213,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.quote_cancel_ack_fields = function(buffer, o
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
@@ -3230,7 +3228,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.quote_cancel_ack_fields = function(buffer, o
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8_dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Cancelled Symbol: 6 Byte Ascii String Nullable
+  -- Cancelled Symbol: 6 Byte Ascii String
   index, cancelled_symbol = cme_futures_ilink3_sbe_v8_8_dissect.cancelled_symbol(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
@@ -3275,10 +3273,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.quote_cancel_ack_fields = function(buffer, o
   -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8_dissect.delay_to_time(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String Nullable
+  -- Cancel Text: 8 Byte Ascii String
   index, cancel_text = cme_futures_ilink3_sbe_v8_8_dissect.cancel_text(buffer, index, packet, parent)
 
   -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -3483,6 +3481,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.mass_cancel_tif = 1
 
 -- Display: Mass Cancel Tif
 cme_futures_ilink3_sbe_v8_8_display.mass_cancel_tif = function(value)
+  if value == 255 then
+    return "Mass Cancel Tif: No Value"
+  end
   if value == 0 then
     return "Mass Cancel Tif: Day (0)"
   end
@@ -3491,9 +3492,6 @@ cme_futures_ilink3_sbe_v8_8_display.mass_cancel_tif = function(value)
   end
   if value == 6 then
     return "Mass Cancel Tif: Good Till Date (6)"
-  end
-  if value == 255 then
-    return "Mass Cancel Tif: No Value"
   end
 
   return "Mass Cancel Tif: Unknown("..value..")"
@@ -3516,14 +3514,16 @@ cme_futures_ilink3_sbe_v8_8_size_of.mass_action_ord_typ = 1
 
 -- Display: Mass Action Ord Typ
 cme_futures_ilink3_sbe_v8_8_display.mass_action_ord_typ = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mass Action Ord Typ: No Value"
+  end
+
   if value == "2" then
     return "Mass Action Ord Typ: Limit (2)"
   end
   if value == "4" then
     return "Mass Action Ord Typ: Stop Limit (4)"
-  end
-  if value == '' then
-    return "Mass Action Ord Typ: No Value"
   end
 
   return "Mass Action Ord Typ: Unknown("..value..")"
@@ -3538,9 +3538,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.mass_action_ord_typ = function(buffer, offse
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3556,14 +3554,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.side_optional = 1
 
 -- Display: Side Optional
 cme_futures_ilink3_sbe_v8_8_display.side_optional = function(value)
+  if value == 255 then
+    return "Side Optional: No Value"
+  end
   if value == 1 then
     return "Side Optional: Buy (1)"
   end
   if value == 2 then
     return "Side Optional: Sell (2)"
-  end
-  if value == 255 then
-    return "Side Optional: No Value"
   end
 
   return "Side Optional: Unknown("..value..")"
@@ -3586,14 +3584,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.mass_cancel_request_type = 1
 
 -- Display: Mass Cancel Request Type
 cme_futures_ilink3_sbe_v8_8_display.mass_cancel_request_type = function(value)
+  if value == 255 then
+    return "Mass Cancel Request Type: No Value"
+  end
   if value == 100 then
     return "Mass Cancel Request Type: Sender Sub Id (100)"
   end
   if value == 101 then
     return "Mass Cancel Request Type: Account (101)"
-  end
-  if value == 255 then
-    return "Mass Cancel Request Type: No Value"
   end
 
   return "Mass Cancel Request Type: Unknown("..value..")"
@@ -3952,7 +3950,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_mass_action_report_fields = function(b
   -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_action_report_id = cme_futures_ilink3_sbe_v8_8_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String Nullable
+  -- Security Group: 6 Byte Ascii String
   index, security_group = cme_futures_ilink3_sbe_v8_8_dissect.security_group(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
@@ -3991,7 +3989,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_mass_action_report_fields = function(b
   -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side_optional = cme_futures_ilink3_sbe_v8_8_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 3 values
+  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 2 values
   index, mass_action_ord_typ = cme_futures_ilink3_sbe_v8_8_dissect.mass_action_ord_typ(buffer, index, packet, parent)
 
   -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -4009,10 +4007,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_mass_action_report_fields = function(b
   -- Delay To Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delay_to_time = cme_futures_ilink3_sbe_v8_8_dissect.delay_to_time(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String Nullable
+  -- Cancel Text: 8 Byte Ascii String
   index, cancel_text = cme_futures_ilink3_sbe_v8_8_dissect.cancel_text(buffer, index, packet, parent)
 
   -- Affected Orders Groups: Struct of 2 fields
@@ -4541,14 +4539,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.expiration_cycle = 1
 
 -- Display: Expiration Cycle
 cme_futures_ilink3_sbe_v8_8_display.expiration_cycle = function(value)
+  if value == 255 then
+    return "Expiration Cycle: No Value"
+  end
   if value == 0 then
     return "Expiration Cycle: Expire On Trading Session Close (0)"
   end
   if value == 2 then
     return "Expiration Cycle: Expirationatgivendate (2)"
-  end
-  if value == 255 then
-    return "Expiration Cycle: No Value"
   end
 
   return "Expiration Cycle: Unknown("..value..")"
@@ -5152,16 +5150,16 @@ cme_futures_ilink3_sbe_v8_8_dissect.security_definition_response_fields = functi
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
-  -- Financial Instrument Full Name: 35 Byte Ascii String Nullable
+  -- Financial Instrument Full Name: 35 Byte Ascii String
   index, financial_instrument_full_name = cme_futures_ilink3_sbe_v8_8_dissect.financial_instrument_full_name(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = cme_futures_ilink3_sbe_v8_8_dissect.sender_id(buffer, index, packet, parent)
 
-  -- Symbol: 20 Byte Ascii String Nullable
+  -- Symbol: 20 Byte Ascii String
   index, symbol = cme_futures_ilink3_sbe_v8_8_dissect.symbol(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
@@ -5176,10 +5174,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.security_definition_response_fields = functi
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8_dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String Nullable
+  -- Security Group: 6 Byte Ascii String
   index, security_group = cme_futures_ilink3_sbe_v8_8_dissect.security_group(buffer, index, packet, parent)
 
-  -- Security Type: 6 Byte Ascii String Nullable
+  -- Security Type: 6 Byte Ascii String
   index, security_type = cme_futures_ilink3_sbe_v8_8_dissect.security_type(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
@@ -5188,7 +5186,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.security_definition_response_fields = functi
   -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
   index, security_id_optional = cme_futures_ilink3_sbe_v8_8_dissect.security_id_optional(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String Nullable
+  -- Currency: 3 Byte Ascii String
   index, currency = cme_futures_ilink3_sbe_v8_8_dissect.currency(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
@@ -5209,7 +5207,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.security_definition_response_fields = functi
   -- Source Repo Id: 4 Byte Signed Fixed Width Integer Nullable
   index, source_repo_id = cme_futures_ilink3_sbe_v8_8_dissect.source_repo_id(buffer, index, packet, parent)
 
-  -- Termination Type: 8 Byte Ascii String Nullable
+  -- Termination Type: 8 Byte Ascii String
   index, termination_type = cme_futures_ilink3_sbe_v8_8_dissect.termination_type(buffer, index, packet, parent)
 
   -- Security Response Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -5491,7 +5489,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.security_definition_request_fields = functio
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = cme_futures_ilink3_sbe_v8_8_dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id Optional: 20 Byte Ascii String Nullable
+  -- Sender Id Optional: 20 Byte Ascii String
   index, sender_id_optional = cme_futures_ilink3_sbe_v8_8_dissect.sender_id_optional(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
@@ -5753,7 +5751,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_addendum_spread_leg_o
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
   index, order_event_px = cme_futures_ilink3_sbe_v8_8_dissect.order_event_px(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String Nullable
+  -- Order Event Text: 5 Byte Ascii String
   index, order_event_text = cme_futures_ilink3_sbe_v8_8_dissect.order_event_text(buffer, index, packet, parent)
 
   -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
@@ -6090,7 +6088,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.gross_trade_amt_fields = function(buffer, of
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Gross Trade Amt
@@ -6132,7 +6130,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.calculated_ccy_last_qty_fields = function(bu
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Calculated Ccy Last Qty
@@ -6178,6 +6176,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.exec_type = 1
 
 -- Display: Exec Type
 cme_futures_ilink3_sbe_v8_8_display.exec_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Type: No Value"
+  end
+
   if value == "G" then
     return "Exec Type: Trade Correction (G)"
   end
@@ -6197,9 +6200,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.exec_type = function(buffer, offset, packet,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6215,6 +6216,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.ord_status_trd_cxl = 1
 
 -- Display: Ord Status Trd Cxl
 cme_futures_ilink3_sbe_v8_8_display.ord_status_trd_cxl = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status Trd Cxl: No Value"
+  end
+
   if value == "G" then
     return "Ord Status Trd Cxl: Trade Correction (G)"
   end
@@ -6234,9 +6240,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.ord_status_trd_cxl = function(buffer, offset
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6613,7 +6617,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_addendum_spread_order
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
   index, order_event_px = cme_futures_ilink3_sbe_v8_8_dissect.order_event_px(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String Nullable
+  -- Order Event Text: 5 Byte Ascii String
   index, order_event_text = cme_futures_ilink3_sbe_v8_8_dissect.order_event_text(buffer, index, packet, parent)
 
   -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
@@ -6958,14 +6962,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.managed_order = 1
 
 -- Display: Managed Order
 cme_futures_ilink3_sbe_v8_8_display.managed_order = function(value)
+  if value == 255 then
+    return "Managed Order: No Value"
+  end
   if value == 0 then
     return "Managed Order: False (0)"
   end
   if value == 1 then
     return "Managed Order: True (1)"
-  end
-  if value == 255 then
-    return "Managed Order: No Value"
   end
 
   return "Managed Order: Unknown("..value..")"
@@ -6988,14 +6992,16 @@ cme_futures_ilink3_sbe_v8_8_size_of.execution_mode = 1
 
 -- Display: Execution Mode
 cme_futures_ilink3_sbe_v8_8_display.execution_mode = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Execution Mode: No Value"
+  end
+
   if value == "A" then
     return "Execution Mode: Aggressive (A)"
   end
   if value == "P" then
     return "Execution Mode: Passive (P)"
-  end
-  if value == '' then
-    return "Execution Mode: No Value"
   end
 
   return "Execution Mode: Unknown("..value..")"
@@ -7010,9 +7016,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_mode = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7295,7 +7299,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_addendum_spread_field
   -- Exec Type: 1 Byte Ascii String Enum with 2 values
   index, exec_type = cme_futures_ilink3_sbe_v8_8_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -7313,7 +7317,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_addendum_spread_field
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -7471,7 +7475,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_addendum_outright_ord
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
   index, order_event_px = cme_futures_ilink3_sbe_v8_8_dissect.order_event_px(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String Nullable
+  -- Order Event Text: 5 Byte Ascii String
   index, order_event_text = cme_futures_ilink3_sbe_v8_8_dissect.order_event_text(buffer, index, packet, parent)
 
   -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
@@ -7626,6 +7630,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.exec_restatement_reason = 1
 
 -- Display: Exec Restatement Reason
 cme_futures_ilink3_sbe_v8_8_display.exec_restatement_reason = function(value)
+  if value == 255 then
+    return "Exec Restatement Reason: No Value"
+  end
   if value == 8 then
     return "Exec Restatement Reason: Market Exchange Option (8)"
   end
@@ -7661,9 +7668,6 @@ cme_futures_ilink3_sbe_v8_8_display.exec_restatement_reason = function(value)
   end
   if value == 111 then
     return "Exec Restatement Reason: System Cancel (111)"
-  end
-  if value == 255 then
-    return "Exec Restatement Reason: No Value"
   end
 
   return "Exec Restatement Reason: Unknown("..value..")"
@@ -7870,7 +7874,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_addendum_outright_fie
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -8067,13 +8071,13 @@ cme_futures_ilink3_sbe_v8_8_dissect.request_for_quote_ack_fields = function(buff
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
   index, sender_id = cme_futures_ilink3_sbe_v8_8_dissect.sender_id(buffer, index, packet, parent)
 
-  -- Exchange Quote Req Id: 17 Byte Ascii String Nullable
+  -- Exchange Quote Req Id: 17 Byte Ascii String
   index, exchange_quote_req_id = cme_futures_ilink3_sbe_v8_8_dissect.exchange_quote_req_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
@@ -8344,7 +8348,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.mass_quote_ack_fields = function(buffer, off
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
@@ -8691,6 +8695,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.rfq_side = 1
 
 -- Display: Rfq Side
 cme_futures_ilink3_sbe_v8_8_display.rfq_side = function(value)
+  if value == 255 then
+    return "Rfq Side: No Value"
+  end
   if value == 1 then
     return "Rfq Side: Buy (1)"
   end
@@ -8699,9 +8706,6 @@ cme_futures_ilink3_sbe_v8_8_display.rfq_side = function(value)
   end
   if value == 8 then
     return "Rfq Side: Cross (8)"
-  end
-  if value == 255 then
-    return "Rfq Side: No Value"
   end
 
   return "Rfq Side: Unknown("..value..")"
@@ -8845,11 +8849,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.quote_type = 1
 
 -- Display: Quote Type
 cme_futures_ilink3_sbe_v8_8_display.quote_type = function(value)
-  if value == 1 then
-    return "Quote Type: Tradeable (1)"
-  end
   if value == 255 then
     return "Quote Type: No Value"
+  end
+  if value == 1 then
+    return "Quote Type: Tradeable (1)"
   end
 
   return "Quote Type: Unknown("..value..")"
@@ -8949,6 +8953,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.dk_reason = 1
 
 -- Display: Dk Reason
 cme_futures_ilink3_sbe_v8_8_display.dk_reason = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Dk Reason: No Value"
+  end
+
   if value == "A" then
     return "Dk Reason: Unknown Security (A)"
   end
@@ -8973,9 +8982,6 @@ cme_futures_ilink3_sbe_v8_8_display.dk_reason = function(value)
   if value == "Z" then
     return "Dk Reason: Other (Z)"
   end
-  if value == '' then
-    return "Dk Reason: No Value"
-  end
 
   return "Dk Reason: Unknown("..value..")"
 end
@@ -8989,9 +8995,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.dk_reason = function(buffer, offset, packet,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9102,7 +9106,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_ack_fields = function(buffer, offs
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = cme_futures_ilink3_sbe_v8_8_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Dk Reason: 1 Byte Ascii String Enum with 9 values
+  -- Dk Reason: 1 Byte Ascii String Enum with 8 values
   index, dk_reason = cme_futures_ilink3_sbe_v8_8_dissect.dk_reason(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -9485,6 +9489,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.cust_order_handling_inst = 1
 
 -- Display: Cust Order Handling Inst
 cme_futures_ilink3_sbe_v8_8_display.cust_order_handling_inst = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cust Order Handling Inst: No Value"
+  end
+
   if value == "C" then
     return "Cust Order Handling Inst: Fc Mprovidedscreen (C)"
   end
@@ -9503,9 +9512,6 @@ cme_futures_ilink3_sbe_v8_8_display.cust_order_handling_inst = function(value)
   if value == "Y" then
     return "Cust Order Handling Inst: Client Electronic (Y)"
   end
-  if value == '' then
-    return "Cust Order Handling Inst: No Value"
-  end
 
   return "Cust Order Handling Inst: Unknown("..value..")"
 end
@@ -9519,9 +9525,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.cust_order_handling_inst = function(buffer, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9537,14 +9541,16 @@ cme_futures_ilink3_sbe_v8_8_size_of.cmta_giveup_cd = 1
 
 -- Display: Cmta Giveup Cd
 cme_futures_ilink3_sbe_v8_8_display.cmta_giveup_cd = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cmta Giveup Cd: No Value"
+  end
+
   if value == "G" then
     return "Cmta Giveup Cd: Give Up (G)"
   end
   if value == "S" then
     return "Cmta Giveup Cd: Sg Xoffset (S)"
-  end
-  if value == '' then
-    return "Cmta Giveup Cd: No Value"
   end
 
   return "Cmta Giveup Cd: Unknown("..value..")"
@@ -9559,9 +9565,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.cmta_giveup_cd = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9577,14 +9581,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.clearing_trade_price_type = 1
 
 -- Display: Clearing Trade Price Type
 cme_futures_ilink3_sbe_v8_8_display.clearing_trade_price_type = function(value)
+  if value == 255 then
+    return "Clearing Trade Price Type: No Value"
+  end
   if value == 0 then
     return "Clearing Trade Price Type: Trade Clearingat Execution Price (0)"
   end
   if value == 1 then
     return "Clearing Trade Price Type: Trade Clearingat Alternate Clearing Price (1)"
-  end
-  if value == 255 then
-    return "Clearing Trade Price Type: No Value"
   end
 
   return "Clearing Trade Price Type: Unknown("..value..")"
@@ -9607,6 +9611,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.avg_px_indicator = 1
 
 -- Display: Avg Px Indicator
 cme_futures_ilink3_sbe_v8_8_display.avg_px_indicator = function(value)
+  if value == 255 then
+    return "Avg Px Indicator: No Value"
+  end
   if value == 0 then
     return "Avg Px Indicator: No Average Pricing (0)"
   end
@@ -9615,9 +9622,6 @@ cme_futures_ilink3_sbe_v8_8_display.avg_px_indicator = function(value)
   end
   if value == 3 then
     return "Avg Px Indicator: Tradeispartofa Notional Value Average Price Group (3)"
-  end
-  if value == 255 then
-    return "Avg Px Indicator: No Value"
   end
 
   return "Avg Px Indicator: Unknown("..value..")"
@@ -9640,14 +9644,16 @@ cme_futures_ilink3_sbe_v8_8_size_of.self_match_prevention_instruction = 1
 
 -- Display: Self Match Prevention Instruction
 cme_futures_ilink3_sbe_v8_8_display.self_match_prevention_instruction = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Self Match Prevention Instruction: No Value"
+  end
+
   if value == "N" then
     return "Self Match Prevention Instruction: Cancel Newest (N)"
   end
   if value == "O" then
     return "Self Match Prevention Instruction: Cancel Oldest (O)"
-  end
-  if value == '' then
-    return "Self Match Prevention Instruction: No Value"
   end
 
   return "Self Match Prevention Instruction: Unknown("..value..")"
@@ -9662,9 +9668,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.self_match_prevention_instruction = function
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9680,14 +9684,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.clearing_account_type = 1
 
 -- Display: Clearing Account Type
 cme_futures_ilink3_sbe_v8_8_display.clearing_account_type = function(value)
+  if value == 255 then
+    return "Clearing Account Type: No Value"
+  end
   if value == 0 then
     return "Clearing Account Type: Customer (0)"
   end
   if value == 1 then
     return "Clearing Account Type: Firm (1)"
-  end
-  if value == 255 then
-    return "Clearing Account Type: No Value"
   end
 
   return "Clearing Account Type: Unknown("..value..")"
@@ -9710,6 +9714,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.cust_order_capacity = 1
 
 -- Display: Cust Order Capacity
 cme_futures_ilink3_sbe_v8_8_display.cust_order_capacity = function(value)
+  if value == 255 then
+    return "Cust Order Capacity: No Value"
+  end
   if value == 1 then
     return "Cust Order Capacity: Membertradingfortheirownaccount (1)"
   end
@@ -9721,9 +9728,6 @@ cme_futures_ilink3_sbe_v8_8_display.cust_order_capacity = function(value)
   end
   if value == 4 then
     return "Cust Order Capacity: Allother (4)"
-  end
-  if value == 255 then
-    return "Cust Order Capacity: No Value"
   end
 
   return "Cust Order Capacity: Unknown("..value..")"
@@ -9943,7 +9947,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_list_report_fields = function(
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Avg Px Group Id: 20 Byte Ascii String Nullable
+  -- Avg Px Group Id: 20 Byte Ascii String
   index, avg_px_group_id = cme_futures_ilink3_sbe_v8_8_dissect.avg_px_group_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
@@ -9973,7 +9977,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_list_report_fields = function(
   -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_account_type = cme_futures_ilink3_sbe_v8_8_dissect.clearing_account_type(buffer, index, packet, parent)
 
-  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 3 values
+  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 2 values
   index, self_match_prevention_instruction = cme_futures_ilink3_sbe_v8_8_dissect.self_match_prevention_instruction(buffer, index, packet, parent)
 
   -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -9982,10 +9986,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_list_report_fields = function(
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_trade_price_type = cme_futures_ilink3_sbe_v8_8_dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
+  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 2 values
   index, cmta_giveup_cd = cme_futures_ilink3_sbe_v8_8_dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 7 values
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
   index, cust_order_handling_inst = cme_futures_ilink3_sbe_v8_8_dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- Executor: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -10064,9 +10068,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_id_source = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -10215,9 +10217,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.requesting_party_role = function(buffer, off
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -10250,9 +10250,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.requesting_party_id_source = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -10321,7 +10319,7 @@ end
 cme_futures_ilink3_sbe_v8_8_dissect.requesting_party_i_ds_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Requesting Party Id: 5 Byte Ascii String Nullable
+  -- Requesting Party Id: 5 Byte Ascii String
   index, requesting_party_id = cme_futures_ilink3_sbe_v8_8_dissect.requesting_party_id(buffer, index, packet, parent)
 
   -- Requesting Party Id Source: 1 Byte Ascii String
@@ -10532,7 +10530,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_cancel_replace_reject_fields = functio
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
@@ -10659,7 +10657,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_cancel_reject_fields = function(buffer
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
@@ -11001,7 +10999,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_cancel_fields = function(bu
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = cme_futures_ilink3_sbe_v8_8_dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -11028,7 +11026,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_cancel_fields = function(bu
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -11052,10 +11050,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_cancel_fields = function(bu
   -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8_dissect.priority_indicator(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String Nullable
+  -- Cancel Text: 8 Byte Ascii String
   index, cancel_text = cme_futures_ilink3_sbe_v8_8_dissect.cancel_text(buffer, index, packet, parent)
 
   return index
@@ -11171,14 +11169,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.last_rpt_requested = 1
 
 -- Display: Last Rpt Requested
 cme_futures_ilink3_sbe_v8_8_display.last_rpt_requested = function(value)
+  if value == 255 then
+    return "Last Rpt Requested: No Value"
+  end
   if value == 0 then
     return "Last Rpt Requested: False (0)"
   end
   if value == 1 then
     return "Last Rpt Requested: True (1)"
-  end
-  if value == 255 then
-    return "Last Rpt Requested: No Value"
   end
 
   return "Last Rpt Requested: Unknown("..value..")"
@@ -11201,6 +11199,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.ord_status = 1
 
 -- Display: Ord Status
 cme_futures_ilink3_sbe_v8_8_display.ord_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
   if value == "0" then
     return "Ord Status: New (0)"
   end
@@ -11244,9 +11247,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.ord_status = function(buffer, offset, packet
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -11451,7 +11452,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_status_fields = function(bu
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
@@ -11523,7 +11524,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_status_fields = function(bu
   -- Ord Status: 1 Byte Ascii String Enum with 10 values
   index, ord_status = cme_futures_ilink3_sbe_v8_8_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -11547,7 +11548,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_status_fields = function(bu
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -11568,10 +11569,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_status_fields = function(bu
   -- Priority Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
   index, priority_indicator = cme_futures_ilink3_sbe_v8_8_dissect.priority_indicator(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
-  -- Cancel Text: 8 Byte Ascii String Nullable
+  -- Cancel Text: 8 Byte Ascii String
   index, cancel_text = cme_futures_ilink3_sbe_v8_8_dissect.cancel_text(buffer, index, packet, parent)
 
   return index
@@ -11751,7 +11752,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_modify_fields = function(bu
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = cme_futures_ilink3_sbe_v8_8_dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -11775,7 +11776,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_modify_fields = function(bu
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -11817,6 +11818,9 @@ cme_futures_ilink3_sbe_v8_8_size_of.mass_status_tif = 1
 
 -- Display: Mass Status Tif
 cme_futures_ilink3_sbe_v8_8_display.mass_status_tif = function(value)
+  if value == 255 then
+    return "Mass Status Tif: No Value"
+  end
   if value == 0 then
     return "Mass Status Tif: Day (0)"
   end
@@ -11828,9 +11832,6 @@ cme_futures_ilink3_sbe_v8_8_display.mass_status_tif = function(value)
   end
   if value == 99 then
     return "Mass Status Tif: Gfs (99)"
-  end
-  if value == 255 then
-    return "Mass Status Tif: No Value"
   end
 
   return "Mass Status Tif: Unknown("..value..")"
@@ -11853,14 +11854,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.ord_status_req_type = 1
 
 -- Display: Ord Status Req Type
 cme_futures_ilink3_sbe_v8_8_display.ord_status_req_type = function(value)
+  if value == 255 then
+    return "Ord Status Req Type: No Value"
+  end
   if value == 100 then
     return "Ord Status Req Type: Sender Sub Id (100)"
   end
   if value == 101 then
     return "Ord Status Req Type: Account (101)"
-  end
-  if value == 255 then
-    return "Ord Status Req Type: No Value"
   end
 
   return "Ord Status Req Type: Unknown("..value..")"
@@ -11991,7 +11992,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_mass_status_request_fields = function(
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8_dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String Nullable
+  -- Security Group: 6 Byte Ascii String
   index, security_group = cme_futures_ilink3_sbe_v8_8_dissect.security_group(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
@@ -12096,7 +12097,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_mass_action_request_fields = function(
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = cme_futures_ilink3_sbe_v8_8_dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Security Group: 6 Byte Ascii String Nullable
+  -- Security Group: 6 Byte Ascii String
   index, security_group = cme_futures_ilink3_sbe_v8_8_dissect.security_group(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
@@ -12117,7 +12118,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_mass_action_request_fields = function(
   -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side_optional = cme_futures_ilink3_sbe_v8_8_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 3 values
+  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 2 values
   index, mass_action_ord_typ = cme_futures_ilink3_sbe_v8_8_dissect.mass_action_ord_typ(buffer, index, packet, parent)
 
   -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -12126,7 +12127,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_mass_action_request_fields = function(
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8_dissect.liquidity_flag(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
   return index
@@ -12311,7 +12312,7 @@ end
 cme_futures_ilink3_sbe_v8_8_dissect.quote_cancel_entry_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Group: 6 Byte Ascii String Nullable
+  -- Security Group: 6 Byte Ascii String
   index, security_group = cme_futures_ilink3_sbe_v8_8_dissect.security_group(buffer, index, packet, parent)
 
   -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
@@ -12484,7 +12485,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.quote_cancel_fields = function(buffer, offse
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8_dissect.liquidity_flag(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
   -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -12517,14 +12518,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.order_event_type = 1
 
 -- Display: Order Event Type
 cme_futures_ilink3_sbe_v8_8_display.order_event_type = function(value)
+  if value == 255 then
+    return "Order Event Type: No Value"
+  end
   if value == 4 then
     return "Order Event Type: Partially Filled (4)"
   end
   if value == 5 then
     return "Order Event Type: Filled (5)"
-  end
-  if value == 255 then
-    return "Order Event Type: No Value"
   end
 
   return "Order Event Type: Unknown("..value..")"
@@ -12573,7 +12574,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_spread_leg_order_even
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
   index, order_event_px = cme_futures_ilink3_sbe_v8_8_dissect.order_event_px(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String Nullable
+  -- Order Event Text: 5 Byte Ascii String
   index, order_event_text = cme_futures_ilink3_sbe_v8_8_dissect.order_event_text(buffer, index, packet, parent)
 
   -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
@@ -12706,7 +12707,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.risk_free_rate_fields = function(buffer, off
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa_32, exponent
+  return index
 end
 
 -- Dissect: Risk Free Rate
@@ -12748,7 +12749,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.time_to_expiration_fields = function(buffer,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa_32, exponent
+  return index
 end
 
 -- Dissect: Time To Expiration
@@ -12790,7 +12791,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.option_delta_fields = function(buffer, offse
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa_32, exponent
+  return index
 end
 
 -- Dissect: Option Delta
@@ -12868,7 +12869,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.volatility_fields = function(buffer, offset,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Volatility
@@ -13031,7 +13032,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_spread_leg_fields = f
   -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ord_status_trd = cme_futures_ilink3_sbe_v8_8_dissect.ord_status_trd(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -13102,7 +13103,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_spread_order_event_gr
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
   index, order_event_px = cme_futures_ilink3_sbe_v8_8_dissect.order_event_px(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String Nullable
+  -- Order Event Text: 5 Byte Ascii String
   index, order_event_text = cme_futures_ilink3_sbe_v8_8_dissect.order_event_text(buffer, index, packet, parent)
 
   -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
@@ -13501,7 +13502,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_spread_fields = funct
   -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ord_status_trd = cme_futures_ilink3_sbe_v8_8_dissect.ord_status_trd(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -13528,7 +13529,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_spread_fields = funct
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -13597,7 +13598,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_outright_order_event_
   -- Order Event Px: 8 Byte Signed Fixed Width Integer
   index, order_event_px = cme_futures_ilink3_sbe_v8_8_dissect.order_event_px(buffer, index, packet, parent)
 
-  -- Order Event Text: 5 Byte Ascii String Nullable
+  -- Order Event Text: 5 Byte Ascii String
   index, order_event_text = cme_futures_ilink3_sbe_v8_8_dissect.order_event_text(buffer, index, packet, parent)
 
   -- Order Event Exec Id: 4 Byte Unsigned Fixed Width Integer
@@ -13972,7 +13973,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_outright_fields = fun
   -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ord_status_trd = cme_futures_ilink3_sbe_v8_8_dissect.ord_status_trd(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -13996,7 +13997,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_trade_outright_fields = fun
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14215,7 +14216,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_elimination_fields = functi
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = cme_futures_ilink3_sbe_v8_8_dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14236,7 +14237,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_elimination_fields = functi
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14391,7 +14392,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_reject_fields = function(bu
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
   -- Exec Id: 40 Byte Ascii String
@@ -14454,7 +14455,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_reject_fields = function(bu
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = cme_futures_ilink3_sbe_v8_8_dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14478,7 +14479,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_reject_fields = function(bu
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14668,7 +14669,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_new_fields = function(buffe
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = cme_futures_ilink3_sbe_v8_8_dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type Optional: 1 Byte Ascii String Enum with 5 values
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
   index, ord_type_optional = cme_futures_ilink3_sbe_v8_8_dissect.ord_type_optional(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14692,7 +14693,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.execution_report_new_fields = function(buffe
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -14737,14 +14738,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.manual_order_indicator_optional = 1
 
 -- Display: Manual Order Indicator Optional
 cme_futures_ilink3_sbe_v8_8_display.manual_order_indicator_optional = function(value)
+  if value == 255 then
+    return "Manual Order Indicator Optional: No Value"
+  end
   if value == 0 then
     return "Manual Order Indicator Optional: Automated (0)"
   end
   if value == 1 then
     return "Manual Order Indicator Optional: Manual (1)"
-  end
-  if value == 255 then
-    return "Manual Order Indicator Optional: No Value"
   end
 
   return "Manual Order Indicator Optional: Unknown("..value..")"
@@ -15006,10 +15007,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.business_reject_fields = function(buffer, of
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Text: 256 Byte Ascii String Nullable
+  -- Text: 256 Byte Ascii String
   index, text = cme_futures_ilink3_sbe_v8_8_dissect.text(buffer, index, packet, parent)
 
-  -- Sender Id Optional: 20 Byte Ascii String Nullable
+  -- Sender Id Optional: 20 Byte Ascii String
   index, sender_id_optional = cme_futures_ilink3_sbe_v8_8_dissect.sender_id_optional(buffer, index, packet, parent)
 
   -- Party Details List Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15021,7 +15022,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.business_reject_fields = function(buffer, of
   -- Business Reject Ref Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, business_reject_ref_id = cme_futures_ilink3_sbe_v8_8_dissect.business_reject_ref_id(buffer, index, packet, parent)
 
-  -- Location Optional: 5 Byte Ascii String Nullable
+  -- Location Optional: 5 Byte Ascii String
   index, location_optional = cme_futures_ilink3_sbe_v8_8_dissect.location_optional(buffer, index, packet, parent)
 
   -- Ref Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -15086,6 +15087,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.list_update_action = 1
 
 -- Display: List Update Action
 cme_futures_ilink3_sbe_v8_8_display.list_update_action = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "List Update Action: No Value"
+  end
+
   if value == "A" then
     return "List Update Action: Add (A)"
   end
@@ -15105,9 +15111,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.list_update_action = function(buffer, offset
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -15242,10 +15246,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_definition_request_ack_fields 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = cme_futures_ilink3_sbe_v8_8_dissect.uuid(buffer, index, packet, parent)
 
-  -- Memo: 75 Byte Ascii String Nullable
+  -- Memo: 75 Byte Ascii String
   index, memo = cme_futures_ilink3_sbe_v8_8_dissect.memo(buffer, index, packet, parent)
 
-  -- Avg Px Group Id: 20 Byte Ascii String Nullable
+  -- Avg Px Group Id: 20 Byte Ascii String
   index, avg_px_group_id = cme_futures_ilink3_sbe_v8_8_dissect.avg_px_group_id(buffer, index, packet, parent)
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
@@ -15266,7 +15270,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_definition_request_ack_fields 
   -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_account_type = cme_futures_ilink3_sbe_v8_8_dissect.clearing_account_type(buffer, index, packet, parent)
 
-  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 3 values
+  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 2 values
   index, self_match_prevention_instruction = cme_futures_ilink3_sbe_v8_8_dissect.self_match_prevention_instruction(buffer, index, packet, parent)
 
   -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -15275,10 +15279,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_definition_request_ack_fields 
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_trade_price_type = cme_futures_ilink3_sbe_v8_8_dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
+  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 2 values
   index, cmta_giveup_cd = cme_futures_ilink3_sbe_v8_8_dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 7 values
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
   index, cust_order_handling_inst = cme_futures_ilink3_sbe_v8_8_dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- List Update Action: 1 Byte Ascii String Enum with 2 values
@@ -15385,16 +15389,16 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_definition_request_fields = fu
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = cme_futures_ilink3_sbe_v8_8_dissect.seq_num(buffer, index, packet, parent)
 
-  -- Memo: 75 Byte Ascii String Nullable
+  -- Memo: 75 Byte Ascii String
   index, memo = cme_futures_ilink3_sbe_v8_8_dissect.memo(buffer, index, packet, parent)
 
-  -- Avg Px Group Id: 20 Byte Ascii String Nullable
+  -- Avg Px Group Id: 20 Byte Ascii String
   index, avg_px_group_id = cme_futures_ilink3_sbe_v8_8_dissect.avg_px_group_id(buffer, index, packet, parent)
 
   -- Self Match Prevention Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, self_match_prevention_id = cme_futures_ilink3_sbe_v8_8_dissect.self_match_prevention_id(buffer, index, packet, parent)
 
-  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 3 values
+  -- Cmta Giveup Cd: 1 Byte Ascii String Enum with 2 values
   index, cmta_giveup_cd = cme_futures_ilink3_sbe_v8_8_dissect.cmta_giveup_cd(buffer, index, packet, parent)
 
   -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -15403,7 +15407,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_definition_request_fields = fu
   -- Clearing Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_account_type = cme_futures_ilink3_sbe_v8_8_dissect.clearing_account_type(buffer, index, packet, parent)
 
-  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 3 values
+  -- Self Match Prevention Instruction: 1 Byte Ascii String Enum with 2 values
   index, self_match_prevention_instruction = cme_futures_ilink3_sbe_v8_8_dissect.self_match_prevention_instruction(buffer, index, packet, parent)
 
   -- Avg Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -15412,7 +15416,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.party_details_definition_request_fields = fu
   -- Clearing Trade Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, clearing_trade_price_type = cme_futures_ilink3_sbe_v8_8_dissect.clearing_trade_price_type(buffer, index, packet, parent)
 
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 7 values
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
   index, cust_order_handling_inst = cme_futures_ilink3_sbe_v8_8_dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- Executor: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15837,10 +15841,10 @@ cme_futures_ilink3_sbe_v8_8_dissect.mass_quote_fields = function(buffer, offset,
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, short_sale_type = cme_futures_ilink3_sbe_v8_8_dissect.short_sale_type(buffer, index, packet, parent)
 
-  -- Reserved: 30 Byte Ascii String Nullable
+  -- Reserved: 30 Byte Ascii String
   index, reserved = cme_futures_ilink3_sbe_v8_8_dissect.reserved(buffer, index, packet, parent)
 
-  -- Reserved 1 String 30: 30 Byte Ascii String Nullable
+  -- Reserved 1 String 30: 30 Byte Ascii String
   index, reserved_1_string_30 = cme_futures_ilink3_sbe_v8_8_dissect.reserved_1_string_30(buffer, index, packet, parent)
 
   -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -15968,7 +15972,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_cancel_request_fields = function(buffe
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, liquidity_flag = cme_futures_ilink3_sbe_v8_8_dissect.liquidity_flag(buffer, index, packet, parent)
 
-  -- Orig Order User: 8 Byte Ascii String Nullable
+  -- Orig Order User: 8 Byte Ascii String
   index, orig_order_user = cme_futures_ilink3_sbe_v8_8_dissect.orig_order_user(buffer, index, packet, parent)
 
   return index
@@ -16019,6 +16023,11 @@ cme_futures_ilink3_sbe_v8_8_size_of.ord_type = 1
 
 -- Display: Ord Type
 cme_futures_ilink3_sbe_v8_8_display.ord_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
   if value == "1" then
     return "Ord Type: Marketwith Protection (1)"
   end
@@ -16047,9 +16056,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.ord_type = function(buffer, offset, packet, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -16191,7 +16198,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.order_cancel_replace_request_fields = functi
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -16345,7 +16352,7 @@ cme_futures_ilink3_sbe_v8_8_dissect.new_order_single_fields = function(buffer, o
   -- Exec Inst: Struct of 8 fields
   index, exec_inst = cme_futures_ilink3_sbe_v8_8_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Execution Mode: 1 Byte Ascii String Enum with 3 values
+  -- Execution Mode: 1 Byte Ascii String Enum with 2 values
   index, execution_mode = cme_futures_ilink3_sbe_v8_8_dissect.execution_mode(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -16600,7 +16607,7 @@ end
 cme_futures_ilink3_sbe_v8_8_dissect.retransmit_reject_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String Nullable
+  -- Reason: 48 Byte Ascii String
   index, reason = cme_futures_ilink3_sbe_v8_8_dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
@@ -16799,7 +16806,7 @@ end
 cme_futures_ilink3_sbe_v8_8_dissect.terminate_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String Nullable
+  -- Reason: 48 Byte Ascii String
   index, reason = cme_futures_ilink3_sbe_v8_8_dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
@@ -16862,14 +16869,14 @@ cme_futures_ilink3_sbe_v8_8_size_of.fault_tolerance_indicator = 1
 
 -- Display: Fault Tolerance Indicator
 cme_futures_ilink3_sbe_v8_8_display.fault_tolerance_indicator = function(value)
+  if value == 255 then
+    return "Fault Tolerance Indicator: No Value"
+  end
   if value == 0 then
     return "Fault Tolerance Indicator: Backup (0)"
   end
   if value == 1 then
     return "Fault Tolerance Indicator: Primary (1)"
-  end
-  if value == 255 then
-    return "Fault Tolerance Indicator: No Value"
   end
 
   return "Fault Tolerance Indicator: Unknown("..value..")"
@@ -16989,7 +16996,7 @@ end
 cme_futures_ilink3_sbe_v8_8_dissect.establishment_reject_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String Nullable
+  -- Reason: 48 Byte Ascii String
   index, reason = cme_futures_ilink3_sbe_v8_8_dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
@@ -17631,7 +17638,7 @@ end
 cme_futures_ilink3_sbe_v8_8_dissect.negotiation_reject_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: 48 Byte Ascii String Nullable
+  -- Reason: 48 Byte Ascii String
   index, reason = cme_futures_ilink3_sbe_v8_8_dissect.reason(buffer, index, packet, parent)
 
   -- Uuid: 8 Byte Unsigned Fixed Width Integer

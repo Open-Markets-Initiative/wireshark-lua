@@ -194,9 +194,7 @@ cme_brokertec_ust_sbe_v10_1_dissect.trade_condition = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -321,9 +319,7 @@ cme_brokertec_ust_sbe_v10_1_dissect.security_alt_id_source = function(buffer, of
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -578,6 +574,11 @@ cme_brokertec_ust_sbe_v10_1_size_of.md_entry_type = 1
 
 -- Display: Md Entry Type
 cme_brokertec_ust_sbe_v10_1_display.md_entry_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type: No Value"
+  end
+
   if value == "0" then
     return "Md Entry Type: Bid (0)"
   end
@@ -624,9 +625,7 @@ cme_brokertec_ust_sbe_v10_1_dissect.md_entry_type = function(buffer, offset, pac
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -733,7 +732,7 @@ cme_brokertec_ust_sbe_v10_1_dissect.m_d_incremental_refresh_btec_group_fields = 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = cme_brokertec_ust_sbe_v10_1_dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Security Alt Id: 12 Byte Ascii String Nullable
+  -- Security Alt Id: 12 Byte Ascii String
   index, security_alt_id = cme_brokertec_ust_sbe_v10_1_dissect.security_alt_id(buffer, index, packet, parent)
 
   -- Security Alt Id Source: 1 Byte Ascii String

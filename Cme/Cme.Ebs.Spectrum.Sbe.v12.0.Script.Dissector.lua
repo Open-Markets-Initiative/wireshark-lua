@@ -473,6 +473,11 @@ cme_ebs_spectrum_sbe_v12_0_size_of.md_entry_type_ticker_entry_type = 1
 
 -- Display: Md Entry Type Ticker Entry Type
 cme_ebs_spectrum_sbe_v12_0_display.md_entry_type_ticker_entry_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type Ticker Entry Type: No Value"
+  end
+
   if value == "k" then
     return "Md Entry Type Ticker Entry Type: Touch High (k)"
   end
@@ -522,9 +527,7 @@ cme_ebs_spectrum_sbe_v12_0_dissect.md_entry_type_ticker_entry_type = function(bu
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -917,6 +920,11 @@ cme_ebs_spectrum_sbe_v12_0_size_of.md_entry_type_spectrum_entry_type = 1
 
 -- Display: Md Entry Type Spectrum Entry Type
 cme_ebs_spectrum_sbe_v12_0_display.md_entry_type_spectrum_entry_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type Spectrum Entry Type: No Value"
+  end
+
   if value == "9" then
     return "Md Entry Type Spectrum Entry Type: Vwap (9)"
   end
@@ -936,9 +944,7 @@ cme_ebs_spectrum_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type = function(
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

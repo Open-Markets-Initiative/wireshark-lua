@@ -1468,6 +1468,11 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_entry_type_ = 1
 
 -- Display: Md Entry Type
 cme_futures_mdp3_sbe_v1_11_display.md_entry_type_ = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type : No Value"
+  end
+
   if value == "0" then
     return "Md Entry Type : Bid (0)"
   end
@@ -1535,9 +1540,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.md_entry_type_ = function(buffer, offset, pac
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2466,6 +2469,11 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_entry_type_book = 1
 
 -- Display: Md Entry Type Book
 cme_futures_mdp3_sbe_v1_11_display.md_entry_type_book = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type Book: No Value"
+  end
+
   if value == "0" then
     return "Md Entry Type Book: Bid (0)"
   end
@@ -2494,9 +2502,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.md_entry_type_book = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3898,9 +3904,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.user_defined_instrument = function(buffer, of
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4407,9 +4411,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.match_algorithm = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -4856,6 +4858,11 @@ cme_futures_mdp3_sbe_v1_11_size_of.security_update_action = 1
 
 -- Display: Security Update Action
 cme_futures_mdp3_sbe_v1_11_display.security_update_action = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Update Action: No Value"
+  end
+
   if value == "A" then
     return "Security Update Action: Add (A)"
   end
@@ -4878,9 +4885,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.security_update_action = function(buffer, off
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -8250,6 +8255,11 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_entry_type_statistics = 1
 
 -- Display: Md Entry Type Statistics
 cme_futures_mdp3_sbe_v1_11_display.md_entry_type_statistics = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type Statistics: No Value"
+  end
+
   if value == "4" then
     return "Md Entry Type Statistics: Open Price (4)"
   end
@@ -8281,9 +8291,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.md_entry_type_statistics = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -8689,6 +8697,11 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_entry_type_daily_statistics = 1
 
 -- Display: Md Entry Type Daily Statistics
 cme_futures_mdp3_sbe_v1_11_display.md_entry_type_daily_statistics = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type Daily Statistics: No Value"
+  end
+
   if value == "6" then
     return "Md Entry Type Daily Statistics: Settlement Price (6)"
   end
@@ -8714,9 +8727,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.md_entry_type_daily_statistics = function(buf
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 

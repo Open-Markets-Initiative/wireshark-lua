@@ -275,6 +275,11 @@ cme_futures_settlements_sbe_v7_0_size_of.high_px_ind = 1
 
 -- Display: High Px Ind
 cme_futures_settlements_sbe_v7_0_display.high_px_ind = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "High Px Ind: No Value"
+  end
+
   if value == "A" then
     return "High Px Ind: Ask (A)"
   end
@@ -297,9 +302,7 @@ cme_futures_settlements_sbe_v7_0_dissect.high_px_ind = function(buffer, offset, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -407,6 +410,11 @@ cme_futures_settlements_sbe_v7_0_size_of.low_px_ind = 1
 
 -- Display: Low Px Ind
 cme_futures_settlements_sbe_v7_0_display.low_px_ind = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Low Px Ind: No Value"
+  end
+
   if value == "A" then
     return "Low Px Ind: Ask (A)"
   end
@@ -429,9 +437,7 @@ cme_futures_settlements_sbe_v7_0_dissect.low_px_ind = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1171,7 +1177,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = cme_futures_settlements_sbe_v7_0_dissect.product_guid(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String Nullable
+  -- Clearing Product Code: 12 Byte Ascii String
   index, clearing_product_code = cme_futures_settlements_sbe_v7_0_dissect.clearing_product_code(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -1192,7 +1198,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_
   -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_product_guid = cme_futures_settlements_sbe_v7_0_dissect.underlying_product_guid(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String Nullable
+  -- Underlying Clearing Product Code: 12 Byte Ascii String
   index, underlying_clearing_product_code = cme_futures_settlements_sbe_v7_0_dissect.underlying_clearing_product_code(buffer, index, packet, parent)
 
   -- Underlying Security Type: 6 Byte Ascii String
@@ -1571,7 +1577,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_field
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = cme_futures_settlements_sbe_v7_0_dissect.product_guid(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String Nullable
+  -- Clearing Product Code: 12 Byte Ascii String
   index, clearing_product_code = cme_futures_settlements_sbe_v7_0_dissect.clearing_product_code(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -1592,7 +1598,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_field
   -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_product_guid = cme_futures_settlements_sbe_v7_0_dissect.underlying_product_guid(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String Nullable
+  -- Underlying Clearing Product Code: 12 Byte Ascii String
   index, underlying_clearing_product_code = cme_futures_settlements_sbe_v7_0_dissect.underlying_clearing_product_code(buffer, index, packet, parent)
 
   -- Underlying Security Type: 6 Byte Ascii String
@@ -1942,9 +1948,7 @@ cme_futures_settlements_sbe_v7_0_dissect.md_entry_type = function(buffer, offset
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2054,7 +2058,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fi
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = cme_futures_settlements_sbe_v7_0_dissect.product_guid(buffer, index, packet, parent)
 
-  -- Clearing Product Code: 12 Byte Ascii String Nullable
+  -- Clearing Product Code: 12 Byte Ascii String
   index, clearing_product_code = cme_futures_settlements_sbe_v7_0_dissect.clearing_product_code(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -2075,7 +2079,7 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fi
   -- Underlying Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_product_guid = cme_futures_settlements_sbe_v7_0_dissect.underlying_product_guid(buffer, index, packet, parent)
 
-  -- Underlying Clearing Product Code: 12 Byte Ascii String Nullable
+  -- Underlying Clearing Product Code: 12 Byte Ascii String
   index, underlying_clearing_product_code = cme_futures_settlements_sbe_v7_0_dissect.underlying_clearing_product_code(buffer, index, packet, parent)
 
   -- Underlying Security Type: 6 Byte Ascii String
