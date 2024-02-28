@@ -2131,6 +2131,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.network_msg_id = 8
 
 -- Display: Network Msg Id
 eurex_derivatives_eti_t7_v9_0_display.network_msg_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Network Msg Id: No Value"
+  end
+
   return "Network Msg Id: "..value
 end
 
@@ -2248,6 +2253,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.password = 32
 
 -- Display: Password
 eurex_derivatives_eti_t7_v9_0_display.password = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -2368,6 +2378,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.underlying_stip_value = 32
 
 -- Display: Underlying Stip Value
 eurex_derivatives_eti_t7_v9_0_display.underlying_stip_value = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Stip Value: No Value"
+  end
+
   return "Underlying Stip Value: "..value
 end
 
@@ -2455,6 +2470,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.instr_attrib_value = 32
 
 -- Display: Instr Attrib Value
 eurex_derivatives_eti_t7_v9_0_display.instr_attrib_value = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Instr Attrib Value: No Value"
+  end
+
   return "Instr Attrib Value: "..value
 end
 
@@ -2814,6 +2834,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.compliance_text = 20
 
 -- Display: Compliance Text
 eurex_derivatives_eti_t7_v9_0_display.compliance_text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Compliance Text: No Value"
+  end
+
   return "Compliance Text: "..value
 end
 
@@ -2834,6 +2859,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.cust_order_handling_inst = 1
 
 -- Display: Cust Order Handling Inst
 eurex_derivatives_eti_t7_v9_0_display.cust_order_handling_inst = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cust Order Handling Inst: No Value"
+  end
+
   if value == "W" then
     return "Cust Order Handling Inst: W (W)"
   end
@@ -2860,7 +2890,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.cust_order_handling_inst
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.cust_order_handling_inst(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.cust_order_handling_inst, range, value, display)
@@ -2873,6 +2911,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_id_location_id = 2
 
 -- Display: Party Id Location Id
 eurex_derivatives_eti_t7_v9_0_display.party_id_location_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Location Id: No Value"
+  end
+
   return "Party Id Location Id: "..value
 end
 
@@ -2893,6 +2936,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_id_beneficiary = 9
 
 -- Display: Party Id Beneficiary
 eurex_derivatives_eti_t7_v9_0_display.party_id_beneficiary = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Beneficiary: No Value"
+  end
+
   return "Party Id Beneficiary: "..value
 end
 
@@ -2913,6 +2961,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_id_order_origination_firm = 7
 
 -- Display: Party Id Order Origination Firm
 eurex_derivatives_eti_t7_v9_0_display.party_id_order_origination_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Order Origination Firm: No Value"
+  end
+
   return "Party Id Order Origination Firm: "..value
 end
 
@@ -2933,6 +2986,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.free_text_3 = 12
 
 -- Display: Free Text 3
 eurex_derivatives_eti_t7_v9_0_display.free_text_3 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Free Text 3: No Value"
+  end
+
   return "Free Text 3: "..value
 end
 
@@ -2953,6 +3011,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.free_text_2 = 12
 
 -- Display: Free Text 2
 eurex_derivatives_eti_t7_v9_0_display.free_text_2 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Free Text 2: No Value"
+  end
+
   return "Free Text 2: "..value
 end
 
@@ -2973,6 +3036,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.free_text_1 = 12
 
 -- Display: Free Text 1
 eurex_derivatives_eti_t7_v9_0_display.free_text_1 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Free Text 1: No Value"
+  end
+
   return "Free Text 1: "..value
 end
 
@@ -2993,6 +3061,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_id_take_up_trading_firm = 5
 
 -- Display: Party Id Take Up Trading Firm
 eurex_derivatives_eti_t7_v9_0_display.party_id_take_up_trading_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Take Up Trading Firm: No Value"
+  end
+
   return "Party Id Take Up Trading Firm: "..value
 end
 
@@ -3013,6 +3086,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_id_position_account = 32
 
 -- Display: Party Id Position Account
 eurex_derivatives_eti_t7_v9_0_display.party_id_position_account = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Position Account: No Value"
+  end
+
   return "Party Id Position Account: "..value
 end
 
@@ -3033,6 +3111,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.account = 2
 
 -- Display: Account
 eurex_derivatives_eti_t7_v9_0_display.account = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Account: No Value"
+  end
+
   return "Account: "..value
 end
 
@@ -3185,6 +3268,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.position_effect = 1
 
 -- Display: Position Effect
 eurex_derivatives_eti_t7_v9_0_display.position_effect = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Position Effect: No Value"
+  end
+
   if value == "C" then
     return "Position Effect: Close (C)"
   end
@@ -3199,7 +3287,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.position_effect = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.position_effect
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.position_effect(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.position_effect, range, value, display)
@@ -3340,6 +3436,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_executing_trader = 6
 
 -- Display: Party Executing Trader
 eurex_derivatives_eti_t7_v9_0_display.party_executing_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Executing Trader: No Value"
+  end
+
   return "Party Executing Trader: "..value
 end
 
@@ -3360,6 +3461,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_executing_firm = 5
 
 -- Display: Party Executing Firm
 eurex_derivatives_eti_t7_v9_0_display.party_executing_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Executing Firm: No Value"
+  end
+
   return "Party Executing Firm: "..value
 end
 
@@ -3668,6 +3774,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.underlying_issuer = 30
 
 -- Display: Underlying Issuer
 eurex_derivatives_eti_t7_v9_0_display.underlying_issuer = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Issuer: No Value"
+  end
+
   return "Underlying Issuer: "..value
 end
 
@@ -3688,6 +3799,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.underlying_currency = 3
 
 -- Display: Underlying Currency
 eurex_derivatives_eti_t7_v9_0_display.underlying_currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Currency: No Value"
+  end
+
   return "Underlying Currency: "..value
 end
 
@@ -3708,6 +3824,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.underlying_security_desc = 30
 
 -- Display: Underlying Security Desc
 eurex_derivatives_eti_t7_v9_0_display.underlying_security_desc = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Security Desc: No Value"
+  end
+
   return "Underlying Security Desc: "..value
 end
 
@@ -3728,6 +3849,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.underlying_security_id = 12
 
 -- Display: Underlying Security Id
 eurex_derivatives_eti_t7_v9_0_display.underlying_security_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Security Id: No Value"
+  end
+
   return "Underlying Security Id: "..value
 end
 
@@ -3748,6 +3874,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.trade_report_text = 20
 
 -- Display: Trade Report Text
 eurex_derivatives_eti_t7_v9_0_display.trade_report_text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Report Text: No Value"
+  end
+
   return "Trade Report Text: "..value
 end
 
@@ -3768,6 +3899,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.trade_report_id = 20
 
 -- Display: Trade Report Id
 eurex_derivatives_eti_t7_v9_0_display.trade_report_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Report Id: No Value"
+  end
+
   return "Trade Report Id: "..value
 end
 
@@ -5275,6 +5411,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_id_execution_venue = 4
 
 -- Display: Root Party Id Execution Venue
 eurex_derivatives_eti_t7_v9_0_display.root_party_id_execution_venue = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Id Execution Venue: No Value"
+  end
+
   return "Root Party Id Execution Venue: "..value
 end
 
@@ -5295,6 +5436,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.regulatory_trade_id = 52
 
 -- Display: Regulatory Trade Id
 eurex_derivatives_eti_t7_v9_0_display.regulatory_trade_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Regulatory Trade Id: No Value"
+  end
+
   return "Regulatory Trade Id: "..value
 end
 
@@ -5315,6 +5461,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_clearing_firm = 5
 
 -- Display: Root Party Clearing Firm
 eurex_derivatives_eti_t7_v9_0_display.root_party_clearing_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Clearing Firm: No Value"
+  end
+
   return "Root Party Clearing Firm: "..value
 end
 
@@ -5335,6 +5486,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_executing_trader = 6
 
 -- Display: Root Party Executing Trader
 eurex_derivatives_eti_t7_v9_0_display.root_party_executing_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Executing Trader: No Value"
+  end
+
   return "Root Party Executing Trader: "..value
 end
 
@@ -5355,6 +5511,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_executing_firm = 5
 
 -- Display: Root Party Executing Firm
 eurex_derivatives_eti_t7_v9_0_display.root_party_executing_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Executing Firm: No Value"
+  end
+
   return "Root Party Executing Firm: "..value
 end
 
@@ -5375,6 +5536,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_clearing_organization = 4
 
 -- Display: Root Party Clearing Organization
 eurex_derivatives_eti_t7_v9_0_display.root_party_clearing_organization = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Clearing Organization: No Value"
+  end
+
   return "Root Party Clearing Organization: "..value
 end
 
@@ -5500,6 +5666,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.order_category = 1
 
 -- Display: Order Category
 eurex_derivatives_eti_t7_v9_0_display.order_category = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Category: No Value"
+  end
+
   if value == "1" then
     return "Order Category: Order (1)"
   end
@@ -5514,7 +5685,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.order_category = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.order_category
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.order_category(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.order_category, range, value, display)
@@ -5527,6 +5706,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_id_position_account = 32
 
 -- Display: Root Party Id Position Account
 eurex_derivatives_eti_t7_v9_0_display.root_party_id_position_account = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Id Position Account: No Value"
+  end
+
   return "Root Party Id Position Account: "..value
 end
 
@@ -5679,6 +5863,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_id_order_origination_firm = 7
 
 -- Display: Root Party Id Order Origination Firm
 eurex_derivatives_eti_t7_v9_0_display.root_party_id_order_origination_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Id Order Origination Firm: No Value"
+  end
+
   return "Root Party Id Order Origination Firm: "..value
 end
 
@@ -5699,6 +5888,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_id_take_up_trading_firm = 5
 
 -- Display: Root Party Id Take Up Trading Firm
 eurex_derivatives_eti_t7_v9_0_display.root_party_id_take_up_trading_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Id Take Up Trading Firm: No Value"
+  end
+
   return "Root Party Id Take Up Trading Firm: "..value
 end
 
@@ -5719,6 +5913,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_id_beneficiary = 9
 
 -- Display: Root Party Id Beneficiary
 eurex_derivatives_eti_t7_v9_0_display.root_party_id_beneficiary = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Id Beneficiary: No Value"
+  end
+
   return "Root Party Id Beneficiary: "..value
 end
 
@@ -6893,6 +7092,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.message_event_source = 1
 
 -- Display: Message Event Source
 eurex_derivatives_eti_t7_v9_0_display.message_event_source = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Message Event Source: No Value"
+  end
+
   if value == "I" then
     return "Message Event Source: Broadcastto Initiator (I)"
   end
@@ -6913,7 +7117,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.message_event_source = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.message_event_source
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.message_event_source(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.message_event_source, range, value, display)
@@ -7281,6 +7493,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.basket_side_trade_report_id = 20
 
 -- Display: Basket Side Trade Report Id
 eurex_derivatives_eti_t7_v9_0_display.basket_side_trade_report_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Basket Side Trade Report Id: No Value"
+  end
+
   return "Basket Side Trade Report Id: "..value
 end
 
@@ -7301,6 +7518,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.basket_party_contra_firm = 5
 
 -- Display: Basket Party Contra Firm
 eurex_derivatives_eti_t7_v9_0_display.basket_party_contra_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Basket Party Contra Firm: No Value"
+  end
+
   return "Basket Party Contra Firm: "..value
 end
 
@@ -7823,6 +8045,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.reversal_reason_text = 132
 
 -- Display: Reversal Reason Text
 eurex_derivatives_eti_t7_v9_0_display.reversal_reason_text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reversal Reason Text: No Value"
+  end
+
   return "Reversal Reason Text: "..value
 end
 
@@ -8754,6 +8981,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_entering_trader = 6
 
 -- Display: Party Entering Trader
 eurex_derivatives_eti_t7_v9_0_display.party_entering_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Entering Trader: No Value"
+  end
+
   return "Party Entering Trader: "..value
 end
 
@@ -9754,6 +9986,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.target_party_executing_trader = 6
 
 -- Display: Target Party Executing Trader
 eurex_derivatives_eti_t7_v9_0_display.target_party_executing_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Executing Trader: No Value"
+  end
+
   return "Target Party Executing Trader: "..value
 end
 
@@ -9774,6 +10011,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.target_party_executing_firm = 5
 
 -- Display: Target Party Executing Firm
 eurex_derivatives_eti_t7_v9_0_display.target_party_executing_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Executing Firm: No Value"
+  end
+
   return "Target Party Executing Firm: "..value
 end
 
@@ -10132,6 +10374,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_order_origination_trader = 132
 
 -- Display: Party Order Origination Trader
 eurex_derivatives_eti_t7_v9_0_display.party_order_origination_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Order Origination Trader: No Value"
+  end
+
   return "Party Order Origination Trader: "..value
 end
 
@@ -10152,6 +10399,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.free_text_5 = 132
 
 -- Display: Free Text 5
 eurex_derivatives_eti_t7_v9_0_display.free_text_5 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Free Text 5: No Value"
+  end
+
   return "Free Text 5: "..value
 end
 
@@ -10793,6 +11045,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.quote_req_id = 20
 
 -- Display: Quote Req Id
 eurex_derivatives_eti_t7_v9_0_display.quote_req_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Req Id: No Value"
+  end
+
   return "Quote Req Id: "..value
 end
 
@@ -11291,6 +11548,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.firm_negotiation_id = 20
 
 -- Display: Firm Negotiation Id
 eurex_derivatives_eti_t7_v9_0_display.firm_negotiation_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Firm Negotiation Id: No Value"
+  end
+
   return "Firm Negotiation Id: "..value
 end
 
@@ -12466,6 +12728,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_detail_executing_trader = 6
 
 -- Display: Party Detail Executing Trader
 eurex_derivatives_eti_t7_v9_0_display.party_detail_executing_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Detail Executing Trader: No Value"
+  end
+
   return "Party Detail Executing Trader: "..value
 end
 
@@ -12486,6 +12753,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_detail_executing_unit = 5
 
 -- Display: Party Detail Executing Unit
 eurex_derivatives_eti_t7_v9_0_display.party_detail_executing_unit = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Detail Executing Unit: No Value"
+  end
+
   return "Party Detail Executing Unit: "..value
 end
 
@@ -12813,6 +13085,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.firm_trade_id = 20
 
 -- Display: Firm Trade Id
 eurex_derivatives_eti_t7_v9_0_display.firm_trade_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Firm Trade Id: No Value"
+  end
+
   return "Firm Trade Id: "..value
 end
 
@@ -13237,6 +13514,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.target_party_entering_trader = 6
 
 -- Display: Target Party Entering Trader
 eurex_derivatives_eti_t7_v9_0_display.target_party_entering_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Entering Trader: No Value"
+  end
+
   return "Target Party Entering Trader: "..value
 end
 
@@ -13257,6 +13539,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_entering_trader = 6
 
 -- Display: Root Party Entering Trader
 eurex_derivatives_eti_t7_v9_0_display.root_party_entering_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Entering Trader: No Value"
+  end
+
   return "Root Party Entering Trader: "..value
 end
 
@@ -13946,6 +14233,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.requesting_party_clearing_firm = 9
 
 -- Display: Requesting Party Clearing Firm
 eurex_derivatives_eti_t7_v9_0_display.requesting_party_clearing_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Clearing Firm: No Value"
+  end
+
   return "Requesting Party Clearing Firm: "..value
 end
 
@@ -13966,6 +14258,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.requesting_party_entering_firm = 9
 
 -- Display: Requesting Party Entering Firm
 eurex_derivatives_eti_t7_v9_0_display.requesting_party_entering_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Entering Firm: No Value"
+  end
+
   return "Requesting Party Entering Firm: "..value
 end
 
@@ -14016,6 +14313,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.list_update_action = 1
 
 -- Display: List Update Action
 eurex_derivatives_eti_t7_v9_0_display.list_update_action = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "List Update Action: No Value"
+  end
+
   if value == "A" then
     return "List Update Action: Add (A)"
   end
@@ -14030,7 +14332,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.list_update_action = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.list_update_action
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.list_update_action(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.list_update_action, range, value, display)
@@ -16239,6 +16549,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.risk_limit_group = 3
 
 -- Display: Risk Limit Group
 eurex_derivatives_eti_t7_v9_0_display.risk_limit_group = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Risk Limit Group: No Value"
+  end
+
   return "Risk Limit Group: "..value
 end
 
@@ -17293,6 +17608,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.exec_type = 1
 
 -- Display: Exec Type
 eurex_derivatives_eti_t7_v9_0_display.exec_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Type: No Value"
+  end
+
   if value == "0" then
     return "Exec Type: New (0)"
   end
@@ -17325,7 +17645,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.exec_type = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.exec_type
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.exec_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.exec_type, range, value, display)
@@ -17338,6 +17666,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.ord_status = 1
 
 -- Display: Ord Status
 eurex_derivatives_eti_t7_v9_0_display.ord_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
   if value == "0" then
     return "Ord Status: New (0)"
   end
@@ -17364,7 +17697,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.ord_status = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.ord_status
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.ord_status(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.ord_status, range, value, display)
@@ -17754,6 +18095,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.leg_position_effect = 1
 
 -- Display: Leg Position Effect
 eurex_derivatives_eti_t7_v9_0_display.leg_position_effect = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Position Effect: No Value"
+  end
+
   if value == "C" then
     return "Leg Position Effect: Close (C)"
   end
@@ -17768,7 +18114,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.leg_position_effect = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.leg_position_effect
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.leg_position_effect(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.leg_position_effect, range, value, display)
@@ -17781,6 +18135,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.leg_account = 2
 
 -- Display: Leg Account
 eurex_derivatives_eti_t7_v9_0_display.leg_account = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Account: No Value"
+  end
+
   return "Leg Account: "..value
 end
 
@@ -17848,6 +18207,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.fix_cl_ord_id = 20
 
 -- Display: Fix Cl Ord Id
 eurex_derivatives_eti_t7_v9_0_display.fix_cl_ord_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Cl Ord Id: No Value"
+  end
+
   return "Fix Cl Ord Id: "..value
 end
 
@@ -18400,6 +18764,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.headline = 256
 
 -- Display: Headline
 eurex_derivatives_eti_t7_v9_0_display.headline = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Headline: No Value"
+  end
+
   return "Headline: "..value
 end
 
@@ -20572,6 +20941,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_contra_trader = 6
 
 -- Display: Root Party Contra Trader
 eurex_derivatives_eti_t7_v9_0_display.root_party_contra_trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Contra Trader: No Value"
+  end
+
   return "Root Party Contra Trader: "..value
 end
 
@@ -20592,6 +20966,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.root_party_contra_firm = 5
 
 -- Display: Root Party Contra Firm
 eurex_derivatives_eti_t7_v9_0_display.root_party_contra_firm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Contra Firm: No Value"
+  end
+
   return "Root Party Contra Firm: "..value
 end
 
@@ -20699,6 +21078,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.basket_trade_report_text = 20
 
 -- Display: Basket Trade Report Text
 eurex_derivatives_eti_t7_v9_0_display.basket_trade_report_text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Basket Trade Report Text: No Value"
+  end
+
   return "Basket Trade Report Text: "..value
 end
 
@@ -21786,6 +22170,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.default_cstm_appl_ver_id = 30
 
 -- Display: Default Cstm Appl Ver Id
 eurex_derivatives_eti_t7_v9_0_display.default_cstm_appl_ver_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Default Cstm Appl Ver Id: No Value"
+  end
+
   return "Default Cstm Appl Ver Id: "..value
 end
 
@@ -21956,6 +22345,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.application_system_vendor = 30
 
 -- Display: Application System Vendor
 eurex_derivatives_eti_t7_v9_0_display.application_system_vendor = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Application System Vendor: No Value"
+  end
+
   return "Application System Vendor: "..value
 end
 
@@ -21976,6 +22370,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.application_system_version = 30
 
 -- Display: Application System Version
 eurex_derivatives_eti_t7_v9_0_display.application_system_version = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Application System Version: No Value"
+  end
+
   return "Application System Version: "..value
 end
 
@@ -21996,6 +22395,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.application_system_name = 30
 
 -- Display: Application System Name
 eurex_derivatives_eti_t7_v9_0_display.application_system_name = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Application System Name: No Value"
+  end
+
   return "Application System Name: "..value
 end
 
@@ -22016,6 +22420,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.fix_engine_vendor = 30
 
 -- Display: Fix Engine Vendor
 eurex_derivatives_eti_t7_v9_0_display.fix_engine_vendor = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Engine Vendor: No Value"
+  end
+
   return "Fix Engine Vendor: "..value
 end
 
@@ -22036,6 +22445,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.fix_engine_version = 30
 
 -- Display: Fix Engine Version
 eurex_derivatives_eti_t7_v9_0_display.fix_engine_version = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Engine Version: No Value"
+  end
+
   return "Fix Engine Version: "..value
 end
 
@@ -22056,6 +22470,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.fix_engine_name = 30
 
 -- Display: Fix Engine Name
 eurex_derivatives_eti_t7_v9_0_display.fix_engine_name = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Engine Name: No Value"
+  end
+
   return "Fix Engine Name: "..value
 end
 
@@ -22076,6 +22495,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.order_routing_indicator = 1
 
 -- Display: Order Routing Indicator
 eurex_derivatives_eti_t7_v9_0_display.order_routing_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Routing Indicator: No Value"
+  end
+
   if value == "Y" then
     return "Order Routing Indicator: Yes (Y)"
   end
@@ -22090,7 +22514,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.order_routing_indicator = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.order_routing_indicator
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.order_routing_indicator(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.order_routing_indicator, range, value, display)
@@ -22103,6 +22535,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.appl_usage_quotes = 1
 
 -- Display: Appl Usage Quotes
 eurex_derivatives_eti_t7_v9_0_display.appl_usage_quotes = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Appl Usage Quotes: No Value"
+  end
+
   if value == "A" then
     return "Appl Usage Quotes: Automated (A)"
   end
@@ -22123,7 +22560,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.appl_usage_quotes = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.appl_usage_quotes
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.appl_usage_quotes(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.appl_usage_quotes, range, value, display)
@@ -22136,6 +22581,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.appl_usage_orders = 1
 
 -- Display: Appl Usage Orders
 eurex_derivatives_eti_t7_v9_0_display.appl_usage_orders = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Appl Usage Orders: No Value"
+  end
+
   if value == "A" then
     return "Appl Usage Orders: Automated (A)"
   end
@@ -22156,7 +22606,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.appl_usage_orders = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.appl_usage_orders
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.appl_usage_orders(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.appl_usage_orders, range, value, display)
@@ -22347,6 +22805,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_detail_desk_id = 3
 
 -- Display: Party Detail Desk Id
 eurex_derivatives_eti_t7_v9_0_display.party_detail_desk_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Detail Desk Id: No Value"
+  end
+
   return "Party Detail Desk Id: "..value
 end
 
@@ -22841,6 +23304,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.party_executing_unit = 5
 
 -- Display: Party Executing Unit
 eurex_derivatives_eti_t7_v9_0_display.party_executing_unit = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Executing Unit: No Value"
+  end
+
   return "Party Executing Unit: "..value
 end
 
@@ -23826,6 +24294,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.side_compliance_text = 20
 
 -- Display: Side Compliance Text
 eurex_derivatives_eti_t7_v9_0_display.side_compliance_text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Side Compliance Text: No Value"
+  end
+
   return "Side Compliance Text: "..value
 end
 
@@ -25158,6 +25631,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.target_party_id_desk_id = 3
 
 -- Display: Target Party Id Desk Id
 eurex_derivatives_eti_t7_v9_0_display.target_party_id_desk_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Id Desk Id: No Value"
+  end
+
   return "Target Party Id Desk Id: "..value
 end
 
@@ -27631,6 +28109,11 @@ eurex_derivatives_eti_t7_v9_0_size_of.settl_method = 1
 
 -- Display: Settl Method
 eurex_derivatives_eti_t7_v9_0_display.settl_method = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Settl Method: No Value"
+  end
+
   if value == "C" then
     return "Settl Method: Cash Settlement (C)"
   end
@@ -27645,7 +28128,15 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.settl_method = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v9_0_size_of.settl_method
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v9_0_display.settl_method(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v9_0.fields.settl_method, range, value, display)

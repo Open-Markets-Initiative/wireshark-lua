@@ -4933,6 +4933,11 @@ eurex_derivatives_eobi_t7_v12_0_size_of.security_desc = 40
 
 -- Display: Security Desc
 eurex_derivatives_eobi_t7_v12_0_display.security_desc = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Desc: No Value"
+  end
+
   return "Security Desc: "..value
 end
 
