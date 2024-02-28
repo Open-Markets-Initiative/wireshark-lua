@@ -755,6 +755,9 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.risk_action_type = 1
 
 -- Display: Risk Action Type
 nyse_equities_binarygateway_pillar_v5_8_display.risk_action_type = function(value)
+  if value == 0 then
+    return "Risk Action Type: No Value"
+  end
   if value == 1 then
     return "Risk Action Type: Query Risk Entity For Current Risk Control Configscalculationsstatus (1)"
   end
@@ -778,9 +781,6 @@ nyse_equities_binarygateway_pillar_v5_8_display.risk_action_type = function(valu
   end
   if value == 10 then
     return "Risk Action Type: Remove Symbol Level Risk Entity (10)"
-  end
-  if value == 0 then
-    return "Risk Action Type: No Value"
   end
 
   return "Risk Action Type: Unknown("..value..")"
@@ -928,6 +928,9 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.breach_action_response = 1
 
 -- Display: Breach Action Response
 nyse_equities_binarygateway_pillar_v5_8_display.breach_action_response = function(value)
+  if value == 0 then
+    return "Breach Action Response: No Value"
+  end
   if value == 1 then
     return "Breach Action Response: Notification (1)"
   end
@@ -936,9 +939,6 @@ nyse_equities_binarygateway_pillar_v5_8_display.breach_action_response = functio
   end
   if value == 3 then
     return "Breach Action Response: Block (3)"
-  end
-  if value == 0 then
-    return "Breach Action Response: No Value"
   end
 
   return "Breach Action Response: Unknown("..value..")"
@@ -1041,6 +1041,9 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.risk_control_type = 1
 
 -- Display: Risk Control Type
 nyse_equities_binarygateway_pillar_v5_8_display.risk_control_type = function(value)
+  if value == 0 then
+    return "Risk Control Type: No Value"
+  end
   if value == 1 then
     return "Risk Control Type: Single Order Max Qty (1)"
   end
@@ -1091,9 +1094,6 @@ nyse_equities_binarygateway_pillar_v5_8_display.risk_control_type = function(val
   end
   if value == 28 then
     return "Risk Control Type: Require Locate Broker On Sell Short And Sell Short Exempt Orders (28)"
-  end
-  if value == 0 then
-    return "Risk Control Type: No Value"
   end
 
   return "Risk Control Type: Unknown("..value..")"
@@ -4562,6 +4562,11 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.settlement_type = 1
 
 -- Display: Settlement Type
 nyse_equities_binarygateway_pillar_v5_8_display.settlement_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Settlement Type: No Value"
+  end
+
   if value == "0" then
     return "Settlement Type: Regular Way (0)"
   end
@@ -4584,9 +4589,7 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.settlement_type = function(buffe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5063,7 +5066,18 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.pre_liquidity_indicator = function(buffer, offset, packet, parent)
   local length = nyse_equities_binarygateway_pillar_v5_8_size_of.pre_liquidity_indicator
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_equities_binarygateway_pillar_v5_8_display.pre_liquidity_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.pre_liquidity_indicator, range, value, display)
@@ -7609,6 +7623,9 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.breach_action_request = 1
 
 -- Display: Breach Action Request
 nyse_equities_binarygateway_pillar_v5_8_display.breach_action_request = function(value)
+  if value == 0 then
+    return "Breach Action Request: No Value"
+  end
   if value == 1 then
     return "Breach Action Request: Notifications Only (1)"
   end
@@ -7617,9 +7634,6 @@ nyse_equities_binarygateway_pillar_v5_8_display.breach_action_request = function
   end
   if value == 3 then
     return "Breach Action Request: Block Only (3)"
-  end
-  if value == 0 then
-    return "Breach Action Request: No Value"
   end
 
   return "Breach Action Request: Unknown("..value..")"
@@ -9078,6 +9092,8 @@ end
 
 -- Read runtime size of: Seq Msg
 nyse_equities_binarygateway_pillar_v5_8_size_of.seq_msg = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9161,6 +9177,8 @@ end
 
 -- Read runtime size of: Close Response
 nyse_equities_binarygateway_pillar_v5_8_size_of.close_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9208,6 +9226,8 @@ end
 
 -- Read runtime size of: Close
 nyse_equities_binarygateway_pillar_v5_8_size_of.close = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9272,6 +9292,8 @@ end
 
 -- Read runtime size of: Open Response
 nyse_equities_binarygateway_pillar_v5_8_size_of.open_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9382,6 +9404,8 @@ end
 
 -- Read runtime size of: Open
 nyse_equities_binarygateway_pillar_v5_8_size_of.open = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9438,6 +9462,8 @@ end
 
 -- Read runtime size of: Heartbeat
 nyse_equities_binarygateway_pillar_v5_8_size_of.heartbeat = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9499,6 +9525,8 @@ end
 
 -- Read runtime size of: Stream Avail
 nyse_equities_binarygateway_pillar_v5_8_size_of.stream_avail = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9549,6 +9577,8 @@ end
 
 -- Read runtime size of: Login Response
 nyse_equities_binarygateway_pillar_v5_8_size_of.login_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9668,6 +9698,8 @@ end
 
 -- Read runtime size of: Login Message
 nyse_equities_binarygateway_pillar_v5_8_size_of.login_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()

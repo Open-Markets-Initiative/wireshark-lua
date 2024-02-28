@@ -4107,6 +4107,8 @@ end
 
 -- Read runtime size of: Purge Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_rejected_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -4186,6 +4188,8 @@ end
 
 -- Read runtime size of: Mass Cancel Acknowledgment Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.mass_cancel_acknowledgment_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -6248,6 +6252,8 @@ end
 
 -- Read runtime size of: Trade Cancel Or Correct Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -8881,6 +8887,8 @@ end
 
 -- Read runtime size of: Order Execution Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_execution_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -10843,6 +10851,8 @@ end
 
 -- Read runtime size of: Cancel Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -13086,6 +13096,8 @@ end
 
 -- Read runtime size of: Order Cancelled Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_cancelled_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -14934,6 +14946,8 @@ end
 
 -- Read runtime size of: User Modify Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -16982,6 +16996,8 @@ end
 
 -- Read runtime size of: Order Restated Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_restated_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -18980,6 +18996,8 @@ end
 
 -- Read runtime size of: Order Modified Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_modified_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -21036,6 +21054,8 @@ end
 
 -- Read runtime size of: Order Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_rejected_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23050,6 +23070,8 @@ end
 
 -- Read runtime size of: Order Acknowledgment Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23408,6 +23430,8 @@ end
 
 -- Read runtime size of: Purge Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_order_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23781,6 +23805,8 @@ end
 
 -- Read runtime size of: Modify Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.modify_order_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -24081,6 +24107,8 @@ end
 
 -- Read runtime size of: Cancel Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_order_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -25157,6 +25185,8 @@ end
 
 -- Read runtime size of: New Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.new_order_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -25388,6 +25418,8 @@ end
 
 -- Read runtime size of: Logout Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.logout_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -25443,6 +25475,8 @@ end
 
 -- Read runtime size of: Purge Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_rejected_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Purge Rejected Bitfield Count
   local purge_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -25654,6 +25688,8 @@ end
 
 -- Read runtime size of: Trade Cancel Or Correct Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Trade Cancel Or Correct Bitfield Count
   local trade_cancel_or_correct_bitfield_count = buffer(offset, 1):le_uint()
@@ -25865,6 +25901,8 @@ end
 
 -- Read runtime size of: Order Execution Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_execution_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Order Execution Bitfield Count
   local order_execution_bitfield_count = buffer(offset, 1):le_uint()
@@ -26076,6 +26114,8 @@ end
 
 -- Read runtime size of: Cancel Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Cancel Rejected Bitfield Count
   local cancel_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -26287,6 +26327,8 @@ end
 
 -- Read runtime size of: Order Cancelled Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_cancelled_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Order Cancelled Bitfield Count
   local order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
@@ -26498,6 +26540,8 @@ end
 
 -- Read runtime size of: User Modify Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: User Modify Rejected Bitfield Count
   local user_modify_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -26709,6 +26753,8 @@ end
 
 -- Read runtime size of: Order Restated Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_restated_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Order Restated Bitfield Count
   local order_restated_bitfield_count = buffer(offset, 1):le_uint()
@@ -26920,6 +26966,8 @@ end
 
 -- Read runtime size of: Order Modified Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_modified_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Order Modified Bitfield Count
   local order_modified_bitfield_count = buffer(offset, 1):le_uint()
@@ -27131,6 +27179,8 @@ end
 
 -- Read runtime size of: Order Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_rejected_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Order Rejected Bitfield Count
   local order_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -27342,6 +27392,8 @@ end
 
 -- Read runtime size of: Order Acknowledgment Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Order Acknowledgment Bitfield Count
   local order_acknowledgment_bitfield_count = buffer(offset, 1):le_uint()
@@ -27553,6 +27605,8 @@ end
 
 -- Read runtime size of: Purge Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_order_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Purge Order Bitfield Count
   local purge_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -27614,6 +27668,8 @@ end
 
 -- Read runtime size of: Modify Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.modify_order_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Modify Order Bitfield Count
   local modify_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -27675,6 +27731,8 @@ end
 
 -- Read runtime size of: Cancel Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_order_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Cancel Order Bitfield Count
   local cancel_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -27736,6 +27794,8 @@ end
 
 -- Read runtime size of: New Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.new_order_return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: New Order Bitfield Count
   local new_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -28059,6 +28119,8 @@ end
 
 -- Read runtime size of: Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.return_bitfields = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Param Group Length
   local param_group_length = buffer(offset - 3, 2):le_uint()
@@ -28449,6 +28511,8 @@ end
 
 -- Read runtime size of: Login Response Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.login_response_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -28580,6 +28644,8 @@ end
 
 -- Read runtime size of: Login Request Message
 cboe_edgx_equities_orderentry_boe_v2_3_size_of.login_request_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()

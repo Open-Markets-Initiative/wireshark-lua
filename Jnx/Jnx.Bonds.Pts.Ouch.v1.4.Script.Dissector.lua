@@ -946,6 +946,8 @@ end
 
 -- Read runtime size of: Unsequenced Data Packet
 jnx_bonds_pts_ouch_v1_4_size_of.unsequenced_data_packet = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):uint()
@@ -2136,6 +2138,8 @@ end
 
 -- Read runtime size of: Sequenced Data Packet
 jnx_bonds_pts_ouch_v1_4_size_of.sequenced_data_packet = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):uint()

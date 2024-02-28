@@ -1713,6 +1713,8 @@ end
 
 -- Read runtime size of: Trade Cancel Error Message
 siac_cts_output_cta_v2_9_size_of.trade_cancel_error_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2135,6 +2137,8 @@ end
 
 -- Read runtime size of: Short Trade Message
 siac_cts_output_cta_v2_9_size_of.short_trade_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2490,6 +2494,8 @@ end
 
 -- Read runtime size of: Trading Status Message
 siac_cts_output_cta_v2_9_size_of.trading_status_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2615,6 +2621,8 @@ end
 
 -- Read runtime size of: Long Trade Message
 siac_cts_output_cta_v2_9_size_of.long_trade_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2922,6 +2930,8 @@ end
 
 -- Read runtime size of: Trade Correction Message
 siac_cts_output_cta_v2_9_size_of.trade_correction_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3126,6 +3136,8 @@ end
 
 -- Read runtime size of: Auction Status Message
 siac_cts_output_cta_v2_9_size_of.auction_status_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3333,6 +3345,8 @@ end
 
 -- Read runtime size of: Trade
 siac_cts_output_cta_v2_9_size_of.trade = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3484,6 +3498,8 @@ end
 
 -- Read runtime size of: Participant End Of Day Summary Message
 siac_cts_output_cta_v2_9_size_of.participant_end_of_day_summary_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3587,6 +3603,8 @@ end
 
 -- Read runtime size of: Consolidated End Of Day Summary Message
 siac_cts_output_cta_v2_9_size_of.consolidated_end_of_day_summary_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3702,6 +3720,8 @@ end
 
 -- Read runtime size of: Participant Start Of Day Summary Message
 siac_cts_output_cta_v2_9_size_of.participant_start_of_day_summary_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3770,6 +3790,8 @@ end
 
 -- Read runtime size of: Consolidated Start Of Day Summary Message
 siac_cts_output_cta_v2_9_size_of.consolidated_start_of_day_summary_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3952,6 +3974,8 @@ end
 
 -- Read runtime size of: Summary
 siac_cts_output_cta_v2_9_size_of.summary = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3996,6 +4020,8 @@ end
 
 -- Read runtime size of: Prior Day Trade Message
 siac_cts_output_cta_v2_9_size_of.prior_day_trade_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4082,6 +4108,8 @@ end
 
 -- Read runtime size of: Prior Day Trade Correction Message
 siac_cts_output_cta_v2_9_size_of.prior_day_trade_correction_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4241,6 +4269,8 @@ end
 
 -- Read runtime size of: Prior Day
 siac_cts_output_cta_v2_9_size_of.prior_day = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -4345,6 +4375,8 @@ end
 
 -- Read runtime size of: Crossing Session Summary Message
 siac_cts_output_cta_v2_9_size_of.crossing_session_summary_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4447,6 +4479,8 @@ end
 
 -- Read runtime size of: Approximate Trades And Total Dollar Value Message
 siac_cts_output_cta_v2_9_size_of.approximate_trades_and_total_dollar_value_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4568,6 +4602,8 @@ end
 
 -- Read runtime size of: Approximate Adjusted Volume Market Center Message
 siac_cts_output_cta_v2_9_size_of.approximate_adjusted_volume_market_center_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4649,6 +4685,8 @@ end
 
 -- Read runtime size of: Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_status_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4748,6 +4786,8 @@ end
 
 -- Read runtime size of: Market Wide Circuit Breaker Decline Level Status Message
 siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4926,6 +4966,8 @@ end
 
 -- Read runtime size of: Market Status
 siac_cts_output_cta_v2_9_size_of.market_status = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -5030,6 +5072,8 @@ end
 
 -- Read runtime size of: Bid And Offer Index Message
 siac_cts_output_cta_v2_9_size_of.bid_and_offer_index_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5112,6 +5156,8 @@ end
 
 -- Read runtime size of: Index Message
 siac_cts_output_cta_v2_9_size_of.index_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5251,6 +5297,8 @@ end
 
 -- Read runtime size of: Index
 siac_cts_output_cta_v2_9_size_of.index = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -5295,6 +5343,8 @@ end
 
 -- Read runtime size of: End Of Day Message
 siac_cts_output_cta_v2_9_size_of.end_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5348,6 +5398,8 @@ end
 
 -- Read runtime size of: Line Integrity Message
 siac_cts_output_cta_v2_9_size_of.line_integrity_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5401,6 +5453,8 @@ end
 
 -- Read runtime size of: Disaster Recovery Data Center Activation Message
 siac_cts_output_cta_v2_9_size_of.disaster_recovery_data_center_activation_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5454,6 +5508,8 @@ end
 
 -- Read runtime size of: Reset Block Sequence Number Message
 siac_cts_output_cta_v2_9_size_of.reset_block_sequence_number_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5507,6 +5563,8 @@ end
 
 -- Read runtime size of: Start Of Day Message
 siac_cts_output_cta_v2_9_size_of.start_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5673,6 +5731,8 @@ end
 
 -- Read runtime size of: Control
 siac_cts_output_cta_v2_9_size_of.control = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -5717,6 +5777,8 @@ end
 
 -- Read runtime size of: End Of Start Of Day Message
 siac_cts_output_cta_v2_9_size_of.end_of_start_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5770,6 +5832,8 @@ end
 
 -- Read runtime size of: Start Of Start Of Day Message
 siac_cts_output_cta_v2_9_size_of.start_of_start_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5823,6 +5887,8 @@ end
 
 -- Read runtime size of: End Of End Of Day Message
 siac_cts_output_cta_v2_9_size_of.end_of_end_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5876,6 +5942,8 @@ end
 
 -- Read runtime size of: Start Of End Of Day Message
 siac_cts_output_cta_v2_9_size_of.start_of_end_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -6031,6 +6099,8 @@ end
 
 -- Read runtime size of: Administrative
 siac_cts_output_cta_v2_9_size_of.administrative = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()

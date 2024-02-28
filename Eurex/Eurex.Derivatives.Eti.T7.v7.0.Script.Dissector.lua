@@ -1773,6 +1773,8 @@ end
 
 -- Read runtime size of: User Logout Response
 eurex_derivatives_eti_t7_v7_0_size_of.user_logout_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -1924,6 +1926,8 @@ end
 
 -- Read runtime size of: User Logout Request
 eurex_derivatives_eti_t7_v7_0_size_of.user_logout_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -1977,6 +1981,8 @@ end
 
 -- Read runtime size of: User Login Response
 eurex_derivatives_eti_t7_v7_0_size_of.user_login_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -2046,6 +2052,8 @@ end
 
 -- Read runtime size of: User Login Request
 eurex_derivatives_eti_t7_v7_0_size_of.user_login_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -4289,6 +4297,8 @@ end
 
 -- Read runtime size of: Upload Tes Trade Request
 eurex_derivatives_eti_t7_v7_0_size_of.upload_tes_trade_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -4466,6 +4476,8 @@ end
 
 -- Read runtime size of: Unsubscribe Response
 eurex_derivatives_eti_t7_v7_0_size_of.unsubscribe_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -4530,6 +4542,8 @@ end
 
 -- Read runtime size of: Unsubscribe Request
 eurex_derivatives_eti_t7_v7_0_size_of.unsubscribe_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -4954,6 +4968,8 @@ end
 
 -- Read runtime size of: Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.trading_session_status_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -6233,6 +6249,8 @@ end
 
 -- Read runtime size of: Trade Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.trade_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -6560,6 +6578,8 @@ end
 
 -- Read runtime size of: Throttle Update Notification
 eurex_derivatives_eti_t7_v7_0_size_of.throttle_update_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -6613,6 +6633,8 @@ end
 
 -- Read runtime size of: Tm Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tm_trading_session_status_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -6749,6 +6771,8 @@ end
 
 -- Read runtime size of: Tes Upload Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tes_upload_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -6932,6 +6956,8 @@ end
 
 -- Read runtime size of: Tes Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tes_trading_session_status_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -7057,6 +7083,8 @@ end
 
 -- Read runtime size of: Tes Trade Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tes_trade_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -7263,6 +7291,8 @@ end
 
 -- Read runtime size of: Tes Response
 eurex_derivatives_eti_t7_v7_0_size_of.tes_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -7333,6 +7363,8 @@ end
 
 -- Read runtime size of: Tes Execution Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tes_execution_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -7452,6 +7484,8 @@ end
 
 -- Read runtime size of: Tes Delete Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tes_delete_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -7593,6 +7627,8 @@ end
 
 -- Read runtime size of: Tes Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tes_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -7848,6 +7884,8 @@ end
 
 -- Read runtime size of: Tes Approve Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.tes_approve_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -8083,6 +8121,8 @@ end
 
 -- Read runtime size of: Subscribe Response
 eurex_derivatives_eti_t7_v7_0_size_of.subscribe_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -8204,6 +8244,8 @@ end
 
 -- Read runtime size of: Subscribe Request
 eurex_derivatives_eti_t7_v7_0_size_of.subscribe_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -8364,6 +8406,8 @@ end
 
 -- Read runtime size of: Service Availability Market Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.service_availability_market_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -8672,6 +8716,8 @@ end
 
 -- Read runtime size of: Service Availability Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.service_availability_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -9269,6 +9315,8 @@ end
 
 -- Read runtime size of: Srqs Update Negotiation Request
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_update_negotiation_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -9389,6 +9437,8 @@ end
 
 -- Read runtime size of: Srqs Update Deal Status Request
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_update_deal_status_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -9472,6 +9522,8 @@ end
 
 -- Read runtime size of: Srqs Status Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_status_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -9570,6 +9622,8 @@ end
 
 -- Read runtime size of: Srqs Quote Response
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_quote_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -9695,6 +9749,8 @@ end
 
 -- Read runtime size of: Srqs Quote Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_quote_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -10166,6 +10222,8 @@ end
 
 -- Read runtime size of: Srqs Open Negotiation Requester Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_open_negotiation_requester_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -10304,6 +10362,8 @@ end
 
 -- Read runtime size of: Srqs Open Negotiation Request
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_open_negotiation_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -10451,6 +10511,8 @@ end
 
 -- Read runtime size of: Srqs Open Negotiation Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_open_negotiation_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -10590,6 +10652,8 @@ end
 
 -- Read runtime size of: Srqs Negotiation Status Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_negotiation_status_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -10673,6 +10737,8 @@ end
 
 -- Read runtime size of: Srqs Negotiation Requester Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_negotiation_requester_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -10794,6 +10860,8 @@ end
 
 -- Read runtime size of: Srqs Negotiation Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_negotiation_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -10983,6 +11051,8 @@ end
 
 -- Read runtime size of: Srqs Hit Quote Request
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_hit_quote_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -11072,6 +11142,8 @@ end
 
 -- Read runtime size of: Srqs Enter Quote Request
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_enter_quote_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -11175,6 +11247,8 @@ end
 
 -- Read runtime size of: Srqs Deal Response
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_deal_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -11293,6 +11367,8 @@ end
 
 -- Read runtime size of: Srqs Deal Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_deal_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -11688,6 +11764,8 @@ end
 
 -- Read runtime size of: Srqs Create Deal Notification
 eurex_derivatives_eti_t7_v7_0_size_of.srqs_create_deal_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12018,6 +12096,8 @@ end
 
 -- Read runtime size of: Risk Notification Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.risk_notification_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12152,6 +12232,8 @@ end
 
 -- Read runtime size of: Retransmit Response
 eurex_derivatives_eti_t7_v7_0_size_of.retransmit_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12228,6 +12310,8 @@ end
 
 -- Read runtime size of: Retransmit Request
 eurex_derivatives_eti_t7_v7_0_size_of.retransmit_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12310,6 +12394,8 @@ end
 
 -- Read runtime size of: Retransmit Me Message Response
 eurex_derivatives_eti_t7_v7_0_size_of.retransmit_me_message_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12386,6 +12472,8 @@ end
 
 -- Read runtime size of: Retransmit Me Message Request
 eurex_derivatives_eti_t7_v7_0_size_of.retransmit_me_message_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12757,6 +12845,8 @@ end
 
 -- Read runtime size of: Reject
 eurex_derivatives_eti_t7_v7_0_size_of.reject = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12840,6 +12930,8 @@ end
 
 -- Read runtime size of: Rfq Response
 eurex_derivatives_eti_t7_v7_0_size_of.rfq_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -12887,6 +12979,8 @@ end
 
 -- Read runtime size of: Rfq Request
 eurex_derivatives_eti_t7_v7_0_size_of.rfq_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -13476,6 +13570,8 @@ end
 
 -- Read runtime size of: Quote Execution Report
 eurex_derivatives_eti_t7_v7_0_size_of.quote_execution_report = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -13646,6 +13742,8 @@ end
 
 -- Read runtime size of: Quote Activation Response
 eurex_derivatives_eti_t7_v7_0_size_of.quote_activation_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -13775,6 +13873,8 @@ end
 
 -- Read runtime size of: Quote Activation Request
 eurex_derivatives_eti_t7_v7_0_size_of.quote_activation_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -13932,6 +14032,8 @@ end
 
 -- Read runtime size of: Quote Activation Notification
 eurex_derivatives_eti_t7_v7_0_size_of.quote_activation_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -14232,6 +14334,8 @@ end
 
 -- Read runtime size of: Pre Trade Risk Limits Definition Request
 eurex_derivatives_eti_t7_v7_0_size_of.pre_trade_risk_limits_definition_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -14526,6 +14630,8 @@ end
 
 -- Read runtime size of: Pre Trade Risk Limit Response
 eurex_derivatives_eti_t7_v7_0_size_of.pre_trade_risk_limit_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -14596,6 +14702,8 @@ end
 
 -- Read runtime size of: Party Entitlements Update Report
 eurex_derivatives_eti_t7_v7_0_size_of.party_entitlements_update_report = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -14784,6 +14892,8 @@ end
 
 -- Read runtime size of: Party Action Report
 eurex_derivatives_eti_t7_v7_0_size_of.party_action_report = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -15606,6 +15716,8 @@ end
 
 -- Read runtime size of: Order Exec Response
 eurex_derivatives_eti_t7_v7_0_size_of.order_exec_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -16066,6 +16178,8 @@ end
 
 -- Read runtime size of: Order Exec Report Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.order_exec_report_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -16278,6 +16392,8 @@ end
 
 -- Read runtime size of: Order Exec Notification
 eurex_derivatives_eti_t7_v7_0_size_of.order_exec_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -16441,6 +16557,8 @@ end
 
 -- Read runtime size of: News Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.news_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -16597,6 +16715,8 @@ end
 
 -- Read runtime size of: New Order Single Short Request
 eurex_derivatives_eti_t7_v7_0_size_of.new_order_single_short_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -16704,6 +16824,8 @@ end
 
 -- Read runtime size of: New Order Single Request
 eurex_derivatives_eti_t7_v7_0_size_of.new_order_single_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -16865,6 +16987,8 @@ end
 
 -- Read runtime size of: New Order Response
 eurex_derivatives_eti_t7_v7_0_size_of.new_order_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -16948,6 +17072,8 @@ end
 
 -- Read runtime size of: New Order Nr Response
 eurex_derivatives_eti_t7_v7_0_size_of.new_order_nr_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17025,6 +17151,8 @@ end
 
 -- Read runtime size of: New Order Complex Short Request
 eurex_derivatives_eti_t7_v7_0_size_of.new_order_complex_short_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17138,6 +17266,8 @@ end
 
 -- Read runtime size of: New Order Complex Request
 eurex_derivatives_eti_t7_v7_0_size_of.new_order_complex_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17355,6 +17485,8 @@ end
 
 -- Read runtime size of: Modify Tes Trade Request
 eurex_derivatives_eti_t7_v7_0_size_of.modify_tes_trade_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17460,6 +17592,8 @@ end
 
 -- Read runtime size of: Modify Order Single Short Request
 eurex_derivatives_eti_t7_v7_0_size_of.modify_order_single_short_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17597,6 +17731,8 @@ end
 
 -- Read runtime size of: Modify Order Single Request
 eurex_derivatives_eti_t7_v7_0_size_of.modify_order_single_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17764,6 +17900,8 @@ end
 
 -- Read runtime size of: Modify Order Response
 eurex_derivatives_eti_t7_v7_0_size_of.modify_order_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17856,6 +17994,8 @@ end
 
 -- Read runtime size of: Modify Order Nr Response
 eurex_derivatives_eti_t7_v7_0_size_of.modify_order_nr_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17945,6 +18085,8 @@ end
 
 -- Read runtime size of: Modify Order Complex Short Request
 eurex_derivatives_eti_t7_v7_0_size_of.modify_order_complex_short_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -18061,6 +18203,8 @@ end
 
 -- Read runtime size of: Modify Order Complex Request
 eurex_derivatives_eti_t7_v7_0_size_of.modify_order_complex_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -18523,6 +18667,8 @@ end
 
 -- Read runtime size of: Mass Quote Response
 eurex_derivatives_eti_t7_v7_0_size_of.mass_quote_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -18671,6 +18817,8 @@ end
 
 -- Read runtime size of: Mass Quote Request
 eurex_derivatives_eti_t7_v7_0_size_of.mass_quote_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -18768,6 +18916,8 @@ end
 
 -- Read runtime size of: Mm Parameter Definition Response
 eurex_derivatives_eti_t7_v7_0_size_of.mm_parameter_definition_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -18907,6 +19057,8 @@ end
 
 -- Read runtime size of: Mm Parameter Definition Request
 eurex_derivatives_eti_t7_v7_0_size_of.mm_parameter_definition_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -18978,6 +19130,8 @@ end
 
 -- Read runtime size of: Logout Response
 eurex_derivatives_eti_t7_v7_0_size_of.logout_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -19022,6 +19176,8 @@ end
 
 -- Read runtime size of: Logout Request
 eurex_derivatives_eti_t7_v7_0_size_of.logout_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -19191,6 +19347,8 @@ end
 
 -- Read runtime size of: Logon Response
 eurex_derivatives_eti_t7_v7_0_size_of.logon_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -19547,6 +19705,8 @@ end
 
 -- Read runtime size of: Logon Request
 eurex_derivatives_eti_t7_v7_0_size_of.logon_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -19666,6 +19826,8 @@ end
 
 -- Read runtime size of: Legal Notification Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.legal_notification_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -19927,6 +20089,8 @@ end
 
 -- Read runtime size of: Inquire User Response
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_user_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -19985,6 +20149,8 @@ end
 
 -- Read runtime size of: Inquire User Request
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_user_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20167,6 +20333,8 @@ end
 
 -- Read runtime size of: Inquire Session List Response
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_session_list_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20222,6 +20390,8 @@ end
 
 -- Read runtime size of: Inquire Session List Request
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_session_list_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20294,6 +20464,8 @@ end
 
 -- Read runtime size of: Inquire Pre Trade Risk Limits Request
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_pre_trade_risk_limits_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20462,6 +20634,8 @@ end
 
 -- Read runtime size of: Inquire Mm Parameter Response
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_mm_parameter_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20523,6 +20697,8 @@ end
 
 -- Read runtime size of: Inquire Mm Parameter Request
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_mm_parameter_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20707,6 +20883,8 @@ end
 
 -- Read runtime size of: Inquire Enrichment Rule Id List Response
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_enrichment_rule_id_list_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20765,6 +20943,8 @@ end
 
 -- Read runtime size of: Inquire Enrichment Rule Id List Request
 eurex_derivatives_eti_t7_v7_0_size_of.inquire_enrichment_rule_id_list_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20815,6 +20995,8 @@ end
 
 -- Read runtime size of: Heartbeat Notification
 eurex_derivatives_eti_t7_v7_0_size_of.heartbeat_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20859,6 +21041,8 @@ end
 
 -- Read runtime size of: Heartbeat
 eurex_derivatives_eti_t7_v7_0_size_of.heartbeat = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20903,6 +21087,8 @@ end
 
 -- Read runtime size of: Gateway Request
 eurex_derivatives_eti_t7_v7_0_size_of.gateway_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20965,6 +21151,8 @@ end
 
 -- Read runtime size of: Forced User Logout Notification
 eurex_derivatives_eti_t7_v7_0_size_of.forced_user_logout_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21027,6 +21215,8 @@ end
 
 -- Read runtime size of: Forced Logout Notification
 eurex_derivatives_eti_t7_v7_0_size_of.forced_logout_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21080,6 +21270,8 @@ end
 
 -- Read runtime size of: Enter Tes Trade Request
 eurex_derivatives_eti_t7_v7_0_size_of.enter_tes_trade_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21709,6 +21901,8 @@ end
 
 -- Read runtime size of: Enter Clip Request
 eurex_derivatives_eti_t7_v7_0_size_of.enter_clip_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21808,6 +22002,8 @@ end
 
 -- Read runtime size of: Delete Tes Trade Request
 eurex_derivatives_eti_t7_v7_0_size_of.delete_tes_trade_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21879,6 +22075,8 @@ end
 
 -- Read runtime size of: Delete Order Single Request
 eurex_derivatives_eti_t7_v7_0_size_of.delete_order_single_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21962,6 +22160,8 @@ end
 
 -- Read runtime size of: Delete Order Response
 eurex_derivatives_eti_t7_v7_0_size_of.delete_order_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22045,6 +22245,8 @@ end
 
 -- Read runtime size of: Delete Order Nr Response
 eurex_derivatives_eti_t7_v7_0_size_of.delete_order_nr_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22128,6 +22330,8 @@ end
 
 -- Read runtime size of: Delete Order Complex Request
 eurex_derivatives_eti_t7_v7_0_size_of.delete_order_complex_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22211,6 +22415,8 @@ end
 
 -- Read runtime size of: Delete Order Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.delete_order_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22309,6 +22515,8 @@ end
 
 -- Read runtime size of: Delete Clip Request
 eurex_derivatives_eti_t7_v7_0_size_of.delete_clip_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22386,6 +22594,8 @@ end
 
 -- Read runtime size of: Delete All Quote Response
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_quote_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22444,6 +22654,8 @@ end
 
 -- Read runtime size of: Delete All Quote Request
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_quote_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22557,6 +22769,8 @@ end
 
 -- Read runtime size of: Delete All Quote Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_quote_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22823,6 +23037,8 @@ end
 
 -- Read runtime size of: Delete All Order Response
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_order_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22889,6 +23105,8 @@ end
 
 -- Read runtime size of: Delete All Order Request
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_order_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -22969,6 +23187,8 @@ end
 
 -- Read runtime size of: Delete All Order Quote Event Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_order_quote_event_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23031,6 +23251,8 @@ end
 
 -- Read runtime size of: Delete All Order Nr Response
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_order_nr_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23078,6 +23300,8 @@ end
 
 -- Read runtime size of: Delete All Order Broadcast
 eurex_derivatives_eti_t7_v7_0_size_of.delete_all_order_broadcast = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23171,6 +23395,8 @@ end
 
 -- Read runtime size of: Cross Request Response
 eurex_derivatives_eti_t7_v7_0_size_of.cross_request_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23218,6 +23444,8 @@ end
 
 -- Read runtime size of: Cross Request
 eurex_derivatives_eti_t7_v7_0_size_of.cross_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23329,6 +23557,8 @@ end
 
 -- Read runtime size of: Clip Response
 eurex_derivatives_eti_t7_v7_0_size_of.clip_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23399,6 +23629,8 @@ end
 
 -- Read runtime size of: Clip Execution Notification
 eurex_derivatives_eti_t7_v7_0_size_of.clip_execution_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23501,6 +23733,8 @@ end
 
 -- Read runtime size of: Clip Deletion Notification
 eurex_derivatives_eti_t7_v7_0_size_of.clip_deletion_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23602,6 +23836,8 @@ end
 
 -- Read runtime size of: Broadcast Error Notification
 eurex_derivatives_eti_t7_v7_0_size_of.broadcast_error_notification = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23667,6 +23903,8 @@ end
 
 -- Read runtime size of: Approve Tes Trade Request
 eurex_derivatives_eti_t7_v7_0_size_of.approve_tes_trade_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -24022,6 +24260,8 @@ end
 
 -- Read runtime size of: Add Flexible Instrument Response
 eurex_derivatives_eti_t7_v7_0_size_of.add_flexible_instrument_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -24102,6 +24342,8 @@ end
 
 -- Read runtime size of: Add Flexible Instrument Request
 eurex_derivatives_eti_t7_v7_0_size_of.add_flexible_instrument_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -24390,6 +24632,8 @@ end
 
 -- Read runtime size of: Add Complex Instrument Response
 eurex_derivatives_eti_t7_v7_0_size_of.add_complex_instrument_response = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -24475,6 +24719,8 @@ end
 
 -- Read runtime size of: Add Complex Instrument Request
 eurex_derivatives_eti_t7_v7_0_size_of.add_complex_instrument_request = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()

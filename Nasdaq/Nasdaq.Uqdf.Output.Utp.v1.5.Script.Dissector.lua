@@ -604,6 +604,8 @@ end
 
 -- Read runtime size of: Quote Wipe Out Message
 nasdaq_uqdf_output_utp_v1_5_size_of.quote_wipe_out_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -645,6 +647,8 @@ end
 
 -- Read runtime size of: End Of Transmissions Message
 nasdaq_uqdf_output_utp_v1_5_size_of.end_of_transmissions_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -686,6 +690,8 @@ end
 
 -- Read runtime size of: Market Session Close Message
 nasdaq_uqdf_output_utp_v1_5_size_of.market_session_close_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -727,6 +733,8 @@ end
 
 -- Read runtime size of: Market Session Open Message
 nasdaq_uqdf_output_utp_v1_5_size_of.market_session_open_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -768,6 +776,8 @@ end
 
 -- Read runtime size of: End Of Day Message
 nasdaq_uqdf_output_utp_v1_5_size_of.end_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -809,6 +819,8 @@ end
 
 -- Read runtime size of: Start Of Day Message
 nasdaq_uqdf_output_utp_v1_5_size_of.start_of_day_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -974,6 +986,8 @@ end
 
 -- Read runtime size of: Control
 nasdaq_uqdf_output_utp_v1_5_size_of.control = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -1392,6 +1406,8 @@ end
 
 -- Read runtime size of: Session Close Recap Message
 nasdaq_uqdf_output_utp_v1_5_size_of.session_close_recap_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1583,6 +1599,8 @@ end
 
 -- Read runtime size of: Auction Collar Message
 nasdaq_uqdf_output_utp_v1_5_size_of.auction_collar_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1702,6 +1720,8 @@ end
 
 -- Read runtime size of: Market Wide Circuit Breaker Decline Level Message
 nasdaq_uqdf_output_utp_v1_5_size_of.market_wide_circuit_breaker_decline_level_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1866,6 +1886,8 @@ end
 
 -- Read runtime size of: Limit Up Limit Down Price Band Message
 nasdaq_uqdf_output_utp_v1_5_size_of.limit_up_limit_down_price_band_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1952,6 +1974,8 @@ end
 
 -- Read runtime size of: Regulation Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_uqdf_output_utp_v1_5_size_of.regulation_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2289,6 +2313,8 @@ end
 
 -- Read runtime size of: Issue Symbol Directory Message
 nasdaq_uqdf_output_utp_v1_5_size_of.issue_symbol_directory_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2413,6 +2439,8 @@ end
 
 -- Read runtime size of: Market Center Trading Action Message
 nasdaq_uqdf_output_utp_v1_5_size_of.market_center_trading_action_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2486,6 +2514,8 @@ end
 
 -- Read runtime size of: Cross Sro Trading Action Message
 nasdaq_uqdf_output_utp_v1_5_size_of.cross_sro_trading_action_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2578,6 +2608,8 @@ end
 
 -- Read runtime size of: General Administrative Message
 nasdaq_uqdf_output_utp_v1_5_size_of.general_administrative_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2793,6 +2825,8 @@ end
 
 -- Read runtime size of: Administrative
 nasdaq_uqdf_output_utp_v1_5_size_of.administrative = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3032,6 +3066,8 @@ end
 
 -- Read runtime size of: Finra Adf Market Participant Quotation Message
 nasdaq_uqdf_output_utp_v1_5_size_of.finra_adf_market_participant_quotation_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -3813,6 +3849,8 @@ end
 
 -- Read runtime size of: Quote Long Form Message
 nasdaq_uqdf_output_utp_v1_5_size_of.quote_long_form_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -4029,6 +4067,8 @@ end
 
 -- Read runtime size of: Quote Short Form Message
 nasdaq_uqdf_output_utp_v1_5_size_of.quote_short_form_message = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -4210,6 +4250,8 @@ end
 
 -- Read runtime size of: Quote
 nasdaq_uqdf_output_utp_v1_5_size_of.quote = function(buffer, offset)
+  local index = offset
+
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
