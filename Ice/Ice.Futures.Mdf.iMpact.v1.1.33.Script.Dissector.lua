@@ -724,6 +724,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.event_code = 1
 
 -- Display: Event Code
 ice_futures_mdf_impact_v1_1_33_display.event_code = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
   if value == "0" then
     return "Event Code: Normal Trade (0)"
   end
@@ -746,9 +751,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.event_code = function(buffer, offset, pac
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -784,6 +787,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.option_type = 1
 
 -- Display: Option Type
 ice_futures_mdf_impact_v1_1_33_display.option_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Option Type: No Value"
+  end
+
   if value == "C" then
     return "Option Type: Call (C)"
   end
@@ -803,9 +811,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.option_type = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -841,7 +847,12 @@ ice_futures_mdf_impact_v1_1_33_size_of.off_market_trade_indicator = 1
 
 -- Display: Off Market Trade Indicator
 ice_futures_mdf_impact_v1_1_33_display.off_market_trade_indicator = function(value)
-  if value == "" then
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Off Market Trade Indicator: No Value"
+  end
+
+  if value == " " then
     return "Off Market Trade Indicator: Regular (<whitespace>)"
   end
   if value == "K" then
@@ -881,9 +892,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.off_market_trade_indicator = function(buf
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1171,6 +1180,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_official = 1
 
 -- Display: Is Official
 ice_futures_mdf_impact_v1_1_33_display.is_official = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Official: No Value"
+  end
+
   if value == "Y" then
     return "Is Official: Yes (Y)"
   end
@@ -1190,9 +1204,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_official = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -1448,7 +1460,12 @@ ice_futures_mdf_impact_v1_1_33_size_of.side = 1
 
 -- Display: Side
 ice_futures_mdf_impact_v1_1_33_display.side = function(value)
-  if value == "" then
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == " " then
     return "Side: None (<whitespace>)"
   end
   if value == "1" then
@@ -1470,9 +1487,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.side = function(buffer, offset, packet, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2036,6 +2051,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.mifid_regulated_market = 1
 
 -- Display: Mifid Regulated Market
 ice_futures_mdf_impact_v1_1_33_display.mifid_regulated_market = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mifid Regulated Market: No Value"
+  end
+
   if value == "Y" then
     return "Mifid Regulated Market: Yes (Y)"
   end
@@ -2055,9 +2075,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.mifid_regulated_market = function(buffer,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2109,6 +2127,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.guaranteed_cross_supported = 1
 
 -- Display: Guaranteed Cross Supported
 ice_futures_mdf_impact_v1_1_33_display.guaranteed_cross_supported = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Guaranteed Cross Supported: No Value"
+  end
+
   if value == "Y" then
     return "Guaranteed Cross Supported: Yes (Y)"
   end
@@ -2128,9 +2151,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.guaranteed_cross_supported = function(buf
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2146,6 +2167,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.cross_order_supported = 1
 
 -- Display: Cross Order Supported
 ice_futures_mdf_impact_v1_1_33_display.cross_order_supported = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Order Supported: No Value"
+  end
+
   if value == "Y" then
     return "Cross Order Supported: Yes (Y)"
   end
@@ -2165,9 +2191,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.cross_order_supported = function(buffer, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2183,6 +2207,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.gt_allowed = 1
 
 -- Display: Gt Allowed
 ice_futures_mdf_impact_v1_1_33_display.gt_allowed = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Gt Allowed: No Value"
+  end
+
   if value == "Y" then
     return "Gt Allowed: Yes (Y)"
   end
@@ -2202,9 +2231,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.gt_allowed = function(buffer, offset, pac
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2220,6 +2247,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_block_only = 1
 
 -- Display: Is Block Only
 ice_futures_mdf_impact_v1_1_33_display.is_block_only = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Block Only: No Value"
+  end
+
   if value == "Y" then
     return "Is Block Only: Yes (Y)"
   end
@@ -2239,9 +2271,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_block_only = function(buffer, offset, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2257,6 +2287,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.settlement_type = 1
 
 -- Display: Settlement Type
 ice_futures_mdf_impact_v1_1_33_display.settlement_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Settlement Type: No Value"
+  end
+
   if value == "0" then
     return "Settlement Type: Financial (0)"
   end
@@ -2276,9 +2311,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.settlement_type = function(buffer, offset
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2311,9 +2344,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.flex_allowed = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2366,9 +2397,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.unit_qty_denominator = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2401,9 +2430,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.settle_price_denominator = function(buffe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2439,6 +2466,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.options_expiration_type = 1
 
 -- Display: Options Expiration Type
 ice_futures_mdf_impact_v1_1_33_display.options_expiration_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Options Expiration Type: No Value"
+  end
+
   if value == "M" then
     return "Options Expiration Type: Monthly (M)"
   end
@@ -2458,9 +2490,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.options_expiration_type = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2476,6 +2506,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.options_style = 1
 
 -- Display: Options Style
 ice_futures_mdf_impact_v1_1_33_display.options_style = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Options Style: No Value"
+  end
+
   if value == "A" then
     return "Options Style: American (A)"
   end
@@ -2504,9 +2539,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.options_style = function(buffer, offset, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2659,9 +2692,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.num_decimals_strike_price = function(buff
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2750,9 +2781,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.deal_price_denominator = function(buffer,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2861,9 +2890,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.order_price_denominator = function(buffer
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -2879,6 +2906,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.trading_status = 1
 
 -- Display: Trading Status
 ice_futures_mdf_impact_v1_1_33_display.trading_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
   if value == "O" then
     return "Trading Status: Open (O)"
   end
@@ -2907,9 +2939,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.trading_status = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3163,6 +3193,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.leg_deal_suppressed = 1
 
 -- Display: Leg Deal Suppressed
 ice_futures_mdf_impact_v1_1_33_display.leg_deal_suppressed = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Deal Suppressed: No Value"
+  end
+
   if value == "Y" then
     return "Leg Deal Suppressed: Yes (Y)"
   end
@@ -3182,9 +3217,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.leg_deal_suppressed = function(buffer, of
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3236,6 +3269,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.test_market_indicator = 1
 
 -- Display: Test Market Indicator
 ice_futures_mdf_impact_v1_1_33_display.test_market_indicator = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Test Market Indicator: No Value"
+  end
+
   if value == "Y" then
     return "Test Market Indicator: Yes (Y)"
   end
@@ -3255,9 +3293,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.test_market_indicator = function(buffer, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -3770,7 +3806,7 @@ ice_futures_mdf_impact_v1_1_33_size_of.hedge_side = 1
 
 -- Display: Hedge Side
 ice_futures_mdf_impact_v1_1_33_display.hedge_side = function(value)
-  if value == "" then
+  if value == " " then
     return "Hedge Side: None (<whitespace>)"
   end
   if value == "1" then
@@ -4032,7 +4068,7 @@ ice_futures_mdf_impact_v1_1_33_size_of.leg_side = 1
 
 -- Display: Leg Side
 ice_futures_mdf_impact_v1_1_33_display.leg_side = function(value)
-  if value == "" then
+  if value == " " then
     return "Leg Side: None (<whitespace>)"
   end
   if value == "1" then
@@ -5031,6 +5067,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_final = 1
 
 -- Display: Is Final
 ice_futures_mdf_impact_v1_1_33_display.is_final = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Final: No Value"
+  end
+
   if value == "Y" then
     return "Is Final: Yes (Y)"
   end
@@ -5050,9 +5091,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_final = function(buffer, offset, packe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5068,6 +5107,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_balanced = 1
 
 -- Display: Is Balanced
 ice_futures_mdf_impact_v1_1_33_display.is_balanced = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Balanced: No Value"
+  end
+
   if value == "Y" then
     return "Is Balanced: Yes (Y)"
   end
@@ -5087,9 +5131,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_balanced = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5409,6 +5451,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.status = 1
 
 -- Display: Status
 ice_futures_mdf_impact_v1_1_33_display.status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   if value == "C" then
     return "Status: Closed (C)"
   end
@@ -5431,9 +5478,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.status = function(buffer, offset, packet,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5506,6 +5551,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.start_or_end = 1
 
 -- Display: Start Or End
 ice_futures_mdf_impact_v1_1_33_display.start_or_end = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Start Or End: No Value"
+  end
+
   if value == "S" then
     return "Start Or End: Start (S)"
   end
@@ -5525,9 +5575,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.start_or_end = function(buffer, offset, p
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5749,9 +5797,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_rfq = function(buffer, offset, packet,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -5784,9 +5830,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_implied = function(buffer, offset, pac
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6184,9 +6228,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.num_decimals_options_price = function(buf
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6315,9 +6357,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.off_exchange_increment_qty_denominator = 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6956,6 +6996,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.exchange_silo = 1
 
 -- Display: Exchange Silo
 ice_futures_mdf_impact_v1_1_33_display.exchange_silo = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Silo: No Value"
+  end
+
   if value == "0" then
     return "Exchange Silo: Ice (0)"
   end
@@ -6978,9 +7023,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.exchange_silo = function(buffer, offset, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -6996,6 +7039,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.hedge_only = 1
 
 -- Display: Hedge Only
 ice_futures_mdf_impact_v1_1_33_display.hedge_only = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Hedge Only: No Value"
+  end
+
   if value == "Y" then
     return "Hedge Only: Yes (Y)"
   end
@@ -7015,9 +7063,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.hedge_only = function(buffer, offset, pac
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7033,6 +7079,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_tradable = 1
 
 -- Display: Is Tradable
 ice_futures_mdf_impact_v1_1_33_display.is_tradable = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Tradable: No Value"
+  end
+
   if value == "Y" then
     return "Is Tradable: Yes (Y)"
   end
@@ -7052,9 +7103,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_tradable = function(buffer, offset, pa
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7070,6 +7119,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.allows_implied = 1
 
 -- Display: Allows Implied
 ice_futures_mdf_impact_v1_1_33_display.allows_implied = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Allows Implied: No Value"
+  end
+
   if value == "Y" then
     return "Allows Implied: Yes (Y)"
   end
@@ -7089,9 +7143,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.allows_implied = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7107,6 +7159,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.allow_options = 1
 
 -- Display: Allow Options
 ice_futures_mdf_impact_v1_1_33_display.allow_options = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Allow Options: No Value"
+  end
+
   if value == "Y" then
     return "Allow Options: Yes (Y)"
   end
@@ -7126,9 +7183,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.allow_options = function(buffer, offset, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7587,6 +7642,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_up = 1
 
 -- Display: Is Up
 ice_futures_mdf_impact_v1_1_33_display.is_up = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Up: No Value"
+  end
+
   if value == "Y" then
     return "Is Up: Ipl Upper Bound Violation (Y)"
   end
@@ -7596,7 +7656,7 @@ ice_futures_mdf_impact_v1_1_33_display.is_up = function(value)
   if value == "F" then
     return "Is Up: Final (F)"
   end
-  if value == "" then
+  if value == " " then
     return "Is Up: Non Endex Spot Market (<whitespace>)"
   end
 
@@ -7612,9 +7672,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_up = function(buffer, offset, packet, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -7650,6 +7708,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.ipl_hold_type = 1
 
 -- Display: Ipl Hold Type
 ice_futures_mdf_impact_v1_1_33_display.ipl_hold_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ipl Hold Type: No Value"
+  end
+
   if value == "S" then
     return "Ipl Hold Type: Ipl Hold Start (S)"
   end
@@ -7669,9 +7732,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.ipl_hold_type = function(buffer, offset, 
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -8085,9 +8146,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.has_pre_open_volume = function(buffer, of
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -8197,9 +8256,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.event_type = function(buffer, offset, pac
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9069,7 +9126,7 @@ ice_futures_mdf_impact_v1_1_33_size_of.off_market_trade_type = 3
 
 -- Display: Off Market Trade Type
 ice_futures_mdf_impact_v1_1_33_display.off_market_trade_type = function(value)
-  if value == "" then
+  if value == " " then
     return "Off Market Trade Type: Regular (<whitespace>)"
   end
   if value == "K" then
@@ -9107,7 +9164,18 @@ end
 ice_futures_mdf_impact_v1_1_33_dissect.off_market_trade_type = function(buffer, offset, packet, parent)
   local length = ice_futures_mdf_impact_v1_1_33_size_of.off_market_trade_type
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = ice_futures_mdf_impact_v1_1_33_display.off_market_trade_type(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_33.fields.off_market_trade_type, range, value, display)
@@ -9187,6 +9255,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.investigation_status = 1
 
 -- Display: Investigation Status
 ice_futures_mdf_impact_v1_1_33_display.investigation_status = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Investigation Status: No Value"
+  end
+
   if value == "1" then
     return "Investigation Status: Under Investigation (1)"
   end
@@ -9206,9 +9279,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.investigation_status = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9296,6 +9367,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_system_priced_leg = 1
 
 -- Display: Is System Priced Leg
 ice_futures_mdf_impact_v1_1_33_display.is_system_priced_leg = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is System Priced Leg: No Value"
+  end
+
   if value == "Y" then
     return "Is System Priced Leg: Yes (Y)"
   end
@@ -9315,9 +9391,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_system_priced_leg = function(buffer, o
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9450,7 +9524,12 @@ ice_futures_mdf_impact_v1_1_33_size_of.aggressor_side = 1
 
 -- Display: Aggressor Side
 ice_futures_mdf_impact_v1_1_33_display.aggressor_side = function(value)
-  if value == "" then
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Aggressor Side: No Value"
+  end
+
+  if value == " " then
     return "Aggressor Side: None (<whitespace>)"
   end
   if value == "1" then
@@ -9472,9 +9551,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.aggressor_side = function(buffer, offset,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9507,9 +9584,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_adjusted_trade = function(buffer, offs
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9542,9 +9617,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_implied_spread_at_market_open = functi
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9560,6 +9633,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.system_priced_leg_type = 1
 
 -- Display: System Priced Leg Type
 ice_futures_mdf_impact_v1_1_33_display.system_priced_leg_type = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "System Priced Leg Type: No Value"
+  end
+
   if value == "C" then
     return "System Priced Leg Type: System Priced Crack Spread Leg (C)"
   end
@@ -9579,9 +9657,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.system_priced_leg_type = function(buffer,
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9719,6 +9795,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.has_previous_day_settlement_price = 1
 
 -- Display: Has Previous Day Settlement Price
 ice_futures_mdf_impact_v1_1_33_display.has_previous_day_settlement_price = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Has Previous Day Settlement Price: No Value"
+  end
+
   if value == "N" then
     return "Has Previous Day Settlement Price: No (N)"
   end
@@ -9738,9 +9819,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.has_previous_day_settlement_price = funct
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
@@ -9756,6 +9835,11 @@ ice_futures_mdf_impact_v1_1_33_size_of.is_settle_price_official = 1
 
 -- Display: Is Settle Price Official
 ice_futures_mdf_impact_v1_1_33_display.is_settle_price_official = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Settle Price Official: No Value"
+  end
+
   if value == "Y" then
     return "Is Settle Price Official: Yes (Y)"
   end
@@ -9775,9 +9859,7 @@ ice_futures_mdf_impact_v1_1_33_dissect.is_settle_price_official = function(buffe
   local value = range:uint()
 
   -- check if value is non zero
-  if value == 0 then
-    value = ''
-  else
+  if value ~= 0 then
     value = range:string()
   end
 
