@@ -750,7 +750,6 @@ end
 siac_cqs_snapshot_cta_v1_0_size_of.finra_snapshot_message = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
 
@@ -1089,7 +1088,6 @@ end
 -- Read runtime size of: Participant Snapshot Message
 siac_cqs_snapshot_cta_v1_0_size_of.participant_snapshot_message = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -1977,7 +1975,6 @@ end
 siac_cqs_snapshot_cta_v1_0_size_of.consolidated_snapshot_message = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
 
@@ -2152,7 +2149,6 @@ end
 siac_cqs_snapshot_cta_v1_0_size_of.market_wide_circuit_breaker_decline_level_status_snapshot_message = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
 
@@ -2206,7 +2202,6 @@ end
 -- Read runtime size of: Line Integrity Message
 siac_cqs_snapshot_cta_v1_0_size_of.line_integrity_message = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2362,7 +2357,6 @@ end
 -- Read runtime size of: Snapshot
 siac_cqs_snapshot_cta_v1_0_size_of.snapshot = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()

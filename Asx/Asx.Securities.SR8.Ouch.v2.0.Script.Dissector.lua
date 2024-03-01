@@ -1254,7 +1254,6 @@ end
 asx_securities_sr8_ouch_v2_0_size_of.unsequenced_data_packet = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):uint()
 
@@ -2272,7 +2271,6 @@ end
 -- Read runtime size of: Sequenced Data Packet
 asx_securities_sr8_ouch_v2_0_size_of.sequenced_data_packet = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):uint()

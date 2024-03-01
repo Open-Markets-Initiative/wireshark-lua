@@ -9094,7 +9094,6 @@ end
 nyse_equities_binarygateway_pillar_v5_8_size_of.seq_msg = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
 
@@ -9179,7 +9178,6 @@ end
 nyse_equities_binarygateway_pillar_v5_8_size_of.close_response = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
 
@@ -9227,7 +9225,6 @@ end
 -- Read runtime size of: Close
 nyse_equities_binarygateway_pillar_v5_8_size_of.close = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9293,7 +9290,6 @@ end
 -- Read runtime size of: Open Response
 nyse_equities_binarygateway_pillar_v5_8_size_of.open_response = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9406,7 +9402,6 @@ end
 nyse_equities_binarygateway_pillar_v5_8_size_of.open = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
 
@@ -9463,7 +9458,6 @@ end
 -- Read runtime size of: Heartbeat
 nyse_equities_binarygateway_pillar_v5_8_size_of.heartbeat = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9527,7 +9521,6 @@ end
 nyse_equities_binarygateway_pillar_v5_8_size_of.stream_avail = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
 
@@ -9578,7 +9571,6 @@ end
 -- Read runtime size of: Login Response
 nyse_equities_binarygateway_pillar_v5_8_size_of.login_response = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()
@@ -9699,7 +9691,6 @@ end
 -- Read runtime size of: Login Message
 nyse_equities_binarygateway_pillar_v5_8_size_of.login_message = function(buffer, offset)
   local index = offset
-
 
   -- Dependency element: Msg Length
   local msg_length = buffer(index + 2, 2):le_uint()

@@ -979,7 +979,6 @@ end
 siac_opra_recipient_obi_v6_1_size_of.administrative_message = function(buffer, offset)
   local index = offset
 
-
   -- Dependency element: Message Data Length
   local message_data_length = buffer(offset + 10, 2):uint()
 
