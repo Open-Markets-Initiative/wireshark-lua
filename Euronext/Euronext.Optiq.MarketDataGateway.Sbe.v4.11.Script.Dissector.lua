@@ -17177,7 +17177,7 @@ euronext_optiq_marketdatagateway_sbe_v4_11:register_heuristic("udp", euronext_op
 --   Organization: European New Exchange Technology
 --   Version: 4.11
 --   Date: Wednesday, January 19, 2022
---   Specification: Euronext Markets - Optiq MDG Client Specifications - v4.13.0 +TC.pdf
+--   Specification: Euronext Markets - Optiq MDG Client Specifications - v4.11.0 +TC.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
