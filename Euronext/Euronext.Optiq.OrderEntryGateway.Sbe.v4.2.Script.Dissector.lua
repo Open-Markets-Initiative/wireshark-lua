@@ -16790,7 +16790,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2:register_heuristic("tcp", euronext_opt
 -- Protocol:
 --   Organization: European New Exchange Technology
 --   Version: 4.2
---   Date: Friday, September 25, 2020
+--   Date: Tuesday, July 7, 2020
 --   Specification: Euronext Markets - Optiq OEG Client Specifications - SBE Interface - v4.2.2.pdf
 -- 
 -- Script:
