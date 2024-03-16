@@ -5,6 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| Options Sola | [Multicast][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | Hsvf | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6716 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf] |
 | Options Sola | [Unicast][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | Hsvf | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7082 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf] |
 
 
@@ -25,3 +26,5 @@ Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
 
 [Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box.Options.Sola.Unicast.Hsvf.v4.5.1.Script.Dissector.lua "Box Options Sola Unicast Hsvf v4.5.1 Wireshark Dissector"
 [Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Unicast.Hsvf.v4.5.pdf "Boston Options Exchange 4.5.1 Pdf"
+[Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box.Options.Sola.Multicast.Hsvf.v1.9.Script.Dissector.lua "Box Options Sola Multicast Hsvf v1.9 Wireshark Dissector"
+[Box.Options.Sola.Multicast.Hsvf.v1.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Box/Specifications/Box.Options.Sola.Multicast.Hsvf.v1.9.pdf "Boston Options Exchange 1.9 Pdf"
