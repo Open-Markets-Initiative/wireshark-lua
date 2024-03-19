@@ -4558,7 +4558,95 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_reject_reason = 4
 
 -- Display: Quote Reject Reason
 b3_equities_binaryentrypoint_sbe_v7_1_display.quote_reject_reason = function(value)
-  return "Quote Reject Reason: "..value
+  if value == 9999 then
+    return "Quote Reject Reason: Technical Error Function Not Performed (9999)"
+  end
+  if value == 8006 then
+    return "Quote Reject Reason: Exercise Price Not Allowed (8006)"
+  end
+  if value == 8007 then
+    return "Quote Reject Reason: No Positions Blocked (8007)"
+  end
+  if value == 8008 then
+    return "Quote Reject Reason: Quantity Doesnt Match With The Original Request Quantity On Original Request Quantity On Original Request (8008)"
+  end
+  if value == 8011 then
+    return "Quote Reject Reason: Exercise Must Be On Maturity Date (8011)"
+  end
+  if value == 8014 then
+    return "Quote Reject Reason: Function Not Available This Time (8014)"
+  end
+  if value == 8015 then
+    return "Quote Reject Reason: Blocking Quantity More Than 999999999 (8015)"
+  end
+  if value == 8020 then
+    return "Quote Reject Reason: Trade Does Not Belong To The Specified Firm‘ Firm Id Xxx (8020)"
+  end
+  if value == 8021 then
+    return "Quote Reject Reason: Blocking Qty More Than Available Quantity (8021)"
+  end
+  if value == 8022 then
+    return "Quote Reject Reason: There Arent Positions Available To Exercise (8022)"
+  end
+  if value == 8023 then
+    return "Quote Reject Reason: Total Qty Must Be The Sum Of All Alloc Qty (8023)"
+  end
+  if value == 8024 then
+    return "Quote Reject Reason: Trade Already Cancelled Or Does Not Exist‘ Trade Id Xxx (8024)"
+  end
+  if value == 8027 then
+    return "Quote Reject Reason: Available Quantity To Block Is Zero (8027)"
+  end
+  if value == 8028 then
+    return "Quote Reject Reason: Invalid Operation For Contract Type (8028)"
+  end
+  if value == 8036 then
+    return "Quote Reject Reason: Function Closed Or Suspended (8036)"
+  end
+  if value == 8039 then
+    return "Quote Reject Reason: Exercise Price Outside Required Moneyness (8039)"
+  end
+  if value == 8040 then
+    return "Quote Reject Reason: Invalid Exercise Request Id To Cancel (8040)"
+  end
+  if value == 8059 then
+    return "Quote Reject Reason: Invalid Blocking Id To Unblock (8059)"
+  end
+  if value == 8062 then
+    return "Quote Reject Reason: Invalid Quantity To Unblock (8062)"
+  end
+  if value == 8063 then
+    return "Quote Reject Reason: On Behalf Operation Not Allowed During Ccr Recovery (8063)"
+  end
+  if value == 8065 then
+    return "Quote Reject Reason: Problem Parsing Incoming Message (8065)"
+  end
+  if value == 8066 then
+    return "Quote Reject Reason: Exercise Quantity Should Be Greater Than Zero (8066)"
+  end
+  if value == 8069 then
+    return "Quote Reject Reason: Contrary Exercise Already Registered For This Position (8069)"
+  end
+  if value == 8070 then
+    return "Quote Reject Reason: Inthemoney Contract Allows Contrary Exercise To Not Exercise Automatically Only (8070)"
+  end
+  if value == 8071 then
+    return "Quote Reject Reason: At Outthemoney Contract Allows Contrary Exercise To Exercise Automatically Only (8071)"
+  end
+  if value == 8072 then
+    return "Quote Reject Reason: Dma Is Not Allowed To Request Contrary Exercise (8072)"
+  end
+  if value == 8073 then
+    return "Quote Reject Reason: Contrary Exercises Can Only Be Requested By Default Link Or Position Owner With Direct Access On Absence Of Default Link (8073)"
+  end
+  if value == 8074 then
+    return "Quote Reject Reason: Contrary Exercise Invalid Operation (8074)"
+  end
+  if value == 8075 then
+    return "Quote Reject Reason: Threshold Must Not Be Informed (8075)"
+  end
+
+  return "Quote Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Quote Reject Reason
@@ -4642,7 +4730,7 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_status_report_message_fields
   -- Bidirectional Business Header: 1 Byte Ascii String
   index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v7_1_dissect.bidirectional_business_header(buffer, index, packet, parent)
 
-  -- Quote Reject Reason: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 29 values
   index, quote_reject_reason = b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_reject_reason(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
@@ -6461,7 +6549,74 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.ord_rej_reason = 4
 
 -- Display: Ord Rej Reason
 b3_equities_binaryentrypoint_sbe_v7_1_display.ord_rej_reason = function(value)
-  return "Ord Rej Reason: "..value
+  if value == 9999 then
+    return "Ord Rej Reason: Technical Error Function Not Performed (9999)"
+  end
+  if value == 8006 then
+    return "Ord Rej Reason: Exercise Price Not Allowed (8006)"
+  end
+  if value == 8007 then
+    return "Ord Rej Reason: No Positions Blocked (8007)"
+  end
+  if value == 8008 then
+    return "Ord Rej Reason: Quantity Doesnt Match With The Original Request Quantity On Original Request Quantity On Original Request (8008)"
+  end
+  if value == 8011 then
+    return "Ord Rej Reason: Exercise Must Be On Maturity Date (8011)"
+  end
+  if value == 8014 then
+    return "Ord Rej Reason: Function Not Available This Time (8014)"
+  end
+  if value == 8015 then
+    return "Ord Rej Reason: Blocking Quantity More Than 999999999 (8015)"
+  end
+  if value == 8020 then
+    return "Ord Rej Reason: Trade Does Not Belong To The Specified Firm‘ Firm Id Xxx (8020)"
+  end
+  if value == 8021 then
+    return "Ord Rej Reason: Blocking Qty More Than Available Quantity (8021)"
+  end
+  if value == 8022 then
+    return "Ord Rej Reason: There Arent Positions Available To Exercise (8022)"
+  end
+  if value == 8023 then
+    return "Ord Rej Reason: Total Qty Must Be The Sum Of All Alloc Qty (8023)"
+  end
+  if value == 8024 then
+    return "Ord Rej Reason: Trade Already Cancelled Or Does Not Exist‘ Trade Id Xxx (8024)"
+  end
+  if value == 8027 then
+    return "Ord Rej Reason: Available Quantity To Block Is Zero (8027)"
+  end
+  if value == 8028 then
+    return "Ord Rej Reason: Invalid Operation For Contract Type (8028)"
+  end
+  if value == 8036 then
+    return "Ord Rej Reason: Function Closed Or Suspended (8036)"
+  end
+  if value == 8039 then
+    return "Ord Rej Reason: Exercise Price Outside Required Moneyness (8039)"
+  end
+  if value == 8040 then
+    return "Ord Rej Reason: Invalid Exercise Request Id To Cancel (8040)"
+  end
+  if value == 8059 then
+    return "Ord Rej Reason: Invalid Blocking Id To Unblock (8059)"
+  end
+  if value == 8062 then
+    return "Ord Rej Reason: Invalid Quantity To Unblock (8062)"
+  end
+  if value == 8063 then
+    return "Ord Rej Reason: On Behalf Operation Not Allowed During Ccr Recovery (8063)"
+  end
+  if value == 8065 then
+    return "Ord Rej Reason: Problem Parsing Incoming Message (8065)"
+  end
+  if value == 8066 then
+    return "Ord Rej Reason: Exercise Quantity Should Be Greater Than Zero (8066)"
+  end
+
+  return "Ord Rej Reason: Unknown("..value..")"
 end
 
 -- Dissect: Ord Rej Reason
@@ -6615,7 +6770,7 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_reject_message_fi
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
-  -- Ord Rej Reason: 4 Byte Unsigned Fixed Width Integer
+  -- Ord Rej Reason: 4 Byte Unsigned Fixed Width Integer Enum with 22 values
   index, ord_rej_reason = b3_equities_binaryentrypoint_sbe_v7_1_dissect.ord_rej_reason(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
