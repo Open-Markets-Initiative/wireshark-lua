@@ -56,6 +56,8 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | Organization | Division | Data | Protocol | Version | Date | [Testing][Omi.Glossary.Testing] |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Asx][Asx.Directory] | Securities | [Ntp][Asx.Securities.Ntp.Itch.v1.05.Dissector] | Itch | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Asx][Asx.Directory] | Securities | [Trade][Asx.Securities.Trade.Itch.v3.1.Dissector] | Itch | [3.1][Asx.Securities.Trade.Itch.v3.1.Dissector] | 3/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Asx][Asx.Directory] | Securities | [Trade][Asx.Securities.Trade.Ouch.v3.6.Dissector] | Ouch | [3.6][Asx.Securities.Trade.Ouch.v3.6.Dissector] | 2/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [B3][B3.Directory] | Equities | [BinaryEntryPoint][B3.Equities.BinaryEntryPoint.Sbe.v8.0.Dissector] | Sbe | [8.0][B3.Equities.BinaryEntryPoint.Sbe.v8.0.Dissector] | 9/18/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [B3][B3.Directory] | Equities | [BinaryUmdf][B3.Equities.BinaryUmdf.Sbe.v1.7.Dissector] | Sbe | [1.7][B3.Equities.BinaryUmdf.Sbe.v1.7.Dissector] | 6/13/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Box][Box.Directory] | Options Sola | [Multicast][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | Hsvf | [1.9][Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector] | 2/15/2024 | [Verified][Omi.Glossary.Testing.Verified] |
@@ -225,6 +227,8 @@ Enjoy.
 [Tmx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Tmx "Tmx Group"
 
 [Asx.Securities.Ntp.Itch.v1.05.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx.Securities.Ntp.Itch.v1.05.Script.Dissector.lua "Asx Securities Ntp Itch v1.05 Lua Wireshark Dissector"
+[Asx.Securities.Trade.Itch.v3.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx.Securities.Trade.Itch.v3.1.Script.Dissector.lua "Asx Securities Trade Itch v3.1 Lua Wireshark Dissector"
+[Asx.Securities.Trade.Ouch.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx.Securities.Trade.Ouch.v3.6.Script.Dissector.lua "Asx Securities Trade Ouch v3.6 Lua Wireshark Dissector"
 [B3.Equities.BinaryUmdf.Sbe.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3.Equities.BinaryUmdf.Sbe.v1.7.Script.Dissector.lua "B3 Equities BinaryUmdf Sbe v1.7 Lua Wireshark Dissector"
 [B3.Equities.BinaryEntryPoint.Sbe.v8.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3.Equities.BinaryEntryPoint.Sbe.v8.0.Script.Dissector.lua "B3 Equities BinaryEntryPoint Sbe v8.0 Lua Wireshark Dissector"
 [Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box.Options.Sola.Multicast.Hsvf.v1.9.Script.Dissector.lua "Box Options Sola Multicast Hsvf v1.9 Lua Wireshark Dissector"

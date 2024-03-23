@@ -2621,7 +2621,7 @@ asx_securities_trade_ouch_v3_6:register_heuristic("tcp", asx_securities_trade_ou
 -- Protocol:
 --   Organization: Australian Securities Exchange
 --   Version: 3.6
---   Date: Wednesday, April 1, 2015
+--   Date: Wednesday, February 1, 2023
 --   Specification: asx-trade-ouch-message-specification.pdf
 -- 
 -- Script:

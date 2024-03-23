@@ -2996,7 +2996,7 @@ asx_securities_trade_itch_v3_1:register_heuristic("udp", asx_securities_trade_it
 -- Protocol:
 --   Organization: Australian Securities Exchange
 --   Version: 3.1
---   Date: Wednesday, April 1, 2015
+--   Date: Wednesday, March 1, 2023
 --   Specification: asx-trade-itch-message-specification.pdf
 -- 
 -- Script:
