@@ -34,25 +34,22 @@ asx_securities_trade_itch_v3_1.fields.count = ProtoField.new("Count", "asx.secur
 asx_securities_trade_itch_v3_1.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "asx.securities.trade.itch.v3.1.equilibriumprice", ftypes.INT32)
 asx_securities_trade_itch_v3_1.fields.equilibrium_price_update_message = ProtoField.new("Equilibrium Price Update Message", "asx.securities.trade.itch.v3.1.equilibriumpriceupdatemessage", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.event_code = ProtoField.new("Event Code", "asx.securities.trade.itch.v3.1.eventcode", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.exchange_order_type = ProtoField.new("Exchange Order Type", "asx.securities.trade.itch.v3.1.exchangeordertype", ftypes.UINT16)
+asx_securities_trade_itch_v3_1.fields.exchange_order_type = ProtoField.new("Exchange Order Type", "asx.securities.trade.itch.v3.1.exchangeordertype", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.executed_quantity = ProtoField.new("Executed Quantity", "asx.securities.trade.itch.v3.1.executedquantity", ftypes.UINT64)
 asx_securities_trade_itch_v3_1.fields.financial_product = ProtoField.new("Financial Product", "asx.securities.trade.itch.v3.1.financialproduct", ftypes.UINT8)
+asx_securities_trade_itch_v3_1.fields.implied_order = ProtoField.new("Implied Order", "asx.securities.trade.itch.v3.1.impliedorder", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
 asx_securities_trade_itch_v3_1.fields.isin = ProtoField.new("Isin", "asx.securities.trade.itch.v3.1.isin", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_1_ratio = ProtoField.new("Leg 1 Ratio", "asx.securities.trade.itch.v3.1.leg1ratio", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.leg_1_side = ProtoField.new("Leg 1 Side", "asx.securities.trade.itch.v3.1.leg1side", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_1_symbol = ProtoField.new("Leg 1 Symbol", "asx.securities.trade.itch.v3.1.leg1symbol", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_2_ratio = ProtoField.new("Leg 2 Ratio", "asx.securities.trade.itch.v3.1.leg2ratio", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.leg_2_side = ProtoField.new("Leg 2 Side", "asx.securities.trade.itch.v3.1.leg2side", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_2_symbol = ProtoField.new("Leg 2 Symbol", "asx.securities.trade.itch.v3.1.leg2symbol", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_3_ratio = ProtoField.new("Leg 3 Ratio", "asx.securities.trade.itch.v3.1.leg3ratio", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.leg_3_side = ProtoField.new("Leg 3 Side", "asx.securities.trade.itch.v3.1.leg3side", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_3_symbol = ProtoField.new("Leg 3 Symbol", "asx.securities.trade.itch.v3.1.leg3symbol", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_4_ratio = ProtoField.new("Leg 4 Ratio", "asx.securities.trade.itch.v3.1.leg4ratio", ftypes.UINT32)
-asx_securities_trade_itch_v3_1.fields.leg_4_side = ProtoField.new("Leg 4 Side", "asx.securities.trade.itch.v3.1.leg4side", ftypes.STRING)
-asx_securities_trade_itch_v3_1.fields.leg_4_symbol = ProtoField.new("Leg 4 Symbol", "asx.securities.trade.itch.v3.1.leg4symbol", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.leg_1 = ProtoField.new("Leg 1", "asx.securities.trade.itch.v3.1.leg1", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.leg_2 = ProtoField.new("Leg 2", "asx.securities.trade.itch.v3.1.leg2", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.leg_3 = ProtoField.new("Leg 3", "asx.securities.trade.itch.v3.1.leg3", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.leg_4 = ProtoField.new("Leg 4", "asx.securities.trade.itch.v3.1.leg4", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "asx.securities.trade.itch.v3.1.legratio", ftypes.UINT32)
+asx_securities_trade_itch_v3_1.fields.leg_side = ProtoField.new("Leg Side", "asx.securities.trade.itch.v3.1.legside", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "asx.securities.trade.itch.v3.1.legsymbol", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.length = ProtoField.new("Length", "asx.securities.trade.itch.v3.1.length", ftypes.UINT16)
 asx_securities_trade_itch_v3_1.fields.long_name = ProtoField.new("Long Name", "asx.securities.trade.itch.v3.1.longname", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.lot_type = ProtoField.new("Lot Type", "asx.securities.trade.itch.v3.1.lottype", ftypes.UINT8)
+asx_securities_trade_itch_v3_1.fields.market_bid = ProtoField.new("Market Bid", "asx.securities.trade.itch.v3.1.marketbid", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x2000")
 asx_securities_trade_itch_v3_1.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.itch.v3.1.matchid", ftypes.BYTES)
 asx_securities_trade_itch_v3_1.fields.message = ProtoField.new("Message", "asx.securities.trade.itch.v3.1.message", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.message_header = ProtoField.new("Message Header", "asx.securities.trade.itch.v3.1.messageheader", ftypes.STRING)
@@ -80,9 +77,13 @@ asx_securities_trade_itch_v3_1.fields.participant_id_owner = ProtoField.new("Par
 asx_securities_trade_itch_v3_1.fields.payload = ProtoField.new("Payload", "asx.securities.trade.itch.v3.1.payload", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.price = ProtoField.new("Price", "asx.securities.trade.itch.v3.1.price", ftypes.INT32)
 asx_securities_trade_itch_v3_1.fields.price_from = ProtoField.new("Price From", "asx.securities.trade.itch.v3.1.pricefrom", ftypes.INT32)
+asx_securities_trade_itch_v3_1.fields.price_stabilisation = ProtoField.new("Price Stabilisation", "asx.securities.trade.itch.v3.1.pricestabilisation", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x1000")
 asx_securities_trade_itch_v3_1.fields.price_to = ProtoField.new("Price To", "asx.securities.trade.itch.v3.1.priceto", ftypes.INT32)
 asx_securities_trade_itch_v3_1.fields.printable = ProtoField.new("Printable", "asx.securities.trade.itch.v3.1.printable", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.quantity = ProtoField.new("Quantity", "asx.securities.trade.itch.v3.1.quantity", ftypes.UINT64)
+asx_securities_trade_itch_v3_1.fields.reserved_2_bits = ProtoField.new("Reserved 2 Bits", "asx.securities.trade.itch.v3.1.reserved2bits", ftypes.UINT16, nil, base.DEC, "0xC000")
+asx_securities_trade_itch_v3_1.fields.reserved_9_bits = ProtoField.new("Reserved 9 Bits", "asx.securities.trade.itch.v3.1.reserved9bits", ftypes.UINT16, nil, base.DEC, "0x03FE")
+asx_securities_trade_itch_v3_1.fields.reserved_bit = ProtoField.new("Reserved Bit", "asx.securities.trade.itch.v3.1.reservedbit", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0800")
 asx_securities_trade_itch_v3_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "asx.securities.trade.itch.v3.1.roundlotsize", ftypes.UINT32)
 asx_securities_trade_itch_v3_1.fields.seconds_message = ProtoField.new("Seconds Message", "asx.securities.trade.itch.v3.1.secondsmessage", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.sequence = ProtoField.new("Sequence", "asx.securities.trade.itch.v3.1.sequence", ftypes.UINT64)
@@ -92,12 +93,13 @@ asx_securities_trade_itch_v3_1.fields.state_name = ProtoField.new("State Name", 
 asx_securities_trade_itch_v3_1.fields.symbol = ProtoField.new("Symbol", "asx.securities.trade.itch.v3.1.symbol", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.system_event_message = ProtoField.new("System Event Message", "asx.securities.trade.itch.v3.1.systemeventmessage", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.tick_size = ProtoField.new("Tick Size", "asx.securities.trade.itch.v3.1.ticksize", ftypes.UINT64)
-asx_securities_trade_itch_v3_1.fields.tick_size_message = ProtoField.new("Tick Size Message", "asx.securities.trade.itch.v3.1.ticksizemessage", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.tick_size_table_entry_message = ProtoField.new("Tick Size Table Entry Message", "asx.securities.trade.itch.v3.1.ticksizetableentrymessage", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.trade.itch.v3.1.timestampnanoseconds", ftypes.UINT32)
 asx_securities_trade_itch_v3_1.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "asx.securities.trade.itch.v3.1.timestampseconds", ftypes.UINT32)
 asx_securities_trade_itch_v3_1.fields.trade_message = ProtoField.new("Trade Message", "asx.securities.trade.itch.v3.1.trademessage", ftypes.STRING)
 asx_securities_trade_itch_v3_1.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.trade.itch.v3.1.tradeprice", ftypes.INT32)
 asx_securities_trade_itch_v3_1.fields.trading_currency = ProtoField.new("Trading Currency", "asx.securities.trade.itch.v3.1.tradingcurrency", ftypes.STRING)
+asx_securities_trade_itch_v3_1.fields.undisclosed = ProtoField.new("Undisclosed", "asx.securities.trade.itch.v3.1.undisclosed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0400")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -108,6 +110,11 @@ show.add_order_no_participant_id_message = true
 show.add_order_participant_id_message = true
 show.combination_order_book_directory_message = true
 show.equilibrium_price_update_message = true
+show.exchange_order_type = true
+show.leg_1 = true
+show.leg_2 = true
+show.leg_3 = true
+show.leg_4 = true
 show.message = true
 show.message_header = true
 show.order_book_directory_message = true
@@ -120,7 +127,7 @@ show.packet = true
 show.packet_header = true
 show.seconds_message = true
 show.system_event_message = true
-show.tick_size_message = true
+show.tick_size_table_entry_message = true
 show.trade_message = true
 show.payload = false
 
@@ -129,6 +136,11 @@ asx_securities_trade_itch_v3_1.prefs.show_add_order_no_participant_id_message = 
 asx_securities_trade_itch_v3_1.prefs.show_add_order_participant_id_message = Pref.bool("Show Add Order Participant Id Message", show.add_order_participant_id_message, "Parse and add Add Order Participant Id Message to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_combination_order_book_directory_message = Pref.bool("Show Combination Order Book Directory Message", show.combination_order_book_directory_message, "Parse and add Combination Order Book Directory Message to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message = Pref.bool("Show Equilibrium Price Update Message", show.equilibrium_price_update_message, "Parse and add Equilibrium Price Update Message to protocol tree")
+asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type = Pref.bool("Show Exchange Order Type", show.exchange_order_type, "Parse and add Exchange Order Type to protocol tree")
+asx_securities_trade_itch_v3_1.prefs.show_leg_1 = Pref.bool("Show Leg 1", show.leg_1, "Parse and add Leg 1 to protocol tree")
+asx_securities_trade_itch_v3_1.prefs.show_leg_2 = Pref.bool("Show Leg 2", show.leg_2, "Parse and add Leg 2 to protocol tree")
+asx_securities_trade_itch_v3_1.prefs.show_leg_3 = Pref.bool("Show Leg 3", show.leg_3, "Parse and add Leg 3 to protocol tree")
+asx_securities_trade_itch_v3_1.prefs.show_leg_4 = Pref.bool("Show Leg 4", show.leg_4, "Parse and add Leg 4 to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_order_book_directory_message = Pref.bool("Show Order Book Directory Message", show.order_book_directory_message, "Parse and add Order Book Directory Message to protocol tree")
@@ -141,7 +153,7 @@ asx_securities_trade_itch_v3_1.prefs.show_packet = Pref.bool("Show Packet", show
 asx_securities_trade_itch_v3_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
-asx_securities_trade_itch_v3_1.prefs.show_tick_size_message = Pref.bool("Show Tick Size Message", show.tick_size_message, "Parse and add Tick Size Message to protocol tree")
+asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message = Pref.bool("Show Tick Size Table Entry Message", show.tick_size_table_entry_message, "Parse and add Tick Size Table Entry Message to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 asx_securities_trade_itch_v3_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
@@ -164,6 +176,26 @@ function asx_securities_trade_itch_v3_1.prefs_changed()
   end
   if show.equilibrium_price_update_message ~= asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message then
     show.equilibrium_price_update_message = asx_securities_trade_itch_v3_1.prefs.show_equilibrium_price_update_message
+    changed = true
+  end
+  if show.exchange_order_type ~= asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type then
+    show.exchange_order_type = asx_securities_trade_itch_v3_1.prefs.show_exchange_order_type
+    changed = true
+  end
+  if show.leg_1 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_1 then
+    show.leg_1 = asx_securities_trade_itch_v3_1.prefs.show_leg_1
+    changed = true
+  end
+  if show.leg_2 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_2 then
+    show.leg_2 = asx_securities_trade_itch_v3_1.prefs.show_leg_2
+    changed = true
+  end
+  if show.leg_3 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_3 then
+    show.leg_3 = asx_securities_trade_itch_v3_1.prefs.show_leg_3
+    changed = true
+  end
+  if show.leg_4 ~= asx_securities_trade_itch_v3_1.prefs.show_leg_4 then
+    show.leg_4 = asx_securities_trade_itch_v3_1.prefs.show_leg_4
     changed = true
   end
   if show.message ~= asx_securities_trade_itch_v3_1.prefs.show_message then
@@ -214,8 +246,8 @@ function asx_securities_trade_itch_v3_1.prefs_changed()
     show.system_event_message = asx_securities_trade_itch_v3_1.prefs.show_system_event_message
     changed = true
   end
-  if show.tick_size_message ~= asx_securities_trade_itch_v3_1.prefs.show_tick_size_message then
-    show.tick_size_message = asx_securities_trade_itch_v3_1.prefs.show_tick_size_message
+  if show.tick_size_table_entry_message ~= asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message then
+    show.tick_size_table_entry_message = asx_securities_trade_itch_v3_1.prefs.show_tick_size_table_entry_message
     changed = true
   end
   if show.trade_message ~= asx_securities_trade_itch_v3_1.prefs.show_trade_message then
@@ -852,30 +884,70 @@ end
 asx_securities_trade_itch_v3_1_size_of.exchange_order_type = 2
 
 -- Display: Exchange Order Type
-asx_securities_trade_itch_v3_1_display.exchange_order_type = function(value)
-  if value == 4 then
-    return "Exchange Order Type: Market Bid (4)"
+asx_securities_trade_itch_v3_1_display.exchange_order_type = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Market Bid flag set?
+  if buffer:bitfield(2) > 0 then
+    display = display.."Market Bid|"
   end
-  if value == 8 then
-    return "Exchange Order Type: Price Stabilisation (8)"
+  -- Is Price Stabilisation flag set?
+  if buffer:bitfield(3) > 0 then
+    display = display.."Price Stabilisation|"
   end
-  if value == 32 then
-    return "Exchange Order Type: Undisclosed (32)"
+  -- Is Reserved Bit flag set?
+  if buffer:bitfield(4) > 0 then
+    display = display.."Reserved Bit|"
+  end
+  -- Is Undisclosed flag set?
+  if buffer:bitfield(5) > 0 then
+    display = display.."Undisclosed|"
+  end
+  -- Is Implied Order flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."Implied Order|"
   end
 
-  return "Exchange Order Type: Unknown("..value..")"
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Exchange Order Type
+asx_securities_trade_itch_v3_1_dissect.exchange_order_type_bits = function(buffer, offset, packet, parent)
+
+  -- Reserved 2 Bits: 2 Bit
+  parent:add(asx_securities_trade_itch_v3_1.fields.reserved_2_bits, buffer(offset, 2))
+
+  -- Market Bid: 1 Bit
+  parent:add(asx_securities_trade_itch_v3_1.fields.market_bid, buffer(offset, 2))
+
+  -- Price Stabilisation: 1 Bit
+  parent:add(asx_securities_trade_itch_v3_1.fields.price_stabilisation, buffer(offset, 2))
+
+  -- Reserved Bit: 1 Bit
+  parent:add(asx_securities_trade_itch_v3_1.fields.reserved_bit, buffer(offset, 2))
+
+  -- Undisclosed: 1 Bit
+  parent:add(asx_securities_trade_itch_v3_1.fields.undisclosed, buffer(offset, 2))
+
+  -- Reserved 9 Bits: 9 Bit
+  parent:add(asx_securities_trade_itch_v3_1.fields.reserved_9_bits, buffer(offset, 2))
+
+  -- Implied Order: 1 Bit
+  parent:add(asx_securities_trade_itch_v3_1.fields.implied_order, buffer(offset, 2))
 end
 
 -- Dissect: Exchange Order Type
 asx_securities_trade_itch_v3_1_dissect.exchange_order_type = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.exchange_order_type
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_trade_itch_v3_1_display.exchange_order_type(value, buffer, offset, packet, parent)
+  local size = 2
+  local range = buffer(offset, size)
+  local display = asx_securities_trade_itch_v3_1_display.exchange_order_type(range, packet, parent)
+  local element = parent:add(asx_securities_trade_itch_v3_1.fields.exchange_order_type, range, display)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.exchange_order_type, range, value, display)
+  if show.exchange_order_type then
+    asx_securities_trade_itch_v3_1_dissect.exchange_order_type_bits(buffer, offset, packet, element)
+  end
 
-  return offset + length, value
+  return offset + 2, range
 end
 
 -- Size: Price
@@ -971,7 +1043,7 @@ asx_securities_trade_itch_v3_1_dissect.order_replace_message_fields = function(b
   -- Price: 4 Byte Signed Fixed Width Integer
   index, price = asx_securities_trade_itch_v3_1_dissect.price(buffer, index, packet, parent)
 
-  -- Exchange Order Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Exchange Order Type: Struct of 7 fields
   index, exchange_order_type = asx_securities_trade_itch_v3_1_dissect.exchange_order_type(buffer, index, packet, parent)
 
   return index
@@ -1302,7 +1374,7 @@ asx_securities_trade_itch_v3_1_dissect.add_order_participant_id_message_fields =
   -- Price: 4 Byte Signed Fixed Width Integer
   index, price = asx_securities_trade_itch_v3_1_dissect.price(buffer, index, packet, parent)
 
-  -- Exchange Order Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Exchange Order Type: Struct of 7 fields
   index, exchange_order_type = asx_securities_trade_itch_v3_1_dissect.exchange_order_type(buffer, index, packet, parent)
 
   -- Lot Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -1382,7 +1454,7 @@ asx_securities_trade_itch_v3_1_dissect.add_order_no_participant_id_message_field
   -- Price: 4 Byte Signed Fixed Width Integer
   index, price = asx_securities_trade_itch_v3_1_dissect.price(buffer, index, packet, parent)
 
-  -- Exchange Order Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Exchange Order Type: Struct of 7 fields
   index, exchange_order_type = asx_securities_trade_itch_v3_1_dissect.exchange_order_type(buffer, index, packet, parent)
 
   -- Lot Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -1600,8 +1672,8 @@ asx_securities_trade_itch_v3_1_dissect.tick_size = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Calculate size of: Tick Size Message
-asx_securities_trade_itch_v3_1_size_of.tick_size_message = function(buffer, offset)
+-- Calculate size of: Tick Size Table Entry Message
+asx_securities_trade_itch_v3_1_size_of.tick_size_table_entry_message = function(buffer, offset)
   local index = 0
 
   index = index + asx_securities_trade_itch_v3_1_size_of.timestamp_nanoseconds
@@ -1617,13 +1689,13 @@ asx_securities_trade_itch_v3_1_size_of.tick_size_message = function(buffer, offs
   return index
 end
 
--- Display: Tick Size Message
-asx_securities_trade_itch_v3_1_display.tick_size_message = function(buffer, offset, size, packet, parent)
+-- Display: Tick Size Table Entry Message
+asx_securities_trade_itch_v3_1_display.tick_size_table_entry_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Tick Size Message
-asx_securities_trade_itch_v3_1_dissect.tick_size_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Tick Size Table Entry Message
+asx_securities_trade_itch_v3_1_dissect.tick_size_table_entry_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
@@ -1644,291 +1716,272 @@ asx_securities_trade_itch_v3_1_dissect.tick_size_message_fields = function(buffe
   return index
 end
 
--- Dissect: Tick Size Message
-asx_securities_trade_itch_v3_1_dissect.tick_size_message = function(buffer, offset, packet, parent)
+-- Dissect: Tick Size Table Entry Message
+asx_securities_trade_itch_v3_1_dissect.tick_size_table_entry_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.tick_size_message then
-    local length = asx_securities_trade_itch_v3_1_size_of.tick_size_message(buffer, offset)
+  if show.tick_size_table_entry_message then
+    local length = asx_securities_trade_itch_v3_1_size_of.tick_size_table_entry_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = asx_securities_trade_itch_v3_1_display.tick_size_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_itch_v3_1.fields.tick_size_message, range, display)
+    local display = asx_securities_trade_itch_v3_1_display.tick_size_table_entry_message(buffer, packet, parent)
+    parent = parent:add(asx_securities_trade_itch_v3_1.fields.tick_size_table_entry_message, range, display)
   end
 
-  return asx_securities_trade_itch_v3_1_dissect.tick_size_message_fields(buffer, offset, packet, parent)
+  return asx_securities_trade_itch_v3_1_dissect.tick_size_table_entry_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Leg 4 Ratio
-asx_securities_trade_itch_v3_1_size_of.leg_4_ratio = 4
+-- Size: Leg Ratio
+asx_securities_trade_itch_v3_1_size_of.leg_ratio = 4
 
--- Display: Leg 4 Ratio
-asx_securities_trade_itch_v3_1_display.leg_4_ratio = function(value)
-  return "Leg 4 Ratio: "..value
+-- Display: Leg Ratio
+asx_securities_trade_itch_v3_1_display.leg_ratio = function(value)
+  return "Leg Ratio: "..value
 end
 
--- Dissect: Leg 4 Ratio
-asx_securities_trade_itch_v3_1_dissect.leg_4_ratio = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_4_ratio
+-- Dissect: Leg Ratio
+asx_securities_trade_itch_v3_1_dissect.leg_ratio = function(buffer, offset, packet, parent)
+  local length = asx_securities_trade_itch_v3_1_size_of.leg_ratio
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_trade_itch_v3_1_display.leg_4_ratio(value, buffer, offset, packet, parent)
+  local display = asx_securities_trade_itch_v3_1_display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_4_ratio, range, value, display)
+  parent:add(asx_securities_trade_itch_v3_1.fields.leg_ratio, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Leg 4 Side
-asx_securities_trade_itch_v3_1_size_of.leg_4_side = 1
+-- Size: Leg Side
+asx_securities_trade_itch_v3_1_size_of.leg_side = 1
 
--- Display: Leg 4 Side
-asx_securities_trade_itch_v3_1_display.leg_4_side = function(value)
+-- Display: Leg Side
+asx_securities_trade_itch_v3_1_display.leg_side = function(value)
   if value == "B" then
-    return "Leg 4 Side: Buy Leg (B)"
+    return "Leg Side: Buy Leg (B)"
   end
   if value == "C" then
-    return "Leg 4 Side: Sell Leg (C)"
-  end
-  if value == "?" then
-    return "Leg 4 Side: Not Defined (?)"
+    return "Leg Side: Sell Leg (C)"
   end
 
-  return "Leg 4 Side: Unknown("..value..")"
+  return "Leg Side: Unknown("..value..")"
 end
 
--- Dissect: Leg 4 Side
-asx_securities_trade_itch_v3_1_dissect.leg_4_side = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_4_side
+-- Dissect: Leg Side
+asx_securities_trade_itch_v3_1_dissect.leg_side = function(buffer, offset, packet, parent)
+  local length = asx_securities_trade_itch_v3_1_size_of.leg_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = asx_securities_trade_itch_v3_1_display.leg_4_side(value, buffer, offset, packet, parent)
+  local display = asx_securities_trade_itch_v3_1_display.leg_side(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_4_side, range, value, display)
+  parent:add(asx_securities_trade_itch_v3_1.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Leg 4 Symbol
-asx_securities_trade_itch_v3_1_size_of.leg_4_symbol = 32
+-- Size: Leg Symbol
+asx_securities_trade_itch_v3_1_size_of.leg_symbol = 32
 
--- Display: Leg 4 Symbol
-asx_securities_trade_itch_v3_1_display.leg_4_symbol = function(value)
-  return "Leg 4 Symbol: "..value
+-- Display: Leg Symbol
+asx_securities_trade_itch_v3_1_display.leg_symbol = function(value)
+  return "Leg Symbol: "..value
 end
 
--- Dissect: Leg 4 Symbol
-asx_securities_trade_itch_v3_1_dissect.leg_4_symbol = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_4_symbol
+-- Dissect: Leg Symbol
+asx_securities_trade_itch_v3_1_dissect.leg_symbol = function(buffer, offset, packet, parent)
+  local length = asx_securities_trade_itch_v3_1_size_of.leg_symbol
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = asx_securities_trade_itch_v3_1_display.leg_4_symbol(value, buffer, offset, packet, parent)
+  local display = asx_securities_trade_itch_v3_1_display.leg_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_4_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg 3 Ratio
-asx_securities_trade_itch_v3_1_size_of.leg_3_ratio = 4
-
--- Display: Leg 3 Ratio
-asx_securities_trade_itch_v3_1_display.leg_3_ratio = function(value)
-  return "Leg 3 Ratio: "..value
-end
-
--- Dissect: Leg 3 Ratio
-asx_securities_trade_itch_v3_1_dissect.leg_3_ratio = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_3_ratio
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_trade_itch_v3_1_display.leg_3_ratio(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_3_ratio, range, value, display)
+  parent:add(asx_securities_trade_itch_v3_1.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Leg 3 Side
-asx_securities_trade_itch_v3_1_size_of.leg_3_side = 1
+-- Calculate size of: Leg 4
+asx_securities_trade_itch_v3_1_size_of.leg_4 = function(buffer, offset)
+  local index = 0
 
--- Display: Leg 3 Side
-asx_securities_trade_itch_v3_1_display.leg_3_side = function(value)
-  if value == "B" then
-    return "Leg 3 Side: Buy Leg (B)"
-  end
-  if value == "C" then
-    return "Leg 3 Side: Sell Leg (C)"
-  end
-  if value == "?" then
-    return "Leg 3 Side: Not Defined (?)"
-  end
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_symbol
 
-  return "Leg 3 Side: Unknown("..value..")"
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_side
+
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_ratio
+
+  return index
 end
 
--- Dissect: Leg 3 Side
-asx_securities_trade_itch_v3_1_dissect.leg_3_side = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_3_side
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_trade_itch_v3_1_display.leg_3_side(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_3_side, range, value, display)
-
-  return offset + length, value
+-- Display: Leg 4
+asx_securities_trade_itch_v3_1_display.leg_4 = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
--- Size: Leg 3 Symbol
-asx_securities_trade_itch_v3_1_size_of.leg_3_symbol = 32
+-- Dissect Fields: Leg 4
+asx_securities_trade_itch_v3_1_dissect.leg_4_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
--- Display: Leg 3 Symbol
-asx_securities_trade_itch_v3_1_display.leg_3_symbol = function(value)
-  return "Leg 3 Symbol: "..value
+  -- Leg Symbol: 32 Byte Ascii String
+  index, leg_symbol = asx_securities_trade_itch_v3_1_dissect.leg_symbol(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  index, leg_side = asx_securities_trade_itch_v3_1_dissect.leg_side(buffer, index, packet, parent)
+
+  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  index, leg_ratio = asx_securities_trade_itch_v3_1_dissect.leg_ratio(buffer, index, packet, parent)
+
+  return index
 end
 
--- Dissect: Leg 3 Symbol
-asx_securities_trade_itch_v3_1_dissect.leg_3_symbol = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_3_symbol
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_trade_itch_v3_1_display.leg_3_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_3_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg 2 Ratio
-asx_securities_trade_itch_v3_1_size_of.leg_2_ratio = 4
-
--- Display: Leg 2 Ratio
-asx_securities_trade_itch_v3_1_display.leg_2_ratio = function(value)
-  return "Leg 2 Ratio: "..value
-end
-
--- Dissect: Leg 2 Ratio
-asx_securities_trade_itch_v3_1_dissect.leg_2_ratio = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_2_ratio
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_trade_itch_v3_1_display.leg_2_ratio(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_2_ratio, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg 2 Side
-asx_securities_trade_itch_v3_1_size_of.leg_2_side = 1
-
--- Display: Leg 2 Side
-asx_securities_trade_itch_v3_1_display.leg_2_side = function(value)
-  if value == "B" then
-    return "Leg 2 Side: Buy Leg (B)"
-  end
-  if value == "C" then
-    return "Leg 2 Side: Sell Leg (C)"
+-- Dissect: Leg 4
+asx_securities_trade_itch_v3_1_dissect.leg_4 = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_4 then
+    local length = asx_securities_trade_itch_v3_1_size_of.leg_4(buffer, offset)
+    local range = buffer(offset, length)
+    local display = asx_securities_trade_itch_v3_1_display.leg_4(buffer, packet, parent)
+    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_4, range, display)
   end
 
-  return "Leg 2 Side: Unknown("..value..")"
+  return asx_securities_trade_itch_v3_1_dissect.leg_4_fields(buffer, offset, packet, parent)
 end
 
--- Dissect: Leg 2 Side
-asx_securities_trade_itch_v3_1_dissect.leg_2_side = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_2_side
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_trade_itch_v3_1_display.leg_2_side(value, buffer, offset, packet, parent)
+-- Calculate size of: Leg 3
+asx_securities_trade_itch_v3_1_size_of.leg_3 = function(buffer, offset)
+  local index = 0
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_2_side, range, value, display)
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_symbol
 
-  return offset + length, value
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_side
+
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_ratio
+
+  return index
 end
 
--- Size: Leg 2 Symbol
-asx_securities_trade_itch_v3_1_size_of.leg_2_symbol = 32
-
--- Display: Leg 2 Symbol
-asx_securities_trade_itch_v3_1_display.leg_2_symbol = function(value)
-  return "Leg 2 Symbol: "..value
+-- Display: Leg 3
+asx_securities_trade_itch_v3_1_display.leg_3 = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
--- Dissect: Leg 2 Symbol
-asx_securities_trade_itch_v3_1_dissect.leg_2_symbol = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_2_symbol
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_trade_itch_v3_1_display.leg_2_symbol(value, buffer, offset, packet, parent)
+-- Dissect Fields: Leg 3
+asx_securities_trade_itch_v3_1_dissect.leg_3_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_2_symbol, range, value, display)
+  -- Leg Symbol: 32 Byte Ascii String
+  index, leg_symbol = asx_securities_trade_itch_v3_1_dissect.leg_symbol(buffer, index, packet, parent)
 
-  return offset + length, value
+  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  index, leg_side = asx_securities_trade_itch_v3_1_dissect.leg_side(buffer, index, packet, parent)
+
+  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  index, leg_ratio = asx_securities_trade_itch_v3_1_dissect.leg_ratio(buffer, index, packet, parent)
+
+  return index
 end
 
--- Size: Leg 1 Ratio
-asx_securities_trade_itch_v3_1_size_of.leg_1_ratio = 4
-
--- Display: Leg 1 Ratio
-asx_securities_trade_itch_v3_1_display.leg_1_ratio = function(value)
-  return "Leg 1 Ratio: "..value
-end
-
--- Dissect: Leg 1 Ratio
-asx_securities_trade_itch_v3_1_dissect.leg_1_ratio = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_1_ratio
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_trade_itch_v3_1_display.leg_1_ratio(value, buffer, offset, packet, parent)
-
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_1_ratio, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg 1 Side
-asx_securities_trade_itch_v3_1_size_of.leg_1_side = 1
-
--- Display: Leg 1 Side
-asx_securities_trade_itch_v3_1_display.leg_1_side = function(value)
-  if value == "B" then
-    return "Leg 1 Side: Buy Leg (B)"
-  end
-  if value == "C" then
-    return "Leg 1 Side: Sell Leg (C)"
+-- Dissect: Leg 3
+asx_securities_trade_itch_v3_1_dissect.leg_3 = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_3 then
+    local length = asx_securities_trade_itch_v3_1_size_of.leg_3(buffer, offset)
+    local range = buffer(offset, length)
+    local display = asx_securities_trade_itch_v3_1_display.leg_3(buffer, packet, parent)
+    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_3, range, display)
   end
 
-  return "Leg 1 Side: Unknown("..value..")"
+  return asx_securities_trade_itch_v3_1_dissect.leg_3_fields(buffer, offset, packet, parent)
 end
 
--- Dissect: Leg 1 Side
-asx_securities_trade_itch_v3_1_dissect.leg_1_side = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_1_side
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_trade_itch_v3_1_display.leg_1_side(value, buffer, offset, packet, parent)
+-- Calculate size of: Leg 2
+asx_securities_trade_itch_v3_1_size_of.leg_2 = function(buffer, offset)
+  local index = 0
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_1_side, range, value, display)
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_symbol
 
-  return offset + length, value
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_side
+
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_ratio
+
+  return index
 end
 
--- Size: Leg 1 Symbol
-asx_securities_trade_itch_v3_1_size_of.leg_1_symbol = 32
-
--- Display: Leg 1 Symbol
-asx_securities_trade_itch_v3_1_display.leg_1_symbol = function(value)
-  return "Leg 1 Symbol: "..value
+-- Display: Leg 2
+asx_securities_trade_itch_v3_1_display.leg_2 = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
--- Dissect: Leg 1 Symbol
-asx_securities_trade_itch_v3_1_dissect.leg_1_symbol = function(buffer, offset, packet, parent)
-  local length = asx_securities_trade_itch_v3_1_size_of.leg_1_symbol
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_trade_itch_v3_1_display.leg_1_symbol(value, buffer, offset, packet, parent)
+-- Dissect Fields: Leg 2
+asx_securities_trade_itch_v3_1_dissect.leg_2_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
-  parent:add(asx_securities_trade_itch_v3_1.fields.leg_1_symbol, range, value, display)
+  -- Leg Symbol: 32 Byte Ascii String
+  index, leg_symbol = asx_securities_trade_itch_v3_1_dissect.leg_symbol(buffer, index, packet, parent)
 
-  return offset + length, value
+  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  index, leg_side = asx_securities_trade_itch_v3_1_dissect.leg_side(buffer, index, packet, parent)
+
+  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  index, leg_ratio = asx_securities_trade_itch_v3_1_dissect.leg_ratio(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg 2
+asx_securities_trade_itch_v3_1_dissect.leg_2 = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_2 then
+    local length = asx_securities_trade_itch_v3_1_size_of.leg_2(buffer, offset)
+    local range = buffer(offset, length)
+    local display = asx_securities_trade_itch_v3_1_display.leg_2(buffer, packet, parent)
+    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_2, range, display)
+  end
+
+  return asx_securities_trade_itch_v3_1_dissect.leg_2_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Leg 1
+asx_securities_trade_itch_v3_1_size_of.leg_1 = function(buffer, offset)
+  local index = 0
+
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_symbol
+
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_side
+
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_ratio
+
+  return index
+end
+
+-- Display: Leg 1
+asx_securities_trade_itch_v3_1_display.leg_1 = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Leg 1
+asx_securities_trade_itch_v3_1_dissect.leg_1_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Leg Symbol: 32 Byte Ascii String
+  index, leg_symbol = asx_securities_trade_itch_v3_1_dissect.leg_symbol(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  index, leg_side = asx_securities_trade_itch_v3_1_dissect.leg_side(buffer, index, packet, parent)
+
+  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  index, leg_ratio = asx_securities_trade_itch_v3_1_dissect.leg_ratio(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg 1
+asx_securities_trade_itch_v3_1_dissect.leg_1 = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.leg_1 then
+    local length = asx_securities_trade_itch_v3_1_size_of.leg_1(buffer, offset)
+    local range = buffer(offset, length)
+    local display = asx_securities_trade_itch_v3_1_display.leg_1(buffer, packet, parent)
+    parent = parent:add(asx_securities_trade_itch_v3_1.fields.leg_1, range, display)
+  end
+
+  return asx_securities_trade_itch_v3_1_dissect.leg_1_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Nominal Value
@@ -2194,29 +2247,13 @@ asx_securities_trade_itch_v3_1_size_of.combination_order_book_directory_message 
 
   index = index + asx_securities_trade_itch_v3_1_size_of.nominal_value
 
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_1_symbol
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_1(buffer, offset + index)
 
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_1_side
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_2(buffer, offset + index)
 
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_1_ratio
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_3(buffer, offset + index)
 
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_2_symbol
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_2_side
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_2_ratio
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_3_symbol
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_3_side
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_3_ratio
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_4_symbol
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_4_side
-
-  index = index + asx_securities_trade_itch_v3_1_size_of.leg_4_ratio
+  index = index + asx_securities_trade_itch_v3_1_size_of.leg_4(buffer, offset + index)
 
   return index
 end
@@ -2269,41 +2306,17 @@ asx_securities_trade_itch_v3_1_dissect.combination_order_book_directory_message_
   -- Nominal Value: 8 Byte Unsigned Fixed Width Integer
   index, nominal_value = asx_securities_trade_itch_v3_1_dissect.nominal_value(buffer, index, packet, parent)
 
-  -- Leg 1 Symbol: 32 Byte Ascii String
-  index, leg_1_symbol = asx_securities_trade_itch_v3_1_dissect.leg_1_symbol(buffer, index, packet, parent)
+  -- Leg 1: Struct of 3 fields
+  index, leg_1 = asx_securities_trade_itch_v3_1_dissect.leg_1(buffer, index, packet, parent)
 
-  -- Leg 1 Side: 1 Byte Ascii String Enum with 2 values
-  index, leg_1_side = asx_securities_trade_itch_v3_1_dissect.leg_1_side(buffer, index, packet, parent)
+  -- Leg 2: Struct of 3 fields
+  index, leg_2 = asx_securities_trade_itch_v3_1_dissect.leg_2(buffer, index, packet, parent)
 
-  -- Leg 1 Ratio: 4 Byte Unsigned Fixed Width Integer
-  index, leg_1_ratio = asx_securities_trade_itch_v3_1_dissect.leg_1_ratio(buffer, index, packet, parent)
+  -- Leg 3: Struct of 3 fields
+  index, leg_3 = asx_securities_trade_itch_v3_1_dissect.leg_3(buffer, index, packet, parent)
 
-  -- Leg 2 Symbol: 32 Byte Ascii String
-  index, leg_2_symbol = asx_securities_trade_itch_v3_1_dissect.leg_2_symbol(buffer, index, packet, parent)
-
-  -- Leg 2 Side: 1 Byte Ascii String Enum with 2 values
-  index, leg_2_side = asx_securities_trade_itch_v3_1_dissect.leg_2_side(buffer, index, packet, parent)
-
-  -- Leg 2 Ratio: 4 Byte Unsigned Fixed Width Integer
-  index, leg_2_ratio = asx_securities_trade_itch_v3_1_dissect.leg_2_ratio(buffer, index, packet, parent)
-
-  -- Leg 3 Symbol: 32 Byte Ascii String
-  index, leg_3_symbol = asx_securities_trade_itch_v3_1_dissect.leg_3_symbol(buffer, index, packet, parent)
-
-  -- Leg 3 Side: 1 Byte Ascii String Enum with 3 values
-  index, leg_3_side = asx_securities_trade_itch_v3_1_dissect.leg_3_side(buffer, index, packet, parent)
-
-  -- Leg 3 Ratio: 4 Byte Unsigned Fixed Width Integer
-  index, leg_3_ratio = asx_securities_trade_itch_v3_1_dissect.leg_3_ratio(buffer, index, packet, parent)
-
-  -- Leg 4 Symbol: 32 Byte Ascii String
-  index, leg_4_symbol = asx_securities_trade_itch_v3_1_dissect.leg_4_symbol(buffer, index, packet, parent)
-
-  -- Leg 4 Side: 1 Byte Ascii String Enum with 3 values
-  index, leg_4_side = asx_securities_trade_itch_v3_1_dissect.leg_4_side(buffer, index, packet, parent)
-
-  -- Leg 4 Ratio: 4 Byte Unsigned Fixed Width Integer
-  index, leg_4_ratio = asx_securities_trade_itch_v3_1_dissect.leg_4_ratio(buffer, index, packet, parent)
+  -- Leg 4: Struct of 3 fields
+  index, leg_4 = asx_securities_trade_itch_v3_1_dissect.leg_4(buffer, index, packet, parent)
 
   return index
 end
@@ -2489,9 +2502,9 @@ asx_securities_trade_itch_v3_1_size_of.payload = function(buffer, offset, messag
   if message_type == "M" then
     return asx_securities_trade_itch_v3_1_size_of.combination_order_book_directory_message(buffer, offset)
   end
-  -- Size of Tick Size Message
+  -- Size of Tick Size Table Entry Message
   if message_type == "L" then
-    return asx_securities_trade_itch_v3_1_size_of.tick_size_message(buffer, offset)
+    return asx_securities_trade_itch_v3_1_size_of.tick_size_table_entry_message(buffer, offset)
   end
   -- Size of System Event Message
   if message_type == "S" then
@@ -2556,9 +2569,9 @@ asx_securities_trade_itch_v3_1_dissect.payload_branches = function(buffer, offse
   if message_type == "M" then
     return asx_securities_trade_itch_v3_1_dissect.combination_order_book_directory_message(buffer, offset, packet, parent)
   end
-  -- Dissect Tick Size Message
+  -- Dissect Tick Size Table Entry Message
   if message_type == "L" then
-    return asx_securities_trade_itch_v3_1_dissect.tick_size_message(buffer, offset, packet, parent)
+    return asx_securities_trade_itch_v3_1_dissect.tick_size_table_entry_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
   if message_type == "S" then
@@ -2639,7 +2652,7 @@ asx_securities_trade_itch_v3_1_display.message_type = function(value)
     return "Message Type: Combination Order Book Directory Message (M)"
   end
   if value == "L" then
-    return "Message Type: Tick Size Message (L)"
+    return "Message Type: Tick Size Table Entry Message (L)"
   end
   if value == "S" then
     return "Message Type: System Event Message (S)"
