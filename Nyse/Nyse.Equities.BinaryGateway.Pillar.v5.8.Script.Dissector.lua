@@ -208,7 +208,7 @@ nyse_equities_binarygateway_pillar_v5_8.fields.threshold_breach_level = ProtoFie
 nyse_equities_binarygateway_pillar_v5_8.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.equities.binarygateway.pillar.v5.8.throttlepreference", ftypes.UINT8)
 nyse_equities_binarygateway_pillar_v5_8.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.equities.binarygateway.pillar.v5.8.throttlethreshold", ftypes.UINT16)
 nyse_equities_binarygateway_pillar_v5_8.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.equities.binarygateway.pillar.v5.8.throttlewindow", ftypes.UINT16)
-nyse_equities_binarygateway_pillar_v5_8.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.8.throttled", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, "0x8000000000000000")
+nyse_equities_binarygateway_pillar_v5_8.fields.throttled = ProtoField.new("Throttled", "nyse.equities.binarygateway.pillar.v5.8.throttled", ftypes.UINT64, {[1]="Yes",[0]="No"}, base.DEC, 0x8000000000000000)
 nyse_equities_binarygateway_pillar_v5_8.fields.time_limit = ProtoField.new("Time Limit", "nyse.equities.binarygateway.pillar.v5.8.timelimit", ftypes.INT32)
 nyse_equities_binarygateway_pillar_v5_8.fields.timestamp = ProtoField.new("Timestamp", "nyse.equities.binarygateway.pillar.v5.8.timestamp", ftypes.UINT64)
 nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct = ProtoField.new("Trade Bust Correct", "nyse.equities.binarygateway.pillar.v5.8.tradebustcorrect", ftypes.STRING)

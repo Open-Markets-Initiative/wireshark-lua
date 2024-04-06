@@ -20,7 +20,7 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Otc Markets Headers Ats 1.0 Fields
-otc_markets_headers_ats_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.headers.ats.v1.0.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+otc_markets_headers_ats_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.headers.ats.v1.0.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 otc_markets_headers_ats_v1_0.fields.message = ProtoField.new("Message", "otc.markets.headers.ats.v1.0.message", ftypes.STRING)
 otc_markets_headers_ats_v1_0.fields.message_header = ProtoField.new("Message Header", "otc.markets.headers.ats.v1.0.messageheader", ftypes.STRING)
 otc_markets_headers_ats_v1_0.fields.message_size = ProtoField.new("Message Size", "otc.markets.headers.ats.v1.0.messagesize", ftypes.UINT16)
@@ -31,11 +31,11 @@ otc_markets_headers_ats_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", 
 otc_markets_headers_ats_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otc.markets.headers.ats.v1.0.packetheader", ftypes.STRING)
 otc_markets_headers_ats_v1_0.fields.packet_milli = ProtoField.new("Packet Milli", "otc.markets.headers.ats.v1.0.packetmilli", ftypes.UINT32)
 otc_markets_headers_ats_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otc.markets.headers.ats.v1.0.packetsize", ftypes.UINT16)
-otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
-otc_markets_headers_ats_v1_0.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.headers.ats.v1.0.reservedpacketflags", ftypes.UINT8, nil, base.DEC, "0x3C")
+otc_markets_headers_ats_v1_0.fields.replay = ProtoField.new("Replay", "otc.markets.headers.ats.v1.0.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
+otc_markets_headers_ats_v1_0.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.headers.ats.v1.0.reservedpacketflags", ftypes.UINT8, nil, base.DEC, 0x3C)
 otc_markets_headers_ats_v1_0.fields.seq_num = ProtoField.new("Seq Num", "otc.markets.headers.ats.v1.0.seqnum", ftypes.UINT32)
-otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
+otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
+otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

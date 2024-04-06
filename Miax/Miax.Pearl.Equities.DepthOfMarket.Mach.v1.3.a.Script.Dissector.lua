@@ -38,7 +38,7 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.opening_time = ProtoField.n
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_execution_flags = ProtoField.new("Order Execution Flags", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderexecutionflags", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_execution_message = ProtoField.new("Order Execution Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderexecutionmessage", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_id = ProtoField.new("Order Id", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderid", ftypes.UINT64)
-miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_position = ProtoField.new("Order Position", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderposition", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_position = ProtoField.new("Order Position", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderposition", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.order_side = ProtoField.new("Order Side", "miax.pearl.equities.depthofmarket.mach.v1.3.a.orderside", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearl.equities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.packet_length = ProtoField.new("Packet Length", "miax.pearl.equities.depthofmarket.mach.v1.3.a.packetlength", ftypes.UINT16)
@@ -46,7 +46,7 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.packet_type = ProtoField.ne
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.payload = ProtoField.new("Payload", "miax.pearl.equities.depthofmarket.mach.v1.3.a.payload", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.pearl.equities.depthofmarket.mach.v1.3.a.price", ftypes.UINT64)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearl.equities.depthofmarket.mach.v1.3.a.primarymarketcode", ftypes.STRING)
-miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearl.equities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearl.equities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.reserved = ProtoField.new("Reserved", "miax.pearl.equities.depthofmarket.mach.v1.3.a.reserved", ftypes.UINT8)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.security_trading_status_notification_message = ProtoField.new("Security Trading Status Notification Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.securitytradingstatusnotificationmessage", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearl.equities.depthofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64)
@@ -68,7 +68,7 @@ miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_flags = ProtoField.ne
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearl.equities.depthofmarket.mach.v1.3.a.tradeid", ftypes.UINT64)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoField.new("Trade Message", "miax.pearl.equities.depthofmarket.mach.v1.3.a.trademessage", ftypes.STRING)
 miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearl.equities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
-miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.undefined = ProtoField.new("Undefined", "miax.pearl.equities.depthofmarket.mach.v1.3.a.undefined", ftypes.UINT8, nil, base.DEC, "0xFE")
+miax_pearl_equities_depthofmarket_mach_v1_3_a.fields.undefined = ProtoField.new("Undefined", "miax.pearl.equities.depthofmarket.mach.v1.3.a.undefined", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

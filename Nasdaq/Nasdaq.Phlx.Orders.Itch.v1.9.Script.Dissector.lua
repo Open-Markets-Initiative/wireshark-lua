@@ -36,7 +36,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.complex_trading_action_message = ProtoField.
 nasdaq_phlx_orders_itch_v1_9.fields.count = ProtoField.new("Count", "nasdaq.phlx.orders.itch.v1.9.count", ftypes.UINT16)
 nasdaq_phlx_orders_itch_v1_9.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlx.orders.itch.v1.9.currenttradingstate", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.phlx.orders.itch.v1.9.customerfirmindicator", ftypes.STRING)
-nasdaq_phlx_orders_itch_v1_9.fields.day = ProtoField.new("Day", "nasdaq.phlx.orders.itch.v1.9.day", ftypes.UINT16, nil, base.DEC, "0x001F")
+nasdaq_phlx_orders_itch_v1_9.fields.day = ProtoField.new("Day", "nasdaq.phlx.orders.itch.v1.9.day", ftypes.UINT16, nil, base.DEC, 0x001F)
 nasdaq_phlx_orders_itch_v1_9.fields.debit_or_credit = ProtoField.new("Debit Or Credit", "nasdaq.phlx.orders.itch.v1.9.debitorcredit", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlx.orders.itch.v1.9.eventcode", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.executable_order_volume = ProtoField.new("Executable Order Volume", "nasdaq.phlx.orders.itch.v1.9.executableordervolume", ftypes.UINT32)
@@ -52,7 +52,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.matched_volume = ProtoField.new("Matched Vol
 nasdaq_phlx_orders_itch_v1_9.fields.message = ProtoField.new("Message", "nasdaq.phlx.orders.itch.v1.9.message", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlx.orders.itch.v1.9.messageheader", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlx.orders.itch.v1.9.messagetype", ftypes.STRING)
-nasdaq_phlx_orders_itch_v1_9.fields.month = ProtoField.new("Month", "nasdaq.phlx.orders.itch.v1.9.month", ftypes.UINT16, nil, base.DEC, "0x01E0")
+nasdaq_phlx_orders_itch_v1_9.fields.month = ProtoField.new("Month", "nasdaq.phlx.orders.itch.v1.9.month", ftypes.UINT16, nil, base.DEC, 0x01E0)
 nasdaq_phlx_orders_itch_v1_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlx.orders.itch.v1.9.nanoseconds", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.phlx.orders.itch.v1.9.numberoflegs", ftypes.UINT8)
 nasdaq_phlx_orders_itch_v1_9.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "nasdaq.phlx.orders.itch.v1.9.opencloseindicator", ftypes.STRING)
@@ -87,7 +87,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.time_in_force = ProtoField.new("Time In Forc
 nasdaq_phlx_orders_itch_v1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlx.orders.itch.v1.9.underlyingsymbol", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.version = ProtoField.new("Version", "nasdaq.phlx.orders.itch.v1.9.version", ftypes.UINT8)
 nasdaq_phlx_orders_itch_v1_9.fields.volume = ProtoField.new("Volume", "nasdaq.phlx.orders.itch.v1.9.volume", ftypes.UINT32)
-nasdaq_phlx_orders_itch_v1_9.fields.year = ProtoField.new("Year", "nasdaq.phlx.orders.itch.v1.9.year", ftypes.UINT16, nil, base.DEC, "0xFE00")
+nasdaq_phlx_orders_itch_v1_9.fields.year = ProtoField.new("Year", "nasdaq.phlx.orders.itch.v1.9.year", ftypes.UINT16, nil, base.DEC, 0xFE00)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
