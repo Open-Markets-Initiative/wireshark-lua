@@ -235,6 +235,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Iex Equities Tops IexTp 1.5.6
 -----------------------------------------------------------------------
 
@@ -347,7 +365,10 @@ iex_equities_tops_iextp_v1_5_6_size_of.scheduled_auction_time = 4
 
 -- Display: Scheduled Auction Time
 iex_equities_tops_iextp_v1_5_6_display.scheduled_auction_time = function(value)
-  return "Scheduled Auction Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()
+
+  return "Scheduled Auction Time: "..os.date("%x %H:%M:%S.", seconds)
 end
 
 -- Dissect: Scheduled Auction Time
@@ -516,7 +537,7 @@ end
 iex_equities_tops_iextp_v1_5_6_dissect.symbol = function(buffer, offset, packet, parent)
   local length = iex_equities_tops_iextp_v1_5_6_size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = iex_equities_tops_iextp_v1_5_6_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_tops_iextp_v1_5_6.fields.symbol, range, value, display)
@@ -529,7 +550,11 @@ iex_equities_tops_iextp_v1_5_6_size_of.timestamp = 8
 
 -- Display: Timestamp
 iex_equities_tops_iextp_v1_5_6_display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -1524,7 +1549,7 @@ end
 iex_equities_tops_iextp_v1_5_6_dissect.reason = function(buffer, offset, packet, parent)
   local length = iex_equities_tops_iextp_v1_5_6_size_of.reason
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = iex_equities_tops_iextp_v1_5_6_display.reason(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_tops_iextp_v1_5_6.fields.reason, range, value, display)
@@ -2161,7 +2186,11 @@ iex_equities_tops_iextp_v1_5_6_size_of.send_time = 8
 
 -- Display: Send Time
 iex_equities_tops_iextp_v1_5_6_display.send_time = function(value)
-  return "Send Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Send Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Send Time
