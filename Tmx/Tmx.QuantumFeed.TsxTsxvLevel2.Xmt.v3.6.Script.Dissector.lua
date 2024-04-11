@@ -705,7 +705,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cross_type = function(value)
     return "Cross Type: Regular (R)"
   end
   if value == "S" then
-    return "Cross Type: V Special Trading Session (S)"
+    return "Cross Type: Special Trading Session (S)"
   end
   if value == "V" then
     return "Cross Type: Volume Weighted Average Price (V)"

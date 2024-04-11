@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 294 | 2,899,420 |
+| 295 | 2,902,326 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -187,6 +187,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Tmx][Tmx.Directory] | Mx Sola | [Multicast][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | Hsvf | [1.11][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | 1/23/2019 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [AlphaLevel1][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector] | Xmt | [2.1][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [AlphaLevel2][Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Dissector] | Xmt | [2.1][Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
+| [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel1][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Dissector] | Xmt | [2.6][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel2][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | Xmt | [3.6][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 
 Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Jnx][Jnx.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
@@ -359,4 +360,5 @@ Enjoy.
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Script.Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Lua Wireshark Dissector"
 [Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Script.Dissector.lua "Tmx QuantumFeed AlphaLevel1 Xmt v2.1 Lua Wireshark Dissector"
 [Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.1.Script.Dissector.lua "Tmx QuantumFeed AlphaLevel2 Xmt v2.1 Lua Wireshark Dissector"
+[Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.6.Script.Dissector.lua "Tmx QuantumFeed TsxTsxvLevel1 Xmt v2.6 Lua Wireshark Dissector"
 [Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Script.Dissector.lua "Tmx QuantumFeed TsxTsxvLevel2 Xmt v3.6 Lua Wireshark Dissector"
