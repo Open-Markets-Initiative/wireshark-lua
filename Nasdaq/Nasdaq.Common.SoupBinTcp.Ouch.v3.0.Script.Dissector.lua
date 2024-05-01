@@ -35,6 +35,7 @@ nasdaq_common_soupbintcp_ouch_v3_0.fields.requested_sequence_number = ProtoField
 nasdaq_common_soupbintcp_ouch_v3_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.common.soupbintcp.ouch.v3.0.requestedsession", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.soupbintcp.ouch.v3.0.sequencenumber", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbintcp.ouch.v3.0.sequenceddatapacket", ftypes.STRING)
+nasdaq_common_soupbintcp_ouch_v3_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.common.soupbintcp.ouch.v3.0.sequencedmessage", ftypes.BYTES)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.common.soupbintcp.ouch.v3.0.sequencedmessagetype", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.session = ProtoField.new("Session", "nasdaq.common.soupbintcp.ouch.v3.0.session", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbintcp.ouch.v3.0.soupbintcppacket", ftypes.STRING)
@@ -348,6 +349,22 @@ nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet = function(buffe
   return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
 end
 
+-- Display: Sequenced Message
+nasdaq_common_soupbintcp_ouch_v3_0_display.sequenced_message = function(value)
+  return "Sequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Sequenced Message
+nasdaq_common_soupbintcp_ouch_v3_0_dissect.sequenced_message = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nasdaq_common_soupbintcp_ouch_v3_0_display.sequenced_message(value, buffer, offset, packet, parent, size)
+
+  parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.sequenced_message, range, value, display)
+
+  return offset + size
+end
+
 -- Size: Sequenced Message Type
 nasdaq_common_soupbintcp_ouch_v3_0_size_of.sequenced_message_type = 1
 
@@ -396,7 +413,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_dissect.sequenced_data_packet_fields = functi
   -- Runtime Size Of: Sequenced Message
   local size_of_sequenced_message = packet_length - 2
 
-  -- Sequenced Message
+  -- Sequenced Message: 0 Byte
   index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.sequenced_message(buffer, index, packet, parent, size_of_sequenced_message)
 
   return index
