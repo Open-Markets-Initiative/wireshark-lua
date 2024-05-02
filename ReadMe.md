@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 298 | 2,910,961 |
+| 298 | 2,914,976 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -137,7 +137,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Miax][Miax.Directory] | Pearl Equities | [DepthOfMarket][Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Dissector] | Mach | [1.3.a][Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Miax][Miax.Directory] | Pearl Equities | [TopOfMarket][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector] | Mach | [1.1.a][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Miax][Miax.Directory] | Pearl Options | [TopOfMarket][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | Mach | [1.0][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | 2/27/2017 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Nasdaq][Nasdaq.Directory] |  Equities | [Orders][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | Ouch | [5.0][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | 7/1/2021 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Nasdaq][Nasdaq.Directory] |  Equities | [Orders][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | Ouch | [5.0][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | 4/1/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Nasdaq][Nasdaq.Directory] |  Equities | [Orders][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nasdaq][Nasdaq.Directory] | Bx Equities | [TotalView][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nasdaq][Nasdaq.Directory] | Bx Equities | [Orders][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | [Untested][Omi.Glossary.Testing.Untested] |
