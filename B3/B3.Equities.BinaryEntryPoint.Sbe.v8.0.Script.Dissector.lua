@@ -4451,92 +4451,92 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.quote_reject_reason = 4
 
 -- Display: Quote Reject Reason
 b3_equities_binaryentrypoint_sbe_v8_0_display.quote_reject_reason = function(value)
-  if value == 9999 then
-    return "Quote Reject Reason: Technical Error Function Not Performed (9999)"
+  if value == 009999 then
+    return "Quote Reject Reason: Technical Error: Function not performed  (009999)"
   end
-  if value == 8006 then
-    return "Quote Reject Reason: Exercise Price Not Allowed (8006)"
+  if value == 008006 then
+    return "Quote Reject Reason: Exercise price not allowed  (008006)"
   end
-  if value == 8007 then
-    return "Quote Reject Reason: No Positions Blocked (8007)"
+  if value == 008007 then
+    return "Quote Reject Reason: No positions blocked  (008007)"
   end
-  if value == 8008 then
-    return "Quote Reject Reason: Quantity Doesnt Match With The Original Request Quantity On Original Request Quantity On Original Request (8008)"
+  if value == 008008 then
+    return "Quote Reject Reason: Quantity doesn't match with the original request [Quantity on original request: <quantity on original request>]  (008008)"
   end
-  if value == 8011 then
-    return "Quote Reject Reason: Exercise Must Be On Maturity Date (8011)"
+  if value == 008011 then
+    return "Quote Reject Reason: Exercise must be on maturity date.  (008011)"
   end
-  if value == 8014 then
-    return "Quote Reject Reason: Function Not Available This Time (8014)"
+  if value == 008014 then
+    return "Quote Reject Reason: Function not available this time  (008014)"
   end
-  if value == 8015 then
-    return "Quote Reject Reason: Blocking Quantity More Than 999999999 (8015)"
+  if value == 008015 then
+    return "Quote Reject Reason: Blocking quantity more than 999999999  (008015)"
   end
-  if value == 8020 then
-    return "Quote Reject Reason: Trade Does Not Belong To The Specified Firm‘ Firm Id Xxx (8020)"
+  if value == 008020 then
+    return "Quote Reject Reason: Trade does not belong to the specified firm ‘Firm Id: <XXX>’  (008020)"
   end
-  if value == 8021 then
-    return "Quote Reject Reason: Blocking Qty More Than Available Quantity (8021)"
+  if value == 008021 then
+    return "Quote Reject Reason: Blocking qty more than available quantity  (008021)"
   end
-  if value == 8022 then
-    return "Quote Reject Reason: There Arent Positions Available To Exercise (8022)"
+  if value == 008022 then
+    return "Quote Reject Reason: There aren't positions available to exercise  (008022)"
   end
-  if value == 8023 then
-    return "Quote Reject Reason: Total Qty Must Be The Sum Of All Alloc Qty (8023)"
+  if value == 008023 then
+    return "Quote Reject Reason: Total qty must be the sum of all AllocQty  (008023)"
   end
-  if value == 8024 then
-    return "Quote Reject Reason: Trade Already Cancelled Or Does Not Exist‘ Trade Id Xxx (8024)"
+  if value == 008024 then
+    return "Quote Reject Reason: Trade already cancelled or does not exist ‘Trade Id: <XXX>’  (008024)"
   end
-  if value == 8027 then
-    return "Quote Reject Reason: Available Quantity To Block Is Zero (8027)"
+  if value == 008027 then
+    return "Quote Reject Reason: Available quantity to block is zero  (008027)"
   end
-  if value == 8028 then
-    return "Quote Reject Reason: Invalid Operation For Contract Type (8028)"
+  if value == 008028 then
+    return "Quote Reject Reason: Invalid Operation for contract type.  (008028)"
   end
-  if value == 8036 then
-    return "Quote Reject Reason: Function Closed Or Suspended (8036)"
+  if value == 008036 then
+    return "Quote Reject Reason: Function closed or suspended.  (008036)"
   end
-  if value == 8039 then
-    return "Quote Reject Reason: Exercise Price Outside Required Moneyness (8039)"
+  if value == 008039 then
+    return "Quote Reject Reason: Exercise price outside required moneyness.  (008039)"
   end
-  if value == 8040 then
-    return "Quote Reject Reason: Invalid Exercise Request Id To Cancel (8040)"
+  if value == 008040 then
+    return "Quote Reject Reason: Invalid exercise request id to cancel  (008040)"
   end
-  if value == 8059 then
-    return "Quote Reject Reason: Invalid Blocking Id To Unblock (8059)"
+  if value == 008059 then
+    return "Quote Reject Reason: Invalid blocking Id to unblock  (008059)"
   end
-  if value == 8062 then
-    return "Quote Reject Reason: Invalid Quantity To Unblock (8062)"
+  if value == 008062 then
+    return "Quote Reject Reason: Invalid quantity to unblock  (008062)"
   end
-  if value == 8063 then
-    return "Quote Reject Reason: On Behalf Operation Not Allowed During Ccr Recovery (8063)"
+  if value == 008063 then
+    return "Quote Reject Reason: On Behalf Operation not allowed during CCR recovery  (008063)"
   end
-  if value == 8065 then
-    return "Quote Reject Reason: Problem Parsing Incoming Message (8065)"
+  if value == 008065 then
+    return "Quote Reject Reason: Problem parsing incoming message  (008065)"
   end
-  if value == 8066 then
-    return "Quote Reject Reason: Exercise Quantity Should Be Greater Than Zero (8066)"
+  if value == 008066 then
+    return "Quote Reject Reason: Exercise quantity should be greater than zero  (008066)"
   end
-  if value == 8069 then
-    return "Quote Reject Reason: Contrary Exercise Already Registered For This Position (8069)"
+  if value == 008069 then
+    return "Quote Reject Reason: Contrary Exercise already registered for this position  (008069)"
   end
-  if value == 8070 then
-    return "Quote Reject Reason: Inthemoney Contract Allows Contrary Exercise To Not Exercise Automatically Only (8070)"
+  if value == 008070 then
+    return "Quote Reject Reason: In-the-money contract allows Contrary Exercise to not exercise automatically only  (008070)"
   end
-  if value == 8071 then
-    return "Quote Reject Reason: At Outthemoney Contract Allows Contrary Exercise To Exercise Automatically Only (8071)"
+  if value == 008071 then
+    return "Quote Reject Reason: At/Out-the-money contract allows Contrary Exercise to exercise automatically only  (008071)"
   end
-  if value == 8072 then
-    return "Quote Reject Reason: Dma Is Not Allowed To Request Contrary Exercise (8072)"
+  if value == 008072 then
+    return "Quote Reject Reason: DMA is not allowed to request Contrary Exercise  (008072)"
   end
-  if value == 8073 then
-    return "Quote Reject Reason: Contrary Exercises Can Only Be Requested By Default Link Or Position Owner With Direct Access On Absence Of Default Link (8073)"
+  if value == 008073 then
+    return "Quote Reject Reason: Contrary Exercises can only be requested by default link or position owner with direct access on absence of default link  (008073)"
   end
-  if value == 8074 then
-    return "Quote Reject Reason: Contrary Exercise Invalid Operation (8074)"
+  if value == 008074 then
+    return "Quote Reject Reason: Contrary Exercise invalid operation. (008074)"
   end
-  if value == 8075 then
-    return "Quote Reject Reason: Threshold Must Not Be Informed (8075)"
+  if value == 008075 then
+    return "Quote Reject Reason: Threshold must not be informed  (008075)"
   end
 
   return "Quote Reject Reason: Unknown("..value..")"
@@ -6442,71 +6442,1484 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.ord_rej_reason = 4
 
 -- Display: Ord Rej Reason
 b3_equities_binaryentrypoint_sbe_v8_0_display.ord_rej_reason = function(value)
-  if value == 9999 then
-    return "Ord Rej Reason: Technical Error Function Not Performed (9999)"
+  if value == 009999 then
+    return "Ord Rej Reason: Unable to create FIX from VolatilityUpdate message  (009999)"
   end
-  if value == 8006 then
-    return "Ord Rej Reason: Exercise Price Not Allowed (8006)"
+  if value == 000908 then
+    return "Ord Rej Reason: Unable to send FIX from VolatilityUpdate message  (000908)"
   end
-  if value == 8007 then
-    return "Ord Rej Reason: No Positions Blocked (8007)"
+  if value == 001003 then
+    return "Ord Rej Reason: Orders may not be entered while the market is closed/paused  (001003)"
   end
-  if value == 8008 then
-    return "Ord Rej Reason: Quantity Doesnt Match With The Original Request Quantity On Original Request Quantity On Original Request (8008)"
+  if value == 001007 then
+    return "Ord Rej Reason: FIX field missing or incorrect  (001007)"
   end
-  if value == 8011 then
-    return "Ord Rej Reason: Exercise Must Be On Maturity Date (8011)"
+  if value == 001010 then
+    return "Ord Rej Reason: Required field missing  (001010)"
   end
-  if value == 8014 then
-    return "Ord Rej Reason: Function Not Available This Time (8014)"
+  if value == 001011 then
+    return "Ord Rej Reason: FIX field incorrect  (001011)"
   end
-  if value == 8015 then
-    return "Ord Rej Reason: Blocking Quantity More Than 999999999 (8015)"
+  if value == 001012 then
+    return "Ord Rej Reason: Price must be greater than zero  (001012)"
   end
-  if value == 8020 then
-    return "Ord Rej Reason: Trade Does Not Belong To The Specified Firm‘ Firm Id Xxx (8020)"
+  if value == 001013 then
+    return "Ord Rej Reason: Invalid order qualifier  (001013)"
   end
-  if value == 8021 then
-    return "Ord Rej Reason: Blocking Qty More Than Available Quantity (8021)"
+  if value == 001014 then
+    return "Ord Rej Reason: User not authorized to trade  (001014)"
   end
-  if value == 8022 then
-    return "Ord Rej Reason: There Arent Positions Available To Exercise (8022)"
+  if value == 001016 then
+    return "Ord Rej Reason: Required field missing 'Stop orders cannot be IOC/FAK'  (001016)"
   end
-  if value == 8023 then
-    return "Ord Rej Reason: Total Qty Must Be The Sum Of All Alloc Qty (8023)"
+  if value == 001017 then
+    return "Ord Rej Reason: Required field missing 'Display Quantity orders cannot be IOC/FOK'  (001017)"
   end
-  if value == 8024 then
-    return "Ord Rej Reason: Trade Already Cancelled Or Does Not Exist‘ Trade Id Xxx (8024)"
+  if value == 001018 then
+    return "Ord Rej Reason: Required field missing 'Stop orders cannot be IOC/FOK'  (001018)"
   end
-  if value == 8027 then
-    return "Ord Rej Reason: Available Quantity To Block Is Zero (8027)"
+  if value == 002013 then
+    return "Ord Rej Reason: Market price orders not supported by opposite limit  (002013)"
   end
-  if value == 8028 then
-    return "Ord Rej Reason: Invalid Operation For Contract Type (8028)"
+  if value == 002019 then
+    return "Ord Rej Reason: Order GTD Expire Date is before the current (or next, if not currently in a session) trading session end date  (002019)"
   end
-  if value == 8036 then
-    return "Ord Rej Reason: Function Closed Or Suspended (8036)"
+  if value == 002045 then
+    return "Ord Rej Reason: Cannot modify order because order does not exist  (002045)"
   end
-  if value == 8039 then
-    return "Ord Rej Reason: Exercise Price Outside Required Moneyness (8039)"
+  if value == 002045 then
+    return "Ord Rej Reason: Order not in book  (002045)"
   end
-  if value == 8040 then
-    return "Ord Rej Reason: Invalid Exercise Request Id To Cancel (8040)"
+  if value == 002046 then
+    return "Ord Rej Reason: Disclosed Quantity cannot be greater than total or remaining quantity  (002046)"
   end
-  if value == 8059 then
-    return "Ord Rej Reason: Invalid Blocking Id To Unblock (8059)"
+  if value == 002047 then
+    return "Ord Rej Reason: Order contract is unknown   (002047)"
   end
-  if value == 8062 then
-    return "Ord Rej Reason: Invalid Quantity To Unblock (8062)"
+  if value == 002048 then
+    return "Ord Rej Reason: The Order was submitted with a different SenderCompID than the requesting Cancel   (002048)"
   end
-  if value == 8063 then
-    return "Ord Rej Reason: On Behalf Operation Not Allowed During Ccr Recovery (8063)"
+  if value == 002049 then
+    return "Ord Rej Reason: The Order was submitted with a different CLOrderID than the CorrelationClOrderID of the requesting Cancel   (002049)"
   end
-  if value == 8065 then
-    return "Ord Rej Reason: Problem Parsing Incoming Message (8065)"
+  if value == 002050 then
+    return "Ord Rej Reason: The Order was submitted with a different CLOrderID than the OriginalClOrderID of the requesting Cancel   (002050)"
   end
-  if value == 8066 then
-    return "Ord Rej Reason: Exercise Quantity Should Be Greater Than Zero (8066)"
+  if value == 002051 then
+    return "Ord Rej Reason: The Order was submitted with a different side than the requesting Cancel   (002051)"
+  end
+  if value == 002052 then
+    return "Ord Rej Reason: The Order was submitted with a different group (tag 55) than the requesting Cancel   (002052)"
+  end
+  if value == 002053 then
+    return "Ord Rej Reason: The Order was submitted with a different security type than the requesting Cancel   (002053)"
+  end
+  if value == 002054 then
+    return "Ord Rej Reason: The Order was submitted with a different account than the requesting Cancel   (002054)"
+  end
+  if value == 002055 then
+    return "Ord Rej Reason: The Order was submitted with a different quantity than the requesting Cancel   (002055)"
+  end
+  if value == 002056 then
+    return "Ord Rej Reason: The Order was submitted with a different TraderID than the requesting Cancel   (002056)"
+  end
+  if value == 002057 then
+    return "Ord Rej Reason: Attempt to cancel an order with a different FirmID than the original order  (002057)"
+  end
+  if value == 002058 then
+    return "Ord Rej Reason: Attempt to cancel an order with a different SenderLocationID than the original order  (002058)"
+  end
+  if value == 002058 then
+    return "Ord Rej Reason: Stop price maxi-mini must be greater than or equal to trigger price   (002058)"
+  end
+  if value == 002059 then
+    return "Ord Rej Reason: Stop price maxi-mini must be smaller than or equal to trigger price  (002059)"
+  end
+  if value == 002060 then
+    return "Ord Rej Reason: Sell order stop price must be below last trade price  (002060)"
+  end
+  if value == 002061 then
+    return "Ord Rej Reason: Buy order stop price must be above last trade price  (002061)"
+  end
+  if value == 002100 then
+    return "Ord Rej Reason: The modify was submitted on a different product than the original order  (002100)"
+  end
+  if value == 002101 then
+    return "Ord Rej Reason: Attempt to modify an order with a different in-flight-fill mitigation status than first modification  (002101)"
+  end
+  if value == 002101 then
+    return "Ord Rej Reason: Attempt to modify an order currently taking part in an RFC process  (002101)"
+  end
+  if value == 002102 then
+    return "Ord Rej Reason: Attempt to modify an order with a different SenderCompID than the original order  (002102)"
+  end
+  if value == 002103 then
+    return "Ord Rej Reason: Attempt to modify an order with a different TraderID than the original order  (002103)"
+  end
+  if value == 002104 then
+    return "Ord Rej Reason: Attempt to modify an order with a different AccountID than the original order  (002104)"
+  end
+  if value == 002105 then
+    return "Ord Rej Reason: Attempt to modify an order with a different FirmID than the original order  (002105)"
+  end
+  if value == 002106 then
+    return "Ord Rej Reason: Attempt to modify an order with a different SenderLocationID than the original order  (002106)"
+  end
+  if value == 002107 then
+    return "Ord Rej Reason: Disclosed Quantity is not allowed  (002107)"
+  end
+  if value == 002108 then
+    return "Ord Rej Reason: Account or Give Up firm required for DMA customers  (002108)"
+  end
+  if value == 002109 then
+    return "Ord Rej Reason: Disclosed Qty cannot be less than Disclosed Qty Min  (002109)"
+  end
+  if value == 002110 then
+    return "Ord Rej Reason: Acct Type(38) not valid for Tag 581 for DMA customers  (002110)"
+  end
+  if value == 002111 then
+    return "Ord Rej Reason: Give Up not valid for FX Spot contract  (002111)"
+  end
+  if value == 002112 then
+    return "Ord Rej Reason: Visibility Permission Not granted for Executing Trader/Entering Trader   (002112)"
+  end
+  if value == 002113 then
+    return "Ord Rej Reason: Executing Trader doesn't have access to Product Group   (002113)"
+  end
+  if value == 002114 then
+    return "Ord Rej Reason: Attempt to modify market order to some other type   (002114)"
+  end
+  if value == 002115 then
+    return "Ord Rej Reason: Order quantity is outside of the allowable range  (002115)"
+  end
+  if value == 002116 then
+    return "Ord Rej Reason: Account is mandatory for FX SPOT  (002116)"
+  end
+  if value == 002117 then
+    return "Ord Rej Reason: Order On Behalf by DMA customer is not allowed  (002117)"
+  end
+  if value == 002118 then
+    return "Ord Rej Reason: Attempt to modify an order with a different AccountType than the original order  (002118)"
+  end
+  if value == 002123 then
+    return "Ord Rej Reason: Account or Give Up firm required for equities  (002123)"
+  end
+  if value == 002130 then
+    return "Ord Rej Reason: Order type not permitted while the market is in pre open  (002130)"
+  end
+  if value == 002130 then
+    return "Ord Rej Reason: Order type not permitted while the market is in PCP  (002130)"
+  end
+  if value == 002137 then
+    return "Ord Rej Reason: Order price is outside limits  (002137)"
+  end
+  if value == 002138 then
+    return "Ord Rej Reason: Qty is not multiple of Round Lot  (002138)"
+  end
+  if value == 002139 then
+    return "Ord Rej Reason: Qty is greater or equal than Maximum Trade Volume  (002139)"
+  end
+  if value == 002179 then
+    return "Ord Rej Reason: Order price is outside bands  (002179)"
+  end
+  if value == 002180 then
+    return "Ord Rej Reason: Order price is outside auction bands  (002180)"
+  end
+  if value == 002181 then
+    return "Ord Rej Reason: Trade outside of short term volatility bands  (002181)"
+  end
+  if value == 002182 then
+    return "Ord Rej Reason: All Legs must have same Lot Types  (002182)"
+  end
+  if value == 002183 then
+    return "Ord Rej Reason: All Legs must have same Tick Increment  (002183)"
+  end
+  if value == 002184 then
+    return "Ord Rej Reason: All Legs must have same Step of Quotation  (002184)"
+  end
+  if value == 002185 then
+    return "Ord Rej Reason: Trade price is outside of static limits  (002185)"
+  end
+  if value == 002186 then
+    return "Ord Rej Reason: COD Not Supported for GTC/ GTD Orders  (002186)"
+  end
+  if value == 002187 then
+    return "Ord Rej Reason: Order not bookable at this time  (002187)"
+  end
+  if value == 002188 then
+    return "Ord Rej Reason: Minimum Quantity was not Filled  (002188)"
+  end
+  if value == 002189 then
+    return "Ord Rej Reason: Order Attributes Not Allowed to Trip an Auction  (002189)"
+  end
+  if value == 002311 then
+    return "Ord Rej Reason: Order type not permitted for group  (002311)"
+  end
+  if value == 002500 then
+    return "Ord Rej Reason: Instrument has an request for cross in progress  (002500)"
+  end
+  if value == 002501 then
+    return "Ord Rej Reason: Order Quantity too low  (002501)"
+  end
+  if value == 002502 then
+    return "Ord Rej Reason: CrossType ineligible for instrument  (002502)"
+  end
+  if value == 002503 then
+    return "Ord Rej Reason: RFQ for Cross is not allowed since contract is not RFQ for Cross eligible  (002503)"
+  end
+  if value == 002504 then
+    return "Ord Rej Reason: DMA CrossOrder Not allowed  (002504)"
+  end
+  if value == 002505 then
+    return "Ord Rej Reason: Cross Order Rejected due to Auction Trigger Validation  (002505)"
+  end
+  if value == 002506 then
+    return "Ord Rej Reason: Trade on Behalf Rejected.  (002506)"
+  end
+  if value == 002600 then
+    return "Ord Rej Reason: Market Maker Protection in effect for user <XXXXXXXX> and group <XXXXXX>  (002600)"
+  end
+  if value == 003000 then
+    return "Ord Rej Reason: RFQ rejected, instrument/exchange not tradable  (003000)"
+  end
+  if value == 003001 then
+    return "Ord Rej Reason: RFQ rejected, instrument/exchange not known  (003001)"
+  end
+  if value == 003002 then
+    return "Ord Rej Reason: Error creating contract  (003002)"
+  end
+  if value == 003010 then
+    return "Ord Rej Reason: Business reject: Other  (003010)"
+  end
+  if value == 003011 then
+    return "Ord Rej Reason: Business reject: Unknown ID  (003011)"
+  end
+  if value == 003012 then
+    return "Ord Rej Reason: Business reject: Unknown security  (003012)"
+  end
+  if value == 003013 then
+    return "Ord Rej Reason: Business reject: Unsupported message type  (003013)"
+  end
+  if value == 003014 then
+    return "Ord Rej Reason: Business reject: Application Not Available  (003014)"
+  end
+  if value == 003015 then
+    return "Ord Rej Reason: Business reject: Required field missing  (003015)"
+  end
+  if value == 003016 then
+    return "Ord Rej Reason: Contract claims to be a spread but is missing one or more legs  (003016)"
+  end
+  if value == 003017 then
+    return "Ord Rej Reason: Fix Field Length Exceeds Max Length  (003017)"
+  end
+  if value == 003020 then
+    return "Ord Rej Reason: Special Auction Permissions: 'Order entry not allowed.'  (003020)"
+  end
+  if value == 004000 then
+    return "Ord Rej Reason: Engine did not respond to FAS request  (004000)"
+  end
+  if value == 006001 then
+    return "Ord Rej Reason: Termo message rejected : Unknown instrument  (006001)"
+  end
+  if value == 006002 then
+    return "Ord Rej Reason: Termo message rejected : Exchange (security) closed  (006002)"
+  end
+  if value == 006003 then
+    return "Ord Rej Reason: Termo rejected, instrument/exchange not tradable  (006003)"
+  end
+  if value == 006004 then
+    return "Ord Rej Reason: Termo message rejected: Limits exceeded  (006004)"
+  end
+  if value == 006005 then
+    return "Ord Rej Reason: Termo message rejected: Too late to enter  (006005)"
+  end
+  if value == 006006 then
+    return "Ord Rej Reason: Termo message rejected: Unknown Termo Quote  (006006)"
+  end
+  if value == 006007 then
+    return "Ord Rej Reason: Termo message rejected: Duplicate Termo Quote  (006007)"
+  end
+  if value == 006008 then
+    return "Ord Rej Reason: Termo message rejected: Invalid bid/ask spread  (006008)"
+  end
+  if value == 006009 then
+    return "Ord Rej Reason: Termo message rejected: Invalid price  (006009)"
+  end
+  if value == 006010 then
+    return "Ord Rej Reason: Termo message rejected: Not authorized to termo quote this instrument  (006010)"
+  end
+  if value == 006011 then
+    return "Ord Rej Reason: Termo message rejected: Pass  (006011)"
+  end
+  if value == 006012 then
+    return "Ord Rej Reason: Fix field incorrect  (006012)"
+  end
+  if value == 006013 then
+    return "Ord Rej Reason: Not a valid termo instrument  (006013)"
+  end
+  if value == 006014 then
+    return "Ord Rej Reason: Values don`t match with the original request  (006014)"
+  end
+  if value == 006015 then
+    return "Ord Rej Reason: Current termo request status does not allow rejection  (006015)"
+  end
+  if value == 006016 then
+    return "Ord Rej Reason: Current termo request status does not allow acceptance  (006016)"
+  end
+  if value == 006017 then
+    return "Ord Rej Reason: Wrong type of order book for Termo.  (006017)"
+  end
+  if value == 006018 then
+    return "Ord Rej Reason: Wrong type of request for Termo.  (006018)"
+  end
+  if value == 006019 then
+    return "Ord Rej Reason: Days to Settlement must be between 16 and 999.  (006019)"
+  end
+  if value == 006020 then
+    return "Ord Rej Reason: Days to Settlement must be between 16 and 90  (006020)"
+  end
+  if value == 006021 then
+    return "Ord Rej Reason: Instrument not allowed to this market.  (006021)"
+  end
+  if value == 006022 then
+    return "Ord Rej Reason: Instrument not allowed to this market.  (006022)"
+  end
+  if value == 006023 then
+    return "Ord Rej Reason: Termo Price should be greater than zero.  (006023)"
+  end
+  if value == 006024 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is paused  (006024)"
+  end
+  if value == 006025 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is pre open  (006025)"
+  end
+  if value == 006026 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is PCP  (006026)"
+  end
+  if value == 006027 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is no cancel  (006027)"
+  end
+  if value == 006028 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is reserved  (006028)"
+  end
+  if value == 006029 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is forbidden  (006029)"
+  end
+  if value == 006030 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is pre close  (006030)"
+  end
+  if value == 006031 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is pre open  (006031)"
+  end
+  if value == 006032 then
+    return "Ord Rej Reason: Not a valid Termo Underlying Instrument.  (006032)"
+  end
+  if value == 006033 then
+    return "Ord Rej Reason: Received a null AdminOperation  (006033)"
+  end
+  if value == 006034 then
+    return "Ord Rej Reason: First trade of day for underlying termo instrument  (006034)"
+  end
+  if value == 006035 then
+    return "Ord Rej Reason: Termo messages should not be entered when market is in final closing call  (006035)"
+  end
+  if value == 006036 then
+    return "Ord Rej Reason: Invalid Cash Trade in TVR  (006036)"
+  end
+  if value == 006037 then
+    return "Ord Rej Reason: Only Buy Entry Request for TVR is accepted  (006037)"
+  end
+  if value == 006038 then
+    return "Ord Rej Reason: There is no bid and ask for underlying contract  (006038)"
+  end
+  if value == 006039 then
+    return "Ord Rej Reason: Invalid price  (006039)"
+  end
+  if value == 006040 then
+    return "Ord Rej Reason: Invalid Cash Trade in TVR  (006040)"
+  end
+  if value == 006041 then
+    return "Ord Rej Reason: Invalid Cash Trade in TVR  (006041)"
+  end
+  if value == 006042 then
+    return "Ord Rej Reason: Invalid Cash Trade in TVR  (006042)"
+  end
+  if value == 006043 then
+    return "Ord Rej Reason: Invalid Cash Trade in TVR  (006043)"
+  end
+  if value == 006044 then
+    return "Ord Rej Reason: Invalid Cash Trade in TVR  (006044)"
+  end
+  if value == 007000 then
+    return "Ord Rej Reason: Order rejected  (007000)"
+  end
+  if value == 007001 then
+    return "Ord Rej Reason: FOK order unmatchable in market  (007001)"
+  end
+  if value == 007002 then
+    return "Ord Rej Reason: Orders may not be entered while the market is closed  (007002)"
+  end
+  if value == 007005 then
+    return "Ord Rej Reason: Order contract is unknown  (007005)"
+  end
+  if value == 007006 then
+    return "Ord Rej Reason: No partial match found for this FAK order  (007006)"
+  end
+  if value == 007008 then
+    return "Ord Rej Reason: Maximum quantity depth for any one price group max may not exceed + Integer.MAX_VALUE  (007008)"
+  end
+  if value == 007009 then
+    return "Ord Rej Reason: Contract for this order contract is past expiration date and may no longer be traded  (007009)"
+  end
+  if value == 007009 then
+    return "Ord Rej Reason: Contract for this order has a future activation date and cannot yet be traded  (007009)"
+  end
+  if value == 007010 then
+    return "Ord Rej Reason: Invalid spread price  (007010)"
+  end
+  if value == 007011 then
+    return "Ord Rej Reason: Maximum number of working orders for this contract has been exceeded  (007011)"
+  end
+  if value == 007012 then
+    return "Ord Rej Reason: Order would overwrite existing order on book  (007012)"
+  end
+  if value == 007013 then
+    return "Ord Rej Reason: Order group does not match group of contract  (007013)"
+  end
+  if value == 007014 then
+    return "Ord Rej Reason: Order security type does not match security type of contract  (007014)"
+  end
+  if value == 007015 then
+    return "Ord Rej Reason: Order modify has different side than existing order  (007015)"
+  end
+  if value == 007017 then
+    return "Ord Rej Reason: Contract is not eligible for electronic matching  (007017)"
+  end
+  if value == 007018 then
+    return "Ord Rej Reason: Order contract is not GTC or GTD eligible  (007018)"
+  end
+  if value == 007020 then
+    return "Ord Rej Reason: No Trading Calendar found on or after order GTD Expire Date  (007020)"
+  end
+  if value == 007021 then
+    return "Ord Rej Reason: Tag ExpireDate (432) beyond instrument expiration.  (007021)"
+  end
+  if value == 007022 then
+    return "Ord Rej Reason: Tag ExpireDate (432) beyond UDS COMBO earliest leg expiration.  (007022)"
+  end
+  if value == 007024 then
+    return "Ord Rej Reason: Order cannot be modified or cancelled while the market is in no cancel  (007024)"
+  end
+  if value == 007027 then
+    return "Ord Rej Reason: Order type not permitted while the market is reserved  (007027)"
+  end
+  if value == 007028 then
+    return "Ord Rej Reason: Order session date is in the past  (007028)"
+  end
+  if value == 007029 then
+    return "Ord Rej Reason: Orders may not be entered while the market is forbidden  (007029)"
+  end
+  if value == 007030 then
+    return "Ord Rej Reason: Quote rejected: Exchange (security) is forbidden   (007030)"
+  end
+  if value == 007031 then
+    return "Ord Rej Reason: Orders may not be entered while the market is preclosed   (007031)"
+  end
+  if value == 007032 then
+    return "Ord Rej Reason: Quote rejected: Exchange (security) is preclosed   (007032)"
+  end
+  if value == 007033 then
+    return "Ord Rej Reason: Orders may not be entered while the market is open   (007033)"
+  end
+  if value == 007034 then
+    return "Ord Rej Reason: Quote rejected: Exchange (security) is forbidden   (007034)"
+  end
+  if value == 007035 then
+    return "Ord Rej Reason: RFQ rejected: Instrument / exchange is open  (007035)"
+  end
+  if value == 007036 then
+    return "Ord Rej Reason: Time in Force (59) not valid for Order Type (40).  (007036)"
+  end
+  if value == 007037 then
+    return "Ord Rej Reason: Good for auction order not allowed.  (007037)"
+  end
+  if value == 007038 then
+    return "Ord Rej Reason: On close order not allowed.  (007038)"
+  end
+  if value == 007039 then
+    return "Ord Rej Reason: Duplicate Client Order Id for this Session/Contract.  (007039)"
+  end
+  if value == 007040 then
+    return "Ord Rej Reason: Good for auction order cancel not allowed.  (007040)"
+  end
+  if value == 007041 then
+    return "Ord Rej Reason: On close order cancel not allowed.  (007041)"
+  end
+  if value == 007042 then
+    return "Ord Rej Reason: Good for auction order modify not allowed.  (007042)"
+  end
+  if value == 007043 then
+    return "Ord Rej Reason: On close order modify not allowed.  (007043)"
+  end
+  if value == 007044 then
+    return "Ord Rej Reason: Modify of Order Participating in TOP not allowed.  (007044)"
+  end
+  if value == 007045 then
+    return "Ord Rej Reason: Cancel of Order Participating in TOP not allowed.  (007045)"
+  end
+  if value == 007046 then
+    return "Ord Rej Reason: Order Type/ Duration combination invalid for auction  (007046)"
+  end
+  if value == 007047 then
+    return "Ord Rej Reason: Order Type / Duration combination invalid  (007047)"
+  end
+  if value == 007048 then
+    return "Ord Rej Reason: Quantity Attribute Not Allowed On Order During Auction.  (007048)"
+  end
+  if value == 007049 then
+    return "Ord Rej Reason: Order Entry was unsuccessful. Error Message: Is not possible to send orders with Validity Type 'Market on Auction' with Minimum quantity.  (007049)"
+  end
+  if value == 007050 then
+    return "Ord Rej Reason: Max Floor (111) not valid for Time in Force (59).  (007050)"
+  end
+  if value == 007055 then
+    return "Ord Rej Reason: Spread orders may not be entered while the underlying leg market is in non trading state  (007055)"
+  end
+  if value == 007056 then
+    return "Ord Rej Reason: Orders may not be entered while the market is in final closing call  (007056)"
+  end
+  if value == 007101 then
+    return "Ord Rej Reason: Quote rejected: Unknown instrument   (007101)"
+  end
+  if value == 007102 then
+    return "Ord Rej Reason: Quote rejected: Exchange (security) closed  (007102)"
+  end
+  if value == 007103 then
+    return "Ord Rej Reason: Quote rejected: Quote exceeds limit   (007103)"
+  end
+  if value == 007104 then
+    return "Ord Rej Reason: Quote rejected: Too late to enter   (007104)"
+  end
+  if value == 007105 then
+    return "Ord Rej Reason: Quote rejected: Unknown Quote  (007105)"
+  end
+  if value == 007106 then
+    return "Ord Rej Reason: Quote rejected: Duplicate Quote in same message   (007106)"
+  end
+  if value == 007107 then
+    return "Ord Rej Reason: Quote rejected: Invalid bid/ask spread  (007107)"
+  end
+  if value == 007108 then
+    return "Ord Rej Reason: Quote rejected: Invalid price   (007108)"
+  end
+  if value == 007109 then
+    return "Ord Rej Reason: Quote rejected: Not authorized to quote this instrument   (007109)"
+  end
+  if value == 007110 then
+    return "Ord Rej Reason: Quote rejected, resting cancelled: Too many rejects   (007110)"
+  end
+  if value == 007111 then
+    return "Ord Rej Reason: Quote rejected: Duplicate Quote, different ID;  (007111)"
+  end
+  if value == 007112 then
+    return "Ord Rej Reason: Quote rejected, resting cancelled: Quote exceeds limit  (007112)"
+  end
+  if value == 007113 then
+    return "Ord Rej Reason: Quote rejected, resting cancelled: Duplicate Quote  (007113)"
+  end
+  if value == 007114 then
+    return "Ord Rej Reason: Quote rejected, resting cancelled: Invalid bid/ask spread   (007114)"
+  end
+  if value == 007115 then
+    return "Ord Rej Reason: Quote rejected, resting cancelled: Invalid price   (007115)"
+  end
+  if value == 007116 then
+    return "Ord Rej Reason: Quote rejected, resting cancelled: Not authorized to quote this instrument   (007116)"
+  end
+  if value == 007117 then
+    return "Ord Rej Reason: Quote rejected: Unspecified reason   (007117)"
+  end
+  if value == 007118 then
+    return "Ord Rej Reason: Quote rejected: Exchange (security) is in pre open   (007118)"
+  end
+  if value == 007118 then
+    return "Ord Rej Reason: Group state does not allow this function  (007118)"
+  end
+  if value == 007119 then
+    return "Ord Rej Reason: Quote rejected: Exchange (security) is in no cancel   (007119)"
+  end
+  if value == 007120 then
+    return "Ord Rej Reason: Quote rejected: Exchange (security) is reserved   (007120)"
+  end
+  if value == 007121 then
+    return "Ord Rej Reason: Contract not eligible for negotiated quote  (007121)"
+  end
+  if value == 007122 then
+    return "Ord Rej Reason: RLP Order rejected – Participant not authorized  (007122)"
+  end
+  if value == 007123 then
+    return "Ord Rej Reason: Attempt to modify the order type from/to RLP  (007123)"
+  end
+  if value == 007124 then
+    return "Ord Rej Reason: Invalid field for Order with Order Type (tag 40) equals W (RLP)  (007124)"
+  end
+  if value == 007125 then
+    return "Ord Rej Reason: RLP Order rejected - Only one order is allowed by firm and side  (007125)"
+  end
+  if value == 007126 then
+    return "Ord Rej Reason: Invalid field for Order with Routing Instruction (tag 35487) equals 1 (RETAIL_LIQUIDITY_TAKER)  (007126)"
+  end
+  if value == 007127 then
+    return "Ord Rej Reason: Invalid field for Order with Order Type (tag 40) equals P (PEGGED)  (007127)"
+  end
+  if value == 007128 then
+    return "Ord Rej Reason: Qty is not multiple of minimum execution quantity for Pegged order  (007128)"
+  end
+  if value == 007129 then
+    return "Ord Rej Reason: Account is mandatory for Pegged Order  (007129)"
+  end
+  if value == 007130 then
+    return "Ord Rej Reason: Pegged order can not be sent in Non Regular Session  (007130)"
+  end
+  if value == 007131 then
+    return "Ord Rej Reason: Attempt to modify the order type from/to Pegged  (007131)"
+  end
+  if value == 007132 then
+    return "Ord Rej Reason: Order rejected: pegged orders are not allowed for this contract  (007132)"
+  end
+  if value == 007133 then
+    return "Ord Rej Reason: Order rejected: ROUTING_INSTRUCTION (tag 35487) equals BROKER_ONLY (3) not allowed for this group.  (007133)"
+  end
+  if value == 007134 then
+    return "Ord Rej Reason: Order rejected: Only Pegged Order with ROUTING_INSTRUCTION (tag 35487) equals BROKER_ONLY (3) is allowed for this group.  (007134)"
+  end
+  if value == 007135 then
+    return "Ord Rej Reason: Cross order suspended for the participant or session  (007135)"
+  end
+  if value == 007136 then
+    return "Ord Rej Reason: Order quantity is outside of the allowable range “Order Quantity: [OrderQty] / Contract Minimum Quantity for Cross : [MinCrossQty]  (007136)"
+  end
+  if value == 007137 then
+    return "Ord Rej Reason: BBT messages should not be entered when market is paused  (007137)"
+  end
+  if value == 007138 then
+    return "Ord Rej Reason: BBT messages should not be entered when market is pre open  (007138)"
+  end
+  if value == 007139 then
+    return "Ord Rej Reason: BBT messages should not be entered when market is PCP  (007139)"
+  end
+  if value == 007140 then
+    return "Ord Rej Reason: BBT messages should not be entered when market is no cancel  (007140)"
+  end
+  if value == 007141 then
+    return "Ord Rej Reason: BBT messages should not be entered when market is reserved  (007141)"
+  end
+  if value == 007142 then
+    return "Ord Rej Reason: BBT messages should not be entered when market is forbidden  (007142)"
+  end
+  if value == 007143 then
+    return "Ord Rej Reason: BBT messages should not be entered when market is pre close  (007143)"
+  end
+  if value == 007144 then
+    return "Ord Rej Reason: Invalid field for BBT Order  (007144)"
+  end
+  if value == 007145 then
+    return "Ord Rej Reason: For Cancel On Behalf  must be informed only the ActionTargetSessionID  OR the ActionTargetGroupID  (007145)"
+  end
+  if value == 007146 then
+    return "Ord Rej Reason: ActionTargetGroupID  invalid . It doesn't exist or it is disabled  (007146)"
+  end
+  if value == 007147 then
+    return "Ord Rej Reason: Fix Session is blocked due to Mass Cancel  (007147)"
+  end
+  if value == 007148 then
+    return "Ord Rej Reason: ActionTargetGroupID must be informed  (007148)"
+  end
+  if value == 007149 then
+    return "Ord Rej Reason: Fix Session doesn't belong to the ActionTargetGroupID  (007149)"
+  end
+  if value == 009999 then
+    return "Ord Rej Reason: Technical Error: Function not performed  (009999)"
+  end
+  if value == 008006 then
+    return "Ord Rej Reason: Exercise price not allowed  (008006)"
+  end
+  if value == 008007 then
+    return "Ord Rej Reason: No positions blocked  (008007)"
+  end
+  if value == 008008 then
+    return "Ord Rej Reason: Quantity doesn't match with the original request [Quantity on original request: <quantity on original request>]  (008008)"
+  end
+  if value == 008011 then
+    return "Ord Rej Reason: Exercise must be on maturity date.  (008011)"
+  end
+  if value == 008014 then
+    return "Ord Rej Reason: Function not available this time  (008014)"
+  end
+  if value == 008015 then
+    return "Ord Rej Reason: Blocking quantity more than 999999999  (008015)"
+  end
+  if value == 008020 then
+    return "Ord Rej Reason: Trade does not belong to the specified firm ‘Firm Id: <XXX>’  (008020)"
+  end
+  if value == 008021 then
+    return "Ord Rej Reason: Blocking qty more than available quantity  (008021)"
+  end
+  if value == 008022 then
+    return "Ord Rej Reason: There aren't positions available to exercise  (008022)"
+  end
+  if value == 008023 then
+    return "Ord Rej Reason: Total qty must be the sum of all AllocQty  (008023)"
+  end
+  if value == 008024 then
+    return "Ord Rej Reason: Trade already cancelled or does not exist ‘Trade Id: <XXX>’  (008024)"
+  end
+  if value == 008027 then
+    return "Ord Rej Reason: Available quantity to block is zero  (008027)"
+  end
+  if value == 008028 then
+    return "Ord Rej Reason: Invalid Operation for contract type.  (008028)"
+  end
+  if value == 008036 then
+    return "Ord Rej Reason: Function closed or suspended.  (008036)"
+  end
+  if value == 008039 then
+    return "Ord Rej Reason: Exercise price outside required moneyness.  (008039)"
+  end
+  if value == 008040 then
+    return "Ord Rej Reason: Invalid exercise request id to cancel  (008040)"
+  end
+  if value == 008059 then
+    return "Ord Rej Reason: Invalid blocking Id to unblock  (008059)"
+  end
+  if value == 008062 then
+    return "Ord Rej Reason: Invalid quantity to unblock  (008062)"
+  end
+  if value == 008063 then
+    return "Ord Rej Reason: On Behalf Operation not allowed during CCR recovery  (008063)"
+  end
+  if value == 008065 then
+    return "Ord Rej Reason: Problem parsing incoming message  (008065)"
+  end
+  if value == 008066 then
+    return "Ord Rej Reason: Exercise quantity should be greater than zero  (008066)"
+  end
+  if value == 030002 then
+    return "Ord Rej Reason: System initialization  (030002)"
+  end
+  if value == 030003 then
+    return "Ord Rej Reason: Line busy  (030003)"
+  end
+  if value == 030004 then
+    return "Ord Rej Reason: Message or atributes are invalid  (030004)"
+  end
+  if value == 030005 then
+    return "Ord Rej Reason: Internal error  (030005)"
+  end
+  if value == 030006 then
+    return "Ord Rej Reason: Timeout waiting risk evaluation  (030006)"
+  end
+  if value == 030007 then
+    return "Ord Rej Reason: Timeout waiting risk evaluation (low priority)  (030007)"
+  end
+  if value == 030011 then
+    return "Ord Rej Reason: Broker negotiation blocked  (030011)"
+  end
+  if value == 030012 then
+    return "Ord Rej Reason: Broker not available  (030012)"
+  end
+  if value == 030013 then
+    return "Ord Rej Reason: Broker's capture account not found  (030013)"
+  end
+  if value == 030014 then
+    return "Ord Rej Reason: Broker's segment negotiation blocked  (030014)"
+  end
+  if value == 030015 then
+    return "Ord Rej Reason: Broker segment not available  (030015)"
+  end
+  if value == 030016 then
+    return "Ord Rej Reason: Broker's segment protected mode under activation  (030016)"
+  end
+  if value == 030017 then
+    return "Ord Rej Reason: Broker PN negotiation blocked  (030017)"
+  end
+  if value == 030018 then
+    return "Ord Rej Reason: Broker PN not available  (030018)"
+  end
+  if value == 030019 then
+    return "Ord Rej Reason: Broker PN protected mode under activation  (030019)"
+  end
+  if value == 030021 then
+    return "Ord Rej Reason: Account negotiation blocked  (030021)"
+  end
+  if value == 030022 then
+    return "Ord Rej Reason: Account not available  (030022)"
+  end
+  if value == 030023 then
+    return "Ord Rej Reason: Account's protected mode under activation  (030023)"
+  end
+  if value == 030024 then
+    return "Ord Rej Reason: Account mandatory on DMA orders  (030024)"
+  end
+  if value == 030025 then
+    return "Ord Rej Reason: Transient Account is hierarchically blocked on protected mode  (030025)"
+  end
+  if value == 030026 then
+    return "Ord Rej Reason: Cross-orders or cross-forward not allowed while account in protected mode  (030026)"
+  end
+  if value == 030027 then
+    return "Ord Rej Reason: Transient Account not allowed in Extended Hours  (030027)"
+  end
+  if value == 030031 then
+    return "Ord Rej Reason: Document negotiation blocked  (030031)"
+  end
+  if value == 030032 then
+    return "Ord Rej Reason: Document not available  (030032)"
+  end
+  if value == 030033 then
+    return "Ord Rej Reason: Document's protected mode under activation  (030033)"
+  end
+  if value == 030034 then
+    return "Ord Rej Reason: Executor document cannot use default broker profile  (030034)"
+  end
+  if value == 030035 then
+    return "Ord Rej Reason: Document in blocked profile  (030035)"
+  end
+  if value == 030036 then
+    return "Ord Rej Reason: Cross-orders or cross-forward not allowed while document in protected mode  (030036)"
+  end
+  if value == 030041 then
+    return "Ord Rej Reason: Entering Trader negotiation blocked  (030041)"
+  end
+  if value == 030042 then
+    return "Ord Rej Reason: Entering Trader not available  (030042)"
+  end
+  if value == 030043 then
+    return "Ord Rej Reason: Entering Trader blocked by SFD overflow  (030043)"
+  end
+  if value == 030044 then
+    return "Ord Rej Reason: Non DMA orders must provide account while in broker's protected mode  (030044)"
+  end
+  if value == 030045 then
+    return "Ord Rej Reason: Entering Trader not authorized to trade accountless orders  (030045)"
+  end
+  if value == 030046 then
+    return "Ord Rej Reason: Entering Trader cannot trade on behalf of other firm's account  (030046)"
+  end
+  if value == 030050 then
+    return "Ord Rej Reason: Symbol not available  (030050)"
+  end
+  if value == 030051 then
+    return "Ord Rej Reason: Symbol internal data corrupted  (030051)"
+  end
+  if value == 030052 then
+    return "Ord Rej Reason: FIX Message Type does not support operations on such symbol  (030052)"
+  end
+  if value == 030053 then
+    return "Ord Rej Reason: Symbol's underlying not found for risk aggregation  (030053)"
+  end
+  if value == 030054 then
+    return "Ord Rej Reason: Symbol's risk unit matrix not available  (030054)"
+  end
+  if value == 030055 then
+    return "Ord Rej Reason: Symbol's reference price missing, market orders not allowed  (030055)"
+  end
+  if value == 032056 then
+    return "Ord Rej Reason: Symbol's calculated price invalid  (032056)"
+  end
+  if value == 030060 then
+    return "Ord Rej Reason: Spread's leg not available  (030060)"
+  end
+  if value == 030061 then
+    return "Ord Rej Reason: Spread's leg internal data corrupted  (030061)"
+  end
+  if value == 030070 then
+    return "Ord Rej Reason: Unexpected internal error during risk evaluation  (030070)"
+  end
+  if value == 030113 then
+    return "Ord Rej Reason: [SFD] Broker PN <pn> document aggregation: Day trade cash balance (stop loss) not configured  (030113)"
+  end
+  if value == 030114 then
+    return "Ord Rej Reason: [SDP] Broker PN <pn> document aggregation: Order exceeded cash settlement exposure  (030114)"
+  end
+  if value == 030115 then
+    return "Ord Rej Reason: [RMKT] Broker PN <pn> document aggregation: Order quantity exceeded risk increase  (030115)"
+  end
+  if value == 030116 then
+    return "Ord Rej Reason: [SDP] Broker PN <pn> trader aggregation: Order exceeded cash settlement exposure  (030116)"
+  end
+  if value == 030117 then
+    return "Ord Rej Reason: [SPVD] Broker PN <pn> document aggregation: Order exceeded potential short uncovered balance.  (030117)"
+  end
+  if value == 030118 then
+    return "Ord Rej Reason: [SPVD] Broker PN <pn> trader aggregation: Order exceeded potential short uncovered balance.  (030118)"
+  end
+  if value == 030119 then
+    return "Ord Rej Reason: [RMSE] Broker PN <pn> document aggregation: Order exceeded risk increase at extended session  (030119)"
+  end
+  if value == 030166 then
+    return "Ord Rej Reason: [RMSE] Broker: Order exceeded risk increase at extended session  (030166)"
+  end
+  if value == 030201 then
+    return "Ord Rej Reason: [MKTA] Account: Buy not allowed for symbol's market  (030201)"
+  end
+  if value == 030202 then
+    return "Ord Rej Reason: [MKTA] Account: Sell not allowed for symbol's market  (030202)"
+  end
+  if value == 030204 then
+    return "Ord Rej Reason: [TMOC] Account: Maximum order size exceeded for single order  (030204)"
+  end
+  if value == 030205 then
+    return "Ord Rej Reason: [TMOV] Account: Maximum order size exceeded for single order  (030205)"
+  end
+  if value == 030206 then
+    return "Ord Rej Reason: [SPCI] Account: Order quantity exceeded short position per instrument  (030206)"
+  end
+  if value == 030207 then
+    return "Ord Rej Reason: [SPVI] Account: Order quantity exceeded long position per instrument  (030207)"
+  end
+  if value == 030208 then
+    return "Ord Rej Reason: [SDP] Account: Order exceeded cash settlement exposure  (030208)"
+  end
+  if value == 030210 then
+    return "Ord Rej Reason: [RMKT] Account: Order quantity exceeded risk increase  (030210)"
+  end
+  if value == 030211 then
+    return "Ord Rej Reason: [IRMKT] Account: Order quantity exceeded risk increase - reducing mode  (030211)"
+  end
+  if value == 030212 then
+    return "Ord Rej Reason: [SPI] Account: Order quantity exceeded long and short position - reducing mode  (030212)"
+  end
+  if value == 030213 then
+    return "Ord Rej Reason: [STD] Account: Termo not allowed, protected mode enabled  (030213)"
+  end
+  if value == 030215 then
+    return "Ord Rej Reason: [SPVD] Account: Order exceeded potential short uncovered balance.  (030215)"
+  end
+  if value == 030300 then
+    return "Ord Rej Reason: [MKTA] Document: Buy/Sell symbol's market not configured  (030300)"
+  end
+  if value == 030301 then
+    return "Ord Rej Reason: [MKTA] Document: Buy not allowed for symbol's market  (030301)"
+  end
+  if value == 030302 then
+    return "Ord Rej Reason: [MKTA] Document: Sell not allowed for symbol's market  (030302)"
+  end
+  if value == 030303 then
+    return "Ord Rej Reason: [TMOX] Document: Max  (030303)"
+  end
+  if value == 030304 then
+    return "Ord Rej Reason: [TMOC] Document: Max Bid quantity exceeded for single order  (030304)"
+  end
+  if value == 030305 then
+    return "Ord Rej Reason: [TMOV] Document: Max Offer quantity exceeded for single order  (030305)"
+  end
+  if value == 030306 then
+    return "Ord Rej Reason: [SPCI] Document: Order quantity exceeded Max Bid Potential Balance  (030306)"
+  end
+  if value == 030307 then
+    return "Ord Rej Reason: [SPVI] Document: Order quantity exceeded Max Offer Potential Balance  (030307)"
+  end
+  if value == 030308 then
+    return "Ord Rej Reason: [SDP] Document: Order exceeded Max Financial Potential Balance Due  (030308)"
+  end
+  if value == 030309 then
+    return "Ord Rej Reason: [STD] Document: Order quantity exceeded Max Operations Forward Balance  (030309)"
+  end
+  if value == 030310 then
+    return "Ord Rej Reason: [RMKT]  (030310)"
+  end
+  if value == 030311 then
+    return "Ord Rej Reason: [IRMKT] Document: Order quantity exceeded Max Incremental Market Risk  (030311)"
+  end
+  if value == 030312 then
+    return "Ord Rej Reason: [SPI] Document: Order quantity exceeded Previous Potencial Balance  (030312)"
+  end
+  if value == 030313 then
+    return "Ord Rej Reason: [STD] Document: Termo not allowed,  (030313)"
+  end
+  if value == 030314 then
+    return "Ord Rej Reason: [SFD] Document: Day trade cash balance (stop loss) not configured  (030314)"
+  end
+  if value == 030315 then
+    return "Ord Rej Reason: [SPVD] Document: Order exceeded potential short uncovered balance  (030315)"
+  end
+  if value == 030316 then
+    return "Ord Rej Reason: [RMSE] Document: Order exceeded risk increase at extended session  (030316)"
+  end
+  if value == 030317 then
+    return "Ord Rej Reason: [RMSE] Document: Order exceeded risk increase of broker at extended session  (030317)"
+  end
+  if value == 030400 then
+    return "Ord Rej Reason: [MKTA] Entering trader: Buy/Sell symbol's market not configured  (030400)"
+  end
+  if value == 030401 then
+    return "Ord Rej Reason: [MKTA] Entering trader: Buy not allowed for symbol's market  (030401)"
+  end
+  if value == 030402 then
+    return "Ord Rej Reason: [MKTA] Entering  (030402)"
+  end
+  if value == 030403 then
+    return "Ord Rej Reason: [TMOX] Entering trader: Max Bid/Offer quantity not configured  (030403)"
+  end
+  if value == 030404 then
+    return "Ord Rej Reason: [TMOC] Entering trader: Max Bid quantity exceeded for single order  (030404)"
+  end
+  if value == 030405 then
+    return "Ord Rej Reason: [TMOV] Entering trader: Max Offer quantity exceeded for si (030405)"
+  end
+  if value == 030406 then
+    return "Ord Rej Reason: [SPCI] Entering trader: Order quantity exceeded Max Bid Potential Balance  (030406)"
+  end
+  if value == 030407 then
+    return "Ord Rej Reason: [SPVI] Entering trader: Order quantity exceeded Max Offer Potential Balance  (030407)"
+  end
+  if value == 030408 then
+    return "Ord Rej Reason: [SDP] Entering trader: Order exceeded Max Financial Potential  (030408)"
+  end
+  if value == 030415 then
+    return "Ord Rej Reason: [SPVD] Trader: Order exceeded potential short uncovered balance.   (030415)"
+  end
+  if value == 030500 then
+    return "Ord Rej Reason: [OMS] Unexpected internal error  (030500)"
+  end
+  if value == 030501 then
+    return "Ord Rej Reason: [OMS] Invalid session or symbol  (030501)"
+  end
+  if value == 030502 then
+    return "Ord Rej Reason: [OMS] ClOrdID cannot be empty  (030502)"
+  end
+  if value == 030503 then
+    return "Ord Rej Reason: [OMS] ClOrdID is duplicated  (030503)"
+  end
+  if value == 030504 then
+    return "Ord Rej Reason: [OMS] ClOrdID not found  (030504)"
+  end
+  if value == 030505 then
+    return "Ord Rej Reason: [OMS] OrigClOrdID cannot be empty  (030505)"
+  end
+  if value == 030506 then
+    return "Ord Rej Reason: [OMS] CrossID cannot be empty  (030506)"
+  end
+  if value == 030507 then
+    return "Ord Rej Reason: [OMS] ClOrdID is duplicated within Cross Order  (030507)"
+  end
+  if value == 030508 then
+    return "Ord Rej Reason: [OMS] Cross Order modification is not allowed  (030508)"
+  end
+  if value == 030509 then
+    return "Ord Rej Reason: [OMS] OrderID not found  (030509)"
+  end
+  if value == 030510 then
+    return "Ord Rej Reason: [OMS] OrderID cannot be empty  (030510)"
+  end
+  if value == 030511 then
+    return "Ord Rej Reason: [OMS] QuoteReqID cannot be empty  (030511)"
+  end
+  if value == 030512 then
+    return "Ord Rej Reason: [OMS] QuoteReqID is duplicated  (030512)"
+  end
+  if value == 030513 then
+    return "Ord Rej Reason: [OMS] QuoteReqID not found  (030513)"
+  end
+  if value == 030514 then
+    return "Ord Rej Reason: [OMS] QuoteID cannot be empty  (030514)"
+  end
+  if value == 030521 then
+    return "Ord Rej Reason: [OMS] In (030521)"
+  end
+  if value == 030522 then
+    return "Ord Rej Reason: [OMS]  (030522)"
+  end
+  if value == 030523 then
+    return "Ord Rej Reason: [OMS] Entering firm modification is not allowed  (030523)"
+  end
+  if value == 030524 then
+    return "Ord Rej Reason: [OMS] Account modification on DMA order is not allowed  (030524)"
+  end
+  if value == 030525 then
+    return "Ord Rej Reason: [OMS] Account information missing on non (030525)"
+  end
+  if value == 030526 then
+    return "Ord Rej Reason: [OMS] Entering trader  (030526)"
+  end
+  if value == 030527 then
+    return "Ord Rej Reason: [OMS] Received Execution Report Rejection for an active order  (030527)"
+  end
+  if value == 031011 then
+    return "Ord Rej Reason: Broker negotiation blocked  (031011)"
+  end
+  if value == 031012 then
+    return "Ord Rej Reason: Broker not available  (031012)"
+  end
+  if value == 031013 then
+    return "Ord Rej Reason: Broker's capture account not found  (031013)"
+  end
+  if value == 031014 then
+    return "Ord Rej Reason: Broker's segment negotiation blocked  (031014)"
+  end
+  if value == 031015 then
+    return "Ord Rej Reason: Broker segment not available  (031015)"
+  end
+  if value == 031016 then
+    return "Ord Rej Reason: Broker's segment protected mode under activation  (031016)"
+  end
+  if value == 031021 then
+    return "Ord Rej Reason: Account negotiation blocked  (031021)"
+  end
+  if value == 031022 then
+    return "Ord Rej Reason: Account not available  (031022)"
+  end
+  if value == 031023 then
+    return "Ord Rej Reason: Account's protected mode under activation  (031023)"
+  end
+  if value == 031024 then
+    return "Ord Rej Reason: Account mandatory on DMA orders  (031024)"
+  end
+  if value == 031025 then
+    return "Ord Rej Reason: Transient Account is hierarchically blocked on protected mode  (031025)"
+  end
+  if value == 031026 then
+    return "Ord Rej Reason: Cross-orders or cross-forward not allowed while account in protected mode  (031026)"
+  end
+  if value == 031027 then
+    return "Ord Rej Reason: Transient Account not allowed in Extended Hours  (031027)"
+  end
+  if value == 031031 then
+    return "Ord Rej Reason: Document negotiation blocked  (031031)"
+  end
+  if value == 031032 then
+    return "Ord Rej Reason: Document not available  (031032)"
+  end
+  if value == 031033 then
+    return "Ord Rej Reason: Document's protected mode under activation  (031033)"
+  end
+  if value == 031034 then
+    return "Ord Rej Reason: Executor document cannot use default broker profile  (031034)"
+  end
+  if value == 031035 then
+    return "Ord Rej Reason: Document in blocked profile  (031035)"
+  end
+  if value == 031036 then
+    return "Ord Rej Reason: Cross-orders or cross-forward not allowed while document in protected mode  (031036)"
+  end
+  if value == 031041 then
+    return "Ord Rej Reason: Entering Trader negotiation blocked  (031041)"
+  end
+  if value == 031042 then
+    return "Ord Rej Reason: Entering Trader not available  (031042)"
+  end
+  if value == 031043 then
+    return "Ord Rej Reason: Entering Trader blocked by SFD overflow  (031043)"
+  end
+  if value == 031044 then
+    return "Ord Rej Reason: Non DMA orders must provide account while in broker's protected mode  (031044)"
+  end
+  if value == 031045 then
+    return "Ord Rej Reason: Entering Trader not authorized to trade accountless orders  (031045)"
+  end
+  if value == 031046 then
+    return "Ord Rej Reason: Entering Trader cannot trade on behalf of other firm's account  (031046)"
+  end
+  if value == 031050 then
+    return "Ord Rej Reason: Symbol not available  (031050)"
+  end
+  if value == 031051 then
+    return "Ord Rej Reason: Symbol internal data corrupted  (031051)"
+  end
+  if value == 031052 then
+    return "Ord Rej Reason: FIX Message Type does not support operations on such symbol  (031052)"
+  end
+  if value == 031053 then
+    return "Ord Rej Reason: Symbol's underlying not found for risk aggregation  (031053)"
+  end
+  if value == 031054 then
+    return "Ord Rej Reason: Symbol's risk unit matrix not available  (031054)"
+  end
+  if value == 031055 then
+    return "Ord Rej Reason: Symbol's reference price missing, market orders not allowed  (031055)"
+  end
+  if value == 031056 then
+    return "Ord Rej Reason: Symbol's calculated price invalid  (031056)"
+  end
+  if value == 031060 then
+    return "Ord Rej Reason: Spread's leg not available  (031060)"
+  end
+  if value == 031061 then
+    return "Ord Rej Reason: Spread's leg internal data corrupted  (031061)"
+  end
+  if value == 031070 then
+    return "Ord Rej Reason: Unexpected internal error during risk evaluation  (031070)"
+  end
+  if value == 031201 then
+    return "Ord Rej Reason: [MKTA] Account: Buy not allowed for symbol's market  (031201)"
+  end
+  if value == 031202 then
+    return "Ord Rej Reason: [MKTA] Account: Sell not allowed for symbol's market  (031202)"
+  end
+  if value == 031204 then
+    return "Ord Rej Reason: [TMOC] Account: Max Bid quantity exceeded for single order  (031204)"
+  end
+  if value == 031205 then
+    return "Ord Rej Reason: [TMOV] Account: Max Offer quantity exceeded for single order  (031205)"
+  end
+  if value == 031206 then
+    return "Ord Rej Reason: [SPCI] Account: Order quantity exceeded Max Bid Potential Balance  (031206)"
+  end
+  if value == 031207 then
+    return "Ord Rej Reason: [SPVI] Account: Order quantity exceeded Max Offer Potential Balance  (031207)"
+  end
+  if value == 031208 then
+    return "Ord Rej Reason: [SDP] Account: Order exceeded Max Financial Potential Balance Due  (031208)"
+  end
+  if value == 031210 then
+    return "Ord Rej Reason: [RMKT] Account: Order quantity exceeded Max Market Risk  (031210)"
+  end
+  if value == 031211 then
+    return "Ord Rej Reason: [IRMKT] Account: Order quantity exceeded Max Incremental Market Risk  (031211)"
+  end
+  if value == 031212 then
+    return "Ord Rej Reason: [SPI] Account: Order quantity exceeded Previous Potencial Balance  (031212)"
+  end
+  if value == 031213 then
+    return "Ord Rej Reason: [STD] Account: Termo not allowed, protected mode enabled  (031213)"
+  end
+  if value == 031215 then
+    return "Ord Rej Reason: [SPVD] Account: Order exceeded potential short uncovered balance.  (031215)"
+  end
+  if value == 031300 then
+    return "Ord Rej Reason: [MKTA] Document: Buy/Sell symbol's market not configured  (031300)"
+  end
+  if value == 031301 then
+    return "Ord Rej Reason: [MKTA] Document: Buy not allowed for symbol's market  (031301)"
+  end
+  if value == 031302 then
+    return "Ord Rej Reason: [MKTA] Document: Sell not allowed for symbol's market  (031302)"
+  end
+  if value == 031303 then
+    return "Ord Rej Reason: [TMOX] Document: Maximum order size not configured  (031303)"
+  end
+  if value == 031304 then
+    return "Ord Rej Reason: [TMOC] Document: Maximum order size exceeded for single order  (031304)"
+  end
+  if value == 031305 then
+    return "Ord Rej Reason: [TMOV] Document: Maximum order size exceeded for single order  (031305)"
+  end
+  if value == 031306 then
+    return "Ord Rej Reason: [SPCI] Document: Order quantity exceeded short position per instrument  (031306)"
+  end
+  if value == 031307 then
+    return "Ord Rej Reason: [SPVI] Document: Order quantity exceeded long position per instrument  (031307)"
+  end
+  if value == 031308 then
+    return "Ord Rej Reason: [SDP] Document: Order exceeded cash settlement exposure  (031308)"
+  end
+  if value == 031309 then
+    return "Ord Rej Reason: [STD] Document: Order quantity exceeded forward contracts exposure  (031309)"
+  end
+  if value == 031310 then
+    return "Ord Rej Reason: [RMKT] Document: Order quantity exceeded risk increase  (031310)"
+  end
+  if value == 031311 then
+    return "Ord Rej Reason: [IRMKT] Document: Order quantity exceeded risk increase - reducing mode  (031311)"
+  end
+  if value == 031312 then
+    return "Ord Rej Reason: [SPI] Document: Order quantity exceeded long and short position - reducing mode  (031312)"
+  end
+  if value == 031313 then
+    return "Ord Rej Reason: [STD] Document: Termo not allowed, protected mode enabled  (031313)"
+  end
+  if value == 031314 then
+    return "Ord Rej Reason: [SFD] Document: Day trade cash balance (stop loss) not configured  (031314)"
+  end
+  if value == 031315 then
+    return "Ord Rej Reason: [SPVD] Document: Order exceeded potential short uncovered balance.  (031315)"
+  end
+  if value == 031316 then
+    return "Ord Rej Reason: [RMSE] Document: Order exceeded risk increase at extended session  (031316)"
+  end
+  if value == 031317 then
+    return "Ord Rej Reason: [RMSE] Document: Order exceeded risk increase of broker at extended session  (031317)"
+  end
+  if value == 031400 then
+    return "Ord Rej Reason: [MKTA] Entering trader: Buy/Sell symbol's market not configured  (031400)"
+  end
+  if value == 031401 then
+    return "Ord Rej Reason: [MKTA] Entering trader: Buy not allowed for symbol's market  (031401)"
+  end
+  if value == 031402 then
+    return "Ord Rej Reason: [MKTA] Entering trader: Sell not allowed for symbol's market  (031402)"
+  end
+  if value == 031403 then
+    return "Ord Rej Reason: [TMOX] Entering trader: Maximum order size not configured  (031403)"
+  end
+  if value == 031404 then
+    return "Ord Rej Reason: [TMOC] Entering trader: Maximum order size exceeded for single order  (031404)"
+  end
+  if value == 031405 then
+    return "Ord Rej Reason: [TMOV] Entering trader: Maximum order size exceeded for single order  (031405)"
+  end
+  if value == 031406 then
+    return "Ord Rej Reason: [SPCI] Entering trader: Order quantity exceeded short position per instrument  (031406)"
+  end
+  if value == 031407 then
+    return "Ord Rej Reason: [SPVI] Entering trader: Order quantity exceeded long position per instrument  (031407)"
+  end
+  if value == 031408 then
+    return "Ord Rej Reason: [SDP] Entering trader: Order exceeded cash settlement exposure  (031408)"
+  end
+  if value == 031500 then
+    return "Ord Rej Reason: [OMS] Unexpected internal error  (031500)"
+  end
+  if value == 031501 then
+    return "Ord Rej Reason: [OMS] Invalid session or symbol  (031501)"
+  end
+  if value == 031502 then
+    return "Ord Rej Reason: [OMS] ClOrdID cannot be empty  (031502)"
+  end
+  if value == 031503 then
+    return "Ord Rej Reason: [OMS] ClOrdID is duplicated  (031503)"
+  end
+  if value == 031504 then
+    return "Ord Rej Reason: [OMS] ClOrdID not found  (031504)"
+  end
+  if value == 031505 then
+    return "Ord Rej Reason: [OMS] OrigClOrdID cannot be empty  (031505)"
+  end
+  if value == 031506 then
+    return "Ord Rej Reason: [OMS] CrossID cannot be empty  (031506)"
+  end
+  if value == 031507 then
+    return "Ord Rej Reason: [OMS] ClOrdID is duplicated within Cross Order  (031507)"
+  end
+  if value == 031508 then
+    return "Ord Rej Reason: [OMS] Cross Order modification is not allowed  (031508)"
+  end
+  if value == 031509 then
+    return "Ord Rej Reason: [OMS] OrderID not found  (031509)"
+  end
+  if value == 031510 then
+    return "Ord Rej Reason: [OMS] OrderID cannot be empty  (031510)"
+  end
+  if value == 031511 then
+    return "Ord Rej Reason: [OMS] QuoteReqID cannot be empty  (031511)"
+  end
+  if value == 031512 then
+    return "Ord Rej Reason: [OMS] QuoteReqID is duplicated  (031512)"
+  end
+  if value == 031513 then
+    return "Ord Rej Reason: [OMS] QuoteReqID not found  (031513)"
+  end
+  if value == 031514 then
+    return "Ord Rej Reason: [OMS] QuoteID cannot be empty  (031514)"
+  end
+  if value == 031521 then
+    return "Ord Rej Reason: [OMS] In-Flight modification is not allowed  (031521)"
+  end
+  if value == 031522 then
+    return "Ord Rej Reason: [OMS] Side modification is not allowed  (031522)"
+  end
+  if value == 031523 then
+    return "Ord Rej Reason: [OMS] Entering firm modification is not allowed  (031523)"
+  end
+  if value == 031524 then
+    return "Ord Rej Reason: [OMS] Account modification on DMA order is not allowed  (031524)"
+  end
+  if value == 031525 then
+    return "Ord Rej Reason: [OMS] Account information missing on non-DMA order  (031525)"
+  end
+  if value == 031526 then
+    return "Ord Rej Reason: [OMS] Entering trader modification on non-DMA order is not allowed  (031526)"
+  end
+  if value == 031527 then
+    return "Ord Rej Reason: [OMS] Received Execution Report Rejection for an active order  (031527)"
+  end
+  if value == 032000 then
+    return "Ord Rej Reason: Field missing or incorrect  (032000)"
+  end
+  if value == 032001 then
+    return "Ord Rej Reason: LiNe not available or busy  (032001)"
+  end
+  if value == 032002 then
+    return "Ord Rej Reason: LiNe internal error  (032002)"
+  end
+  if value == 032003 then
+    return "Ord Rej Reason: LiNe recovering or starting up  (032003)"
+  end
+  if value == 032004 then
+    return "Ord Rej Reason: Internal gateway error (message forwarding failure)  (032004)"
+  end
+  if value == 032005 then
+    return "Ord Rej Reason: Invalid Quantity  (032005)"
+  end
+  if value == 032006 then
+    return "Ord Rej Reason: Duplicate Order  (032006)"
+  end
+  if value == 032007 then
+    return "Ord Rej Reason: Missing Account Field  (032007)"
+  end
+  if value == 032008 then
+    return "Ord Rej Reason: Unknown Account  (032008)"
+  end
+  if value == 032009 then
+    return "Ord Rej Reason: Unknown FirmID (for routing)  (032009)"
+  end
+  if value == 032010 then
+    return "Ord Rej Reason: Duplicate FirmID  (032010)"
+  end
+  if value == 032011 then
+    return "Ord Rej Reason: Duplicate Sender Location  (032011)"
+  end
+  if value == 032012 then
+    return "Ord Rej Reason: Duplicate Entering Trader  (032012)"
+  end
+  if value == 032013 then
+    return "Ord Rej Reason: Firm or Trader is missing in non-DMA order  (032013)"
+  end
+  if value == 032014 then
+    return "Ord Rej Reason: Firm or Account is missing in DMA order  (032014)"
+  end
+  if value == 032015 then
+    return "Ord Rej Reason: Same Participants on both sides or invalid sides  (032015)"
+  end
+  if value == 032016 then
+    return "Ord Rej Reason: BUY side and SELL side having different FirmIDs  (032016)"
+  end
+  if value == 032017 then
+    return "Ord Rej Reason: BUY side and SELL side trading different assets  (032017)"
+  end
+  if value == 032018 then
+    return "Ord Rej Reason: Invalid Price  (032018)"
+  end
+  if value == 032019 then
+    return "Ord Rej Reason: LiNe overloaded  (032019)"
+  end
+  if value == 032020 then
+    return "Ord Rej Reason: LiNe administratively blocked  (032020)"
+  end
+  if value == 032021 then
+    return "Ord Rej Reason: Invalid Price  (032021)"
+  end
+  if value == 032022 then
+    return "Ord Rej Reason: System Overloaded  (032022)"
+  end
+  if value == 032023 then
+    return "Ord Rej Reason: System Error  (032023)"
+  end
+  if value == 033000 then
+    return "Ord Rej Reason: Throttle limit reached  (033000)"
+  end
+  if value == 033001 then
+    return "Ord Rej Reason: Invalid Security ID  (033001)"
+  end
+  if value == 033002 then
+    return "Ord Rej Reason: Unknown Market Segment ID  (033002)"
+  end
+  if value == 033003 then
+    return "Ord Rej Reason: Field missing or incorrect  (033003)"
+  end
+  if value == 033050 then
+    return "Ord Rej Reason: System Error  (033050)"
   end
 
   return "Ord Rej Reason: Unknown("..value..")"
@@ -6663,7 +8076,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.execution_report_reject_message_fi
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = b3_equities_binaryentrypoint_sbe_v8_0_dissect.security_exchange(buffer, index, packet, parent)
 
-  -- Ord Rej Reason: 4 Byte Unsigned Fixed Width Integer Enum with 22 values
+  -- Ord Rej Reason: 4 Byte Unsigned Fixed Width Integer Enum with 493 values
   index, ord_rej_reason = b3_equities_binaryentrypoint_sbe_v8_0_dissect.ord_rej_reason(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer

@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 298 | 2,914,976 |
+| 298 | 2,919,215 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -114,8 +114,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Jnx][Jnx.Directory] | Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | Ouch | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Lse][Lse.Directory] | Millennium | [Level2][Lse.Millennium.Level2.Mitch.v11.9.Dissector] | Mitch | [11.9][Lse.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.12.Dissector] | Sbe | [1.12][Memx.Equities.Memo.Sbe.v1.12.Dissector] | 12/12/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.11.Dissector] | Sbe | [1.11][Memx.Equities.Memo.Sbe.v1.11.Dissector] | 1/13/2023 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -287,7 +286,6 @@ Enjoy.
 [Jnx.Bonds.Pts.Ouch.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Bonds.Pts.Ouch.v1.4.Script.Dissector.lua "Jnx Bonds Pts Ouch v1.4 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Itch.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Itch.v1.6.Script.Dissector.lua "Jnx Equities Pts Itch v1.6 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Itch.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Itch.v1.7.Script.Dissector.lua "Jnx Equities Pts Itch v1.7 Lua Wireshark Dissector"
-[Jnx.Equities.Pts.Ouch.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Ouch.v1.11.Script.Dissector.lua "Jnx Equities Pts Ouch v1.11 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Ouch.v1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Ouch.v1.12.Script.Dissector.lua "Jnx Equities Pts Ouch v1.12 Lua Wireshark Dissector"
 [Lse.Millennium.Level2.Mitch.v11.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lse/Lse.Millennium.Level2.Mitch.v11.9.Script.Dissector.lua "Lse Millennium Level2 Mitch v11.9 Lua Wireshark Dissector"
 [Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax.Options.ComplexTopOfMarket.Mach.v1.3.Script.Dissector.lua "Miax Options ComplexTopOfMarket Mach v1.3 Lua Wireshark Dissector"
