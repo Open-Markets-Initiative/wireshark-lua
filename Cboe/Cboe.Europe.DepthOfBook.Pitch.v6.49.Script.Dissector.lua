@@ -326,7 +326,7 @@ end
 
 -- Translate: Index Price
 translate.index_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Index Price
@@ -541,7 +541,7 @@ end
 
 -- Translate: Price Binary Long Price 8
 translate.price_binary_long_price_8 = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price Binary Long Price 8
@@ -763,7 +763,7 @@ end
 
 -- Translate: Indicative Price
 translate.indicative_price = function(raw)
-  return raw*10000
+  return raw/10000
 end
 
 -- Dissect: Indicative Price
@@ -789,7 +789,7 @@ end
 
 -- Translate: Reference Price
 translate.reference_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Reference Price
@@ -1819,7 +1819,7 @@ end
 
 -- Translate: Price Short
 translate.price_short = function(raw)
-  return raw*100
+  return raw/100
 end
 
 -- Dissect: Price Short
@@ -2098,7 +2098,7 @@ end
 
 -- Translate: Price Binary Short Price 2
 translate.price_binary_short_price_2 = function(raw)
-  return raw*100
+  return raw/100
 end
 
 -- Dissect: Price Binary Short Price 2

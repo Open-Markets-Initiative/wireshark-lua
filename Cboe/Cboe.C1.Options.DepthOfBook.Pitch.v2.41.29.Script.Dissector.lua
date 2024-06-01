@@ -366,7 +366,7 @@ end
 
 -- Translate: Upper Strike Price
 translate.upper_strike_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Upper Strike Price
@@ -392,7 +392,7 @@ end
 
 -- Translate: Lower Strike Price
 translate.lower_strike_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Lower Strike Price
@@ -530,7 +530,7 @@ end
 
 -- Translate: Price
 translate.price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price
@@ -1059,7 +1059,7 @@ end
 
 -- Translate: Composite Market Offer Price
 translate.composite_market_offer_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Composite Market Offer Price
@@ -1085,7 +1085,7 @@ end
 
 -- Translate: Composite Market Bid Price
 translate.composite_market_bid_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Composite Market Bid Price
@@ -1131,7 +1131,7 @@ end
 
 -- Translate: Auction Only Price
 translate.auction_only_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Auction Only Price
@@ -1157,7 +1157,7 @@ end
 
 -- Translate: Indicative Price
 translate.indicative_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Indicative Price
@@ -1363,7 +1363,7 @@ end
 
 -- Translate: Multiplier
 translate.multiplier = function(raw)
-  return raw*10
+  return raw/10
 end
 
 -- Dissect: Multiplier
@@ -2113,7 +2113,7 @@ end
 
 -- Translate: Price Short
 translate.price_short = function(raw)
-  return raw*100
+  return raw/100
 end
 
 -- Dissect: Price Short

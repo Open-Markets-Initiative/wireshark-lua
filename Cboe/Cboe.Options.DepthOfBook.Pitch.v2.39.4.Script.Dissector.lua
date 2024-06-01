@@ -468,7 +468,7 @@ end
 
 -- Translate: Long Price
 translate.long_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Long Price
@@ -968,7 +968,7 @@ end
 
 -- Translate: Auction Only Price
 translate.auction_only_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Auction Only Price
@@ -994,7 +994,7 @@ end
 
 -- Translate: Indicative Price
 translate.indicative_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Indicative Price
@@ -1060,7 +1060,7 @@ end
 
 -- Translate: Reference Price
 translate.reference_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Reference Price
@@ -1655,7 +1655,7 @@ end
 
 -- Translate: Short Price
 translate.short_price = function(raw)
-  return raw*100
+  return raw/100
 end
 
 -- Dissect: Short Price

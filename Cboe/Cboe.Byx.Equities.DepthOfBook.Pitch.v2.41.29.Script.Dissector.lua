@@ -424,7 +424,7 @@ end
 
 -- Translate: Price
 translate.price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price
@@ -1134,7 +1134,7 @@ end
 
 -- Translate: Price Short
 translate.price_short = function(raw)
-  return raw*100
+  return raw/100
 end
 
 -- Dissect: Price Short

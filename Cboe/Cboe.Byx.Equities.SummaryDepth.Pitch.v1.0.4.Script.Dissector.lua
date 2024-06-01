@@ -616,7 +616,7 @@ end
 
 -- Translate: Last Price
 translate.last_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Last Price
@@ -824,7 +824,7 @@ end
 
 -- Translate: Price Binary 84 Price 8
 translate.price_binary_84_price_8 = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price Binary 84 Price 8
@@ -937,7 +937,7 @@ end
 
 -- Translate: Price Binary 44 Price 4
 translate.price_binary_44_price_4 = function(raw)
-  return raw*10000
+  return raw/10000
 end
 
 -- Dissect: Price Binary 44 Price 4

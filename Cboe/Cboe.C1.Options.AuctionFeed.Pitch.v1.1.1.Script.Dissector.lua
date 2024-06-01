@@ -393,7 +393,7 @@ end
 
 -- Translate: Multiplier
 translate.multiplier = function(raw)
-  return raw*10
+  return raw/10
 end
 
 -- Dissect: Multiplier
@@ -538,7 +538,7 @@ end
 
 -- Translate: Price
 translate.price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price
@@ -694,7 +694,7 @@ end
 
 -- Translate: Auction Only Price
 translate.auction_only_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Auction Only Price
@@ -720,7 +720,7 @@ end
 
 -- Translate: Indicative Price
 translate.indicative_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Indicative Price
@@ -786,7 +786,7 @@ end
 
 -- Translate: Reference Price
 translate.reference_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Reference Price

@@ -960,7 +960,7 @@ end
 
 -- Translate: Multiplier
 translate.multiplier = function(raw)
-  return raw*10
+  return raw/10
 end
 
 -- Dissect: Multiplier
@@ -1082,7 +1082,7 @@ end
 
 -- Translate: Price Increment
 translate.price_increment = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price Increment
@@ -1158,7 +1158,7 @@ end
 
 -- Translate: Strike Price
 translate.strike_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Strike Price
@@ -1415,7 +1415,7 @@ end
 
 -- Translate: Price Level
 translate.price_level = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price Level
@@ -1801,7 +1801,7 @@ end
 
 -- Translate: Price
 translate.price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price
@@ -2123,7 +2123,7 @@ end
 
 -- Translate: Composite Market Offer Price
 translate.composite_market_offer_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Composite Market Offer Price
@@ -2149,7 +2149,7 @@ end
 
 -- Translate: Composite Market Bid Price
 translate.composite_market_bid_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Composite Market Bid Price
@@ -2195,7 +2195,7 @@ end
 
 -- Translate: Auction Only Price
 translate.auction_only_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Auction Only Price
@@ -2221,7 +2221,7 @@ end
 
 -- Translate: Indicative Price
 translate.indicative_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Indicative Price
@@ -2287,7 +2287,7 @@ end
 
 -- Translate: Reference Price
 translate.reference_price = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Reference Price
@@ -3108,7 +3108,7 @@ end
 
 -- Translate: Price Short
 translate.price_short = function(raw)
-  return raw*100
+  return raw/100
 end
 
 -- Dissect: Price Short
