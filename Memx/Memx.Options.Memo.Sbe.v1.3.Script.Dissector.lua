@@ -120,6 +120,7 @@ memx_options_memo_sbe_v1_3.fields.origclordid = ProtoField.new("OrigClOrdId", "m
 memx_options_memo_sbe_v1_3.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "memx.options.memo.sbe.v1.3.origclordidoptional", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.options.memo.sbe.v1.3.packet", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.padding_14 = ProtoField.new("Padding 14", "memx.options.memo.sbe.v1.3.padding14", ftypes.BYTES)
+memx_options_memo_sbe_v1_3.fields.padding_2 = ProtoField.new("Padding 2", "memx.options.memo.sbe.v1.3.padding2", ftypes.BYTES)
 memx_options_memo_sbe_v1_3.fields.padding_21 = ProtoField.new("Padding 21", "memx.options.memo.sbe.v1.3.padding21", ftypes.BYTES)
 memx_options_memo_sbe_v1_3.fields.padding_7 = ProtoField.new("Padding 7", "memx.options.memo.sbe.v1.3.padding7", ftypes.BYTES)
 memx_options_memo_sbe_v1_3.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.options.memo.sbe.v1.3.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
@@ -6003,6 +6004,26 @@ memx_options_memo_sbe_v1_3_dissect.order_cancel_replace_request_message = functi
   return memx_options_memo_sbe_v1_3_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 2
+memx_options_memo_sbe_v1_3_size_of.padding_2 = 2
+
+-- Display: Padding 2
+memx_options_memo_sbe_v1_3_display.padding_2 = function(value)
+  return "Padding 2: "..value
+end
+
+-- Dissect: Padding 2
+memx_options_memo_sbe_v1_3_dissect.padding_2 = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memo_sbe_v1_3_display.padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memo_sbe_v1_3.fields.padding_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Offer Px
 memx_options_memo_sbe_v1_3_size_of.offer_px = 1
 
@@ -6111,6 +6132,8 @@ memx_options_memo_sbe_v1_3_size_of.quotes_group = function(buffer, offset)
 
   index = index + memx_options_memo_sbe_v1_3_size_of.offer_px
 
+  index = index + memx_options_memo_sbe_v1_3_size_of.padding_2
+
   return index
 end
 
@@ -6141,6 +6164,9 @@ memx_options_memo_sbe_v1_3_dissect.quotes_group_fields = function(buffer, offset
   -- Offer Px: 1 Byte Signed Fixed Width Integer
   index, offer_px = memx_options_memo_sbe_v1_3_dissect.offer_px(buffer, index, packet, parent)
 
+  -- Padding 2: 2 Byte
+  index, padding_2 = memx_options_memo_sbe_v1_3_dissect.padding_2(buffer, index, packet, parent)
+
   return index
 end
 
@@ -6165,7 +6191,7 @@ memx_options_memo_sbe_v1_3_size_of.quotes_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local quotes_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + quotes_group_count * 15
+  index = index + quotes_group_count * 17
 
   return index
 end
@@ -6185,7 +6211,7 @@ memx_options_memo_sbe_v1_3_dissect.quotes_groups_fields = function(buffer, offse
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Quotes Group: Struct of 6 fields
+  -- Quotes Group: Struct of 7 fields
   for i = 1, num_in_group do
     index = memx_options_memo_sbe_v1_3_dissect.quotes_group(buffer, index, packet, parent)
   end
@@ -8497,7 +8523,7 @@ end
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
   -- Attempt to read field
-  local value = buffer(2258, 1):uint()
+  local value = buffer(2266, 1):uint()
 
   if value == 9 then
     return true
@@ -8509,7 +8535,7 @@ end
 -- Verify Version Field
 verify.version = function(buffer)
   -- Attempt to read field
-  local value = buffer(2259, 2):uint()
+  local value = buffer(2267, 2):uint()
 
   if value == 259 then
     return true

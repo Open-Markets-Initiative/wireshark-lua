@@ -118,6 +118,7 @@ memx_options_memo_sbe_v1_6_a.fields.origclordid = ProtoField.new("OrigClOrdId", 
 memx_options_memo_sbe_v1_6_a.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "memx.options.memo.sbe.v1.6.a.origclordidoptional", ftypes.STRING)
 memx_options_memo_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.options.memo.sbe.v1.6.a.packet", ftypes.STRING)
 memx_options_memo_sbe_v1_6_a.fields.padding_14 = ProtoField.new("Padding 14", "memx.options.memo.sbe.v1.6.a.padding14", ftypes.BYTES)
+memx_options_memo_sbe_v1_6_a.fields.padding_2 = ProtoField.new("Padding 2", "memx.options.memo.sbe.v1.6.a.padding2", ftypes.BYTES)
 memx_options_memo_sbe_v1_6_a.fields.padding_21 = ProtoField.new("Padding 21", "memx.options.memo.sbe.v1.6.a.padding21", ftypes.BYTES)
 memx_options_memo_sbe_v1_6_a.fields.padding_7 = ProtoField.new("Padding 7", "memx.options.memo.sbe.v1.6.a.padding7", ftypes.BYTES)
 memx_options_memo_sbe_v1_6_a.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.options.memo.sbe.v1.6.a.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
@@ -1288,6 +1289,8 @@ memx_options_memo_sbe_v1_6_a_size_of.execution_allocations_group = function(buff
 
   index = index + memx_options_memo_sbe_v1_6_a_size_of.last_px
 
+  index = index + memx_options_memo_sbe_v1_6_a_size_of.padding_7
+
   return index
 end
 
@@ -1308,6 +1311,9 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields = functi
 
   -- Last Px: 1 Byte Signed Fixed Width Integer
   index, last_px = memx_options_memo_sbe_v1_6_a_dissect.last_px(buffer, index, packet, parent)
+
+  -- Padding 7: 7 Byte
+  index, padding_7 = memx_options_memo_sbe_v1_6_a_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1333,7 +1339,7 @@ memx_options_memo_sbe_v1_6_a_size_of.execution_allocations_groups = function(buf
 
   -- Calculate field size from count
   local execution_allocations_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + execution_allocations_group_count * 13
+  index = index + execution_allocations_group_count * 20
 
   return index
 end
@@ -1353,7 +1359,7 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_groups_fields = funct
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Execution Allocations Group: Struct of 3 fields
+  -- Execution Allocations Group: Struct of 4 fields
   for i = 1, num_in_group do
     index = memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group(buffer, index, packet, parent)
   end
@@ -6385,6 +6391,26 @@ memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message = func
   return memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 2
+memx_options_memo_sbe_v1_6_a_size_of.padding_2 = 2
+
+-- Display: Padding 2
+memx_options_memo_sbe_v1_6_a_display.padding_2 = function(value)
+  return "Padding 2: "..value
+end
+
+-- Dissect: Padding 2
+memx_options_memo_sbe_v1_6_a_dissect.padding_2 = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_6_a_size_of.padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memo_sbe_v1_6_a_display.padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memo_sbe_v1_6_a.fields.padding_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Offer Px
 memx_options_memo_sbe_v1_6_a_size_of.offer_px = 1
 
@@ -6493,6 +6519,8 @@ memx_options_memo_sbe_v1_6_a_size_of.quotes_group = function(buffer, offset)
 
   index = index + memx_options_memo_sbe_v1_6_a_size_of.offer_px
 
+  index = index + memx_options_memo_sbe_v1_6_a_size_of.padding_2
+
   return index
 end
 
@@ -6523,6 +6551,9 @@ memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields = function(buffer, offs
   -- Offer Px: 1 Byte Signed Fixed Width Integer
   index, offer_px = memx_options_memo_sbe_v1_6_a_dissect.offer_px(buffer, index, packet, parent)
 
+  -- Padding 2: 2 Byte
+  index, padding_2 = memx_options_memo_sbe_v1_6_a_dissect.padding_2(buffer, index, packet, parent)
+
   return index
 end
 
@@ -6547,7 +6578,7 @@ memx_options_memo_sbe_v1_6_a_size_of.quotes_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local quotes_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + quotes_group_count * 15
+  index = index + quotes_group_count * 17
 
   return index
 end
@@ -6567,7 +6598,7 @@ memx_options_memo_sbe_v1_6_a_dissect.quotes_groups_fields = function(buffer, off
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Quotes Group: Struct of 6 fields
+  -- Quotes Group: Struct of 7 fields
   for i = 1, num_in_group do
     index = memx_options_memo_sbe_v1_6_a_dissect.quotes_group(buffer, index, packet, parent)
   end
@@ -8879,7 +8910,7 @@ end
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
   -- Attempt to read field
-  local value = buffer(2354, 1):uint()
+  local value = buffer(2376, 1):uint()
 
   if value == 9 then
     return true
@@ -8891,7 +8922,7 @@ end
 -- Verify Version Field
 verify.version = function(buffer)
   -- Attempt to read field
-  local value = buffer(2355, 2):uint()
+  local value = buffer(2377, 2):uint()
 
   if value == 262 then
     return true
