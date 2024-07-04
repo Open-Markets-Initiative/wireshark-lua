@@ -110,7 +110,6 @@ b3_equities_binaryentrypoint_sbe_v7_1.fields.last_px = ProtoField.new("Last Px",
 b3_equities_binaryentrypoint_sbe_v7_1.fields.last_qty = ProtoField.new("Last Qty", "b3.equities.binaryentrypoint.sbe.v7.1.lastqty", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.leaves_qty = ProtoField.new("Leaves Qty", "b3.equities.binaryentrypoint.sbe.v7.1.leavesqty", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "b3.equities.binaryentrypoint.sbe.v7.1.legratioqty", ftypes.DOUBLE)
-b3_equities_binaryentrypoint_sbe_v7_1.fields.leg_security_exchange = ProtoField.new("Leg Security Exchange", "b3.equities.binaryentrypoint.sbe.v7.1.legsecurityexchange", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.leg_side = ProtoField.new("Leg Side", "b3.equities.binaryentrypoint.sbe.v7.1.legside", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "b3.equities.binaryentrypoint.sbe.v7.1.legsymbol", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.length = ProtoField.new("Length", "b3.equities.binaryentrypoint.sbe.v7.1.length", ftypes.UINT8)
@@ -148,6 +147,19 @@ b3_equities_binaryentrypoint_sbe_v7_1.fields.no_sides_group = ProtoField.new("No
 b3_equities_binaryentrypoint_sbe_v7_1.fields.no_sides_groups = ProtoField.new("No Sides Groups", "b3.equities.binaryentrypoint.sbe.v7.1.nosidesgroups", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.not_applied_message = ProtoField.new("Not Applied Message", "b3.equities.binaryentrypoint.sbe.v7.1.notappliedmessage", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.num_in_group = ProtoField.new("Num In Group", "b3.equities.binaryentrypoint.sbe.v7.1.numingroup", ftypes.UINT8)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_1_padding_1 = ProtoField.new("Offset 1 Padding 1", "b3.equities.binaryentrypoint.sbe.v7.1.offset1padding1", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_1_padding_19 = ProtoField.new("Offset 1 Padding 19", "b3.equities.binaryentrypoint.sbe.v7.1.offset1padding19", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_101_padding_19 = ProtoField.new("Offset 101 Padding 19", "b3.equities.binaryentrypoint.sbe.v7.1.offset101padding19", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_102_padding_18 = ProtoField.new("Offset 102 Padding 18", "b3.equities.binaryentrypoint.sbe.v7.1.offset102padding18", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_14_padding_18 = ProtoField.new("Offset 14 Padding 18", "b3.equities.binaryentrypoint.sbe.v7.1.offset14padding18", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_2_padding_18 = ProtoField.new("Offset 2 Padding 18", "b3.equities.binaryentrypoint.sbe.v7.1.offset2padding18", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_21_padding_1 = ProtoField.new("Offset 21 Padding 1", "b3.equities.binaryentrypoint.sbe.v7.1.offset21padding1", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_25_padding_3 = ProtoField.new("Offset 25 Padding 3", "b3.equities.binaryentrypoint.sbe.v7.1.offset25padding3", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_32_padding_18 = ProtoField.new("Offset 32 Padding 18", "b3.equities.binaryentrypoint.sbe.v7.1.offset32padding18", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_33_padding_1 = ProtoField.new("Offset 33 Padding 1", "b3.equities.binaryentrypoint.sbe.v7.1.offset33padding1", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_42_padding_18 = ProtoField.new("Offset 42 Padding 18", "b3.equities.binaryentrypoint.sbe.v7.1.offset42padding18", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_43_padding_17 = ProtoField.new("Offset 43 Padding 17", "b3.equities.binaryentrypoint.sbe.v7.1.offset43padding17", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_54_padding_2 = ProtoField.new("Offset 54 Padding 2", "b3.equities.binaryentrypoint.sbe.v7.1.offset54padding2", ftypes.BYTES)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.onbehalf_firm = ProtoField.new("Onbehalf Firm", "b3.equities.binaryentrypoint.sbe.v7.1.onbehalffirm", ftypes.UINT32)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.ord_rej_reason = ProtoField.new("Ord Rej Reason", "b3.equities.binaryentrypoint.sbe.v7.1.ordrejreason", ftypes.UINT32)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.ord_status = ProtoField.new("Ord Status", "b3.equities.binaryentrypoint.sbe.v7.1.ordstatus", ftypes.STRING)
@@ -166,6 +178,7 @@ b3_equities_binaryentrypoint_sbe_v7_1.fields.orig_pos_req_ref_id = ProtoField.ne
 b3_equities_binaryentrypoint_sbe_v7_1.fields.origclordid = ProtoField.new("OrigClOrdId", "b3.equities.binaryentrypoint.sbe.v7.1.origclordid", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.outbound_business_header = ProtoField.new("Outbound Business Header", "b3.equities.binaryentrypoint.sbe.v7.1.outboundbusinessheader", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.packet = ProtoField.new("Packet", "b3.equities.binaryentrypoint.sbe.v7.1.packet", ftypes.STRING)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.padding_1 = ProtoField.new("Padding 1", "b3.equities.binaryentrypoint.sbe.v7.1.padding1", ftypes.BYTES)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.payload = ProtoField.new("Payload", "b3.equities.binaryentrypoint.sbe.v7.1.payload", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.pos_maint_action = ProtoField.new("Pos Maint Action", "b3.equities.binaryentrypoint.sbe.v7.1.posmaintaction", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.pos_maint_result = ProtoField.new("Pos Maint Result", "b3.equities.binaryentrypoint.sbe.v7.1.posmaintresult", ftypes.UINT32)
@@ -211,7 +224,6 @@ b3_equities_binaryentrypoint_sbe_v7_1.fields.secondary_order_id = ProtoField.new
 b3_equities_binaryentrypoint_sbe_v7_1.fields.secondary_order_id_optional = ProtoField.new("Secondary Order Id Optional", "b3.equities.binaryentrypoint.sbe.v7.1.secondaryorderidoptional", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.security_definition_request_message = ProtoField.new("Security Definition Request Message", "b3.equities.binaryentrypoint.sbe.v7.1.securitydefinitionrequestmessage", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.security_definition_response_message = ProtoField.new("Security Definition Response Message", "b3.equities.binaryentrypoint.sbe.v7.1.securitydefinitionresponsemessage", ftypes.STRING)
-b3_equities_binaryentrypoint_sbe_v7_1.fields.security_exchange = ProtoField.new("Security Exchange", "b3.equities.binaryentrypoint.sbe.v7.1.securityexchange", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.security_id = ProtoField.new("Security Id", "b3.equities.binaryentrypoint.sbe.v7.1.securityid", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.security_id_optional = ProtoField.new("Security Id Optional", "b3.equities.binaryentrypoint.sbe.v7.1.securityidoptional", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.security_req_id = ProtoField.new("Security Req Id", "b3.equities.binaryentrypoint.sbe.v7.1.securityreqid", ftypes.UINT64)
@@ -251,7 +263,7 @@ b3_equities_binaryentrypoint_sbe_v7_1.fields.trade_date_optional = ProtoField.ne
 b3_equities_binaryentrypoint_sbe_v7_1.fields.trade_id = ProtoField.new("Trade Id", "b3.equities.binaryentrypoint.sbe.v7.1.tradeid", ftypes.UINT32)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.trade_id_optional = ProtoField.new("Trade Id Optional", "b3.equities.binaryentrypoint.sbe.v7.1.tradeidoptional", ftypes.UINT32)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.transact_time = ProtoField.new("Transact Time", "b3.equities.binaryentrypoint.sbe.v7.1.transacttime", ftypes.UINT64)
-b3_equities_binaryentrypoint_sbe_v7_1.fields.var_data = ProtoField.new("Var Data", "b3.equities.binaryentrypoint.sbe.v7.1.vardata", ftypes.BYTES)
+b3_equities_binaryentrypoint_sbe_v7_1.fields.var_data = ProtoField.new("Var Data", "b3.equities.binaryentrypoint.sbe.v7.1.vardata", ftypes.UINT8)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.version = ProtoField.new("Version", "b3.equities.binaryentrypoint.sbe.v7.1.version", ftypes.UINT16)
 b3_equities_binaryentrypoint_sbe_v7_1.fields.working_indicator = ProtoField.new("Working Indicator", "b3.equities.binaryentrypoint.sbe.v7.1.workingindicator", ftypes.UINT8)
 
@@ -1085,42 +1097,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.action_target_session_id = functio
   return offset + length, value
 end
 
--- Size: Security Exchange
-b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange = 4
-
--- Display: Security Exchange
-b3_equities_binaryentrypoint_sbe_v7_1_display.security_exchange = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Exchange: No Value"
-  end
-
-  return "Security Exchange: "..value
-end
-
--- Dissect: Security Exchange
-b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.security_exchange(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Security Id Optional
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id_optional = 8
 
@@ -1173,6 +1149,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.asset = function(buffer, offset, p
   local display = b3_equities_binaryentrypoint_sbe_v7_1_display.asset(value, buffer, offset, packet, parent)
 
   parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.asset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offset 32 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_32_padding_18 = 18
+
+-- Display: Offset 32 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_32_padding_18 = function(value)
+  return "Offset 32 Padding 18: "..value
+end
+
+-- Dissect: Offset 32 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_32_padding_18 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_32_padding_18
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_32_padding_18(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_32_padding_18, range, value, display)
 
   return offset + length, value
 end
@@ -1522,11 +1518,11 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_mass_action_report_message =
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side_optional
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_32_padding_18
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.asset
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id_optional
-
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.action_target_session_id
 
@@ -1581,14 +1577,14 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_mass_action_report_message_f
   -- Side Optional: 1 Byte Ascii String Enum with 3 values
   index, side_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.side_optional(buffer, index, packet, parent)
 
+  -- Offset 32 Padding 18: 18 Byte
+  index, offset_32_padding_18 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_32_padding_18(buffer, index, packet, parent)
+
   -- Asset: 6 Byte Ascii String
   index, asset = b3_equities_binaryentrypoint_sbe_v7_1_dissect.asset(buffer, index, packet, parent)
 
   -- Security Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, security_id_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id_optional(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Action Target Session Id: 4 Byte Unsigned Fixed Width Integer
   index, action_target_session_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.action_target_session_id(buffer, index, packet, parent)
@@ -1616,6 +1612,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_mass_action_report_message =
   end
 
   return b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_mass_action_report_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Offset 14 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_14_padding_18 = 18
+
+-- Display: Offset 14 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_14_padding_18 = function(value)
+  return "Offset 14 Padding 18: "..value
+end
+
+-- Dissect: Offset 14 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_14_padding_18 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_14_padding_18
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_14_padding_18(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_14_padding_18, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Inbound Business Header
@@ -1669,11 +1685,11 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_mass_action_request_message 
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side_optional
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_14_padding_18
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.asset
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id_optional
-
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.action_target_session_id
 
@@ -1712,14 +1728,14 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_mass_action_request_message_
   -- Side Optional: 1 Byte Ascii String Enum with 3 values
   index, side_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.side_optional(buffer, index, packet, parent)
 
+  -- Offset 14 Padding 18: 18 Byte
+  index, offset_14_padding_18 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_14_padding_18(buffer, index, packet, parent)
+
   -- Asset: 6 Byte Ascii String
   index, asset = b3_equities_binaryentrypoint_sbe_v7_1_dissect.asset(buffer, index, packet, parent)
 
   -- Security Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, security_id_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id_optional(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Action Target Session Id: 4 Byte Unsigned Fixed Width Integer
   index, action_target_session_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.action_target_session_id(buffer, index, packet, parent)
@@ -2139,8 +2155,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.allocation_report_message = functi
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.alloc_report_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.alloc_trans_type
@@ -2185,9 +2199,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.allocation_report_message_fields =
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Alloc Report Id: 8 Byte Unsigned Fixed Width Integer
   index, alloc_report_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.alloc_report_id(buffer, index, packet, parent)
@@ -2452,8 +2463,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.allocation_instruction_message = f
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.alloc_trans_type
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.alloc_type
@@ -2500,9 +2509,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.allocation_instruction_message_fie
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Alloc Trans Type: 1 Byte Ascii String Enum with 2 values
   index, alloc_trans_type = b3_equities_binaryentrypoint_sbe_v7_1_dissect.alloc_trans_type(buffer, index, packet, parent)
@@ -3106,8 +3112,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.position_maintenance_report_messag
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.pos_maint_rpt_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.pos_trans_type
@@ -3164,9 +3168,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.position_maintenance_report_messag
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Pos Maint Rpt Id: 8 Byte Unsigned Fixed Width Integer
   index, pos_maint_rpt_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.pos_maint_rpt_id(buffer, index, packet, parent)
@@ -3288,8 +3289,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.position_maintenance_request_messa
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.threshold_amount
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
@@ -3330,9 +3329,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.position_maintenance_request_messa
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Threshold Amount: 8 Byte Signed Fixed Width Integer Nullable
   index, threshold_amount = b3_equities_binaryentrypoint_sbe_v7_1_dissect.threshold_amount(buffer, index, packet, parent)
@@ -3410,8 +3406,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.position_maintenance_cancel_reques
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.orig_pos_req_ref_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.pos_maint_rpt_ref_id
@@ -3440,9 +3434,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.position_maintenance_cancel_reques
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Orig Pos Req Ref Id: 8 Byte Unsigned Fixed Width Integer
   index, orig_pos_req_ref_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.orig_pos_req_ref_id(buffer, index, packet, parent)
@@ -3480,7 +3471,7 @@ end
 -- Dissect runtime sized field: Var Data
 b3_equities_binaryentrypoint_sbe_v7_1_dissect.var_data = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = b3_equities_binaryentrypoint_sbe_v7_1_display.var_data(value, buffer, offset, packet, parent, size)
 
   parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.var_data, range, value, display)
@@ -3512,7 +3503,7 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_req_id_fields = function(buf
   -- Length: 1 Byte Unsigned Fixed Width Integer
   index, length = b3_equities_binaryentrypoint_sbe_v7_1_dissect.length(buffer, index, packet, parent)
 
-  -- Var Data: 0 Byte
+  -- Var Data: 1 Byte Unsigned Fixed Width Integer
   index = b3_equities_binaryentrypoint_sbe_v7_1_dissect.var_data(buffer, index, packet, parent, length)
 
   return index
@@ -3551,11 +3542,33 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.entering_firm_optional = function(
   return offset + length, value
 end
 
+-- Size: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_1 = 1
+
+-- Display: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_1_padding_1 = function(value)
+  return "Offset 1 Padding 1: "..value
+end
+
+-- Dissect: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_1_padding_1 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_1
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_1_padding_1(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_1_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: No Sides Group
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.no_sides_group = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_1
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
 
@@ -3577,6 +3590,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.no_sides_group_fields = function(b
 
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_1_dissect.side(buffer, index, packet, parent)
+
+  -- Offset 1 Padding 1: 1 Byte
+  index, offset_1_padding_1 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_1_padding_1(buffer, index, packet, parent)
 
   -- Account: 4 Byte Unsigned Fixed Width Integer
   index, account = b3_equities_binaryentrypoint_sbe_v7_1_dissect.account(buffer, index, packet, parent)
@@ -3611,7 +3627,7 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.no_sides_groups = function(buffer,
 
   -- Calculate field size from count
   local no_sides_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_sides_group_count * 17
+  index = index + no_sides_group_count * 18
 
   return index
 end
@@ -3631,7 +3647,7 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.no_sides_groups_fields = function(
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- No Sides Group: Struct of 4 fields
+  -- No Sides Group: Struct of 5 fields
   for i = 1, num_in_group do
     index = b3_equities_binaryentrypoint_sbe_v7_1_dissect.no_sides_group(buffer, index, packet, parent)
   end
@@ -3949,8 +3965,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_request_reject_message = fun
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_id_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.trade_id_optional
@@ -4005,9 +4019,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_request_reject_message_field
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Quote Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_id_optional(buffer, index, packet, parent)
@@ -4084,8 +4095,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_cancel_message = function(bu
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_id_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
@@ -4119,9 +4128,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_cancel_message_fields = func
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Quote Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_id_optional(buffer, index, packet, parent)
@@ -4343,8 +4349,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_message = function(buffer, o
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.transact_time
@@ -4394,9 +4398,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_message_fields = function(bu
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_id(buffer, index, packet, parent)
@@ -4671,8 +4672,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_status_report_message = func
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.trade_id_optional
@@ -4735,9 +4734,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_status_report_message_fields
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_id(buffer, index, packet, parent)
@@ -4852,8 +4848,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_request_message = function(b
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.quote_id_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.trade_id_optional
@@ -4905,9 +4899,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_request_message_fields = fun
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Quote Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.quote_id_optional(buffer, index, packet, parent)
@@ -5118,17 +5109,37 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_req_id = function(buffer,
   return offset + length, value
 end
 
+-- Size: Offset 1 Padding 19
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_19 = 19
+
+-- Display: Offset 1 Padding 19
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_1_padding_19 = function(value)
+  return "Offset 1 Padding 19: "..value
+end
+
+-- Dissect: Offset 1 Padding 19
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_1_padding_19 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_19
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_1_padding_19(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_1_padding_19, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Security Definition Response Message
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_definition_response_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.outbound_business_header
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_19
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_req_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
-
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_response_type
 
@@ -5157,14 +5168,14 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_definition_response_messa
   -- Outbound Business Header: 1 Byte Ascii String
   index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v7_1_dissect.outbound_business_header(buffer, index, packet, parent)
 
+  -- Offset 1 Padding 19: 19 Byte
+  index, offset_1_padding_19 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_1_padding_19(buffer, index, packet, parent)
+
   -- Security Req Id: 8 Byte Unsigned Fixed Width Integer
   index, security_req_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_req_id(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Security Response Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, security_response_type = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_response_type(buffer, index, packet, parent)
@@ -5198,6 +5209,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_definition_response_messa
   end
 
   return b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_definition_response_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.padding_1 = 1
+
+-- Display: Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_display.padding_1 = function(value)
+  return "Padding 1: "..value
+end
+
+-- Dissect: Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.padding_1 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.padding_1
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.padding_1(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.padding_1, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Leg Side
@@ -5269,42 +5300,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.leg_ratio_qty = function(buffer, o
   return offset + length, value
 end
 
--- Size: Leg Security Exchange
-b3_equities_binaryentrypoint_sbe_v7_1_size_of.leg_security_exchange = 4
-
--- Display: Leg Security Exchange
-b3_equities_binaryentrypoint_sbe_v7_1_display.leg_security_exchange = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Security Exchange: No Value"
-  end
-
-  return "Leg Security Exchange: "..value
-end
-
--- Dissect: Leg Security Exchange
-b3_equities_binaryentrypoint_sbe_v7_1_dissect.leg_security_exchange = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.leg_security_exchange
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.leg_security_exchange(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.leg_security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Leg Symbol
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.leg_symbol = 20
 
@@ -5347,11 +5342,11 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.no_legs_group = function(buffer, o
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.leg_symbol
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.leg_security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.leg_ratio_qty
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.leg_side
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.padding_1
 
   return index
 end
@@ -5368,14 +5363,14 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.no_legs_group_fields = function(bu
   -- Leg Symbol: 20 Byte Ascii String
   index, leg_symbol = b3_equities_binaryentrypoint_sbe_v7_1_dissect.leg_symbol(buffer, index, packet, parent)
 
-  -- Leg Security Exchange: 4 Byte Ascii String
-  index, leg_security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.leg_security_exchange(buffer, index, packet, parent)
-
   -- Leg Ratio Qty: 8 Byte Signed Fixed Width Integer
   index, leg_ratio_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.leg_ratio_qty(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Ascii String Enum with 3 values
   index, leg_side = b3_equities_binaryentrypoint_sbe_v7_1_dissect.leg_side(buffer, index, packet, parent)
+
+  -- Padding 1: 1 Byte
+  index, padding_1 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.padding_1(buffer, index, packet, parent)
 
   return index
 end
@@ -5401,7 +5396,7 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.no_legs_groups = function(buffer, 
 
   -- Calculate field size from count
   local no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_legs_group_count * 33
+  index = index + no_legs_group_count * 30
 
   return index
 end
@@ -5559,6 +5554,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.ref_seq_num = function(buffer, off
   return offset + length, value
 end
 
+-- Size: Offset 2 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_2_padding_18 = 18
+
+-- Display: Offset 2 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_2_padding_18 = function(value)
+  return "Offset 2 Padding 18: "..value
+end
+
+-- Dissect: Offset 2 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_2_padding_18 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_2_padding_18
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_2_padding_18(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_2_padding_18, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Ref Msg Type
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.ref_msg_type = 1
 
@@ -5705,6 +5720,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.business_message_reject = function
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.ref_msg_type
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_2_padding_18
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.ref_seq_num
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.business_reject_ref_id
@@ -5732,6 +5749,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.business_message_reject_fields = f
 
   -- Ref Msg Type: 1 Byte Unsigned Fixed Width Integer Enum with 39 values
   index, ref_msg_type = b3_equities_binaryentrypoint_sbe_v7_1_dissect.ref_msg_type(buffer, index, packet, parent)
+
+  -- Offset 2 Padding 18: 18 Byte
+  index, offset_2_padding_18 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_2_padding_18(buffer, index, packet, parent)
 
   -- Ref Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, ref_seq_num = b3_equities_binaryentrypoint_sbe_v7_1_dissect.ref_seq_num(buffer, index, packet, parent)
@@ -5800,6 +5820,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.secondary_exec_id = function(buffe
   local display = b3_equities_binaryentrypoint_sbe_v7_1_display.secondary_exec_id(value, buffer, offset, packet, parent)
 
   parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.secondary_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offset 101 Padding 19
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_101_padding_19 = 19
+
+-- Display: Offset 101 Padding 19
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_101_padding_19 = function(value)
+  return "Offset 101 Padding 19: "..value
+end
+
+-- Dissect: Offset 101 Padding 19
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_101_padding_19 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_101_padding_19
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_101_padding_19(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_101_padding_19, range, value, display)
 
   return offset + length, value
 end
@@ -6094,8 +6134,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_forward_message =
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.last_qty
@@ -6123,6 +6161,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_forward_message =
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.trade_date
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.days_to_settlement_optional
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_101_padding_19
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.secondary_exec_id
 
@@ -6166,9 +6206,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_forward_message_f
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Account: 4 Byte Unsigned Fixed Width Integer
   index, account = b3_equities_binaryentrypoint_sbe_v7_1_dissect.account(buffer, index, packet, parent)
 
@@ -6210,6 +6247,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_forward_message_f
 
   -- Days To Settlement Optional: 2 Byte Unsigned Fixed Width Integer
   index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.days_to_settlement_optional(buffer, index, packet, parent)
+
+  -- Offset 101 Padding 19: 19 Byte
+  index, offset_101_padding_19 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_101_padding_19(buffer, index, packet, parent)
 
   -- Secondary Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, secondary_exec_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.secondary_exec_id(buffer, index, packet, parent)
@@ -8110,8 +8150,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_reject_message = 
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.ord_rej_reason
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.transact_time
@@ -8179,9 +8217,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_reject_message_fi
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Ord Rej Reason: 4 Byte Unsigned Fixed Width Integer Enum with 493 values
   index, ord_rej_reason = b3_equities_binaryentrypoint_sbe_v7_1_dissect.ord_rej_reason(buffer, index, packet, parent)
@@ -8254,6 +8289,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_reject_message = 
   end
 
   return b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_reject_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Offset 102 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_102_padding_18 = 18
+
+-- Display: Offset 102 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_102_padding_18 = function(value)
+  return "Offset 102 Padding 18: "..value
+end
+
+-- Dissect: Offset 102 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_102_padding_18 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_102_padding_18
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_102_padding_18(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_102_padding_18, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Tot No Related Sym
@@ -8436,8 +8491,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_trade_message = f
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.last_qty
@@ -8469,6 +8522,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_trade_message = f
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.trade_date
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.tot_no_related_sym
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_102_padding_18
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.secondary_exec_id
 
@@ -8513,9 +8568,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_trade_message_fie
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Account: 4 Byte Unsigned Fixed Width Integer
   index, account = b3_equities_binaryentrypoint_sbe_v7_1_dissect.account(buffer, index, packet, parent)
@@ -8564,6 +8616,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_trade_message_fie
 
   -- Tot No Related Sym: 1 Byte Unsigned Fixed Width Integer
   index, tot_no_related_sym = b3_equities_binaryentrypoint_sbe_v7_1_dissect.tot_no_related_sym(buffer, index, packet, parent)
+
+  -- Offset 102 Padding 18: 18 Byte
+  index, offset_102_padding_18 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_102_padding_18(buffer, index, packet, parent)
 
   -- Secondary Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, secondary_exec_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.secondary_exec_id(buffer, index, packet, parent)
@@ -8785,8 +8840,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_cancel_message = 
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.cum_qty
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
@@ -8860,9 +8913,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_cancel_message_fi
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
   index, cum_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.cum_qty(buffer, index, packet, parent)
@@ -8998,8 +9048,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_modify_message = 
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.leaves_qty
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
@@ -9073,9 +9121,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_modify_message_fi
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
   index, leaves_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.leaves_qty(buffer, index, packet, parent)
@@ -9175,8 +9220,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.execution_report_new_message = fun
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account
@@ -9246,9 +9289,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.execution_report_new_message_field
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_id(buffer, index, packet, parent)
@@ -9388,6 +9428,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.new_order_cross_message = function
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.inbound_business_header
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_19
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.crossid
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.sender_location
@@ -9397,8 +9439,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.new_order_cross_message = function
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.executing_trader_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
-
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_qty
 
@@ -9427,6 +9467,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.new_order_cross_message_fields = f
   -- Inbound Business Header: 1 Byte Ascii String
   index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v7_1_dissect.inbound_business_header(buffer, index, packet, parent)
 
+  -- Offset 1 Padding 19: 19 Byte
+  index, offset_1_padding_19 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_1_padding_19(buffer, index, packet, parent)
+
   -- CrossId: 8 Byte Unsigned Fixed Width Integer
   index, crossid = b3_equities_binaryentrypoint_sbe_v7_1_dissect.crossid(buffer, index, packet, parent)
 
@@ -9441,9 +9484,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.new_order_cross_message_fields = f
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_qty(buffer, index, packet, parent)
@@ -9479,6 +9519,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.new_order_cross_message = function
   return b3_equities_binaryentrypoint_sbe_v7_1_dissect.new_order_cross_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Offset 54 Padding 2
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_54_padding_2 = 2
+
+-- Display: Offset 54 Padding 2
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_54_padding_2 = function(value)
+  return "Offset 54 Padding 2: "..value
+end
+
+-- Dissect: Offset 54 Padding 2
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_54_padding_2 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_54_padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_54_padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_54_padding_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Single Cancel Restatement Reason
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.single_cancel_restatement_reason = 1
 
@@ -9512,11 +9572,11 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_cancel_request_message = fun
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.inbound_business_header
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_1_padding_19
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.clordid
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
-
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_id_optional
 
@@ -9525,6 +9585,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_cancel_request_message = fun
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.single_cancel_restatement_reason
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_54_padding_2
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.sender_location
 
@@ -9551,14 +9613,14 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_cancel_request_message_field
   -- Inbound Business Header: 1 Byte Ascii String
   index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v7_1_dissect.inbound_business_header(buffer, index, packet, parent)
 
+  -- Offset 1 Padding 19: 19 Byte
+  index, offset_1_padding_19 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_1_padding_19(buffer, index, packet, parent)
+
   -- ClOrdId: 8 Byte Unsigned Fixed Width Integer
   index, clordid = b3_equities_binaryentrypoint_sbe_v7_1_dissect.clordid(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, order_id_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_id_optional(buffer, index, packet, parent)
@@ -9571,6 +9633,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_cancel_request_message_field
 
   -- Single Cancel Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, single_cancel_restatement_reason = b3_equities_binaryentrypoint_sbe_v7_1_dissect.single_cancel_restatement_reason(buffer, index, packet, parent)
+
+  -- Offset 54 Padding 2: 2 Byte
+  index, offset_54_padding_2 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_54_padding_2(buffer, index, packet, parent)
 
   -- Sender Location: 10 Byte Ascii String
   index, sender_location = b3_equities_binaryentrypoint_sbe_v7_1_dissect.sender_location(buffer, index, packet, parent)
@@ -9627,7 +9692,7 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.deprecated_investor_id_fields = fu
   -- Length: 1 Byte Unsigned Fixed Width Integer
   index, length = b3_equities_binaryentrypoint_sbe_v7_1_dissect.length(buffer, index, packet, parent)
 
-  -- Var Data: 0 Byte
+  -- Var Data: 1 Byte Unsigned Fixed Width Integer
   index = b3_equities_binaryentrypoint_sbe_v7_1_dissect.var_data(buffer, index, packet, parent, length)
 
   return index
@@ -9871,6 +9936,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.routing_instruction = function(buf
   return offset + length, value
 end
 
+-- Size: Offset 43 Padding 17
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_43_padding_17 = 17
+
+-- Display: Offset 43 Padding 17
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_43_padding_17 = function(value)
+  return "Offset 43 Padding 17: "..value
+end
+
+-- Dissect: Offset 43 Padding 17
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_43_padding_17 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_43_padding_17
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_43_padding_17(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_43_padding_17, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Time In Force Optional
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.time_in_force_optional = 1
 
@@ -10011,8 +10096,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_cancel_replace_request_messa
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.ordtype
@@ -10020,6 +10103,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_cancel_replace_request_messa
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.time_in_force_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.account_type
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_43_padding_17
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_qty
 
@@ -10090,9 +10175,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_cancel_replace_request_messa
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_1_dissect.side(buffer, index, packet, parent)
 
@@ -10104,6 +10186,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_cancel_replace_request_messa
 
   -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, account_type = b3_equities_binaryentrypoint_sbe_v7_1_dissect.account_type(buffer, index, packet, parent)
+
+  -- Offset 43 Padding 17: 17 Byte
+  index, offset_43_padding_17 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_43_padding_17(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_qty(buffer, index, packet, parent)
@@ -10166,6 +10251,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_cancel_replace_request_messa
   return b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Offset 42 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_42_padding_18 = 18
+
+-- Display: Offset 42 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_42_padding_18 = function(value)
+  return "Offset 42 Padding 18: "..value
+end
+
+-- Dissect: Offset 42 Padding 18
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_42_padding_18 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_42_padding_18
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_42_padding_18(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_42_padding_18, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: New Order Single Message
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.new_order_single_message = function(buffer, offset)
   local index = 0
@@ -10188,13 +10293,13 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.new_order_single_message = functio
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.ordtype
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.time_in_force
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_42_padding_18
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_qty
 
@@ -10261,9 +10366,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.new_order_single_message_fields = 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_1_dissect.side(buffer, index, packet, parent)
 
@@ -10272,6 +10374,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.new_order_single_message_fields = 
 
   -- Time In Force: 1 Byte Ascii String Enum with 7 values
   index, time_in_force = b3_equities_binaryentrypoint_sbe_v7_1_dissect.time_in_force(buffer, index, packet, parent)
+
+  -- Offset 42 Padding 18: 18 Byte
+  index, offset_42_padding_18 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_42_padding_18(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_qty(buffer, index, packet, parent)
@@ -10433,13 +10538,13 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.simple_modify_order_message = func
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.simple_ordtype
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.time_in_force_simple
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_42_padding_18
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_qty
 
@@ -10496,9 +10601,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.simple_modify_order_message_fields
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_1_dissect.side(buffer, index, packet, parent)
 
@@ -10507,6 +10609,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.simple_modify_order_message_fields
 
   -- Time In Force Simple: 1 Byte Ascii String Enum with 3 values
   index, time_in_force_simple = b3_equities_binaryentrypoint_sbe_v7_1_dissect.time_in_force_simple(buffer, index, packet, parent)
+
+  -- Offset 42 Padding 18: 18 Byte
+  index, offset_42_padding_18 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_42_padding_18(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_qty(buffer, index, packet, parent)
@@ -10570,13 +10675,13 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.simple_new_order_message = functio
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.security_exchange
-
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.side
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.simple_ordtype
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.time_in_force_simple
+
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_42_padding_18
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.order_qty
 
@@ -10629,9 +10734,6 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.simple_new_order_message_fields = 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryentrypoint_sbe_v7_1_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v7_1_dissect.side(buffer, index, packet, parent)
 
@@ -10640,6 +10742,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.simple_new_order_message_fields = 
 
   -- Time In Force Simple: 1 Byte Ascii String Enum with 3 values
   index, time_in_force_simple = b3_equities_binaryentrypoint_sbe_v7_1_dissect.time_in_force_simple(buffer, index, packet, parent)
+
+  -- Offset 42 Padding 18: 18 Byte
+  index, offset_42_padding_18 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_42_padding_18(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v7_1_dissect.order_qty(buffer, index, packet, parent)
@@ -11232,6 +11337,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.last_incoming_seq_no_optional = fu
   return offset + length, value
 end
 
+-- Size: Offset 21 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_21_padding_1 = 1
+
+-- Display: Offset 21 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_21_padding_1 = function(value)
+  return "Offset 21 Padding 1: "..value
+end
+
+-- Dissect: Offset 21 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_21_padding_1 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_21_padding_1
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_21_padding_1(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_21_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Establishment Reject Code
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.establishment_reject_code = 1
 
@@ -11307,6 +11432,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.establish_reject_message = functio
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.establishment_reject_code
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_21_padding_1
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.last_incoming_seq_no_optional
 
   return index
@@ -11332,6 +11459,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.establish_reject_message_fields = 
 
   -- Establishment Reject Code: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, establishment_reject_code = b3_equities_binaryentrypoint_sbe_v7_1_dissect.establishment_reject_code(buffer, index, packet, parent)
+
+  -- Offset 21 Padding 1: 1 Byte
+  index, offset_21_padding_1 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_21_padding_1(buffer, index, packet, parent)
 
   -- Last Incoming Seq No Optional: 4 Byte Unsigned Fixed Width Integer
   index, last_incoming_seq_no_optional = b3_equities_binaryentrypoint_sbe_v7_1_dissect.last_incoming_seq_no_optional(buffer, index, packet, parent)
@@ -11516,6 +11646,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.cod_timeout_window = function(buff
   return offset + length, value
 end
 
+-- Size: Offset 33 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_33_padding_1 = 1
+
+-- Display: Offset 33 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_33_padding_1 = function(value)
+  return "Offset 33 Padding 1: "..value
+end
+
+-- Dissect: Offset 33 Padding 1
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_33_padding_1 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_33_padding_1
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_33_padding_1(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_33_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Cancel On Disconnect Type
 b3_equities_binaryentrypoint_sbe_v7_1_size_of.cancel_on_disconnect_type = 1
 
@@ -11565,6 +11715,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.establish_message = function(buffe
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.cancel_on_disconnect_type
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_33_padding_1
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.cod_timeout_window
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.credentials(buffer, offset + index)
@@ -11598,6 +11750,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.establish_message_fields = functio
 
   -- Cancel On Disconnect Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, cancel_on_disconnect_type = b3_equities_binaryentrypoint_sbe_v7_1_dissect.cancel_on_disconnect_type(buffer, index, packet, parent)
+
+  -- Offset 33 Padding 1: 1 Byte
+  index, offset_33_padding_1 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_33_padding_1(buffer, index, packet, parent)
 
   -- Cod Timeout Window: 8 Byte Unsigned Fixed Width Integer
   index, cod_timeout_window = b3_equities_binaryentrypoint_sbe_v7_1_dissect.cod_timeout_window(buffer, index, packet, parent)
@@ -11637,6 +11792,26 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.current_session_ver_id = function(
   local display = b3_equities_binaryentrypoint_sbe_v7_1_display.current_session_ver_id(value, buffer, offset, packet, parent)
 
   parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.current_session_ver_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offset 25 Padding 3
+b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_25_padding_3 = 3
+
+-- Display: Offset 25 Padding 3
+b3_equities_binaryentrypoint_sbe_v7_1_display.offset_25_padding_3 = function(value)
+  return "Offset 25 Padding 3: "..value
+end
+
+-- Dissect: Offset 25 Padding 3
+b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_25_padding_3 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_25_padding_3
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v7_1_display.offset_25_padding_3(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryentrypoint_sbe_v7_1.fields.offset_25_padding_3, range, value, display)
 
   return offset + length, value
 end
@@ -11712,6 +11887,8 @@ b3_equities_binaryentrypoint_sbe_v7_1_size_of.negotiate_reject_message = functio
 
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.negotiation_reject_code
 
+  index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.offset_25_padding_3
+
   index = index + b3_equities_binaryentrypoint_sbe_v7_1_size_of.current_session_ver_id
 
   return index
@@ -11740,6 +11917,9 @@ b3_equities_binaryentrypoint_sbe_v7_1_dissect.negotiate_reject_message_fields = 
 
   -- Negotiation Reject Code: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, negotiation_reject_code = b3_equities_binaryentrypoint_sbe_v7_1_dissect.negotiation_reject_code(buffer, index, packet, parent)
+
+  -- Offset 25 Padding 3: 3 Byte
+  index, offset_25_padding_3 = b3_equities_binaryentrypoint_sbe_v7_1_dissect.offset_25_padding_3(buffer, index, packet, parent)
 
   -- Current Session Ver Id: 8 Byte Unsigned Fixed Width Integer
   index, current_session_ver_id = b3_equities_binaryentrypoint_sbe_v7_1_dissect.current_session_ver_id(buffer, index, packet, parent)
