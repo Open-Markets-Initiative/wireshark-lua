@@ -88,6 +88,8 @@ memx_options_riskcontrol_sbe_v1_6.fields.number_msgs_sent = ProtoField.new("Numb
 memx_options_riskcontrol_sbe_v1_6.fields.option_security_id = ProtoField.new("Option Security Id", "memx.options.riskcontrol.sbe.v1.6.optionsecurityid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_6.fields.order_id = ProtoField.new("Order Id", "memx.options.riskcontrol.sbe.v1.6.orderid", ftypes.UINT64)
 memx_options_riskcontrol_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.options.riskcontrol.sbe.v1.6.packet", ftypes.STRING)
+memx_options_riskcontrol_sbe_v1_6.fields.padding_21 = ProtoField.new("Padding 21", "memx.options.riskcontrol.sbe.v1.6.padding21", ftypes.BYTES)
+memx_options_riskcontrol_sbe_v1_6.fields.padding_7 = ProtoField.new("Padding 7", "memx.options.riskcontrol.sbe.v1.6.padding7", ftypes.BYTES)
 memx_options_riskcontrol_sbe_v1_6.fields.passive_risk_threshold_notification_message = ProtoField.new("Passive Risk Threshold Notification Message", "memx.options.riskcontrol.sbe.v1.6.passiveriskthresholdnotificationmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_6.fields.payload = ProtoField.new("Payload", "memx.options.riskcontrol.sbe.v1.6.payload", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_6.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.riskcontrol.sbe.v1.6.pendingmessagecount", ftypes.UINT32)
@@ -1996,6 +1998,26 @@ memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_me
   return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 7
+memx_options_riskcontrol_sbe_v1_6_size_of.padding_7 = 7
+
+-- Display: Padding 7
+memx_options_riskcontrol_sbe_v1_6_display.padding_7 = function(value)
+  return "Padding 7: "..value
+end
+
+-- Dissect: Padding 7
+memx_options_riskcontrol_sbe_v1_6_dissect.padding_7 = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6_size_of.padding_7
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_riskcontrol_sbe_v1_6_display.padding_7(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.padding_7, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Transact Time
 memx_options_riskcontrol_sbe_v1_6_size_of.transact_time = 1
 
@@ -2158,7 +2180,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_me
   -- Transact Time: 1 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_riskcontrol_sbe_v1_6_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_riskcontrol_sbe_v1_6_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -2837,6 +2859,26 @@ memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message = fu
   return memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 21
+memx_options_riskcontrol_sbe_v1_6_size_of.padding_21 = 21
+
+-- Display: Padding 21
+memx_options_riskcontrol_sbe_v1_6_display.padding_21 = function(value)
+  return "Padding 21: "..value
+end
+
+-- Dissect: Padding 21
+memx_options_riskcontrol_sbe_v1_6_dissect.padding_21 = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6_size_of.padding_21
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_riskcontrol_sbe_v1_6_display.padding_21(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_riskcontrol_sbe_v1_6.fields.padding_21, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Unacked Quantity
 memx_options_riskcontrol_sbe_v1_6_size_of.unacked_quantity = 4
 
@@ -3184,7 +3226,7 @@ memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notificati
   -- Unacked Quantity: 4 Byte Unsigned Fixed Width Integer
   index, unacked_quantity = memx_options_riskcontrol_sbe_v1_6_dissect.unacked_quantity(buffer, index, packet, parent)
 
-  -- Padding 21
+  -- Padding 21: 21 Byte
   index, padding_21 = memx_options_riskcontrol_sbe_v1_6_dissect.padding_21(buffer, index, packet, parent)
 
   return index
@@ -6635,7 +6677,7 @@ end
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
   -- Attempt to read field
-  local value = buffer(1895, 1):uint()
+  local value = buffer(1923, 1):uint()
 
   if value == 12 then
     return true
@@ -6647,7 +6689,7 @@ end
 -- Verify Version Field
 verify.version = function(buffer)
   -- Attempt to read field
-  local value = buffer(1896, 2):uint()
+  local value = buffer(1924, 2):uint()
 
   if value == 262 then
     return true

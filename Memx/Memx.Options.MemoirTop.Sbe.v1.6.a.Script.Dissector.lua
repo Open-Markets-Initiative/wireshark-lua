@@ -62,6 +62,10 @@ memx_options_memoirtop_sbe_v1_6_a.fields.original_price = ProtoField.new("Origin
 memx_options_memoirtop_sbe_v1_6_a.fields.original_quantity = ProtoField.new("Original Quantity", "memx.options.memoirtop.sbe.v1.6.a.originalquantity", ftypes.UINT32)
 memx_options_memoirtop_sbe_v1_6_a.fields.osi_root = ProtoField.new("Osi Root", "memx.options.memoirtop.sbe.v1.6.a.osiroot", ftypes.STRING)
 memx_options_memoirtop_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.options.memoirtop.sbe.v1.6.a.packet", ftypes.STRING)
+memx_options_memoirtop_sbe_v1_6_a.fields.padding_14 = ProtoField.new("Padding 14", "memx.options.memoirtop.sbe.v1.6.a.padding14", ftypes.BYTES)
+memx_options_memoirtop_sbe_v1_6_a.fields.padding_21 = ProtoField.new("Padding 21", "memx.options.memoirtop.sbe.v1.6.a.padding21", ftypes.BYTES)
+memx_options_memoirtop_sbe_v1_6_a.fields.padding_7 = ProtoField.new("Padding 7", "memx.options.memoirtop.sbe.v1.6.a.padding7", ftypes.BYTES)
+memx_options_memoirtop_sbe_v1_6_a.fields.padding_8 = ProtoField.new("Padding 8", "memx.options.memoirtop.sbe.v1.6.a.padding8", ftypes.BYTES)
 memx_options_memoirtop_sbe_v1_6_a.fields.payload = ProtoField.new("Payload", "memx.options.memoirtop.sbe.v1.6.a.payload", ftypes.STRING)
 memx_options_memoirtop_sbe_v1_6_a.fields.price = ProtoField.new("Price", "memx.options.memoirtop.sbe.v1.6.a.price", ftypes.DOUBLE)
 memx_options_memoirtop_sbe_v1_6_a.fields.quantity = ProtoField.new("Quantity", "memx.options.memoirtop.sbe.v1.6.a.quantity", ftypes.UINT32)
@@ -248,6 +252,26 @@ end
 -- Dissect Memx Options MemoirTop Sbe 1.6.a
 -----------------------------------------------------------------------
 
+-- Size: Padding 7
+memx_options_memoirtop_sbe_v1_6_a_size_of.padding_7 = 7
+
+-- Display: Padding 7
+memx_options_memoirtop_sbe_v1_6_a_display.padding_7 = function(value)
+  return "Padding 7: "..value
+end
+
+-- Dissect: Padding 7
+memx_options_memoirtop_sbe_v1_6_a_dissect.padding_7 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_6_a_size_of.padding_7
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirtop_sbe_v1_6_a_display.padding_7(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.padding_7, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Symbol
 memx_options_memoirtop_sbe_v1_6_a_size_of.symbol = 8
 
@@ -332,7 +356,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.clear_book_message_fields = function(b
   -- Symbol: 8 Byte Ascii String
   index, symbol = memx_options_memoirtop_sbe_v1_6_a_dissect.symbol(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -349,6 +373,26 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.clear_book_message = function(buffer, 
   end
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 14
+memx_options_memoirtop_sbe_v1_6_a_size_of.padding_14 = 14
+
+-- Display: Padding 14
+memx_options_memoirtop_sbe_v1_6_a_display.padding_14 = function(value)
+  return "Padding 14: "..value
+end
+
+-- Dissect: Padding 14
+memx_options_memoirtop_sbe_v1_6_a_dissect.padding_14 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_6_a_size_of.padding_14
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirtop_sbe_v1_6_a_display.padding_14(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.padding_14, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Capacity
@@ -619,7 +663,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.trade_message_fields = function(buffer
   -- Capacity: 1 Byte Ascii String Enum with 2 values
   index, capacity = memx_options_memoirtop_sbe_v1_6_a_dissect.capacity(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -636,6 +680,26 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.trade_message = function(buffer, offse
   end
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.trade_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 8
+memx_options_memoirtop_sbe_v1_6_a_size_of.padding_8 = 8
+
+-- Display: Padding 8
+memx_options_memoirtop_sbe_v1_6_a_display.padding_8 = function(value)
+  return "Padding 8: "..value
+end
+
+-- Dissect: Padding 8
+memx_options_memoirtop_sbe_v1_6_a_dissect.padding_8 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_6_a_size_of.padding_8
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirtop_sbe_v1_6_a_display.padding_8(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.padding_8, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Offer Price Short
@@ -727,7 +791,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.best_offer_short_message_fields = func
   -- Offer Price Short: 1 Byte Signed Fixed Width Integer
   index, offer_price_short = memx_options_memoirtop_sbe_v1_6_a_dissect.offer_price_short(buffer, index, packet, parent)
 
-  -- Padding 8
+  -- Padding 8: 8 Byte
   index, padding_8 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_8(buffer, index, packet, parent)
 
   return index
@@ -835,7 +899,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_short_message_fields = functi
   -- Bid Price Short: 1 Byte Signed Fixed Width Integer
   index, bid_price_short = memx_options_memoirtop_sbe_v1_6_a_dissect.bid_price_short(buffer, index, packet, parent)
 
-  -- Padding 8
+  -- Padding 8: 8 Byte
   index, padding_8 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_8(buffer, index, packet, parent)
 
   return index
@@ -963,7 +1027,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.best_offer_message_fields = function(b
   -- Offer Price: 1 Byte Signed Fixed Width Integer
   index, offer_price = memx_options_memoirtop_sbe_v1_6_a_dissect.offer_price(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -1091,7 +1155,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_message_fields = function(buf
   -- Bid Price: 1 Byte Signed Fixed Width Integer
   index, bid_price = memx_options_memoirtop_sbe_v1_6_a_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -1108,6 +1172,26 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_message = function(buffer, of
   end
 
   return memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 21
+memx_options_memoirtop_sbe_v1_6_a_size_of.padding_21 = 21
+
+-- Display: Padding 21
+memx_options_memoirtop_sbe_v1_6_a_display.padding_21 = function(value)
+  return "Padding 21: "..value
+end
+
+-- Dissect: Padding 21
+memx_options_memoirtop_sbe_v1_6_a_dissect.padding_21 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_6_a_size_of.padding_21
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirtop_sbe_v1_6_a_display.padding_21(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirtop_sbe_v1_6_a.fields.padding_21, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Best Bid Offer Message
@@ -1168,7 +1252,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.best_bid_offer_message_fields = functi
   -- Offer Price: 1 Byte Signed Fixed Width Integer
   index, offer_price = memx_options_memoirtop_sbe_v1_6_a_dissect.offer_price(buffer, index, packet, parent)
 
-  -- Padding 21
+  -- Padding 21: 21 Byte
   index, padding_21 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_21(buffer, index, packet, parent)
 
   return index
@@ -1235,7 +1319,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.snapshot_complete_message_fields = fun
   -- As Of Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, as_of_sequence_number = memx_options_memoirtop_sbe_v1_6_a_dissect.as_of_sequence_number(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -1399,7 +1483,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.corrected_trade_message_fields = funct
   -- Corrected Price: 1 Byte Signed Fixed Width Integer
   index, corrected_price = memx_options_memoirtop_sbe_v1_6_a_dissect.corrected_price(buffer, index, packet, parent)
 
-  -- Padding 21
+  -- Padding 21: 21 Byte
   index, padding_21 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_21(buffer, index, packet, parent)
 
   return index
@@ -1461,7 +1545,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.broken_trade_message_fields = function
   -- Original Price: 1 Byte Signed Fixed Width Integer
   index, original_price = memx_options_memoirtop_sbe_v1_6_a_dissect.original_price(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -1589,7 +1673,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.underlier_instrument_status_message_fi
   -- Underlier: 6 Byte Ascii String
   index, underlier = memx_options_memoirtop_sbe_v1_6_a_dissect.underlier(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -1731,7 +1815,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.options_instrument_status_message_fiel
   -- Trading Session: 1 Byte Ascii String Enum with 2 values
   index, trading_session = memx_options_memoirtop_sbe_v1_6_a_dissect.trading_session(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -2049,7 +2133,7 @@ memx_options_memoirtop_sbe_v1_6_a_dissect.instrument_directory_message_fields = 
   -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, is_test_symbol = memx_options_memoirtop_sbe_v1_6_a_dissect.is_test_symbol(buffer, index, packet, parent)
 
-  -- Padding 21
+  -- Padding 21: 21 Byte
   index, padding_21 = memx_options_memoirtop_sbe_v1_6_a_dissect.padding_21(buffer, index, packet, parent)
 
   return index

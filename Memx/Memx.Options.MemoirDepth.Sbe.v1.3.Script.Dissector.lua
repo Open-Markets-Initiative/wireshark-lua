@@ -56,6 +56,10 @@ memx_options_memoirdepth_sbe_v1_3.fields.original_price = ProtoField.new("Origin
 memx_options_memoirdepth_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "memx.options.memoirdepth.sbe.v1.3.originalquantity", ftypes.UINT32)
 memx_options_memoirdepth_sbe_v1_3.fields.osi_root = ProtoField.new("Osi Root", "memx.options.memoirdepth.sbe.v1.3.osiroot", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.options.memoirdepth.sbe.v1.3.packet", ftypes.STRING)
+memx_options_memoirdepth_sbe_v1_3.fields.padding_14 = ProtoField.new("Padding 14", "memx.options.memoirdepth.sbe.v1.3.padding14", ftypes.BYTES)
+memx_options_memoirdepth_sbe_v1_3.fields.padding_21 = ProtoField.new("Padding 21", "memx.options.memoirdepth.sbe.v1.3.padding21", ftypes.BYTES)
+memx_options_memoirdepth_sbe_v1_3.fields.padding_7 = ProtoField.new("Padding 7", "memx.options.memoirdepth.sbe.v1.3.padding7", ftypes.BYTES)
+memx_options_memoirdepth_sbe_v1_3.fields.padding_8 = ProtoField.new("Padding 8", "memx.options.memoirdepth.sbe.v1.3.padding8", ftypes.BYTES)
 memx_options_memoirdepth_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.options.memoirdepth.sbe.v1.3.payload", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.options.memoirdepth.sbe.v1.3.price", ftypes.DOUBLE)
 memx_options_memoirdepth_sbe_v1_3.fields.price_short = ProtoField.new("Price Short", "memx.options.memoirdepth.sbe.v1.3.priceshort", ftypes.DOUBLE)
@@ -241,6 +245,26 @@ end
 -- Dissect Memx Options MemoirDepth Sbe 1.3
 -----------------------------------------------------------------------
 
+-- Size: Padding 7
+memx_options_memoirdepth_sbe_v1_3_size_of.padding_7 = 7
+
+-- Display: Padding 7
+memx_options_memoirdepth_sbe_v1_3_display.padding_7 = function(value)
+  return "Padding 7: "..value
+end
+
+-- Dissect: Padding 7
+memx_options_memoirdepth_sbe_v1_3_dissect.padding_7 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.padding_7
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirdepth_sbe_v1_3_display.padding_7(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.padding_7, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Symbol
 memx_options_memoirdepth_sbe_v1_3_size_of.symbol = 8
 
@@ -325,7 +349,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.clear_book_message_fields = function(b
   -- Symbol: 8 Byte Ascii String
   index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -342,6 +366,26 @@ memx_options_memoirdepth_sbe_v1_3_dissect.clear_book_message = function(buffer, 
   end
 
   return memx_options_memoirdepth_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 14
+memx_options_memoirdepth_sbe_v1_3_size_of.padding_14 = 14
+
+-- Display: Padding 14
+memx_options_memoirdepth_sbe_v1_3_display.padding_14 = function(value)
+  return "Padding 14: "..value
+end
+
+-- Dissect: Padding 14
+memx_options_memoirdepth_sbe_v1_3_dissect.padding_14 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.padding_14
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirdepth_sbe_v1_3_display.padding_14(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.padding_14, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Price
@@ -567,7 +611,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_executed_message_fields = functi
   -- Price: 1 Byte Signed Fixed Width Integer
   index, price = memx_options_memoirdepth_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -704,7 +748,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_reduced_message_fields = functio
   -- Quantity Reduced: 4 Byte Unsigned Fixed Width Integer
   index, quantity_reduced = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_reduced(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -761,7 +805,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_deleted_message_fields = functio
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_options_memoirdepth_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -833,7 +877,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_extended_message_fields = 
   -- Price: 1 Byte Signed Fixed Width Integer
   index, price = memx_options_memoirdepth_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -900,7 +944,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_long_message_fields = func
   -- Price: 1 Byte Signed Fixed Width Integer
   index, price = memx_options_memoirdepth_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -917,6 +961,26 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_long_message = function(bu
   end
 
   return memx_options_memoirdepth_sbe_v1_3_dissect.order_added_long_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 8
+memx_options_memoirdepth_sbe_v1_3_size_of.padding_8 = 8
+
+-- Display: Padding 8
+memx_options_memoirdepth_sbe_v1_3_display.padding_8 = function(value)
+  return "Padding 8: "..value
+end
+
+-- Dissect: Padding 8
+memx_options_memoirdepth_sbe_v1_3_dissect.padding_8 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.padding_8
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirdepth_sbe_v1_3_display.padding_8(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.padding_8, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Price Short
@@ -1013,7 +1077,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_short_message_fields = fun
   -- Price Short: 1 Byte Signed Fixed Width Integer
   index, price_short = memx_options_memoirdepth_sbe_v1_3_dissect.price_short(buffer, index, packet, parent)
 
-  -- Padding 8
+  -- Padding 8: 8 Byte
   index, padding_8 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_8(buffer, index, packet, parent)
 
   return index
@@ -1080,7 +1144,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.snapshot_complete_message_fields = fun
   -- As Of Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, as_of_sequence_number = memx_options_memoirdepth_sbe_v1_3_dissect.as_of_sequence_number(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -1097,6 +1161,26 @@ memx_options_memoirdepth_sbe_v1_3_dissect.snapshot_complete_message = function(b
   end
 
   return memx_options_memoirdepth_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 21
+memx_options_memoirdepth_sbe_v1_3_size_of.padding_21 = 21
+
+-- Display: Padding 21
+memx_options_memoirdepth_sbe_v1_3_display.padding_21 = function(value)
+  return "Padding 21: "..value
+end
+
+-- Dissect: Padding 21
+memx_options_memoirdepth_sbe_v1_3_dissect.padding_21 = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.padding_21
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_options_memoirdepth_sbe_v1_3_display.padding_21(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.padding_21, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Corrected Price
@@ -1244,7 +1328,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.corrected_trade_message_fields = funct
   -- Corrected Price: 1 Byte Signed Fixed Width Integer
   index, corrected_price = memx_options_memoirdepth_sbe_v1_3_dissect.corrected_price(buffer, index, packet, parent)
 
-  -- Padding 21
+  -- Padding 21: 21 Byte
   index, padding_21 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_21(buffer, index, packet, parent)
 
   return index
@@ -1306,7 +1390,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.broken_trade_message_fields = function
   -- Original Price: 1 Byte Signed Fixed Width Integer
   index, original_price = memx_options_memoirdepth_sbe_v1_3_dissect.original_price(buffer, index, packet, parent)
 
-  -- Padding 14
+  -- Padding 14: 14 Byte
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
@@ -1393,7 +1477,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.trading_session_status_message_fields 
   -- Trading Session: 1 Byte Ascii String Enum with 2 values
   index, trading_session = memx_options_memoirdepth_sbe_v1_3_dissect.trading_session(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -1530,7 +1614,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.instrument_trading_status_message_fiel
   -- Instrument Trading Status Reason: 1 Byte Ascii String Enum with 2 values
   index, instrument_trading_status_reason = memx_options_memoirdepth_sbe_v1_3_dissect.instrument_trading_status_reason(buffer, index, packet, parent)
 
-  -- Padding 7
+  -- Padding 7: 7 Byte
   index, padding_7 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
@@ -1884,7 +1968,7 @@ memx_options_memoirdepth_sbe_v1_3_dissect.instrument_directory_message_fields = 
   -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, is_test_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.is_test_symbol(buffer, index, packet, parent)
 
-  -- Padding 21
+  -- Padding 21: 21 Byte
   index, padding_21 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_21(buffer, index, packet, parent)
 
   return index
