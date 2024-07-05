@@ -29,7 +29,7 @@ b3_equities_binaryumdf_sbe_v1_7.fields.avg_daily_traded_qty = ProtoField.new("Av
 b3_equities_binaryumdf_sbe_v1_7.fields.block_length = ProtoField.new("Block Length", "b3.equities.binaryumdf.sbe.v1.7.blocklength", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_7.fields.block_trade = ProtoField.new("Block Trade", "b3.equities.binaryumdf.sbe.v1.7.blocktrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x4000)
 b3_equities_binaryumdf_sbe_v1_7.fields.cfi_code = ProtoField.new("Cfi Code", "b3.equities.binaryumdf.sbe.v1.7.cficode", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_7.fields.channel_number = ProtoField.new("Channel Number", "b3.equities.binaryumdf.sbe.v1.7.channelnumber", ftypes.UINT8)
+b3_equities_binaryumdf_sbe_v1_7.fields.channel_id = ProtoField.new("Channel Id", "b3.equities.binaryumdf.sbe.v1.7.channelid", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.channel_reset_11_message = ProtoField.new("Channel Reset 11 Message", "b3.equities.binaryumdf.sbe.v1.7.channelreset11message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.clearing_house_id = ProtoField.new("Clearing House Id", "b3.equities.binaryumdf.sbe.v1.7.clearinghouseid", ftypes.UINT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.closing_price_17_message = ProtoField.new("Closing Price 17 Message", "b3.equities.binaryumdf.sbe.v1.7.closingprice17message", ftypes.STRING)
@@ -46,17 +46,15 @@ b3_equities_binaryumdf_sbe_v1_7.fields.delete_order_mb_o_51_message = ProtoField
 b3_equities_binaryumdf_sbe_v1_7.fields.empty_book_9_message = ProtoField.new("Empty Book 9 Message", "b3.equities.binaryumdf.sbe.v1.7.emptybook9message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.encoding_type = ProtoField.new("Encoding Type", "b3.equities.binaryumdf.sbe.v1.7.encodingtype", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_7.fields.end_date = ProtoField.new("End Date", "b3.equities.binaryumdf.sbe.v1.7.enddate", ftypes.INT32)
-b3_equities_binaryumdf_sbe_v1_7.fields.end_of_event = ProtoField.new("End Of Event", "b3.equities.binaryumdf.sbe.v1.7.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
+b3_equities_binaryumdf_sbe_v1_7.fields.end_of_event = ProtoField.new("End Of Event", "b3.equities.binaryumdf.sbe.v1.7.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 b3_equities_binaryumdf_sbe_v1_7.fields.entering_firm = ProtoField.new("Entering Firm", "b3.equities.binaryumdf.sbe.v1.7.enteringfirm", ftypes.UINT32)
 b3_equities_binaryumdf_sbe_v1_7.fields.execution_statistics_56_message = ProtoField.new("Execution Statistics 56 Message", "b3.equities.binaryumdf.sbe.v1.7.executionstatistics56message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.execution_summary_55_message = ProtoField.new("Execution Summary 55 Message", "b3.equities.binaryumdf.sbe.v1.7.executionsummary55message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.exercise_style = ProtoField.new("Exercise Style", "b3.equities.binaryumdf.sbe.v1.7.exercisestyle", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.fill_qty = ProtoField.new("Fill Qty", "b3.equities.binaryumdf.sbe.v1.7.fillqty", ftypes.INT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.forward_trade_54_message = ProtoField.new("Forward Trade 54 Message", "b3.equities.binaryumdf.sbe.v1.7.forwardtrade54message", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_7.fields.framing_header = ProtoField.new("Framing Header", "b3.equities.binaryumdf.sbe.v1.7.framingheader", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.governance_indicator = ProtoField.new("Governance Indicator", "b3.equities.binaryumdf.sbe.v1.7.governanceindicator", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.equities.binaryumdf.sbe.v1.7.groupsizeencoding", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_7.fields.header_message_0 = ProtoField.new("Header Message 0", "b3.equities.binaryumdf.sbe.v1.7.headermessage0", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.headline = ProtoField.new("Headline", "b3.equities.binaryumdf.sbe.v1.7.headline", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.high_limit_price = ProtoField.new("High Limit Price", "b3.equities.binaryumdf.sbe.v1.7.highlimitprice", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_7.fields.high_price_24_message = ProtoField.new("High Price 24 Message", "b3.equities.binaryumdf.sbe.v1.7.highprice24message", ftypes.STRING)
@@ -71,19 +69,18 @@ b3_equities_binaryumdf_sbe_v1_7.fields.isin_number = ProtoField.new("Isin Number
 b3_equities_binaryumdf_sbe_v1_7.fields.issue_date = ProtoField.new("Issue Date", "b3.equities.binaryumdf.sbe.v1.7.issuedate", ftypes.INT32)
 b3_equities_binaryumdf_sbe_v1_7.fields.language_code = ProtoField.new("Language Code", "b3.equities.binaryumdf.sbe.v1.7.languagecode", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.last_fragment = ProtoField.new("Last Fragment", "b3.equities.binaryumdf.sbe.v1.7.lastfragment", ftypes.UINT8)
-b3_equities_binaryumdf_sbe_v1_7.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "b3.equities.binaryumdf.sbe.v1.7.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0020)
+b3_equities_binaryumdf_sbe_v1_7.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "b3.equities.binaryumdf.sbe.v1.7.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 b3_equities_binaryumdf_sbe_v1_7.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "b3.equities.binaryumdf.sbe.v1.7.lastmsgseqnumprocessed", ftypes.UINT32)
 b3_equities_binaryumdf_sbe_v1_7.fields.last_px = ProtoField.new("Last Px", "b3.equities.binaryumdf.sbe.v1.7.lastpx", ftypes.DOUBLE)
-b3_equities_binaryumdf_sbe_v1_7.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "b3.equities.binaryumdf.sbe.v1.7.lastquotemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0008)
+b3_equities_binaryumdf_sbe_v1_7.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "b3.equities.binaryumdf.sbe.v1.7.lastquotemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 b3_equities_binaryumdf_sbe_v1_7.fields.last_rpt_seq = ProtoField.new("Last Rpt Seq", "b3.equities.binaryumdf.sbe.v1.7.lastrptseq", ftypes.UINT32)
-b3_equities_binaryumdf_sbe_v1_7.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "b3.equities.binaryumdf.sbe.v1.7.laststatsmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0010)
+b3_equities_binaryumdf_sbe_v1_7.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "b3.equities.binaryumdf.sbe.v1.7.laststatsmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
 b3_equities_binaryumdf_sbe_v1_7.fields.last_trade_at_the_same_price = ProtoField.new("Last Trade At The Same Price", "b3.equities.binaryumdf.sbe.v1.7.lasttradeatthesameprice", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
 b3_equities_binaryumdf_sbe_v1_7.fields.last_trade_date = ProtoField.new("Last Trade Date", "b3.equities.binaryumdf.sbe.v1.7.lasttradedate", ftypes.UINT16)
-b3_equities_binaryumdf_sbe_v1_7.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "b3.equities.binaryumdf.sbe.v1.7.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0002)
+b3_equities_binaryumdf_sbe_v1_7.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "b3.equities.binaryumdf.sbe.v1.7.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 b3_equities_binaryumdf_sbe_v1_7.fields.last_trade_price_27_message = ProtoField.new("Last Trade Price 27 Message", "b3.equities.binaryumdf.sbe.v1.7.lasttradeprice27message", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_7.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "b3.equities.binaryumdf.sbe.v1.7.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
+b3_equities_binaryumdf_sbe_v1_7.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "b3.equities.binaryumdf.sbe.v1.7.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 b3_equities_binaryumdf_sbe_v1_7.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "b3.equities.binaryumdf.sbe.v1.7.legratioqty", ftypes.DOUBLE)
-b3_equities_binaryumdf_sbe_v1_7.fields.leg_security_exchange = ProtoField.new("Leg Security Exchange", "b3.equities.binaryumdf.sbe.v1.7.legsecurityexchange", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.leg_security_id = ProtoField.new("Leg Security Id", "b3.equities.binaryumdf.sbe.v1.7.legsecurityid", ftypes.UINT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.leg_security_type = ProtoField.new("Leg Security Type", "b3.equities.binaryumdf.sbe.v1.7.legsecuritytype", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.leg_side = ProtoField.new("Leg Side", "b3.equities.binaryumdf.sbe.v1.7.legside", ftypes.UINT8)
@@ -140,6 +137,17 @@ b3_equities_binaryumdf_sbe_v1_7.fields.no_underlyings_group = ProtoField.new("No
 b3_equities_binaryumdf_sbe_v1_7.fields.no_underlyings_groups = ProtoField.new("No Underlyings Groups", "b3.equities.binaryumdf.sbe.v1.7.nounderlyingsgroups", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.num_in_group = ProtoField.new("Num In Group", "b3.equities.binaryumdf.sbe.v1.7.numingroup", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.number_of_trades = ProtoField.new("Number Of Trades", "b3.equities.binaryumdf.sbe.v1.7.numberoftrades", ftypes.UINT32)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_1_padding_3 = ProtoField.new("Offset 1 Padding 3", "b3.equities.binaryumdf.sbe.v1.7.offset1padding3", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_10_padding_2 = ProtoField.new("Offset 10 Padding 2", "b3.equities.binaryumdf.sbe.v1.7.offset10padding2", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_11_padding_1 = ProtoField.new("Offset 11 Padding 1", "b3.equities.binaryumdf.sbe.v1.7.offset11padding1", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_14_padding_2 = ProtoField.new("Offset 14 Padding 2", "b3.equities.binaryumdf.sbe.v1.7.offset14padding2", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_26_padding_2 = ProtoField.new("Offset 26 Padding 2", "b3.equities.binaryumdf.sbe.v1.7.offset26padding2", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_3_padding_5 = ProtoField.new("Offset 3 Padding 5", "b3.equities.binaryumdf.sbe.v1.7.offset3padding5", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_34_padding_2 = ProtoField.new("Offset 34 Padding 2", "b3.equities.binaryumdf.sbe.v1.7.offset34padding2", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_43_padding_1 = ProtoField.new("Offset 43 Padding 1", "b3.equities.binaryumdf.sbe.v1.7.offset43padding1", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_8_padding_2 = ProtoField.new("Offset 8 Padding 2", "b3.equities.binaryumdf.sbe.v1.7.offset8padding2", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_9_padding_1 = ProtoField.new("Offset 9 Padding 1", "b3.equities.binaryumdf.sbe.v1.7.offset9padding1", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.offset_9_padding_3 = ProtoField.new("Offset 9 Padding 3", "b3.equities.binaryumdf.sbe.v1.7.offset9padding3", ftypes.BYTES)
 b3_equities_binaryumdf_sbe_v1_7.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "b3.equities.binaryumdf.sbe.v1.7.openclosesettlflag", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.opening_price = ProtoField.new("Opening Price", "b3.equities.binaryumdf.sbe.v1.7.openingprice", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 b3_equities_binaryumdf_sbe_v1_7.fields.opening_price_15_message = ProtoField.new("Opening Price 15 Message", "b3.equities.binaryumdf.sbe.v1.7.openingprice15message", ftypes.STRING)
@@ -148,6 +156,8 @@ b3_equities_binaryumdf_sbe_v1_7.fields.orig_time = ProtoField.new("Orig Time", "
 b3_equities_binaryumdf_sbe_v1_7.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.equities.binaryumdf.sbe.v1.7.outofsequence", ftypes.UINT16, nil, base.DEC, 0x0038)
 b3_equities_binaryumdf_sbe_v1_7.fields.packet = ProtoField.new("Packet", "b3.equities.binaryumdf.sbe.v1.7.packet", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.packet_header = ProtoField.new("Packet Header", "b3.equities.binaryumdf.sbe.v1.7.packetheader", ftypes.STRING)
+b3_equities_binaryumdf_sbe_v1_7.fields.padding_2 = ProtoField.new("Padding 2", "b3.equities.binaryumdf.sbe.v1.7.padding2", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_7.fields.padding_3 = ProtoField.new("Padding 3", "b3.equities.binaryumdf.sbe.v1.7.padding3", ftypes.BYTES)
 b3_equities_binaryumdf_sbe_v1_7.fields.part_count = ProtoField.new("Part Count", "b3.equities.binaryumdf.sbe.v1.7.partcount", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_7.fields.part_number = ProtoField.new("Part Number", "b3.equities.binaryumdf.sbe.v1.7.partnumber", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_7.fields.payload = ProtoField.new("Payload", "b3.equities.binaryumdf.sbe.v1.7.payload", ftypes.STRING)
@@ -161,10 +171,10 @@ b3_equities_binaryumdf_sbe_v1_7.fields.price_type = ProtoField.new("Price Type",
 b3_equities_binaryumdf_sbe_v1_7.fields.product = ProtoField.new("Product", "b3.equities.binaryumdf.sbe.v1.7.product", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.put_or_call = ProtoField.new("Put Or Call", "b3.equities.binaryumdf.sbe.v1.7.putorcall", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.quantity_band_21_message = ProtoField.new("Quantity Band 21 Message", "b3.equities.binaryumdf.sbe.v1.7.quantityband21message", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_7.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.equities.binaryumdf.sbe.v1.7.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x0040)
+b3_equities_binaryumdf_sbe_v1_7.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.equities.binaryumdf.sbe.v1.7.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 b3_equities_binaryumdf_sbe_v1_7.fields.regular_trade = ProtoField.new("Regular Trade", "b3.equities.binaryumdf.sbe.v1.7.regulartrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x2000)
 b3_equities_binaryumdf_sbe_v1_7.fields.reserved = ProtoField.new("Reserved", "b3.equities.binaryumdf.sbe.v1.7.reserved", ftypes.UINT8)
-b3_equities_binaryumdf_sbe_v1_7.fields.reserved_1 = ProtoField.new("Reserved 1", "b3.equities.binaryumdf.sbe.v1.7.reserved1", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x8000)
+b3_equities_binaryumdf_sbe_v1_7.fields.reserved_1 = ProtoField.new("Reserved 1", "b3.equities.binaryumdf.sbe.v1.7.reserved1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 b3_equities_binaryumdf_sbe_v1_7.fields.reserved_6 = ProtoField.new("Reserved 6", "b3.equities.binaryumdf.sbe.v1.7.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00)
 b3_equities_binaryumdf_sbe_v1_7.fields.reserved_8 = ProtoField.new("Reserved 8", "b3.equities.binaryumdf.sbe.v1.7.reserved8", ftypes.UINT16, nil, base.DEC, 0x00FF)
 b3_equities_binaryumdf_sbe_v1_7.fields.rpt_seq = ProtoField.new("Rpt Seq", "b3.equities.binaryumdf.sbe.v1.7.rptseq", ftypes.UINT32)
@@ -228,7 +238,6 @@ b3_equities_binaryumdf_sbe_v1_7.fields.trading_session_id = ProtoField.new("Trad
 b3_equities_binaryumdf_sbe_v1_7.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "b3.equities.binaryumdf.sbe.v1.7.tradingsessionsubid", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_7.fields.transact_time = ProtoField.new("Transact Time", "b3.equities.binaryumdf.sbe.v1.7.transacttime", ftypes.UINT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "b3.equities.binaryumdf.sbe.v1.7.trdsubtype", ftypes.UINT8)
-b3_equities_binaryumdf_sbe_v1_7.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "b3.equities.binaryumdf.sbe.v1.7.underlyingsecurityexchange", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "b3.equities.binaryumdf.sbe.v1.7.underlyingsecurityid", ftypes.UINT64)
 b3_equities_binaryumdf_sbe_v1_7.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.equities.binaryumdf.sbe.v1.7.underlyingsymbol", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_7.fields.url_link = ProtoField.new("Url Link", "b3.equities.binaryumdf.sbe.v1.7.urllink", ftypes.STRING)
@@ -253,9 +262,7 @@ show.empty_book_9_message = true
 show.execution_statistics_56_message = true
 show.execution_summary_55_message = true
 show.forward_trade_54_message = true
-show.framing_header = true
 show.group_size_encoding = true
-show.header_message_0 = true
 show.headline = true
 show.high_price_24_message = true
 show.imbalance_condition = true
@@ -308,9 +315,7 @@ b3_equities_binaryumdf_sbe_v1_7.prefs.show_empty_book_9_message = Pref.bool("Sho
 b3_equities_binaryumdf_sbe_v1_7.prefs.show_execution_statistics_56_message = Pref.bool("Show Execution Statistics 56 Message", show.execution_statistics_56_message, "Parse and add Execution Statistics 56 Message to protocol tree")
 b3_equities_binaryumdf_sbe_v1_7.prefs.show_execution_summary_55_message = Pref.bool("Show Execution Summary 55 Message", show.execution_summary_55_message, "Parse and add Execution Summary 55 Message to protocol tree")
 b3_equities_binaryumdf_sbe_v1_7.prefs.show_forward_trade_54_message = Pref.bool("Show Forward Trade 54 Message", show.forward_trade_54_message, "Parse and add Forward Trade 54 Message to protocol tree")
-b3_equities_binaryumdf_sbe_v1_7.prefs.show_framing_header = Pref.bool("Show Framing Header", show.framing_header, "Parse and add Framing Header to protocol tree")
 b3_equities_binaryumdf_sbe_v1_7.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-b3_equities_binaryumdf_sbe_v1_7.prefs.show_header_message_0 = Pref.bool("Show Header Message 0", show.header_message_0, "Parse and add Header Message 0 to protocol tree")
 b3_equities_binaryumdf_sbe_v1_7.prefs.show_headline = Pref.bool("Show Headline", show.headline, "Parse and add Headline to protocol tree")
 b3_equities_binaryumdf_sbe_v1_7.prefs.show_high_price_24_message = Pref.bool("Show High Price 24 Message", show.high_price_24_message, "Parse and add High Price 24 Message to protocol tree")
 b3_equities_binaryumdf_sbe_v1_7.prefs.show_imbalance_condition = Pref.bool("Show Imbalance Condition", show.imbalance_condition, "Parse and add Imbalance Condition to protocol tree")
@@ -394,16 +399,8 @@ function b3_equities_binaryumdf_sbe_v1_7.prefs_changed()
     show.forward_trade_54_message = b3_equities_binaryumdf_sbe_v1_7.prefs.show_forward_trade_54_message
     changed = true
   end
-  if show.framing_header ~= b3_equities_binaryumdf_sbe_v1_7.prefs.show_framing_header then
-    show.framing_header = b3_equities_binaryumdf_sbe_v1_7.prefs.show_framing_header
-    changed = true
-  end
   if show.group_size_encoding ~= b3_equities_binaryumdf_sbe_v1_7.prefs.show_group_size_encoding then
     show.group_size_encoding = b3_equities_binaryumdf_sbe_v1_7.prefs.show_group_size_encoding
-    changed = true
-  end
-  if show.header_message_0 ~= b3_equities_binaryumdf_sbe_v1_7.prefs.show_header_message_0 then
-    show.header_message_0 = b3_equities_binaryumdf_sbe_v1_7.prefs.show_header_message_0
     changed = true
   end
   if show.headline ~= b3_equities_binaryumdf_sbe_v1_7.prefs.show_headline then
@@ -581,287 +578,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect B3 Equities BinaryUmdf Sbe 1.7
 -----------------------------------------------------------------------
-
--- Size: Encoding Type
-b3_equities_binaryumdf_sbe_v1_7_size_of.encoding_type = 2
-
--- Display: Encoding Type
-b3_equities_binaryumdf_sbe_v1_7_display.encoding_type = function(value)
-  return "Encoding Type: "..value
-end
-
--- Dissect: Encoding Type
-b3_equities_binaryumdf_sbe_v1_7_dissect.encoding_type = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.encoding_type
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.encoding_type(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.encoding_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Message Length
-b3_equities_binaryumdf_sbe_v1_7_size_of.message_length = 2
-
--- Display: Message Length
-b3_equities_binaryumdf_sbe_v1_7_display.message_length = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-b3_equities_binaryumdf_sbe_v1_7_dissect.message_length = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.message_length
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.message_length(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Framing Header
-b3_equities_binaryumdf_sbe_v1_7_size_of.framing_header = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.message_length
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.encoding_type
-
-  return index
-end
-
--- Display: Framing Header
-b3_equities_binaryumdf_sbe_v1_7_display.framing_header = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Framing Header
-b3_equities_binaryumdf_sbe_v1_7_dissect.framing_header_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = b3_equities_binaryumdf_sbe_v1_7_dissect.message_length(buffer, index, packet, parent)
-
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
-  index, encoding_type = b3_equities_binaryumdf_sbe_v1_7_dissect.encoding_type(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Framing Header
-b3_equities_binaryumdf_sbe_v1_7_dissect.framing_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.framing_header then
-    local length = b3_equities_binaryumdf_sbe_v1_7_size_of.framing_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_7_display.framing_header(buffer, packet, parent)
-    parent = parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.framing_header, range, display)
-  end
-
-  return b3_equities_binaryumdf_sbe_v1_7_dissect.framing_header_fields(buffer, offset, packet, parent)
-end
-
--- Size: Sending Time
-b3_equities_binaryumdf_sbe_v1_7_size_of.sending_time = 8
-
--- Display: Sending Time
-b3_equities_binaryumdf_sbe_v1_7_display.sending_time = function(value)
-  return "Sending Time: "..value
-end
-
--- Dissect: Sending Time
-b3_equities_binaryumdf_sbe_v1_7_dissect.sending_time = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.sending_time
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.sending_time(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Sequence Number
-b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_number = 4
-
--- Display: Sequence Number
-b3_equities_binaryumdf_sbe_v1_7_display.sequence_number = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_number
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.sequence_number(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Sequence Version
-b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_version = 2
-
--- Display: Sequence Version
-b3_equities_binaryumdf_sbe_v1_7_display.sequence_version = function(value)
-  return "Sequence Version: "..value
-end
-
--- Dissect: Sequence Version
-b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_version = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_version
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.sequence_version(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.sequence_version, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Reserved
-b3_equities_binaryumdf_sbe_v1_7_size_of.reserved = 1
-
--- Display: Reserved
-b3_equities_binaryumdf_sbe_v1_7_display.reserved = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-b3_equities_binaryumdf_sbe_v1_7_dissect.reserved = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.reserved
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.reserved(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Channel Number
-b3_equities_binaryumdf_sbe_v1_7_size_of.channel_number = 1
-
--- Display: Channel Number
-b3_equities_binaryumdf_sbe_v1_7_display.channel_number = function(value)
-  return "Channel Number: "..value
-end
-
--- Dissect: Channel Number
-b3_equities_binaryumdf_sbe_v1_7_dissect.channel_number = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.channel_number
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.channel_number(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.channel_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Packet Header
-b3_equities_binaryumdf_sbe_v1_7_size_of.packet_header = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.channel_number
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.reserved
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_version
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_number
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.sending_time
-
-  return index
-end
-
--- Display: Packet Header
-b3_equities_binaryumdf_sbe_v1_7_display.packet_header = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Packet Header
-b3_equities_binaryumdf_sbe_v1_7_dissect.packet_header_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Channel Number: 1 Byte Unsigned Fixed Width Integer
-  index, channel_number = b3_equities_binaryumdf_sbe_v1_7_dissect.channel_number(buffer, index, packet, parent)
-
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = b3_equities_binaryumdf_sbe_v1_7_dissect.reserved(buffer, index, packet, parent)
-
-  -- Sequence Version: 2 Byte Unsigned Fixed Width Integer
-  index, sequence_version = b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_version(buffer, index, packet, parent)
-
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_number(buffer, index, packet, parent)
-
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index, sending_time = b3_equities_binaryumdf_sbe_v1_7_dissect.sending_time(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Packet Header
-b3_equities_binaryumdf_sbe_v1_7_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.packet_header then
-    local length = b3_equities_binaryumdf_sbe_v1_7_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_7_display.packet_header(buffer, packet, parent)
-    parent = parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.packet_header, range, display)
-  end
-
-  return b3_equities_binaryumdf_sbe_v1_7_dissect.packet_header_fields(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Header Message 0
-b3_equities_binaryumdf_sbe_v1_7_size_of.header_message_0 = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.packet_header(buffer, offset + index)
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.framing_header(buffer, offset + index)
-
-  return index
-end
-
--- Display: Header Message 0
-b3_equities_binaryumdf_sbe_v1_7_display.header_message_0 = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Header Message 0
-b3_equities_binaryumdf_sbe_v1_7_dissect.header_message_0_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Packet Header: Struct of 5 fields
-  index, packet_header = b3_equities_binaryumdf_sbe_v1_7_dissect.packet_header(buffer, index, packet, parent)
-
-  -- Framing Header: Struct of 2 fields
-  index, framing_header = b3_equities_binaryumdf_sbe_v1_7_dissect.framing_header(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Header Message 0
-b3_equities_binaryumdf_sbe_v1_7_dissect.header_message_0 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.header_message_0 then
-    local length = b3_equities_binaryumdf_sbe_v1_7_size_of.header_message_0(buffer, offset)
-    local range = buffer(offset, length)
-    local display = b3_equities_binaryumdf_sbe_v1_7_display.header_message_0(buffer, packet, parent)
-    parent = parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.header_message_0, range, display)
-  end
-
-  return b3_equities_binaryumdf_sbe_v1_7_dissect.header_message_0_fields(buffer, offset, packet, parent)
-end
 
 -- Size: Md Entry Type
 b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_type = 1
@@ -1294,42 +1010,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.no_m_d_entries_groups = function(buffer,
   return b3_equities_binaryumdf_sbe_v1_7_dissect.no_m_d_entries_groups_fields(buffer, offset, packet, parent)
 end
 
--- Size: Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange = 4
-
--- Display: Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_display.security_exchange = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Exchange: No Value"
-  end
-
-  return "Security Exchange: "..value
-end
-
--- Dissect: Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.security_exchange(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Security Id
 b3_equities_binaryumdf_sbe_v1_7_size_of.security_id = 8
 
@@ -1356,8 +1036,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.snapshot_full_refresh_orders_mb_o_71_mes
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.no_m_d_entries_groups(buffer, offset + index)
 
   return index
@@ -1374,9 +1052,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.snapshot_full_refresh_orders_mb_o_71_mes
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- No M D Entries Groups: Struct of 2 fields
   index, no_m_d_entries_groups = b3_equities_binaryumdf_sbe_v1_7_dissect.no_m_d_entries_groups(buffer, index, packet, parent)
@@ -1433,6 +1108,26 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_timestamp = function(buffer, of
   local display = b3_equities_binaryumdf_sbe_v1_7_display.md_entry_timestamp(value, buffer, offset, packet, parent)
 
   parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.md_entry_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offset 34 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_34_padding_2 = 2
+
+-- Display: Offset 34 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_display.offset_34_padding_2 = function(value)
+  return "Offset 34 Padding 2: "..value
+end
+
+-- Dissect: Offset 34 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_34_padding_2 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_34_padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_34_padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_34_padding_2, range, value, display)
 
   return offset + length, value
 end
@@ -1503,6 +1198,26 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.md_future_price = function(buffer, offse
   return offset + length, value
 end
 
+-- Size: Offset 10 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_10_padding_2 = 2
+
+-- Display: Offset 10 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_display.offset_10_padding_2 = function(value)
+  return "Offset 10 Padding 2: "..value
+end
+
+-- Dissect: Offset 10 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_10_padding_2 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_10_padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_10_padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_10_padding_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Trading Session Id
 b3_equities_binaryumdf_sbe_v1_7_size_of.trading_session_id = 1
 
@@ -1541,28 +1256,32 @@ b3_equities_binaryumdf_sbe_v1_7_display.match_event_indicator = function(buffer,
   if buffer:bitfield(0) > 0 then
     display = display.."End Of Event|"
   end
+  -- Is Reserved 1 flag set?
+  if buffer:bitfield(1) > 0 then
+    display = display.."Reserved 1|"
+  end
   -- Is Recovery Msg flag set?
-  if buffer:bitfield(9) > 0 then
+  if buffer:bitfield(2) > 0 then
     display = display.."Recovery Msg|"
   end
   -- Is Last Implied Msg flag set?
-  if buffer:bitfield(10) > 0 then
+  if buffer:bitfield(3) > 0 then
     display = display.."Last Implied Msg|"
   end
   -- Is Last Stats Msg flag set?
-  if buffer:bitfield(11) > 0 then
+  if buffer:bitfield(4) > 0 then
     display = display.."Last Stats Msg|"
   end
   -- Is Last Quote Msg flag set?
-  if buffer:bitfield(12) > 0 then
+  if buffer:bitfield(5) > 0 then
     display = display.."Last Quote Msg|"
   end
   -- Is Last Volume Msg flag set?
-  if buffer:bitfield(13) > 0 then
+  if buffer:bitfield(6) > 0 then
     display = display.."Last Volume Msg|"
   end
   -- Is Last Trade Msg flag set?
-  if buffer:bitfield(14) > 0 then
+  if buffer:bitfield(7) > 0 then
     display = display.."Last Trade Msg|"
   end
 
@@ -1575,8 +1294,8 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator_bits = function(bu
   -- End Of Event: 1 Bit
   parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.end_of_event, buffer(offset, 1))
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.reserved, buffer(offset, 1))
+  -- Reserved 1: 1 Bit
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.reserved_1, buffer(offset, 1))
 
   -- Recovery Msg: 1 Bit
   parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.recovery_msg, buffer(offset, 1))
@@ -1617,11 +1336,11 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.trade_bust_57_message = function(buffer,
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_session_id
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_10_padding_2
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_future_price
 
@@ -1630,6 +1349,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.trade_bust_57_message = function(buffer,
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trade_id
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trade_date
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_34_padding_2
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_timestamp
 
@@ -1650,14 +1371,14 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.trade_bust_57_message_fields = function(
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, trading_session_id = b3_equities_binaryumdf_sbe_v1_7_dissect.trading_session_id(buffer, index, packet, parent)
+
+  -- Offset 10 Padding 2: 2 Byte
+  index, offset_10_padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_10_padding_2(buffer, index, packet, parent)
 
   -- Md Future Price: 8 Byte Signed Fixed Width Integer
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_7_dissect.md_future_price(buffer, index, packet, parent)
@@ -1670,6 +1391,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.trade_bust_57_message_fields = function(
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = b3_equities_binaryumdf_sbe_v1_7_dissect.trade_date(buffer, index, packet, parent)
+
+  -- Offset 34 Padding 2: 2 Byte
+  index, offset_34_padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_34_padding_2(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_timestamp(buffer, index, packet, parent)
@@ -1811,8 +1535,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.execution_statistics_56_message = functi
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_session_id
@@ -1845,9 +1567,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.execution_statistics_56_message_fields =
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -1998,6 +1717,26 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.last_px = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Size: Offset 11 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_11_padding_1 = 1
+
+-- Display: Offset 11 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_display.offset_11_padding_1 = function(value)
+  return "Offset 11 Padding 1: "..value
+end
+
+-- Dissect: Offset 11 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_11_padding_1 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_11_padding_1
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_11_padding_1(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_11_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Aggressor Side
 b3_equities_binaryumdf_sbe_v1_7_size_of.aggressor_side = 1
 
@@ -2028,15 +1767,37 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.aggressor_side = function(buffer, offset
   return offset + length, value
 end
 
+-- Size: Offset 8 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_8_padding_2 = 2
+
+-- Display: Offset 8 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_display.offset_8_padding_2 = function(value)
+  return "Offset 8 Padding 2: "..value
+end
+
+-- Dissect: Offset 8 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_8_padding_2 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_8_padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_8_padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_8_padding_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Summary 55 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.execution_summary_55_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_8_padding_2
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.aggressor_side
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_11_padding_1
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.last_px
 
@@ -2067,11 +1828,14 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.execution_summary_55_message_fields = fu
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
+  -- Offset 8 Padding 2: 2 Byte
+  index, offset_8_padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_8_padding_2(buffer, index, packet, parent)
 
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, aggressor_side = b3_equities_binaryumdf_sbe_v1_7_dissect.aggressor_side(buffer, index, packet, parent)
+
+  -- Offset 11 Padding 1: 1 Byte
+  index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_11_padding_1(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = b3_equities_binaryumdf_sbe_v1_7_dissect.last_px(buffer, index, packet, parent)
@@ -2108,6 +1872,26 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.execution_summary_55_message = function(
   end
 
   return b3_equities_binaryumdf_sbe_v1_7_dissect.execution_summary_55_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Padding 3
+b3_equities_binaryumdf_sbe_v1_7_size_of.padding_3 = 3
+
+-- Display: Padding 3
+b3_equities_binaryumdf_sbe_v1_7_display.padding_3 = function(value)
+  return "Padding 3: "..value
+end
+
+-- Dissect: Padding 3
+b3_equities_binaryumdf_sbe_v1_7_dissect.padding_3 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.padding_3
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.padding_3(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.padding_3, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Trd Sub Type
@@ -2337,8 +2121,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.forward_trade_54_message = function(buff
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_session_id
@@ -2367,6 +2149,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.forward_trade_54_message = function(buff
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trd_sub_type
 
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.padding_3
+
   return index
 end
 
@@ -2381,9 +2165,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.forward_trade_54_message_fields = functi
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -2427,6 +2208,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.forward_trade_54_message_fields = functi
   -- Trd Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trd_sub_type = b3_equities_binaryumdf_sbe_v1_7_dissect.trd_sub_type(buffer, index, packet, parent)
 
+  -- Padding 3: 3 Byte
+  index, padding_3 = b3_equities_binaryumdf_sbe_v1_7_dissect.padding_3(buffer, index, packet, parent)
+
   return index
 end
 
@@ -2443,13 +2227,31 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.forward_trade_54_message = function(buff
   return b3_equities_binaryumdf_sbe_v1_7_dissect.forward_trade_54_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Offset 43 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_43_padding_1 = 1
+
+-- Display: Offset 43 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_display.offset_43_padding_1 = function(value)
+  return "Offset 43 Padding 1: "..value
+end
+
+-- Dissect: Offset 43 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_43_padding_1 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_43_padding_1
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_43_padding_1(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_43_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Trade 53 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.trade_53_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
@@ -2471,6 +2273,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.trade_53_message = function(buffer, offs
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trd_sub_type
 
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_43_padding_1
+
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_timestamp
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.rpt_seq
@@ -2489,9 +2293,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.trade_53_message_fields = function(buffe
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -2522,6 +2323,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.trade_53_message_fields = function(buffe
 
   -- Trd Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trd_sub_type = b3_equities_binaryumdf_sbe_v1_7_dissect.trd_sub_type(buffer, index, packet, parent)
+
+  -- Offset 43 Padding 1: 1 Byte
+  index, offset_43_padding_1 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_43_padding_1(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_timestamp(buffer, index, packet, parent)
@@ -2590,13 +2394,13 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.mass_delete_orders_mb_o_52_message = fun
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_update_action
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_type
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_11_padding_1
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_position_no
 
@@ -2619,9 +2423,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.mass_delete_orders_mb_o_52_message_field
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
@@ -2630,6 +2431,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.mass_delete_orders_mb_o_52_message_field
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
   index, md_entry_type = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_type(buffer, index, packet, parent)
+
+  -- Offset 11 Padding 1: 1 Byte
+  index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_11_padding_1(buffer, index, packet, parent)
 
   -- Md Entry Position No: 4 Byte Unsigned Fixed Width Integer
   index, md_entry_position_no = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_position_no(buffer, index, packet, parent)
@@ -2676,17 +2480,39 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_size_quantity_optional = functi
   return offset + length, value
 end
 
+-- Size: Offset 9 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_9_padding_1 = 1
+
+-- Display: Offset 9 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_display.offset_9_padding_1 = function(value)
+  return "Offset 9 Padding 1: "..value
+end
+
+-- Dissect: Offset 9 Padding 1
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_9_padding_1 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_9_padding_1
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_9_padding_1(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_9_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Delete Order Mb O 51 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.delete_order_mb_o_51_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_9_padding_1
+
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_type
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_11_padding_1
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_position_no
 
@@ -2713,14 +2539,17 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.delete_order_mb_o_51_message_fields = fu
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
+  -- Offset 9 Padding 1: 1 Byte
+  index, offset_9_padding_1 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_9_padding_1(buffer, index, packet, parent)
+
   -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
   index, md_entry_type = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_type(buffer, index, packet, parent)
+
+  -- Offset 11 Padding 1: 1 Byte
+  index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_11_padding_1(buffer, index, packet, parent)
 
   -- Md Entry Position No: 4 Byte Unsigned Fixed Width Integer
   index, md_entry_position_no = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_position_no(buffer, index, packet, parent)
@@ -2759,13 +2588,13 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.order_mb_o_50_message = function(buffer,
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_update_action
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_type
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_11_padding_1
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_corporate_offset_price_optional
 
@@ -2798,9 +2627,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.order_mb_o_50_message_fields = function(
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
@@ -2809,6 +2635,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.order_mb_o_50_message_fields = function(
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 21 values
   index, md_entry_type = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_type(buffer, index, packet, parent)
+
+  -- Offset 11 Padding 1: 1 Byte
+  index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_11_padding_1(buffer, index, packet, parent)
 
   -- Md Corporate Offset Price Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_corporate_offset_price_optional = b3_equities_binaryumdf_sbe_v1_7_dissect.md_corporate_offset_price_optional(buffer, index, packet, parent)
@@ -2866,6 +2695,26 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.last_rpt_seq = function(buffer, offset, 
   local display = b3_equities_binaryumdf_sbe_v1_7_display.last_rpt_seq(value, buffer, offset, packet, parent)
 
   parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.last_rpt_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offset 26 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_26_padding_2 = 2
+
+-- Display: Offset 26 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_display.offset_26_padding_2 = function(value)
+  return "Offset 26 Padding 2: "..value
+end
+
+-- Dissect: Offset 26 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_26_padding_2 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_26_padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_26_padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_26_padding_2, range, value, display)
 
   return offset + length, value
 end
@@ -2976,8 +2825,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.snapshot_full_refresh_header_30_message 
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.last_msg_seq_num_processed
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.tot_num_reports
@@ -2987,6 +2834,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.snapshot_full_refresh_header_30_message 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.tot_num_offers
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.tot_num_stats
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_26_padding_2
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.last_rpt_seq
 
@@ -3005,9 +2854,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.snapshot_full_refresh_header_30_message_
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index, last_msg_seq_num_processed = b3_equities_binaryumdf_sbe_v1_7_dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
@@ -3022,6 +2868,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.snapshot_full_refresh_header_30_message_
 
   -- Tot Num Stats: 2 Byte Unsigned Fixed Width Integer
   index, tot_num_stats = b3_equities_binaryumdf_sbe_v1_7_dissect.tot_num_stats(buffer, index, packet, parent)
+
+  -- Offset 26 Padding 2: 2 Byte
+  index, offset_26_padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_26_padding_2(buffer, index, packet, parent)
 
   -- Last Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, last_rpt_seq = b3_equities_binaryumdf_sbe_v1_7_dissect.last_rpt_seq(buffer, index, packet, parent)
@@ -3047,8 +2896,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.last_trade_price_27_message = function(b
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
@@ -3078,6 +2925,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.last_trade_price_27_message = function(b
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trd_sub_type
 
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.padding_3
+
   return index
 end
 
@@ -3092,9 +2941,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.last_trade_price_27_message_fields = fun
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -3138,6 +2984,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.last_trade_price_27_message_fields = fun
   -- Trd Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trd_sub_type = b3_equities_binaryumdf_sbe_v1_7_dissect.trd_sub_type(buffer, index, packet, parent)
 
+  -- Padding 3: 3 Byte
+  index, padding_3 = b3_equities_binaryumdf_sbe_v1_7_dissect.padding_3(buffer, index, packet, parent)
+
   return index
 end
 
@@ -3159,8 +3008,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.low_price_25_message = function(buffer, 
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
-
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
@@ -3188,9 +3035,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.low_price_25_message_fields = function(b
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -3232,8 +3076,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.high_price_24_message = function(buffer,
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_update_action
@@ -3260,9 +3102,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.high_price_24_message_fields = function(
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -3514,8 +3353,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.price_band_22_message = function(buffer,
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.price_band_type
@@ -3548,9 +3385,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.price_band_22_message_fields = function(
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -3635,15 +3469,35 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.avg_daily_traded_qty = function(buffer, 
   return offset + length, value
 end
 
+-- Size: Offset 9 Padding 3
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_9_padding_3 = 3
+
+-- Display: Offset 9 Padding 3
+b3_equities_binaryumdf_sbe_v1_7_display.offset_9_padding_3 = function(value)
+  return "Offset 9 Padding 3: "..value
+end
+
+-- Dissect: Offset 9 Padding 3
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_9_padding_3 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_9_padding_3
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_9_padding_3(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_9_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Quantity Band 21 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.quantity_band_21_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_9_padding_3
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.avg_daily_traded_qty
 
@@ -3668,11 +3522,11 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.quantity_band_21_message_fields = functi
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
+
+  -- Offset 9 Padding 3: 3 Byte
+  index, offset_9_padding_3 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_9_padding_3(buffer, index, packet, parent)
 
   -- Avg Daily Traded Qty: 8 Byte Signed Fixed Width Integer
   index, avg_daily_traded_qty = b3_equities_binaryumdf_sbe_v1_7_dissect.avg_daily_traded_qty(buffer, index, packet, parent)
@@ -3744,8 +3598,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.price_band_20_message = function(buffer,
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.price_band_type
@@ -3778,9 +3630,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.price_band_20_message_fields = function(
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -3880,8 +3729,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.auction_imbalance_19_message = function(
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_update_action
@@ -3908,9 +3755,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.auction_imbalance_19_message_fields = fu
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -4039,11 +3883,11 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.closing_price_17_message = function(buff
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.open_close_settl_flag
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_10_padding_2
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_corporate_price
 
@@ -4070,14 +3914,14 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.closing_price_17_message_fields = functi
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, open_close_settl_flag = b3_equities_binaryumdf_sbe_v1_7_dissect.open_close_settl_flag(buffer, index, packet, parent)
+
+  -- Offset 10 Padding 2: 2 Byte
+  index, offset_10_padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_10_padding_2(buffer, index, packet, parent)
 
   -- Md Corporate Price: 8 Byte Signed Fixed Width Integer
   index, md_corporate_price = b3_equities_binaryumdf_sbe_v1_7_dissect.md_corporate_price(buffer, index, packet, parent)
@@ -4116,8 +3960,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.theoretical_opening_price_16_message = f
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_update_action
@@ -4146,9 +3988,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.theoretical_opening_price_16_message_fie
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -4187,19 +4026,39 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.theoretical_opening_price_16_message = f
   return b3_equities_binaryumdf_sbe_v1_7_dissect.theoretical_opening_price_16_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 2
+b3_equities_binaryumdf_sbe_v1_7_size_of.padding_2 = 2
+
+-- Display: Padding 2
+b3_equities_binaryumdf_sbe_v1_7_display.padding_2 = function(value)
+  return "Padding 2: "..value
+end
+
+-- Dissect: Padding 2
+b3_equities_binaryumdf_sbe_v1_7_dissect.padding_2 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.padding_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Opening Price 15 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.opening_price_15_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_update_action
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.open_close_settl_flag
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_11_padding_1
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_future_price
 
@@ -4210,6 +4069,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.opening_price_15_message = function(buff
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_timestamp
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.rpt_seq
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.padding_2
 
   return index
 end
@@ -4226,9 +4087,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.opening_price_15_message_fields = functi
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
@@ -4237,6 +4095,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.opening_price_15_message_fields = functi
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, open_close_settl_flag = b3_equities_binaryumdf_sbe_v1_7_dissect.open_close_settl_flag(buffer, index, packet, parent)
+
+  -- Offset 11 Padding 1: 1 Byte
+  index, offset_11_padding_1 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_11_padding_1(buffer, index, packet, parent)
 
   -- Md Future Price: 8 Byte Signed Fixed Width Integer
   index, md_future_price = b3_equities_binaryumdf_sbe_v1_7_dissect.md_future_price(buffer, index, packet, parent)
@@ -4252,6 +4113,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.opening_price_15_message_fields = functi
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = b3_equities_binaryumdf_sbe_v1_7_dissect.rpt_seq(buffer, index, packet, parent)
+
+  -- Padding 2: 2 Byte
+  index, padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.padding_2(buffer, index, packet, parent)
 
   return index
 end
@@ -4667,8 +4531,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.news_5_message = function(buffer, offset
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id_optional
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.news_source
@@ -4705,9 +4567,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.news_5_message_fields = function(buffer,
 
   -- Security Id Optional: 8 Byte Unsigned Fixed Width Integer
   index, security_id_optional = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id_optional(buffer, index, packet, parent)
-
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
@@ -5152,42 +5011,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.leg_ratio_qty = function(buffer, offset,
   return offset + length, value
 end
 
--- Size: Leg Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_size_of.leg_security_exchange = 4
-
--- Display: Leg Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_display.leg_security_exchange = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Security Exchange: No Value"
-  end
-
-  return "Leg Security Exchange: "..value
-end
-
--- Dissect: Leg Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_dissect.leg_security_exchange = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.leg_security_exchange
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.leg_security_exchange(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.leg_security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Leg Security Id
 b3_equities_binaryumdf_sbe_v1_7_size_of.leg_security_id = 8
 
@@ -5214,8 +5037,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.no_legs_group = function(buffer, offset)
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.leg_security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.leg_security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.leg_ratio_qty
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.leg_security_type
@@ -5238,9 +5059,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.no_legs_group_fields = function(buffer, 
 
   -- Leg Security Id: 8 Byte Unsigned Fixed Width Integer
   index, leg_security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.leg_security_id(buffer, index, packet, parent)
-
-  -- Leg Security Exchange: 4 Byte Ascii String
-  index, leg_security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.leg_security_exchange(buffer, index, packet, parent)
 
   -- Leg Ratio Qty: 8 Byte Signed Fixed Width Integer
   index, leg_ratio_qty = b3_equities_binaryumdf_sbe_v1_7_dissect.leg_ratio_qty(buffer, index, packet, parent)
@@ -5278,7 +5096,7 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.no_legs_groups = function(buffer, offset
 
   -- Calculate field size from count
   local no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_legs_group_count * 42
+  index = index + no_legs_group_count * 38
 
   return index
 end
@@ -5298,7 +5116,7 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.no_legs_groups_fields = function(buffer,
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- No Legs Group: Struct of 6 fields
+  -- No Legs Group: Struct of 5 fields
   for i = 1, num_in_group do
     index = b3_equities_binaryumdf_sbe_v1_7_dissect.no_legs_group(buffer, index, packet, parent)
   end
@@ -5427,42 +5245,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.index_pct = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Size: Underlying Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_size_of.underlying_security_exchange = 4
-
--- Display: Underlying Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_display.underlying_security_exchange = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Security Exchange: No Value"
-  end
-
-  return "Underlying Security Exchange: "..value
-end
-
--- Dissect: Underlying Security Exchange
-b3_equities_binaryumdf_sbe_v1_7_dissect.underlying_security_exchange = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.underlying_security_exchange
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryumdf_sbe_v1_7_display.underlying_security_exchange(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.underlying_security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Underlying Security Id
 b3_equities_binaryumdf_sbe_v1_7_size_of.underlying_security_id = 8
 
@@ -5489,8 +5271,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.no_underlyings_group = function(buffer, 
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.underlying_security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.underlying_security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.index_pct
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.index_theoretical_qty
@@ -5511,9 +5291,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.no_underlyings_group_fields = function(b
 
   -- Underlying Security Id: 8 Byte Unsigned Fixed Width Integer
   index, underlying_security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.underlying_security_id(buffer, index, packet, parent)
-
-  -- Underlying Security Exchange: 4 Byte Ascii String
-  index, underlying_security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.underlying_security_exchange(buffer, index, packet, parent)
 
   -- Index Pct: 8 Byte Signed Fixed Width Integer Nullable
   index, index_pct = b3_equities_binaryumdf_sbe_v1_7_dissect.index_pct(buffer, index, packet, parent)
@@ -5548,7 +5325,7 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.no_underlyings_groups = function(buffer,
 
   -- Calculate field size from count
   local no_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + no_underlyings_group_count * 48
+  index = index + no_underlyings_group_count * 44
 
   return index
 end
@@ -5568,7 +5345,7 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.no_underlyings_groups_fields = function(
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- No Underlyings Group: Struct of 5 fields
+  -- No Underlyings Group: Struct of 4 fields
   for i = 1, num_in_group do
     index = b3_equities_binaryumdf_sbe_v1_7_dissect.no_underlyings_group(buffer, index, packet, parent)
   end
@@ -7212,6 +6989,42 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_id_source = function(buffer, of
   return offset + length, value
 end
 
+-- Size: Security Exchange
+b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange = 4
+
+-- Display: Security Exchange
+b3_equities_binaryumdf_sbe_v1_7_display.security_exchange = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
+  return "Security Exchange: "..value
+end
+
+-- Dissect: Security Exchange
+b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.security_exchange(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.security_exchange, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Security Definition 12 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.security_definition_12_message = function(buffer, offset)
   local index = 0
@@ -7907,6 +7720,26 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.trad_ses_open_time = function(buffer, of
   return offset + length, value
 end
 
+-- Size: Offset 14 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_14_padding_2 = 2
+
+-- Display: Offset 14 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_display.offset_14_padding_2 = function(value)
+  return "Offset 14 Padding 2: "..value
+end
+
+-- Dissect: Offset 14 Padding 2
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_14_padding_2 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_14_padding_2
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_14_padding_2(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_14_padding_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Security Trading Event
 b3_equities_binaryumdf_sbe_v1_7_size_of.security_trading_event = 1
 
@@ -7982,11 +7815,33 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.trading_session_sub_id = function(buffer
   return offset + length, value
 end
 
+-- Size: Offset 3 Padding 5
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_3_padding_5 = 5
+
+-- Display: Offset 3 Padding 5
+b3_equities_binaryumdf_sbe_v1_7_display.offset_3_padding_5 = function(value)
+  return "Offset 3 Padding 5: "..value
+end
+
+-- Dissect: Offset 3 Padding 5
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_3_padding_5 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_3_padding_5
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_3_padding_5(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_3_padding_5, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Security Group Phase 10 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.security_group_phase_10_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_group
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_3_padding_5
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
@@ -7997,6 +7852,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.security_group_phase_10_message = functi
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_trading_event
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trade_date
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_14_padding_2
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trad_ses_open_time
 
@@ -8017,6 +7874,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_group_phase_10_message_fields =
   -- Security Group: 3 Byte Ascii String
   index, security_group = b3_equities_binaryumdf_sbe_v1_7_dissect.security_group(buffer, index, packet, parent)
 
+  -- Offset 3 Padding 5: 5 Byte
+  index, offset_3_padding_5 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_3_padding_5(buffer, index, packet, parent)
+
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
@@ -8031,6 +7891,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_group_phase_10_message_fields =
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = b3_equities_binaryumdf_sbe_v1_7_dissect.trade_date(buffer, index, packet, parent)
+
+  -- Offset 14 Padding 2: 2 Byte
+  index, offset_14_padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_14_padding_2(buffer, index, packet, parent)
 
   -- Trad Ses Open Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trad_ses_open_time = b3_equities_binaryumdf_sbe_v1_7_dissect.trad_ses_open_time(buffer, index, packet, parent)
@@ -8102,8 +7965,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.security_status_3_message = function(buf
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trading_session_id
@@ -8113,6 +7974,8 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.security_status_3_message = function(buf
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_trading_event
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trade_date
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_14_padding_2
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.trad_ses_open_time
 
@@ -8135,9 +7998,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_status_3_message_fields = funct
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
 
@@ -8152,6 +8012,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_status_3_message_fields = funct
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = b3_equities_binaryumdf_sbe_v1_7_dissect.trade_date(buffer, index, packet, parent)
+
+  -- Offset 14 Padding 2: 2 Byte
+  index, offset_14_padding_2 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_14_padding_2(buffer, index, packet, parent)
 
   -- Trad Ses Open Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trad_ses_open_time = b3_equities_binaryumdf_sbe_v1_7_dissect.trad_ses_open_time(buffer, index, packet, parent)
@@ -8178,11 +8041,33 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.security_status_3_message = function(buf
   return b3_equities_binaryumdf_sbe_v1_7_dissect.security_status_3_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Offset 1 Padding 3
+b3_equities_binaryumdf_sbe_v1_7_size_of.offset_1_padding_3 = 3
+
+-- Display: Offset 1 Padding 3
+b3_equities_binaryumdf_sbe_v1_7_display.offset_1_padding_3 = function(value)
+  return "Offset 1 Padding 3: "..value
+end
+
+-- Dissect: Offset 1 Padding 3
+b3_equities_binaryumdf_sbe_v1_7_dissect.offset_1_padding_3 = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.offset_1_padding_3
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.offset_1_padding_3(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.offset_1_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Channel Reset 11 Message
 b3_equities_binaryumdf_sbe_v1_7_size_of.channel_reset_11_message = function(buffer, offset)
   local index = 0
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_1_padding_3
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_timestamp
 
@@ -8200,6 +8085,9 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.channel_reset_11_message_fields = functi
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
+
+  -- Offset 1 Padding 3: 3 Byte
+  index, offset_1_padding_3 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_1_padding_3(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_timestamp(buffer, index, packet, parent)
@@ -8226,9 +8114,9 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.empty_book_9_message = function(buffer, 
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_id
 
-  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.security_exchange
-
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.match_event_indicator
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.offset_9_padding_3
 
   index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.md_entry_timestamp
 
@@ -8247,11 +8135,11 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.empty_book_9_message_fields = function(b
   -- Security Id: 8 Byte Unsigned Fixed Width Integer
   index, security_id = b3_equities_binaryumdf_sbe_v1_7_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String
-  index, security_exchange = b3_equities_binaryumdf_sbe_v1_7_dissect.security_exchange(buffer, index, packet, parent)
-
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = b3_equities_binaryumdf_sbe_v1_7_dissect.match_event_indicator(buffer, index, packet, parent)
+
+  -- Offset 9 Padding 3: 3 Byte
+  index, offset_9_padding_3 = b3_equities_binaryumdf_sbe_v1_7_dissect.offset_9_padding_3(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_timestamp = b3_equities_binaryumdf_sbe_v1_7_dissect.md_entry_timestamp(buffer, index, packet, parent)
@@ -8447,10 +8335,6 @@ b3_equities_binaryumdf_sbe_v1_7_size_of.payload = function(buffer, offset, templ
   if template_id == 71 then
     return b3_equities_binaryumdf_sbe_v1_7_size_of.snapshot_full_refresh_orders_mb_o_71_message(buffer, offset)
   end
-  -- Size of Header Message 0
-  if template_id == 0 then
-    return b3_equities_binaryumdf_sbe_v1_7_size_of.header_message_0(buffer, offset)
-  end
 
   return 0
 end
@@ -8576,10 +8460,6 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.payload_branches = function(buffer, offs
   -- Dissect Snapshot Full Refresh Orders Mb O 71 Message
   if template_id == 71 then
     return b3_equities_binaryumdf_sbe_v1_7_dissect.snapshot_full_refresh_orders_mb_o_71_message(buffer, offset, packet, parent)
-  end
-  -- Dissect Header Message 0
-  if template_id == 0 then
-    return b3_equities_binaryumdf_sbe_v1_7_dissect.header_message_0(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8737,9 +8617,6 @@ b3_equities_binaryumdf_sbe_v1_7_display.template_id = function(value)
   if value == 71 then
     return "Template Id: Snapshot Full Refresh Orders Mb O 71 Message (71)"
   end
-  if value == 0 then
-    return "Template Id: Header Message 0 (0)"
-  end
 
   return "Template Id: Unknown("..value..")"
 end
@@ -8783,7 +8660,7 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.message_header_fields = function(buffer,
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = b3_equities_binaryumdf_sbe_v1_7_dissect.block_length(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 30 values
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 29 values
   index, template_id = b3_equities_binaryumdf_sbe_v1_7_dissect.template_id(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
@@ -8808,6 +8685,46 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.message_header = function(buffer, offset
   return b3_equities_binaryumdf_sbe_v1_7_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Encoding Type
+b3_equities_binaryumdf_sbe_v1_7_size_of.encoding_type = 2
+
+-- Display: Encoding Type
+b3_equities_binaryumdf_sbe_v1_7_display.encoding_type = function(value)
+  return "Encoding Type: "..value
+end
+
+-- Dissect: Encoding Type
+b3_equities_binaryumdf_sbe_v1_7_dissect.encoding_type = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.encoding_type
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.encoding_type(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.encoding_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Message Length
+b3_equities_binaryumdf_sbe_v1_7_size_of.message_length = 2
+
+-- Display: Message Length
+b3_equities_binaryumdf_sbe_v1_7_display.message_length = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+b3_equities_binaryumdf_sbe_v1_7_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.message_length
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.message_length(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
 -- Display: Message
 b3_equities_binaryumdf_sbe_v1_7_display.message = function(buffer, offset, size, packet, parent)
   return ""
@@ -8829,7 +8746,7 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.message_fields = function(buffer, offset
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
-  -- Payload: Runtime Type with 30 branches
+  -- Payload: Runtime Type with 29 branches
   index = b3_equities_binaryumdf_sbe_v1_7_dissect.payload(buffer, index, packet, parent, template_id)
 
   return index
@@ -8847,6 +8764,163 @@ b3_equities_binaryumdf_sbe_v1_7_dissect.message = function(buffer, offset, packe
   b3_equities_binaryumdf_sbe_v1_7_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
   return offset + size_of_message
+end
+
+-- Size: Sending Time
+b3_equities_binaryumdf_sbe_v1_7_size_of.sending_time = 8
+
+-- Display: Sending Time
+b3_equities_binaryumdf_sbe_v1_7_display.sending_time = function(value)
+  return "Sending Time: "..value
+end
+
+-- Dissect: Sending Time
+b3_equities_binaryumdf_sbe_v1_7_dissect.sending_time = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.sending_time
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.sending_time(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Sequence Number
+b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_number = 4
+
+-- Display: Sequence Number
+b3_equities_binaryumdf_sbe_v1_7_display.sequence_number = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_number
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.sequence_number(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Sequence Version
+b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_version = 2
+
+-- Display: Sequence Version
+b3_equities_binaryumdf_sbe_v1_7_display.sequence_version = function(value)
+  return "Sequence Version: "..value
+end
+
+-- Dissect: Sequence Version
+b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_version = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_version
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.sequence_version(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.sequence_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Reserved
+b3_equities_binaryumdf_sbe_v1_7_size_of.reserved = 1
+
+-- Display: Reserved
+b3_equities_binaryumdf_sbe_v1_7_display.reserved = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+b3_equities_binaryumdf_sbe_v1_7_dissect.reserved = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.reserved
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.reserved(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Channel Id
+b3_equities_binaryumdf_sbe_v1_7_size_of.channel_id = 1
+
+-- Display: Channel Id
+b3_equities_binaryumdf_sbe_v1_7_display.channel_id = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+b3_equities_binaryumdf_sbe_v1_7_dissect.channel_id = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_7_size_of.channel_id
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = b3_equities_binaryumdf_sbe_v1_7_display.channel_id(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Packet Header
+b3_equities_binaryumdf_sbe_v1_7_size_of.packet_header = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.channel_id
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.reserved
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_version
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.sequence_number
+
+  index = index + b3_equities_binaryumdf_sbe_v1_7_size_of.sending_time
+
+  return index
+end
+
+-- Display: Packet Header
+b3_equities_binaryumdf_sbe_v1_7_display.packet_header = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+b3_equities_binaryumdf_sbe_v1_7_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  index, channel_id = b3_equities_binaryumdf_sbe_v1_7_dissect.channel_id(buffer, index, packet, parent)
+
+  -- Reserved: 1 Byte Unsigned Fixed Width Integer
+  index, reserved = b3_equities_binaryumdf_sbe_v1_7_dissect.reserved(buffer, index, packet, parent)
+
+  -- Sequence Version: 2 Byte Unsigned Fixed Width Integer
+  index, sequence_version = b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_version(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = b3_equities_binaryumdf_sbe_v1_7_dissect.sequence_number(buffer, index, packet, parent)
+
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  index, sending_time = b3_equities_binaryumdf_sbe_v1_7_dissect.sending_time(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+b3_equities_binaryumdf_sbe_v1_7_dissect.packet_header = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.packet_header then
+    local length = b3_equities_binaryumdf_sbe_v1_7_size_of.packet_header(buffer, offset)
+    local range = buffer(offset, length)
+    local display = b3_equities_binaryumdf_sbe_v1_7_display.packet_header(buffer, packet, parent)
+    parent = parent:add(b3_equities_binaryumdf_sbe_v1_7.fields.packet_header, range, display)
+  end
+
+  return b3_equities_binaryumdf_sbe_v1_7_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
