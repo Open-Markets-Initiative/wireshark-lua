@@ -58,6 +58,8 @@ b3_equities_binaryumdf_sbe_v1_8.fields.governance_indicator = ProtoField.new("Go
 b3_equities_binaryumdf_sbe_v1_8.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.equities.binaryumdf.sbe.v1.8.groupsizeencoding", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.header_message_0_message = ProtoField.new("Header Message 0 Message", "b3.equities.binaryumdf.sbe.v1.8.headermessage0message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.headline = ProtoField.new("Headline", "b3.equities.binaryumdf.sbe.v1.8.headline", ftypes.STRING)
+b3_equities_binaryumdf_sbe_v1_8.fields.headline_data = ProtoField.new("Headline Data", "b3.equities.binaryumdf.sbe.v1.8.headlinedata", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_8.fields.headline_length = ProtoField.new("Headline Length", "b3.equities.binaryumdf.sbe.v1.8.headlinelength", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_8.fields.high_limit_price = ProtoField.new("High Limit Price", "b3.equities.binaryumdf.sbe.v1.8.highlimitprice", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_8.fields.high_price_24_message = ProtoField.new("High Price 24 Message", "b3.equities.binaryumdf.sbe.v1.8.highprice24message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.imbalance_condition = ProtoField.new("Imbalance Condition", "b3.equities.binaryumdf.sbe.v1.8.imbalancecondition", ftypes.STRING)
@@ -87,7 +89,6 @@ b3_equities_binaryumdf_sbe_v1_8.fields.leg_security_id = ProtoField.new("Leg Sec
 b3_equities_binaryumdf_sbe_v1_8.fields.leg_security_type = ProtoField.new("Leg Security Type", "b3.equities.binaryumdf.sbe.v1.8.legsecuritytype", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_8.fields.leg_side = ProtoField.new("Leg Side", "b3.equities.binaryumdf.sbe.v1.8.legside", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_8.fields.leg_symbol = ProtoField.new("Leg Symbol", "b3.equities.binaryumdf.sbe.v1.8.legsymbol", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_8.fields.length = ProtoField.new("Length", "b3.equities.binaryumdf.sbe.v1.8.length", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_8.fields.lot_type = ProtoField.new("Lot Type", "b3.equities.binaryumdf.sbe.v1.8.lottype", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_8.fields.low_limit_price = ProtoField.new("Low Limit Price", "b3.equities.binaryumdf.sbe.v1.8.lowlimitprice", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_8.fields.low_price_25_message = ProtoField.new("Low Price 25 Message", "b3.equities.binaryumdf.sbe.v1.8.lowprice25message", ftypes.STRING)
@@ -188,6 +189,8 @@ b3_equities_binaryumdf_sbe_v1_8.fields.secondary_order_id = ProtoField.new("Seco
 b3_equities_binaryumdf_sbe_v1_8.fields.security_definition_12_message = ProtoField.new("Security Definition 12 Message", "b3.equities.binaryumdf.sbe.v1.8.securitydefinition12message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.security_definition_4_message = ProtoField.new("Security Definition 4 Message", "b3.equities.binaryumdf.sbe.v1.8.securitydefinition4message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.security_desc = ProtoField.new("Security Desc", "b3.equities.binaryumdf.sbe.v1.8.securitydesc", ftypes.STRING)
+b3_equities_binaryumdf_sbe_v1_8.fields.security_desc_data = ProtoField.new("Security Desc Data", "b3.equities.binaryumdf.sbe.v1.8.securitydescdata", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_8.fields.security_desc_length = ProtoField.new("Security Desc Length", "b3.equities.binaryumdf.sbe.v1.8.securitydesclength", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_8.fields.security_exchange = ProtoField.new("Security Exchange", "b3.equities.binaryumdf.sbe.v1.8.securityexchange", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.security_group = ProtoField.new("Security Group", "b3.equities.binaryumdf.sbe.v1.8.securitygroup", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.security_group_phase_10_message = ProtoField.new("Security Group Phase 10 Message", "b3.equities.binaryumdf.sbe.v1.8.securitygroupphase10message", ftypes.STRING)
@@ -221,7 +224,8 @@ b3_equities_binaryumdf_sbe_v1_8.fields.strike_price = ProtoField.new("Strike Pri
 b3_equities_binaryumdf_sbe_v1_8.fields.symbol = ProtoField.new("Symbol", "b3.equities.binaryumdf.sbe.v1.8.symbol", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.template_id = ProtoField.new("Template Id", "b3.equities.binaryumdf.sbe.v1.8.templateid", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_8.fields.text = ProtoField.new("Text", "b3.equities.binaryumdf.sbe.v1.8.text", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_8.fields.text_length = ProtoField.new("Text Length", "b3.equities.binaryumdf.sbe.v1.8.textlength", ftypes.UINT8)
+b3_equities_binaryumdf_sbe_v1_8.fields.text_data = ProtoField.new("Text Data", "b3.equities.binaryumdf.sbe.v1.8.textdata", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_8.fields.text_length = ProtoField.new("Text Length", "b3.equities.binaryumdf.sbe.v1.8.textlength", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_8.fields.theoretical_opening_price_16_message = ProtoField.new("Theoretical Opening Price 16 Message", "b3.equities.binaryumdf.sbe.v1.8.theoreticalopeningprice16message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.tick_size_denominator = ProtoField.new("Tick Size Denominator", "b3.equities.binaryumdf.sbe.v1.8.ticksizedenominator", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_8.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.equities.binaryumdf.sbe.v1.8.totnorelatedsym", ftypes.UINT32)
@@ -248,8 +252,8 @@ b3_equities_binaryumdf_sbe_v1_8.fields.trd_sub_type = ProtoField.new("Trd Sub Ty
 b3_equities_binaryumdf_sbe_v1_8.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "b3.equities.binaryumdf.sbe.v1.8.underlyingsecurityid", ftypes.UINT64)
 b3_equities_binaryumdf_sbe_v1_8.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.equities.binaryumdf.sbe.v1.8.underlyingsymbol", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_8.fields.url_link = ProtoField.new("Url Link", "b3.equities.binaryumdf.sbe.v1.8.urllink", ftypes.STRING)
-b3_equities_binaryumdf_sbe_v1_8.fields.var_data = ProtoField.new("Var Data", "b3.equities.binaryumdf.sbe.v1.8.vardata", ftypes.BYTES)
-b3_equities_binaryumdf_sbe_v1_8.fields.var_text = ProtoField.new("Var Text", "b3.equities.binaryumdf.sbe.v1.8.vartext", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_8.fields.url_link_data = ProtoField.new("Url Link Data", "b3.equities.binaryumdf.sbe.v1.8.urllinkdata", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_8.fields.url_link_length = ProtoField.new("Url Link Length", "b3.equities.binaryumdf.sbe.v1.8.urllinklength", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_8.fields.version = ProtoField.new("Version", "b3.equities.binaryumdf.sbe.v1.8.version", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_8.fields.vwap_px = ProtoField.new("Vwap Px", "b3.equities.binaryumdf.sbe.v1.8.vwappx", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_8.fields.week = ProtoField.new("Week", "b3.equities.binaryumdf.sbe.v1.8.week", ftypes.UINT8)
@@ -911,58 +915,58 @@ b3_equities_binaryumdf_sbe_v1_8_display.md_entry_type = function(value)
     return "Md Entry Type: Trade (2)"
   end
   if value == "3" then
-    return "Md Entry Type: Indexvalue (3)"
+    return "Md Entry Type: Index Value (3)"
   end
   if value == "4" then
-    return "Md Entry Type: Openingprice (4)"
+    return "Md Entry Type: Opening Price (4)"
   end
   if value == "5" then
-    return "Md Entry Type: Closingprice (5)"
+    return "Md Entry Type: Closing Price (5)"
   end
   if value == "6" then
-    return "Md Entry Type: Settlementprice (6)"
+    return "Md Entry Type: Settlement Price (6)"
   end
   if value == "7" then
-    return "Md Entry Type: Sessionhighprice (7)"
+    return "Md Entry Type: Session High Price (7)"
   end
   if value == "8" then
-    return "Md Entry Type: Sessionlowprice (8)"
+    return "Md Entry Type: Session Low Price (8)"
   end
   if value == "9" then
-    return "Md Entry Type: Executionstatistics (9)"
+    return "Md Entry Type: Execution Statistics (9)"
   end
   if value == "A" then
     return "Md Entry Type: Imbalance (A)"
   end
   if value == "B" then
-    return "Md Entry Type: Tradevolume (B)"
+    return "Md Entry Type: Trade Volume (B)"
   end
   if value == "C" then
-    return "Md Entry Type: Openinterest (C)"
+    return "Md Entry Type: Open Interest (C)"
   end
   if value == "J" then
-    return "Md Entry Type: Emptybook (J)"
+    return "Md Entry Type: Empty Book (J)"
   end
   if value == "c" then
-    return "Md Entry Type: Securitytradingstatephase (c)"
+    return "Md Entry Type: Security Trading State Phase (c)"
   end
   if value == "g" then
-    return "Md Entry Type: Priceband (g)"
+    return "Md Entry Type: Price Band (g)"
   end
   if value == "h" then
-    return "Md Entry Type: Quantityband (h)"
+    return "Md Entry Type: Quantity Band (h)"
   end
   if value == "D" then
-    return "Md Entry Type: Compositeunderlyingprice (D)"
+    return "Md Entry Type: Composite Underlying Price (D)"
   end
   if value == "s" then
-    return "Md Entry Type: Executionsummary (s)"
+    return "Md Entry Type: Execution Summary (s)"
   end
   if value == "v" then
-    return "Md Entry Type: Volatilityprice (v)"
+    return "Md Entry Type: Volatility Price (v)"
   end
   if value == "u" then
-    return "Md Entry Type: Tradebust (u)"
+    return "Md Entry Type: Trade Bust (u)"
   end
 
   return "Md Entry Type: Unknown("..value..")"
@@ -1536,10 +1540,10 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.trading_session_id = 1
 -- Display: Trading Session Id
 b3_equities_binaryumdf_sbe_v1_8_display.trading_session_id = function(value)
   if value == 1 then
-    return "Trading Session Id: Regulartradingsession (1)"
+    return "Trading Session Id: Regular Trading Session (1)"
   end
   if value == 6 then
-    return "Trading Session Id: Nonregulartradingsession (6)"
+    return "Trading Session Id: Non Regular Trading Session (6)"
   end
 
   return "Trading Session Id: Unknown("..value..")"
@@ -2055,7 +2059,7 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.aggressor_side = 1
 -- Display: Aggressor Side
 b3_equities_binaryumdf_sbe_v1_8_display.aggressor_side = function(value)
   if value == 0 then
-    return "Aggressor Side: Noaggressor (0)"
+    return "Aggressor Side: No Aggressor (0)"
   end
   if value == 1 then
     return "Aggressor Side: Buy (1)"
@@ -2212,31 +2216,31 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.trd_sub_type = 1
 -- Display: Trd Sub Type
 b3_equities_binaryumdf_sbe_v1_8_display.trd_sub_type = function(value)
   if value == 101 then
-    return "Trd Sub Type: Multiassettrade (101)"
+    return "Trd Sub Type: Multi Asset Trade (101)"
   end
   if value == 102 then
-    return "Trd Sub Type: Legtrade (102)"
+    return "Trd Sub Type: Leg Trade (102)"
   end
   if value == 103 then
-    return "Trd Sub Type: Midpointtrade (103)"
+    return "Trd Sub Type: Midpoint Trade (103)"
   end
   if value == 104 then
-    return "Trd Sub Type: Blockbooktrade (104)"
+    return "Trd Sub Type: Block Book Trade (104)"
   end
   if value == 105 then
-    return "Trd Sub Type: Rftrade (105)"
+    return "Trd Sub Type: Rf Trade (105)"
   end
   if value == 106 then
-    return "Trd Sub Type: Rlptrade (106)"
+    return "Trd Sub Type: Rlp Trade (106)"
   end
   if value == 107 then
-    return "Trd Sub Type: Tactrade (107)"
+    return "Trd Sub Type: Tac Trade (107)"
   end
   if value == 108 then
-    return "Trd Sub Type: Taatrade (108)"
+    return "Trd Sub Type: Taa Trade (108)"
   end
   if value == 109 then
-    return "Trd Sub Type: Sweeptrade (109)"
+    return "Trd Sub Type: Sweep Trade (109)"
   end
   if value == 0 then
     return "Trd Sub Type: No Value"
@@ -2679,10 +2683,10 @@ b3_equities_binaryumdf_sbe_v1_8_display.md_update_action = function(value)
     return "Md Update Action: Delete (2)"
   end
   if value == 3 then
-    return "Md Update Action: Deletethru (3)"
+    return "Md Update Action: Delete Thru (3)"
   end
   if value == 4 then
-    return "Md Update Action: Deletefrom (4)"
+    return "Md Update Action: Delete From (4)"
   end
   if value == 5 then
     return "Md Update Action: Overlay (5)"
@@ -3335,7 +3339,7 @@ b3_equities_binaryumdf_sbe_v1_8_display.price_type_price_type = function(value)
     return "Price Type Price Type: Pu (2)"
   end
   if value == 3 then
-    return "Price Type Price Type: Fixedamount (3)"
+    return "Price Type Price Type: Fixed Amount (3)"
   end
 
   return "Price Type Price Type: Unknown("..value..")"
@@ -3365,13 +3369,13 @@ b3_equities_binaryumdf_sbe_v1_8_display.open_close_settl_flag = function(value)
     return "Open Close Settl Flag: Session (1)"
   end
   if value == 3 then
-    return "Open Close Settl Flag: Expectedentry (3)"
+    return "Open Close Settl Flag: Expected Entry (3)"
   end
   if value == 4 then
-    return "Open Close Settl Flag: Entryfrompreviousbusinessday (4)"
+    return "Open Close Settl Flag: Entry From Previous Business Day (4)"
   end
   if value == 5 then
-    return "Open Close Settl Flag: Theoreticalprice (5)"
+    return "Open Close Settl Flag: Theoretical Price (5)"
   end
 
   return "Open Close Settl Flag: Unknown("..value..")"
@@ -3836,13 +3840,13 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.price_band_midpoint_price_type = 1
 -- Display: Price Band Midpoint Price Type
 b3_equities_binaryumdf_sbe_v1_8_display.price_band_midpoint_price_type = function(value)
   if value == 0 then
-    return "Price Band Midpoint Price Type: Lasttradedprice (0)"
+    return "Price Band Midpoint Price Type: Last Traded Price (0)"
   end
   if value == 1 then
-    return "Price Band Midpoint Price Type: Complementarylastprice (1)"
+    return "Price Band Midpoint Price Type: Complementary Last Price (1)"
   end
   if value == 2 then
-    return "Price Band Midpoint Price Type: Theoreticalprice (2)"
+    return "Price Band Midpoint Price Type: Theoretical Price (2)"
   end
   if value == 255 then
     return "Price Band Midpoint Price Type: No Value"
@@ -3869,7 +3873,7 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.price_limit_type = 1
 -- Display: Price Limit Type
 b3_equities_binaryumdf_sbe_v1_8_display.price_limit_type = function(value)
   if value == 0 then
-    return "Price Limit Type: Priceunit (0)"
+    return "Price Limit Type: Price Unit (0)"
   end
   if value == 1 then
     return "Price Limit Type: Ticks (1)"
@@ -3902,16 +3906,16 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.price_band_type = 1
 -- Display: Price Band Type
 b3_equities_binaryumdf_sbe_v1_8_display.price_band_type = function(value)
   if value == 1 then
-    return "Price Band Type: Hardlimit (1)"
+    return "Price Band Type: Hard Limit (1)"
   end
   if value == 2 then
-    return "Price Band Type: Auctionlimits (2)"
+    return "Price Band Type: Auction Limits (2)"
   end
   if value == 3 then
-    return "Price Band Type: Rejectionband (3)"
+    return "Price Band Type: Rejection Band (3)"
   end
   if value == 4 then
-    return "Price Band Type: Staticlimits (4)"
+    return "Price Band Type: Static Limits (4)"
   end
   if value == 255 then
     return "Price Band Type: No Value"
@@ -4682,38 +4686,38 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.opening_price_15_message = function(buff
   return b3_equities_binaryumdf_sbe_v1_8_dissect.opening_price_15_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Var Data
-b3_equities_binaryumdf_sbe_v1_8_display.var_data = function(value)
-  return "Var Data: "..value
+-- Display: Url Link Data
+b3_equities_binaryumdf_sbe_v1_8_display.url_link_data = function(value)
+  return "Url Link Data: "..value
 end
 
--- Dissect runtime sized field: Var Data
-b3_equities_binaryumdf_sbe_v1_8_dissect.var_data = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Url Link Data
+b3_equities_binaryumdf_sbe_v1_8_dissect.url_link_data = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryumdf_sbe_v1_8_display.var_data(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.url_link_data(value, buffer, offset, packet, parent, size)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.var_data, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.url_link_data, range, value, display)
 
   return offset + size
 end
 
--- Size: Length
-b3_equities_binaryumdf_sbe_v1_8_size_of.length = 2
+-- Size: Url Link Length
+b3_equities_binaryumdf_sbe_v1_8_size_of.url_link_length = 2
 
--- Display: Length
-b3_equities_binaryumdf_sbe_v1_8_display.length = function(value)
-  return "Length: "..value
+-- Display: Url Link Length
+b3_equities_binaryumdf_sbe_v1_8_display.url_link_length = function(value)
+  return "Url Link Length: "..value
 end
 
--- Dissect: Length
-b3_equities_binaryumdf_sbe_v1_8_dissect.length = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_8_size_of.length
+-- Dissect: Url Link Length
+b3_equities_binaryumdf_sbe_v1_8_dissect.url_link_length = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_8_size_of.url_link_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_8_display.length(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.url_link_length(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.length, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.url_link_length, range, value, display)
 
   return offset + length, value
 end
@@ -4722,9 +4726,9 @@ end
 b3_equities_binaryumdf_sbe_v1_8_size_of.url_link = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.length
+  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.url_link_length
 
-  -- Parse runtime size of: Var Data
+  -- Parse runtime size of: Url Link Data
   index = index + buffer(offset + index - 2, 2):le_uint()
 
   return index
@@ -4739,11 +4743,11 @@ end
 b3_equities_binaryumdf_sbe_v1_8_dissect.url_link_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = b3_equities_binaryumdf_sbe_v1_8_dissect.length(buffer, index, packet, parent)
+  -- Url Link Length: 2 Byte Unsigned Fixed Width Integer
+  index, url_link_length = b3_equities_binaryumdf_sbe_v1_8_dissect.url_link_length(buffer, index, packet, parent)
 
-  -- Var Data: 0 Byte
-  index = b3_equities_binaryumdf_sbe_v1_8_dissect.var_data(buffer, index, packet, parent, length)
+  -- Url Link Data: 0 Byte
+  index = b3_equities_binaryumdf_sbe_v1_8_dissect.url_link_data(buffer, index, packet, parent, url_link_length)
 
   return index
 end
@@ -4761,13 +4765,49 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.url_link = function(buffer, offset, pack
   return b3_equities_binaryumdf_sbe_v1_8_dissect.url_link_fields(buffer, offset, packet, parent)
 end
 
+-- Display: Text Data
+b3_equities_binaryumdf_sbe_v1_8_display.text_data = function(value)
+  return "Text Data: "..value
+end
+
+-- Dissect runtime sized field: Text Data
+b3_equities_binaryumdf_sbe_v1_8_dissect.text_data = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.text_data(value, buffer, offset, packet, parent, size)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.text_data, range, value, display)
+
+  return offset + size
+end
+
+-- Size: Text Length
+b3_equities_binaryumdf_sbe_v1_8_size_of.text_length = 2
+
+-- Display: Text Length
+b3_equities_binaryumdf_sbe_v1_8_display.text_length = function(value)
+  return "Text Length: "..value
+end
+
+-- Dissect: Text Length
+b3_equities_binaryumdf_sbe_v1_8_dissect.text_length = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_8_size_of.text_length
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.text_length(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.text_length, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Text
 b3_equities_binaryumdf_sbe_v1_8_size_of.text = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.length
+  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.text_length
 
-  -- Parse runtime size of: Var Data
+  -- Parse runtime size of: Text Data
   index = index + buffer(offset + index - 2, 2):le_uint()
 
   return index
@@ -4782,11 +4822,11 @@ end
 b3_equities_binaryumdf_sbe_v1_8_dissect.text_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = b3_equities_binaryumdf_sbe_v1_8_dissect.length(buffer, index, packet, parent)
+  -- Text Length: 2 Byte Unsigned Fixed Width Integer
+  index, text_length = b3_equities_binaryumdf_sbe_v1_8_dissect.text_length(buffer, index, packet, parent)
 
-  -- Var Data: 0 Byte
-  index = b3_equities_binaryumdf_sbe_v1_8_dissect.var_data(buffer, index, packet, parent, length)
+  -- Text Data: 0 Byte
+  index = b3_equities_binaryumdf_sbe_v1_8_dissect.text_data(buffer, index, packet, parent, text_length)
 
   return index
 end
@@ -4804,13 +4844,49 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.text = function(buffer, offset, packet, 
   return b3_equities_binaryumdf_sbe_v1_8_dissect.text_fields(buffer, offset, packet, parent)
 end
 
+-- Display: Headline Data
+b3_equities_binaryumdf_sbe_v1_8_display.headline_data = function(value)
+  return "Headline Data: "..value
+end
+
+-- Dissect runtime sized field: Headline Data
+b3_equities_binaryumdf_sbe_v1_8_dissect.headline_data = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.headline_data(value, buffer, offset, packet, parent, size)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.headline_data, range, value, display)
+
+  return offset + size
+end
+
+-- Size: Headline Length
+b3_equities_binaryumdf_sbe_v1_8_size_of.headline_length = 2
+
+-- Display: Headline Length
+b3_equities_binaryumdf_sbe_v1_8_display.headline_length = function(value)
+  return "Headline Length: "..value
+end
+
+-- Dissect: Headline Length
+b3_equities_binaryumdf_sbe_v1_8_dissect.headline_length = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_8_size_of.headline_length
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.headline_length(value, buffer, offset, packet, parent)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.headline_length, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Headline
 b3_equities_binaryumdf_sbe_v1_8_size_of.headline = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.length
+  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.headline_length
 
-  -- Parse runtime size of: Var Data
+  -- Parse runtime size of: Headline Data
   index = index + buffer(offset + index - 2, 2):le_uint()
 
   return index
@@ -4825,11 +4901,11 @@ end
 b3_equities_binaryumdf_sbe_v1_8_dissect.headline_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = b3_equities_binaryumdf_sbe_v1_8_dissect.length(buffer, index, packet, parent)
+  -- Headline Length: 2 Byte Unsigned Fixed Width Integer
+  index, headline_length = b3_equities_binaryumdf_sbe_v1_8_dissect.headline_length(buffer, index, packet, parent)
 
-  -- Var Data: 0 Byte
-  index = b3_equities_binaryumdf_sbe_v1_8_dissect.var_data(buffer, index, packet, parent, length)
+  -- Headline Data: 0 Byte
+  index = b3_equities_binaryumdf_sbe_v1_8_dissect.headline_data(buffer, index, packet, parent, headline_length)
 
   return index
 end
@@ -5003,40 +5079,40 @@ b3_equities_binaryumdf_sbe_v1_8_display.news_source = function(value)
     return "News Source: Bbmnet (2)"
   end
   if value == 3 then
-    return "News Source: Marketsurveillance (3)"
+    return "News Source: Market Surveillance (3)"
   end
   if value == 4 then
     return "News Source: Internet (4)"
   end
   if value == 5 then
-    return "News Source: Dprve (5)"
+    return "News Source: Dpr Ve (5)"
   end
   if value == 19 then
-    return "News Source: Mktopsfxagency (19)"
+    return "News Source: Mkt Ops Fx Agency (19)"
   end
   if value == 20 then
-    return "News Source: Mktopsderivativesagency (20)"
+    return "News Source: Mkt Ops Derivatives Agency (20)"
   end
   if value == 11 then
-    return "News Source: Overthecounternewsagency (11)"
+    return "News Source: Over The Counter News Agency (11)"
   end
   if value == 13 then
-    return "News Source: Electronicpurchaseexchange (13)"
+    return "News Source: Electronic Purchase Exchange (13)"
   end
   if value == 14 then
-    return "News Source: Cblcnewsagency (14)"
+    return "News Source: Cblc News Agency (14)"
   end
   if value == 15 then
-    return "News Source: Bovespaindexagency (15)"
+    return "News Source: Bovespa Index Agency (15)"
   end
   if value == 16 then
-    return "News Source: Bovespainstitutionalagency (16)"
+    return "News Source: Bovespa Institutional Agency (16)"
   end
   if value == 17 then
-    return "News Source: Mktopsequitiesagency (17)"
+    return "News Source: Mkt Ops Equities Agency (17)"
   end
   if value == 18 then
-    return "News Source: Bovespacompaniesagency (18)"
+    return "News Source: Bovespa Companies Agency (18)"
   end
 
   return "News Source: Unknown("..value..")"
@@ -5166,38 +5242,38 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.news_5_message = function(buffer, offset
   return b3_equities_binaryumdf_sbe_v1_8_dissect.news_5_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Var Text
-b3_equities_binaryumdf_sbe_v1_8_display.var_text = function(value)
-  return "Var Text: "..value
+-- Display: Security Desc Data
+b3_equities_binaryumdf_sbe_v1_8_display.security_desc_data = function(value)
+  return "Security Desc Data: "..value
 end
 
--- Dissect runtime sized field: Var Text
-b3_equities_binaryumdf_sbe_v1_8_dissect.var_text = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Security Desc Data
+b3_equities_binaryumdf_sbe_v1_8_dissect.security_desc_data = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryumdf_sbe_v1_8_display.var_text(value, buffer, offset, packet, parent, size)
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.security_desc_data(value, buffer, offset, packet, parent, size)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.var_text, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.security_desc_data, range, value, display)
 
   return offset + size
 end
 
--- Size: Text Length
-b3_equities_binaryumdf_sbe_v1_8_size_of.text_length = 1
+-- Size: Security Desc Length
+b3_equities_binaryumdf_sbe_v1_8_size_of.security_desc_length = 1
 
--- Display: Text Length
-b3_equities_binaryumdf_sbe_v1_8_display.text_length = function(value)
-  return "Text Length: "..value
+-- Display: Security Desc Length
+b3_equities_binaryumdf_sbe_v1_8_display.security_desc_length = function(value)
+  return "Security Desc Length: "..value
 end
 
--- Dissect: Text Length
-b3_equities_binaryumdf_sbe_v1_8_dissect.text_length = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_8_size_of.text_length
+-- Dissect: Security Desc Length
+b3_equities_binaryumdf_sbe_v1_8_dissect.security_desc_length = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_8_size_of.security_desc_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_8_display.text_length(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryumdf_sbe_v1_8_display.security_desc_length(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.text_length, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.security_desc_length, range, value, display)
 
   return offset + length, value
 end
@@ -5206,9 +5282,9 @@ end
 b3_equities_binaryumdf_sbe_v1_8_size_of.security_desc = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.text_length
+  index = index + b3_equities_binaryumdf_sbe_v1_8_size_of.security_desc_length
 
-  -- Parse runtime size of: Var Text
+  -- Parse runtime size of: Security Desc Data
   index = index + buffer(offset + index - 1, 1):le_uint()
 
   return index
@@ -5223,11 +5299,11 @@ end
 b3_equities_binaryumdf_sbe_v1_8_dissect.security_desc_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text Length: 1 Byte Unsigned Fixed Width Integer
-  index, text_length = b3_equities_binaryumdf_sbe_v1_8_dissect.text_length(buffer, index, packet, parent)
+  -- Security Desc Length: 1 Byte Unsigned Fixed Width Integer
+  index, security_desc_length = b3_equities_binaryumdf_sbe_v1_8_dissect.security_desc_length(buffer, index, packet, parent)
 
-  -- Var Text: 0 Byte
-  index = b3_equities_binaryumdf_sbe_v1_8_dissect.var_text(buffer, index, packet, parent, text_length)
+  -- Security Desc Data: 0 Byte
+  index = b3_equities_binaryumdf_sbe_v1_8_dissect.security_desc_data(buffer, index, packet, parent, security_desc_length)
 
   return index
 end
@@ -5251,19 +5327,19 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.instr_attrib_value = 1
 -- Display: Instr Attrib Value
 b3_equities_binaryumdf_sbe_v1_8_display.instr_attrib_value = function(value)
   if value == 1 then
-    return "Instr Attrib Value: Electronicmatchorgtdgtceligible (1)"
+    return "Instr Attrib Value: Electronic Match Or Gtd Gtc Eligible (1)"
   end
   if value == 2 then
-    return "Instr Attrib Value: Ordercrosseligible (2)"
+    return "Instr Attrib Value: Order Cross Eligible (2)"
   end
   if value == 3 then
-    return "Instr Attrib Value: Blocktradeeligible (3)"
+    return "Instr Attrib Value: Block Trade Eligible (3)"
   end
   if value == 14 then
-    return "Instr Attrib Value: Flagrfqforcrosseligible (14)"
+    return "Instr Attrib Value: Flag Rfq For Cross Eligible (14)"
   end
   if value == 17 then
-    return "Instr Attrib Value: Negotiatedquoteeligible (17)"
+    return "Instr Attrib Value: Negotiated Quote Eligible (17)"
   end
 
   return "Instr Attrib Value: Unknown("..value..")"
@@ -5287,10 +5363,10 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.instr_attrib_type = 1
 -- Display: Instr Attrib Type
 b3_equities_binaryumdf_sbe_v1_8_display.instr_attrib_type = function(value)
   if value == 24 then
-    return "Instr Attrib Type: Tradetypeeligibility (24)"
+    return "Instr Attrib Type: Trade Type Eligibility (24)"
   end
   if value == 34 then
-    return "Instr Attrib Type: Gtdgtceligibility (34)"
+    return "Instr Attrib Type: Gtd Gtc Eligibility (34)"
   end
 
   return "Instr Attrib Type: Unknown("..value..")"
@@ -5941,22 +6017,22 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.multi_leg_price_method = 1
 -- Display: Multi Leg Price Method
 b3_equities_binaryumdf_sbe_v1_8_display.multi_leg_price_method = function(value)
   if value == 0 then
-    return "Multi Leg Price Method: Netprice (0)"
+    return "Multi Leg Price Method: Net Price (0)"
   end
   if value == 1 then
-    return "Multi Leg Price Method: Reversednetprice (1)"
+    return "Multi Leg Price Method: Reversed Net Price (1)"
   end
   if value == 2 then
-    return "Multi Leg Price Method: Yielddifference (2)"
+    return "Multi Leg Price Method: Yield Difference (2)"
   end
   if value == 3 then
     return "Multi Leg Price Method: Individual (3)"
   end
   if value == 4 then
-    return "Multi Leg Price Method: Contractweightedaverageprice (4)"
+    return "Multi Leg Price Method: Contract Weighted Average Price (4)"
   end
   if value == 5 then
-    return "Multi Leg Price Method: Multipliedprice (5)"
+    return "Multi Leg Price Method: Multiplied Price (5)"
   end
   if value == 255 then
     return "Multi Leg Price Method: No Value"
@@ -5986,7 +6062,7 @@ b3_equities_binaryumdf_sbe_v1_8_display.multi_leg_model = function(value)
     return "Multi Leg Model: Predefined (0)"
   end
   if value == 1 then
-    return "Multi Leg Model: Userdefined (1)"
+    return "Multi Leg Model: User Defined (1)"
   end
   if value == 255 then
     return "Multi Leg Model: No Value"
@@ -6013,10 +6089,10 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.last_fragment = 1
 -- Display: Last Fragment
 b3_equities_binaryumdf_sbe_v1_8_display.last_fragment = function(value)
   if value == 0 then
-    return "Last Fragment: Falsevalue (0)"
+    return "Last Fragment: False Value (0)"
   end
   if value == 1 then
-    return "Last Fragment: Truevalue (1)"
+    return "Last Fragment: True Value (1)"
   end
   if value == 255 then
     return "Last Fragment: No Value"
@@ -6043,7 +6119,7 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.security_match_type = 1
 -- Display: Security Match Type
 b3_equities_binaryumdf_sbe_v1_8_display.security_match_type = function(value)
   if value == 8 then
-    return "Security Match Type: Issuingbuybackauction (8)"
+    return "Security Match Type: Issuing Buy Back Auction (8)"
   end
   if value == 255 then
     return "Security Match Type: No Value"
@@ -6141,7 +6217,7 @@ b3_equities_binaryumdf_sbe_v1_8_display.price_type_price_type_optional = functio
     return "Price Type Price Type optional: Pu (2)"
   end
   if value == 3 then
-    return "Price Type Price Type optional: Fixedamount (3)"
+    return "Price Type Price Type optional: Fixed Amount (3)"
   end
   if value == 0 then
     return "Price Type Price Type optional: No Value"
@@ -6246,7 +6322,7 @@ b3_equities_binaryumdf_sbe_v1_8_display.product = function(value)
     return "Product: Index (7)"
   end
   if value == 15 then
-    return "Product: Economicindicator (15)"
+    return "Product: Economic Indicator (15)"
   end
   if value == 16 then
     return "Product: Multileg (16)"
@@ -6298,13 +6374,13 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.lot_type = 1
 -- Display: Lot Type
 b3_equities_binaryumdf_sbe_v1_8_display.lot_type = function(value)
   if value == 1 then
-    return "Lot Type: Oddlot (1)"
+    return "Lot Type: Odd Lot (1)"
   end
   if value == 2 then
-    return "Lot Type: Roundlot (2)"
+    return "Lot Type: Round Lot (2)"
   end
   if value == 3 then
-    return "Lot Type: Blocklot (3)"
+    return "Lot Type: Block Lot (3)"
   end
   if value == 255 then
     return "Lot Type: No Value"
@@ -7512,7 +7588,7 @@ b3_equities_binaryumdf_sbe_v1_8_display.security_id_source = function(value)
     return "Security Id Source: Isin (4)"
   end
   if value == "8" then
-    return "Security Id Source: Exchangesymbol (8)"
+    return "Security Id Source: Exchange Symbol (8)"
   end
 
   return "Security Id Source: Unknown("..value..")"
@@ -8295,13 +8371,13 @@ b3_equities_binaryumdf_sbe_v1_8_size_of.security_trading_event = 1
 -- Display: Security Trading Event
 b3_equities_binaryumdf_sbe_v1_8_display.security_trading_event = function(value)
   if value == 4 then
-    return "Security Trading Event: Tradingsessionchange (4)"
+    return "Security Trading Event: Trading Session Change (4)"
   end
   if value == 101 then
-    return "Security Trading Event: Securitystatuschange (101)"
+    return "Security Trading Event: Security Status Change (101)"
   end
   if value == 102 then
-    return "Security Trading Event: Securityrejoinssecuritygroupstatus (102)"
+    return "Security Trading Event: Security Rejoins Security Group Status (102)"
   end
   if value == 255 then
     return "Security Trading Event: No Value"
@@ -8340,13 +8416,13 @@ b3_equities_binaryumdf_sbe_v1_8_display.trading_session_sub_id = function(value)
     return "Trading Session Sub Id: Forbidden (18)"
   end
   if value == 20 then
-    return "Trading Session Sub Id: Unknownorinvalid (20)"
+    return "Trading Session Sub Id: Unknown Or Invalid (20)"
   end
   if value == 21 then
     return "Trading Session Sub Id: Reserved (21)"
   end
   if value == 101 then
-    return "Trading Session Sub Id: Finalclosingcall (101)"
+    return "Trading Session Sub Id: Final Closing Call (101)"
   end
 
   return "Trading Session Sub Id: Unknown("..value..")"
@@ -8484,13 +8560,13 @@ b3_equities_binaryumdf_sbe_v1_8_display.security_trading_status = function(value
     return "Security Trading Status: Forbidden (18)"
   end
   if value == 20 then
-    return "Security Trading Status: Unknownorinvalid (20)"
+    return "Security Trading Status: Unknown Or Invalid (20)"
   end
   if value == 21 then
     return "Security Trading Status: Reserved (21)"
   end
   if value == 101 then
-    return "Security Trading Status: Finalclosingcall (101)"
+    return "Security Trading Status: Final Closing Call (101)"
   end
 
   return "Security Trading Status: Unknown("..value..")"
