@@ -2068,7 +2068,7 @@ euronext_optiq_orderentrygateway_sbe_v2_1_size_of.ccpid = 1
 -- Display: Ccpid
 euronext_optiq_orderentrygateway_sbe_v2_1_display.ccpid = function(value)
   if value == 1 then
-    return "Ccpid: Lchsa (1)"
+    return "Ccpid: Lch Sa (1)"
   end
   if value == 6 then
     return "Ccpid: Euro Ccp (6)"

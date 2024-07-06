@@ -4034,10 +4034,10 @@ euronext_optiq_marketdatagateway_sbe_v5_33_display.efficient_mmt_publication_mod
     return "Efficient Mmt Publication Mode: Size (4)"
   end
   if value == "5" then
-    return "Efficient Mmt Publication Mode: Ilqdsize (5)"
+    return "Efficient Mmt Publication Mode: Ilqd Size (5)"
   end
   if value == "6" then
-    return "Efficient Mmt Publication Mode: Ilqdlrgs (6)"
+    return "Efficient Mmt Publication Mode: Ilqd Lrgs (6)"
   end
   if value == "-" then
     return "Efficient Mmt Publication Mode: Immediate Publication (-)"
@@ -4411,7 +4411,7 @@ euronext_optiq_marketdatagateway_sbe_v5_33_display.efficient_mmt_negotiation_ind
     return "Efficient Mmt Negotiation Indicator: Size (5)"
   end
   if value == "6" then
-    return "Efficient Mmt Negotiation Indicator: Ilqdsize (6)"
+    return "Efficient Mmt Negotiation Indicator: Ilqd Size (6)"
   end
   if value == "N" then
     return "Efficient Mmt Negotiation Indicator: Negotiated Trade (N)"
