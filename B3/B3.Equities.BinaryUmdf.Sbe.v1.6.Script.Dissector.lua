@@ -690,7 +690,11 @@ b3_equities_binaryumdf_sbe_v1_6_size_of.md_insert_timestamp = 8
 
 -- Display: Md Insert Timestamp
 b3_equities_binaryumdf_sbe_v1_6_display.md_insert_timestamp = function(value)
-  return "Md Insert Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Md Insert Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Md Insert Timestamp
@@ -1086,7 +1090,11 @@ b3_equities_binaryumdf_sbe_v1_6_size_of.md_entry_timestamp = 8
 
 -- Display: Md Entry Timestamp
 b3_equities_binaryumdf_sbe_v1_6_display.md_entry_timestamp = function(value)
-  return "Md Entry Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Md Entry Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Md Entry Timestamp
@@ -1605,7 +1613,11 @@ b3_equities_binaryumdf_sbe_v1_6_size_of.aggressor_time = 8
 
 -- Display: Aggressor Time
 b3_equities_binaryumdf_sbe_v1_6_display.aggressor_time = function(value)
-  return "Aggressor Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Aggressor Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Aggressor Time
@@ -4385,12 +4397,11 @@ b3_equities_binaryumdf_sbe_v1_6_size_of.orig_time = 8
 
 -- Display: Orig Time
 b3_equities_binaryumdf_sbe_v1_6_display.orig_time = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Orig Time: No Value"
-  end
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Orig Time: "..value
+  return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Orig Time
@@ -7419,12 +7430,11 @@ b3_equities_binaryumdf_sbe_v1_6_size_of.trad_ses_open_time = 8
 
 -- Display: Trad Ses Open Time
 b3_equities_binaryumdf_sbe_v1_6_display.trad_ses_open_time = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trad Ses Open Time: No Value"
-  end
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Trad Ses Open Time: "..value
+  return "Trad Ses Open Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trad Ses Open Time
@@ -8349,7 +8359,11 @@ b3_equities_binaryumdf_sbe_v1_6_size_of.sending_time = 8
 
 -- Display: Sending Time
 b3_equities_binaryumdf_sbe_v1_6_display.sending_time = function(value)
-  return "Sending Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
