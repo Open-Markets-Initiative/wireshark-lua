@@ -344,16 +344,16 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.reason = 1
 -- Display: Reason
 coinbase_derivatives_marketdataapi_sbe_v1_2_display.reason = function(value)
   if value == 1 then
-    return "Reason: Seqtoolow (1)"
+    return "Reason: Seq Too Low (1)"
   end
   if value == 2 then
-    return "Reason: Seqtoohigh (2)"
+    return "Reason: Seq Too High (2)"
   end
   if value == 3 then
-    return "Reason: Ratelimitexceeded (3)"
+    return "Reason: Rate Limit Exceeded (3)"
   end
   if value == 4 then
-    return "Reason: Othererror (4)"
+    return "Reason: Other Error (4)"
   end
 
   return "Reason: Unknown("..value..")"
@@ -1445,10 +1445,10 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.spread_buy_convention = 1
 -- Display: Spread Buy Convention
 coinbase_derivatives_marketdataapi_sbe_v1_2_display.spread_buy_convention = function(value)
   if value == 1 then
-    return "Spread Buy Convention: Usefarbid (1)"
+    return "Spread Buy Convention: Use Far Bid (1)"
   end
   if value == -1 then
-    return "Spread Buy Convention: Usenearbid (-1)"
+    return "Spread Buy Convention: Use Near Bid (-1)"
   end
 
   return "Spread Buy Convention: Unknown("..value..")"
@@ -1512,7 +1512,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.trading_status = 1
 -- Display: Trading Status
 coinbase_derivatives_marketdataapi_sbe_v1_2_display.trading_status = function(value)
   if value == 0 then
-    return "Trading Status: Preopen (0)"
+    return "Trading Status: Pre Open (0)"
   end
   if value == 1 then
     return "Trading Status: Open (1)"
@@ -1527,7 +1527,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_display.trading_status = function(va
     return "Trading Status: Close (4)"
   end
   if value == 5 then
-    return "Trading Status: Preopennocancel (5)"
+    return "Trading Status: Pre Open No Cancel (5)"
   end
   if value == 6 then
     return "Trading Status: Expired (6)"
@@ -1566,7 +1566,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_display.product_group = function(val
     return "Product Group: Metals (3)"
   end
   if value == 4 then
-    return "Product Group: Interestrate (4)"
+    return "Product Group: Interest Rate (4)"
   end
   if value == 5 then
     return "Product Group: Agriculture (5)"
@@ -2453,25 +2453,25 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_display.stat_type = function(value)
   end
 
   if value == "4" then
-    return "Stat Type: Dayopeningprice (4)"
+    return "Stat Type: Day Opening Price (4)"
   end
   if value == "5" then
-    return "Stat Type: Closingprice (5)"
+    return "Stat Type: Closing Price (5)"
   end
   if value == "6" then
-    return "Stat Type: Settlementprice (6)"
+    return "Stat Type: Settlement Price (6)"
   end
   if value == "7" then
-    return "Stat Type: Tradingsessionhighprice (7)"
+    return "Stat Type: Trading Session High Price (7)"
   end
   if value == "8" then
-    return "Stat Type: Tradingsessionlowprice (8)"
+    return "Stat Type: Trading Session Low Price (8)"
   end
   if value == "F" then
-    return "Stat Type: Referenceprice (F)"
+    return "Stat Type: Reference Price (F)"
   end
   if value == "I" then
-    return "Stat Type: Indicativeopeningprice (I)"
+    return "Stat Type: Indicative Opening Price (I)"
   end
 
   return "Stat Type: Unknown("..value..")"
