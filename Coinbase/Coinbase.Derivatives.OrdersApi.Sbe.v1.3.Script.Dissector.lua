@@ -34,6 +34,8 @@ coinbase_derivatives_ordersapi_sbe_v1_3.fields.client_order_id = ProtoField.new(
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.derivatives.ordersapi.sbe.v1.3.correlationid", ftypes.INT64)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.current_session_only = ProtoField.new("Current Session Only", "coinbase.derivatives.ordersapi.sbe.v1.3.currentsessiononly", ftypes.INT8)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.data = ProtoField.new("Data", "coinbase.derivatives.ordersapi.sbe.v1.3.data", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_3.fields.data_length = ProtoField.new("Data Length", "coinbase.derivatives.ordersapi.sbe.v1.3.datalength", ftypes.UINT8)
+coinbase_derivatives_ordersapi_sbe_v1_3.fields.data_value = ProtoField.new("Data Value", "coinbase.derivatives.ordersapi.sbe.v1.3.datavalue", ftypes.BYTES)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.end_exec_id = ProtoField.new("End Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.3.endexecid", ftypes.INT64)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.error_message = ProtoField.new("Error Message", "coinbase.derivatives.ordersapi.sbe.v1.3.errormessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "coinbase.derivatives.ordersapi.sbe.v1.3.eventresendcompletemessage", ftypes.STRING)
@@ -63,7 +65,6 @@ coinbase_derivatives_ordersapi_sbe_v1_3.fields.last_processed_fill_id = ProtoFie
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.derivatives.ordersapi.sbe.v1.3.lastprocessedseqno", ftypes.UINT32)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.3.leg1fillprice", ftypes.INT64)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.3.leg2fillprice", ftypes.INT64)
-coinbase_derivatives_ordersapi_sbe_v1_3.fields.length = ProtoField.new("Length", "coinbase.derivatives.ordersapi.sbe.v1.3.length", ftypes.UINT8)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.limit_price = ProtoField.new("Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.3.limitprice", ftypes.INT64)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.logged_out_message = ProtoField.new("Logged Out Message", "coinbase.derivatives.ordersapi.sbe.v1.3.loggedoutmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "coinbase.derivatives.ordersapi.sbe.v1.3.logonconfmessage", ftypes.STRING)
@@ -134,7 +135,6 @@ coinbase_derivatives_ordersapi_sbe_v1_3.fields.unlock_trading_ack_message = Prot
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "coinbase.derivatives.ordersapi.sbe.v1.3.unlocktradingmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.3.unlocktradingrejectmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.username = ProtoField.new("Username", "coinbase.derivatives.ordersapi.sbe.v1.3.username", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_3.fields.var_data = ProtoField.new("Var Data", "coinbase.derivatives.ordersapi.sbe.v1.3.vardata", ftypes.BYTES)
 coinbase_derivatives_ordersapi_sbe_v1_3.fields.version = ProtoField.new("Version", "coinbase.derivatives.ordersapi.sbe.v1.3.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -472,19 +472,19 @@ coinbase_derivatives_ordersapi_sbe_v1_3_size_of.resend_reject_reason = 1
 -- Display: Resend Reject Reason
 coinbase_derivatives_ordersapi_sbe_v1_3_display.resend_reject_reason = function(value)
   if value == 1 then
-    return "Resend Reject Reason: Beginexecidtoosmall (1)"
+    return "Resend Reject Reason: Begin Exec Id Too Small (1)"
   end
   if value == 2 then
-    return "Resend Reject Reason: Endexecidtoolarge (2)"
+    return "Resend Reject Reason: End Exec Id Too Large (2)"
   end
   if value == 3 then
-    return "Resend Reject Reason: Resendalreadyinprogress (3)"
+    return "Resend Reject Reason: Resend Already In Progress (3)"
   end
   if value == 4 then
-    return "Resend Reject Reason: Toomanyresendrequests (4)"
+    return "Resend Reject Reason: Too Many Resend Requests (4)"
   end
   if value == 5 then
-    return "Resend Reject Reason: Servererror (5)"
+    return "Resend Reject Reason: Server Error (5)"
   end
 
   return "Resend Reject Reason: Unknown("..value..")"
@@ -1896,10 +1896,10 @@ coinbase_derivatives_ordersapi_sbe_v1_3_display.cancel_order_reject_reason = fun
     return "Cancel Order Reject Reason: Error (1)"
   end
   if value == 2 then
-    return "Cancel Order Reject Reason: Unknownorder (2)"
+    return "Cancel Order Reject Reason: Unknown Order (2)"
   end
   if value == 3 then
-    return "Cancel Order Reject Reason: Orderfilled (3)"
+    return "Cancel Order Reject Reason: Order Filled (3)"
   end
 
   return "Cancel Order Reject Reason: Unknown("..value..")"
@@ -2013,28 +2013,28 @@ coinbase_derivatives_ordersapi_sbe_v1_3_display.cancel_reason = function(value)
     return "Cancel Reason: Expired (0)"
   end
   if value == 1 then
-    return "Cancel Reason: Canceledbyuser (1)"
+    return "Cancel Reason: Canceled By User (1)"
   end
   if value == 2 then
-    return "Cancel Reason: Selfmatchprevention (2)"
+    return "Cancel Reason: Self Match Prevention (2)"
   end
   if value == 3 then
-    return "Cancel Reason: Clientdisconnect (3)"
+    return "Cancel Reason: Client Disconnect (3)"
   end
   if value == 4 then
-    return "Cancel Reason: Pricelimit (4)"
+    return "Cancel Reason: Price Limit (4)"
   end
   if value == 5 then
-    return "Cancel Reason: Admincancel (5)"
+    return "Cancel Reason: Admin Cancel (5)"
   end
   if value == 6 then
-    return "Cancel Reason: Masscancel (6)"
+    return "Cancel Reason: Mass Cancel (6)"
   end
   if value == 7 then
-    return "Cancel Reason: Streamreplaced (7)"
+    return "Cancel Reason: Stream Replaced (7)"
   end
   if value == 8 then
-    return "Cancel Reason: Activelimitexceeded (8)"
+    return "Cancel Reason: Active Limit Exceeded (8)"
   end
 
   return "Cancel Reason: Unknown("..value..")"
@@ -2322,16 +2322,16 @@ coinbase_derivatives_ordersapi_sbe_v1_3_display.order_reject_reason = function(v
     return "Order Reject Reason: Error (1)"
   end
   if value == 2 then
-    return "Order Reject Reason: Invalidinstrument (2)"
+    return "Order Reject Reason: Invalid Instrument (2)"
   end
   if value == 3 then
-    return "Order Reject Reason: Clordidinuse (3)"
+    return "Order Reject Reason: Cl Ord Id In Use (3)"
   end
   if value == 8 then
-    return "Order Reject Reason: Validationfailure (8)"
+    return "Order Reject Reason: Validation Failure (8)"
   end
   if value == 9 then
-    return "Order Reject Reason: Unknownorder (9)"
+    return "Order Reject Reason: Unknown Order (9)"
   end
 
   return "Order Reject Reason: Unknown("..value..")"
@@ -3036,22 +3036,22 @@ coinbase_derivatives_ordersapi_sbe_v1_3_size_of.instrument_status = 1
 -- Display: Instrument Status
 coinbase_derivatives_ordersapi_sbe_v1_3_display.instrument_status = function(value)
   if value == 1 then
-    return "Instrument Status: Preopen (1)"
+    return "Instrument Status: Pre Open (1)"
   end
   if value == 2 then
-    return "Instrument Status: Preopennocancel (2)"
+    return "Instrument Status: Pre Open No Cancel (2)"
   end
   if value == 3 then
-    return "Instrument Status: Readytotrade (3)"
+    return "Instrument Status: Ready To Trade (3)"
   end
   if value == 4 then
-    return "Instrument Status: Tradinghalt (4)"
+    return "Instrument Status: Trading Halt (4)"
   end
   if value == 5 then
     return "Instrument Status: Close (5)"
   end
   if value == 6 then
-    return "Instrument Status: Postclose (6)"
+    return "Instrument Status: Post Close (6)"
   end
 
   return "Instrument Status: Unknown("..value..")"
@@ -3200,38 +3200,38 @@ coinbase_derivatives_ordersapi_sbe_v1_3_dissect.instrument_info_request_message 
   return coinbase_derivatives_ordersapi_sbe_v1_3_dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Var Data
-coinbase_derivatives_ordersapi_sbe_v1_3_display.var_data = function(value)
-  return "Var Data: "..value
+-- Display: Data Value
+coinbase_derivatives_ordersapi_sbe_v1_3_display.data_value = function(value)
+  return "Data Value: "..value
 end
 
--- Dissect runtime sized field: Var Data
-coinbase_derivatives_ordersapi_sbe_v1_3_dissect.var_data = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Data Value
+coinbase_derivatives_ordersapi_sbe_v1_3_dissect.data_value = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = coinbase_derivatives_ordersapi_sbe_v1_3_display.var_data(value, buffer, offset, packet, parent, size)
+  local display = coinbase_derivatives_ordersapi_sbe_v1_3_display.data_value(value, buffer, offset, packet, parent, size)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_3.fields.var_data, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_3.fields.data_value, range, value, display)
 
   return offset + size
 end
 
--- Size: Length
-coinbase_derivatives_ordersapi_sbe_v1_3_size_of.length = 1
+-- Size: Data Length
+coinbase_derivatives_ordersapi_sbe_v1_3_size_of.data_length = 1
 
--- Display: Length
-coinbase_derivatives_ordersapi_sbe_v1_3_display.length = function(value)
-  return "Length: "..value
+-- Display: Data Length
+coinbase_derivatives_ordersapi_sbe_v1_3_display.data_length = function(value)
+  return "Data Length: "..value
 end
 
--- Dissect: Length
-coinbase_derivatives_ordersapi_sbe_v1_3_dissect.length = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_ordersapi_sbe_v1_3_size_of.length
+-- Dissect: Data Length
+coinbase_derivatives_ordersapi_sbe_v1_3_dissect.data_length = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_ordersapi_sbe_v1_3_size_of.data_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = coinbase_derivatives_ordersapi_sbe_v1_3_display.length(value, buffer, offset, packet, parent)
+  local display = coinbase_derivatives_ordersapi_sbe_v1_3_display.data_length(value, buffer, offset, packet, parent)
 
-  parent:add(coinbase_derivatives_ordersapi_sbe_v1_3.fields.length, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_3.fields.data_length, range, value, display)
 
   return offset + length, value
 end
@@ -3240,9 +3240,9 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_3_size_of.data = function(buffer, offset)
   local index = 0
 
-  index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.length
+  index = index + coinbase_derivatives_ordersapi_sbe_v1_3_size_of.data_length
 
-  -- Parse runtime size of: Var Data
+  -- Parse runtime size of: Data Value
   index = index + buffer(offset + index - 1, 1):le_uint()
 
   return index
@@ -3257,11 +3257,11 @@ end
 coinbase_derivatives_ordersapi_sbe_v1_3_dissect.data_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 1 Byte Unsigned Fixed Width Integer
-  index, length = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.length(buffer, index, packet, parent)
+  -- Data Length: 1 Byte Unsigned Fixed Width Integer
+  index, data_length = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.data_length(buffer, index, packet, parent)
 
-  -- Var Data: 0 Byte
-  index = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.var_data(buffer, index, packet, parent, length)
+  -- Data Value: 0 Byte
+  index = coinbase_derivatives_ordersapi_sbe_v1_3_dissect.data_value(buffer, index, packet, parent, data_length)
 
   return index
 end
@@ -3288,10 +3288,10 @@ coinbase_derivatives_ordersapi_sbe_v1_3_display.trading_instrument_status = func
     return "Trading Instrument Status: Ok (0)"
   end
   if value == 1 then
-    return "Trading Instrument Status: Temporarilyunavailable (1)"
+    return "Trading Instrument Status: Temporarily Unavailable (1)"
   end
   if value == 2 then
-    return "Trading Instrument Status: Backpressured (2)"
+    return "Trading Instrument Status: Back Pressured (2)"
   end
 
   return "Trading Instrument Status: Unknown("..value..")"
