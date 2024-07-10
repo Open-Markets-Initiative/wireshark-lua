@@ -13880,7 +13880,7 @@ b3_equities_binaryentrypoint_sbe_v8_1:register_heuristic("tcp", b3_equities_bina
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: B3
+--   Organization: Brasil, Bolsa, Balcão
 --   Version: 8.1
 --   Date: Monday, June 10, 2024
 --   Specification: BinaryEntryPoint-MessageReference-8.1.1.2-enUS.pdf

@@ -9122,7 +9122,7 @@ b3_equities_binaryumdf_sbe_v1_7:register_heuristic("udp", b3_equities_binaryumdf
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: B3
+--   Organization: Brasil, Bolsa, Balcão
 --   Version: 1.7
 --   Date: Tuesday, June 13, 2023
 --   Specification: BinaryUMDF-MessageReference-v.1.7.0-enUS.pdf

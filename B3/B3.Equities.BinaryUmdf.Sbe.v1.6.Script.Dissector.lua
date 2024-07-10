@@ -8624,7 +8624,7 @@ b3_equities_binaryumdf_sbe_v1_6:register_heuristic("udp", b3_equities_binaryumdf
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: B3
+--   Organization: Brasil, Bolsa, Balcão
 --   Version: 1.6
 --   Date: Tuesday, June 13, 2023
 --   Specification: BinaryUMDF-MessageReference-v.1.6.0-enUS.pdf

@@ -13249,7 +13249,7 @@ b3_equities_binaryentrypoint_sbe_v7_1:register_heuristic("tcp", b3_equities_bina
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: B3
+--   Organization: Brasil, Bolsa, Balcão
 --   Version: 7.1
 --   Date: Thursday, September 14, 2023
 --   Specification: BinaryEntryPoint-MessageReference-7.1.0-enUS.pdf
