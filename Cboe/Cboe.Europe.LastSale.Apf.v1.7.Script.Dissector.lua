@@ -28,7 +28,7 @@ cboe_europe_lastsale_apf_v1_7.fields.contingent_flag = ProtoField.new("Contingen
 cboe_europe_lastsale_apf_v1_7.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.europe.lastsale.apf.v1.7.debugpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.deferral_illiquid_instrument = ProtoField.new("Deferral Illiquid Instrument", "cboe.europe.lastsale.apf.v1.7.deferralilliquidinstrument", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.deferral_or_enrichment_type = ProtoField.new("Deferral Or Enrichment Type", "cboe.europe.lastsale.apf.v1.7.deferralorenrichmenttype", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_7.fields.deferral_size_speciﬁc = ProtoField.new("Deferral Size Speciﬁc", "cboe.europe.lastsale.apf.v1.7.deferralsizespeciﬁc", ftypes.STRING)
+cboe_europe_lastsale_apf_v1_7.fields.deferral_size_specific = ProtoField.new("Deferral Size Specific", "cboe.europe.lastsale.apf.v1.7.deferralsizespecific", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.duplicative_across_jurisdiction = ProtoField.new("Duplicative Across Jurisdiction", "cboe.europe.lastsale.apf.v1.7.duplicativeacrossjurisdiction", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "cboe.europe.lastsale.apf.v1.7.duplicativeindicator", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.duplicative_within_jurisdiction = ProtoField.new("Duplicative Within Jurisdiction", "cboe.europe.lastsale.apf.v1.7.duplicativewithinjurisdiction", ftypes.STRING)
@@ -43,7 +43,7 @@ cboe_europe_lastsale_apf_v1_7.fields.login_accepted_packet = ProtoField.new("Log
 cboe_europe_lastsale_apf_v1_7.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.europe.lastsale.apf.v1.7.loginrejectedpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.europe.lastsale.apf.v1.7.loginrequestpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.market_mechanism = ProtoField.new("Market Mechanism", "cboe.europe.lastsale.apf.v1.7.marketmechanism", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_7.fields.modiﬁcation_indicator = ProtoField.new("Modiﬁcation Indicator", "cboe.europe.lastsale.apf.v1.7.modiﬁcationindicator", ftypes.STRING)
+cboe_europe_lastsale_apf_v1_7.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.europe.lastsale.apf.v1.7.modificationindicator", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.negotiation_flag = ProtoField.new("Negotiation Flag", "cboe.europe.lastsale.apf.v1.7.negotiationflag", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.notional_amount = ProtoField.new("Notional Amount", "cboe.europe.lastsale.apf.v1.7.notionalamount", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.notional_currency = ProtoField.new("Notional Currency", "cboe.europe.lastsale.apf.v1.7.notionalcurrency", ftypes.STRING)
@@ -485,26 +485,26 @@ cboe_europe_lastsale_apf_v1_7_dissect.duplicative_within_jurisdiction = function
   return offset + length, value
 end
 
--- Size: Deferral Size Speciﬁc
-cboe_europe_lastsale_apf_v1_7_size_of.deferral_size_speciﬁc = 4
+-- Size: Deferral Size Specific
+cboe_europe_lastsale_apf_v1_7_size_of.deferral_size_specific = 4
 
--- Display: Deferral Size Speciﬁc
-cboe_europe_lastsale_apf_v1_7_display.deferral_size_speciﬁc = function(value)
+-- Display: Deferral Size Specific
+cboe_europe_lastsale_apf_v1_7_display.deferral_size_specific = function(value)
   if value == "SIZE" then
-    return "Deferral Size Speciﬁc: Deferral For Size Speciﬁc (SIZE)"
+    return "Deferral Size Specific: Deferral For Size Specific (SIZE)"
   end
 
-  return "Deferral Size Speciﬁc: Unknown("..value..")"
+  return "Deferral Size Specific: Unknown("..value..")"
 end
 
--- Dissect: Deferral Size Speciﬁc
-cboe_europe_lastsale_apf_v1_7_dissect.deferral_size_speciﬁc = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7_size_of.deferral_size_speciﬁc
+-- Dissect: Deferral Size Specific
+cboe_europe_lastsale_apf_v1_7_dissect.deferral_size_specific = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7_size_of.deferral_size_specific
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7_display.deferral_size_speciﬁc(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7_display.deferral_size_specific(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_7.fields.deferral_size_speciﬁc, range, value, display)
+  parent:add(cboe_europe_lastsale_apf_v1_7.fields.deferral_size_specific, range, value, display)
 
   return offset + length, value
 end
@@ -551,7 +551,7 @@ cboe_europe_lastsale_apf_v1_7_display.deferral_or_enrichment_type = function(val
     return "Deferral Or Enrichment Type: Four Weeks Aggregation Trade (FWAF)"
   end
   if value == "IDAF" then
-    return "Deferral Or Enrichment Type: Indeﬁnite Aggregation Trade (IDAF)"
+    return "Deferral Or Enrichment Type: Indefinite Aggregation Trade (IDAF)"
   end
   if value == "VOLW" then
     return "Deferral Or Enrichment Type: Volume Omission Trade (VOLW)"
@@ -602,7 +602,7 @@ cboe_europe_lastsale_apf_v1_7_display.post_trade_deferral_reason = function(valu
     return "Post Trade Deferral Reason: Deferral For Illiquid Instrument (ILQD)"
   end
   if value == "SIZE" then
-    return "Post Trade Deferral Reason: Deferral For Size Speciﬁc (SIZE)"
+    return "Post Trade Deferral Reason: Deferral For Size Specific (SIZE)"
   end
 
   return "Post Trade Deferral Reason: Unknown("..value..")"
@@ -846,29 +846,29 @@ cboe_europe_lastsale_apf_v1_7_dissect.benchmark_indicator = function(buffer, off
   return offset + length, value
 end
 
--- Size: Modiﬁcation Indicator
-cboe_europe_lastsale_apf_v1_7_size_of.modiﬁcation_indicator = 4
+-- Size: Modification Indicator
+cboe_europe_lastsale_apf_v1_7_size_of.modification_indicator = 4
 
--- Display: Modiﬁcation Indicator
-cboe_europe_lastsale_apf_v1_7_display.modiﬁcation_indicator = function(value)
+-- Display: Modification Indicator
+cboe_europe_lastsale_apf_v1_7_display.modification_indicator = function(value)
   if value == "CANC" then
-    return "Modiﬁcation Indicator: Trade Cancellation (CANC)"
+    return "Modification Indicator: Trade Cancellation (CANC)"
   end
   if value == "AMND" then
-    return "Modiﬁcation Indicator: Trade Amendment (AMND)"
+    return "Modification Indicator: Trade Amendment (AMND)"
   end
 
-  return "Modiﬁcation Indicator: Unknown("..value..")"
+  return "Modification Indicator: Unknown("..value..")"
 end
 
--- Dissect: Modiﬁcation Indicator
-cboe_europe_lastsale_apf_v1_7_dissect.modiﬁcation_indicator = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_7_size_of.modiﬁcation_indicator
+-- Dissect: Modification Indicator
+cboe_europe_lastsale_apf_v1_7_dissect.modification_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_7_size_of.modification_indicator
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_7_display.modiﬁcation_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_7_display.modification_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_7.fields.modiﬁcation_indicator, range, value, display)
+  parent:add(cboe_europe_lastsale_apf_v1_7.fields.modification_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -972,7 +972,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.trading_mode = 4
 -- Display: Trading Mode
 cboe_europe_lastsale_apf_v1_7_display.trading_mode = function(value)
   if value == "AU" then
-    return "Trading Mode: Undeﬁned Auction (AU)"
+    return "Trading Mode: Undefined Auction (AU)"
   end
   if value == "OA" then
     return "Trading Mode: Scheduled Opening Auction (OA)"
@@ -1247,16 +1247,16 @@ cboe_europe_lastsale_apf_v1_7_size_of.price_notation = 4
 -- Display: Price Notation
 cboe_europe_lastsale_apf_v1_7_display.price_notation = function(value)
   if value == "MONE" then
-    return "Price Notation: Monetary Value In The Case Of Equity And Equitylikeﬁnancial Instruments (MONE)"
+    return "Price Notation: Monetary Value In The Case Of Equity And Equitylikefinancial Instruments (MONE)"
   end
   if value == "PERC" then
-    return "Price Notation: Percentage In The Case Of Certiﬁcates And Other Equitylikeﬁnancial Instruments (PERC)"
+    return "Price Notation: Percentage In The Case Of Certificates And Other Equitylikefinancial Instruments (PERC)"
   end
   if value == "YIEL" then
-    return "Price Notation: Yield In The Case Of Certiﬁcates And Other Equitylikeﬁnancial Instruments (YIEL)"
+    return "Price Notation: Yield In The Case Of Certificates And Other Equitylikefinancial Instruments (YIEL)"
   end
   if value == "BAPO" then
-    return "Price Notation: Basis Points In The Case Of Certiﬁcates And Other Equitylikeﬁnancial Instruments (BAPO)"
+    return "Price Notation: Basis Points In The Case Of Certificates And Other Equitylikefinancial Instruments (BAPO)"
   end
 
   return "Price Notation: Unknown("..value..")"
@@ -1377,7 +1377,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.last_sale_europe_message_new = function(bu
 
   index = index + cboe_europe_lastsale_apf_v1_7_size_of.agency_cross_trade
 
-  index = index + cboe_europe_lastsale_apf_v1_7_size_of.modiﬁcation_indicator
+  index = index + cboe_europe_lastsale_apf_v1_7_size_of.modification_indicator
 
   index = index + cboe_europe_lastsale_apf_v1_7_size_of.benchmark_indicator
 
@@ -1403,7 +1403,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.last_sale_europe_message_new = function(bu
 
   index = index + cboe_europe_lastsale_apf_v1_7_size_of.deferral_illiquid_instrument
 
-  index = index + cboe_europe_lastsale_apf_v1_7_size_of.deferral_size_speciﬁc
+  index = index + cboe_europe_lastsale_apf_v1_7_size_of.deferral_size_specific
 
   index = index + cboe_europe_lastsale_apf_v1_7_size_of.duplicative_within_jurisdiction
 
@@ -1476,8 +1476,8 @@ cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_new_fields = func
   -- Agency Cross Trade: 4 Byte Ascii String Enum with 1 values
   index, agency_cross_trade = cboe_europe_lastsale_apf_v1_7_dissect.agency_cross_trade(buffer, index, packet, parent)
 
-  -- Modiﬁcation Indicator: 4 Byte Ascii String Enum with 2 values
-  index, modiﬁcation_indicator = cboe_europe_lastsale_apf_v1_7_dissect.modiﬁcation_indicator(buffer, index, packet, parent)
+  -- Modification Indicator: 4 Byte Ascii String Enum with 2 values
+  index, modification_indicator = cboe_europe_lastsale_apf_v1_7_dissect.modification_indicator(buffer, index, packet, parent)
 
   -- Benchmark Indicator: 4 Byte Ascii String
   index, benchmark_indicator = cboe_europe_lastsale_apf_v1_7_dissect.benchmark_indicator(buffer, index, packet, parent)
@@ -1515,8 +1515,8 @@ cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_new_fields = func
   -- Deferral Illiquid Instrument: 4 Byte Ascii String Enum with 1 values
   index, deferral_illiquid_instrument = cboe_europe_lastsale_apf_v1_7_dissect.deferral_illiquid_instrument(buffer, index, packet, parent)
 
-  -- Deferral Size Speciﬁc: 4 Byte Ascii String Enum with 1 values
-  index, deferral_size_speciﬁc = cboe_europe_lastsale_apf_v1_7_dissect.deferral_size_speciﬁc(buffer, index, packet, parent)
+  -- Deferral Size Specific: 4 Byte Ascii String Enum with 1 values
+  index, deferral_size_specific = cboe_europe_lastsale_apf_v1_7_dissect.deferral_size_specific(buffer, index, packet, parent)
 
   -- Duplicative Within Jurisdiction: 4 Byte Ascii String Enum with 1 values
   index, duplicative_within_jurisdiction = cboe_europe_lastsale_apf_v1_7_dissect.duplicative_within_jurisdiction(buffer, index, packet, parent)
@@ -1623,7 +1623,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.last_sale_europe_message = function(buffer
 
   index = index + cboe_europe_lastsale_apf_v1_7_size_of.agency_cross_trade
 
-  index = index + cboe_europe_lastsale_apf_v1_7_size_of.modiﬁcation_indicator
+  index = index + cboe_europe_lastsale_apf_v1_7_size_of.modification_indicator
 
   index = index + cboe_europe_lastsale_apf_v1_7_size_of.benchmark_reference_indicator
 
@@ -1684,8 +1684,8 @@ cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_fields = function
   -- Agency Cross Trade: 4 Byte Ascii String Enum with 1 values
   index, agency_cross_trade = cboe_europe_lastsale_apf_v1_7_dissect.agency_cross_trade(buffer, index, packet, parent)
 
-  -- Modiﬁcation Indicator: 4 Byte Ascii String Enum with 2 values
-  index, modiﬁcation_indicator = cboe_europe_lastsale_apf_v1_7_dissect.modiﬁcation_indicator(buffer, index, packet, parent)
+  -- Modification Indicator: 4 Byte Ascii String Enum with 2 values
+  index, modification_indicator = cboe_europe_lastsale_apf_v1_7_dissect.modification_indicator(buffer, index, packet, parent)
 
   -- Benchmark Reference Indicator: 4 Byte Ascii String Enum with 2 values
   index, benchmark_reference_indicator = cboe_europe_lastsale_apf_v1_7_dissect.benchmark_reference_indicator(buffer, index, packet, parent)
