@@ -31,7 +31,7 @@ cboe_europe_lastsale_apf_v1_3.fields.last_sale_europe_message = ProtoField.new("
 cboe_europe_lastsale_apf_v1_3.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.europe.lastsale.apf.v1.3.loginacceptedpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.europe.lastsale.apf.v1.3.loginrejectedpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.europe.lastsale.apf.v1.3.loginrequestpacket", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.modiﬁcation_indicator = ProtoField.new("Modiﬁcation Indicator", "cboe.europe.lastsale.apf.v1.3.modiﬁcationindicator", ftypes.STRING)
+cboe_europe_lastsale_apf_v1_3.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.europe.lastsale.apf.v1.3.modificationindicator", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.negotiation_flag = ProtoField.new("Negotiation Flag", "cboe.europe.lastsale.apf.v1.3.negotiationflag", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.packet = ProtoField.new("Packet", "cboe.europe.lastsale.apf.v1.3.packet", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.packet_type = ProtoField.new("Packet Type", "cboe.europe.lastsale.apf.v1.3.packettype", ftypes.STRING)
@@ -396,7 +396,7 @@ cboe_europe_lastsale_apf_v1_3_display.post_trade_deferral_reason = function(valu
     return "Post Trade Deferral Reason: Deferral For Illiquid Instrument (ILQD)"
   end
   if value == "SIZE" then
-    return "Post Trade Deferral Reason: Deferral For Size Speciﬁc (SIZE)"
+    return "Post Trade Deferral Reason: Deferral For Size Specific (SIZE)"
   end
 
   return "Post Trade Deferral Reason: Unknown("..value..")"
@@ -515,29 +515,29 @@ cboe_europe_lastsale_apf_v1_3_dissect.benchmark_reference_indicator = function(b
   return offset + length, value
 end
 
--- Size: Modiﬁcation Indicator
-cboe_europe_lastsale_apf_v1_3_size_of.modiﬁcation_indicator = 4
+-- Size: Modification Indicator
+cboe_europe_lastsale_apf_v1_3_size_of.modification_indicator = 4
 
--- Display: Modiﬁcation Indicator
-cboe_europe_lastsale_apf_v1_3_display.modiﬁcation_indicator = function(value)
+-- Display: Modification Indicator
+cboe_europe_lastsale_apf_v1_3_display.modification_indicator = function(value)
   if value == "CANC" then
-    return "Modiﬁcation Indicator: Trade Cancellation (CANC)"
+    return "Modification Indicator: Trade Cancellation (CANC)"
   end
   if value == "AMND" then
-    return "Modiﬁcation Indicator: Trade Amendment (AMND)"
+    return "Modification Indicator: Trade Amendment (AMND)"
   end
 
-  return "Modiﬁcation Indicator: Unknown("..value..")"
+  return "Modification Indicator: Unknown("..value..")"
 end
 
--- Dissect: Modiﬁcation Indicator
-cboe_europe_lastsale_apf_v1_3_dissect.modiﬁcation_indicator = function(buffer, offset, packet, parent)
-  local length = cboe_europe_lastsale_apf_v1_3_size_of.modiﬁcation_indicator
+-- Dissect: Modification Indicator
+cboe_europe_lastsale_apf_v1_3_dissect.modification_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_europe_lastsale_apf_v1_3_size_of.modification_indicator
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_europe_lastsale_apf_v1_3_display.modiﬁcation_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_europe_lastsale_apf_v1_3_display.modification_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_europe_lastsale_apf_v1_3.fields.modiﬁcation_indicator, range, value, display)
+  parent:add(cboe_europe_lastsale_apf_v1_3.fields.modification_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -828,7 +828,7 @@ cboe_europe_lastsale_apf_v1_3_size_of.last_sale_europe_message = function(buffer
 
   index = index + cboe_europe_lastsale_apf_v1_3_size_of.agency_cross_trade
 
-  index = index + cboe_europe_lastsale_apf_v1_3_size_of.modiﬁcation_indicator
+  index = index + cboe_europe_lastsale_apf_v1_3_size_of.modification_indicator
 
   index = index + cboe_europe_lastsale_apf_v1_3_size_of.benchmark_reference_indicator
 
@@ -887,8 +887,8 @@ cboe_europe_lastsale_apf_v1_3_dissect.last_sale_europe_message_fields = function
   -- Agency Cross Trade: 4 Byte Ascii String Enum with 1 values
   index, agency_cross_trade = cboe_europe_lastsale_apf_v1_3_dissect.agency_cross_trade(buffer, index, packet, parent)
 
-  -- Modiﬁcation Indicator: 4 Byte Ascii String Enum with 2 values
-  index, modiﬁcation_indicator = cboe_europe_lastsale_apf_v1_3_dissect.modiﬁcation_indicator(buffer, index, packet, parent)
+  -- Modification Indicator: 4 Byte Ascii String Enum with 2 values
+  index, modification_indicator = cboe_europe_lastsale_apf_v1_3_dissect.modification_indicator(buffer, index, packet, parent)
 
   -- Benchmark Reference Indicator: 4 Byte Ascii String Enum with 2 values
   index, benchmark_reference_indicator = cboe_europe_lastsale_apf_v1_3_dissect.benchmark_reference_indicator(buffer, index, packet, parent)
