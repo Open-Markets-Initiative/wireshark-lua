@@ -1247,16 +1247,16 @@ cboe_europe_lastsale_apf_v1_7_size_of.price_notation = 4
 -- Display: Price Notation
 cboe_europe_lastsale_apf_v1_7_display.price_notation = function(value)
   if value == "MONE" then
-    return "Price Notation: Monetary Value In The Case Of Equity And Equitylikefinancial Instruments (MONE)"
+    return "Price Notation: Monetary Value In The Case Of Equity And Equitylike Financial Instruments (MONE)"
   end
   if value == "PERC" then
-    return "Price Notation: Percentage In The Case Of Certificates And Other Equitylikefinancial Instruments (PERC)"
+    return "Price Notation: Percentage In The Case Of Certificates And Other Equitylike Financial Instruments (PERC)"
   end
   if value == "YIEL" then
-    return "Price Notation: Yield In The Case Of Certificates And Other Equitylikefinancial Instruments (YIEL)"
+    return "Price Notation: Yield In The Case Of Certificates And Other Equitylike Financial Instruments (YIEL)"
   end
   if value == "BAPO" then
-    return "Price Notation: Basis Points In The Case Of Certificates And Other Equitylikefinancial Instruments (BAPO)"
+    return "Price Notation: Basis Points In The Case Of Certificates And Other Equitylike Financial Instruments (BAPO)"
   end
 
   return "Price Notation: Unknown("..value..")"
