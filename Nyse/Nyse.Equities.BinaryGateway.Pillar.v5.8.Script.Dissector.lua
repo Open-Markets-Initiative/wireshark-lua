@@ -132,7 +132,7 @@ nyse_equities_binarygateway_pillar_v5_8.fields.paired_qty = ProtoField.new("Pair
 nyse_equities_binarygateway_pillar_v5_8.fields.participant_type = ProtoField.new("Participant Type", "nyse.equities.binarygateway.pillar.v5.8.participanttype", ftypes.UINT8)
 nyse_equities_binarygateway_pillar_v5_8.fields.password = ProtoField.new("Password", "nyse.equities.binarygateway.pillar.v5.8.password", ftypes.STRING)
 nyse_equities_binarygateway_pillar_v5_8.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.equities.binarygateway.pillar.v5.8.percentagelimit", ftypes.INT32)
-nyse_equities_binarygateway_pillar_v5_8.fields.pillarstreammessage = ProtoField.new("pillarstreammessage", "nyse.equities.binarygateway.pillar.v5.8.pillarstreammessage", ftypes.STRING)
+nyse_equities_binarygateway_pillar_v5_8.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.equities.binarygateway.pillar.v5.8.pillarstreammessage", ftypes.STRING)
 nyse_equities_binarygateway_pillar_v5_8.fields.post = ProtoField.new("Post", "nyse.equities.binarygateway.pillar.v5.8.post", ftypes.STRING)
 nyse_equities_binarygateway_pillar_v5_8.fields.ppp_1 = ProtoField.new("Ppp 1", "nyse.equities.binarygateway.pillar.v5.8.ppp1", ftypes.DOUBLE)
 nyse_equities_binarygateway_pillar_v5_8.fields.ppp_2 = ProtoField.new("Ppp 2", "nyse.equities.binarygateway.pillar.v5.8.ppp2", ftypes.DOUBLE)
@@ -287,7 +287,7 @@ show.symbol_subscription_request_message = true
 show.tg_begin_message = true
 show.tg_end_message = true
 show.trade_bust_correct = true
-show.pillarstreammessage = false
+show.pillar_stream_message = false
 show.sequenced_message = false
 
 -- Register Nyse Equities BinaryGateway Pillar 5.8 Show Options
@@ -344,7 +344,7 @@ nyse_equities_binarygateway_pillar_v5_8.prefs.show_symbol_subscription_request_m
 nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_begin_message = Pref.bool("Show Tg Begin Message", show.tg_begin_message, "Parse and add Tg Begin Message to protocol tree")
 nyse_equities_binarygateway_pillar_v5_8.prefs.show_tg_end_message = Pref.bool("Show Tg End Message", show.tg_end_message, "Parse and add Tg End Message to protocol tree")
 nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct = Pref.bool("Show Trade Bust Correct", show.trade_bust_correct, "Parse and add Trade Bust Correct to protocol tree")
-nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillarstreammessage = Pref.bool("Show pillarstreammessage", show.pillarstreammessage, "Parse and add pillarstreammessage to protocol tree")
+nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
 nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 
 -- Handle changed preferences
@@ -564,8 +564,8 @@ function nyse_equities_binarygateway_pillar_v5_8.prefs_changed()
     show.trade_bust_correct = nyse_equities_binarygateway_pillar_v5_8.prefs.show_trade_bust_correct
     changed = true
   end
-  if show.pillarstreammessage ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillarstreammessage then
-    show.pillarstreammessage = nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillarstreammessage
+  if show.pillar_stream_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message then
+    show.pillar_stream_message = nyse_equities_binarygateway_pillar_v5_8.prefs.show_pillar_stream_message
     changed = true
   end
   if show.sequenced_message ~= nyse_equities_binarygateway_pillar_v5_8.prefs.show_sequenced_message then
@@ -9742,8 +9742,8 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.login_message = function(buffer,
   return offset + size_of_login_message
 end
 
--- Dissect pillarstreammessage
-nyse_equities_binarygateway_pillar_v5_8_dissect.pillarstreammessage = function(buffer, packet, parent)
+-- Dissect Pillar Stream Message
+nyse_equities_binarygateway_pillar_v5_8_dissect.pillar_stream_message = function(buffer, packet, parent)
   local offset = 0
 
   -- Dependency element: Msg Type
@@ -9806,7 +9806,7 @@ function nyse_equities_binarygateway_pillar_v5_8.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(nyse_equities_binarygateway_pillar_v5_8, buffer(), nyse_equities_binarygateway_pillar_v5_8.description, "("..buffer:len().." Bytes)")
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.pillarstreammessage(buffer, packet, protocol)
+  return nyse_equities_binarygateway_pillar_v5_8_dissect.pillar_stream_message(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

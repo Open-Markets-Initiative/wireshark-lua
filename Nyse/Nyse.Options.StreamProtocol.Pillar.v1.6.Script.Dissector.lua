@@ -37,7 +37,7 @@ nyse_options_streamprotocol_pillar_v1_6.fields.next_seq = ProtoField.new("Next S
 nyse_options_streamprotocol_pillar_v1_6.fields.open = ProtoField.new("Open", "nyse.options.streamprotocol.pillar.v1.6.open", ftypes.STRING)
 nyse_options_streamprotocol_pillar_v1_6.fields.open_response = ProtoField.new("Open Response", "nyse.options.streamprotocol.pillar.v1.6.openresponse", ftypes.STRING)
 nyse_options_streamprotocol_pillar_v1_6.fields.password = ProtoField.new("Password", "nyse.options.streamprotocol.pillar.v1.6.password", ftypes.STRING)
-nyse_options_streamprotocol_pillar_v1_6.fields.pillarstreammessage = ProtoField.new("pillarstreammessage", "nyse.options.streamprotocol.pillar.v1.6.pillarstreammessage", ftypes.STRING)
+nyse_options_streamprotocol_pillar_v1_6.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.options.streamprotocol.pillar.v1.6.pillarstreammessage", ftypes.STRING)
 nyse_options_streamprotocol_pillar_v1_6.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.options.streamprotocol.pillar.v1.6.reserved4", ftypes.BYTES)
 nyse_options_streamprotocol_pillar_v1_6.fields.seq = ProtoField.new("Seq", "nyse.options.streamprotocol.pillar.v1.6.seq", ftypes.UINT64)
 nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.options.streamprotocol.pillar.v1.6.seqmsg", ftypes.STRING)
@@ -75,7 +75,7 @@ show.seqmsgid = true
 show.sequenced_message = true
 show.stream_avail = true
 show.stream_id = true
-show.pillarstreammessage = false
+show.pillar_stream_message = false
 
 -- Register Nyse Options StreamProtocol Pillar 1.6 Show Options
 nyse_options_streamprotocol_pillar_v1_6.prefs.show_close = Pref.bool("Show Close", show.close, "Parse and add Close to protocol tree")
@@ -92,7 +92,7 @@ nyse_options_streamprotocol_pillar_v1_6.prefs.show_seqmsgid = Pref.bool("Show Se
 nyse_options_streamprotocol_pillar_v1_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_avail = Pref.bool("Show Stream Avail", show.stream_avail, "Parse and add Stream Avail to protocol tree")
 nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
-nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillarstreammessage = Pref.bool("Show pillarstreammessage", show.pillarstreammessage, "Parse and add pillarstreammessage to protocol tree")
+nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
 
 -- Handle changed preferences
 function nyse_options_streamprotocol_pillar_v1_6.prefs_changed()
@@ -155,8 +155,8 @@ function nyse_options_streamprotocol_pillar_v1_6.prefs_changed()
     show.stream_id = nyse_options_streamprotocol_pillar_v1_6.prefs.show_stream_id
     changed = true
   end
-  if show.pillarstreammessage ~= nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillarstreammessage then
-    show.pillarstreammessage = nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillarstreammessage
+  if show.pillar_stream_message ~= nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillar_stream_message then
+    show.pillar_stream_message = nyse_options_streamprotocol_pillar_v1_6.prefs.show_pillar_stream_message
     changed = true
   end
 
@@ -1328,8 +1328,8 @@ nyse_options_streamprotocol_pillar_v1_6_dissect.login_message = function(buffer,
   return offset + size_of_login_message
 end
 
--- Dissect pillarstreammessage
-nyse_options_streamprotocol_pillar_v1_6_dissect.pillarstreammessage = function(buffer, packet, parent)
+-- Dissect Pillar Stream Message
+nyse_options_streamprotocol_pillar_v1_6_dissect.pillar_stream_message = function(buffer, packet, parent)
   local offset = 0
 
   -- Dependency element: Msg Type
@@ -1392,7 +1392,7 @@ function nyse_options_streamprotocol_pillar_v1_6.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(nyse_options_streamprotocol_pillar_v1_6, buffer(), nyse_options_streamprotocol_pillar_v1_6.description, "("..buffer:len().." Bytes)")
-  return nyse_options_streamprotocol_pillar_v1_6_dissect.pillarstreammessage(buffer, packet, protocol)
+  return nyse_options_streamprotocol_pillar_v1_6_dissect.pillar_stream_message(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

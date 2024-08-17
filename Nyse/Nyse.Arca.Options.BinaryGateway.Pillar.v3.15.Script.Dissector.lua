@@ -147,7 +147,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.fields.orig_cl_ord_id = ProtoField.
 nyse_arca_options_binarygateway_pillar_v3_15.fields.participant_type = ProtoField.new("Participant Type", "nyse.arca.options.binarygateway.pillar.v3.15.participanttype", ftypes.UINT8)
 nyse_arca_options_binarygateway_pillar_v3_15.fields.password = ProtoField.new("Password", "nyse.arca.options.binarygateway.pillar.v3.15.password", ftypes.STRING)
 nyse_arca_options_binarygateway_pillar_v3_15.fields.percentage_limit = ProtoField.new("Percentage Limit", "nyse.arca.options.binarygateway.pillar.v3.15.percentagelimit", ftypes.INT32)
-nyse_arca_options_binarygateway_pillar_v3_15.fields.pillarstreammessage = ProtoField.new("pillarstreammessage", "nyse.arca.options.binarygateway.pillar.v3.15.pillarstreammessage", ftypes.STRING)
+nyse_arca_options_binarygateway_pillar_v3_15.fields.pillar_stream_message = ProtoField.new("Pillar Stream Message", "nyse.arca.options.binarygateway.pillar.v3.15.pillarstreammessage", ftypes.STRING)
 nyse_arca_options_binarygateway_pillar_v3_15.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.arca.options.binarygateway.pillar.v3.15.preliquidityindicator", ftypes.STRING)
 nyse_arca_options_binarygateway_pillar_v3_15.fields.price_price_8 = ProtoField.new("Price Price 8", "nyse.arca.options.binarygateway.pillar.v3.15.priceprice8", ftypes.DOUBLE)
 nyse_arca_options_binarygateway_pillar_v3_15.fields.price_u_price_8 = ProtoField.new("Price U Price 8", "nyse.arca.options.binarygateway.pillar.v3.15.priceuprice8", ftypes.DOUBLE)
@@ -296,7 +296,7 @@ show.stream_id = true
 show.sub_msg_header = true
 show.trade_bust_or_correct = true
 show.underlying_symbol_reference_data = true
-show.pillarstreammessage = false
+show.pillar_stream_message = false
 show.sequenced_message = false
 
 -- Register Nyse Arca Options BinaryGateway Pillar 3.15 Show Options
@@ -350,7 +350,7 @@ nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_stream_id = Pref.bool("S
 nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
 nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_trade_bust_or_correct = Pref.bool("Show Trade Bust Or Correct", show.trade_bust_or_correct, "Parse and add Trade Bust Or Correct to protocol tree")
 nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data = Pref.bool("Show Underlying Symbol Reference Data", show.underlying_symbol_reference_data, "Parse and add Underlying Symbol Reference Data to protocol tree")
-nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillarstreammessage = Pref.bool("Show pillarstreammessage", show.pillarstreammessage, "Parse and add pillarstreammessage to protocol tree")
+nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message = Pref.bool("Show Pillar Stream Message", show.pillar_stream_message, "Parse and add Pillar Stream Message to protocol tree")
 nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
 
 -- Handle changed preferences
@@ -558,8 +558,8 @@ function nyse_arca_options_binarygateway_pillar_v3_15.prefs_changed()
     show.underlying_symbol_reference_data = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_underlying_symbol_reference_data
     changed = true
   end
-  if show.pillarstreammessage ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillarstreammessage then
-    show.pillarstreammessage = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillarstreammessage
+  if show.pillar_stream_message ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message then
+    show.pillar_stream_message = nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_pillar_stream_message
     changed = true
   end
   if show.sequenced_message ~= nyse_arca_options_binarygateway_pillar_v3_15.prefs.show_sequenced_message then
@@ -9979,8 +9979,8 @@ nyse_arca_options_binarygateway_pillar_v3_15_dissect.login_message = function(bu
   return offset + size_of_login_message
 end
 
--- Dissect pillarstreammessage
-nyse_arca_options_binarygateway_pillar_v3_15_dissect.pillarstreammessage = function(buffer, packet, parent)
+-- Dissect Pillar Stream Message
+nyse_arca_options_binarygateway_pillar_v3_15_dissect.pillar_stream_message = function(buffer, packet, parent)
   local offset = 0
 
   -- Dependency element: Msg Type
@@ -10043,7 +10043,7 @@ function nyse_arca_options_binarygateway_pillar_v3_15.dissector(buffer, packet, 
 
   -- Dissect protocol
   local protocol = parent:add(nyse_arca_options_binarygateway_pillar_v3_15, buffer(), nyse_arca_options_binarygateway_pillar_v3_15.description, "("..buffer:len().." Bytes)")
-  return nyse_arca_options_binarygateway_pillar_v3_15_dissect.pillarstreammessage(buffer, packet, protocol)
+  return nyse_arca_options_binarygateway_pillar_v3_15_dissect.pillar_stream_message(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
