@@ -14,7 +14,7 @@ local asx_securities_ntp_itch_v1_05_display = {}
 local asx_securities_ntp_itch_v1_05_dissect = {}
 local asx_securities_ntp_itch_v1_05_size_of = {}
 local verify = {}
-timestamp_seconds = 0
+local asx_securities_ntp_itch_v1_05_store = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -182,7 +182,6 @@ show.packet = true
 show.packet_header = true
 show.request_for_quote_message = true
 show.seconds_message = true
-show.raw_nanosecond_timestamp = false
 show.text_message = true
 show.trade_cancellation_message = true
 show.trade_executed_message = true
@@ -218,7 +217,6 @@ asx_securities_ntp_itch_v1_05.prefs.show_packet = Pref.bool("Show Packet", show.
 asx_securities_ntp_itch_v1_05.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_request_for_quote_message = Pref.bool("Show Request For Quote Message", show.request_for_quote_message, "Parse and add Request For Quote Message to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_seconds_message = Pref.bool("Show Seconds Message", show.seconds_message, "Parse and add Seconds Message to protocol tree")
-asx_securities_ntp_itch_v1_05.prefs.show_raw_nanosecond_timestamp= Pref.bool("Show Raw Nanosecond Timestamp", show.raw_nanosecond_timestamp, "Parse and add Raw Nanosecond Timestamp to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_text_message = Pref.bool("Show Text Message", show.text_message, "Parse and add Text Message to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_trade_cancellation_message = Pref.bool("Show Trade Cancellation Message", show.trade_cancellation_message, "Parse and add Trade Cancellation Message to protocol tree")
 asx_securities_ntp_itch_v1_05.prefs.show_trade_executed_message = Pref.bool("Show Trade Executed Message", show.trade_executed_message, "Parse and add Trade Executed Message to protocol tree")
@@ -340,10 +338,6 @@ function asx_securities_ntp_itch_v1_05.prefs_changed()
   end
   if show.seconds_message ~= asx_securities_ntp_itch_v1_05.prefs.show_seconds_message then
     show.seconds_message = asx_securities_ntp_itch_v1_05.prefs.show_seconds_message
-    changed = true
-  end
-  if show.raw_nanosecond_timestamp ~= asx_securities_ntp_itch_v1_05.prefs.show_raw_nanosecond_timestamp then
-    show.raw_nanosecond_timestamp = asx_securities_ntp_itch_v1_05.prefs.show_raw_nanosecond_timestamp
     changed = true
   end
   if show.text_message ~= asx_securities_ntp_itch_v1_05.prefs.show_text_message then
@@ -500,16 +494,14 @@ end
 asx_securities_ntp_itch_v1_05_size_of.timestamp = 4
 
 -- Display: Timestamp
-asx_securities_ntp_itch_v1_05_display.timestamp = function(value)
-  if timestamp_seconds == 0 then 
-	return "Timestamp: " .. value
+asx_securities_ntp_itch_v1_05_display.timestamp = function(nanoseconds, info, parent)
+  -- Lookup seconds
+  local seconds = asx_securities_ntp_itch_v1_05_store.seconds
+  if show.full_timestamp and seconds > 0 then
+    return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
   end
-  
-  if show.raw_nanosecond_timestamp then
-    return "Timestamp: " ..value
-  end
-  
-  return "Timestamp: " .. os.date("%m-%d-%Y %H:%M:%S.", timestamp_seconds) .. string.format("%09d", value)
+
+  return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
@@ -4490,7 +4482,9 @@ asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields = function(buffer, 
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
   index, seconds = asx_securities_ntp_itch_v1_05_dissect.seconds(buffer, index, packet, parent)
-  timestamp_seconds = seconds
+
+  -- Store: Seconds
+  asx_securities_ntp_itch_v1_05_store.seconds(seconds, info, parent)
 
   return index
 end
