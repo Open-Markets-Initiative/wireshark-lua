@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 300 | 2,944,733 |
+| 301 | 2,946,665 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -116,7 +116,8 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Lse][Lse.Directory] | Millennium | [Level2][Lse.Millennium.Level2.Mitch.v11.9.Dissector] | Mitch | [11.9][Lse.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | [Beta][Omi.Glossary.Testing.Beta] |
+| [Lseg][Lseg.Directory] | Millennium | [Level2][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | Mitch | [11.9][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | [Beta][Omi.Glossary.Testing.Beta] |
+| [Lseg][Lseg.Directory] | TradeEcho | [SiQuoting][Lseg.TradeEcho.SiQuoting.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.SiQuoting.Gtp.v24.4.Dissector] | 4/24/2024 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.12.Dissector] | Sbe | [1.12][Memx.Equities.Memo.Sbe.v1.12.Dissector] | 12/12/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.11.Dissector] | Sbe | [1.11][Memx.Equities.Memo.Sbe.v1.11.Dissector] | 1/13/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Memx][Memx.Directory] | Equities | [MemoirDepthFeed][Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | Sbe | [1.3][Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 4/5/2021 | [Beta][Omi.Glossary.Testing.Beta] |
@@ -190,7 +191,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel1][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Dissector] | Xmt | [2.8][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Dissector] | 2/22/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel2][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | Xmt | [3.6][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 
-Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Jnx][Jnx.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
+Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Jnx][Jnx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
 
 ## Disclaimer
 
@@ -219,7 +220,7 @@ Enjoy.
 [Ice.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ice "Intercontinental Exchange"
 [Iex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Iex "Investors Exchange"
 [Jnx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jnx "Japannext"
-[Lse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lse "London Stock Exchange"
+[Lseg.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lseg "London Stock Exchange Group"
 [Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Securities Exchange"
 [Memx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Memx "Members Exchange"
 [Nasdaq.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nasdaq "National Association of Securities Dealers Automated Quotations"
@@ -289,7 +290,8 @@ Enjoy.
 [Jnx.Equities.Pts.Itch.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Itch_v1_6_Dissector.lua "Jnx Equities Pts Itch v1.6 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Itch.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Itch_v1_7_Dissector.lua "Jnx Equities Pts Itch v1.7 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Ouch.v1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Ouch_v1_12_Dissector.lua "Jnx Equities Pts Ouch v1.12 Lua Wireshark Dissector"
-[Lse.Millennium.Level2.Mitch.v11.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lse/Lse_Millennium_Level2_Mitch_v11_9_Dissector.lua "Lse Millennium Level2 Mitch v11.9 Lua Wireshark Dissector"
+[Lseg.Millennium.Level2.Mitch.v11.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Millennium_Level2_Mitch_v11_9_Dissector.lua "Lseg Millennium Level2 Mitch v11.9 Lua Wireshark Dissector"
+[Lseg.TradeEcho.SiQuoting.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_SiQuoting_Gtp_v24_4_Dissector.lua "Lseg TradeEcho SiQuoting Gtp v24.4 Lua Wireshark Dissector"
 [Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_ComplexTopOfMarket_Mach_v1_3_Dissector.lua "Miax Options ComplexTopOfMarket Mach v1.3 Lua Wireshark Dissector"
 [Miax.Options.TopOfMarket.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_TopOfMarket_Mach_v2_2_Dissector.lua "Miax Options TopOfMarket Mach v2.2 Lua Wireshark Dissector"
 [Miax.Options.TopOfMarket.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_TopOfMarket_Mach_v2_3_Dissector.lua "Miax Options TopOfMarket Mach v2.3 Lua Wireshark Dissector"
