@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 302 | 2,952,050 |
+| 303 | 2,955,558 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -98,7 +98,6 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Cme][Cme.Directory] | Futures | [Streamlined][Cme.Futures.Streamlined.Sbe.v5.9.Dissector] | Sbe | [5.9][Cme.Futures.Streamlined.Sbe.v5.9.Dissector] | 4/4/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Coinbase][Coinbase.Directory] | Derivatives | [MarketDataApi][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | Sbe | [1.7][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | 4/14/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Coinbase][Coinbase.Directory] | Derivatives | [OrdersApi][Coinbase.Derivatives.OrdersApi.Sbe.v1.6.Dissector] | Sbe | [1.6][Coinbase.Derivatives.OrdersApi.Sbe.v1.6.Dissector] | 10/13/2023 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Coinbase][Coinbase.Directory] | Derivatives | [OrdersApi][Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector] | Sbe | [1.5][Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector] | 4/14/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v12.1.Dissector] | T7 | [12.1][Eurex.Cash.Eti.T7.v12.1.Dissector] | 3/11/2024 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v12.0.Dissector] | T7 | [12.0][Eurex.Cash.Eti.T7.v12.0.Dissector] | 7/31/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Derivatives | [Eobi][Eurex.Derivatives.Eobi.T7.v12.1.Dissector] | T7 | [12.1][Eurex.Derivatives.Eobi.T7.v12.1.Dissector] | 3/11/2024 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -117,8 +116,8 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Lseg][Lseg.Directory] | Millennium | [Level2][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | Mitch | [11.9][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | [Beta][Omi.Glossary.Testing.Beta] |
-| [Lseg][Lseg.Directory] | TradeEcho | [SiQuoting][Lseg.TradeEcho.SiQuoting.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.SiQuoting.Gtp.v24.4.Dissector] | 4/24/2024 | [Beta][Omi.Glossary.Testing.Beta] |
+| [Lseg][Lseg.Directory] | TradeEcho | [Level2][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | 4/24/2024 | [Beta][Omi.Glossary.Testing.Beta] |
+| [Lseg][Lseg.Directory] | TradeEcho | [Mifid][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.12.Dissector] | Sbe | [1.12][Memx.Equities.Memo.Sbe.v1.12.Dissector] | 12/12/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.11.Dissector] | Sbe | [1.11][Memx.Equities.Memo.Sbe.v1.11.Dissector] | 1/13/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Memx][Memx.Directory] | Equities | [MemoirDepthFeed][Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | Sbe | [1.3][Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 4/5/2021 | [Beta][Omi.Glossary.Testing.Beta] |
@@ -272,7 +271,6 @@ Enjoy.
 [Cme.Futures.Derived.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_Futures_Derived_Sbe_v12_0_Dissector.lua "Cme Futures Derived Sbe v12.0 Lua Wireshark Dissector"
 [Cme.Ebs.Spectrum.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_Ebs_Spectrum_Sbe_v12_0_Dissector.lua "Cme Ebs Spectrum Sbe v12.0 Lua Wireshark Dissector"
 [Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase_Derivatives_MarketDataApi_Sbe_v1_7_Dissector.lua "Coinbase Derivatives MarketDataApi Sbe v1.7 Lua Wireshark Dissector"
-[Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase_Derivatives_OrdersApi_Sbe_v1_5_Dissector.lua "Coinbase Derivatives OrdersApi Sbe v1.5 Lua Wireshark Dissector"
 [Coinbase.Derivatives.OrdersApi.Sbe.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase_Derivatives_OrdersApi_Sbe_v1_6_Dissector.lua "Coinbase Derivatives OrdersApi Sbe v1.6 Lua Wireshark Dissector"
 [Eurex.Cash.Eti.T7.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Cash_Eti_T7_v12_0_Dissector.lua "Eurex Cash Eti T7 v12.0 Lua Wireshark Dissector"
 [Eurex.Derivatives.Eti.T7.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Derivatives_Eti_T7_v12_0_Dissector.lua "Eurex Derivatives Eti T7 v12.0 Lua Wireshark Dissector"
@@ -292,8 +290,8 @@ Enjoy.
 [Jnx.Equities.Pts.Itch.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Itch_v1_6_Dissector.lua "Jnx Equities Pts Itch v1.6 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Itch.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Itch_v1_7_Dissector.lua "Jnx Equities Pts Itch v1.7 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Ouch.v1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Ouch_v1_12_Dissector.lua "Jnx Equities Pts Ouch v1.12 Lua Wireshark Dissector"
-[Lseg.Millennium.Level2.Mitch.v11.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Millennium_Level2_Mitch_v11_9_Dissector.lua "Lseg Millennium Level2 Mitch v11.9 Lua Wireshark Dissector"
-[Lseg.TradeEcho.SiQuoting.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_SiQuoting_Gtp_v24_4_Dissector.lua "Lseg TradeEcho SiQuoting Gtp v24.4 Lua Wireshark Dissector"
+[Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_Level2_Gtp_v24_4_Dissector.lua "Lseg TradeEcho Level2 Gtp v24.4 Lua Wireshark Dissector"
+[Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_Mifid_Gtp_v24_4_Dissector.lua "Lseg TradeEcho Mifid Gtp v24.4 Lua Wireshark Dissector"
 [Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_ComplexTopOfMarket_Mach_v1_3_Dissector.lua "Miax Options ComplexTopOfMarket Mach v1.3 Lua Wireshark Dissector"
 [Miax.Options.TopOfMarket.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_TopOfMarket_Mach_v2_2_Dissector.lua "Miax Options TopOfMarket Mach v2.2 Lua Wireshark Dissector"
 [Miax.Options.TopOfMarket.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_TopOfMarket_Mach_v2_3_Dissector.lua "Miax Options TopOfMarket Mach v2.3 Lua Wireshark Dissector"
