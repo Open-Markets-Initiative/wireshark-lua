@@ -194,7 +194,14 @@ lseg_tradeecho_level2_gtp_v24_4_size_of.venue_of_publication = 4
 
 -- Display: Venue Of Publication
 lseg_tradeecho_level2_gtp_v24_4_display.venue_of_publication = function(value)
-  return "Venue Of Publication: "..value
+  if value == "ECHO" then
+    return "Venue Of Publication: Published Under Uk Regulation (ECHO)"
+  end
+  if value == "ECEU" then
+    return "Venue Of Publication: Published Under Eu Regulation (ECEU)"
+  end
+
+  return "Venue Of Publication: Unknown("..value..")"
 end
 
 -- Dissect: Venue Of Publication
@@ -254,7 +261,14 @@ lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type = 1
 
 -- Display: Order Book Type
 lseg_tradeecho_level2_gtp_v24_4_display.order_book_type = function(value)
-  return "Order Book Type: "..value
+  if value == 1 then
+    return "Order Book Type: Si Quote Book (1)"
+  end
+  if value == 2 then
+    return "Order Book Type: Off Book (2)"
+  end
+
+  return "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -546,13 +560,13 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields = 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
   index, source_venue = lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
 
-  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer
+  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
 
   -- Participant: 11 Byte Ascii String
   index, participant = lseg_tradeecho_level2_gtp_v24_4_dissect.participant(buffer, index, packet, parent)
 
-  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer
+  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
 
   -- Reserved 10: 10 Byte
@@ -561,7 +575,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields = 
   -- Currency: 3 Byte Ascii String
   index, currency = lseg_tradeecho_level2_gtp_v24_4_dissect.currency(buffer, index, packet, parent)
 
-  -- Venue Of Publication: 4 Byte Ascii String
+  -- Venue Of Publication: 4 Byte Ascii String Enum with 2 values
   index, venue_of_publication = lseg_tradeecho_level2_gtp_v24_4_dissect.venue_of_publication(buffer, index, packet, parent)
 
   return index
@@ -613,7 +627,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields = function(buffe
   -- Instrument: 8 Byte Unsigned Fixed Width Integer
   index, instrument = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument(buffer, index, packet, parent)
 
-  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer
+  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
 
   return index
@@ -754,7 +768,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields = function(buffer, o
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = lseg_tradeecho_level2_gtp_v24_4_dissect.side(buffer, index, packet, parent)
 
-  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer
+  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
@@ -910,7 +924,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields = function(buff
   -- New End Time: 6 Byte Ascii String
   index, new_end_time = lseg_tradeecho_level2_gtp_v24_4_dissect.new_end_time(buffer, index, packet, parent)
 
-  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer
+  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
 
   return index

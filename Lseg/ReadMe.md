@@ -7,8 +7,8 @@
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Millennium | [Level2][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | Mitch | [11.9][Lseg.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | 3066 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.Level2.Mitch.v11.9.Url] - [pdf][Lseg.Millennium.Level2.Mitch.v11.9.Pdf] |
 | Millennium | [UdpUnitHeader][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | Mitch | [1.0][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | 1/1/2018 | 449 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url] - [pdf][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf] |
-| TradeEcho | [Level2][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | 4/24/2024 | 1866 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Level2.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Level2.Gtp.v24.4.Pdf] |
-| TradeEcho | [Mifid][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | 3574 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Mifid.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Mifid.Gtp.v24.4.Pdf] |
+| TradeEcho | [Level2][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector] | 4/24/2024 | 1880 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Level2.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Level2.Gtp.v24.4.Pdf] |
+| TradeEcho | [Mifid][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | Gtp | [24.4][Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector] | 4/24/2024 | 3628 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.TradeEcho.Mifid.Gtp.v24.4.Url] - [pdf][Lseg.TradeEcho.Mifid.Gtp.v24.4.Pdf] |
 
 
 Lseg: [website](https://www.londonstockexchange.com "Go to London Stock Exchange Group")
@@ -33,8 +33,8 @@ Lseg: [website](https://www.londonstockexchange.com "Go to London Stock Exchange
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange Group 1.0 Url"
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.Millennium.Level2.Mitch.v11.9.pdf "London Stock Exchange Group 1.0 Pdf"
 [Lseg.TradeEcho.Level2.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_Level2_Gtp_v24_4_Dissector.lua "Lseg TradeEcho Level2 Gtp v24.4 Wireshark Dissector"
-[Lseg.TradeEcho.Level2.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange Group 24.4 Url"
+[Lseg.TradeEcho.Level2.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange Group 24.4 Url"
 [Lseg.TradeEcho.Level2.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.TradeEcho.Gtp.v24.4.pdf "London Stock Exchange Group 24.4 Pdf"
 [Lseg.TradeEcho.Mifid.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_TradeEcho_Mifid_Gtp_v24_4_Dissector.lua "Lseg TradeEcho Mifid Gtp v24.4 Wireshark Dissector"
-[Lseg.TradeEcho.Mifid.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange Group 24.4 Url"
+[Lseg.TradeEcho.Mifid.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange Group 24.4 Url"
 [Lseg.TradeEcho.Mifid.Gtp.v24.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Lseg.TradeEcho.Gtp.v24.4.pdf "London Stock Exchange Group 24.4 Pdf"

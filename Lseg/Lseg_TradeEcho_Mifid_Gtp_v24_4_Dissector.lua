@@ -554,7 +554,17 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.modification_indicator = 1
 
 -- Display: Modification Indicator
 lseg_tradeecho_mifid_gtp_v24_4_display.modification_indicator = function(value)
-  return "Modification Indicator: "..value
+  if value == "C" then
+    return "Modification Indicator: Trade Cancellation (C)"
+  end
+  if value == "A" then
+    return "Modification Indicator: Trade Amendment (A)"
+  end
+  if value == "-" then
+    return "Modification Indicator: New Trade (-)"
+  end
+
+  return "Modification Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Modification Indicator
@@ -574,7 +584,14 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.agency_cross_indicator = 1
 
 -- Display: Agency Cross Indicator
 lseg_tradeecho_mifid_gtp_v24_4_display.agency_cross_indicator = function(value)
-  return "Agency Cross Indicator: "..value
+  if value == "X" then
+    return "Agency Cross Indicator: Agency Cross Trade (X)"
+  end
+  if value == "-" then
+    return "Agency Cross Indicator: No Agency Cross Trade (-)"
+  end
+
+  return "Agency Cross Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Agency Cross Indicator
@@ -594,7 +611,26 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.negotiation_indicator = 1
 
 -- Display: Negotiation Indicator
 lseg_tradeecho_mifid_gtp_v24_4_display.negotiation_indicator = function(value)
-  return "Negotiation Indicator: "..value
+  if value == "1" then
+    return "Negotiation Indicator: Negotiated Trade In Liquid Financial Instruments (1)"
+  end
+  if value == "2" then
+    return "Negotiation Indicator: Negotiated Trade In Illiquid Financial Instruments (2)"
+  end
+  if value == "3" then
+    return "Negotiation Indicator: Negotiated Trade Subject To Conditions Other Than The Current Market Price (3)"
+  end
+  if value == "7" then
+    return "Negotiation Indicator: Negotiated Trade Larger Than Lis Brought Onto A Venue (7)"
+  end
+  if value == "8" then
+    return "Negotiation Indicator: Negotiated Trade With Pretrade Transparency Waiver (8)"
+  end
+  if value == "-" then
+    return "Negotiation Indicator: Not A Negotiated Trade (-)"
+  end
+
+  return "Negotiation Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Negotiation Indicator
@@ -614,7 +650,26 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.transaction_category = 1
 
 -- Display: Transaction Category
 lseg_tradeecho_mifid_gtp_v24_4_display.transaction_category = function(value)
-  return "Transaction Category: "..value
+  if value == "R" then
+    return "Transaction Category: Trade That Has Received Price Improvement (R)"
+  end
+  if value == "Z" then
+    return "Transaction Category: Package Trade Excluding Exchange For Physicals (Z)"
+  end
+  if value == "Y" then
+    return "Transaction Category: Exchange For Physicals Trade (Y)"
+  end
+  if value == "G" then
+    return "Transaction Category: Rfmd Give Up Trade (G)"
+  end
+  if value == "H" then
+    return "Transaction Category: Rfmd Give Up Trade Give And Exchange For Physicals Trade (H)"
+  end
+  if value == "-" then
+    return "Transaction Category: None (-)"
+  end
+
+  return "Transaction Category: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Category
@@ -634,7 +689,17 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.trading_mode = 1
 
 -- Display: Trading Mode
 lseg_tradeecho_mifid_gtp_v24_4_display.trading_mode = function(value)
-  return "Trading Mode: "..value
+  if value == "5" then
+    return "Trading Mode: On Exchange (5)"
+  end
+  if value == "6" then
+    return "Trading Mode: Off Exchange (6)"
+  end
+  if value == "7" then
+    return "Trading Mode: Systemic Internaliser (7)"
+  end
+
+  return "Trading Mode: Unknown("..value..")"
 end
 
 -- Dissect: Trading Mode
@@ -654,7 +719,11 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.market_mechanism = 1
 
 -- Display: Market Mechanism
 lseg_tradeecho_mifid_gtp_v24_4_display.market_mechanism = function(value)
-  return "Market Mechanism: "..value
+  if value == "4" then
+    return "Market Mechanism: Off Book (4)"
+  end
+
+  return "Market Mechanism: Unknown("..value..")"
 end
 
 -- Dissect: Market Mechanism
@@ -714,7 +783,14 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.transaction_to_be_cleared = 1
 
 -- Display: Transaction To Be Cleared
 lseg_tradeecho_mifid_gtp_v24_4_display.transaction_to_be_cleared = function(value)
-  return "Transaction To Be Cleared: "..value
+  if value == "0" then
+    return "Transaction To Be Cleared: No (0)"
+  end
+  if value == "1" then
+    return "Transaction To Be Cleared: Yes (1)"
+  end
+
+  return "Transaction To Be Cleared: Unknown("..value..")"
 end
 
 -- Dissect: Transaction To Be Cleared
@@ -774,7 +850,14 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.venue_book_definition_id = 1
 
 -- Display: Venue Book Definition Id
 lseg_tradeecho_mifid_gtp_v24_4_display.venue_book_definition_id = function(value)
-  return "Venue Book Definition Id: "..value
+  if value == 0 then
+    return "Venue Book Definition Id: Unspecified (0)"
+  end
+  if value == 1 then
+    return "Venue Book Definition Id: Off Book (1)"
+  end
+
+  return "Venue Book Definition Id: Unknown("..value..")"
 end
 
 -- Dissect: Venue Book Definition Id
@@ -794,7 +877,20 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.venue_type = 1
 
 -- Display: Venue Type
 lseg_tradeecho_mifid_gtp_v24_4_display.venue_type = function(value)
-  return "Venue Type: "..value
+  if value == 0 then
+    return "Venue Type: Unspecified (0)"
+  end
+  if value == 1 then
+    return "Venue Type: Mtf (1)"
+  end
+  if value == 2 then
+    return "Venue Type: Otf (2)"
+  end
+  if value == 3 then
+    return "Venue Type: Regulated Market (3)"
+  end
+
+  return "Venue Type: Unknown("..value..")"
 end
 
 -- Dissect: Venue Type
@@ -1474,7 +1570,20 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.price_notation = 4
 
 -- Display: Price Notation
 lseg_tradeecho_mifid_gtp_v24_4_display.price_notation = function(value)
-  return "Price Notation: "..value
+  if value == "MONE" then
+    return "Price Notation: Monetary Value (MONE)"
+  end
+  if value == "PERC" then
+    return "Price Notation: Percentage (PERC)"
+  end
+  if value == "YIEL" then
+    return "Price Notation: Yield (YIEL)"
+  end
+  if value == "BAPO" then
+    return "Price Notation: Basis Point (BAPO)"
+  end
+
+  return "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -1514,7 +1623,11 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.instrument_identification_code_type = 4
 
 -- Display: Instrument Identification Code Type
 lseg_tradeecho_mifid_gtp_v24_4_display.instrument_identification_code_type = function(value)
-  return "Instrument Identification Code Type: "..value
+  if value == "ISIN" then
+    return "Instrument Identification Code Type: International Securities Identification Number (ISIN)"
+  end
+
+  return "Instrument Identification Code Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Identification Code Type
@@ -1904,13 +2017,13 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields = function(b
   -- Mi Fid Trading Date And Time: 27 Byte Ascii String
   index, mi_fid_trading_date_and_time = lseg_tradeecho_mifid_gtp_v24_4_dissect.mi_fid_trading_date_and_time(buffer, index, packet, parent)
 
-  -- Instrument Identification Code Type: 4 Byte Ascii String
+  -- Instrument Identification Code Type: 4 Byte Ascii String Enum with 1 values
   index, instrument_identification_code_type = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_identification_code_type(buffer, index, packet, parent)
 
   -- Instrument Identification Code: 12 Byte Ascii String
   index, instrument_identification_code = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_identification_code(buffer, index, packet, parent)
 
-  -- Price Notation: 4 Byte Ascii String
+  -- Price Notation: 4 Byte Ascii String Enum with 4 values
   index, price_notation = lseg_tradeecho_mifid_gtp_v24_4_dissect.price_notation(buffer, index, packet, parent)
 
   -- Price Currency: 3 Byte Ascii String
@@ -2015,10 +2128,10 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields = function(b
   -- Reserved 1: 1 Byte
   index, reserved_1 = lseg_tradeecho_mifid_gtp_v24_4_dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Venue Type: 1 Byte Unsigned Fixed Width Integer
+  -- Venue Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, venue_type = lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_type(buffer, index, packet, parent)
 
-  -- Venue Book Definition Id: 1 Byte Unsigned Fixed Width Integer
+  -- Venue Book Definition Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, venue_book_definition_id = lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_book_definition_id(buffer, index, packet, parent)
 
   -- Venue Measurement Unit Notation: 25 Byte Ascii String
@@ -2027,7 +2140,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields = function(b
   -- Quantity In Measurement Unit: 20 Byte Ascii String
   index, quantity_in_measurement_unit = lseg_tradeecho_mifid_gtp_v24_4_dissect.quantity_in_measurement_unit(buffer, index, packet, parent)
 
-  -- Transaction To Be Cleared: 1 Byte Ascii String
+  -- Transaction To Be Cleared: 1 Byte Ascii String Enum with 2 values
   index, transaction_to_be_cleared = lseg_tradeecho_mifid_gtp_v24_4_dissect.transaction_to_be_cleared(buffer, index, packet, parent)
 
   -- Emission Allowance Type: 4 Byte Ascii String
@@ -2036,22 +2149,22 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields = function(b
   -- Venue Of Publication: 4 Byte Ascii String
   index, venue_of_publication = lseg_tradeecho_mifid_gtp_v24_4_dissect.venue_of_publication(buffer, index, packet, parent)
 
-  -- Market Mechanism: 1 Byte Ascii String
+  -- Market Mechanism: 1 Byte Ascii String Enum with 1 values
   index, market_mechanism = lseg_tradeecho_mifid_gtp_v24_4_dissect.market_mechanism(buffer, index, packet, parent)
 
-  -- Trading Mode: 1 Byte Ascii String
+  -- Trading Mode: 1 Byte Ascii String Enum with 3 values
   index, trading_mode = lseg_tradeecho_mifid_gtp_v24_4_dissect.trading_mode(buffer, index, packet, parent)
 
-  -- Transaction Category: 1 Byte Ascii String
+  -- Transaction Category: 1 Byte Ascii String Enum with 6 values
   index, transaction_category = lseg_tradeecho_mifid_gtp_v24_4_dissect.transaction_category(buffer, index, packet, parent)
 
-  -- Negotiation Indicator: 1 Byte Ascii String
+  -- Negotiation Indicator: 1 Byte Ascii String Enum with 6 values
   index, negotiation_indicator = lseg_tradeecho_mifid_gtp_v24_4_dissect.negotiation_indicator(buffer, index, packet, parent)
 
-  -- Agency Cross Indicator: 1 Byte Ascii String
+  -- Agency Cross Indicator: 1 Byte Ascii String Enum with 2 values
   index, agency_cross_indicator = lseg_tradeecho_mifid_gtp_v24_4_dissect.agency_cross_indicator(buffer, index, packet, parent)
 
-  -- Modification Indicator: 1 Byte Ascii String
+  -- Modification Indicator: 1 Byte Ascii String Enum with 3 values
   index, modification_indicator = lseg_tradeecho_mifid_gtp_v24_4_dissect.modification_indicator(buffer, index, packet, parent)
 
   -- Reference Price Indicator: 1 Byte Ascii String
@@ -2403,7 +2516,14 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.order_book_type = 1
 
 -- Display: Order Book Type
 lseg_tradeecho_mifid_gtp_v24_4_display.order_book_type = function(value)
-  return "Order Book Type: "..value
+  if value == 1 then
+    return "Order Book Type: Si Quote Book (1)"
+  end
+  if value == 2 then
+    return "Order Book Type: Off Book (2)"
+  end
+
+  return "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -2446,21 +2566,6 @@ lseg_tradeecho_mifid_gtp_v24_4_display.session_change_reason = function(value)
   if value == 0 then
     return "Session Change Reason: Scheduled Transition (0)"
   end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable Recovery Service Only (9)"
-  end
 
   return "Session Change Reason: Unknown("..value..")"
 end
@@ -2482,68 +2587,17 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.trading_status = 1
 
 -- Display: Trading Status
 lseg_tradeecho_mifid_gtp_v24_4_display.trading_status = function(value)
-  if value == " " then
-    return "Trading Status: Active (<whitespace>)"
+  if value == "1" then
+    return "Trading Status: Inactive Or Underlying Suspended (1)"
   end
-  if value == "Value" then
-    return "Trading Status: Meaning (Value)"
+  if value == "2" then
+    return "Trading Status: Suspended (2)"
   end
-  if value == "H" then
-    return "Trading Status: Halt (H)"
+  if value == "3" then
+    return "Trading Status: Active (3)"
   end
-  if value == "T" then
-    return "Trading Status: Regular Trading Start Of Trade Reporting (T)"
-  end
-  if value == "a" then
-    return "Trading Status: Opening First Auction Call (a)"
-  end
-  if value == "b" then
-    return "Trading Status: Post Close (b)"
-  end
-  if value == "c" then
-    return "Trading Status: Market Close System Shutdown (c)"
-  end
-  if value == "d" then
-    return "Trading Status: Closing Auction Call (d)"
-  end
-  if value == "e" then
-    return "Trading Status: Aesp Auction Call (e)"
-  end
-  if value == "f" then
-    return "Trading Status: Resume Auction Call (f)"
-  end
-  if value == "l" then
-    return "Trading Status: Pause (l)"
-  end
-  if value == "m" then
-    return "Trading Status: Pre Mandatory (m)"
-  end
-  if value == "n" then
-    return "Trading Status: Mandatory (n)"
-  end
-  if value == "o" then
-    return "Trading Status: Post Mandatory (o)"
-  end
-  if value == "q" then
-    return "Trading Status: Edsp Auction Call (q)"
-  end
-  if value == "r" then
-    return "Trading Status: Periodic Auction Call (r)"
-  end
-  if value == "t" then
-    return "Trading Status: End Trade Reporting (t)"
-  end
-  if value == "w" then
-    return "Trading Status: No Active Session (w)"
-  end
-  if value == "x" then
-    return "Trading Status: End Of Post Close (x)"
-  end
-  if value == "u" then
-    return "Trading Status: Closing Price Crossing (u)"
-  end
-  if value == "G" then
-    return "Trading Status: Scheduled Level 1 Only Auction (G)"
+  if value == "P" then
+    return "Trading Status: Regulatory Halt (P)"
   end
 
   return "Trading Status: Unknown("..value..")"
@@ -2600,16 +2654,16 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields = function(buffe
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
   index, source_venue = lseg_tradeecho_mifid_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 21 values
+  -- Trading Status: 1 Byte Ascii String Enum with 4 values
   index, trading_status = lseg_tradeecho_mifid_gtp_v24_4_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Session Change Reason: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Session Change Reason: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, session_change_reason = lseg_tradeecho_mifid_gtp_v24_4_dissect.session_change_reason(buffer, index, packet, parent)
 
   -- New End Time: 6 Byte Ascii String
   index, new_end_time = lseg_tradeecho_mifid_gtp_v24_4_dissect.new_end_time(buffer, index, packet, parent)
 
-  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer
+  -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_book_type = lseg_tradeecho_mifid_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
 
   return index
