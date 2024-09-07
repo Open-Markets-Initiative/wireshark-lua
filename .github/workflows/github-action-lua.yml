@@ -2,7 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - test-workflows
 
 jobs:
   tshark-end-to-end-test:
@@ -24,6 +26,9 @@ jobs:
         run: git clone --depth=1 https://github.com/Open-Markets-Initiative/Data.git
 
       - name: Run Dissector Tests
-        run: bash -x Test.sh
+        run: |
+          for script in .github/tests/*.sh; do
+            bash -x "$script"
+          done
 
 
