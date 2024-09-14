@@ -24,6 +24,6 @@ jobs:
         run: git clone --depth=1 https://github.com/Open-Markets-Initiative/Data.git
 
       - name: Run Dissector Tests
-        run: bash -x Test.sh
+        run: bash -x .github/tests/Tests.sh
 
 
