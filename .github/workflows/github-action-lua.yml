@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  tshark-end-to-end-test:
+  tshark-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,13 @@ jobs:
       - name: Clone Omi Data
         run: git clone --depth=1 https://github.com/Open-Markets-Initiative/Data.git
 
-      - name: Run Dissector Tests
-        run: bash -x Test.sh
+      - name: Run Nasdaq Equities TotalView Itch 5.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-Equities-TotalView-Itch-v5-0-Test.sh
+
+      - name: Run Nasdaq Ise OrderComboFeed Itch 1.1 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-Ise-OrderComboFeed-Itch-v1-1-Test.sh
+
+      - name: Run Cme Futures Mdp3 Sbe 1.12 Dissector Tests
+        run: bash -x .github/tests/Cme-Futures-Mdp3-Sbe-v1-12-Test.sh
 
 
