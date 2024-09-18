@@ -29,4 +29,7 @@ jobs:
       - name: Run Nasdaq Ise OrderComboFeed Itch 1.1 Dissector Tests
         run: bash -x .github/tests/Nasdaq-Ise-OrderComboFeed-Itch-v1-1-Test.sh
 
+      - name: Run Cme Futures Mdp3 Sbe 1.9 Dissector Tests
+        run: bash -x .github/tests/Cme-Futures-Mdp3-Sbe-v1-9-Test.sh
+
 
