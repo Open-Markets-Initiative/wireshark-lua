@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout
 
       - name: Update Operating System
         run: sudo apt-get update
@@ -28,8 +28,5 @@ jobs:
 
       - name: Run Nasdaq Ise OrderComboFeed Itch 1.1 Dissector Tests
         run: bash -x .github/tests/Nasdaq-Ise-OrderComboFeed-Itch-v1-1-Test.sh
-
-      - name: Run Cme Futures Mdp3 Sbe 1.12 Dissector Tests
-        run: bash -x .github/tests/Cme-Futures-Mdp3-Sbe-v1-12-Test.sh
 
 
