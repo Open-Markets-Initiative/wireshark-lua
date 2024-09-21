@@ -1058,7 +1058,7 @@ eurex_cash_eti_t7_v6_0_size_of.sending_time = 8
 -- Display: Sending Time
 eurex_cash_eti_t7_v6_0_display.sending_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -1082,7 +1082,7 @@ eurex_cash_eti_t7_v6_0_size_of.request_time = 8
 -- Display: Request Time
 eurex_cash_eti_t7_v6_0_display.request_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2039,7 +2039,7 @@ eurex_cash_eti_t7_v6_0_size_of.exec_id = 8
 -- Display: Exec Id
 eurex_cash_eti_t7_v6_0_display.exec_id = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2316,7 +2316,7 @@ eurex_cash_eti_t7_v6_0_size_of.notification_in = 8
 -- Display: Notification In
 eurex_cash_eti_t7_v6_0_display.notification_in = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Notification In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2340,7 +2340,7 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_time_out = 8
 -- Display: Trd Reg Ts Time Out
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_time_out = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Time Out: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -3933,7 +3933,7 @@ eurex_cash_eti_t7_v6_0_size_of.transact_time = 8
 -- Display: Transact Time
 eurex_cash_eti_t7_v6_0_display.transact_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -5600,7 +5600,7 @@ eurex_cash_eti_t7_v6_0_size_of.response_in = 8
 -- Display: Response In
 eurex_cash_eti_t7_v6_0_display.response_in = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Response In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -5624,7 +5624,7 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_time_in = 8
 -- Display: Trd Reg Ts Time In
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_time_in = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Time In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -5648,7 +5648,7 @@ eurex_cash_eti_t7_v6_0_size_of.request_out = 8
 -- Display: Request Out
 eurex_cash_eti_t7_v6_0_display.request_out = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Request Out: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -6544,7 +6544,7 @@ eurex_cash_eti_t7_v6_0_size_of.mass_action_report_id = 8
 -- Display: Mass Action Report Id
 eurex_cash_eti_t7_v6_0_display.mass_action_report_id = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Mass Action Report Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -7771,7 +7771,7 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_time_priority = 8
 -- Display: Trd Reg Ts Time Priority
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_time_priority = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -7795,7 +7795,7 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_entry_time = 8
 -- Display: Trd Reg Ts Entry Time
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_entry_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Entry Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -8688,7 +8688,7 @@ eurex_cash_eti_t7_v6_0_size_of.orig_time = 8
 -- Display: Orig Time
 eurex_cash_eti_t7_v6_0_display.orig_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -10125,7 +10125,7 @@ eurex_cash_eti_t7_v6_0_size_of.quote_response_id = 8
 -- Display: Quote Response Id
 eurex_cash_eti_t7_v6_0_display.quote_response_id = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Quote Response Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)

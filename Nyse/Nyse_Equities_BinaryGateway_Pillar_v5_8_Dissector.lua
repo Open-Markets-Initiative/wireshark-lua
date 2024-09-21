@@ -2507,7 +2507,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.transact_time = 8
 -- Display: Transact Time
 nyse_equities_binarygateway_pillar_v5_8_display.transact_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)

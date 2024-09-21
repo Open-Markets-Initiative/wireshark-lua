@@ -121,8 +121,8 @@ b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_side = ProtoField.new("Leg Side
 b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "b3.equities.binaryentrypoint.sbe.v8.1.legsymbol", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v8_1.fields.long_qty = ProtoField.new("Long Qty", "b3.equities.binaryentrypoint.sbe.v8.1.longqty", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v8_1.fields.long_qty_optional = ProtoField.new("Long Qty Optional", "b3.equities.binaryentrypoint.sbe.v8.1.longqtyoptional", ftypes.UINT64)
-b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_i_d_market_segment_id = ProtoField.new("Market Segment I D Market Segment Id", "b3.equities.binaryentrypoint.sbe.v8.1.marketsegmentidmarketsegmentid", ftypes.UINT8)
-b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_i_d_market_segment_id_optional = ProtoField.new("Market Segment I D Market Segment Id Optional", "b3.equities.binaryentrypoint.sbe.v8.1.marketsegmentidmarketsegmentidoptional", ftypes.UINT8)
+b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id = ProtoField.new("Market Segment Id", "b3.equities.binaryentrypoint.sbe.v8.1.marketsegmentid", ftypes.UINT8)
+b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id_optional = ProtoField.new("Market Segment Id Optional", "b3.equities.binaryentrypoint.sbe.v8.1.marketsegmentidoptional", ftypes.UINT8)
 b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_received_time = ProtoField.new("Market Segment Received Time", "b3.equities.binaryentrypoint.sbe.v8.1.marketsegmentreceivedtime", ftypes.UINT64)
 b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "b3.equities.binaryentrypoint.sbe.v8.1.massactionrejectreason", ftypes.UINT8)
 b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "b3.equities.binaryentrypoint.sbe.v8.1.massactionreportid", ftypes.UINT64)
@@ -1113,7 +1113,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_size_of.transact_time = 8
 -- Display: Transact Time
 b3_equities_binaryentrypoint_sbe_v8_1_display.transact_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -1287,7 +1287,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_size_of.sending_time = 8
 -- Display: Sending Time
 b3_equities_binaryentrypoint_sbe_v8_1_display.sending_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -1377,7 +1377,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.outbound_business_header_fields = 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1_dissect.sending_time(buffer, index, packet, parent)
 
   -- Poss Resend: 1 Byte Unsigned Fixed Width Integer
@@ -1534,22 +1534,22 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.offset_31_padding_1 = function(buf
   return offset + length, value
 end
 
--- Size: Market Segment I D Market Segment Id
-b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_i_d_market_segment_id = 1
+-- Size: Market Segment Id
+b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_id = 1
 
--- Display: Market Segment I D Market Segment Id
-b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_i_d_market_segment_id = function(value)
-  return "Market Segment I D Market Segment Id: "..value
+-- Display: Market Segment Id
+b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_id = function(value)
+  return "Market Segment Id: "..value
 end
 
--- Dissect: Market Segment I D Market Segment Id
-b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_i_d_market_segment_id = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_i_d_market_segment_id
+-- Dissect: Market Segment Id
+b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_id = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_i_d_market_segment_id(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_id(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_i_d_market_segment_id, range, value, display)
+  parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id, range, value, display)
 
   return offset + length, value
 end
@@ -1564,7 +1564,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_size_of.inbound_business_header = function
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.sending_time
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_i_d_market_segment_id
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_id
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.padding
 
@@ -1586,11 +1586,11 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.inbound_business_header_fields = f
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Market Segment I D Market Segment Id: 1 Byte Unsigned Fixed Width Integer
-  index, market_segment_i_d_market_segment_id = b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_i_d_market_segment_id(buffer, index, packet, parent)
+  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  index, market_segment_id = b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Padding: 1 Byte Ascii String
   index, padding = b3_equities_binaryentrypoint_sbe_v8_1_dissect.padding(buffer, index, packet, parent)
@@ -3978,22 +3978,22 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.quote_request_reject_reason = func
   return offset + length, value
 end
 
--- Size: Market Segment I D Market Segment Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_i_d_market_segment_id_optional = 1
+-- Size: Market Segment Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_id_optional = 1
 
--- Display: Market Segment I D Market Segment Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_i_d_market_segment_id_optional = function(value)
-  return "Market Segment I D Market Segment Id Optional: "..value
+-- Display: Market Segment Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_id_optional = function(value)
+  return "Market Segment Id Optional: "..value
 end
 
--- Dissect: Market Segment I D Market Segment Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_i_d_market_segment_id_optional = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_i_d_market_segment_id_optional
+-- Dissect: Market Segment Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_id_optional = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_id_optional
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_i_d_market_segment_id_optional(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_i_d_market_segment_id_optional, range, value, display)
+  parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4010,7 +4010,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_size_of.bidirectional_business_header = fu
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.poss_resend
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_i_d_market_segment_id_optional
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_id_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_1_size_of.padding
 
@@ -4032,14 +4032,14 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.bidirectional_business_header_fiel
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1_dissect.sending_time(buffer, index, packet, parent)
 
   -- Poss Resend: 1 Byte Unsigned Fixed Width Integer
   index, poss_resend = b3_equities_binaryentrypoint_sbe_v8_1_dissect.poss_resend(buffer, index, packet, parent)
 
-  -- Market Segment I D Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer
-  index, market_segment_i_d_market_segment_id_optional = b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_i_d_market_segment_id_optional(buffer, index, packet, parent)
+  -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer
+  index, market_segment_id_optional = b3_equities_binaryentrypoint_sbe_v8_1_dissect.market_segment_id_optional(buffer, index, packet, parent)
 
   -- Padding: 1 Byte Ascii String
   index, padding = b3_equities_binaryentrypoint_sbe_v8_1_dissect.padding(buffer, index, packet, parent)
@@ -6621,7 +6621,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_size_of.received_time = 8
 -- Display: Received Time
 b3_equities_binaryentrypoint_sbe_v8_1_display.received_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Received Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -9387,7 +9387,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_size_of.market_segment_received_time = 8
 -- Display: Market Segment Received Time
 b3_equities_binaryentrypoint_sbe_v8_1_display.market_segment_received_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Market Segment Received Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)

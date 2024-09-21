@@ -552,7 +552,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.trd_reg_ts_execution_time = 8
 -- Display: Trd Reg Ts Execution Time
 eurex_derivatives_eobi_t7_v2_5_display.trd_reg_ts_execution_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Execution Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -642,7 +642,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.transact_time = 8
 -- Display: Transact Time
 eurex_derivatives_eobi_t7_v2_5_display.transact_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -1099,7 +1099,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.trd_reg_ts_time_priority = 8
 -- Display: Trd Reg Ts Time Priority
 eurex_derivatives_eobi_t7_v2_5_display.trd_reg_ts_time_priority = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -1651,7 +1651,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.trd_reg_ts_time_in = 8
 -- Display: Trd Reg Ts Time In
 eurex_derivatives_eobi_t7_v2_5_display.trd_reg_ts_time_in = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Time In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -1763,7 +1763,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.trd_reg_ts_prev_time_priority = 8
 -- Display: Trd Reg Ts Prev Time Priority
 eurex_derivatives_eobi_t7_v2_5_display.trd_reg_ts_prev_time_priority = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Trd Reg Ts Prev Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2177,7 +2177,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.last_update_time = 8
 -- Display: Last Update Time
 eurex_derivatives_eobi_t7_v2_5_display.last_update_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Last Update Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2554,7 +2554,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.exec_id = 8
 -- Display: Exec Id
 eurex_derivatives_eobi_t7_v2_5_display.exec_id = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2578,7 +2578,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.request_time = 8
 -- Display: Request Time
 eurex_derivatives_eobi_t7_v2_5_display.request_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2602,7 +2602,7 @@ eurex_derivatives_eobi_t7_v2_5_size_of.aggressor_timestamp = 8
 -- Display: Aggressor Timestamp
 eurex_derivatives_eobi_t7_v2_5_display.aggressor_timestamp = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Aggressor Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)

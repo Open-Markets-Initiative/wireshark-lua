@@ -552,7 +552,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.timestamp = 8
 -- Display: Timestamp
 iex_equities_tops_iextp_v1_6_6_display.timestamp = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -2206,7 +2206,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.send_time = 8
 -- Display: Send Time
 iex_equities_tops_iextp_v1_6_6_display.send_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Send Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)

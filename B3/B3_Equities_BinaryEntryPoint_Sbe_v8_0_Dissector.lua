@@ -100,8 +100,6 @@ b3_equities_binaryentrypoint_sbe_v8_0.fields.execution_report_new_message = Prot
 b3_equities_binaryentrypoint_sbe_v8_0.fields.execution_report_reject_message = ProtoField.new("Execution Report Reject Message", "b3.equities.binaryentrypoint.sbe.v8.0.executionreportrejectmessage", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v8_0.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "b3.equities.binaryentrypoint.sbe.v8.0.executionreporttrademessage", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v8_0.fields.expire_date = ProtoField.new("Expire Date", "b3.equities.binaryentrypoint.sbe.v8.0.expiredate", ftypes.UINT16)
-b3_equities_binaryentrypoint_sbe_v8_0.fields.fixed_rate = ProtoField.new("Fixed Rate", "b3.equities.binaryentrypoint.sbe.v8.0.fixedrate", ftypes.DOUBLE)
-b3_equities_binaryentrypoint_sbe_v8_0.fields.fixed_rate_optional = ProtoField.new("Fixed Rate Optional", "b3.equities.binaryentrypoint.sbe.v8.0.fixedrateoptional", ftypes.DOUBLE)
 b3_equities_binaryentrypoint_sbe_v8_0.fields.from_seq_no = ProtoField.new("From Seq No", "b3.equities.binaryentrypoint.sbe.v8.0.fromseqno", ftypes.UINT32)
 b3_equities_binaryentrypoint_sbe_v8_0.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.equities.binaryentrypoint.sbe.v8.0.groupsizeencoding", ftypes.STRING)
 b3_equities_binaryentrypoint_sbe_v8_0.fields.inbound_business_header = ProtoField.new("Inbound Business Header", "b3.equities.binaryentrypoint.sbe.v8.0.inboundbusinessheader", ftypes.STRING)
@@ -1071,7 +1069,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.transact_time = 8
 -- Display: Transact Time
 b3_equities_binaryentrypoint_sbe_v8_0_display.transact_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -3576,42 +3574,6 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.days_to_settlement_optional = func
   return offset + length, value
 end
 
--- Size: Fixed Rate Optional
-b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_optional = 8
-
--- Display: Fixed Rate Optional
-b3_equities_binaryentrypoint_sbe_v8_0_display.fixed_rate_optional = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Fixed Rate Optional: No Value"
-  end
-
-  return "Fixed Rate Optional: "..value
-end
-
--- Translate: Fixed Rate Optional
-translate.fixed_rate_optional = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Fixed Rate Optional
-b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_optional = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_optional
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = translate.fixed_rate_optional(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_0_display.fixed_rate_optional(raw, value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryentrypoint_sbe_v8_0.fields.fixed_rate_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Executing Trader
 b3_equities_binaryentrypoint_sbe_v8_0_size_of.executing_trader = 5
 
@@ -3873,7 +3835,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.quote_request_reject_message = fun
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.executing_trader
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_optional
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_percentage_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.days_to_settlement_optional
 
@@ -3938,8 +3900,8 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.quote_request_reject_message_field
   -- Executing Trader: 5 Byte Ascii String
   index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_0_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Fixed Rate Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, fixed_rate_optional = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_optional(buffer, index, packet, parent)
+  -- Fixed Rate Percentage Optional
+  index, fixed_rate_percentage_optional = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_percentage_optional(buffer, index, packet, parent)
 
   -- Days To Settlement Optional: 2 Byte Unsigned Fixed Width Integer
   index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_0_dissect.days_to_settlement_optional(buffer, index, packet, parent)
@@ -4120,32 +4082,6 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.execute_underlying_trade = functio
   return offset + length, value
 end
 
--- Size: Fixed Rate
-b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate = 8
-
--- Display: Fixed Rate
-b3_equities_binaryentrypoint_sbe_v8_0_display.fixed_rate = function(value)
-  return "Fixed Rate: "..value
-end
-
--- Translate: Fixed Rate
-translate.fixed_rate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Fixed Rate
-b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = translate.fixed_rate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_0_display.fixed_rate(value, buffer, offset, packet, parent)
-
-  parent:add(b3_equities_binaryentrypoint_sbe_v8_0.fields.fixed_rate, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: SettlType
 b3_equities_binaryentrypoint_sbe_v8_0_size_of.settltype = 1
 
@@ -4257,7 +4193,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.quote_message = function(buffer, o
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.executing_trader
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_percentage
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.execute_underlying_trade
 
@@ -4317,8 +4253,8 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.quote_message_fields = function(bu
   -- Executing Trader: 5 Byte Ascii String
   index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_0_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Fixed Rate: 8 Byte Signed Fixed Width Integer
-  index, fixed_rate = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate(buffer, index, packet, parent)
+  -- Fixed Rate Percentage
+  index, fixed_rate_percentage = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_percentage(buffer, index, packet, parent)
 
   -- Execute Underlying Trade: 1 Byte Ascii String Enum with 3 values
   index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_0_dissect.execute_underlying_trade(buffer, index, packet, parent)
@@ -4588,7 +4524,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.quote_status_report_message = func
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.executing_trader
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_optional
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_percentage_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.execute_underlying_trade
 
@@ -4665,8 +4601,8 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.quote_status_report_message_fields
   -- Executing Trader: 5 Byte Ascii String
   index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_0_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Fixed Rate Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, fixed_rate_optional = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_optional(buffer, index, packet, parent)
+  -- Fixed Rate Percentage Optional
+  index, fixed_rate_percentage_optional = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_percentage_optional(buffer, index, packet, parent)
 
   -- Execute Underlying Trade: 1 Byte Ascii String Enum with 3 values
   index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_0_dissect.execute_underlying_trade(buffer, index, packet, parent)
@@ -4758,7 +4694,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.quote_request_message = function(b
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.executing_trader
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_percentage
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.days_to_settlement
 
@@ -4821,8 +4757,8 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.quote_request_message_fields = fun
   -- Executing Trader: 5 Byte Ascii String
   index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_0_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Fixed Rate: 8 Byte Signed Fixed Width Integer
-  index, fixed_rate = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate(buffer, index, packet, parent)
+  -- Fixed Rate Percentage
+  index, fixed_rate_percentage = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_percentage(buffer, index, packet, parent)
 
   -- Days To Settlement: 2 Byte Unsigned Fixed Width Integer
   index, days_to_settlement = b3_equities_binaryentrypoint_sbe_v8_0_dissect.days_to_settlement(buffer, index, packet, parent)
@@ -6056,7 +5992,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.execution_report_forward_message =
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.exec_ref_id
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_optional
+  index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.fixed_rate_percentage_optional
 
   index = index + b3_equities_binaryentrypoint_sbe_v8_0_size_of.order_qty
 
@@ -6145,8 +6081,8 @@ b3_equities_binaryentrypoint_sbe_v8_0_dissect.execution_report_forward_message_f
   -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_ref_id = b3_equities_binaryentrypoint_sbe_v8_0_dissect.exec_ref_id(buffer, index, packet, parent)
 
-  -- Fixed Rate Optional: 8 Byte Signed Fixed Width Integer Nullable
-  index, fixed_rate_optional = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_optional(buffer, index, packet, parent)
+  -- Fixed Rate Percentage Optional
+  index, fixed_rate_percentage_optional = b3_equities_binaryentrypoint_sbe_v8_0_dissect.fixed_rate_percentage_optional(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = b3_equities_binaryentrypoint_sbe_v8_0_dissect.order_qty(buffer, index, packet, parent)
@@ -8693,7 +8629,7 @@ b3_equities_binaryentrypoint_sbe_v8_0_size_of.market_segment_received_time = 8
 -- Display: Market Segment Received Time
 b3_equities_binaryentrypoint_sbe_v8_0_display.market_segment_received_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Market Segment Received Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)

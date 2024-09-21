@@ -474,7 +474,7 @@ lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp = 8
 -- Display: Timestamp
 lseg_tradeecho_level2_gtp_v24_4_display.timestamp = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
@@ -652,7 +652,7 @@ lseg_tradeecho_level2_gtp_v24_4_size_of.transaction_time = 8
 -- Display: Transaction Time
 lseg_tradeecho_level2_gtp_v24_4_display.transaction_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Transaction Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)

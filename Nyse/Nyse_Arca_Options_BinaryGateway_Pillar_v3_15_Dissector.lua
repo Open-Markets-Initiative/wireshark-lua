@@ -7836,7 +7836,7 @@ nyse_arca_options_binarygateway_pillar_v3_15_size_of.mm_sent_time = 8
 -- Display: Mm Sent Time
 nyse_arca_options_binarygateway_pillar_v3_15_display.mm_sent_time = function(value)
   -- Parse unix timestamp
-  local seconds = value:tonumber()/1000000000
+  local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
 
   return "Mm Sent Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
