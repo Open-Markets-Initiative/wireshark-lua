@@ -1989,7 +1989,7 @@ b3_equities_binaryumdf_sbe_v1_9_size_of.md_entry_interest_rate = 8
 -- Display: Md Entry Interest Rate
 b3_equities_binaryumdf_sbe_v1_9_display.md_entry_interest_rate = function(raw, value)
   -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x00000000) then
     return "Md Entry Interest Rate: No Value"
   end
 
@@ -1999,7 +1999,7 @@ end
 -- Translate: Md Entry Interest Rate
 translate.md_entry_interest_rate = function(raw)
   -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x00000000) then
     return 0/0
   end
 
@@ -4552,6 +4552,10 @@ b3_equities_binaryumdf_sbe_v1_9_size_of.orig_time = 8
 
 -- Display: Orig Time
 b3_equities_binaryumdf_sbe_v1_9_display.orig_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Orig Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -7538,6 +7542,10 @@ b3_equities_binaryumdf_sbe_v1_9_size_of.trad_ses_open_time = 8
 
 -- Display: Trad Ses Open Time
 b3_equities_binaryumdf_sbe_v1_9_display.trad_ses_open_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Trad Ses Open Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000

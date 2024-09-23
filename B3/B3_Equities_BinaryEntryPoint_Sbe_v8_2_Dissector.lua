@@ -6388,6 +6388,10 @@ b3_equities_binaryentrypoint_sbe_v8_2_size_of.received_time = 8
 
 -- Display: Received Time
 b3_equities_binaryentrypoint_sbe_v8_2_display.received_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Received Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -9244,6 +9248,10 @@ b3_equities_binaryentrypoint_sbe_v8_2_size_of.market_segment_received_time = 8
 
 -- Display: Market Segment Received Time
 b3_equities_binaryentrypoint_sbe_v8_2_display.market_segment_received_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Market Segment Received Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
