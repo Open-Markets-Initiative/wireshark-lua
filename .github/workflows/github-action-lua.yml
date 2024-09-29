@@ -50,4 +50,7 @@ jobs:
       - name: Run Nasdaq Ise OrderComboFeed Itch 1.1 Dissector Tests
         run: bash -x .github/tests/Nasdaq-Ise-OrderComboFeed-Itch-v1-1-Test.sh
 
+      - name: Run Nyse Amex Equities OpenBook Ultra 2.1.b Dissector Tests
+        run: bash -x .github/tests/Nyse-Amex-Equities-OpenBook-Ultra-v2-1-b-Test.sh
+
 
