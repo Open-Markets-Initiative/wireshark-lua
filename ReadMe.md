@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 309 | 3,011,788 |
+| 310 | 3,013,502 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -112,6 +112,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Ice][Ice.Directory] | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | iMpact | [1.1.43][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | 11/18/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Iex][Iex.Directory] | Equities | [Deep][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | IexTp | [1.0.8][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | 2/27/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Iex][Iex.Directory] | Equities | [Tops][Iex.Equities.Tops.IexTp.v1.6.6.Dissector] | IexTp | [1.6.6][Iex.Equities.Tops.IexTp.v1.6.6.Dissector] | 10/19/2021 | [Verified][Omi.Glossary.Testing.Verified] |
+| [ImperativeX][ImperativeX.Directory] |  | [IntelligentCross][ImperativeX.IntelligentCross.Mdf.v1.11.Dissector] | Mdf | [1.11][ImperativeX.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Bonds | [Pts][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | Itch | [1.2][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | Ouch | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -190,7 +191,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel1][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Dissector] | Xmt | [2.8][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Dissector] | 2/22/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel2][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | Xmt | [3.6][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 
-Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Jnx][Jnx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
+Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [ImperativeX][ImperativeX.Directory], [Jnx][Jnx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
 
 ## Disclaimer
 
@@ -218,6 +219,7 @@ Enjoy.
 [Finra.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Finra "Financial Industry Regulatory Authority"
 [Ice.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ice "Intercontinental Exchange"
 [Iex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Iex "Investors Exchange"
+[ImperativeX.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/ImperativeX "Imperative Execution"
 [Jnx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jnx "Japannext"
 [Lseg.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lseg "London Stock Exchange Group"
 [Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Securities Exchange"
@@ -285,6 +287,7 @@ Enjoy.
 [Ice.Futures.Mdf.iMpact.v1.1.43.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_Futures_Mdf_iMpact_v1_1_43_Dissector.lua "Ice Futures Mdf iMpact v1.1.43 Lua Wireshark Dissector"
 [Iex.Equities.Deep.IexTp.v1.0.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_Equities_Deep_IexTp_v1_0_8_Dissector.lua "Iex Equities Deep IexTp v1.0.8 Lua Wireshark Dissector"
 [Iex.Equities.Tops.IexTp.v1.6.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_Equities_Tops_IexTp_v1_6_6_Dissector.lua "Iex Equities Tops IexTp v1.6.6 Lua Wireshark Dissector"
+[ImperativeX.IntelligentCross.Mdf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/ImperativeX/ImperativeX_IntelligentCross_Mdf_v1_11_Dissector.lua "ImperativeX IntelligentCross Mdf v1.11 Lua Wireshark Dissector"
 [Jnx.Bonds.Pts.Itch.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Bonds_Pts_Itch_v1_2_Dissector.lua "Jnx Bonds Pts Itch v1.2 Lua Wireshark Dissector"
 [Jnx.Bonds.Pts.Ouch.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Bonds_Pts_Ouch_v1_4_Dissector.lua "Jnx Bonds Pts Ouch v1.4 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Itch.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Equities_Pts_Itch_v1_6_Dissector.lua "Jnx Equities Pts Itch v1.6 Lua Wireshark Dissector"
