@@ -41,8 +41,8 @@ jobs:
       - name: Run Iex Equities Tops IexTp 1.6.6 Dissector Tests
         run: bash -x .github/tests/Iex-Equities-Tops-IexTp-v1-6-6-Test.sh
 
-      - name: Run ImperativeX IntelligentCross Mdf 1.11 Dissector Tests
-        run: bash -x .github/tests/ImperativeX-IntelligentCross-Mdf-v1-11-Test.sh
+      - name: Run Imperative IntelligentCross Mdf 1.11 Dissector Tests
+        run: bash -x .github/tests/Imperative-IntelligentCross-Mdf-v1-11-Test.sh
 
       - name: Run Memx Equities MemoirDepthFeed Sbe 1.3 Dissector Tests
         run: bash -x .github/tests/Memx-Equities-MemoirDepthFeed-Sbe-v1-3-Test.sh

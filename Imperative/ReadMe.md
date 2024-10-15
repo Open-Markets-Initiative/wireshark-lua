@@ -1,14 +1,14 @@
-[![ImperativeX](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/ImperativeX/Images/Logo.png)](https://www.imperativex.com)
+[![Imperative](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Images/Logo.png)](https://www.imperativex.com)
 
 
 ## Imperative Execution
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [IntelligentCross][ImperativeX.IntelligentCross.Mdf.v1.11.Dissector] | Mdf | [1.11][ImperativeX.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1714 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][ImperativeX.IntelligentCross.Mdf.v1.11.Url] - [pdf][ImperativeX.IntelligentCross.Mdf.v1.11.Pdf] |
+|  | [IntelligentCross][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | Mdf | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | 1714 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.Mdf.v1.11.Url] - [pdf][Imperative.IntelligentCross.Mdf.v1.11.Pdf] |
 
 
-ImperativeX: [website](https://www.imperativex.com "Go to Imperative Execution")
+Imperative: [website](https://www.imperativex.com "Go to Imperative Execution")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
@@ -23,6 +23,6 @@ ImperativeX: [website](https://www.imperativex.com "Go to Imperative Execution")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
-[ImperativeX.IntelligentCross.Mdf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/ImperativeX/ImperativeX_IntelligentCross_Mdf_v1_11_Dissector.lua "ImperativeX IntelligentCross Mdf v1.11 Wireshark Dissector"
-[ImperativeX.IntelligentCross.Mdf.v1.11.Url]: https://www.imperativex.com/market-data "Imperative Execution 1.11 Url"
-[ImperativeX.IntelligentCross.Mdf.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/ImperativeX/Specifications/ImperativeX.IntelligentCross.Mdf.v1.11.pdf "Imperative Execution 1.11 Pdf"
+[Imperative.IntelligentCross.Mdf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua "Imperative IntelligentCross Mdf v1.11 Wireshark Dissector"
+[Imperative.IntelligentCross.Mdf.v1.11.Url]: https://www.imperativex.com/market-data "Imperative Execution 1.11 Url"
+[Imperative.IntelligentCross.Mdf.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Imperative/Specifications/Imperative.IntelligentCross.Mdf.v1.11.pdf "Imperative Execution 1.11 Pdf"
