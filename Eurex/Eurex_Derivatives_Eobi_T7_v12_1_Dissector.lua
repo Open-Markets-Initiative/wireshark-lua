@@ -6415,7 +6415,7 @@ verify.packet_id = function(buffer)
   -- Attempt to read field
   local value = buffer(2, 2):le_uint()
 
-  if value ==  13003 then
+  if value == 13003 then
     return true
   end
 
