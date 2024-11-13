@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 317 | 3,093,237 |
+| 319 | 3,098,862 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -189,13 +189,14 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Siac][Siac.Directory] | Cqs | [Snapshot][Siac.Cqs.Snapshot.Cta.v1.0.Dissector] | Cta | [1.0][Siac.Cqs.Snapshot.Cta.v1.0.Dissector] | 1/24/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Siac][Siac.Directory] | Cts | [Output][Siac.Cts.Output.Cta.v2.9.Dissector] | Cta | [2.9][Siac.Cts.Output.Cta.v2.9.Dissector] | 12/16/2022 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Siac][Siac.Directory] | Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.2.Dissector] | Obi | [6.2][Siac.Opra.Recipient.Obi.v6.2.Dissector] | 7/23/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [SmallX][SmallX.Directory] |  | [OrderBookFeed][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | Sbe | [2.2][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | 10/12/2021 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Tmx][Tmx.Directory] | Mx Sola | [Multicast][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | Hsvf | [1.11][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | 1/23/2019 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [AlphaLevel1][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Dissector] | Xmt | [2.2][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Dissector] | 4/17/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [AlphaLevel2][Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Dissector] | Xmt | [2.2][Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Dissector] | 4/17/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel1][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Dissector] | Xmt | [2.8][Tmx.QuantumFeed.TsxTsxvLevel1.Xmt.v2.8.Dissector] | 2/22/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel2][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | Xmt | [3.6][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 
-Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
+Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Lseg][Lseg.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory]
 
 ## Disclaimer
 
@@ -232,6 +233,7 @@ Enjoy.
 [Nyse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nyse "New York Stock Exchange"
 [Otc.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Otc "Otc Markets"
 [Siac.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Siac "Securities Industry Automation Corporation"
+[SmallX.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/SmallX "The Small Exchange"
 [Tmx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Tmx "Tmx Group"
 
 [Asx.Securities.Ntp.Itch.v1.05.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx_Securities_Ntp_Itch_v1_05_Dissector.lua "Asx Securities Ntp Itch v1.05 Lua Wireshark Dissector"
@@ -368,6 +370,7 @@ Enjoy.
 [Siac.Cts.Output.Cta.v2.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua "Siac Cts Output Cta v2.9 Lua Wireshark Dissector"
 [Siac.Cqs.Output.Cta.v2.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cqs_Output_Cta_v2_9_Dissector.lua "Siac Cqs Output Cta v2.9 Lua Wireshark Dissector"
 [Siac.Cqs.Snapshot.Cta.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac_Cqs_Snapshot_Cta_v1_0_Dissector.lua "Siac Cqs Snapshot Cta v1.0 Lua Wireshark Dissector"
+[SmallX.OrderBookFeed.Sbe.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/SmallX/SmallX_OrderBookFeed_Sbe_v2_2_Dissector.lua "SmallX OrderBookFeed Sbe v2.2 Lua Wireshark Dissector"
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_Mx_Sola_Multicast_Hsvf_v1_11_Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Lua Wireshark Dissector"
 [Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_AlphaLevel1_Xmt_v2_2_Dissector.lua "Tmx QuantumFeed AlphaLevel1 Xmt v2.2 Lua Wireshark Dissector"
 [Tmx.QuantumFeed.AlphaLevel2.Xmt.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx_QuantumFeed_AlphaLevel2_Xmt_v2_2_Dissector.lua "Tmx QuantumFeed AlphaLevel2 Xmt v2.2 Lua Wireshark Dissector"
