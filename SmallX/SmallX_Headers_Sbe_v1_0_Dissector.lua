@@ -456,7 +456,7 @@ smallx_headers_sbe_v1_0:register_heuristic("udp", smallx_headers_sbe_v1_0_heuris
 --   Organization: The Small Exchange
 --   Version: 1.0
 --   Date: Tuesday, October 12, 2021
---   Specification: OTC Markets Multicast Data Feeds -v4.3.pdf
+--   Specification: Small Exchange Market Data Feed 2.2.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0

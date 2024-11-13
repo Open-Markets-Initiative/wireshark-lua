@@ -5,7 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [Headers][SmallX.Headers.Sbe.v1.0.Dissector] | Sbe | [1.0][SmallX.Headers.Sbe.v1.0.Dissector] | 10/12/2021 | 471 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][SmallX.Headers.Sbe.v1.0.Pdf] |
+|  | [Headers][SmallX.Headers.Sbe.v1.0.Dissector] | Sbe | [1.0][SmallX.Headers.Sbe.v1.0.Dissector] | 10/12/2021 | 471 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][SmallX.Headers.Sbe.v1.0.Url] - [pdf][SmallX.Headers.Sbe.v1.0.Pdf] |
 |  | [OrderBookFeed][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | Sbe | [2.2][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | 10/12/2021 | 5154 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][SmallX.OrderBookFeed.Sbe.v2.2.Url] - [pdf][SmallX.OrderBookFeed.Sbe.v2.2.Pdf] - [xml][SmallX.OrderBookFeed.Sbe.v2.2.Xml] |
 
 
@@ -27,6 +27,7 @@ SmallX: [website](https://smallexchange.com/ "Go to The Small Exchange")
 [SmallX.OrderBookFeed.Sbe.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/SmallX/SmallX_OrderBookFeed_Sbe_v2_2_Dissector.lua "SmallX OrderBookFeed Sbe v2.2 Wireshark Dissector"
 [SmallX.OrderBookFeed.Sbe.v2.2.Url]: https://smallexchange.com/reference/info-hub "The Small Exchange 2.2 Url"
 [SmallX.OrderBookFeed.Sbe.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Specifications/SmallX.OrderDataFeed.Sbe.v2.2.pdf "The Small Exchange 2.2 Pdf"
-[SmallX.OrderBookFeed.Sbe.v2.2.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Specifications/SmallX.OrderDataFeed.Sbe.v2.2.pdf "The Small Exchange 2.2 Xml"
+[SmallX.OrderBookFeed.Sbe.v2.2.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Specifications/SmallX.OrderDataFeed.Sbe.v2.2.xml "The Small Exchange 2.2 Xml"
 [SmallX.Headers.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/SmallX/SmallX_Headers_Sbe_v1_0_Dissector.lua "SmallX Headers Sbe v1.0 Wireshark Dissector"
-[SmallX.Headers.Sbe.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Specifications/Otc.Markets.Multicast.Ats.v4.3.pdf "The Small Exchange 1.0 Pdf"
+[SmallX.Headers.Sbe.v1.0.Url]: https://smallexchange.com/reference/info-hub "The Small Exchange 1.0 Url"
+[SmallX.Headers.Sbe.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Specifications/SmallX.OrderDataFeed.Sbe.v2.2.pdf "The Small Exchange 1.0 Pdf"
