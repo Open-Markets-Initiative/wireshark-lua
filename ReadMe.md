@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 319 | 3,098,862 |
+| 320 | 3,101,256 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -111,6 +111,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Finra][Finra.Directory] | Otc | [Bbds][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Ice][Ice.Directory] | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | iMpact | [1.1.43][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | 11/18/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Iex][Iex.Directory] | Equities | [Deep][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | IexTp | [1.0.8][Iex.Equities.Deep.IexTp.v1.0.8.Dissector] | 2/27/2018 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Iex][Iex.Directory] | Equities | [DeepPlus][Iex.Equities.DeepPlus.IexTp.v1.0.1.Dissector] | IexTp | [1.0.1][Iex.Equities.DeepPlus.IexTp.v1.0.1.Dissector] | 9/30/2024 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Iex][Iex.Directory] | Equities | [Tops][Iex.Equities.Tops.IexTp.v1.6.6.Dissector] | IexTp | [1.6.6][Iex.Equities.Tops.IexTp.v1.6.6.Dissector] | 10/19/2021 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Imperative][Imperative.Directory] |  | [IntelligentCross][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | Mdf | [1.11][Imperative.IntelligentCross.Mdf.v1.11.Dissector] | 7/30/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Jnx][Jnx.Directory] | Bonds | [Pts][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | Itch | [1.2][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -292,6 +293,7 @@ Enjoy.
 [Finra.Otc.Bbds.Dfi.v2018.1A.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra_Otc_Bbds_Dfi_v2018_1A_Dissector.lua "Finra Otc Bbds Dfi v2018.1A Lua Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.43.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice_Futures_Mdf_iMpact_v1_1_43_Dissector.lua "Ice Futures Mdf iMpact v1.1.43 Lua Wireshark Dissector"
 [Iex.Equities.Deep.IexTp.v1.0.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_Equities_Deep_IexTp_v1_0_8_Dissector.lua "Iex Equities Deep IexTp v1.0.8 Lua Wireshark Dissector"
+[Iex.Equities.DeepPlus.IexTp.v1.0.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_Equities_DeepPlus_IexTp_v1_0_1_Dissector.lua "Iex Equities DeepPlus IexTp v1.0.1 Lua Wireshark Dissector"
 [Iex.Equities.Tops.IexTp.v1.6.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex_Equities_Tops_IexTp_v1_6_6_Dissector.lua "Iex Equities Tops IexTp v1.6.6 Lua Wireshark Dissector"
 [Imperative.IntelligentCross.Mdf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua "Imperative IntelligentCross Mdf v1.11 Lua Wireshark Dissector"
 [Jnx.Bonds.Pts.Itch.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx_Bonds_Pts_Itch_v1_2_Dissector.lua "Jnx Bonds Pts Itch v1.2 Lua Wireshark Dissector"
