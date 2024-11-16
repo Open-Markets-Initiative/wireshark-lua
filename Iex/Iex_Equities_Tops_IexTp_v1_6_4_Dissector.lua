@@ -1845,6 +1845,9 @@ iex_equities_tops_iextp_v1_6_4_display.system_event = function(value)
   if value == "E" then
     return "System Event: End Of System Hours (E)"
   end
+  if value == "C" then
+    return "System Event: End Of Messages (C)"
+  end
 
   return "System Event: Unknown("..value..")"
 end
@@ -1881,7 +1884,7 @@ end
 iex_equities_tops_iextp_v1_6_4_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- System Event: 1 Byte Ascii String Enum with 4 values
+  -- System Event: 1 Byte Ascii String Enum with 5 values
   index, system_event = iex_equities_tops_iextp_v1_6_4_dissect.system_event(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Signed Fixed Width Integer
