@@ -511,6 +511,9 @@ eurex_derivatives_eobi_t7_v12_1_display.md_entry_type = function(value)
   if value == 204 then
     return "Md Entry Type: Ipo Auction (204)"
   end
+  if value == 0xFF then
+    return "Md Entry Type: No Value"
+  end
 
   return "Md Entry Type: Unknown("..value..")"
 end
@@ -609,7 +612,7 @@ eurex_derivatives_eobi_t7_v12_1_dissect.md_trade_entry_grp_comp_fields = functio
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_size = eurex_derivatives_eobi_t7_v12_1_dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, md_entry_type = eurex_derivatives_eobi_t7_v12_1_dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -636,6 +639,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.no_md_entries = 1
 
 -- Display: No Md Entries
 eurex_derivatives_eobi_t7_v12_1_display.no_md_entries = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Md Entries: No Value"
+  end
+
   return "No Md Entries: "..value
 end
 
@@ -661,6 +669,9 @@ eurex_derivatives_eobi_t7_v12_1_display.md_origin_type = function(value)
   end
   if value == 1 then
     return "Md Origin Type: Off Book (1)"
+  end
+  if value == 0xFF then
+    return "Md Origin Type: No Value"
   end
 
   return "Md Origin Type: Unknown("..value..")"
@@ -701,6 +712,9 @@ eurex_derivatives_eobi_t7_v12_1_display.trade_condition = function(value)
   if value == 743 then
     return "Trade Condition: Retail (743)"
   end
+  if value == 0xFFFF then
+    return "Trade Condition: No Value"
+  end
 
   return "Trade Condition: Unknown("..value..")"
 end
@@ -722,6 +736,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.trd_match_id = 4
 
 -- Display: Trd Match Id
 eurex_derivatives_eobi_t7_v12_1_display.trd_match_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trd Match Id: No Value"
+  end
+
   return "Trd Match Id: "..value
 end
 
@@ -742,6 +761,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.trd_reg_ts_execution_time = 8
 
 -- Display: Trd Reg Ts Execution Time
 eurex_derivatives_eobi_t7_v12_1_display.trd_reg_ts_execution_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Execution Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -818,6 +841,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.transact_time = 8
 
 -- Display: Transact Time
 eurex_derivatives_eobi_t7_v12_1_display.transact_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Transact Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -842,6 +869,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.security_id = 8
 
 -- Display: Security Id
 eurex_derivatives_eobi_t7_v12_1_display.security_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Security Id: No Value"
+  end
+
   return "Security Id: "..value
 end
 
@@ -895,10 +927,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.trade_reversal_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
@@ -907,19 +939,19 @@ eurex_derivatives_eobi_t7_v12_1_dissect.trade_reversal_fields = function(buffer,
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = eurex_derivatives_eobi_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_execution_time = eurex_derivatives_eobi_t7_v12_1_dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
-  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_derivatives_eobi_t7_v12_1_dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, trade_condition = eurex_derivatives_eobi_t7_v12_1_dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Md Origin Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Md Origin Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, md_origin_type = eurex_derivatives_eobi_t7_v12_1_dissect.md_origin_type(buffer, index, packet, parent)
 
-  -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Md Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_md_entries = eurex_derivatives_eobi_t7_v12_1_dissect.no_md_entries(buffer, index, packet, parent)
 
   -- Md Trade Entry Grp Comp: Struct of 4 fields
@@ -991,6 +1023,9 @@ eurex_derivatives_eobi_t7_v12_1_display.algorithmic_trade_indicator = function(v
   if value == 1 then
     return "Algorithmic Trade Indicator: Algorithmic Trade (1)"
   end
+  if value == 0xFF then
+    return "Algorithmic Trade Indicator: No Value"
+  end
 
   return "Algorithmic Trade Indicator: Unknown("..value..")"
 end
@@ -1027,6 +1062,9 @@ eurex_derivatives_eobi_t7_v12_1_display.match_sub_type = function(value)
   if value == 5 then
     return "Match Sub Type: Ipo Auction (5)"
   end
+  if value == 0xFF then
+    return "Match Sub Type: No Value"
+  end
 
   return "Match Sub Type: Unknown("..value..")"
 end
@@ -1062,6 +1100,9 @@ eurex_derivatives_eobi_t7_v12_1_display.match_type = function(value)
   end
   if value == 14 then
     return "Match Type: Continuous Auction (14)"
+  end
+  if value == 0xFF then
+    return "Match Type: No Value"
   end
 
   return "Match Type: Unknown("..value..")"
@@ -1117,10 +1158,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.trade_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
@@ -1129,22 +1170,22 @@ eurex_derivatives_eobi_t7_v12_1_dissect.trade_report_fields = function(buffer, o
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = eurex_derivatives_eobi_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_derivatives_eobi_t7_v12_1_dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, match_type = eurex_derivatives_eobi_t7_v12_1_dissect.match_type(buffer, index, packet, parent)
 
-  -- Match Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Match Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, match_sub_type = eurex_derivatives_eobi_t7_v12_1_dissect.match_sub_type(buffer, index, packet, parent)
 
-  -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, algorithmic_trade_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, trade_condition = eurex_derivatives_eobi_t7_v12_1_dissect.trade_condition(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -1191,6 +1232,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.number_of_sell_orders = 2
 
 -- Display: Number Of Sell Orders
 eurex_derivatives_eobi_t7_v12_1_display.number_of_sell_orders = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Number Of Sell Orders: No Value"
+  end
+
   return "Number Of Sell Orders: "..value
 end
 
@@ -1211,6 +1257,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.number_of_buy_orders = 2
 
 -- Display: Number Of Buy Orders
 eurex_derivatives_eobi_t7_v12_1_display.number_of_buy_orders = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Number Of Buy Orders: No Value"
+  end
+
   return "Number Of Buy Orders: "..value
 end
 
@@ -1364,10 +1415,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.top_of_book_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -1382,10 +1433,10 @@ eurex_derivatives_eobi_t7_v12_1_dissect.top_of_book_fields = function(buffer, of
   -- Offer Size: 8 Byte Unsigned Fixed Width Integer
   index, offer_size = eurex_derivatives_eobi_t7_v12_1_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Number Of Buy Orders: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Buy Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, number_of_buy_orders = eurex_derivatives_eobi_t7_v12_1_dissect.number_of_buy_orders(buffer, index, packet, parent)
 
-  -- Number Of Sell Orders: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Sell Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, number_of_sell_orders = eurex_derivatives_eobi_t7_v12_1_dissect.number_of_sell_orders(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -1444,6 +1495,9 @@ eurex_derivatives_eobi_t7_v12_1_display.multi_leg_price_model = function(value)
   if value == 1 then
     return "Multi Leg Price Model: User Defined (1)"
   end
+  if value == 0xFF then
+    return "Multi Leg Price Model: No Value"
+  end
 
   return "Multi Leg Price Model: Unknown("..value..")"
 end
@@ -1473,6 +1527,9 @@ eurex_derivatives_eobi_t7_v12_1_display.multi_leg_reporting_type = function(valu
   end
   if value == 3 then
     return "Multi Leg Reporting Type: Multi Leg Security (3)"
+  end
+  if value == 0xFF then
+    return "Multi Leg Reporting Type: No Value"
   end
 
   return "Multi Leg Reporting Type: Unknown("..value..")"
@@ -1531,6 +1588,9 @@ eurex_derivatives_eobi_t7_v12_1_display.trd_type = function(value)
   if value == 1017 then
     return "Trd Type: Delta Trade At Market (1017)"
   end
+  if value == 0xFFFF then
+    return "Trd Type: No Value"
+  end
 
   return "Trd Type: Unknown("..value..")"
 end
@@ -1585,10 +1645,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.tes_trade_report_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
@@ -1597,19 +1657,19 @@ eurex_derivatives_eobi_t7_v12_1_dissect.tes_trade_report_fields = function(buffe
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = eurex_derivatives_eobi_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_derivatives_eobi_t7_v12_1_dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, trd_type = eurex_derivatives_eobi_t7_v12_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, trade_condition = eurex_derivatives_eobi_t7_v12_1_dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Multi Leg Reporting Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Multi Leg Reporting Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, multi_leg_reporting_type = eurex_derivatives_eobi_t7_v12_1_dissect.multi_leg_reporting_type(buffer, index, packet, parent)
 
-  -- Multi Leg Price Model: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Multi Leg Price Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, multi_leg_price_model = eurex_derivatives_eobi_t7_v12_1_dissect.multi_leg_price_model(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -1688,6 +1748,9 @@ eurex_derivatives_eobi_t7_v12_1_display.hhi_indicator = function(value)
   if value == -1 then
     return "Hhi Indicator: No Update (-1)"
   end
+  if value == 0x80 then
+    return "Hhi Indicator: No Value"
+  end
 
   return "Hhi Indicator: Unknown("..value..")"
 end
@@ -1711,6 +1774,9 @@ eurex_derivatives_eobi_t7_v12_1_size_of.ord_type = 1
 eurex_derivatives_eobi_t7_v12_1_display.ord_type = function(value)
   if value == 1 then
     return "Ord Type: Market (1)"
+  end
+  if value == 0xFF then
+    return "Ord Type: No Value"
   end
 
   return "Ord Type: Unknown("..value..")"
@@ -1738,6 +1804,9 @@ eurex_derivatives_eobi_t7_v12_1_display.side = function(value)
   end
   if value == 2 then
     return "Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Side: No Value"
   end
 
   return "Side: Unknown("..value..")"
@@ -1786,6 +1855,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.trd_reg_ts_time_priority = 8
 
 -- Display: Trd Reg Ts Time Priority
 eurex_derivatives_eobi_t7_v12_1_display.trd_reg_ts_time_priority = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time Priority: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -1835,19 +1908,19 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.order_details_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_derivatives_eobi_t7_v12_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
   -- Display Qty: 8 Byte Unsigned Fixed Width Integer
   index, display_qty = eurex_derivatives_eobi_t7_v12_1_dissect.display_qty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_derivatives_eobi_t7_v12_1_dissect.side(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ord_type = eurex_derivatives_eobi_t7_v12_1_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, hhi_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.hhi_indicator(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -1935,19 +2008,19 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.quote_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
   index, last_qty = eurex_derivatives_eobi_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_derivatives_eobi_t7_v12_1_dissect.side(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
   index, pad_7 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_7(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   return index
@@ -1983,6 +2056,9 @@ eurex_derivatives_eobi_t7_v12_1_display.tes_trad_ses_status = function(value)
   if value == 5 then
     return "Tes Trad Ses Status: Pre Close (5)"
   end
+  if value == 0xFF then
+    return "Tes Trad Ses Status: No Value"
+  end
 
   return "Tes Trad Ses Status: Unknown("..value..")"
 end
@@ -2010,6 +2086,9 @@ eurex_derivatives_eobi_t7_v12_1_display.fast_market_indicator = function(value)
   if value == 1 then
     return "Fast Market Indicator: Yes (1)"
   end
+  if value == 0xFF then
+    return "Fast Market Indicator: No Value"
+  end
 
   return "Fast Market Indicator: Unknown("..value..")"
 end
@@ -2036,6 +2115,9 @@ eurex_derivatives_eobi_t7_v12_1_display.market_condition = function(value)
   end
   if value == 1 then
     return "Market Condition: Stressed (1)"
+  end
+  if value == 0xFF then
+    return "Market Condition: No Value"
   end
 
   return "Market Condition: Unknown("..value..")"
@@ -2066,6 +2148,9 @@ eurex_derivatives_eobi_t7_v12_1_display.trad_ses_status = function(value)
   end
   if value == 3 then
     return "Trad Ses Status: Closed (3)"
+  end
+  if value == 0xFF then
+    return "Trad Ses Status: No Value"
   end
 
   return "Trad Ses Status: Unknown("..value..")"
@@ -2103,6 +2188,9 @@ eurex_derivatives_eobi_t7_v12_1_display.trading_session_sub_id = function(value)
   if value == 7 then
     return "Trading Session Sub Id: Quiescent (7)"
   end
+  if value == 0xFF then
+    return "Trading Session Sub Id: No Value"
+  end
 
   return "Trading Session Sub Id: Unknown("..value..")"
 end
@@ -2139,6 +2227,9 @@ eurex_derivatives_eobi_t7_v12_1_display.trading_session_id = function(value)
   if value == 7 then
     return "Trading Session Id: Holiday (7)"
   end
+  if value == 0xFF then
+    return "Trading Session Id: No Value"
+  end
 
   return "Trading Session Id: Unknown("..value..")"
 end
@@ -2160,6 +2251,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.last_msg_seq_num_processed = 4
 
 -- Display: Last Msg Seq Num Processed
 eurex_derivatives_eobi_t7_v12_1_display.last_msg_seq_num_processed = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Last Msg Seq Num Processed: No Value"
+  end
+
   return "Last Msg Seq Num Processed: "..value
 end
 
@@ -2207,25 +2303,25 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.product_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer Nullable
   index, last_msg_seq_num_processed = eurex_derivatives_eobi_t7_v12_1_dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_session_id = eurex_derivatives_eobi_t7_v12_1_dissect.trading_session_id(buffer, index, packet, parent)
 
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_session_sub_id = eurex_derivatives_eobi_t7_v12_1_dissect.trading_session_sub_id(buffer, index, packet, parent)
 
-  -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trad_ses_status = eurex_derivatives_eobi_t7_v12_1_dissect.trad_ses_status(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, market_condition = eurex_derivatives_eobi_t7_v12_1_dissect.market_condition(buffer, index, packet, parent)
 
-  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, fast_market_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Tes Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Tes Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, tes_trad_ses_status = eurex_derivatives_eobi_t7_v12_1_dissect.tes_trad_ses_status(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -2299,28 +2395,28 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.product_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_session_id = eurex_derivatives_eobi_t7_v12_1_dissect.trading_session_id(buffer, index, packet, parent)
 
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_session_sub_id = eurex_derivatives_eobi_t7_v12_1_dissect.trading_session_sub_id(buffer, index, packet, parent)
 
-  -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trad_ses_status = eurex_derivatives_eobi_t7_v12_1_dissect.trad_ses_status(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, market_condition = eurex_derivatives_eobi_t7_v12_1_dissect.market_condition(buffer, index, packet, parent)
 
-  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, fast_market_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Tes Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Tes Trad Ses Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, tes_trad_ses_status = eurex_derivatives_eobi_t7_v12_1_dissect.tes_trad_ses_status(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
   index, pad_2 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_2(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   return index
@@ -2375,28 +2471,28 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.partial_order_execution_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_derivatives_eobi_t7_v12_1_dissect.side(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ord_type = eurex_derivatives_eobi_t7_v12_1_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, algorithmic_trade_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
 
-  -- Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, hhi_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.hhi_indicator(buffer, index, packet, parent)
 
-  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_derivatives_eobi_t7_v12_1_dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = eurex_derivatives_eobi_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_derivatives_eobi_t7_v12_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
@@ -2452,6 +2548,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.request_time = 8
 
 -- Display: Request Time
 eurex_derivatives_eobi_t7_v12_1_display.request_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Request Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -2497,16 +2597,16 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.order_modify_same_prio_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_derivatives_eobi_t7_v12_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Prev Display Qty: 8 Byte Unsigned Fixed Width Integer
   index, prev_display_qty = eurex_derivatives_eobi_t7_v12_1_dissect.prev_display_qty(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details Comp: Struct of 7 fields
@@ -2535,6 +2635,9 @@ eurex_derivatives_eobi_t7_v12_1_size_of.prev_price_hhi_indicator = 1
 eurex_derivatives_eobi_t7_v12_1_display.prev_price_hhi_indicator = function(value)
   if value == -1 then
     return "Prev Price Hhi Indicator: No Update (-1)"
+  end
+  if value == 0x80 then
+    return "Prev Price Hhi Indicator: No Value"
   end
 
   return "Prev Price Hhi Indicator: Unknown("..value..")"
@@ -2583,6 +2686,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.trd_reg_ts_prev_time_priority = 8
 
 -- Display: Trd Reg Ts Prev Time Priority
 eurex_derivatives_eobi_t7_v12_1_display.trd_reg_ts_prev_time_priority = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Prev Time Priority: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -2634,10 +2741,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.order_modify_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_derivatives_eobi_t7_v12_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Prev Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Prev Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_prev_time_priority = eurex_derivatives_eobi_t7_v12_1_dissect.trd_reg_ts_prev_time_priority(buffer, index, packet, parent)
 
   -- Prev Price: 8 Byte Unsigned Fixed Width Integer
@@ -2646,13 +2753,13 @@ eurex_derivatives_eobi_t7_v12_1_dissect.order_modify_fields = function(buffer, o
   -- Prev Display Qty: 8 Byte Unsigned Fixed Width Integer
   index, prev_display_qty = eurex_derivatives_eobi_t7_v12_1_dissect.prev_display_qty(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details Comp: Struct of 7 fields
   index, order_details_comp = eurex_derivatives_eobi_t7_v12_1_dissect.order_details_comp(buffer, index, packet, parent)
 
-  -- Prev Price Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Prev Price Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, prev_price_hhi_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.prev_price_hhi_indicator(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -2694,10 +2801,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.order_mass_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   return index
@@ -2740,13 +2847,13 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.order_delete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_derivatives_eobi_t7_v12_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details Comp: Struct of 7 fields
@@ -2790,10 +2897,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.order_add_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_derivatives_eobi_t7_v12_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Order Details Comp: Struct of 7 fields
@@ -2832,6 +2939,9 @@ eurex_derivatives_eobi_t7_v12_1_display.tes_security_status = function(value)
   if value == 9 then
     return "Tes Security Status: Suspended (9)"
   end
+  if value == 0xFF then
+    return "Tes Security Status: No Value"
+  end
 
   return "Tes Security Status: Unknown("..value..")"
 end
@@ -2855,6 +2965,9 @@ eurex_derivatives_eobi_t7_v12_1_size_of.sold_out_indicator = 1
 eurex_derivatives_eobi_t7_v12_1_display.sold_out_indicator = function(value)
   if value == 1 then
     return "Sold Out Indicator: Sold Out (1)"
+  end
+  if value == 0xFF then
+    return "Sold Out Indicator: No Value"
   end
 
   return "Sold Out Indicator: Unknown("..value..")"
@@ -2882,6 +2995,9 @@ eurex_derivatives_eobi_t7_v12_1_display.security_trading_event = function(value)
   end
   if value == 11 then
     return "Security Trading Event: Price Volatility Auction Is Extended Again (11)"
+  end
+  if value == 0xFF then
+    return "Security Trading Event: No Value"
   end
 
   return "Security Trading Event: Unknown("..value..")"
@@ -2973,6 +3089,9 @@ eurex_derivatives_eobi_t7_v12_1_display.security_trading_status = function(value
   if value == 221 then
     return "Security Trading Status: Circuit Breaker Auction Triggered By Static Limit Breach Freeze (221)"
   end
+  if value == 0xFF then
+    return "Security Trading Status: No Value"
+  end
 
   return "Security Trading Status: Unknown("..value..")"
 end
@@ -3017,6 +3136,9 @@ eurex_derivatives_eobi_t7_v12_1_display.security_status = function(value)
   end
   if value == 12 then
     return "Security Status: Knocked Out And Suspended (12)"
+  end
+  if value == 0xFF then
+    return "Security Status: No Value"
   end
 
   return "Security Status: Unknown("..value..")"
@@ -3122,7 +3244,7 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.sec_mass_stat_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- High Px: 8 Byte Unsigned Fixed Width Integer
@@ -3131,22 +3253,22 @@ eurex_derivatives_eobi_t7_v12_1_dissect.sec_mass_stat_grp_comp_fields = function
   -- Low Px: 8 Byte Unsigned Fixed Width Integer
   index, low_px = eurex_derivatives_eobi_t7_v12_1_dissect.low_px(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, security_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_status(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
   index, security_trading_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_trading_status(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, market_condition = eurex_derivatives_eobi_t7_v12_1_dissect.market_condition(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, security_trading_event = eurex_derivatives_eobi_t7_v12_1_dissect.security_trading_event(buffer, index, packet, parent)
 
-  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, sold_out_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.sold_out_indicator(buffer, index, packet, parent)
 
-  -- Tes Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Tes Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, tes_security_status = eurex_derivatives_eobi_t7_v12_1_dissect.tes_security_status(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -3173,6 +3295,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.no_related_sym = 1
 
 -- Display: No Related Sym
 eurex_derivatives_eobi_t7_v12_1_display.no_related_sym = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Related Sym: No Value"
+  end
+
   return "No Related Sym: "..value
 end
 
@@ -3198,6 +3325,9 @@ eurex_derivatives_eobi_t7_v12_1_display.last_fragment = function(value)
   end
   if value == 1 then
     return "Last Fragment: Y (1)"
+  end
+  if value == 0xFF then
+    return "Last Fragment: No Value"
   end
 
   return "Last Fragment: Unknown("..value..")"
@@ -3232,6 +3362,9 @@ eurex_derivatives_eobi_t7_v12_1_display.tes_security_mass_status = function(valu
   if value == 9 then
     return "Tes Security Mass Status: Suspended (9)"
   end
+  if value == 0xFF then
+    return "Tes Security Mass Status: No Value"
+  end
 
   return "Tes Security Mass Status: Unknown("..value..")"
 end
@@ -3255,6 +3388,9 @@ eurex_derivatives_eobi_t7_v12_1_size_of.mass_sold_out_indicator = 1
 eurex_derivatives_eobi_t7_v12_1_display.mass_sold_out_indicator = function(value)
   if value == 1 then
     return "Mass Sold Out Indicator: Sold Out (1)"
+  end
+  if value == 0xFF then
+    return "Mass Sold Out Indicator: No Value"
   end
 
   return "Mass Sold Out Indicator: Unknown("..value..")"
@@ -3283,6 +3419,9 @@ eurex_derivatives_eobi_t7_v12_1_display.security_mass_trading_event = function(v
   if value == 11 then
     return "Security Mass Trading Event: Price Volatility Auction Is Extended Again (11)"
   end
+  if value == 0xFF then
+    return "Security Mass Trading Event: No Value"
+  end
 
   return "Security Mass Trading Event: Unknown("..value..")"
 end
@@ -3309,6 +3448,9 @@ eurex_derivatives_eobi_t7_v12_1_display.mass_market_condition = function(value)
   end
   if value == 1 then
     return "Mass Market Condition: Stressed (1)"
+  end
+  if value == 0xFF then
+    return "Mass Market Condition: No Value"
   end
 
   return "Mass Market Condition: Unknown("..value..")"
@@ -3400,6 +3542,9 @@ eurex_derivatives_eobi_t7_v12_1_display.security_mass_trading_status = function(
   if value == 221 then
     return "Security Mass Trading Status: Circuit Breaker Auction Triggered By Static Limit Breach Freeze (221)"
   end
+  if value == 0xFF then
+    return "Security Mass Trading Status: No Value"
+  end
 
   return "Security Mass Trading Status: Unknown("..value..")"
 end
@@ -3444,6 +3589,9 @@ eurex_derivatives_eobi_t7_v12_1_display.security_mass_status = function(value)
   end
   if value == 12 then
     return "Security Mass Status: Knocked Out And Suspended (12)"
+  end
+  if value == 0xFF then
+    return "Security Mass Status: No Value"
   end
 
   return "Security Mass Status: Unknown("..value..")"
@@ -3505,6 +3653,9 @@ eurex_derivatives_eobi_t7_v12_1_display.instrument_scope_product_complex = funct
   if value == 13 then
     return "Instrument Scope Product Complex: Non Standard Volatility Strategy (13)"
   end
+  if value == 0xFF then
+    return "Instrument Scope Product Complex: No Value"
+  end
 
   return "Instrument Scope Product Complex: Unknown("..value..")"
 end
@@ -3565,37 +3716,37 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.mass_instrument_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Scope Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Instrument Scope Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, instrument_scope_product_complex = eurex_derivatives_eobi_t7_v12_1_dissect.instrument_scope_product_complex(buffer, index, packet, parent)
 
-  -- Security Mass Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Security Mass Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, security_mass_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_mass_status(buffer, index, packet, parent)
 
-  -- Security Mass Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Security Mass Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
   index, security_mass_trading_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_mass_trading_status(buffer, index, packet, parent)
 
-  -- Mass Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Mass Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, mass_market_condition = eurex_derivatives_eobi_t7_v12_1_dissect.mass_market_condition(buffer, index, packet, parent)
 
-  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, fast_market_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Security Mass Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Security Mass Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, security_mass_trading_event = eurex_derivatives_eobi_t7_v12_1_dissect.security_mass_trading_event(buffer, index, packet, parent)
 
-  -- Mass Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Mass Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, mass_sold_out_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.mass_sold_out_indicator(buffer, index, packet, parent)
 
-  -- Tes Security Mass Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Tes Security Mass Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, tes_security_mass_status = eurex_derivatives_eobi_t7_v12_1_dissect.tes_security_mass_status(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_derivatives_eobi_t7_v12_1_dissect.last_fragment(buffer, index, packet, parent)
 
-  -- No Related Sym: 1 Byte Unsigned Fixed Width Integer
+  -- No Related Sym: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_related_sym = eurex_derivatives_eobi_t7_v12_1_dissect.no_related_sym(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -3662,22 +3813,22 @@ eurex_derivatives_eobi_t7_v12_1_dissect.md_instrument_entry_grp_comp_fields = fu
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_size = eurex_derivatives_eobi_t7_v12_1_dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Md Origin Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Md Origin Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, md_origin_type = eurex_derivatives_eobi_t7_v12_1_dissect.md_origin_type(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, md_entry_type = eurex_derivatives_eobi_t7_v12_1_dissect.md_entry_type(buffer, index, packet, parent)
 
-  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, trade_condition = eurex_derivatives_eobi_t7_v12_1_dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 12 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, trd_type = eurex_derivatives_eobi_t7_v12_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Multi Leg Reporting Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Multi Leg Reporting Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, multi_leg_reporting_type = eurex_derivatives_eobi_t7_v12_1_dissect.multi_leg_reporting_type(buffer, index, packet, parent)
 
-  -- Multi Leg Price Model: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Multi Leg Price Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, multi_leg_price_model = eurex_derivatives_eobi_t7_v12_1_dissect.multi_leg_price_model(buffer, index, packet, parent)
 
   -- Non Disclosed Trade Volume: 8 Byte Unsigned Fixed Width Integer
@@ -3743,6 +3894,9 @@ eurex_derivatives_eobi_t7_v12_1_display.product_complex = function(value)
   if value == 13 then
     return "Product Complex: Non Standard Volatility Strategy (13)"
   end
+  if value == 0xFF then
+    return "Product Complex: No Value"
+  end
 
   return "Product Complex: Unknown("..value..")"
 end
@@ -3764,6 +3918,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.tot_no_orders = 2
 
 -- Display: Tot No Orders
 eurex_derivatives_eobi_t7_v12_1_display.tot_no_orders = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Tot No Orders: No Value"
+  end
+
   return "Tot No Orders: "..value
 end
 
@@ -3784,6 +3943,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.last_update_time = 8
 
 -- Display: Last Update Time
 eurex_derivatives_eobi_t7_v12_1_display.last_update_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Last Update Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -3855,34 +4018,34 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.instrument_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer
+  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_update_time = eurex_derivatives_eobi_t7_v12_1_dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_execution_time = eurex_derivatives_eobi_t7_v12_1_dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
-  -- Tot No Orders: 2 Byte Unsigned Fixed Width Integer
+  -- Tot No Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, tot_no_orders = eurex_derivatives_eobi_t7_v12_1_dissect.tot_no_orders(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, security_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_status(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
   index, security_trading_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_trading_status(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, market_condition = eurex_derivatives_eobi_t7_v12_1_dissect.market_condition(buffer, index, packet, parent)
 
-  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, fast_market_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, security_trading_event = eurex_derivatives_eobi_t7_v12_1_dissect.security_trading_event(buffer, index, packet, parent)
 
-  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, sold_out_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.sold_out_indicator(buffer, index, packet, parent)
 
   -- High Px: 8 Byte Unsigned Fixed Width Integer
@@ -3891,13 +4054,13 @@ eurex_derivatives_eobi_t7_v12_1_dissect.instrument_summary_fields = function(buf
   -- Low Px: 8 Byte Unsigned Fixed Width Integer
   index, low_px = eurex_derivatives_eobi_t7_v12_1_dissect.low_px(buffer, index, packet, parent)
 
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, product_complex = eurex_derivatives_eobi_t7_v12_1_dissect.product_complex(buffer, index, packet, parent)
 
-  -- No Md Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Md Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_md_entries = eurex_derivatives_eobi_t7_v12_1_dissect.no_md_entries(buffer, index, packet, parent)
 
-  -- Tes Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Tes Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, tes_security_status = eurex_derivatives_eobi_t7_v12_1_dissect.tes_security_status(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -3966,25 +4129,25 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.instrument_state_change_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, security_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_status(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
   index, security_trading_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_trading_status(buffer, index, packet, parent)
 
-  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Market Condition: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, market_condition = eurex_derivatives_eobi_t7_v12_1_dissect.market_condition(buffer, index, packet, parent)
 
-  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Fast Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, fast_market_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.fast_market_indicator(buffer, index, packet, parent)
 
-  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, security_trading_event = eurex_derivatives_eobi_t7_v12_1_dissect.security_trading_event(buffer, index, packet, parent)
 
-  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, sold_out_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.sold_out_indicator(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -3996,10 +4159,10 @@ eurex_derivatives_eobi_t7_v12_1_dissect.instrument_state_change_fields = functio
   -- Low Px: 8 Byte Unsigned Fixed Width Integer
   index, low_px = eurex_derivatives_eobi_t7_v12_1_dissect.low_px(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Tes Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Tes Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, tes_security_status = eurex_derivatives_eobi_t7_v12_1_dissect.tes_security_status(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -4041,7 +4204,7 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer Nullable
   index, last_msg_seq_num_processed = eurex_derivatives_eobi_t7_v12_1_dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -4099,28 +4262,28 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.full_order_execution_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_derivatives_eobi_t7_v12_1_dissect.side(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ord_type = eurex_derivatives_eobi_t7_v12_1_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, algorithmic_trade_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.algorithmic_trade_indicator(buffer, index, packet, parent)
 
-  -- Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Hhi Indicator: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, hhi_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.hhi_indicator(buffer, index, packet, parent)
 
-  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_derivatives_eobi_t7_v12_1_dissect.trd_match_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = eurex_derivatives_eobi_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_derivatives_eobi_t7_v12_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
@@ -4150,6 +4313,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.aggressor_time = 8
 
 -- Display: Aggressor Time
 eurex_derivatives_eobi_t7_v12_1_display.aggressor_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Aggressor Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -4243,7 +4410,7 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.remaining_order_details_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg Ts Prev Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Prev Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_prev_time_priority = eurex_derivatives_eobi_t7_v12_1_dissect.trd_reg_ts_prev_time_priority(buffer, index, packet, parent)
 
   -- Display Qty: 8 Byte Unsigned Fixed Width Integer
@@ -4293,6 +4460,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.trading_hhi_indicator = 1
 
 -- Display: Trading Hhi Indicator
 eurex_derivatives_eobi_t7_v12_1_display.trading_hhi_indicator = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "Trading Hhi Indicator: No Value"
+  end
+
   return "Trading Hhi Indicator: "..value
 end
 
@@ -4319,6 +4491,9 @@ eurex_derivatives_eobi_t7_v12_1_display.aggressor_side = function(value)
   if value == 2 then
     return "Aggressor Side: Sell (2)"
   end
+  if value == 0xFF then
+    return "Aggressor Side: No Value"
+  end
 
   return "Aggressor Side: Unknown("..value..")"
 end
@@ -4340,6 +4515,10 @@ eurex_derivatives_eobi_t7_v12_1_size_of.exec_id = 8
 
 -- Display: Exec Id
 eurex_derivatives_eobi_t7_v12_1_display.exec_id = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Exec Id: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -4403,28 +4582,28 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.execution_summary_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_derivatives_eobi_t7_v12_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eobi_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
   index, last_qty = eurex_derivatives_eobi_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, aggressor_side = eurex_derivatives_eobi_t7_v12_1_dissect.aggressor_side(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trade Condition: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, trade_condition = eurex_derivatives_eobi_t7_v12_1_dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Trading Hhi Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Trading Hhi Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
   index, trading_hhi_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.trading_hhi_indicator(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -4442,7 +4621,7 @@ eurex_derivatives_eobi_t7_v12_1_dissect.execution_summary_fields = function(buff
   -- Resting Cxl Qty: 8 Byte Unsigned Fixed Width Integer
   index, resting_cxl_qty = eurex_derivatives_eobi_t7_v12_1_dissect.resting_cxl_qty(buffer, index, packet, parent)
 
-  -- Aggressor Time: 8 Byte Unsigned Fixed Width Integer
+  -- Aggressor Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, aggressor_time = eurex_derivatives_eobi_t7_v12_1_dissect.aggressor_time(buffer, index, packet, parent)
 
   return index
@@ -4468,6 +4647,9 @@ eurex_derivatives_eobi_t7_v12_1_size_of.input_source = 1
 eurex_derivatives_eobi_t7_v12_1_display.input_source = function(value)
   if value == 1 then
     return "Input Source: Clip Client Broker (1)"
+  end
+  if value == 0xFF then
+    return "Input Source: No Value"
   end
 
   return "Input Source: Unknown("..value..")"
@@ -4495,6 +4677,9 @@ eurex_derivatives_eobi_t7_v12_1_display.cross_request_type = function(value)
   end
   if value == 2 then
     return "Cross Request Type: Liquidity Improvement Cross (2)"
+  end
+  if value == 0xFF then
+    return "Cross Request Type: No Value"
   end
 
   return "Cross Request Type: Unknown("..value..")"
@@ -4544,7 +4729,7 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.cross_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -4553,19 +4738,19 @@ eurex_derivatives_eobi_t7_v12_1_dissect.cross_request_fields = function(buffer, 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
   index, last_qty = eurex_derivatives_eobi_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_derivatives_eobi_t7_v12_1_dissect.side(buffer, index, packet, parent)
 
-  -- Cross Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Cross Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, cross_request_type = eurex_derivatives_eobi_t7_v12_1_dissect.cross_request_type(buffer, index, packet, parent)
 
-  -- Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, input_source = eurex_derivatives_eobi_t7_v12_1_dissect.input_source(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
   index, pad_5 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_5(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   return index
@@ -4594,6 +4779,9 @@ eurex_derivatives_eobi_t7_v12_1_display.potential_security_trading_event = funct
   end
   if value == 10 then
     return "Potential Security Trading Event: Price Volatility Auction Is Extended (10)"
+  end
+  if value == 0xFF then
+    return "Potential Security Trading Event: No Value"
   end
 
   return "Potential Security Trading Event: Unknown("..value..")"
@@ -4669,10 +4857,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.auction_clearing_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -4684,10 +4872,10 @@ eurex_derivatives_eobi_t7_v12_1_dissect.auction_clearing_price_fields = function
   -- Imbalance Qty: 8 Byte Unsigned Fixed Width Integer
   index, imbalance_qty = eurex_derivatives_eobi_t7_v12_1_dissect.imbalance_qty(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 23 values
+  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
   index, security_trading_status = eurex_derivatives_eobi_t7_v12_1_dissect.security_trading_status(buffer, index, packet, parent)
 
-  -- Potential Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Potential Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, potential_security_trading_event = eurex_derivatives_eobi_t7_v12_1_dissect.potential_security_trading_event(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -4717,6 +4905,9 @@ eurex_derivatives_eobi_t7_v12_1_display.offer_ord_type = function(value)
   if value == 1 then
     return "Offer Ord Type: Market (1)"
   end
+  if value == 0xFF then
+    return "Offer Ord Type: No Value"
+  end
 
   return "Offer Ord Type: Unknown("..value..")"
 end
@@ -4740,6 +4931,9 @@ eurex_derivatives_eobi_t7_v12_1_size_of.bid_ord_type = 1
 eurex_derivatives_eobi_t7_v12_1_display.bid_ord_type = function(value)
   if value == 1 then
     return "Bid Ord Type: Market (1)"
+  end
+  if value == 0xFF then
+    return "Bid Ord Type: No Value"
   end
 
   return "Bid Ord Type: Unknown("..value..")"
@@ -4793,10 +4987,10 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.auction_bbo_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -4811,13 +5005,13 @@ eurex_derivatives_eobi_t7_v12_1_dissect.auction_bbo_fields = function(buffer, of
   -- Offer Size: 8 Byte Unsigned Fixed Width Integer
   index, offer_size = eurex_derivatives_eobi_t7_v12_1_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Potential Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Potential Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, potential_security_trading_event = eurex_derivatives_eobi_t7_v12_1_dissect.potential_security_trading_event(buffer, index, packet, parent)
 
-  -- Bid Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Bid Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, bid_ord_type = eurex_derivatives_eobi_t7_v12_1_dissect.bid_ord_type(buffer, index, packet, parent)
 
-  -- Offer Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Offer Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, offer_ord_type = eurex_derivatives_eobi_t7_v12_1_dissect.offer_ord_type(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -4844,6 +5038,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.related_security_id = 8
 
 -- Display: Related Security Id
 eurex_derivatives_eobi_t7_v12_1_display.related_security_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Related Security Id: No Value"
+  end
+
   return "Related Security Id: "..value
 end
 
@@ -4877,7 +5076,7 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.related_instrument_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Related Security Id: 8 Byte Signed Fixed Width Integer
+  -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, related_security_id = eurex_derivatives_eobi_t7_v12_1_dissect.related_security_id(buffer, index, packet, parent)
 
   return index
@@ -4901,6 +5100,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.quantity_scaling_factor = 2
 
 -- Display: Quantity Scaling Factor
 eurex_derivatives_eobi_t7_v12_1_display.quantity_scaling_factor = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Quantity Scaling Factor: No Value"
+  end
+
   return "Quantity Scaling Factor: "..value
 end
 
@@ -4929,6 +5133,9 @@ eurex_derivatives_eobi_t7_v12_1_display.security_type = function(value)
   end
   if value == 3 then
     return "Security Type: Mleg (3)"
+  end
+  if value == 0xFF then
+    return "Security Type: No Value"
   end
 
   return "Security Type: Unknown("..value..")"
@@ -5003,22 +5210,22 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.add_scaled_simple_instrument_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Desc: 40 Byte Ascii String Nullable
   index, security_desc = eurex_derivatives_eobi_t7_v12_1_dissect.security_desc(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, security_type = eurex_derivatives_eobi_t7_v12_1_dissect.security_type(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer Nullable
   index, quantity_scaling_factor = eurex_derivatives_eobi_t7_v12_1_dissect.quantity_scaling_factor(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -5048,6 +5255,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.opt_attribute = 4
 
 -- Display: Opt Attribute
 eurex_derivatives_eobi_t7_v12_1_display.opt_attribute = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Opt Attribute: No Value"
+  end
+
   return "Opt Attribute: "..value
 end
 
@@ -5094,6 +5306,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.maturity_date = 4
 
 -- Display: Maturity Date
 eurex_derivatives_eobi_t7_v12_1_display.maturity_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Maturity Date: No Value"
+  end
+
   return "Maturity Date: "..value
 end
 
@@ -5119,6 +5336,9 @@ eurex_derivatives_eobi_t7_v12_1_display.settl_method = function(value)
   end
   if value == 1 then
     return "Settl Method: Physical (1)"
+  end
+  if value == 0xFF then
+    return "Settl Method: No Value"
   end
 
   return "Settl Method: Unknown("..value..")"
@@ -5147,6 +5367,9 @@ eurex_derivatives_eobi_t7_v12_1_display.exercise_style = function(value)
   if value == 1 then
     return "Exercise Style: American (1)"
   end
+  if value == 0xFF then
+    return "Exercise Style: No Value"
+  end
 
   return "Exercise Style: Unknown("..value..")"
 end
@@ -5173,6 +5396,9 @@ eurex_derivatives_eobi_t7_v12_1_display.put_or_call = function(value)
   end
   if value == 1 then
     return "Put Or Call: Call (1)"
+  end
+  if value == 0xFF then
+    return "Put Or Call: No Value"
   end
 
   return "Put Or Call: Unknown("..value..")"
@@ -5228,34 +5454,34 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.add_flexible_instrument_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Desc: 40 Byte Ascii String Nullable
   index, security_desc = eurex_derivatives_eobi_t7_v12_1_dissect.security_desc(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, security_type = eurex_derivatives_eobi_t7_v12_1_dissect.security_type(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, put_or_call = eurex_derivatives_eobi_t7_v12_1_dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, exercise_style = eurex_derivatives_eobi_t7_v12_1_dissect.exercise_style(buffer, index, packet, parent)
 
-  -- Settl Method: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Settl Method: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, settl_method = eurex_derivatives_eobi_t7_v12_1_dissect.settl_method(buffer, index, packet, parent)
 
-  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = eurex_derivatives_eobi_t7_v12_1_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Unsigned Fixed Width Integer
   index, strike_price = eurex_derivatives_eobi_t7_v12_1_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Opt Attribute: 4 Byte Unsigned Fixed Width Integer
+  -- Opt Attribute: 4 Byte Unsigned Fixed Width Integer Nullable
   index, opt_attribute = eurex_derivatives_eobi_t7_v12_1_dissect.opt_attribute(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -5288,6 +5514,9 @@ eurex_derivatives_eobi_t7_v12_1_display.leg_side = function(value)
   if value == 2 then
     return "Leg Side: Sell (2)"
   end
+  if value == 0xFF then
+    return "Leg Side: No Value"
+  end
 
   return "Leg Side: Unknown("..value..")"
 end
@@ -5315,6 +5544,9 @@ eurex_derivatives_eobi_t7_v12_1_display.leg_security_type = function(value)
   if value == 2 then
     return "Leg Security Type: Leg Security Underlying Leg (2)"
   end
+  if value == 0xFF then
+    return "Leg Security Type: No Value"
+  end
 
   return "Leg Security Type: Unknown("..value..")"
 end
@@ -5336,6 +5568,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.leg_ratio_qty = 4
 
 -- Display: Leg Ratio Qty
 eurex_derivatives_eobi_t7_v12_1_display.leg_ratio_qty = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Leg Ratio Qty: No Value"
+  end
+
   return "Leg Ratio Qty: "..value
 end
 
@@ -5382,6 +5619,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.leg_security_id = 8
 
 -- Display: Leg Security Id
 eurex_derivatives_eobi_t7_v12_1_display.leg_security_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Leg Security Id: No Value"
+  end
+
   return "Leg Security Id: "..value
 end
 
@@ -5402,6 +5644,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.leg_symbol = 4
 
 -- Display: Leg Symbol
 eurex_derivatives_eobi_t7_v12_1_display.leg_symbol = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Leg Symbol: No Value"
+  end
+
   return "Leg Symbol: "..value
 end
 
@@ -5449,25 +5696,25 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Symbol: 4 Byte Signed Fixed Width Integer
+  -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
   index, leg_symbol = eurex_derivatives_eobi_t7_v12_1_dissect.leg_symbol(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Leg Security Id: 8 Byte Signed Fixed Width Integer
+  -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eobi_t7_v12_1_dissect.leg_security_id(buffer, index, packet, parent)
 
   -- Leg Price: 8 Byte Unsigned Fixed Width Integer
   index, leg_price = eurex_derivatives_eobi_t7_v12_1_dissect.leg_price(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, leg_ratio_qty = eurex_derivatives_eobi_t7_v12_1_dissect.leg_ratio_qty(buffer, index, packet, parent)
 
-  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_security_type = eurex_derivatives_eobi_t7_v12_1_dissect.leg_security_type(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_side = eurex_derivatives_eobi_t7_v12_1_dissect.leg_side(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -5494,6 +5741,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.no_legs = 1
 
 -- Display: No Legs
 eurex_derivatives_eobi_t7_v12_1_display.no_legs = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Legs: No Value"
+  end
+
   return "No Legs: "..value
 end
 
@@ -5514,6 +5766,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.leg_ratio_multiplier = 4
 
 -- Display: Leg Ratio Multiplier
 eurex_derivatives_eobi_t7_v12_1_display.leg_ratio_multiplier = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Leg Ratio Multiplier: No Value"
+  end
+
   return "Leg Ratio Multiplier: "..value
 end
 
@@ -5540,6 +5797,9 @@ eurex_derivatives_eobi_t7_v12_1_display.implied_market_indicator = function(valu
   if value == 3 then
     return "Implied Market Indicator: Implied In Out (3)"
   end
+  if value == 0xFF then
+    return "Implied Market Indicator: No Value"
+  end
 
   return "Implied Market Indicator: Unknown("..value..")"
 end
@@ -5561,6 +5821,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.security_sub_type = 4
 
 -- Display: Security Sub Type
 eurex_derivatives_eobi_t7_v12_1_display.security_sub_type = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Security Sub Type: No Value"
+  end
+
   return "Security Sub Type: "..value
 end
 
@@ -5618,37 +5883,37 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.add_complex_instrument_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Security Desc: 40 Byte Ascii String Nullable
   index, security_desc = eurex_derivatives_eobi_t7_v12_1_dissect.security_desc(buffer, index, packet, parent)
 
-  -- Security Sub Type: 4 Byte Signed Fixed Width Integer
+  -- Security Sub Type: 4 Byte Signed Fixed Width Integer Nullable
   index, security_sub_type = eurex_derivatives_eobi_t7_v12_1_dissect.security_sub_type(buffer, index, packet, parent)
 
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, product_complex = eurex_derivatives_eobi_t7_v12_1_dissect.product_complex(buffer, index, packet, parent)
 
-  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, implied_market_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.implied_market_indicator(buffer, index, packet, parent)
 
-  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer Nullable
   index, quantity_scaling_factor = eurex_derivatives_eobi_t7_v12_1_dissect.quantity_scaling_factor(buffer, index, packet, parent)
 
-  -- Leg Ratio Multiplier: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio Multiplier: 4 Byte Unsigned Fixed Width Integer Nullable
   index, leg_ratio_multiplier = eurex_derivatives_eobi_t7_v12_1_dissect.leg_ratio_multiplier(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
+  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_legs = eurex_derivatives_eobi_t7_v12_1_dissect.no_legs(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
   index, pad_2 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_2(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_derivatives_eobi_t7_v12_1_dissect.last_fragment(buffer, index, packet, parent)
 
   -- Instrmt Leg Grp Comp: Struct of 8 fields
@@ -5922,6 +6187,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.msg_seq_num = 4
 
 -- Display: Msg Seq Num
 eurex_derivatives_eobi_t7_v12_1_display.msg_seq_num = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Msg Seq Num: No Value"
+  end
+
   return "Msg Seq Num: "..value
 end
 
@@ -5942,7 +6212,92 @@ eurex_derivatives_eobi_t7_v12_1_size_of.template_id = 2
 
 -- Display: Template Id
 eurex_derivatives_eobi_t7_v12_1_display.template_id = function(value)
-  return "Template Id: "..value
+  if value == 0xFFFF then
+    return "Template Id: No Value"
+  end
+  if value == 13400 then
+    return "Template Id: Add Complex Instrument (13400)"
+  end
+  if value == 13401 then
+    return "Template Id: Add Flexible Instrument (13401)"
+  end
+  if value == 13402 then
+    return "Template Id: Add Scaled Simple Instrument (13402)"
+  end
+  if value == 13500 then
+    return "Template Id: Auction Bbo (13500)"
+  end
+  if value == 13501 then
+    return "Template Id: Auction Clearing Price (13501)"
+  end
+  if value == 13502 then
+    return "Template Id: Cross Request (13502)"
+  end
+  if value == 13202 then
+    return "Template Id: Execution Summary (13202)"
+  end
+  if value == 13104 then
+    return "Template Id: Full Order Execution (13104)"
+  end
+  if value == 13001 then
+    return "Template Id: Heartbeat (13001)"
+  end
+  if value == 13301 then
+    return "Template Id: Instrument State Change (13301)"
+  end
+  if value == 13601 then
+    return "Template Id: Instrument Summary (13601)"
+  end
+  if value == 13302 then
+    return "Template Id: Mass Instrument State Change (13302)"
+  end
+  if value == 13100 then
+    return "Template Id: Order Add (13100)"
+  end
+  if value == 13102 then
+    return "Template Id: Order Delete (13102)"
+  end
+  if value == 13103 then
+    return "Template Id: Order Mass Delete (13103)"
+  end
+  if value == 13101 then
+    return "Template Id: Order Modify (13101)"
+  end
+  if value == 13106 then
+    return "Template Id: Order Modify Same Prio (13106)"
+  end
+  if value == 13003 then
+    return "Template Id: Packet Header (13003)"
+  end
+  if value == 13105 then
+    return "Template Id: Partial Order Execution (13105)"
+  end
+  if value == 13300 then
+    return "Template Id: Product State Change (13300)"
+  end
+  if value == 13600 then
+    return "Template Id: Product Summary (13600)"
+  end
+  if value == 13503 then
+    return "Template Id: Quote Request (13503)"
+  end
+  if value == 13602 then
+    return "Template Id: Snapshot Order (13602)"
+  end
+  if value == 13203 then
+    return "Template Id: Tes Trade Report (13203)"
+  end
+  if value == 13504 then
+    return "Template Id: Top Of Book (13504)"
+  end
+  if value == 13201 then
+    return "Template Id: Trade Report (13201)"
+  end
+  if value == 13200 then
+    return "Template Id: Trade Reversal (13200)"
+  end
+
+  return "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -5962,6 +6317,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.body_len = 2
 
 -- Display: Body Len
 eurex_derivatives_eobi_t7_v12_1_display.body_len = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Body Len: No Value"
+  end
+
   return "Body Len: "..value
 end
 
@@ -5999,13 +6359,13 @@ end
 eurex_derivatives_eobi_t7_v12_1_dissect.message_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Body Len: 2 Byte Unsigned Fixed Width Integer
+  -- Body Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, body_len = eurex_derivatives_eobi_t7_v12_1_dissect.body_len(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 28 values
   index, template_id = eurex_derivatives_eobi_t7_v12_1_dissect.template_id(buffer, index, packet, parent)
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_derivatives_eobi_t7_v12_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
   return index
@@ -6070,6 +6430,9 @@ eurex_derivatives_eobi_t7_v12_1_display.appl_seq_reset_indicator = function(valu
   if value == 1 then
     return "Appl Seq Reset Indicator: Reset (1)"
   end
+  if value == 0xFF then
+    return "Appl Seq Reset Indicator: No Value"
+  end
 
   return "Appl Seq Reset Indicator: Unknown("..value..")"
 end
@@ -6097,6 +6460,9 @@ eurex_derivatives_eobi_t7_v12_1_display.completion_indicator = function(value)
   if value == 1 then
     return "Completion Indicator: Complete (1)"
   end
+  if value == 0xFF then
+    return "Completion Indicator: No Value"
+  end
 
   return "Completion Indicator: Unknown("..value..")"
 end
@@ -6118,6 +6484,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.partition_id = 1
 
 -- Display: Partition Id
 eurex_derivatives_eobi_t7_v12_1_display.partition_id = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "Partition Id: No Value"
+  end
+
   return "Partition Id: "..value
 end
 
@@ -6138,6 +6509,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.market_segment_id = 4
 
 -- Display: Market Segment Id
 eurex_derivatives_eobi_t7_v12_1_display.market_segment_id = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Market Segment Id: No Value"
+  end
+
   return "Market Segment Id: "..value
 end
 
@@ -6158,6 +6534,11 @@ eurex_derivatives_eobi_t7_v12_1_size_of.appl_seq_num = 4
 
 -- Display: Appl Seq Num
 eurex_derivatives_eobi_t7_v12_1_display.appl_seq_num = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Appl Seq Num: No Value"
+  end
+
   return "Appl Seq Num: "..value
 end
 
@@ -6315,25 +6696,25 @@ eurex_derivatives_eobi_t7_v12_1_dissect.packet_header_fields = function(buffer, 
   -- Packet Info: Struct of 3 fields
   index, packet_info = eurex_derivatives_eobi_t7_v12_1_dissect.packet_info(buffer, index, packet, parent)
 
-  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, appl_seq_num = eurex_derivatives_eobi_t7_v12_1_dissect.appl_seq_num(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_derivatives_eobi_t7_v12_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Partition Id: 1 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 1 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_derivatives_eobi_t7_v12_1_dissect.partition_id(buffer, index, packet, parent)
 
-  -- Completion Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Completion Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, completion_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.completion_indicator(buffer, index, packet, parent)
 
-  -- Appl Seq Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_reset_indicator = eurex_derivatives_eobi_t7_v12_1_dissect.appl_seq_reset_indicator(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
   index, pad_5 = eurex_derivatives_eobi_t7_v12_1_dissect.pad_5(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eobi_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
   return index

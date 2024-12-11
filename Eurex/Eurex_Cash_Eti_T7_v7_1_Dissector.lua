@@ -1411,6 +1411,11 @@ eurex_cash_eti_t7_v7_1_size_of.target_party_id_executing_trader = 4
 
 -- Display: Target Party Id Executing Trader
 eurex_cash_eti_t7_v7_1_display.target_party_id_executing_trader = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Target Party Id Executing Trader: No Value"
+  end
+
   return "Target Party Id Executing Trader: "..value
 end
 
@@ -1450,7 +1455,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_target_parties_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.target_party_id_executing_trader(buffer, index, packet, parent)
 
   -- Target Party Executing Firm: 5 Byte Ascii String Nullable
@@ -1561,6 +1566,9 @@ eurex_cash_eti_t7_v7_1_display.quote_cancel_type = function(value)
   if value == 4 then
     return "Quote Cancel Type: Cancel All Quotes (4)"
   end
+  if value == 0xFF then
+    return "Quote Cancel Type: No Value"
+  end
 
   return "Quote Cancel Type: Unknown("..value..")"
 end
@@ -1587,6 +1595,9 @@ eurex_cash_eti_t7_v7_1_display.side = function(value)
   end
   if value == 2 then
     return "Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Side: No Value"
   end
 
   return "Side: Unknown("..value..")"
@@ -1615,6 +1626,9 @@ eurex_cash_eti_t7_v7_1_display.number_of_resp_disclosure_instruction = function(
   if value == 1 then
     return "Number Of Resp Disclosure Instruction: Yes (1)"
   end
+  if value == 0xFF then
+    return "Number Of Resp Disclosure Instruction: No Value"
+  end
 
   return "Number Of Resp Disclosure Instruction: Unknown("..value..")"
 end
@@ -1636,6 +1650,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_target_party_i_ds = 1
 
 -- Display: No Target Party I Ds
 eurex_cash_eti_t7_v7_1_display.no_target_party_i_ds = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Target Party I Ds: No Value"
+  end
+
   return "No Target Party I Ds: "..value
 end
 
@@ -1656,6 +1675,11 @@ eurex_cash_eti_t7_v7_1_size_of.settl_date = 4
 
 -- Display: Settl Date
 eurex_cash_eti_t7_v7_1_display.settl_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Settl Date: No Value"
+  end
+
   return "Settl Date: "..value
 end
 
@@ -1676,6 +1700,11 @@ eurex_cash_eti_t7_v7_1_size_of.negotiation_id = 4
 
 -- Display: Negotiation Id
 eurex_cash_eti_t7_v7_1_display.negotiation_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Negotiation Id: No Value"
+  end
+
   return "Negotiation Id: "..value
 end
 
@@ -1696,6 +1725,11 @@ eurex_cash_eti_t7_v7_1_size_of.market_segment_id = 4
 
 -- Display: Market Segment Id
 eurex_cash_eti_t7_v7_1_display.market_segment_id = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Market Segment Id: No Value"
+  end
+
   return "Market Segment Id: "..value
 end
 
@@ -1794,6 +1828,11 @@ eurex_cash_eti_t7_v7_1_size_of.sender_sub_id = 4
 
 -- Display: Sender Sub Id
 eurex_cash_eti_t7_v7_1_display.sender_sub_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Sender Sub Id: No Value"
+  end
+
   return "Sender Sub Id: "..value
 end
 
@@ -1814,6 +1853,11 @@ eurex_cash_eti_t7_v7_1_size_of.msg_seq_num = 4
 
 -- Display: Msg Seq Num
 eurex_cash_eti_t7_v7_1_display.msg_seq_num = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Msg Seq Num: No Value"
+  end
+
   return "Msg Seq Num: "..value
 end
 
@@ -1849,10 +1893,10 @@ end
 eurex_cash_eti_t7_v7_1_dissect.request_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_cash_eti_t7_v7_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer
+  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, sender_sub_id = eurex_cash_eti_t7_v7_1_dissect.sender_sub_id(buffer, index, packet, parent)
 
   return index
@@ -1953,25 +1997,25 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_update_negotiation_request_fields 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer
+  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_target_party_i_ds = eurex_cash_eti_t7_v7_1_dissect.no_target_party_i_ds(buffer, index, packet, parent)
 
-  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, number_of_resp_disclosure_instruction = eurex_cash_eti_t7_v7_1_dissect.number_of_resp_disclosure_instruction(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Quote Cancel Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Quote Cancel Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, quote_cancel_type = eurex_cash_eti_t7_v7_1_dissect.quote_cancel_type(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -2051,6 +2095,9 @@ eurex_cash_eti_t7_v7_1_display.trad_ses_event = function(value)
   if value == 105 then
     return "Trad Ses Event: Service Resumed (105)"
   end
+  if value == 0xFF then
+    return "Trad Ses Event: No Value"
+  end
 
   return "Trad Ses Event: Unknown("..value..")"
 end
@@ -2072,6 +2119,11 @@ eurex_cash_eti_t7_v7_1_size_of.trade_date = 4
 
 -- Display: Trade Date
 eurex_cash_eti_t7_v7_1_display.trade_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Date: No Value"
+  end
+
   return "Trade Date: "..value
 end
 
@@ -2117,6 +2169,9 @@ eurex_cash_eti_t7_v7_1_display.last_fragment = function(value)
   end
   if value == 1 then
     return "Last Fragment: Last Message (1)"
+  end
+  if value == 0xFF then
+    return "Last Fragment: No Value"
   end
 
   return "Last Fragment: Unknown("..value..")"
@@ -2169,6 +2224,9 @@ eurex_cash_eti_t7_v7_1_display.appl_id = function(value)
   if value == 10 then
     return "Appl Id: Service Availability Market (10)"
   end
+  if value == 0xFF then
+    return "Appl Id: No Value"
+  end
 
   return "Appl Id: Unknown("..value..")"
 end
@@ -2196,6 +2254,9 @@ eurex_cash_eti_t7_v7_1_display.appl_resend_flag = function(value)
   if value == 1 then
     return "Appl Resend Flag: True (1)"
   end
+  if value == 0xFF then
+    return "Appl Resend Flag: No Value"
+  end
 
   return "Appl Resend Flag: Unknown("..value..")"
 end
@@ -2217,6 +2278,11 @@ eurex_cash_eti_t7_v7_1_size_of.partition_id = 2
 
 -- Display: Partition Id
 eurex_cash_eti_t7_v7_1_display.partition_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Partition Id: No Value"
+  end
+
   return "Partition Id: "..value
 end
 
@@ -2237,6 +2303,11 @@ eurex_cash_eti_t7_v7_1_size_of.appl_sub_id = 4
 
 -- Display: Appl Sub Id
 eurex_cash_eti_t7_v7_1_display.appl_sub_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Appl Sub Id: No Value"
+  end
+
   return "Appl Sub Id: "..value
 end
 
@@ -2257,6 +2328,11 @@ eurex_cash_eti_t7_v7_1_size_of.appl_seq_num = 8
 
 -- Display: Appl Seq Num
 eurex_cash_eti_t7_v7_1_display.appl_seq_num = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Appl Seq Num: No Value"
+  end
+
   return "Appl Seq Num: "..value
 end
 
@@ -2277,6 +2353,10 @@ eurex_cash_eti_t7_v7_1_size_of.sending_time = 8
 
 -- Display: Sending Time
 eurex_cash_eti_t7_v7_1_display.sending_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Sending Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -2328,25 +2408,25 @@ end
 eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = eurex_cash_eti_t7_v7_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Appl Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Appl Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
   index, appl_seq_num = eurex_cash_eti_t7_v7_1_dissect.appl_seq_num(buffer, index, packet, parent)
 
-  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, appl_sub_id = eurex_cash_eti_t7_v7_1_dissect.appl_sub_id(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_cash_eti_t7_v7_1_dissect.partition_id(buffer, index, packet, parent)
 
-  -- Appl Resend Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Resend Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_resend_flag = eurex_cash_eti_t7_v7_1_dissect.appl_resend_flag(buffer, index, packet, parent)
 
-  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, appl_id = eurex_cash_eti_t7_v7_1_dissect.appl_id(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_cash_eti_t7_v7_1_dissect.last_fragment(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -2393,10 +2473,10 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_status_broadcast_fields = function
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = eurex_cash_eti_t7_v7_1_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trad_ses_event = eurex_cash_eti_t7_v7_1_dissect.trad_ses_event(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -2459,6 +2539,9 @@ eurex_cash_eti_t7_v7_1_display.quoting_status = function(value)
   if value == 4 then
     return "Quoting Status: Open Not Responded (4)"
   end
+  if value == 0xFF then
+    return "Quoting Status: No Value"
+  end
 
   return "Quoting Status: Unknown("..value..")"
 end
@@ -2503,13 +2586,13 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_quoting_status_request_fields = fu
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, quoting_status = eurex_cash_eti_t7_v7_1_dissect.quoting_status(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -2571,6 +2654,11 @@ eurex_cash_eti_t7_v7_1_size_of.quote_id = 8
 
 -- Display: Quote Id
 eurex_cash_eti_t7_v7_1_display.quote_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Id: No Value"
+  end
+
   return "Quote Id: "..value
 end
 
@@ -2591,6 +2679,10 @@ eurex_cash_eti_t7_v7_1_size_of.request_time = 8
 
 -- Display: Request Time
 eurex_cash_eti_t7_v7_1_display.request_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Request Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -2634,13 +2726,13 @@ end
 eurex_cash_eti_t7_v7_1_dissect.response_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_cash_eti_t7_v7_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = eurex_cash_eti_t7_v7_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_cash_eti_t7_v7_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -2687,10 +2779,10 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_quote_response_fields = function(b
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
   -- Quote Req Id: 20 Byte Ascii String Nullable
@@ -2746,6 +2838,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_id_executing_trader = 4
 
 -- Display: Party Id Executing Trader
 eurex_cash_eti_t7_v7_1_display.party_id_executing_trader = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Executing Trader: No Value"
+  end
+
   return "Party Id Executing Trader: "..value
 end
 
@@ -2818,6 +2915,11 @@ eurex_cash_eti_t7_v7_1_size_of.secondary_quote_id = 8
 
 -- Display: Secondary Quote Id
 eurex_cash_eti_t7_v7_1_display.secondary_quote_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Secondary Quote Id: No Value"
+  end
+
   return "Secondary Quote Id: "..value
 end
 
@@ -2838,6 +2940,10 @@ eurex_cash_eti_t7_v7_1_size_of.transact_time = 8
 
 -- Display: Transact Time
 eurex_cash_eti_t7_v7_1_display.transact_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Transact Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -2899,13 +3005,13 @@ end
 eurex_cash_eti_t7_v7_1_dissect.srqs_quote_entry_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, secondary_quote_id = eurex_cash_eti_t7_v7_1_dissect.secondary_quote_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -2920,10 +3026,10 @@ eurex_cash_eti_t7_v7_1_dissect.srqs_quote_entry_grp_comp_fields = function(buffe
   -- Offer Size: 8 Byte Unsigned Fixed Width Integer
   index, offer_size = eurex_cash_eti_t7_v7_1_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, quoting_status = eurex_cash_eti_t7_v7_1_dissect.quoting_status(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -2959,6 +3065,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_quote_entries = 1
 
 -- Display: No Quote Entries
 eurex_cash_eti_t7_v7_1_display.no_quote_entries = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Quote Entries: No Value"
+  end
+
   return "No Quote Entries: "..value
 end
 
@@ -2979,6 +3090,11 @@ eurex_cash_eti_t7_v7_1_size_of.trade_id = 4
 
 -- Display: Trade Id
 eurex_cash_eti_t7_v7_1_display.trade_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Id: No Value"
+  end
+
   return "Trade Id: "..value
 end
 
@@ -3019,19 +3135,19 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_quote_requester_notification_field
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_id = eurex_cash_eti_t7_v7_1_dissect.trade_id(buffer, index, packet, parent)
 
   -- Quote Req Id: 20 Byte Ascii String Nullable
   index, quote_req_id = eurex_cash_eti_t7_v7_1_dissect.quote_req_id(buffer, index, packet, parent)
 
-  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_quote_entries = eurex_cash_eti_t7_v7_1_dissect.no_quote_entries(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -3163,6 +3279,9 @@ eurex_cash_eti_t7_v7_1_display.quote_event_reason = function(value)
   if value == 21 then
     return "Quote Event Reason: Manual Selection (21)"
   end
+  if value == 0xFF then
+    return "Quote Event Reason: No Value"
+  end
 
   return "Quote Event Reason: Unknown("..value..")"
 end
@@ -3198,6 +3317,9 @@ eurex_cash_eti_t7_v7_1_display.trading_capacity = function(value)
   end
   if value == 9 then
     return "Trading Capacity: Riskless Principal (9)"
+  end
+  if value == 0xFF then
+    return "Trading Capacity: No Value"
   end
 
   return "Trading Capacity: Unknown("..value..")"
@@ -3240,13 +3362,13 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_quote_notification_fields = functi
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, secondary_quote_id = eurex_cash_eti_t7_v7_1_dissect.secondary_quote_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -3261,16 +3383,16 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_quote_notification_fields = functi
   -- Offer Size: 8 Byte Unsigned Fixed Width Integer
   index, offer_size = eurex_cash_eti_t7_v7_1_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, quoting_status = eurex_cash_eti_t7_v7_1_dissect.quoting_status(buffer, index, packet, parent)
 
-  -- Quote Event Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Quote Event Reason: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, quote_event_reason = eurex_cash_eti_t7_v7_1_dissect.quote_event_reason(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -3356,6 +3478,9 @@ eurex_cash_eti_t7_v7_1_display.respondent_type = function(value)
   if value == 101 then
     return "Respondent Type: Smart Rf Qselectedparticipants (101)"
   end
+  if value == 0xFF then
+    return "Respondent Type: No Value"
+  end
 
   return "Respondent Type: Unknown("..value..")"
 end
@@ -3386,6 +3511,9 @@ eurex_cash_eti_t7_v7_1_display.quote_status = function(value)
   if value == 16 then
     return "Quote Status: Active (16)"
   end
+  if value == 0xFF then
+    return "Quote Status: No Value"
+  end
 
   return "Quote Status: Unknown("..value..")"
 end
@@ -3407,6 +3535,11 @@ eurex_cash_eti_t7_v7_1_size_of.number_of_respondents = 4
 
 -- Display: Number Of Respondents
 eurex_cash_eti_t7_v7_1_display.number_of_respondents = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Number Of Respondents: No Value"
+  end
+
   return "Number Of Respondents: "..value
 end
 
@@ -3427,6 +3560,10 @@ eurex_cash_eti_t7_v7_1_size_of.expire_time = 8
 
 -- Display: Expire Time
 eurex_cash_eti_t7_v7_1_display.expire_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Expire Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -3503,6 +3640,11 @@ eurex_cash_eti_t7_v7_1_size_of.security_id = 8
 
 -- Display: Security Id
 eurex_cash_eti_t7_v7_1_display.security_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Security Id: No Value"
+  end
+
   return "Security Id: "..value
 end
 
@@ -3543,10 +3685,10 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_open_negotiation_requester_notific
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -3564,34 +3706,34 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_open_negotiation_requester_notific
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
   index, last_qty = eurex_cash_eti_t7_v7_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer
+  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = eurex_cash_eti_t7_v7_1_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer
+  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer Nullable
   index, number_of_respondents = eurex_cash_eti_t7_v7_1_dissect.number_of_respondents(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_status = eurex_cash_eti_t7_v7_1_dissect.quote_status(buffer, index, packet, parent)
 
-  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer
+  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_target_party_i_ds = eurex_cash_eti_t7_v7_1_dissect.no_target_party_i_ds(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, number_of_resp_disclosure_instruction = eurex_cash_eti_t7_v7_1_dissect.number_of_resp_disclosure_instruction(buffer, index, packet, parent)
 
-  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, respondent_type = eurex_cash_eti_t7_v7_1_dissect.respondent_type(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -3648,6 +3790,9 @@ eurex_cash_eti_t7_v7_1_display.value_check_type_quantity = function(value)
   if value == 1 then
     return "Value Check Type Quantity: Check (1)"
   end
+  if value == 0xFF then
+    return "Value Check Type Quantity: No Value"
+  end
 
   return "Value Check Type Quantity: Unknown("..value..")"
 end
@@ -3675,6 +3820,9 @@ eurex_cash_eti_t7_v7_1_display.value_check_type_value = function(value)
   if value == 1 then
     return "Value Check Type Value: Check (1)"
   end
+  if value == 0xFF then
+    return "Value Check Type Value: No Value"
+  end
 
   return "Value Check Type Value: Unknown("..value..")"
 end
@@ -3696,6 +3844,10 @@ eurex_cash_eti_t7_v7_1_size_of.valid_until_time = 8
 
 -- Display: Valid Until Time
 eurex_cash_eti_t7_v7_1_display.valid_until_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Valid Until Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -3743,7 +3895,7 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_open_negotiation_request_fields = 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -3755,31 +3907,31 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_open_negotiation_request_fields = 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer
+  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, valid_until_time = eurex_cash_eti_t7_v7_1_dissect.valid_until_time(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer
+  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_target_party_i_ds = eurex_cash_eti_t7_v7_1_dissect.no_target_party_i_ds(buffer, index, packet, parent)
 
-  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, number_of_resp_disclosure_instruction = eurex_cash_eti_t7_v7_1_dissect.number_of_resp_disclosure_instruction(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, respondent_type = eurex_cash_eti_t7_v7_1_dissect.respondent_type(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -3853,6 +4005,10 @@ eurex_cash_eti_t7_v7_1_size_of.negotiation_start_time = 8
 
 -- Display: Negotiation Start Time
 eurex_cash_eti_t7_v7_1_display.negotiation_start_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Negotiation Start Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -3897,13 +4053,13 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_open_negotiation_notification_fiel
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Negotiation Start Time: 8 Byte Unsigned Fixed Width Integer
+  -- Negotiation Start Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_start_time = eurex_cash_eti_t7_v7_1_dissect.negotiation_start_time(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -3915,28 +4071,28 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_open_negotiation_notification_fiel
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
   index, leaves_qty = eurex_cash_eti_t7_v7_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer
+  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = eurex_cash_eti_t7_v7_1_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer
+  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer Nullable
   index, number_of_respondents = eurex_cash_eti_t7_v7_1_dissect.number_of_respondents(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_status = eurex_cash_eti_t7_v7_1_dissect.quote_status(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, respondent_type = eurex_cash_eti_t7_v7_1_dissect.respondent_type(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -4008,13 +4164,13 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_negotiation_status_notification_fi
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_status = eurex_cash_eti_t7_v7_1_dissect.quote_status(buffer, index, packet, parent)
 
   -- Firm Negotiation Id: 20 Byte Ascii String Nullable
@@ -4048,6 +4204,10 @@ eurex_cash_eti_t7_v7_1_size_of.trd_reg_ts_execution_time = 8
 
 -- Display: Trd Reg Ts Execution Time
 eurex_cash_eti_t7_v7_1_display.trd_reg_ts_execution_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Execution Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -4092,10 +4252,10 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_negotiation_requester_notification
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_execution_time = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -4116,25 +4276,25 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_negotiation_requester_notification
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
   index, last_qty = eurex_cash_eti_t7_v7_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer
+  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer Nullable
   index, number_of_respondents = eurex_cash_eti_t7_v7_1_dissect.number_of_respondents(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_status = eurex_cash_eti_t7_v7_1_dissect.quote_status(buffer, index, packet, parent)
 
-  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer
+  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_target_party_i_ds = eurex_cash_eti_t7_v7_1_dissect.no_target_party_i_ds(buffer, index, packet, parent)
 
-  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, number_of_resp_disclosure_instruction = eurex_cash_eti_t7_v7_1_dissect.number_of_resp_disclosure_instruction(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -4225,7 +4385,7 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_negotiation_notification_fields = 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -4237,19 +4397,19 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_negotiation_notification_fields = 
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
   index, leaves_qty = eurex_cash_eti_t7_v7_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer
+  -- Number Of Respondents: 4 Byte Unsigned Fixed Width Integer Nullable
   index, number_of_respondents = eurex_cash_eti_t7_v7_1_dissect.number_of_respondents(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_status = eurex_cash_eti_t7_v7_1_dissect.quote_status(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -4332,6 +4492,9 @@ eurex_cash_eti_t7_v7_1_display.party_id_investment_decision_maker_qualifier = fu
   if value == 24 then
     return "Party Id Investment Decision Maker Qualifier: Human (24)"
   end
+  if value == 0xFF then
+    return "Party Id Investment Decision Maker Qualifier: No Value"
+  end
 
   return "Party Id Investment Decision Maker Qualifier: Unknown("..value..")"
 end
@@ -4358,6 +4521,9 @@ eurex_cash_eti_t7_v7_1_display.alloc_method = function(value)
   end
   if value == 3 then
     return "Alloc Method: Manual (3)"
+  end
+  if value == 0xFF then
+    return "Alloc Method: No Value"
   end
 
   return "Alloc Method: Unknown("..value..")"
@@ -4386,6 +4552,9 @@ eurex_cash_eti_t7_v7_1_display.executing_trader_qualifier = function(value)
   if value == 24 then
     return "Executing Trader Qualifier: Human (24)"
   end
+  if value == 0xFF then
+    return "Executing Trader Qualifier: No Value"
+  end
 
   return "Executing Trader Qualifier: Unknown("..value..")"
 end
@@ -4413,6 +4582,9 @@ eurex_cash_eti_t7_v7_1_display.order_attribute_liquidity_provision = function(va
   if value == 0 then
     return "Order Attribute Liquidity Provision: N (0)"
   end
+  if value == 0xFF then
+    return "Order Attribute Liquidity Provision: No Value"
+  end
 
   return "Order Attribute Liquidity Provision: Unknown("..value..")"
 end
@@ -4434,6 +4606,11 @@ eurex_cash_eti_t7_v7_1_size_of.executing_trader = 8
 
 -- Display: Executing Trader
 eurex_cash_eti_t7_v7_1_display.executing_trader = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Executing Trader: No Value"
+  end
+
   return "Executing Trader: "..value
 end
 
@@ -4454,6 +4631,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_id_investment_decision_maker = 8
 
 -- Display: Party Id Investment Decision Maker
 eurex_cash_eti_t7_v7_1_display.party_id_investment_decision_maker = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Party Id Investment Decision Maker: No Value"
+  end
+
   return "Party Id Investment Decision Maker: "..value
 end
 
@@ -4474,6 +4656,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_id_client_id = 8
 
 -- Display: Party Id Client Id
 eurex_cash_eti_t7_v7_1_display.party_id_client_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Party Id Client Id: No Value"
+  end
+
   return "Party Id Client Id: "..value
 end
 
@@ -4543,7 +4730,7 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_hit_quote_request_fields = functio
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
@@ -4552,43 +4739,43 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_hit_quote_request_fields = functio
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = eurex_cash_eti_t7_v7_1_dissect.price(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Alloc Method: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Alloc Method: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, alloc_method = eurex_cash_eti_t7_v7_1_dissect.alloc_method(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -4672,37 +4859,37 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_enter_quote_request_fields = funct
   -- Offer Size: 8 Byte Unsigned Fixed Width Integer
   index, offer_size = eurex_cash_eti_t7_v7_1_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -4748,6 +4935,11 @@ eurex_cash_eti_t7_v7_1_size_of.secondary_trade_id = 4
 
 -- Display: Secondary Trade Id
 eurex_cash_eti_t7_v7_1_display.secondary_trade_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Secondary Trade Id: No Value"
+  end
+
   return "Secondary Trade Id: "..value
 end
 
@@ -4788,19 +4980,19 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_deal_response_fields = function(bu
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_id = eurex_cash_eti_t7_v7_1_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Secondary Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Secondary Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, secondary_trade_id = eurex_cash_eti_t7_v7_1_dissect.secondary_trade_id(buffer, index, packet, parent)
 
   -- Firm Trade Id: 20 Byte Ascii String Nullable
@@ -4840,6 +5032,9 @@ eurex_cash_eti_t7_v7_1_display.md_sub_book_type = function(value)
   if value == 2 then
     return "Md Sub Book Type: Volume Weighted Average (2)"
   end
+  if value == 0xFF then
+    return "Md Sub Book Type: No Value"
+  end
 
   return "Md Sub Book Type: Unknown("..value..")"
 end
@@ -4866,6 +5061,9 @@ eurex_cash_eti_t7_v7_1_display.md_book_type = function(value)
   end
   if value == 2 then
     return "Md Book Type: Price Depth (2)"
+  end
+  if value == 0xFF then
+    return "Md Book Type: No Value"
   end
 
   return "Md Book Type: Unknown("..value..")"
@@ -5029,10 +5227,10 @@ eurex_cash_eti_t7_v7_1_dissect.order_book_item_grp_comp_fields = function(buffer
   -- Best Offer Size: 8 Byte Unsigned Fixed Width Integer
   index, best_offer_size = eurex_cash_eti_t7_v7_1_dissect.best_offer_size(buffer, index, packet, parent)
 
-  -- Md Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Md Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, md_book_type = eurex_cash_eti_t7_v7_1_dissect.md_book_type(buffer, index, packet, parent)
 
-  -- Md Sub Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Md Sub Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, md_sub_book_type = eurex_cash_eti_t7_v7_1_dissect.md_sub_book_type(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -5134,6 +5332,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_order_book_items = 1
 
 -- Display: No Order Book Items
 eurex_cash_eti_t7_v7_1_display.no_order_book_items = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Order Book Items: No Value"
+  end
+
   return "No Order Book Items: "..value
 end
 
@@ -5218,6 +5421,9 @@ eurex_cash_eti_t7_v7_1_display.trd_rpt_status = function(value)
   if value == 9 then
     return "Trd Rpt Status: Deemed Verified (9)"
   end
+  if value == 0xFF then
+    return "Trd Rpt Status: No Value"
+  end
 
   return "Trd Rpt Status: Unknown("..value..")"
 end
@@ -5259,7 +5465,7 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_create_deal_notification_fields = 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -5268,55 +5474,55 @@ eurex_cash_eti_t7_v7_1_dissect.xetra_en_light_create_deal_notification_fields = 
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
   index, last_qty = eurex_cash_eti_t7_v7_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_id = eurex_cash_eti_t7_v7_1_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Trd Rpt Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trd Rpt Status: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, trd_rpt_status = eurex_cash_eti_t7_v7_1_dissect.trd_rpt_status(buffer, index, packet, parent)
 
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
   index, message_event_source = eurex_cash_eti_t7_v7_1_dissect.message_event_source(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Alloc Method: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Alloc Method: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, alloc_method = eurex_cash_eti_t7_v7_1_dissect.alloc_method(buffer, index, packet, parent)
 
-  -- No Order Book Items: 1 Byte Unsigned Fixed Width Integer
+  -- No Order Book Items: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_order_book_items = eurex_cash_eti_t7_v7_1_dissect.no_order_book_items(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
   -- Root Party Executing Firm: 5 Byte Ascii String Nullable
@@ -5427,6 +5633,11 @@ eurex_cash_eti_t7_v7_1_size_of.username = 4
 
 -- Display: Username
 eurex_cash_eti_t7_v7_1_display.username = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -5470,7 +5681,7 @@ eurex_cash_eti_t7_v7_1_dissect.user_logout_request_fields = function(buffer, off
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Username: 4 Byte Unsigned Fixed Width Integer
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
   index, username = eurex_cash_eti_t7_v7_1_dissect.username(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -5594,7 +5805,7 @@ eurex_cash_eti_t7_v7_1_dissect.user_login_request_fields = function(buffer, offs
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Username: 4 Byte Unsigned Fixed Width Integer
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
   index, username = eurex_cash_eti_t7_v7_1_dissect.username(buffer, index, packet, parent)
 
   -- Password: 32 Byte Ascii String Nullable
@@ -5673,6 +5884,11 @@ eurex_cash_eti_t7_v7_1_size_of.ref_appl_sub_id = 4
 
 -- Display: Ref Appl Sub Id
 eurex_cash_eti_t7_v7_1_display.ref_appl_sub_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Ref Appl Sub Id: No Value"
+  end
+
   return "Ref Appl Sub Id: "..value
 end
 
@@ -5716,7 +5932,7 @@ eurex_cash_eti_t7_v7_1_dissect.unsubscribe_request_fields = function(buffer, off
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
+  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, ref_appl_sub_id = eurex_cash_eti_t7_v7_1_dissect.ref_appl_sub_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -6014,6 +6230,9 @@ eurex_cash_eti_t7_v7_1_display.exec_restatement_reason = function(value)
   if value == 300 then
     return "Exec Restatement Reason: Tick Rule Change (300)"
   end
+  if value == 0xFFFF then
+    return "Exec Restatement Reason: No Value"
+  end
 
   return "Exec Restatement Reason: Unknown("..value..")"
 end
@@ -6035,6 +6254,11 @@ eurex_cash_eti_t7_v7_1_size_of.order_id_sfx = 4
 
 -- Display: Order Id Sfx
 eurex_cash_eti_t7_v7_1_display.order_id_sfx = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Order Id Sfx: No Value"
+  end
+
   return "Order Id Sfx: "..value
 end
 
@@ -6081,6 +6305,10 @@ eurex_cash_eti_t7_v7_1_size_of.exec_id = 8
 
 -- Display: Exec Id
 eurex_cash_eti_t7_v7_1_display.exec_id = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Exec Id: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -6105,6 +6333,11 @@ eurex_cash_eti_t7_v7_1_size_of.orig_cl_ord_id = 8
 
 -- Display: Orig Cl Ord Id
 eurex_cash_eti_t7_v7_1_display.orig_cl_ord_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Orig Cl Ord Id: No Value"
+  end
+
   return "Orig Cl Ord Id: "..value
 end
 
@@ -6125,6 +6358,11 @@ eurex_cash_eti_t7_v7_1_size_of.cl_ord_id = 8
 
 -- Display: Cl Ord Id
 eurex_cash_eti_t7_v7_1_display.cl_ord_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Cl Ord Id: No Value"
+  end
+
   return "Cl Ord Id: "..value
 end
 
@@ -6145,6 +6383,11 @@ eurex_cash_eti_t7_v7_1_size_of.order_id = 8
 
 -- Display: Order Id
 eurex_cash_eti_t7_v7_1_display.order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Id: No Value"
+  end
+
   return "Order Id: "..value
 end
 
@@ -6185,6 +6428,10 @@ eurex_cash_eti_t7_v7_1_size_of.notification_in = 8
 
 -- Display: Notification In
 eurex_cash_eti_t7_v7_1_display.notification_in = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Notification In: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -6209,6 +6456,10 @@ eurex_cash_eti_t7_v7_1_size_of.trd_reg_ts_time_out = 8
 
 -- Display: Trd Reg Ts Time Out
 eurex_cash_eti_t7_v7_1_display.trd_reg_ts_time_out = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time Out: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -6264,31 +6515,31 @@ end
 eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trd Reg Ts Time Out: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Out: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_out = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_out(buffer, index, packet, parent)
 
-  -- Notification In: 8 Byte Unsigned Fixed Width Integer
+  -- Notification In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, notification_in = eurex_cash_eti_t7_v7_1_dissect.notification_in(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = eurex_cash_eti_t7_v7_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, appl_sub_id = eurex_cash_eti_t7_v7_1_dissect.appl_sub_id(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_cash_eti_t7_v7_1_dissect.partition_id(buffer, index, packet, parent)
 
   -- Appl Msg Id: 16 Byte
   index, appl_msg_id = eurex_cash_eti_t7_v7_1_dissect.appl_msg_id(buffer, index, packet, parent)
 
-  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, appl_id = eurex_cash_eti_t7_v7_1_dissect.appl_id(buffer, index, packet, parent)
 
-  -- Appl Resend Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Resend Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_resend_flag = eurex_cash_eti_t7_v7_1_dissect.appl_resend_flag(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_cash_eti_t7_v7_1_dissect.last_fragment(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -6335,19 +6586,19 @@ eurex_cash_eti_t7_v7_1_dissect.trailing_stop_update_notification_fields = functi
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Unsigned Fixed Width Integer
@@ -6356,13 +6607,13 @@ eurex_cash_eti_t7_v7_1_dissect.trailing_stop_update_notification_fields = functi
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -6371,7 +6622,7 @@ eurex_cash_eti_t7_v7_1_dissect.trailing_stop_update_notification_fields = functi
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
@@ -6445,13 +6696,13 @@ eurex_cash_eti_t7_v7_1_dissect.trading_session_status_broadcast_fields = functio
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = eurex_cash_eti_t7_v7_1_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trad_ses_event = eurex_cash_eti_t7_v7_1_dissect.trad_ses_event(buffer, index, packet, parent)
 
   -- Ref Appl Last Msg Id: 16 Byte
@@ -6897,6 +7148,9 @@ eurex_cash_eti_t7_v7_1_display.ord_type = function(value)
   if value == 4 then
     return "Ord Type: Stop Limit (4)"
   end
+  if value == 0xFF then
+    return "Ord Type: No Value"
+  end
 
   return "Ord Type: Unknown("..value..")"
 end
@@ -7039,6 +7293,9 @@ eurex_cash_eti_t7_v7_1_display.root_party_id_investment_decision_maker_qualifier
   if value == 24 then
     return "Root Party Id Investment Decision Maker Qualifier: Human (24)"
   end
+  if value == 0xFF then
+    return "Root Party Id Investment Decision Maker Qualifier: No Value"
+  end
 
   return "Root Party Id Investment Decision Maker Qualifier: Unknown("..value..")"
 end
@@ -7065,6 +7322,9 @@ eurex_cash_eti_t7_v7_1_display.refinancing_eligibility_indicator = function(valu
   end
   if value == 1 then
     return "Refinancing Eligibility Indicator: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Refinancing Eligibility Indicator: No Value"
   end
 
   return "Refinancing Eligibility Indicator: Unknown("..value..")"
@@ -7105,6 +7365,9 @@ eurex_cash_eti_t7_v7_1_display.last_coupon_deviation_indicator = function(value)
   if value == 5 then
     return "Last Coupon Deviation Indicator: Longtwointerestpaymentsdue (5)"
   end
+  if value == 0xFF then
+    return "Last Coupon Deviation Indicator: No Value"
+  end
 
   return "Last Coupon Deviation Indicator: Unknown("..value..")"
 end
@@ -7138,6 +7401,9 @@ eurex_cash_eti_t7_v7_1_display.delivery_type = function(value)
   if value == 4 then
     return "Delivery Type: Wpr (4)"
   end
+  if value == 0xFF then
+    return "Delivery Type: No Value"
+  end
 
   return "Delivery Type: Unknown("..value..")"
 end
@@ -7167,6 +7433,9 @@ eurex_cash_eti_t7_v7_1_display.side_liquidity_ind = function(value)
   end
   if value == 4 then
     return "Side Liquidity Ind: Auction (4)"
+  end
+  if value == 0xFF then
+    return "Side Liquidity Ind: No Value"
   end
 
   return "Side Liquidity Ind: Unknown("..value..")"
@@ -7200,6 +7469,9 @@ eurex_cash_eti_t7_v7_1_display.match_sub_type = function(value)
   end
   if value == 4 then
     return "Match Sub Type: Circuit Breaker Auction (4)"
+  end
+  if value == 0xFF then
+    return "Match Sub Type: No Value"
   end
 
   return "Match Sub Type: Unknown("..value..")"
@@ -7246,6 +7518,9 @@ eurex_cash_eti_t7_v7_1_display.match_type = function(value)
   if value == 14 then
     return "Match Type: Continous Auction (14)"
   end
+  if value == 0xFF then
+    return "Match Type: No Value"
+  end
 
   return "Match Type: Unknown("..value..")"
 end
@@ -7272,6 +7547,9 @@ eurex_cash_eti_t7_v7_1_display.transfer_reason = function(value)
   end
   if value == 2 then
     return "Transfer Reason: Clearer (2)"
+  end
+  if value == 0xFF then
+    return "Transfer Reason: No Value"
   end
 
   return "Transfer Reason: Unknown("..value..")"
@@ -7318,6 +7596,9 @@ eurex_cash_eti_t7_v7_1_display.trade_report_type = function(value)
   if value == 13 then
     return "Trade Report Type: Alleged No Was (13)"
   end
+  if value == 0xFF then
+    return "Trade Report Type: No Value"
+  end
 
   return "Trade Report Type: Unknown("..value..")"
 end
@@ -7363,6 +7644,9 @@ eurex_cash_eti_t7_v7_1_display.last_mkt = function(value)
   if value == 11 then
     return "Last Mkt: Xzag (11)"
   end
+  if value == 0xFFFF then
+    return "Last Mkt: No Value"
+  end
 
   return "Last Mkt: Unknown("..value..")"
 end
@@ -7384,6 +7668,11 @@ eurex_cash_eti_t7_v7_1_size_of.num_days_interest = 4
 
 -- Display: Num Days Interest
 eurex_cash_eti_t7_v7_1_display.num_days_interest = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Num Days Interest: No Value"
+  end
+
   return "Num Days Interest: "..value
 end
 
@@ -7404,6 +7693,11 @@ eurex_cash_eti_t7_v7_1_size_of.trd_match_id = 4
 
 -- Display: Trd Match Id
 eurex_cash_eti_t7_v7_1_display.trd_match_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trd Match Id: No Value"
+  end
+
   return "Trd Match Id: "..value
 end
 
@@ -7424,6 +7718,11 @@ eurex_cash_eti_t7_v7_1_size_of.match_date = 4
 
 -- Display: Match Date
 eurex_cash_eti_t7_v7_1_display.match_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Match Date: No Value"
+  end
+
   return "Match Date: "..value
 end
 
@@ -7444,6 +7743,11 @@ eurex_cash_eti_t7_v7_1_size_of.trade_number = 4
 
 -- Display: Trade Number
 eurex_cash_eti_t7_v7_1_display.trade_number = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Number: No Value"
+  end
+
   return "Trade Number: "..value
 end
 
@@ -7464,6 +7768,11 @@ eurex_cash_eti_t7_v7_1_size_of.side_trade_report_id = 4
 
 -- Display: Side Trade Report Id
 eurex_cash_eti_t7_v7_1_display.side_trade_report_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Side Trade Report Id: No Value"
+  end
+
   return "Side Trade Report Id: "..value
 end
 
@@ -7484,6 +7793,11 @@ eurex_cash_eti_t7_v7_1_size_of.side_trade_id = 4
 
 -- Display: Side Trade Id
 eurex_cash_eti_t7_v7_1_display.side_trade_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Side Trade Id: No Value"
+  end
+
   return "Side Trade Id: "..value
 end
 
@@ -7504,6 +7818,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_contra_settlement_unit = 4
 
 -- Display: Root Party Id Contra Settlement Unit
 eurex_cash_eti_t7_v7_1_display.root_party_id_contra_settlement_unit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Contra Settlement Unit: No Value"
+  end
+
   return "Root Party Id Contra Settlement Unit: "..value
 end
 
@@ -7524,6 +7843,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_contra_unit = 4
 
 -- Display: Root Party Id Contra Unit
 eurex_cash_eti_t7_v7_1_display.root_party_id_contra_unit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Contra Unit: No Value"
+  end
+
   return "Root Party Id Contra Unit: "..value
 end
 
@@ -7544,6 +7868,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_clearing_unit = 4
 
 -- Display: Root Party Id Clearing Unit
 eurex_cash_eti_t7_v7_1_display.root_party_id_clearing_unit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Clearing Unit: No Value"
+  end
+
   return "Root Party Id Clearing Unit: "..value
 end
 
@@ -7564,6 +7893,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_settlement_unit = 4
 
 -- Display: Root Party Id Settlement Unit
 eurex_cash_eti_t7_v7_1_display.root_party_id_settlement_unit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Settlement Unit: No Value"
+  end
+
   return "Root Party Id Settlement Unit: "..value
 end
 
@@ -7584,6 +7918,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_executing_trader = 4
 
 -- Display: Root Party Id Executing Trader
 eurex_cash_eti_t7_v7_1_display.root_party_id_executing_trader = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Executing Trader: No Value"
+  end
+
   return "Root Party Id Executing Trader: "..value
 end
 
@@ -7604,6 +7943,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_session_id = 4
 
 -- Display: Root Party Id Session Id
 eurex_cash_eti_t7_v7_1_display.root_party_id_session_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Session Id: No Value"
+  end
+
   return "Root Party Id Session Id: "..value
 end
 
@@ -7624,6 +7968,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_executing_unit = 4
 
 -- Display: Root Party Id Executing Unit
 eurex_cash_eti_t7_v7_1_display.root_party_id_executing_unit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Executing Unit: No Value"
+  end
+
   return "Root Party Id Executing Unit: "..value
 end
 
@@ -7644,6 +7993,11 @@ eurex_cash_eti_t7_v7_1_size_of.orig_trade_id = 4
 
 -- Display: Orig Trade Id
 eurex_cash_eti_t7_v7_1_display.orig_trade_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Orig Trade Id: No Value"
+  end
+
   return "Orig Trade Id: "..value
 end
 
@@ -7664,6 +8018,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_investment_decision_maker = 8
 
 -- Display: Root Party Id Investment Decision Maker
 eurex_cash_eti_t7_v7_1_display.root_party_id_investment_decision_maker = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Root Party Id Investment Decision Maker: No Value"
+  end
+
   return "Root Party Id Investment Decision Maker: "..value
 end
 
@@ -7684,6 +8043,11 @@ eurex_cash_eti_t7_v7_1_size_of.root_party_id_client_id = 8
 
 -- Display: Root Party Id Client Id
 eurex_cash_eti_t7_v7_1_display.root_party_id_client_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Root Party Id Client Id: No Value"
+  end
+
   return "Root Party Id Client Id: "..value
 end
 
@@ -7880,7 +8244,7 @@ eurex_cash_eti_t7_v7_1_dissect.trade_broadcast_fields = function(buffer, offset,
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -7898,13 +8262,13 @@ eurex_cash_eti_t7_v7_1_dissect.trade_broadcast_fields = function(buffer, offset,
   -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer
   index, settl_curr_fx_rate = eurex_cash_eti_t7_v7_1_dissect.settl_curr_fx_rate(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
@@ -7922,109 +8286,109 @@ eurex_cash_eti_t7_v7_1_dissect.trade_broadcast_fields = function(buffer, offset,
   -- Coupon Rate: 8 Byte Unsigned Fixed Width Integer
   index, coupon_rate = eurex_cash_eti_t7_v7_1_dissect.coupon_rate(buffer, index, packet, parent)
 
-  -- Root Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.root_party_id_client_id(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Root Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.root_party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_id = eurex_cash_eti_t7_v7_1_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Orig Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orig Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, orig_trade_id = eurex_cash_eti_t7_v7_1_dissect.orig_trade_id(buffer, index, packet, parent)
 
-  -- Root Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_executing_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_executing_unit(buffer, index, packet, parent)
 
-  -- Root Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.root_party_id_session_id(buffer, index, packet, parent)
 
-  -- Root Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.root_party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Root Party Id Settlement Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Settlement Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_settlement_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_settlement_unit(buffer, index, packet, parent)
 
-  -- Root Party Id Clearing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Clearing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_clearing_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_clearing_unit(buffer, index, packet, parent)
 
-  -- Root Party Id Contra Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Contra Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_contra_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_contra_unit(buffer, index, packet, parent)
 
-  -- Root Party Id Contra Settlement Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Contra Settlement Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_contra_settlement_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_contra_settlement_unit(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, side_trade_id = eurex_cash_eti_t7_v7_1_dissect.side_trade_id(buffer, index, packet, parent)
 
-  -- Side Trade Report Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Report Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, side_trade_report_id = eurex_cash_eti_t7_v7_1_dissect.side_trade_report_id(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = eurex_cash_eti_t7_v7_1_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Match Date: 4 Byte Unsigned Fixed Width Integer
+  -- Match Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_date = eurex_cash_eti_t7_v7_1_dissect.match_date(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_cash_eti_t7_v7_1_dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Num Days Interest: 4 Byte Unsigned Fixed Width Integer
+  -- Num Days Interest: 4 Byte Unsigned Fixed Width Integer Nullable
   index, num_days_interest = eurex_cash_eti_t7_v7_1_dissect.num_days_interest(buffer, index, packet, parent)
 
-  -- Last Mkt: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Last Mkt: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, last_mkt = eurex_cash_eti_t7_v7_1_dissect.last_mkt(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- Transfer Reason: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transfer Reason: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transfer_reason = eurex_cash_eti_t7_v7_1_dissect.transfer_reason(buffer, index, packet, parent)
 
-  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, match_type = eurex_cash_eti_t7_v7_1_dissect.match_type(buffer, index, packet, parent)
 
-  -- Match Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Match Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, match_sub_type = eurex_cash_eti_t7_v7_1_dissect.match_sub_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Side Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, side_liquidity_ind = eurex_cash_eti_t7_v7_1_dissect.side_liquidity_ind(buffer, index, packet, parent)
 
-  -- Delivery Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Delivery Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, delivery_type = eurex_cash_eti_t7_v7_1_dissect.delivery_type(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Last Coupon Deviation Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Last Coupon Deviation Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, last_coupon_deviation_indicator = eurex_cash_eti_t7_v7_1_dissect.last_coupon_deviation_indicator(buffer, index, packet, parent)
 
-  -- Refinancing Eligibility Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Refinancing Eligibility Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, refinancing_eligibility_indicator = eurex_cash_eti_t7_v7_1_dissect.refinancing_eligibility_indicator(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Root Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Root Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, root_party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.root_party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
   -- Account: 2 Byte Ascii String Nullable
@@ -8048,7 +8412,7 @@ eurex_cash_eti_t7_v7_1_dissect.trade_broadcast_fields = function(buffer, offset,
   -- Order Category: 1 Byte Ascii String Enum with 2 values
   index, order_category = eurex_cash_eti_t7_v7_1_dissect.order_category(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, ord_type = eurex_cash_eti_t7_v7_1_dissect.ord_type(buffer, index, packet, parent)
 
   -- Root Party Executing Firm: 5 Byte Ascii String Nullable
@@ -8121,6 +8485,11 @@ eurex_cash_eti_t7_v7_1_size_of.throttle_disconnect_limit = 4
 
 -- Display: Throttle Disconnect Limit
 eurex_cash_eti_t7_v7_1_display.throttle_disconnect_limit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Throttle Disconnect Limit: No Value"
+  end
+
   return "Throttle Disconnect Limit: "..value
 end
 
@@ -8141,6 +8510,11 @@ eurex_cash_eti_t7_v7_1_size_of.throttle_no_msgs = 4
 
 -- Display: Throttle No Msgs
 eurex_cash_eti_t7_v7_1_display.throttle_no_msgs = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Throttle No Msgs: No Value"
+  end
+
   return "Throttle No Msgs: "..value
 end
 
@@ -8161,6 +8535,11 @@ eurex_cash_eti_t7_v7_1_size_of.throttle_time_interval = 8
 
 -- Display: Throttle Time Interval
 eurex_cash_eti_t7_v7_1_display.throttle_time_interval = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Throttle Time Interval: No Value"
+  end
+
   return "Throttle Time Interval: "..value
 end
 
@@ -8194,7 +8573,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.notif_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = eurex_cash_eti_t7_v7_1_dissect.sending_time(buffer, index, packet, parent)
 
   return index
@@ -8238,13 +8617,13 @@ eurex_cash_eti_t7_v7_1_dissect.throttle_update_notification_fields = function(bu
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v7_1_dissect.notif_header_comp(buffer, index, packet, parent)
 
-  -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer
+  -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer Nullable
   index, throttle_time_interval = eurex_cash_eti_t7_v7_1_dissect.throttle_time_interval(buffer, index, packet, parent)
 
-  -- Throttle No Msgs: 4 Byte Unsigned Fixed Width Integer
+  -- Throttle No Msgs: 4 Byte Unsigned Fixed Width Integer Nullable
   index, throttle_no_msgs = eurex_cash_eti_t7_v7_1_dissect.throttle_no_msgs(buffer, index, packet, parent)
 
-  -- Throttle Disconnect Limit: 4 Byte Unsigned Fixed Width Integer
+  -- Throttle Disconnect Limit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, throttle_disconnect_limit = eurex_cash_eti_t7_v7_1_dissect.throttle_disconnect_limit(buffer, index, packet, parent)
 
   return index
@@ -8292,7 +8671,7 @@ eurex_cash_eti_t7_v7_1_dissect.tm_trading_session_status_broadcast_fields = func
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trad_ses_event = eurex_cash_eti_t7_v7_1_dissect.trad_ses_event(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -8343,10 +8722,10 @@ eurex_cash_eti_t7_v7_1_dissect.tes_trading_session_status_broadcast_fields = fun
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = eurex_cash_eti_t7_v7_1_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trad_ses_event = eurex_cash_eti_t7_v7_1_dissect.trad_ses_event(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -8408,6 +8787,9 @@ eurex_cash_eti_t7_v7_1_display.trade_publish_indicator = function(value)
   if value == 3 then
     return "Trade Publish Indicator: Published (3)"
   end
+  if value == 0xFF then
+    return "Trade Publish Indicator: No Value"
+  end
 
   return "Trade Publish Indicator: Unknown("..value..")"
 end
@@ -8438,6 +8820,9 @@ eurex_cash_eti_t7_v7_1_display.trd_type = function(value)
   if value == 1006 then
     return "Trd Type: Enlight (1006)"
   end
+  if value == 0xFFFF then
+    return "Trd Type: No Value"
+  end
 
   return "Trd Type: Unknown("..value..")"
 end
@@ -8459,6 +8844,11 @@ eurex_cash_eti_t7_v7_1_size_of.srqs_related_trade_id = 4
 
 -- Display: Srqs Related Trade Id
 eurex_cash_eti_t7_v7_1_display.srqs_related_trade_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Srqs Related Trade Id: No Value"
+  end
+
   return "Srqs Related Trade Id: "..value
 end
 
@@ -8479,6 +8869,11 @@ eurex_cash_eti_t7_v7_1_size_of.package_id = 4
 
 -- Display: Package Id
 eurex_cash_eti_t7_v7_1_display.package_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Package Id: No Value"
+  end
+
   return "Package Id: "..value
 end
 
@@ -8519,7 +8914,7 @@ eurex_cash_eti_t7_v7_1_dissect.tes_trade_broadcast_fields = function(buffer, off
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -8528,7 +8923,7 @@ eurex_cash_eti_t7_v7_1_dissect.tes_trade_broadcast_fields = function(buffer, off
   -- Last Qty: 8 Byte Unsigned Fixed Width Integer
   index, last_qty = eurex_cash_eti_t7_v7_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Settl Curr Amt: 8 Byte Unsigned Fixed Width Integer
@@ -8546,100 +8941,100 @@ eurex_cash_eti_t7_v7_1_dissect.tes_trade_broadcast_fields = function(buffer, off
   -- Coupon Rate: 8 Byte Unsigned Fixed Width Integer
   index, coupon_rate = eurex_cash_eti_t7_v7_1_dissect.coupon_rate(buffer, index, packet, parent)
 
-  -- Root Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.root_party_id_client_id(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Root Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.root_party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_id = eurex_cash_eti_t7_v7_1_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = eurex_cash_eti_t7_v7_1_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, side_trade_id = eurex_cash_eti_t7_v7_1_dissect.side_trade_id(buffer, index, packet, parent)
 
-  -- Root Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.root_party_id_session_id(buffer, index, packet, parent)
 
-  -- Root Party Id Settlement Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Settlement Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_settlement_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_settlement_unit(buffer, index, packet, parent)
 
-  -- Root Party Id Contra Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Contra Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_contra_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_contra_unit(buffer, index, packet, parent)
 
-  -- Root Party Id Contra Settlement Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Contra Settlement Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_contra_settlement_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_contra_settlement_unit(buffer, index, packet, parent)
 
-  -- Orig Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orig Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, orig_trade_id = eurex_cash_eti_t7_v7_1_dissect.orig_trade_id(buffer, index, packet, parent)
 
-  -- Root Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_executing_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_executing_unit(buffer, index, packet, parent)
 
-  -- Root Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.root_party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Root Party Id Clearing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Root Party Id Clearing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_clearing_unit = eurex_cash_eti_t7_v7_1_dissect.root_party_id_clearing_unit(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Num Days Interest: 4 Byte Unsigned Fixed Width Integer
+  -- Num Days Interest: 4 Byte Unsigned Fixed Width Integer Nullable
   index, num_days_interest = eurex_cash_eti_t7_v7_1_dissect.num_days_interest(buffer, index, packet, parent)
 
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, negotiation_id = eurex_cash_eti_t7_v7_1_dissect.negotiation_id(buffer, index, packet, parent)
 
-  -- Srqs Related Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Srqs Related Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, srqs_related_trade_id = eurex_cash_eti_t7_v7_1_dissect.srqs_related_trade_id(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Last Mkt: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Last Mkt: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, last_mkt = eurex_cash_eti_t7_v7_1_dissect.last_mkt(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- Transfer Reason: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transfer Reason: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transfer_reason = eurex_cash_eti_t7_v7_1_dissect.transfer_reason(buffer, index, packet, parent)
 
-  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, trade_publish_indicator = eurex_cash_eti_t7_v7_1_dissect.trade_publish_indicator(buffer, index, packet, parent)
 
-  -- Last Coupon Deviation Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Last Coupon Deviation Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, last_coupon_deviation_indicator = eurex_cash_eti_t7_v7_1_dissect.last_coupon_deviation_indicator(buffer, index, packet, parent)
 
-  -- Refinancing Eligibility Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Refinancing Eligibility Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, refinancing_eligibility_indicator = eurex_cash_eti_t7_v7_1_dissect.refinancing_eligibility_indicator(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Root Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Root Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, root_party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.root_party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
   -- Account: 2 Byte Ascii String Nullable
@@ -8755,6 +9150,11 @@ eurex_cash_eti_t7_v7_1_size_of.tes_exec_id = 4
 
 -- Display: Tes Exec Id
 eurex_cash_eti_t7_v7_1_display.tes_exec_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Tes Exec Id: No Value"
+  end
+
   return "Tes Exec Id: "..value
 end
 
@@ -8795,7 +9195,7 @@ eurex_cash_eti_t7_v7_1_dissect.tes_response_fields = function(buffer, offset, pa
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
   -- Trade Report Id: 20 Byte Ascii String Nullable
@@ -8826,6 +9226,11 @@ eurex_cash_eti_t7_v7_1_size_of.alloc_id = 4
 
 -- Display: Alloc Id
 eurex_cash_eti_t7_v7_1_display.alloc_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Alloc Id: No Value"
+  end
+
   return "Alloc Id: "..value
 end
 
@@ -8866,28 +9271,28 @@ eurex_cash_eti_t7_v7_1_dissect.tes_execution_broadcast_fields = function(buffer,
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Alloc Id: 4 Byte Unsigned Fixed Width Integer
+  -- Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_id = eurex_cash_eti_t7_v7_1_dissect.alloc_id(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
@@ -8936,6 +9341,9 @@ eurex_cash_eti_t7_v7_1_display.delete_reason = function(value)
   if value == 104 then
     return "Delete Reason: Stop Trading (104)"
   end
+  if value == 0xFF then
+    return "Delete Reason: No Value"
+  end
 
   return "Delete Reason: Unknown("..value..")"
 end
@@ -8977,25 +9385,25 @@ eurex_cash_eti_t7_v7_1_dissect.tes_delete_broadcast_fields = function(buffer, of
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Delete Reason: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Delete Reason: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, delete_reason = eurex_cash_eti_t7_v7_1_dissect.delete_reason(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
@@ -9047,6 +9455,9 @@ eurex_cash_eti_t7_v7_1_display.trade_alloc_status = function(value)
   if value == 5 then
     return "Trade Alloc Status: Canceled (5)"
   end
+  if value == 0xFF then
+    return "Trade Alloc Status: No Value"
+  end
 
   return "Trade Alloc Status: Unknown("..value..")"
 end
@@ -9068,6 +9479,11 @@ eurex_cash_eti_t7_v7_1_size_of.individual_alloc_id = 4
 
 -- Display: Individual Alloc Id
 eurex_cash_eti_t7_v7_1_display.individual_alloc_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Individual Alloc Id: No Value"
+  end
+
   return "Individual Alloc Id: "..value
 end
 
@@ -9142,7 +9558,7 @@ eurex_cash_eti_t7_v7_1_dissect.side_alloc_grp_bc_comp_fields = function(buffer, 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
   index, alloc_qty = eurex_cash_eti_t7_v7_1_dissect.alloc_qty(buffer, index, packet, parent)
 
-  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer
+  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, individual_alloc_id = eurex_cash_eti_t7_v7_1_dissect.individual_alloc_id(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -9151,10 +9567,10 @@ eurex_cash_eti_t7_v7_1_dissect.side_alloc_grp_bc_comp_fields = function(buffer, 
   -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trade_alloc_status = eurex_cash_eti_t7_v7_1_dissect.trade_alloc_status(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -9206,6 +9622,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_side_allocs = 1
 
 -- Display: No Side Allocs
 eurex_cash_eti_t7_v7_1_display.no_side_allocs = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Side Allocs: No Value"
+  end
+
   return "No Side Allocs: "..value
 end
 
@@ -9226,6 +9647,10 @@ eurex_cash_eti_t7_v7_1_size_of.trans_bkd_time = 8
 
 -- Display: Trans Bkd Time
 eurex_cash_eti_t7_v7_1_display.trans_bkd_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trans Bkd Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -9270,40 +9695,40 @@ eurex_cash_eti_t7_v7_1_dissect.tes_broadcast_fields = function(buffer, offset, p
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = eurex_cash_eti_t7_v7_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_cash_eti_t7_v7_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
   -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer
   index, settl_curr_fx_rate = eurex_cash_eti_t7_v7_1_dissect.settl_curr_fx_rate(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer
+  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_side_allocs = eurex_cash_eti_t7_v7_1_dissect.no_side_allocs(buffer, index, packet, parent)
 
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
@@ -9357,6 +9782,9 @@ eurex_cash_eti_t7_v7_1_display.party_id_entering_firm = function(value)
   if value == 2 then
     return "Party Id Entering Firm: Market Supervision (2)"
   end
+  if value == 0xFF then
+    return "Party Id Entering Firm: No Value"
+  end
 
   return "Party Id Entering Firm: Unknown("..value..")"
 end
@@ -9398,7 +9826,7 @@ eurex_cash_eti_t7_v7_1_dissect.tes_approve_broadcast_fields = function(buffer, o
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -9407,49 +9835,49 @@ eurex_cash_eti_t7_v7_1_dissect.tes_approve_broadcast_fields = function(buffer, o
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
   index, alloc_qty = eurex_cash_eti_t7_v7_1_dissect.alloc_qty(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_cash_eti_t7_v7_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
   -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer
   index, settl_curr_fx_rate = eurex_cash_eti_t7_v7_1_dissect.settl_curr_fx_rate(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Alloc Id: 4 Byte Unsigned Fixed Width Integer
+  -- Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_id = eurex_cash_eti_t7_v7_1_dissect.alloc_id(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trade_alloc_status = eurex_cash_eti_t7_v7_1_dissect.trade_alloc_status(buffer, index, packet, parent)
 
   -- Message Event Source: 1 Byte Ascii String Enum with 4 values
@@ -9464,7 +9892,7 @@ eurex_cash_eti_t7_v7_1_dissect.tes_approve_broadcast_fields = function(buffer, o
   -- Party Executing Trader: 6 Byte Ascii String Nullable
   index, party_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_executing_trader(buffer, index, packet, parent)
 
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
   -- Party Entering Trader: 6 Byte Ascii String Nullable
@@ -9533,7 +9961,7 @@ eurex_cash_eti_t7_v7_1_dissect.subscribe_response_fields = function(buffer, offs
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, appl_sub_id = eurex_cash_eti_t7_v7_1_dissect.appl_sub_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -9594,6 +10022,9 @@ eurex_cash_eti_t7_v7_1_display.ref_appl_id = function(value)
   if value == 10 then
     return "Ref Appl Id: Service Availability Market (10)"
   end
+  if value == 0xFF then
+    return "Ref Appl Id: No Value"
+  end
 
   return "Ref Appl Id: Unknown("..value..")"
 end
@@ -9615,6 +10046,11 @@ eurex_cash_eti_t7_v7_1_size_of.subscription_scope = 4
 
 -- Display: Subscription Scope
 eurex_cash_eti_t7_v7_1_display.subscription_scope = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Subscription Scope: No Value"
+  end
+
   return "Subscription Scope: "..value
 end
 
@@ -9658,10 +10094,10 @@ eurex_cash_eti_t7_v7_1_dissect.subscribe_request_fields = function(buffer, offse
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer
+  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
   index, subscription_scope = eurex_cash_eti_t7_v7_1_dissect.subscription_scope(buffer, index, packet, parent)
 
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, ref_appl_id = eurex_cash_eti_t7_v7_1_dissect.ref_appl_id(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -9698,6 +10134,9 @@ eurex_cash_eti_t7_v7_1_display.selective_request_for_quote_service_status = func
   if value == 1 then
     return "Selective Request For Quote Service Status: Available (1)"
   end
+  if value == 0xFF then
+    return "Selective Request For Quote Service Status: No Value"
+  end
 
   return "Selective Request For Quote Service Status: Unknown("..value..")"
 end
@@ -9719,6 +10158,11 @@ eurex_cash_eti_t7_v7_1_size_of.selective_request_for_quote_service_trade_date = 
 
 -- Display: Selective Request For Quote Service Trade Date
 eurex_cash_eti_t7_v7_1_display.selective_request_for_quote_service_trade_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Selective Request For Quote Service Trade Date: No Value"
+  end
+
   return "Selective Request For Quote Service Trade Date: "..value
 end
 
@@ -9760,16 +10204,16 @@ end
 eurex_cash_eti_t7_v7_1_dissect.nrbc_header_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = eurex_cash_eti_t7_v7_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, appl_sub_id = eurex_cash_eti_t7_v7_1_dissect.appl_sub_id(buffer, index, packet, parent)
 
-  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, appl_id = eurex_cash_eti_t7_v7_1_dissect.appl_id(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_cash_eti_t7_v7_1_dissect.last_fragment(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -9816,10 +10260,10 @@ eurex_cash_eti_t7_v7_1_dissect.service_availability_market_broadcast_fields = fu
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.nrbc_header_comp(buffer, index, packet, parent)
 
-  -- Selective Request For Quote Service Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Selective Request For Quote Service Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, selective_request_for_quote_service_trade_date = eurex_cash_eti_t7_v7_1_dissect.selective_request_for_quote_service_trade_date(buffer, index, packet, parent)
 
-  -- Selective Request For Quote Service Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Selective Request For Quote Service Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, selective_request_for_quote_service_status = eurex_cash_eti_t7_v7_1_dissect.selective_request_for_quote_service_status(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -9876,6 +10320,9 @@ eurex_cash_eti_t7_v7_1_display.t_7_entry_service_rtm_status = function(value)
   if value == 1 then
     return "T 7 Entry Service Rtm Status: Available (1)"
   end
+  if value == 0xFF then
+    return "T 7 Entry Service Rtm Status: No Value"
+  end
 
   return "T 7 Entry Service Rtm Status: Unknown("..value..")"
 end
@@ -9902,6 +10349,9 @@ eurex_cash_eti_t7_v7_1_display.t_7_entry_service_status = function(value)
   end
   if value == 1 then
     return "T 7 Entry Service Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "T 7 Entry Service Status: No Value"
   end
 
   return "T 7 Entry Service Status: Unknown("..value..")"
@@ -9930,6 +10380,9 @@ eurex_cash_eti_t7_v7_1_display.appl_seq_status = function(value)
   if value == 1 then
     return "Appl Seq Status: Available (1)"
   end
+  if value == 0xFF then
+    return "Appl Seq Status: No Value"
+  end
 
   return "Appl Seq Status: Unknown("..value..")"
 end
@@ -9956,6 +10409,9 @@ eurex_cash_eti_t7_v7_1_display.trade_manager_status = function(value)
   end
   if value == 1 then
     return "Trade Manager Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "Trade Manager Status: No Value"
   end
 
   return "Trade Manager Status: Unknown("..value..")"
@@ -9984,6 +10440,9 @@ eurex_cash_eti_t7_v7_1_display.matching_engine_status = function(value)
   if value == 1 then
     return "Matching Engine Status: Available (1)"
   end
+  if value == 0xFF then
+    return "Matching Engine Status: No Value"
+  end
 
   return "Matching Engine Status: Unknown("..value..")"
 end
@@ -10005,6 +10464,11 @@ eurex_cash_eti_t7_v7_1_size_of.t_7_entry_service_rtm_trade_date = 4
 
 -- Display: T 7 Entry Service Rtm Trade Date
 eurex_cash_eti_t7_v7_1_display.t_7_entry_service_rtm_trade_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "T 7 Entry Service Rtm Trade Date: No Value"
+  end
+
   return "T 7 Entry Service Rtm Trade Date: "..value
 end
 
@@ -10025,6 +10489,11 @@ eurex_cash_eti_t7_v7_1_size_of.t_7_entry_service_trade_date = 4
 
 -- Display: T 7 Entry Service Trade Date
 eurex_cash_eti_t7_v7_1_display.t_7_entry_service_trade_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "T 7 Entry Service Trade Date: No Value"
+  end
+
   return "T 7 Entry Service Trade Date: "..value
 end
 
@@ -10045,6 +10514,11 @@ eurex_cash_eti_t7_v7_1_size_of.appl_seq_trade_date = 4
 
 -- Display: Appl Seq Trade Date
 eurex_cash_eti_t7_v7_1_display.appl_seq_trade_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Appl Seq Trade Date: No Value"
+  end
+
   return "Appl Seq Trade Date: "..value
 end
 
@@ -10065,6 +10539,11 @@ eurex_cash_eti_t7_v7_1_size_of.trade_manager_trade_date = 4
 
 -- Display: Trade Manager Trade Date
 eurex_cash_eti_t7_v7_1_display.trade_manager_trade_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Manager Trade Date: No Value"
+  end
+
   return "Trade Manager Trade Date: "..value
 end
 
@@ -10085,6 +10564,11 @@ eurex_cash_eti_t7_v7_1_size_of.matching_engine_trade_date = 4
 
 -- Display: Matching Engine Trade Date
 eurex_cash_eti_t7_v7_1_display.matching_engine_trade_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Matching Engine Trade Date: No Value"
+  end
+
   return "Matching Engine Trade Date: "..value
 end
 
@@ -10125,37 +10609,37 @@ eurex_cash_eti_t7_v7_1_dissect.service_availability_broadcast_fields = function(
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.nrbc_header_comp(buffer, index, packet, parent)
 
-  -- Matching Engine Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, matching_engine_trade_date = eurex_cash_eti_t7_v7_1_dissect.matching_engine_trade_date(buffer, index, packet, parent)
 
-  -- Trade Manager Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Manager Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_manager_trade_date = eurex_cash_eti_t7_v7_1_dissect.trade_manager_trade_date(buffer, index, packet, parent)
 
-  -- Appl Seq Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Seq Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, appl_seq_trade_date = eurex_cash_eti_t7_v7_1_dissect.appl_seq_trade_date(buffer, index, packet, parent)
 
-  -- T 7 Entry Service Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- T 7 Entry Service Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, t_7_entry_service_trade_date = eurex_cash_eti_t7_v7_1_dissect.t_7_entry_service_trade_date(buffer, index, packet, parent)
 
-  -- T 7 Entry Service Rtm Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- T 7 Entry Service Rtm Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, t_7_entry_service_rtm_trade_date = eurex_cash_eti_t7_v7_1_dissect.t_7_entry_service_rtm_trade_date(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_cash_eti_t7_v7_1_dissect.partition_id(buffer, index, packet, parent)
 
-  -- Matching Engine Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Matching Engine Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, matching_engine_status = eurex_cash_eti_t7_v7_1_dissect.matching_engine_status(buffer, index, packet, parent)
 
-  -- Trade Manager Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Trade Manager Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, trade_manager_status = eurex_cash_eti_t7_v7_1_dissect.trade_manager_status(buffer, index, packet, parent)
 
-  -- Appl Seq Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_status = eurex_cash_eti_t7_v7_1_dissect.appl_seq_status(buffer, index, packet, parent)
 
-  -- T 7 Entry Service Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- T 7 Entry Service Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, t_7_entry_service_status = eurex_cash_eti_t7_v7_1_dissect.t_7_entry_service_status(buffer, index, packet, parent)
 
-  -- T 7 Entry Service Rtm Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- T 7 Entry Service Rtm Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, t_7_entry_service_rtm_status = eurex_cash_eti_t7_v7_1_dissect.t_7_entry_service_rtm_status(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -10186,6 +10670,11 @@ eurex_cash_eti_t7_v7_1_size_of.appl_total_message_count = 2
 
 -- Display: Appl Total Message Count
 eurex_cash_eti_t7_v7_1_display.appl_total_message_count = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Appl Total Message Count: No Value"
+  end
+
   return "Appl Total Message Count: "..value
 end
 
@@ -10206,6 +10695,11 @@ eurex_cash_eti_t7_v7_1_size_of.ref_appl_last_seq_num = 8
 
 -- Display: Ref Appl Last Seq Num
 eurex_cash_eti_t7_v7_1_display.ref_appl_last_seq_num = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Ref Appl Last Seq Num: No Value"
+  end
+
   return "Ref Appl Last Seq Num: "..value
 end
 
@@ -10226,6 +10720,11 @@ eurex_cash_eti_t7_v7_1_size_of.appl_end_seq_num = 8
 
 -- Display: Appl End Seq Num
 eurex_cash_eti_t7_v7_1_display.appl_end_seq_num = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Appl End Seq Num: No Value"
+  end
+
   return "Appl End Seq Num: "..value
 end
 
@@ -10266,13 +10765,13 @@ eurex_cash_eti_t7_v7_1_dissect.retransmit_response_fields = function(buffer, off
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
   index, appl_end_seq_num = eurex_cash_eti_t7_v7_1_dissect.appl_end_seq_num(buffer, index, packet, parent)
 
-  -- Ref Appl Last Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Ref Appl Last Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
   index, ref_appl_last_seq_num = eurex_cash_eti_t7_v7_1_dissect.ref_appl_last_seq_num(buffer, index, packet, parent)
 
-  -- Appl Total Message Count: 2 Byte Unsigned Fixed Width Integer
+  -- Appl Total Message Count: 2 Byte Unsigned Fixed Width Integer Nullable
   index, appl_total_message_count = eurex_cash_eti_t7_v7_1_dissect.appl_total_message_count(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -10303,6 +10802,11 @@ eurex_cash_eti_t7_v7_1_size_of.appl_beg_seq_num = 8
 
 -- Display: Appl Beg Seq Num
 eurex_cash_eti_t7_v7_1_display.appl_beg_seq_num = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Appl Beg Seq Num: No Value"
+  end
+
   return "Appl Beg Seq Num: "..value
 end
 
@@ -10346,16 +10850,16 @@ eurex_cash_eti_t7_v7_1_dissect.retransmit_request_fields = function(buffer, offs
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
   index, appl_beg_seq_num = eurex_cash_eti_t7_v7_1_dissect.appl_beg_seq_num(buffer, index, packet, parent)
 
-  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
   index, appl_end_seq_num = eurex_cash_eti_t7_v7_1_dissect.appl_end_seq_num(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_cash_eti_t7_v7_1_dissect.partition_id(buffer, index, packet, parent)
 
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, ref_appl_id = eurex_cash_eti_t7_v7_1_dissect.ref_appl_id(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -10426,7 +10930,7 @@ eurex_cash_eti_t7_v7_1_dissect.retransmit_me_message_response_fields = function(
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- Appl Total Message Count: 2 Byte Unsigned Fixed Width Integer
+  -- Appl Total Message Count: 2 Byte Unsigned Fixed Width Integer Nullable
   index, appl_total_message_count = eurex_cash_eti_t7_v7_1_dissect.appl_total_message_count(buffer, index, packet, parent)
 
   -- Appl End Msg Id: 16 Byte
@@ -10506,13 +11010,13 @@ eurex_cash_eti_t7_v7_1_dissect.retransmit_me_message_request_fields = function(b
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer
+  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
   index, subscription_scope = eurex_cash_eti_t7_v7_1_dissect.subscription_scope(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_cash_eti_t7_v7_1_dissect.partition_id(buffer, index, packet, parent)
 
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, ref_appl_id = eurex_cash_eti_t7_v7_1_dissect.ref_appl_id(buffer, index, packet, parent)
 
   -- Appl Beg Msg Id: 16 Byte
@@ -10571,6 +11075,9 @@ eurex_cash_eti_t7_v7_1_display.session_status = function(value)
   if value == 4 then
     return "Session Status: Logout (4)"
   end
+  if value == 0xFF then
+    return "Session Status: No Value"
+  end
 
   return "Session Status: Unknown("..value..")"
 end
@@ -10592,6 +11099,11 @@ eurex_cash_eti_t7_v7_1_size_of.var_text_len = 2
 
 -- Display: Var Text Len
 eurex_cash_eti_t7_v7_1_display.var_text_len = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Var Text Len: No Value"
+  end
+
   return "Var Text Len: "..value
 end
 
@@ -10711,6 +11223,9 @@ eurex_cash_eti_t7_v7_1_display.session_reject_reason = function(value)
   if value == 10011 then
     return "Session Reject Reason: Transaction Not Allowed In Current State (10011)"
   end
+  if value == 0xFFFFFFFF then
+    return "Session Reject Reason: No Value"
+  end
 
   return "Session Reject Reason: Unknown("..value..")"
 end
@@ -10732,6 +11247,10 @@ eurex_cash_eti_t7_v7_1_size_of.response_in = 8
 
 -- Display: Response In
 eurex_cash_eti_t7_v7_1_display.response_in = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Response In: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -10756,6 +11275,10 @@ eurex_cash_eti_t7_v7_1_size_of.trd_reg_ts_time_in = 8
 
 -- Display: Trd Reg Ts Time In
 eurex_cash_eti_t7_v7_1_display.trd_reg_ts_time_in = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time In: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -10807,25 +11330,25 @@ end
 eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_cash_eti_t7_v7_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_in = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Out: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Out: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_out = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_out(buffer, index, packet, parent)
 
-  -- Response In: 8 Byte Unsigned Fixed Width Integer
+  -- Response In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, response_in = eurex_cash_eti_t7_v7_1_dissect.response_in(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = eurex_cash_eti_t7_v7_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_cash_eti_t7_v7_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_cash_eti_t7_v7_1_dissect.last_fragment(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -10872,13 +11395,13 @@ eurex_cash_eti_t7_v7_1_dissect.reject_fields = function(buffer, offset, packet, 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Session Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 33 values
+  -- Session Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 34 values
   index, session_reject_reason = eurex_cash_eti_t7_v7_1_dissect.session_reject_reason(buffer, index, packet, parent)
 
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = eurex_cash_eti_t7_v7_1_dissect.var_text_len(buffer, index, packet, parent)
 
-  -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, session_status = eurex_cash_eti_t7_v7_1_dissect.session_status(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -10932,7 +11455,7 @@ eurex_cash_eti_t7_v7_1_dissect.rfq_response_fields = function(buffer, offset, pa
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   return index
@@ -10965,6 +11488,9 @@ eurex_cash_eti_t7_v7_1_display.rfq_requester_disclosure_instruction = function(v
   end
   if value == 1 then
     return "Rfq Requester Disclosure Instruction: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Rfq Requester Disclosure Instruction: No Value"
   end
 
   return "Rfq Requester Disclosure Instruction: Unknown("..value..")"
@@ -11001,6 +11527,9 @@ eurex_cash_eti_t7_v7_1_display.rfq_publish_indicator = function(value)
   end
   if value == 5 then
     return "Rfq Publish Indicator: Market Dataand Market Makerand Designated Sponsor (5)"
+  end
+  if value == 0xFF then
+    return "Rfq Publish Indicator: No Value"
   end
 
   return "Rfq Publish Indicator: Unknown("..value..")"
@@ -11046,22 +11575,22 @@ eurex_cash_eti_t7_v7_1_dissect.rfq_request_fields = function(buffer, offset, pac
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Rfq Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Rfq Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, rfq_publish_indicator = eurex_cash_eti_t7_v7_1_dissect.rfq_publish_indicator(buffer, index, packet, parent)
 
-  -- Rfq Requester Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Rfq Requester Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, rfq_requester_disclosure_instruction = eurex_cash_eti_t7_v7_1_dissect.rfq_requester_disclosure_instruction(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -11112,19 +11641,19 @@ eurex_cash_eti_t7_v7_1_dissect.rfq_broadcast_fields = function(buffer, offset, p
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -11167,6 +11696,9 @@ eurex_cash_eti_t7_v7_1_display.quote_event_liquidity_ind = function(value)
   if value == 4 then
     return "Quote Event Liquidity Ind: Auction (4)"
   end
+  if value == 0xFF then
+    return "Quote Event Liquidity Ind: No Value"
+  end
 
   return "Quote Event Liquidity Ind: Unknown("..value..")"
 end
@@ -11193,6 +11725,9 @@ eurex_cash_eti_t7_v7_1_display.quote_event_side = function(value)
   end
   if value == 2 then
     return "Quote Event Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Quote Event Side: No Value"
   end
 
   return "Quote Event Side: Unknown("..value..")"
@@ -11227,6 +11762,9 @@ eurex_cash_eti_t7_v7_1_display.quote_event_type = function(value)
   if value == 5 then
     return "Quote Event Type: Filled (5)"
   end
+  if value == 0xFF then
+    return "Quote Event Type: No Value"
+  end
 
   return "Quote Event Type: Unknown("..value..")"
 end
@@ -11248,6 +11786,11 @@ eurex_cash_eti_t7_v7_1_size_of.quote_event_exec_id = 4
 
 -- Display: Quote Event Exec Id
 eurex_cash_eti_t7_v7_1_display.quote_event_exec_id = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Quote Event Exec Id: No Value"
+  end
+
   return "Quote Event Exec Id: "..value
 end
 
@@ -11268,6 +11811,11 @@ eurex_cash_eti_t7_v7_1_size_of.quote_event_match_id = 4
 
 -- Display: Quote Event Match Id
 eurex_cash_eti_t7_v7_1_display.quote_event_match_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Quote Event Match Id: No Value"
+  end
+
   return "Quote Event Match Id: "..value
 end
 
@@ -11288,6 +11836,11 @@ eurex_cash_eti_t7_v7_1_size_of.quote_msg_id = 8
 
 -- Display: Quote Msg Id
 eurex_cash_eti_t7_v7_1_display.quote_msg_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Msg Id: No Value"
+  end
+
   return "Quote Msg Id: "..value
 end
 
@@ -11393,7 +11946,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.quote_event_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer
@@ -11402,25 +11955,25 @@ eurex_cash_eti_t7_v7_1_dissect.quote_event_grp_comp_fields = function(buffer, of
   -- Quote Event Qty: 8 Byte Unsigned Fixed Width Integer
   index, quote_event_qty = eurex_cash_eti_t7_v7_1_dissect.quote_event_qty(buffer, index, packet, parent)
 
-  -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_msg_id = eurex_cash_eti_t7_v7_1_dissect.quote_msg_id(buffer, index, packet, parent)
 
-  -- Quote Event Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Event Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, quote_event_match_id = eurex_cash_eti_t7_v7_1_dissect.quote_event_match_id(buffer, index, packet, parent)
 
-  -- Quote Event Exec Id: 4 Byte Signed Fixed Width Integer
+  -- Quote Event Exec Id: 4 Byte Signed Fixed Width Integer Nullable
   index, quote_event_exec_id = eurex_cash_eti_t7_v7_1_dissect.quote_event_exec_id(buffer, index, packet, parent)
 
-  -- Quote Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quote Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, quote_event_type = eurex_cash_eti_t7_v7_1_dissect.quote_event_type(buffer, index, packet, parent)
 
-  -- Quote Event Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Quote Event Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, quote_event_side = eurex_cash_eti_t7_v7_1_dissect.quote_event_side(buffer, index, packet, parent)
 
-  -- Quote Event Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Event Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_event_liquidity_ind = eurex_cash_eti_t7_v7_1_dissect.quote_event_liquidity_ind(buffer, index, packet, parent)
 
-  -- Quote Event Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Quote Event Reason: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, quote_event_reason = eurex_cash_eti_t7_v7_1_dissect.quote_event_reason(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -11447,6 +12000,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_quote_events = 1
 
 -- Display: No Quote Events
 eurex_cash_eti_t7_v7_1_display.no_quote_events = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Quote Events: No Value"
+  end
+
   return "No Quote Events: "..value
 end
 
@@ -11487,13 +12045,13 @@ eurex_cash_eti_t7_v7_1_dissect.quote_execution_report_fields = function(buffer, 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- No Quote Events: 1 Byte Unsigned Fixed Width Integer
+  -- No Quote Events: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_quote_events = eurex_cash_eti_t7_v7_1_dissect.no_quote_events(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -11529,6 +12087,11 @@ eurex_cash_eti_t7_v7_1_size_of.not_affected_security_id = 8
 
 -- Display: Not Affected Security Id
 eurex_cash_eti_t7_v7_1_display.not_affected_security_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Not Affected Security Id: No Value"
+  end
+
   return "Not Affected Security Id: "..value
 end
 
@@ -11562,7 +12125,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.not_affected_securities_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Not Affected Security Id: 8 Byte Unsigned Fixed Width Integer
+  -- Not Affected Security Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, not_affected_security_id = eurex_cash_eti_t7_v7_1_dissect.not_affected_security_id(buffer, index, packet, parent)
 
   return index
@@ -11586,6 +12149,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_not_affected_securities = 2
 
 -- Display: No Not Affected Securities
 eurex_cash_eti_t7_v7_1_display.no_not_affected_securities = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Not Affected Securities: No Value"
+  end
+
   return "No Not Affected Securities: "..value
 end
 
@@ -11606,6 +12174,10 @@ eurex_cash_eti_t7_v7_1_size_of.mass_action_report_id = 8
 
 -- Display: Mass Action Report Id
 eurex_cash_eti_t7_v7_1_display.mass_action_report_id = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Mass Action Report Id: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -11650,10 +12222,10 @@ eurex_cash_eti_t7_v7_1_dissect.quote_activation_response_fields = function(buffe
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer
+  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_securities = eurex_cash_eti_t7_v7_1_dissect.no_not_affected_securities(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -11695,6 +12267,9 @@ eurex_cash_eti_t7_v7_1_display.mass_action_type = function(value)
   if value == 2 then
     return "Mass Action Type: Releasequotes (2)"
   end
+  if value == 0xFF then
+    return "Mass Action Type: No Value"
+  end
 
   return "Mass Action Type: Unknown("..value..")"
 end
@@ -11716,6 +12291,11 @@ eurex_cash_eti_t7_v7_1_size_of.target_party_id_session_id = 4
 
 -- Display: Target Party Id Session Id
 eurex_cash_eti_t7_v7_1_display.target_party_id_session_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Target Party Id Session Id: No Value"
+  end
+
   return "Target Party Id Session Id: "..value
 end
 
@@ -11759,25 +12339,25 @@ eurex_cash_eti_t7_v7_1_dissect.quote_activation_request_fields = function(buffer
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.target_party_id_session_id(buffer, index, packet, parent)
 
-  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, mass_action_type = eurex_cash_eti_t7_v7_1_dissect.mass_action_type(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -11850,6 +12430,9 @@ eurex_cash_eti_t7_v7_1_display.mass_action_reason = function(value)
   if value == 116 then
     return "Mass Action Reason: Instrument Sold Out (116)"
   end
+  if value == 0xFF then
+    return "Mass Action Reason: No Value"
+  end
 
   return "Mass Action Reason: Unknown("..value..")"
 end
@@ -11871,6 +12454,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_id_entering_trader = 4
 
 -- Display: Party Id Entering Trader
 eurex_cash_eti_t7_v7_1_display.party_id_entering_trader = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Entering Trader: No Value"
+  end
+
   return "Party Id Entering Trader: "..value
 end
 
@@ -11911,25 +12499,25 @@ eurex_cash_eti_t7_v7_1_dissect.quote_activation_notification_fields = function(b
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_entering_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_trader(buffer, index, packet, parent)
 
-  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer
+  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_securities = eurex_cash_eti_t7_v7_1_dissect.no_not_affected_securities(buffer, index, packet, parent)
 
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
-  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, mass_action_type = eurex_cash_eti_t7_v7_1_dissect.mass_action_type(buffer, index, packet, parent)
 
-  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, mass_action_reason = eurex_cash_eti_t7_v7_1_dissect.mass_action_reason(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -11970,6 +12558,9 @@ eurex_cash_eti_t7_v7_1_display.party_detail_status = function(value)
   end
   if value == 1 then
     return "Party Detail Status: Suspend (1)"
+  end
+  if value == 0xFF then
+    return "Party Detail Status: No Value"
   end
 
   return "Party Detail Status: Unknown("..value..")"
@@ -12106,6 +12697,9 @@ eurex_cash_eti_t7_v7_1_display.market_id = function(value)
   if value == 11 then
     return "Market Id: Xzag (11)"
   end
+  if value == 0xFFFF then
+    return "Market Id: No Value"
+  end
 
   return "Market Id: Unknown("..value..")"
 end
@@ -12130,6 +12724,9 @@ eurex_cash_eti_t7_v7_1_display.requesting_party_id_executing_system = function(v
   if value == 2 then
     return "Requesting Party Id Executing System: T 7 (2)"
   end
+  if value == 0xFFFFFFFF then
+    return "Requesting Party Id Executing System: No Value"
+  end
 
   return "Requesting Party Id Executing System: Unknown("..value..")"
 end
@@ -12151,6 +12748,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_detail_id_executing_unit = 4
 
 -- Display: Party Detail Id Executing Unit
 eurex_cash_eti_t7_v7_1_display.party_detail_id_executing_unit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Detail Id Executing Unit: No Value"
+  end
+
   return "Party Detail Id Executing Unit: "..value
 end
 
@@ -12191,19 +12793,19 @@ eurex_cash_eti_t7_v7_1_dissect.party_entitlements_update_report_fields = functio
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = eurex_cash_eti_t7_v7_1_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Party Detail Id Executing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Party Detail Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_detail_id_executing_unit = eurex_cash_eti_t7_v7_1_dissect.party_detail_id_executing_unit(buffer, index, packet, parent)
 
-  -- Requesting Party Id Executing System: 4 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Requesting Party Id Executing System: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, requesting_party_id_executing_system = eurex_cash_eti_t7_v7_1_dissect.requesting_party_id_executing_system(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, market_id = eurex_cash_eti_t7_v7_1_dissect.market_id(buffer, index, packet, parent)
 
   -- List Update Action: 1 Byte Ascii String Enum with 2 values
@@ -12215,7 +12817,7 @@ eurex_cash_eti_t7_v7_1_dissect.party_entitlements_update_report_fields = functio
   -- Requesting Party Clearing Firm: 9 Byte Ascii String Nullable
   index, requesting_party_clearing_firm = eurex_cash_eti_t7_v7_1_dissect.requesting_party_clearing_firm(buffer, index, packet, parent)
 
-  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_detail_status = eurex_cash_eti_t7_v7_1_dissect.party_detail_status(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -12252,6 +12854,9 @@ eurex_cash_eti_t7_v7_1_display.requesting_party_id_entering_firm = function(valu
   if value == 2 then
     return "Requesting Party Id Entering Firm: Market Supervision (2)"
   end
+  if value == 0xFF then
+    return "Requesting Party Id Entering Firm: No Value"
+  end
 
   return "Requesting Party Id Entering Firm: Unknown("..value..")"
 end
@@ -12279,6 +12884,9 @@ eurex_cash_eti_t7_v7_1_display.party_action_type = function(value)
   if value == 2 then
     return "Party Action Type: Reinstate (2)"
   end
+  if value == 0xFF then
+    return "Party Action Type: No Value"
+  end
 
   return "Party Action Type: Unknown("..value..")"
 end
@@ -12300,6 +12908,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_id_executing_unit = 4
 
 -- Display: Party Id Executing Unit
 eurex_cash_eti_t7_v7_1_display.party_id_executing_unit = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Executing Unit: No Value"
+  end
+
   return "Party Id Executing Unit: "..value
 end
 
@@ -12320,6 +12933,11 @@ eurex_cash_eti_t7_v7_1_size_of.requesting_party_id_executing_trader = 4
 
 -- Display: Requesting Party Id Executing Trader
 eurex_cash_eti_t7_v7_1_display.requesting_party_id_executing_trader = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Requesting Party Id Executing Trader: No Value"
+  end
+
   return "Requesting Party Id Executing Trader: "..value
 end
 
@@ -12360,31 +12978,31 @@ eurex_cash_eti_t7_v7_1_dissect.party_action_report_fields = function(buffer, off
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = eurex_cash_eti_t7_v7_1_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Requesting Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Requesting Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, requesting_party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.requesting_party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_executing_unit = eurex_cash_eti_t7_v7_1_dissect.party_id_executing_unit(buffer, index, packet, parent)
 
-  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Requesting Party Id Executing System: 4 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Requesting Party Id Executing System: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, requesting_party_id_executing_system = eurex_cash_eti_t7_v7_1_dissect.requesting_party_id_executing_system(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, market_id = eurex_cash_eti_t7_v7_1_dissect.market_id(buffer, index, packet, parent)
 
-  -- Party Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_action_type = eurex_cash_eti_t7_v7_1_dissect.party_action_type(buffer, index, packet, parent)
 
-  -- Requesting Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Requesting Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, requesting_party_id_entering_firm = eurex_cash_eti_t7_v7_1_dissect.requesting_party_id_entering_firm(buffer, index, packet, parent)
 
   return index
@@ -12430,6 +13048,9 @@ eurex_cash_eti_t7_v7_1_display.fill_liquidity_ind = function(value)
   if value == 7 then
     return "Fill Liquidity Ind: Triggered Market Order (7)"
   end
+  if value == 0xFF then
+    return "Fill Liquidity Ind: No Value"
+  end
 
   return "Fill Liquidity Ind: Unknown("..value..")"
 end
@@ -12451,6 +13072,11 @@ eurex_cash_eti_t7_v7_1_size_of.fill_exec_id = 4
 
 -- Display: Fill Exec Id
 eurex_cash_eti_t7_v7_1_display.fill_exec_id = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Fill Exec Id: No Value"
+  end
+
   return "Fill Exec Id: "..value
 end
 
@@ -12471,6 +13097,11 @@ eurex_cash_eti_t7_v7_1_size_of.fill_match_id = 4
 
 -- Display: Fill Match Id
 eurex_cash_eti_t7_v7_1_display.fill_match_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Fill Match Id: No Value"
+  end
+
   return "Fill Match Id: "..value
 end
 
@@ -12572,13 +13203,13 @@ eurex_cash_eti_t7_v7_1_dissect.fills_grp_comp_fields = function(buffer, offset, 
   -- Fill Qty: 8 Byte Unsigned Fixed Width Integer
   index, fill_qty = eurex_cash_eti_t7_v7_1_dissect.fill_qty(buffer, index, packet, parent)
 
-  -- Fill Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Fill Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, fill_match_id = eurex_cash_eti_t7_v7_1_dissect.fill_match_id(buffer, index, packet, parent)
 
-  -- Fill Exec Id: 4 Byte Signed Fixed Width Integer
+  -- Fill Exec Id: 4 Byte Signed Fixed Width Integer Nullable
   index, fill_exec_id = eurex_cash_eti_t7_v7_1_dissect.fill_exec_id(buffer, index, packet, parent)
 
-  -- Fill Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Fill Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, fill_liquidity_ind = eurex_cash_eti_t7_v7_1_dissect.fill_liquidity_ind(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -12605,6 +13236,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_fills = 1
 
 -- Display: No Fills
 eurex_cash_eti_t7_v7_1_display.no_fills = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Fills: No Value"
+  end
+
   return "No Fills: "..value
 end
 
@@ -12630,6 +13266,9 @@ eurex_cash_eti_t7_v7_1_display.transaction_delay_indicator = function(value)
   end
   if value == 1 then
     return "Transaction Delay Indicator: Delayed (1)"
+  end
+  if value == 0xFF then
+    return "Transaction Delay Indicator: No Value"
   end
 
   return "Transaction Delay Indicator: Unknown("..value..")"
@@ -12657,6 +13296,9 @@ eurex_cash_eti_t7_v7_1_display.crossed_indicator = function(value)
   end
   if value == 1 then
     return "Crossed Indicator: Crossrejected (1)"
+  end
+  if value == 0xFF then
+    return "Crossed Indicator: No Value"
   end
 
   return "Crossed Indicator: Unknown("..value..")"
@@ -12687,6 +13329,9 @@ eurex_cash_eti_t7_v7_1_display.triggered = function(value)
   end
   if value == 2 then
     return "Triggered: Triggered Oco (2)"
+  end
+  if value == 0xFF then
+    return "Triggered: No Value"
   end
 
   return "Triggered: Unknown("..value..")"
@@ -12761,6 +13406,10 @@ eurex_cash_eti_t7_v7_1_size_of.trd_reg_ts_time_priority = 8
 
 -- Display: Trd Reg Ts Time Priority
 eurex_cash_eti_t7_v7_1_display.trd_reg_ts_time_priority = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time Priority: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -12785,6 +13434,10 @@ eurex_cash_eti_t7_v7_1_size_of.trd_reg_ts_entry_time = 8
 
 -- Display: Trd Reg Ts Entry Time
 eurex_cash_eti_t7_v7_1_display.trd_reg_ts_entry_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Entry Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -12840,34 +13493,34 @@ end
 eurex_cash_eti_t7_v7_1_dissect.response_header_me_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, request_time = eurex_cash_eti_t7_v7_1_dissect.request_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_in = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_in(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Out: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Out: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_out = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_out(buffer, index, packet, parent)
 
-  -- Response In: 8 Byte Unsigned Fixed Width Integer
+  -- Response In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, response_in = eurex_cash_eti_t7_v7_1_dissect.response_in(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = eurex_cash_eti_t7_v7_1_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_cash_eti_t7_v7_1_dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_cash_eti_t7_v7_1_dissect.partition_id(buffer, index, packet, parent)
 
-  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, appl_id = eurex_cash_eti_t7_v7_1_dissect.appl_id(buffer, index, packet, parent)
 
   -- Appl Msg Id: 16 Byte
   index, appl_msg_id = eurex_cash_eti_t7_v7_1_dissect.appl_msg_id(buffer, index, packet, parent)
 
-  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_cash_eti_t7_v7_1_dissect.last_fragment(buffer, index, packet, parent)
 
   return index
@@ -12911,25 +13564,25 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_response_fields = function(buffer, off
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_entry_time = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_entry_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
@@ -12944,16 +13597,16 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_response_fields = function(buffer, off
   -- Display Qty: 8 Byte Unsigned Fixed Width Integer
   index, display_qty = eurex_cash_eti_t7_v7_1_dissect.display_qty(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -12962,19 +13615,19 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_response_fields = function(buffer, off
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, match_type = eurex_cash_eti_t7_v7_1_dissect.match_type(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
-  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, crossed_indicator = eurex_cash_eti_t7_v7_1_dissect.crossed_indicator(buffer, index, packet, parent)
 
-  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transaction_delay_indicator = eurex_cash_eti_t7_v7_1_dissect.transaction_delay_indicator(buffer, index, packet, parent)
 
-  -- No Fills: 1 Byte Unsigned Fixed Width Integer
+  -- No Fills: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_fills = eurex_cash_eti_t7_v7_1_dissect.no_fills(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -13013,6 +13666,9 @@ eurex_cash_eti_t7_v7_1_display.ex_destination_type = function(value)
   if value == 3 then
     return "Ex Destination Type: Tradeonexchangeor Si (3)"
   end
+  if value == 0xFF then
+    return "Ex Destination Type: No Value"
+  end
 
   return "Ex Destination Type: Unknown("..value..")"
 end
@@ -13039,6 +13695,9 @@ eurex_cash_eti_t7_v7_1_display.appl_seq_indicator = function(value)
   end
   if value == 1 then
     return "Appl Seq Indicator: Recovery Required (1)"
+  end
+  if value == 0xFF then
+    return "Appl Seq Indicator: No Value"
   end
 
   return "Appl Seq Indicator: Unknown("..value..")"
@@ -13072,6 +13731,9 @@ eurex_cash_eti_t7_v7_1_display.trading_session_sub_id = function(value)
   end
   if value == 8 then
     return "Trading Session Sub Id: Any Auction (8)"
+  end
+  if value == 0xFF then
+    return "Trading Session Sub Id: No Value"
   end
 
   return "Trading Session Sub Id: Unknown("..value..")"
@@ -13108,6 +13770,9 @@ eurex_cash_eti_t7_v7_1_display.exec_inst = function(value)
   end
   if value == 6 then
     return "Exec Inst: Q 6 (6)"
+  end
+  if value == 0xFF then
+    return "Exec Inst: No Value"
   end
 
   return "Exec Inst: Unknown("..value..")"
@@ -13148,6 +13813,9 @@ eurex_cash_eti_t7_v7_1_display.time_in_force = function(value)
   if value == 6 then
     return "Time In Force: Gtd (6)"
   end
+  if value == 0xFF then
+    return "Time In Force: No Value"
+  end
 
   return "Time In Force: Unknown("..value..")"
 end
@@ -13169,6 +13837,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_id_session_id = 4
 
 -- Display: Party Id Session Id
 eurex_cash_eti_t7_v7_1_display.party_id_session_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Session Id: No Value"
+  end
+
   return "Party Id Session Id: "..value
 end
 
@@ -13189,6 +13862,11 @@ eurex_cash_eti_t7_v7_1_size_of.match_inst_cross_id = 4
 
 -- Display: Match Inst Cross Id
 eurex_cash_eti_t7_v7_1_display.match_inst_cross_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Match Inst Cross Id: No Value"
+  end
+
   return "Match Inst Cross Id: "..value
 end
 
@@ -13209,6 +13887,11 @@ eurex_cash_eti_t7_v7_1_size_of.expire_date = 4
 
 -- Display: Expire Date
 eurex_cash_eti_t7_v7_1_display.expire_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Expire Date: No Value"
+  end
+
   return "Expire Date: "..value
 end
 
@@ -13379,25 +14062,25 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_report_broadcast_fields = function(buf
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_entry_time = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_entry_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -13436,34 +14119,34 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_report_broadcast_fields = function(buf
   -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
   index, peg_offset_value_pct = eurex_cash_eti_t7_v7_1_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
-  -- Expire Date: 4 Byte Unsigned Fixed Width Integer
+  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = eurex_cash_eti_t7_v7_1_dissect.expire_date(buffer, index, packet, parent)
 
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_inst_cross_id = eurex_cash_eti_t7_v7_1_dissect.match_inst_cross_id(buffer, index, packet, parent)
 
-  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_executing_unit = eurex_cash_eti_t7_v7_1_dissect.party_id_executing_unit(buffer, index, packet, parent)
 
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.party_id_session_id(buffer, index, packet, parent)
 
-  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_entering_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_trader(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -13472,31 +14155,31 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_report_broadcast_fields = function(buf
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, match_type = eurex_cash_eti_t7_v7_1_dissect.match_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, ord_type = eurex_cash_eti_t7_v7_1_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = eurex_cash_eti_t7_v7_1_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, trading_session_sub_id = eurex_cash_eti_t7_v7_1_dissect.trading_session_sub_id(buffer, index, packet, parent)
 
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v7_1_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ex_destination_type = eurex_cash_eti_t7_v7_1_dissect.ex_destination_type(buffer, index, packet, parent)
 
   -- Free Text 1: 12 Byte Ascii String Nullable
@@ -13511,13 +14194,13 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_report_broadcast_fields = function(buf
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
-  -- No Fills: 1 Byte Unsigned Fixed Width Integer
+  -- No Fills: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_fills = eurex_cash_eti_t7_v7_1_dissect.no_fills(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
-  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, crossed_indicator = eurex_cash_eti_t7_v7_1_dissect.crossed_indicator(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -13573,19 +14256,19 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_notification_fields = function(buffer,
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
@@ -13600,16 +14283,16 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_notification_fields = function(buffer,
   -- Display Qty: 8 Byte Unsigned Fixed Width Integer
   index, display_qty = eurex_cash_eti_t7_v7_1_dissect.display_qty(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -13618,19 +14301,19 @@ eurex_cash_eti_t7_v7_1_dissect.order_exec_notification_fields = function(buffer,
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, match_type = eurex_cash_eti_t7_v7_1_dissect.match_type(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
-  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, crossed_indicator = eurex_cash_eti_t7_v7_1_dissect.crossed_indicator(buffer, index, packet, parent)
 
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
-  -- No Fills: 1 Byte Unsigned Fixed Width Integer
+  -- No Fills: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_fills = eurex_cash_eti_t7_v7_1_dissect.no_fills(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -13691,6 +14374,10 @@ eurex_cash_eti_t7_v7_1_size_of.orig_time = 8
 
 -- Display: Orig Time
 eurex_cash_eti_t7_v7_1_display.orig_time = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Orig Time: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -13735,10 +14422,10 @@ eurex_cash_eti_t7_v7_1_dissect.news_broadcast_fields = function(buffer, offset, 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Orig Time: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_time = eurex_cash_eti_t7_v7_1_dissect.orig_time(buffer, index, packet, parent)
 
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = eurex_cash_eti_t7_v7_1_dissect.var_text_len(buffer, index, packet, parent)
 
   -- Headline: 256 Byte Ascii String Nullable
@@ -13781,6 +14468,9 @@ eurex_cash_eti_t7_v7_1_display.price_validity_check_type = function(value)
   if value == 2 then
     return "Price Validity Check Type: Mandatory (2)"
   end
+  if value == 0xFF then
+    return "Price Validity Check Type: No Value"
+  end
 
   return "Price Validity Check Type: Unknown("..value..")"
 end
@@ -13802,6 +14492,11 @@ eurex_cash_eti_t7_v7_1_size_of.enrichment_rule_id = 2
 
 -- Display: Enrichment Rule Id
 eurex_cash_eti_t7_v7_1_display.enrichment_rule_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Enrichment Rule Id: No Value"
+  end
+
   return "Enrichment Rule Id: "..value
 end
 
@@ -13845,7 +14540,7 @@ eurex_cash_eti_t7_v7_1_dissect.new_order_single_short_request_fields = function(
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -13854,58 +14549,58 @@ eurex_cash_eti_t7_v7_1_dissect.new_order_single_short_request_fields = function(
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_inst_cross_id = eurex_cash_eti_t7_v7_1_dissect.match_inst_cross_id(buffer, index, packet, parent)
 
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, enrichment_rule_id = eurex_cash_eti_t7_v7_1_dissect.enrichment_rule_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v7_1_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, price_validity_check_type = eurex_cash_eti_t7_v7_1_dissect.price_validity_check_type(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = eurex_cash_eti_t7_v7_1_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ex_destination_type = eurex_cash_eti_t7_v7_1_dissect.ex_destination_type(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -13986,70 +14681,70 @@ eurex_cash_eti_t7_v7_1_dissect.new_order_single_request_fields = function(buffer
   -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
   index, peg_offset_value_pct = eurex_cash_eti_t7_v7_1_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Expire Date: 4 Byte Unsigned Fixed Width Integer
+  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = eurex_cash_eti_t7_v7_1_dissect.expire_date(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_inst_cross_id = eurex_cash_eti_t7_v7_1_dissect.match_inst_cross_id(buffer, index, packet, parent)
 
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v7_1_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, ord_type = eurex_cash_eti_t7_v7_1_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, price_validity_check_type = eurex_cash_eti_t7_v7_1_dissect.price_validity_check_type(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = eurex_cash_eti_t7_v7_1_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, trading_session_sub_id = eurex_cash_eti_t7_v7_1_dissect.trading_session_sub_id(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ex_destination_type = eurex_cash_eti_t7_v7_1_dissect.ex_destination_type(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Free Text 1: 12 Byte Ascii String Nullable
@@ -14112,25 +14807,25 @@ eurex_cash_eti_t7_v7_1_dissect.new_order_response_fields = function(buffer, offs
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_entry_time = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_entry_time(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -14139,16 +14834,16 @@ eurex_cash_eti_t7_v7_1_dissect.new_order_response_fields = function(buffer, offs
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, crossed_indicator = eurex_cash_eti_t7_v7_1_dissect.crossed_indicator(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
-  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transaction_delay_indicator = eurex_cash_eti_t7_v7_1_dissect.transaction_delay_indicator(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -14199,19 +14894,19 @@ eurex_cash_eti_t7_v7_1_dissect.new_order_nr_response_fields = function(buffer, o
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -14220,16 +14915,16 @@ eurex_cash_eti_t7_v7_1_dissect.new_order_nr_response_fields = function(buffer, o
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, crossed_indicator = eurex_cash_eti_t7_v7_1_dissect.crossed_indicator(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
-  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transaction_delay_indicator = eurex_cash_eti_t7_v7_1_dissect.transaction_delay_indicator(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -14284,10 +14979,10 @@ eurex_cash_eti_t7_v7_1_dissect.side_alloc_grp_comp_fields = function(buffer, off
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
   index, alloc_qty = eurex_cash_eti_t7_v7_1_dissect.alloc_qty(buffer, index, packet, parent)
 
-  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer
+  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, individual_alloc_id = eurex_cash_eti_t7_v7_1_dissect.individual_alloc_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
@@ -14343,28 +15038,28 @@ eurex_cash_eti_t7_v7_1_dissect.modify_tes_trade_request_fields = function(buffer
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = eurex_cash_eti_t7_v7_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_cash_eti_t7_v7_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer
+  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_side_allocs = eurex_cash_eti_t7_v7_1_dissect.no_side_allocs(buffer, index, packet, parent)
 
   -- Trade Report Text: 20 Byte Ascii String Nullable
@@ -14429,13 +15124,13 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_single_short_request_fields = functi
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -14444,55 +15139,55 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_single_short_request_fields = functi
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_inst_cross_id = eurex_cash_eti_t7_v7_1_dissect.match_inst_cross_id(buffer, index, packet, parent)
 
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, enrichment_rule_id = eurex_cash_eti_t7_v7_1_dissect.enrichment_rule_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, price_validity_check_type = eurex_cash_eti_t7_v7_1_dissect.price_validity_check_type(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = eurex_cash_eti_t7_v7_1_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v7_1_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ex_destination_type = eurex_cash_eti_t7_v7_1_dissect.ex_destination_type(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -14529,6 +15224,9 @@ eurex_cash_eti_t7_v7_1_display.ownership_indicator = function(value)
   if value == 1 then
     return "Ownership Indicator: Changeto Executing Trader (1)"
   end
+  if value == 0xFF then
+    return "Ownership Indicator: No Value"
+  end
 
   return "Ownership Indicator: Unknown("..value..")"
 end
@@ -14555,6 +15253,9 @@ eurex_cash_eti_t7_v7_1_display.stop_px_indicator = function(value)
   end
   if value == 1 then
     return "Stop Px Indicator: Overwrite (1)"
+  end
+  if value == 0xFF then
+    return "Stop Px Indicator: No Value"
   end
 
   return "Stop Px Indicator: Unknown("..value..")"
@@ -14600,16 +15301,16 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_single_request_fields = function(buf
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -14639,73 +15340,73 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_single_request_fields = function(buf
   -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
   index, peg_offset_value_pct = eurex_cash_eti_t7_v7_1_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Expire Date: 4 Byte Unsigned Fixed Width Integer
+  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = eurex_cash_eti_t7_v7_1_dissect.expire_date(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_inst_cross_id = eurex_cash_eti_t7_v7_1_dissect.match_inst_cross_id(buffer, index, packet, parent)
 
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.target_party_id_session_id(buffer, index, packet, parent)
 
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v7_1_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, ord_type = eurex_cash_eti_t7_v7_1_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, price_validity_check_type = eurex_cash_eti_t7_v7_1_dissect.price_validity_check_type(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = eurex_cash_eti_t7_v7_1_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, trading_session_sub_id = eurex_cash_eti_t7_v7_1_dissect.trading_session_sub_id(buffer, index, packet, parent)
 
-  -- Stop Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Stop Px Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, stop_px_indicator = eurex_cash_eti_t7_v7_1_dissect.stop_px_indicator(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ex_destination_type = eurex_cash_eti_t7_v7_1_dissect.ex_destination_type(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
-  -- Ownership Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Ownership Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, ownership_indicator = eurex_cash_eti_t7_v7_1_dissect.ownership_indicator(buffer, index, packet, parent)
 
   -- Free Text 1: 12 Byte Ascii String Nullable
@@ -14768,19 +15469,19 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_response_fields = function(buffer, o
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Unsigned Fixed Width Integer
@@ -14798,10 +15499,10 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_response_fields = function(buffer, o
   -- Display Qty: 8 Byte Unsigned Fixed Width Integer
   index, display_qty = eurex_cash_eti_t7_v7_1_dissect.display_qty(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -14810,16 +15511,16 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_response_fields = function(buffer, o
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, crossed_indicator = eurex_cash_eti_t7_v7_1_dissect.crossed_indicator(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
-  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transaction_delay_indicator = eurex_cash_eti_t7_v7_1_dissect.transaction_delay_indicator(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -14870,19 +15571,19 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_nr_response_fields = function(buffer
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Unsigned Fixed Width Integer
@@ -14900,7 +15601,7 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_nr_response_fields = function(buffer
   -- Display Qty: 8 Byte Unsigned Fixed Width Integer
   index, display_qty = eurex_cash_eti_t7_v7_1_dissect.display_qty(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -14909,16 +15610,16 @@ eurex_cash_eti_t7_v7_1_dissect.modify_order_nr_response_fields = function(buffer
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, crossed_indicator = eurex_cash_eti_t7_v7_1_dissect.crossed_indicator(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
-  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transaction_delay_indicator = eurex_cash_eti_t7_v7_1_dissect.transaction_delay_indicator(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -14960,6 +15661,9 @@ eurex_cash_eti_t7_v7_1_display.quote_entry_status = function(value)
   end
   if value == 10 then
     return "Quote Entry Status: Pending (10)"
+  end
+  if value == 0xFF then
+    return "Quote Entry Status: No Value"
   end
 
   return "Quote Entry Status: Unknown("..value..")"
@@ -15087,6 +15791,9 @@ eurex_cash_eti_t7_v7_1_display.quote_entry_reject_reason = function(value)
   if value == 150 then
     return "Quote Entry Reject Reason: Value Limit Exceeded Instrument (150)"
   end
+  if value == 0xFFFFFFFF then
+    return "Quote Entry Reject Reason: No Value"
+  end
 
   return "Quote Entry Reject Reason: Unknown("..value..")"
 end
@@ -15183,7 +15890,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.quote_entry_ack_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Cxl Size: 8 Byte Unsigned Fixed Width Integer
@@ -15192,10 +15899,10 @@ eurex_cash_eti_t7_v7_1_dissect.quote_entry_ack_grp_comp_fields = function(buffer
   -- Offer Cxl Size: 8 Byte Unsigned Fixed Width Integer
   index, offer_cxl_size = eurex_cash_eti_t7_v7_1_dissect.offer_cxl_size(buffer, index, packet, parent)
 
-  -- Quote Entry Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 35 values
+  -- Quote Entry Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 36 values
   index, quote_entry_reject_reason = eurex_cash_eti_t7_v7_1_dissect.quote_entry_reject_reason(buffer, index, packet, parent)
 
-  -- Quote Entry Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quote Entry Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, quote_entry_status = eurex_cash_eti_t7_v7_1_dissect.quote_entry_status(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -15222,6 +15929,10 @@ eurex_cash_eti_t7_v7_1_size_of.quote_response_id = 8
 
 -- Display: Quote Response Id
 eurex_cash_eti_t7_v7_1_display.quote_response_id = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Response Id: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -15266,16 +15977,16 @@ eurex_cash_eti_t7_v7_1_dissect.mass_quote_response_fields = function(buffer, off
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Quote Response Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_response_id = eurex_cash_eti_t7_v7_1_dissect.quote_response_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_quote_entries = eurex_cash_eti_t7_v7_1_dissect.no_quote_entries(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -15332,7 +16043,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.quote_entry_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -15377,6 +16088,9 @@ eurex_cash_eti_t7_v7_1_display.quote_type = function(value)
   if value == 102 then
     return "Quote Type: Tradeable Pwt (102)"
   end
+  if value == 0xFF then
+    return "Quote Type: No Value"
+  end
 
   return "Quote Type: Unknown("..value..")"
 end
@@ -15403,6 +16117,9 @@ eurex_cash_eti_t7_v7_1_display.quote_size_type = function(value)
   end
   if value == 2 then
     return "Quote Size Type: Open Size (2)"
+  end
+  if value == 0xFF then
+    return "Quote Size Type: No Value"
   end
 
   return "Quote Size Type: Unknown("..value..")"
@@ -15448,49 +16165,49 @@ eurex_cash_eti_t7_v7_1_dissect.mass_quote_request_fields = function(buffer, offs
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_inst_cross_id = eurex_cash_eti_t7_v7_1_dissect.match_inst_cross_id(buffer, index, packet, parent)
 
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, enrichment_rule_id = eurex_cash_eti_t7_v7_1_dissect.enrichment_rule_id(buffer, index, packet, parent)
 
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, price_validity_check_type = eurex_cash_eti_t7_v7_1_dissect.price_validity_check_type(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Quote Size Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Quote Size Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, quote_size_type = eurex_cash_eti_t7_v7_1_dissect.quote_size_type(buffer, index, packet, parent)
 
-  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, quote_type = eurex_cash_eti_t7_v7_1_dissect.quote_type(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_quote_entries = eurex_cash_eti_t7_v7_1_dissect.no_quote_entries(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -15683,6 +16400,9 @@ eurex_cash_eti_t7_v7_1_display.trad_ses_mode = function(value)
   if value == 5 then
     return "Trad Ses Mode: Disaster Recovery (5)"
   end
+  if value == 0xFF then
+    return "Trad Ses Mode: No Value"
+  end
 
   return "Trad Ses Mode: Unknown("..value..")"
 end
@@ -15704,6 +16424,11 @@ eurex_cash_eti_t7_v7_1_size_of.session_instance_id = 4
 
 -- Display: Session Instance Id
 eurex_cash_eti_t7_v7_1_display.session_instance_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Session Instance Id: No Value"
+  end
+
   return "Session Instance Id: "..value
 end
 
@@ -15724,6 +16449,11 @@ eurex_cash_eti_t7_v7_1_size_of.heart_bt_int = 4
 
 -- Display: Heart Bt Int
 eurex_cash_eti_t7_v7_1_display.heart_bt_int = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Heart Bt Int: No Value"
+  end
+
   return "Heart Bt Int: "..value
 end
 
@@ -15764,25 +16494,25 @@ eurex_cash_eti_t7_v7_1_dissect.logon_response_fields = function(buffer, offset, 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer
+  -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer Nullable
   index, throttle_time_interval = eurex_cash_eti_t7_v7_1_dissect.throttle_time_interval(buffer, index, packet, parent)
 
-  -- Throttle No Msgs: 4 Byte Unsigned Fixed Width Integer
+  -- Throttle No Msgs: 4 Byte Unsigned Fixed Width Integer Nullable
   index, throttle_no_msgs = eurex_cash_eti_t7_v7_1_dissect.throttle_no_msgs(buffer, index, packet, parent)
 
-  -- Throttle Disconnect Limit: 4 Byte Unsigned Fixed Width Integer
+  -- Throttle Disconnect Limit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, throttle_disconnect_limit = eurex_cash_eti_t7_v7_1_dissect.throttle_disconnect_limit(buffer, index, packet, parent)
 
-  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer
+  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
   index, heart_bt_int = eurex_cash_eti_t7_v7_1_dissect.heart_bt_int(buffer, index, packet, parent)
 
-  -- Session Instance Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Instance Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, session_instance_id = eurex_cash_eti_t7_v7_1_dissect.session_instance_id(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, market_id = eurex_cash_eti_t7_v7_1_dissect.market_id(buffer, index, packet, parent)
 
-  -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trad_ses_mode = eurex_cash_eti_t7_v7_1_dissect.trad_ses_mode(buffer, index, packet, parent)
 
   -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
@@ -16124,10 +16854,10 @@ eurex_cash_eti_t7_v7_1_dissect.logon_request_fields = function(buffer, offset, p
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer
+  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
   index, heart_bt_int = eurex_cash_eti_t7_v7_1_dissect.heart_bt_int(buffer, index, packet, parent)
 
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.party_id_session_id(buffer, index, packet, parent)
 
   -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
@@ -16200,6 +16930,9 @@ eurex_cash_eti_t7_v7_1_display.user_status = function(value)
   if value == 11 then
     return "User Status: Userreleased (11)"
   end
+  if value == 0xFF then
+    return "User Status: No Value"
+  end
 
   return "User Status: Unknown("..value..")"
 end
@@ -16241,13 +16974,13 @@ eurex_cash_eti_t7_v7_1_dissect.legal_notification_broadcast_fields = function(bu
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_comp(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = eurex_cash_eti_t7_v7_1_dissect.var_text_len(buffer, index, packet, parent)
 
-  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, user_status = eurex_cash_eti_t7_v7_1_dissect.user_status(buffer, index, packet, parent)
 
   -- Pad 5: 5 Byte
@@ -16281,6 +17014,10 @@ eurex_cash_eti_t7_v7_1_size_of.security_status_report_id = 8
 
 -- Display: Security Status Report Id
 eurex_cash_eti_t7_v7_1_display.security_status_report_id = function(value)
+  -- Check null sentinel value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Security Status Report Id: No Value"
+  end
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -16325,7 +17062,7 @@ eurex_cash_eti_t7_v7_1_dissect.issuer_security_state_change_response_fields = fu
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Security Status Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Security Status Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, security_status_report_id = eurex_cash_eti_t7_v7_1_dissect.security_status_report_id(buffer, index, packet, parent)
 
   return index
@@ -16359,6 +17096,9 @@ eurex_cash_eti_t7_v7_1_display.event_type = function(value)
   if value == 100 then
     return "Event Type: Delisting (100)"
   end
+  if value == 0xFF then
+    return "Event Type: No Value"
+  end
 
   return "Event Type: Unknown("..value..")"
 end
@@ -16380,6 +17120,11 @@ eurex_cash_eti_t7_v7_1_size_of.event_date = 4
 
 -- Display: Event Date
 eurex_cash_eti_t7_v7_1_display.event_date = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Event Date: No Value"
+  end
+
   return "Event Date: "..value
 end
 
@@ -16448,10 +17193,10 @@ eurex_cash_eti_t7_v7_1_dissect.security_status_event_grp_comp_fields = function(
   -- Event Px: 8 Byte Unsigned Fixed Width Integer
   index, event_px = eurex_cash_eti_t7_v7_1_dissect.event_px(buffer, index, packet, parent)
 
-  -- Event Date: 4 Byte Unsigned Fixed Width Integer
+  -- Event Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, event_date = eurex_cash_eti_t7_v7_1_dissect.event_date(buffer, index, packet, parent)
 
-  -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, event_type = eurex_cash_eti_t7_v7_1_dissect.event_type(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
@@ -16484,6 +17229,9 @@ eurex_cash_eti_t7_v7_1_display.sold_out_indicator = function(value)
   if value == 1 then
     return "Sold Out Indicator: Soldout (1)"
   end
+  if value == 0xFF then
+    return "Sold Out Indicator: No Value"
+  end
 
   return "Sold Out Indicator: Unknown("..value..")"
 end
@@ -16514,6 +17262,9 @@ eurex_cash_eti_t7_v7_1_display.security_status = function(value)
   if value == 12 then
     return "Security Status: Knockedoutandsuspend (12)"
   end
+  if value == 0xFF then
+    return "Security Status: No Value"
+  end
 
   return "Security Status: Unknown("..value..")"
 end
@@ -16535,6 +17286,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_events = 1
 
 -- Display: No Events
 eurex_cash_eti_t7_v7_1_display.no_events = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Events: No Value"
+  end
+
   return "No Events: "..value
 end
 
@@ -16578,22 +17334,22 @@ eurex_cash_eti_t7_v7_1_dissect.issuer_security_state_change_request_fields = fun
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- No Events: 1 Byte Unsigned Fixed Width Integer
+  -- No Events: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_events = eurex_cash_eti_t7_v7_1_dissect.no_events(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Security Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, security_status = eurex_cash_eti_t7_v7_1_dissect.security_status(buffer, index, packet, parent)
 
-  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Sold Out Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, sold_out_indicator = eurex_cash_eti_t7_v7_1_dissect.sold_out_indicator(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -16634,6 +17390,9 @@ eurex_cash_eti_t7_v7_1_display.security_trading_status = function(value)
   end
   if value == 8 then
     return "Security Trading Status: Market Imbalance Sell (8)"
+  end
+  if value == 0xFF then
+    return "Security Trading Status: No Value"
   end
 
   return "Security Trading Status: Unknown("..value..")"
@@ -16728,10 +17487,10 @@ eurex_cash_eti_t7_v7_1_dissect.issuer_notification_fields = function(buffer, off
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_cash_eti_t7_v7_1_dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
@@ -16746,13 +17505,13 @@ eurex_cash_eti_t7_v7_1_dissect.issuer_notification_fields = function(buffer, off
   -- Imbalance Qty: 8 Byte Unsigned Fixed Width Integer
   index, imbalance_qty = eurex_cash_eti_t7_v7_1_dissect.imbalance_qty(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.party_id_session_id(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, security_trading_status = eurex_cash_eti_t7_v7_1_dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -16817,6 +17576,9 @@ eurex_cash_eti_t7_v7_1_display.party_detail_role_qualifier = function(value)
   if value == 12 then
     return "Party Detail Role Qualifier: Supervisor (12)"
   end
+  if value == 0xFF then
+    return "Party Detail Role Qualifier: No Value"
+  end
 
   return "Party Detail Role Qualifier: Unknown("..value..")"
 end
@@ -16863,6 +17625,11 @@ eurex_cash_eti_t7_v7_1_size_of.party_detail_id_executing_trader = 4
 
 -- Display: Party Detail Id Executing Trader
 eurex_cash_eti_t7_v7_1_display.party_detail_id_executing_trader = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Detail Id Executing Trader: No Value"
+  end
+
   return "Party Detail Id Executing Trader: "..value
 end
 
@@ -16906,16 +17673,16 @@ end
 eurex_cash_eti_t7_v7_1_dissect.party_details_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Detail Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Detail Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_detail_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_detail_id_executing_trader(buffer, index, packet, parent)
 
   -- Party Detail Executing Trader: 6 Byte Ascii String Nullable
   index, party_detail_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_detail_executing_trader(buffer, index, packet, parent)
 
-  -- Party Detail Role Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Party Detail Role Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, party_detail_role_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_detail_role_qualifier(buffer, index, packet, parent)
 
-  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_detail_status = eurex_cash_eti_t7_v7_1_dissect.party_detail_status(buffer, index, packet, parent)
 
   -- Party Detail Desk Id: 3 Byte Ascii String Nullable
@@ -16945,6 +17712,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_party_details = 2
 
 -- Display: No Party Details
 eurex_cash_eti_t7_v7_1_display.no_party_details = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Party Details: No Value"
+  end
+
   return "No Party Details: "..value
 end
 
@@ -17008,7 +17780,7 @@ eurex_cash_eti_t7_v7_1_dissect.inquire_user_response_fields = function(buffer, o
   -- Last Entity Processed: 16 Byte
   index, last_entity_processed = eurex_cash_eti_t7_v7_1_dissect.last_entity_processed(buffer, index, packet, parent)
 
-  -- No Party Details: 2 Byte Unsigned Fixed Width Integer
+  -- No Party Details: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_party_details = eurex_cash_eti_t7_v7_1_dissect.no_party_details(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -17104,6 +17876,9 @@ eurex_cash_eti_t7_v7_1_display.session_sub_mode = function(value)
   if value == 2 then
     return "Session Sub Mode: Regular Back Officesession (2)"
   end
+  if value == 0xFF then
+    return "Session Sub Mode: No Value"
+  end
 
   return "Session Sub Mode: Unknown("..value..")"
 end
@@ -17133,6 +17908,9 @@ eurex_cash_eti_t7_v7_1_display.session_mode = function(value)
   end
   if value == 3 then
     return "Session Mode: Gui (3)"
+  end
+  if value == 0xFF then
+    return "Session Mode: No Value"
   end
 
   return "Session Mode: Unknown("..value..")"
@@ -17174,13 +17952,13 @@ end
 eurex_cash_eti_t7_v7_1_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.party_id_session_id(buffer, index, packet, parent)
 
-  -- Session Mode: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Session Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, session_mode = eurex_cash_eti_t7_v7_1_dissect.session_mode(buffer, index, packet, parent)
 
-  -- Session Sub Mode: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Session Sub Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, session_sub_mode = eurex_cash_eti_t7_v7_1_dissect.session_sub_mode(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -17207,6 +17985,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_sessions = 2
 
 -- Display: No Sessions
 eurex_cash_eti_t7_v7_1_display.no_sessions = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Sessions: No Value"
+  end
+
   return "No Sessions: "..value
 end
 
@@ -17247,7 +18030,7 @@ eurex_cash_eti_t7_v7_1_dissect.inquire_session_list_response_fields = function(b
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_comp(buffer, index, packet, parent)
 
-  -- No Sessions: 2 Byte Unsigned Fixed Width Integer
+  -- No Sessions: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_sessions = eurex_cash_eti_t7_v7_1_dissect.no_sessions(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -17352,7 +18135,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.enrichment_rules_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, enrichment_rule_id = eurex_cash_eti_t7_v7_1_dissect.enrichment_rule_id(buffer, index, packet, parent)
 
   -- Free Text 1: 12 Byte Ascii String Nullable
@@ -17388,6 +18171,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_enrichment_rules = 2
 
 -- Display: No Enrichment Rules
 eurex_cash_eti_t7_v7_1_display.no_enrichment_rules = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Enrichment Rules: No Value"
+  end
+
   return "No Enrichment Rules: "..value
 end
 
@@ -17431,7 +18219,7 @@ eurex_cash_eti_t7_v7_1_dissect.inquire_enrichment_rule_id_list_response_fields =
   -- Last Entity Processed: 16 Byte
   index, last_entity_processed = eurex_cash_eti_t7_v7_1_dissect.last_entity_processed(buffer, index, packet, parent)
 
-  -- No Enrichment Rules: 2 Byte Unsigned Fixed Width Integer
+  -- No Enrichment Rules: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_enrichment_rules = eurex_cash_eti_t7_v7_1_dissect.no_enrichment_rules(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -17628,16 +18416,16 @@ eurex_cash_eti_t7_v7_1_dissect.forced_user_logout_notification_fields = function
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v7_1_dissect.notif_header_comp(buffer, index, packet, parent)
 
-  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, user_status = eurex_cash_eti_t7_v7_1_dissect.user_status(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
   index, pad_3 = eurex_cash_eti_t7_v7_1_dissect.pad_3(buffer, index, packet, parent)
 
-  -- Username: 4 Byte Unsigned Fixed Width Integer
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
   index, username = eurex_cash_eti_t7_v7_1_dissect.username(buffer, index, packet, parent)
 
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = eurex_cash_eti_t7_v7_1_dissect.var_text_len(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -17691,7 +18479,7 @@ eurex_cash_eti_t7_v7_1_dissect.forced_logout_notification_fields = function(buff
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v7_1_dissect.notif_header_comp(buffer, index, packet, parent)
 
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = eurex_cash_eti_t7_v7_1_dissect.var_text_len(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -17745,22 +18533,22 @@ eurex_cash_eti_t7_v7_1_dissect.extended_deletion_report_fields = function(buffer
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_entry_time = eurex_cash_eti_t7_v7_1_dissect.trd_reg_ts_entry_time(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
@@ -17799,31 +18587,31 @@ eurex_cash_eti_t7_v7_1_dissect.extended_deletion_report_fields = function(buffer
   -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
   index, peg_offset_value_pct = eurex_cash_eti_t7_v7_1_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
-  -- Expire Date: 4 Byte Unsigned Fixed Width Integer
+  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = eurex_cash_eti_t7_v7_1_dissect.expire_date(buffer, index, packet, parent)
 
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, match_inst_cross_id = eurex_cash_eti_t7_v7_1_dissect.match_inst_cross_id(buffer, index, packet, parent)
 
-  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_executing_unit = eurex_cash_eti_t7_v7_1_dissect.party_id_executing_unit(buffer, index, packet, parent)
 
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.party_id_session_id(buffer, index, packet, parent)
 
-  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_entering_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_trader(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -17832,28 +18620,28 @@ eurex_cash_eti_t7_v7_1_dissect.extended_deletion_report_fields = function(buffer
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, ord_type = eurex_cash_eti_t7_v7_1_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, time_in_force = eurex_cash_eti_t7_v7_1_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, trading_session_sub_id = eurex_cash_eti_t7_v7_1_dissect.trading_session_sub_id(buffer, index, packet, parent)
 
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_indicator = eurex_cash_eti_t7_v7_1_dissect.appl_seq_indicator(buffer, index, packet, parent)
 
-  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Ex Destination Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, ex_destination_type = eurex_cash_eti_t7_v7_1_dissect.ex_destination_type(buffer, index, packet, parent)
 
   -- Free Text 1: 12 Byte Ascii String Nullable
@@ -17868,7 +18656,7 @@ eurex_cash_eti_t7_v7_1_dissect.extended_deletion_report_fields = function(buffer
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
-  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, triggered = eurex_cash_eti_t7_v7_1_dissect.triggered(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -17922,31 +18710,31 @@ eurex_cash_eti_t7_v7_1_dissect.enter_tes_trade_request_fields = function(buffer,
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = eurex_cash_eti_t7_v7_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_cash_eti_t7_v7_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
   -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer
   index, settl_curr_fx_rate = eurex_cash_eti_t7_v7_1_dissect.settl_curr_fx_rate(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Settl Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settl Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settl_date = eurex_cash_eti_t7_v7_1_dissect.settl_date(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer
+  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_side_allocs = eurex_cash_eti_t7_v7_1_dissect.no_side_allocs(buffer, index, packet, parent)
 
   -- Trade Report Text: 20 Byte Ascii String Nullable
@@ -18115,10 +18903,10 @@ eurex_cash_eti_t7_v7_1_dissect.enter_best_quote_request_fields = function(buffer
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Px: 8 Byte Unsigned Fixed Width Integer
@@ -18145,28 +18933,28 @@ eurex_cash_eti_t7_v7_1_dissect.enter_best_quote_request_fields = function(buffer
   -- Peg Offset Value Offer Px: 8 Byte Unsigned Fixed Width Integer
   index, peg_offset_value_offer_px = eurex_cash_eti_t7_v7_1_dissect.peg_offset_value_offer_px(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, enrichment_rule_id = eurex_cash_eti_t7_v7_1_dissect.enrichment_rule_id(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -18220,19 +19008,19 @@ eurex_cash_eti_t7_v7_1_dissect.delete_tes_trade_request_fields = function(buffer
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
   -- Trade Report Id: 20 Byte Ascii String Nullable
@@ -18289,34 +19077,34 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_single_request_fields = function(buf
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.target_party_id_session_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
@@ -18370,19 +19158,19 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_response_fields = function(buffer, o
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
@@ -18391,7 +19179,7 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_response_fields = function(buffer, o
   -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
   index, cxl_qty = eurex_cash_eti_t7_v7_1_dissect.cxl_qty(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -18400,10 +19188,10 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_response_fields = function(buffer, o
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transaction_delay_indicator = eurex_cash_eti_t7_v7_1_dissect.transaction_delay_indicator(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -18454,19 +19242,19 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_nr_response_fields = function(buffer
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
@@ -18475,7 +19263,7 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_nr_response_fields = function(buffer
   -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
   index, cxl_qty = eurex_cash_eti_t7_v7_1_dissect.cxl_qty(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -18484,10 +19272,10 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_nr_response_fields = function(buffer
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Transaction Delay Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, transaction_delay_indicator = eurex_cash_eti_t7_v7_1_dissect.transaction_delay_indicator(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
@@ -18538,19 +19326,19 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_broadcast_fields = function(buffer, 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_cash_eti_t7_v7_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
@@ -18559,22 +19347,22 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_broadcast_fields = function(buffer, 
   -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
   index, cxl_qty = eurex_cash_eti_t7_v7_1_dissect.cxl_qty(buffer, index, packet, parent)
 
-  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_sfx = eurex_cash_eti_t7_v7_1_dissect.order_id_sfx(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_entering_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_trader(buffer, index, packet, parent)
 
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.party_id_session_id(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 44 values
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 45 values
   index, exec_restatement_reason = eurex_cash_eti_t7_v7_1_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -18583,7 +19371,7 @@ eurex_cash_eti_t7_v7_1_dissect.delete_order_broadcast_fields = function(buffer, 
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
   index, exec_type = eurex_cash_eti_t7_v7_1_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
@@ -18637,10 +19425,10 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_quote_response_fields = function(buffe
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer
+  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_securities = eurex_cash_eti_t7_v7_1_dissect.no_not_affected_securities(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -18699,22 +19487,22 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_quote_request_fields = function(buffer
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.target_party_id_session_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -18790,31 +19578,31 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_quote_broadcast_fields = function(buff
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.target_party_id_session_id(buffer, index, packet, parent)
 
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_entering_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_trader(buffer, index, packet, parent)
 
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.target_party_id_executing_trader(buffer, index, packet, parent)
 
-  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer
+  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_securities = eurex_cash_eti_t7_v7_1_dissect.no_not_affected_securities(buffer, index, packet, parent)
 
-  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, mass_action_reason = eurex_cash_eti_t7_v7_1_dissect.mass_action_reason(buffer, index, packet, parent)
 
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
   -- Target Party Id Desk Id: 3 Byte Ascii String Nullable
@@ -18853,6 +19641,11 @@ eurex_cash_eti_t7_v7_1_size_of.affected_order_request_id = 4
 
 -- Display: Affected Order Request Id
 eurex_cash_eti_t7_v7_1_display.affected_order_request_id = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Affected Order Request Id: No Value"
+  end
+
   return "Affected Order Request Id: "..value
 end
 
@@ -18888,7 +19681,7 @@ end
 eurex_cash_eti_t7_v7_1_dissect.affected_order_requests_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Affected Order Request Id: 4 Byte Unsigned Fixed Width Integer
+  -- Affected Order Request Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, affected_order_request_id = eurex_cash_eti_t7_v7_1_dissect.affected_order_request_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -18915,6 +19708,11 @@ eurex_cash_eti_t7_v7_1_size_of.affected_orig_cl_ord_id = 8
 
 -- Display: Affected Orig Cl Ord Id
 eurex_cash_eti_t7_v7_1_display.affected_orig_cl_ord_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Affected Orig Cl Ord Id: No Value"
+  end
+
   return "Affected Orig Cl Ord Id: "..value
 end
 
@@ -18935,6 +19733,11 @@ eurex_cash_eti_t7_v7_1_size_of.affected_order_id = 8
 
 -- Display: Affected Order Id
 eurex_cash_eti_t7_v7_1_display.affected_order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Affected Order Id: No Value"
+  end
+
   return "Affected Order Id: "..value
 end
 
@@ -18970,10 +19773,10 @@ end
 eurex_cash_eti_t7_v7_1_dissect.affected_ord_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, affected_order_id = eurex_cash_eti_t7_v7_1_dissect.affected_order_id(buffer, index, packet, parent)
 
-  -- Affected Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Affected Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, affected_orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.affected_orig_cl_ord_id(buffer, index, packet, parent)
 
   return index
@@ -18997,6 +19800,11 @@ eurex_cash_eti_t7_v7_1_size_of.not_aff_orig_cl_ord_id = 8
 
 -- Display: Not Aff Orig Cl Ord Id
 eurex_cash_eti_t7_v7_1_display.not_aff_orig_cl_ord_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Not Aff Orig Cl Ord Id: No Value"
+  end
+
   return "Not Aff Orig Cl Ord Id: "..value
 end
 
@@ -19017,6 +19825,11 @@ eurex_cash_eti_t7_v7_1_size_of.not_affected_order_id = 8
 
 -- Display: Not Affected Order Id
 eurex_cash_eti_t7_v7_1_display.not_affected_order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Not Affected Order Id: No Value"
+  end
+
   return "Not Affected Order Id: "..value
 end
 
@@ -19052,10 +19865,10 @@ end
 eurex_cash_eti_t7_v7_1_dissect.not_affected_orders_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Not Affected Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Not Affected Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, not_affected_order_id = eurex_cash_eti_t7_v7_1_dissect.not_affected_order_id(buffer, index, packet, parent)
 
-  -- Not Aff Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
+  -- Not Aff Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, not_aff_orig_cl_ord_id = eurex_cash_eti_t7_v7_1_dissect.not_aff_orig_cl_ord_id(buffer, index, packet, parent)
 
   return index
@@ -19079,6 +19892,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_affected_order_requests = 2
 
 -- Display: No Affected Order Requests
 eurex_cash_eti_t7_v7_1_display.no_affected_order_requests = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Affected Order Requests: No Value"
+  end
+
   return "No Affected Order Requests: "..value
 end
 
@@ -19099,6 +19917,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_affected_orders = 2
 
 -- Display: No Affected Orders
 eurex_cash_eti_t7_v7_1_display.no_affected_orders = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Affected Orders: No Value"
+  end
+
   return "No Affected Orders: "..value
 end
 
@@ -19119,6 +19942,11 @@ eurex_cash_eti_t7_v7_1_size_of.no_not_affected_orders = 2
 
 -- Display: No Not Affected Orders
 eurex_cash_eti_t7_v7_1_display.no_not_affected_orders = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Not Affected Orders: No Value"
+  end
+
   return "No Not Affected Orders: "..value
 end
 
@@ -19159,16 +19987,16 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_order_response_fields = function(buffe
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.response_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer
+  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_orders = eurex_cash_eti_t7_v7_1_dissect.no_not_affected_orders(buffer, index, packet, parent)
 
-  -- No Affected Orders: 2 Byte Unsigned Fixed Width Integer
+  -- No Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_affected_orders = eurex_cash_eti_t7_v7_1_dissect.no_affected_orders(buffer, index, packet, parent)
 
-  -- No Affected Order Requests: 2 Byte Unsigned Fixed Width Integer
+  -- No Affected Order Requests: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_affected_order_requests = eurex_cash_eti_t7_v7_1_dissect.no_affected_order_requests(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19237,34 +20065,34 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_order_request_fields = function(buffer
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = eurex_cash_eti_t7_v7_1_dissect.price(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.target_party_id_session_id(buffer, index, packet, parent)
 
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.target_party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Pad 1: 1 Byte
@@ -19315,19 +20143,19 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_order_quote_event_broadcast_fields = f
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, mass_action_reason = eurex_cash_eti_t7_v7_1_dissect.mass_action_reason(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19378,7 +20206,7 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_order_nr_response_fields = function(bu
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
   return index
@@ -19426,46 +20254,46 @@ eurex_cash_eti_t7_v7_1_dissect.delete_all_order_broadcast_fields = function(buff
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, mass_action_report_id = eurex_cash_eti_t7_v7_1_dissect.mass_action_report_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = eurex_cash_eti_t7_v7_1_dissect.price(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_session_id = eurex_cash_eti_t7_v7_1_dissect.target_party_id_session_id(buffer, index, packet, parent)
 
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_executing_trader = eurex_cash_eti_t7_v7_1_dissect.target_party_id_executing_trader(buffer, index, packet, parent)
 
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_entering_trader = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_trader(buffer, index, packet, parent)
 
-  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer
+  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_orders = eurex_cash_eti_t7_v7_1_dissect.no_not_affected_orders(buffer, index, packet, parent)
 
-  -- No Affected Orders: 2 Byte Unsigned Fixed Width Integer
+  -- No Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_affected_orders = eurex_cash_eti_t7_v7_1_dissect.no_affected_orders(buffer, index, packet, parent)
 
-  -- No Affected Order Requests: 2 Byte Unsigned Fixed Width Integer
+  -- No Affected Order Requests: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_affected_order_requests = eurex_cash_eti_t7_v7_1_dissect.no_affected_order_requests(buffer, index, packet, parent)
 
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_entering_firm = eurex_cash_eti_t7_v7_1_dissect.party_id_entering_firm(buffer, index, packet, parent)
 
-  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, mass_action_reason = eurex_cash_eti_t7_v7_1_dissect.mass_action_reason(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, exec_inst = eurex_cash_eti_t7_v7_1_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
@@ -19531,7 +20359,7 @@ eurex_cash_eti_t7_v7_1_dissect.cross_request_response_fields = function(buffer, 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
   return index
@@ -19582,13 +20410,13 @@ eurex_cash_eti_t7_v7_1_dissect.cross_request_fields = function(buffer, offset, p
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer
   index, order_qty = eurex_cash_eti_t7_v7_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -19621,6 +20449,9 @@ eurex_cash_eti_t7_v7_1_size_of.appl_id_status = 4
 eurex_cash_eti_t7_v7_1_display.appl_id_status = function(value)
   if value == 105 then
     return "Appl Id Status: Outboundconversionerror (105)"
+  end
+  if value == 0xFFFFFFFF then
+    return "Appl Id Status: No Value"
   end
 
   return "Appl Id Status: Unknown("..value..")"
@@ -19663,19 +20494,19 @@ eurex_cash_eti_t7_v7_1_dissect.broadcast_error_notification_fields = function(bu
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v7_1_dissect.notif_header_comp(buffer, index, packet, parent)
 
-  -- Appl Id Status: 4 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Appl Id Status: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, appl_id_status = eurex_cash_eti_t7_v7_1_dissect.appl_id_status(buffer, index, packet, parent)
 
-  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer
+  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, ref_appl_sub_id = eurex_cash_eti_t7_v7_1_dissect.ref_appl_sub_id(buffer, index, packet, parent)
 
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = eurex_cash_eti_t7_v7_1_dissect.var_text_len(buffer, index, packet, parent)
 
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, ref_appl_id = eurex_cash_eti_t7_v7_1_dissect.ref_appl_id(buffer, index, packet, parent)
 
-  -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, session_status = eurex_cash_eti_t7_v7_1_dissect.session_status(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -19729,13 +20560,13 @@ eurex_cash_eti_t7_v7_1_dissect.best_quote_response_fields = function(buffer, off
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_cash_eti_t7_v7_1_dissect.quote_id(buffer, index, packet, parent)
 
-  -- Quote Response Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_response_id = eurex_cash_eti_t7_v7_1_dissect.quote_response_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Cxl Size: 8 Byte Unsigned Fixed Width Integer
@@ -19744,7 +20575,7 @@ eurex_cash_eti_t7_v7_1_dissect.best_quote_response_fields = function(buffer, off
   -- Offer Cxl Size: 8 Byte Unsigned Fixed Width Integer
   index, offer_cxl_size = eurex_cash_eti_t7_v7_1_dissect.offer_cxl_size(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
@@ -19821,13 +20652,13 @@ eurex_cash_eti_t7_v7_1_dissect.best_quote_execution_report_fields = function(buf
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v7_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v7_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_msg_id = eurex_cash_eti_t7_v7_1_dissect.quote_msg_id(buffer, index, packet, parent)
 
-  -- Security Id: 8 Byte Signed Fixed Width Integer
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v7_1_dissect.security_id(buffer, index, packet, parent)
 
   -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer
@@ -19839,19 +20670,19 @@ eurex_cash_eti_t7_v7_1_dissect.best_quote_execution_report_fields = function(buf
   -- Reserved Size: 8 Byte Unsigned Fixed Width Integer
   index, reserved_size = eurex_cash_eti_t7_v7_1_dissect.reserved_size(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Quote Event Match Id: 4 Byte Unsigned Fixed Width Integer
+  -- Quote Event Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, quote_event_match_id = eurex_cash_eti_t7_v7_1_dissect.quote_event_match_id(buffer, index, packet, parent)
 
-  -- Quote Event Exec Id: 4 Byte Signed Fixed Width Integer
+  -- Quote Event Exec Id: 4 Byte Signed Fixed Width Integer Nullable
   index, quote_event_exec_id = eurex_cash_eti_t7_v7_1_dissect.quote_event_exec_id(buffer, index, packet, parent)
 
-  -- Quote Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Quote Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, quote_event_type = eurex_cash_eti_t7_v7_1_dissect.quote_event_type(buffer, index, packet, parent)
 
-  -- Quote Event Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Quote Event Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, quote_event_side = eurex_cash_eti_t7_v7_1_dissect.quote_event_side(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
@@ -19905,55 +20736,55 @@ eurex_cash_eti_t7_v7_1_dissect.approve_tes_trade_request_fields = function(buffe
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v7_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_cash_eti_t7_v7_1_dissect.party_id_client_id(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_investment_decision_maker = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_cash_eti_t7_v7_1_dissect.executing_trader(buffer, index, packet, parent)
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
   index, alloc_qty = eurex_cash_eti_t7_v7_1_dissect.alloc_qty(buffer, index, packet, parent)
 
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_cash_eti_t7_v7_1_dissect.package_id(buffer, index, packet, parent)
 
-  -- Alloc Id: 4 Byte Unsigned Fixed Width Integer
+  -- Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_id = eurex_cash_eti_t7_v7_1_dissect.alloc_id(buffer, index, packet, parent)
 
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, tes_exec_id = eurex_cash_eti_t7_v7_1_dissect.tes_exec_id(buffer, index, packet, parent)
 
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = eurex_cash_eti_t7_v7_1_dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trd_type = eurex_cash_eti_t7_v7_1_dissect.trd_type(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trading_capacity = eurex_cash_eti_t7_v7_1_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, trade_report_type = eurex_cash_eti_t7_v7_1_dissect.trade_report_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, side = eurex_cash_eti_t7_v7_1_dissect.side(buffer, index, packet, parent)
 
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_value = eurex_cash_eti_t7_v7_1_dissect.value_check_type_value(buffer, index, packet, parent)
 
-  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Value Check Type Quantity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, value_check_type_quantity = eurex_cash_eti_t7_v7_1_dissect.value_check_type_quantity(buffer, index, packet, parent)
 
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_attribute_liquidity_provision = eurex_cash_eti_t7_v7_1_dissect.order_attribute_liquidity_provision(buffer, index, packet, parent)
 
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, party_id_investment_decision_maker_qualifier = eurex_cash_eti_t7_v7_1_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
 
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, executing_trader_qualifier = eurex_cash_eti_t7_v7_1_dissect.executing_trader_qualifier(buffer, index, packet, parent)
 
   -- Trade Report Id: 20 Byte Ascii String Nullable
@@ -20895,7 +21726,332 @@ eurex_cash_eti_t7_v7_1_size_of.template_id = 2
 
 -- Display: Template Id
 eurex_cash_eti_t7_v7_1_display.template_id = function(value)
-  return "Template Id: "..value
+  if value == 0xFFFF then
+    return "Template Id: No Value"
+  end
+  if value == 10603 then
+    return "Template Id: Approve Tes Trade Request (10603)"
+  end
+  if value == 10414 then
+    return "Template Id: Best Quote Execution Report (10414)"
+  end
+  if value == 10413 then
+    return "Template Id: Best Quote Response (10413)"
+  end
+  if value == 10032 then
+    return "Template Id: Broadcast Error Notification (10032)"
+  end
+  if value == 10118 then
+    return "Template Id: Cross Request (10118)"
+  end
+  if value == 10119 then
+    return "Template Id: Cross Request Response (10119)"
+  end
+  if value == 10122 then
+    return "Template Id: Delete All Order Broadcast (10122)"
+  end
+  if value == 10124 then
+    return "Template Id: Delete All Order Nr Response (10124)"
+  end
+  if value == 10308 then
+    return "Template Id: Delete All Order Quote Event Broadcast (10308)"
+  end
+  if value == 10120 then
+    return "Template Id: Delete All Order Request (10120)"
+  end
+  if value == 10121 then
+    return "Template Id: Delete All Order Response (10121)"
+  end
+  if value == 10410 then
+    return "Template Id: Delete All Quote Broadcast (10410)"
+  end
+  if value == 10408 then
+    return "Template Id: Delete All Quote Request (10408)"
+  end
+  if value == 10409 then
+    return "Template Id: Delete All Quote Response (10409)"
+  end
+  if value == 10112 then
+    return "Template Id: Delete Order Broadcast (10112)"
+  end
+  if value == 10111 then
+    return "Template Id: Delete Order Nr Response (10111)"
+  end
+  if value == 10110 then
+    return "Template Id: Delete Order Response (10110)"
+  end
+  if value == 10109 then
+    return "Template Id: Delete Order Single Request (10109)"
+  end
+  if value == 10602 then
+    return "Template Id: Delete Tes Trade Request (10602)"
+  end
+  if value == 10412 then
+    return "Template Id: Enter Best Quote Request (10412)"
+  end
+  if value == 10600 then
+    return "Template Id: Enter Tes Trade Request (10600)"
+  end
+  if value == 10128 then
+    return "Template Id: Extended Deletion Report (10128)"
+  end
+  if value == 10012 then
+    return "Template Id: Forced Logout Notification (10012)"
+  end
+  if value == 10043 then
+    return "Template Id: Forced User Logout Notification (10043)"
+  end
+  if value == 10011 then
+    return "Template Id: Heartbeat (10011)"
+  end
+  if value == 10023 then
+    return "Template Id: Heartbeat Notification (10023)"
+  end
+  if value == 10040 then
+    return "Template Id: Inquire Enrichment Rule Id List Request (10040)"
+  end
+  if value == 10041 then
+    return "Template Id: Inquire Enrichment Rule Id List Response (10041)"
+  end
+  if value == 10035 then
+    return "Template Id: Inquire Session List Request (10035)"
+  end
+  if value == 10036 then
+    return "Template Id: Inquire Session List Response (10036)"
+  end
+  if value == 10038 then
+    return "Template Id: Inquire User Request (10038)"
+  end
+  if value == 10039 then
+    return "Template Id: Inquire User Response (10039)"
+  end
+  if value == 10316 then
+    return "Template Id: Issuer Notification (10316)"
+  end
+  if value == 10314 then
+    return "Template Id: Issuer Security State Change Request (10314)"
+  end
+  if value == 10315 then
+    return "Template Id: Issuer Security State Change Response (10315)"
+  end
+  if value == 10037 then
+    return "Template Id: Legal Notification Broadcast (10037)"
+  end
+  if value == 10000 then
+    return "Template Id: Logon Request (10000)"
+  end
+  if value == 10001 then
+    return "Template Id: Logon Response (10001)"
+  end
+  if value == 10002 then
+    return "Template Id: Logout Request (10002)"
+  end
+  if value == 10003 then
+    return "Template Id: Logout Response (10003)"
+  end
+  if value == 10405 then
+    return "Template Id: Mass Quote Request (10405)"
+  end
+  if value == 10406 then
+    return "Template Id: Mass Quote Response (10406)"
+  end
+  if value == 10108 then
+    return "Template Id: Modify Order Nr Response (10108)"
+  end
+  if value == 10107 then
+    return "Template Id: Modify Order Response (10107)"
+  end
+  if value == 10106 then
+    return "Template Id: Modify Order Single Request (10106)"
+  end
+  if value == 10126 then
+    return "Template Id: Modify Order Single Short Request (10126)"
+  end
+  if value == 10601 then
+    return "Template Id: Modify Tes Trade Request (10601)"
+  end
+  if value == 10102 then
+    return "Template Id: New Order Nr Response (10102)"
+  end
+  if value == 10101 then
+    return "Template Id: New Order Response (10101)"
+  end
+  if value == 10100 then
+    return "Template Id: New Order Single Request (10100)"
+  end
+  if value == 10125 then
+    return "Template Id: New Order Single Short Request (10125)"
+  end
+  if value == 10031 then
+    return "Template Id: News Broadcast (10031)"
+  end
+  if value == 10104 then
+    return "Template Id: Order Exec Notification (10104)"
+  end
+  if value == 10117 then
+    return "Template Id: Order Exec Report Broadcast (10117)"
+  end
+  if value == 10103 then
+    return "Template Id: Order Exec Response (10103)"
+  end
+  if value == 10042 then
+    return "Template Id: Party Action Report (10042)"
+  end
+  if value == 10034 then
+    return "Template Id: Party Entitlements Update Report (10034)"
+  end
+  if value == 10411 then
+    return "Template Id: Quote Activation Notification (10411)"
+  end
+  if value == 10403 then
+    return "Template Id: Quote Activation Request (10403)"
+  end
+  if value == 10404 then
+    return "Template Id: Quote Activation Response (10404)"
+  end
+  if value == 10407 then
+    return "Template Id: Quote Execution Report (10407)"
+  end
+  if value == 10415 then
+    return "Template Id: Rfq Broadcast (10415)"
+  end
+  if value == 10401 then
+    return "Template Id: Rfq Request (10401)"
+  end
+  if value == 10402 then
+    return "Template Id: Rfq Response (10402)"
+  end
+  if value == 10010 then
+    return "Template Id: Reject (10010)"
+  end
+  if value == 10026 then
+    return "Template Id: Retransmit Me Message Request (10026)"
+  end
+  if value == 10027 then
+    return "Template Id: Retransmit Me Message Response (10027)"
+  end
+  if value == 10008 then
+    return "Template Id: Retransmit Request (10008)"
+  end
+  if value == 10009 then
+    return "Template Id: Retransmit Response (10009)"
+  end
+  if value == 10030 then
+    return "Template Id: Service Availability Broadcast (10030)"
+  end
+  if value == 10044 then
+    return "Template Id: Service Availability Market Broadcast (10044)"
+  end
+  if value == 10025 then
+    return "Template Id: Subscribe Request (10025)"
+  end
+  if value == 10005 then
+    return "Template Id: Subscribe Response (10005)"
+  end
+  if value == 10607 then
+    return "Template Id: Tes Approve Broadcast (10607)"
+  end
+  if value == 10604 then
+    return "Template Id: Tes Broadcast (10604)"
+  end
+  if value == 10606 then
+    return "Template Id: Tes Delete Broadcast (10606)"
+  end
+  if value == 10610 then
+    return "Template Id: Tes Execution Broadcast (10610)"
+  end
+  if value == 10611 then
+    return "Template Id: Tes Response (10611)"
+  end
+  if value == 10614 then
+    return "Template Id: Tes Trade Broadcast (10614)"
+  end
+  if value == 10615 then
+    return "Template Id: Tes Trading Session Status Broadcast (10615)"
+  end
+  if value == 10501 then
+    return "Template Id: Tm Trading Session Status Broadcast (10501)"
+  end
+  if value == 10028 then
+    return "Template Id: Throttle Update Notification (10028)"
+  end
+  if value == 10500 then
+    return "Template Id: Trade Broadcast (10500)"
+  end
+  if value == 10307 then
+    return "Template Id: Trading Session Status Broadcast (10307)"
+  end
+  if value == 10127 then
+    return "Template Id: Trailing Stop Update Notification (10127)"
+  end
+  if value == 10006 then
+    return "Template Id: Unsubscribe Request (10006)"
+  end
+  if value == 10007 then
+    return "Template Id: Unsubscribe Response (10007)"
+  end
+  if value == 10018 then
+    return "Template Id: User Login Request (10018)"
+  end
+  if value == 10019 then
+    return "Template Id: User Login Response (10019)"
+  end
+  if value == 10029 then
+    return "Template Id: User Logout Request (10029)"
+  end
+  if value == 10024 then
+    return "Template Id: User Logout Response (10024)"
+  end
+  if value == 10808 then
+    return "Template Id: Xetra En Light Create Deal Notification (10808)"
+  end
+  if value == 10805 then
+    return "Template Id: Xetra En Light Deal Response (10805)"
+  end
+  if value == 10802 then
+    return "Template Id: Xetra En Light Enter Quote Request (10802)"
+  end
+  if value == 10804 then
+    return "Template Id: Xetra En Light Hit Quote Request (10804)"
+  end
+  if value == 10813 then
+    return "Template Id: Xetra En Light Negotiation Notification (10813)"
+  end
+  if value == 10812 then
+    return "Template Id: Xetra En Light Negotiation Requester Notification (10812)"
+  end
+  if value == 10815 then
+    return "Template Id: Xetra En Light Negotiation Status Notification (10815)"
+  end
+  if value == 10811 then
+    return "Template Id: Xetra En Light Open Negotiation Notification (10811)"
+  end
+  if value == 10800 then
+    return "Template Id: Xetra En Light Open Negotiation Request (10800)"
+  end
+  if value == 10810 then
+    return "Template Id: Xetra En Light Open Negotiation Requester Notification (10810)"
+  end
+  if value == 10807 then
+    return "Template Id: Xetra En Light Quote Notification (10807)"
+  end
+  if value == 10816 then
+    return "Template Id: Xetra En Light Quote Requester Notification (10816)"
+  end
+  if value == 10803 then
+    return "Template Id: Xetra En Light Quote Response (10803)"
+  end
+  if value == 10817 then
+    return "Template Id: Xetra En Light Quoting Status Request (10817)"
+  end
+  if value == 10814 then
+    return "Template Id: Xetra En Light Status Broadcast (10814)"
+  end
+  if value == 10801 then
+    return "Template Id: Xetra En Light Update Negotiation Request (10801)"
+  end
+
+  return "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -20915,6 +22071,11 @@ eurex_cash_eti_t7_v7_1_size_of.body_len = 4
 
 -- Display: Body Len
 eurex_cash_eti_t7_v7_1_display.body_len = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Body Len: No Value"
+  end
+
   return "Body Len: "..value
 end
 
@@ -20950,10 +22111,10 @@ end
 eurex_cash_eti_t7_v7_1_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Body Len: 4 Byte Unsigned Fixed Width Integer
+  -- Body Len: 4 Byte Unsigned Fixed Width Integer Nullable
   index, body_len = eurex_cash_eti_t7_v7_1_dissect.body_len(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 108 values
   index, template_id = eurex_cash_eti_t7_v7_1_dissect.template_id(buffer, index, packet, parent)
 
   return index
