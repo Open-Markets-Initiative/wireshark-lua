@@ -2060,12 +2060,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.stop_px = 8
 
 -- Display: Stop Px
-eurex_cash_eti_t7_v6_0_display.stop_px = function(value)
+eurex_cash_eti_t7_v6_0_display.stop_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Stop Px: No Value"
+  end
+
   return "Stop Px: "..value
 end
 
 -- Translate: Stop Px
 translate.stop_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -2075,7 +2085,7 @@ eurex_cash_eti_t7_v6_0_dissect.stop_px = function(buffer, offset, packet, parent
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.stop_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.stop_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.stop_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.stop_px, range, value, display)
 
@@ -2580,7 +2590,7 @@ eurex_cash_eti_t7_v6_0_dissect.trailing_stop_update_notification_fields = functi
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v6_0_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_cash_eti_t7_v6_0_dissect.stop_px(buffer, index, packet, parent)
 
   -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -4184,12 +4194,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.settl_curr_fx_rate = 8
 
 -- Display: Settl Curr Fx Rate
-eurex_cash_eti_t7_v6_0_display.settl_curr_fx_rate = function(value)
+eurex_cash_eti_t7_v6_0_display.settl_curr_fx_rate = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Settl Curr Fx Rate: No Value"
+  end
+
   return "Settl Curr Fx Rate: "..value
 end
 
 -- Translate: Settl Curr Fx Rate
 translate.settl_curr_fx_rate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -4199,7 +4219,7 @@ eurex_cash_eti_t7_v6_0_dissect.settl_curr_fx_rate = function(buffer, offset, pac
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.settl_curr_fx_rate(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.settl_curr_fx_rate(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.settl_curr_fx_rate(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.settl_curr_fx_rate, range, value, display)
 
@@ -4210,12 +4230,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.settl_curr_amt = 8
 
 -- Display: Settl Curr Amt
-eurex_cash_eti_t7_v6_0_display.settl_curr_amt = function(value)
+eurex_cash_eti_t7_v6_0_display.settl_curr_amt = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Settl Curr Amt: No Value"
+  end
+
   return "Settl Curr Amt: "..value
 end
 
 -- Translate: Settl Curr Amt
 translate.settl_curr_amt = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -4225,7 +4255,7 @@ eurex_cash_eti_t7_v6_0_dissect.settl_curr_amt = function(buffer, offset, packet,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.settl_curr_amt(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.settl_curr_amt(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.settl_curr_amt(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.settl_curr_amt, range, value, display)
 
@@ -4236,12 +4266,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.last_px = 8
 
 -- Display: Last Px
-eurex_cash_eti_t7_v6_0_display.last_px = function(value)
+eurex_cash_eti_t7_v6_0_display.last_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Last Px: No Value"
+  end
+
   return "Last Px: "..value
 end
 
 -- Translate: Last Px
 translate.last_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -4251,7 +4291,7 @@ eurex_cash_eti_t7_v6_0_dissect.last_px = function(buffer, offset, packet, parent
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.last_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.last_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.last_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.last_px, range, value, display)
 
@@ -4262,12 +4302,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.price = 8
 
 -- Display: Price
-eurex_cash_eti_t7_v6_0_display.price = function(value)
+eurex_cash_eti_t7_v6_0_display.price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 translate.price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -4277,7 +4327,7 @@ eurex_cash_eti_t7_v6_0_dissect.price = function(buffer, offset, packet, parent)
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.price(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.price(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.price, range, value, display)
 
@@ -4409,16 +4459,16 @@ eurex_cash_eti_t7_v6_0_dissect.trade_broadcast_fields = function(buffer, offset,
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_cash_eti_t7_v6_0_dissect.last_px(buffer, index, packet, parent)
 
-  -- Settl Curr Amt: 8 Byte Unsigned Fixed Width Integer
+  -- Settl Curr Amt: 8 Byte Unsigned Fixed Width Integer Nullable
   index, settl_curr_amt = eurex_cash_eti_t7_v6_0_dissect.settl_curr_amt(buffer, index, packet, parent)
 
-  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer
+  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer Nullable
   index, settl_curr_fx_rate = eurex_cash_eti_t7_v6_0_dissect.settl_curr_fx_rate(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -6637,12 +6687,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
-eurex_cash_eti_t7_v6_0_display.quote_event_px = function(value)
+eurex_cash_eti_t7_v6_0_display.quote_event_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Quote Event Px: No Value"
+  end
+
   return "Quote Event Px: "..value
 end
 
 -- Translate: Quote Event Px
 translate.quote_event_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -6652,7 +6712,7 @@ eurex_cash_eti_t7_v6_0_dissect.quote_event_px = function(buffer, offset, packet,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.quote_event_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.quote_event_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.quote_event_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.quote_event_px, range, value, display)
 
@@ -6698,7 +6758,7 @@ eurex_cash_eti_t7_v6_0_dissect.quote_event_grp_comp_fields = function(buffer, of
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_event_px = eurex_cash_eti_t7_v6_0_dissect.quote_event_px(buffer, index, packet, parent)
 
   -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -8033,12 +8093,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.fill_px = 8
 
 -- Display: Fill Px
-eurex_cash_eti_t7_v6_0_display.fill_px = function(value)
+eurex_cash_eti_t7_v6_0_display.fill_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Fill Px: No Value"
+  end
+
   return "Fill Px: "..value
 end
 
 -- Translate: Fill Px
 translate.fill_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -8048,7 +8118,7 @@ eurex_cash_eti_t7_v6_0_dissect.fill_px = function(buffer, offset, packet, parent
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.fill_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.fill_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.fill_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.fill_px, range, value, display)
 
@@ -8083,7 +8153,7 @@ end
 eurex_cash_eti_t7_v6_0_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Fill Px: 8 Byte Unsigned Fixed Width Integer
+  -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, fill_px = eurex_cash_eti_t7_v6_0_dissect.fill_px(buffer, index, packet, parent)
 
   -- Fill Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -8814,12 +8884,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.peg_offset_value_pct = 8
 
 -- Display: Peg Offset Value Pct
-eurex_cash_eti_t7_v6_0_display.peg_offset_value_pct = function(value)
+eurex_cash_eti_t7_v6_0_display.peg_offset_value_pct = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Peg Offset Value Pct: No Value"
+  end
+
   return "Peg Offset Value Pct: "..value
 end
 
 -- Translate: Peg Offset Value Pct
 translate.peg_offset_value_pct = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -8829,7 +8909,7 @@ eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_pct = function(buffer, offset, p
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.peg_offset_value_pct(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_pct(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_pct(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.peg_offset_value_pct, range, value, display)
 
@@ -8840,12 +8920,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.peg_offset_value_abs = 8
 
 -- Display: Peg Offset Value Abs
-eurex_cash_eti_t7_v6_0_display.peg_offset_value_abs = function(value)
+eurex_cash_eti_t7_v6_0_display.peg_offset_value_abs = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Peg Offset Value Abs: No Value"
+  end
+
   return "Peg Offset Value Abs: "..value
 end
 
 -- Translate: Peg Offset Value Abs
 translate.peg_offset_value_abs = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -8855,7 +8945,7 @@ eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_abs = function(buffer, offset, p
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.peg_offset_value_abs(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_abs(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_abs(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.peg_offset_value_abs, range, value, display)
 
@@ -8866,12 +8956,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.volume_discovery_price = 8
 
 -- Display: Volume Discovery Price
-eurex_cash_eti_t7_v6_0_display.volume_discovery_price = function(value)
+eurex_cash_eti_t7_v6_0_display.volume_discovery_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Volume Discovery Price: No Value"
+  end
+
   return "Volume Discovery Price: "..value
 end
 
 -- Translate: Volume Discovery Price
 translate.volume_discovery_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -8881,7 +8981,7 @@ eurex_cash_eti_t7_v6_0_dissect.volume_discovery_price = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.volume_discovery_price(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.volume_discovery_price(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.volume_discovery_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.volume_discovery_price, range, value, display)
 
@@ -8934,19 +9034,19 @@ eurex_cash_eti_t7_v6_0_dissect.order_exec_report_broadcast_fields = function(buf
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_cash_eti_t7_v6_0_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_cash_eti_t7_v6_0_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer
+  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_cash_eti_t7_v6_0_dissect.volume_discovery_price(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_abs(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -9509,7 +9609,7 @@ eurex_cash_eti_t7_v6_0_dissect.new_order_single_short_request_fields = function(
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -9617,19 +9717,19 @@ eurex_cash_eti_t7_v6_0_dissect.new_order_single_request_fields = function(buffer
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_cash_eti_t7_v6_0_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer
+  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_cash_eti_t7_v6_0_dissect.volume_discovery_price(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_abs(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -9944,7 +10044,7 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_single_short_request_fields = functi
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -10121,19 +10221,19 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_single_request_fields = function(buf
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_cash_eti_t7_v6_0_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer
+  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_cash_eti_t7_v6_0_dissect.volume_discovery_price(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_abs(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -10292,7 +10392,7 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_response_fields = function(buffer, o
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v6_0_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_cash_eti_t7_v6_0_dissect.stop_px(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -10391,7 +10491,7 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_nr_response_fields = function(buffer
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_cash_eti_t7_v6_0_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_cash_eti_t7_v6_0_dissect.stop_px(buffer, index, packet, parent)
 
   -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -10882,12 +10982,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.offer_px = 8
 
 -- Display: Offer Px
-eurex_cash_eti_t7_v6_0_display.offer_px = function(value)
+eurex_cash_eti_t7_v6_0_display.offer_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Offer Px: No Value"
+  end
+
   return "Offer Px: "..value
 end
 
 -- Translate: Offer Px
 translate.offer_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -10897,7 +11007,7 @@ eurex_cash_eti_t7_v6_0_dissect.offer_px = function(buffer, offset, packet, paren
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.offer_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.offer_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.offer_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.offer_px, range, value, display)
 
@@ -10908,12 +11018,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.bid_px = 8
 
 -- Display: Bid Px
-eurex_cash_eti_t7_v6_0_display.bid_px = function(value)
+eurex_cash_eti_t7_v6_0_display.bid_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Bid Px: No Value"
+  end
+
   return "Bid Px: "..value
 end
 
 -- Translate: Bid Px
 translate.bid_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -10923,7 +11043,7 @@ eurex_cash_eti_t7_v6_0_dissect.bid_px = function(buffer, offset, packet, parent)
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.bid_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.bid_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.bid_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.bid_px, range, value, display)
 
@@ -10959,10 +11079,10 @@ eurex_cash_eti_t7_v6_0_dissect.quote_entry_grp_comp_fields = function(buffer, of
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_cash_eti_t7_v6_0_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_cash_eti_t7_v6_0_dissect.offer_px(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Signed Fixed Width Integer Nullable
@@ -13192,19 +13312,19 @@ eurex_cash_eti_t7_v6_0_dissect.extended_deletion_report_fields = function(buffer
   -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_entry_time = eurex_cash_eti_t7_v6_0_dissect.trd_reg_ts_entry_time(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_cash_eti_t7_v6_0_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer
+  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_cash_eti_t7_v6_0_dissect.volume_discovery_price(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_abs(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_pct(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -13377,12 +13497,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.peg_offset_value_offer_px = 8
 
 -- Display: Peg Offset Value Offer Px
-eurex_cash_eti_t7_v6_0_display.peg_offset_value_offer_px = function(value)
+eurex_cash_eti_t7_v6_0_display.peg_offset_value_offer_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Peg Offset Value Offer Px: No Value"
+  end
+
   return "Peg Offset Value Offer Px: "..value
 end
 
 -- Translate: Peg Offset Value Offer Px
 translate.peg_offset_value_offer_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -13392,7 +13522,7 @@ eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_offer_px = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.peg_offset_value_offer_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_offer_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_offer_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.peg_offset_value_offer_px, range, value, display)
 
@@ -13403,12 +13533,22 @@ end
 eurex_cash_eti_t7_v6_0_size_of.peg_offset_value_bid_px = 8
 
 -- Display: Peg Offset Value Bid Px
-eurex_cash_eti_t7_v6_0_display.peg_offset_value_bid_px = function(value)
+eurex_cash_eti_t7_v6_0_display.peg_offset_value_bid_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Peg Offset Value Bid Px: No Value"
+  end
+
   return "Peg Offset Value Bid Px: "..value
 end
 
 -- Translate: Peg Offset Value Bid Px
 translate.peg_offset_value_bid_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -13418,7 +13558,7 @@ eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_bid_px = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.peg_offset_value_bid_px(raw)
-  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_bid_px(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v6_0_display.peg_offset_value_bid_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v6_0.fields.peg_offset_value_bid_px, range, value, display)
 
@@ -13459,16 +13599,16 @@ eurex_cash_eti_t7_v6_0_dissect.enter_best_quote_request_fields = function(buffer
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_cash_eti_t7_v6_0_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_cash_eti_t7_v6_0_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Peg Offset Value Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_bid_px = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_bid_px(buffer, index, packet, parent)
 
-  -- Peg Offset Value Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Peg Offset Value Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, peg_offset_value_offer_px = eurex_cash_eti_t7_v6_0_dissect.peg_offset_value_offer_px(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -14459,7 +14599,7 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_order_request_fields = function(buffer
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -14651,7 +14791,7 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_order_broadcast_fields = function(buff
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_cash_eti_t7_v6_0_dissect.price(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -15037,7 +15177,7 @@ eurex_cash_eti_t7_v6_0_dissect.best_quote_execution_report_fields = function(buf
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_cash_eti_t7_v6_0_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_event_px = eurex_cash_eti_t7_v6_0_dissect.quote_event_px(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable

@@ -3042,12 +3042,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.leg_qty = 8
 
 -- Display: Leg Qty
-eurex_derivatives_eti_t7_v12_1_display.leg_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.leg_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leg Qty: No Value"
+  end
+
   return "Leg Qty: "..value
 end
 
 -- Translate: Leg Qty
 translate.leg_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -3057,7 +3067,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.leg_qty = function(buffer, offset, packet
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.leg_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.leg_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.leg_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.leg_qty, range, value, display)
 
@@ -3068,12 +3078,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.leg_price = 8
 
 -- Display: Leg Price
-eurex_derivatives_eti_t7_v12_1_display.leg_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.leg_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leg Price: No Value"
+  end
+
   return "Leg Price: "..value
 end
 
 -- Translate: Leg Price
 translate.leg_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -3083,7 +3103,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.leg_price = function(buffer, offset, pack
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.leg_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.leg_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.leg_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.leg_price, range, value, display)
 
@@ -3140,10 +3160,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.trd_instrmnt_leg_grp_comp_fields = functi
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v12_1_dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_price = eurex_derivatives_eti_t7_v12_1_dissect.leg_price(buffer, index, packet, parent)
 
-  -- Leg Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_qty = eurex_derivatives_eti_t7_v12_1_dissect.leg_qty(buffer, index, packet, parent)
 
   return index
@@ -3989,12 +4009,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.alloc_qty = 8
 
 -- Display: Alloc Qty
-eurex_derivatives_eti_t7_v12_1_display.alloc_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.alloc_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Alloc Qty: No Value"
+  end
+
   return "Alloc Qty: "..value
 end
 
 -- Translate: Alloc Qty
 translate.alloc_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -4004,7 +4034,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty = function(buffer, offset, pack
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.alloc_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.alloc_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.alloc_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.alloc_qty, range, value, display)
 
@@ -4089,7 +4119,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -5043,12 +5073,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.underlying_qty = 8
 
 -- Display: Underlying Qty
-eurex_derivatives_eti_t7_v12_1_display.underlying_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.underlying_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Underlying Qty: No Value"
+  end
+
   return "Underlying Qty: "..value
 end
 
 -- Translate: Underlying Qty
 translate.underlying_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -5058,7 +5098,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.underlying_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.underlying_qty, range, value, display)
 
@@ -5069,12 +5109,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.related_px = 8
 
 -- Display: Related Px
-eurex_derivatives_eti_t7_v12_1_display.related_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.related_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Related Px: No Value"
+  end
+
   return "Related Px: "..value
 end
 
 -- Translate: Related Px
 translate.related_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -5084,7 +5134,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.related_px = function(buffer, offset, pac
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.related_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.related_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.related_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.related_px, range, value, display)
 
@@ -5120,12 +5170,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.related_trade_quantity = 8
 
 -- Display: Related Trade Quantity
-eurex_derivatives_eti_t7_v12_1_display.related_trade_quantity = function(value)
+eurex_derivatives_eti_t7_v12_1_display.related_trade_quantity = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Related Trade Quantity: No Value"
+  end
+
   return "Related Trade Quantity: "..value
 end
 
 -- Translate: Related Trade Quantity
 translate.related_trade_quantity = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -5135,7 +5195,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.related_trade_quantity = function(buffer,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.related_trade_quantity(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.related_trade_quantity(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.related_trade_quantity(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.related_trade_quantity, range, value, display)
 
@@ -5146,12 +5206,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.related_close_price = 8
 
 -- Display: Related Close Price
-eurex_derivatives_eti_t7_v12_1_display.related_close_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.related_close_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Related Close Price: No Value"
+  end
+
   return "Related Close Price: "..value
 end
 
 -- Translate: Related Close Price
 translate.related_close_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -5161,7 +5231,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.related_close_price = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.related_close_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.related_close_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.related_close_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.related_close_price, range, value, display)
 
@@ -5172,12 +5242,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.underlying_px = 8
 
 -- Display: Underlying Px
-eurex_derivatives_eti_t7_v12_1_display.underlying_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.underlying_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Underlying Px: No Value"
+  end
+
   return "Underlying Px: "..value
 end
 
 -- Translate: Underlying Px
 translate.underlying_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -5187,7 +5267,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.underlying_px = function(buffer, offset, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.underlying_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.underlying_px, range, value, display)
 
@@ -5226,12 +5306,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.last_px = 8
 
 -- Display: Last Px
-eurex_derivatives_eti_t7_v12_1_display.last_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.last_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Last Px: No Value"
+  end
+
   return "Last Px: "..value
 end
 
 -- Translate: Last Px
 translate.last_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -5241,7 +5331,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.last_px = function(buffer, offset, packet
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.last_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.last_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.last_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.last_px, range, value, display)
 
@@ -5304,28 +5394,28 @@ eurex_derivatives_eti_t7_v12_1_dissect.upload_tes_trade_request_fields = functio
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_derivatives_eti_t7_v12_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
-  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_trade_quantity = eurex_derivatives_eti_t7_v12_1_dissect.related_trade_quantity(buffer, index, packet, parent)
 
   -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, related_security_id = eurex_derivatives_eti_t7_v12_1_dissect.related_security_id(buffer, index, packet, parent)
 
-  -- Related Px: 8 Byte Unsigned Fixed Width Integer
+  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_px = eurex_derivatives_eti_t7_v12_1_dissect.related_px(buffer, index, packet, parent)
 
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_qty = eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -5875,12 +5965,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.remaining_risk_allowance_base_short = 8
 
 -- Display: Remaining Risk Allowance Base Short
-eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_short = function(value)
+eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_short = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Remaining Risk Allowance Base Short: No Value"
+  end
+
   return "Remaining Risk Allowance Base Short: "..value
 end
 
 -- Translate: Remaining Risk Allowance Base Short
 translate.remaining_risk_allowance_base_short = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -5890,7 +5990,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.remaining_risk_allowance_base_short = fun
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.remaining_risk_allowance_base_short(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_short(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_short(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.remaining_risk_allowance_base_short, range, value, display)
 
@@ -5901,12 +6001,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.remaining_risk_allowance_base_long = 8
 
 -- Display: Remaining Risk Allowance Base Long
-eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_long = function(value)
+eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_long = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Remaining Risk Allowance Base Long: No Value"
+  end
+
   return "Remaining Risk Allowance Base Long: "..value
 end
 
 -- Translate: Remaining Risk Allowance Base Long
 translate.remaining_risk_allowance_base_long = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -5916,7 +6026,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.remaining_risk_allowance_base_long = func
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.remaining_risk_allowance_base_long(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_long(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.remaining_risk_allowance_base_long(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.remaining_risk_allowance_base_long, range, value, display)
 
@@ -5949,10 +6059,10 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.rra_update_base_party_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Remaining Risk Allowance Base Long: 8 Byte Unsigned Fixed Width Integer
+  -- Remaining Risk Allowance Base Long: 8 Byte Unsigned Fixed Width Integer Nullable
   index, remaining_risk_allowance_base_long = eurex_derivatives_eti_t7_v12_1_dissect.remaining_risk_allowance_base_long(buffer, index, packet, parent)
 
-  -- Remaining Risk Allowance Base Short: 8 Byte Unsigned Fixed Width Integer
+  -- Remaining Risk Allowance Base Short: 8 Byte Unsigned Fixed Width Integer Nullable
   index, remaining_risk_allowance_base_short = eurex_derivatives_eti_t7_v12_1_dissect.remaining_risk_allowance_base_short(buffer, index, packet, parent)
 
   -- Risk Limit Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -7620,12 +7730,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.cum_qty = 8
 
 -- Display: Cum Qty
-eurex_derivatives_eti_t7_v12_1_display.cum_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.cum_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Cum Qty: No Value"
+  end
+
   return "Cum Qty: "..value
 end
 
 -- Translate: Cum Qty
 translate.cum_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -7635,7 +7755,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.cum_qty = function(buffer, offset, packet
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.cum_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.cum_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.cum_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.cum_qty, range, value, display)
 
@@ -7646,12 +7766,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.leaves_qty = 8
 
 -- Display: Leaves Qty
-eurex_derivatives_eti_t7_v12_1_display.leaves_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.leaves_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leaves Qty: No Value"
+  end
+
   return "Leaves Qty: "..value
 end
 
 -- Translate: Leaves Qty
 translate.leaves_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -7661,7 +7791,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty = function(buffer, offset, pac
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.leaves_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.leaves_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.leaves_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.leaves_qty, range, value, display)
 
@@ -7750,12 +7880,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.clearing_trade_qty = 8
 
 -- Display: Clearing Trade Qty
-eurex_derivatives_eti_t7_v12_1_display.clearing_trade_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.clearing_trade_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Clearing Trade Qty: No Value"
+  end
+
   return "Clearing Trade Qty: "..value
 end
 
 -- Translate: Clearing Trade Qty
 translate.clearing_trade_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -7765,7 +7905,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.clearing_trade_qty = function(buffer, off
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.clearing_trade_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.clearing_trade_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.clearing_trade_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.clearing_trade_qty, range, value, display)
 
@@ -7776,12 +7916,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.clearing_trade_price = 8
 
 -- Display: Clearing Trade Price
-eurex_derivatives_eti_t7_v12_1_display.clearing_trade_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.clearing_trade_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Clearing Trade Price: No Value"
+  end
+
   return "Clearing Trade Price: "..value
 end
 
 -- Translate: Clearing Trade Price
 translate.clearing_trade_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -7791,7 +7941,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.clearing_trade_price = function(buffer, o
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.clearing_trade_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.clearing_trade_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.clearing_trade_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.clearing_trade_price, range, value, display)
 
@@ -7802,12 +7952,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.side_last_qty = 8
 
 -- Display: Side Last Qty
-eurex_derivatives_eti_t7_v12_1_display.side_last_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.side_last_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Side Last Qty: No Value"
+  end
+
   return "Side Last Qty: "..value
 end
 
 -- Translate: Side Last Qty
 translate.side_last_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -7817,7 +7977,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.side_last_qty = function(buffer, offset, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.side_last_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.side_last_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.side_last_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.side_last_qty, range, value, display)
 
@@ -7828,12 +7988,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.side_last_px = 8
 
 -- Display: Side Last Px
-eurex_derivatives_eti_t7_v12_1_display.side_last_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.side_last_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Side Last Px: No Value"
+  end
+
   return "Side Last Px: "..value
 end
 
 -- Translate: Side Last Px
 translate.side_last_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -7843,7 +8013,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.side_last_px = function(buffer, offset, p
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.side_last_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.side_last_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.side_last_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.side_last_px, range, value, display)
 
@@ -7854,12 +8024,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.last_qty = 8
 
 -- Display: Last Qty
-eurex_derivatives_eti_t7_v12_1_display.last_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.last_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Last Qty: No Value"
+  end
+
   return "Last Qty: "..value
 end
 
 -- Translate: Last Qty
 translate.last_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -7869,7 +8049,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.last_qty = function(buffer, offset, packe
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.last_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.last_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.last_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.last_qty, range, value, display)
 
@@ -7880,12 +8060,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.price = 8
 
 -- Display: Price
-eurex_derivatives_eti_t7_v12_1_display.price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 translate.price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -7895,7 +8085,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.price = function(buffer, offset, packet, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.price, range, value, display)
 
@@ -8030,25 +8220,25 @@ eurex_derivatives_eti_t7_v12_1_dissect.trade_broadcast_fields = function(buffer,
   -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, related_security_id = eurex_derivatives_eti_t7_v12_1_dissect.related_security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Side Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Side Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, side_last_px = eurex_derivatives_eti_t7_v12_1_dissect.side_last_px(buffer, index, packet, parent)
 
-  -- Side Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Side Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, side_last_qty = eurex_derivatives_eti_t7_v12_1_dissect.side_last_qty(buffer, index, packet, parent)
 
-  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, clearing_trade_price = eurex_derivatives_eti_t7_v12_1_dissect.clearing_trade_price(buffer, index, packet, parent)
 
-  -- Clearing Trade Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Clearing Trade Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, clearing_trade_qty = eurex_derivatives_eti_t7_v12_1_dissect.clearing_trade_qty(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -8060,10 +8250,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.trade_broadcast_fields = function(buffer,
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_derivatives_eti_t7_v12_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
   -- Root Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -8075,7 +8265,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.trade_broadcast_fields = function(buffer,
   -- Root Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
   index, root_party_id_investment_decision_maker = eurex_derivatives_eti_t7_v12_1_dissect.root_party_id_investment_decision_maker(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -8589,7 +8779,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_upload_broadcast_fields = function(bu
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -8598,19 +8788,19 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_upload_broadcast_fields = function(bu
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eti_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
-  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_trade_quantity = eurex_derivatives_eti_t7_v12_1_dissect.related_trade_quantity(buffer, index, packet, parent)
 
-  -- Related Px: 8 Byte Unsigned Fixed Width Integer
+  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_px = eurex_derivatives_eti_t7_v12_1_dissect.related_px(buffer, index, packet, parent)
 
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_qty = eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -9067,16 +9257,16 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_trade_broadcast_fields = function(buf
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, clearing_trade_price = eurex_derivatives_eti_t7_v12_1_dissect.clearing_trade_price(buffer, index, packet, parent)
 
-  -- Clearing Trade Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Clearing Trade Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, clearing_trade_qty = eurex_derivatives_eti_t7_v12_1_dissect.clearing_trade_qty(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -9097,13 +9287,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_trade_broadcast_fields = function(buf
   -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, basket_trd_match_id = eurex_derivatives_eti_t7_v12_1_dissect.basket_trd_match_id(buffer, index, packet, parent)
 
-  -- Side Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Side Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, side_last_px = eurex_derivatives_eti_t7_v12_1_dissect.side_last_px(buffer, index, packet, parent)
 
-  -- Side Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Side Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, side_last_qty = eurex_derivatives_eti_t7_v12_1_dissect.side_last_qty(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -9350,7 +9540,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.side_alloc_grp_bc_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Reversal Approval Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -9874,12 +10064,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.leg_clearing_trade_price = 8
 
 -- Display: Leg Clearing Trade Price
-eurex_derivatives_eti_t7_v12_1_display.leg_clearing_trade_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.leg_clearing_trade_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leg Clearing Trade Price: No Value"
+  end
+
   return "Leg Clearing Trade Price: "..value
 end
 
 -- Translate: Leg Clearing Trade Price
 translate.leg_clearing_trade_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -9889,7 +10089,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.leg_clearing_trade_price = function(buffe
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.leg_clearing_trade_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.leg_clearing_trade_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.leg_clearing_trade_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.leg_clearing_trade_price, range, value, display)
 
@@ -9919,7 +10119,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.trd_clearing_price_leg_grp_comp_fields = 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v12_1_dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_clearing_trade_price = eurex_derivatives_eti_t7_v12_1_dissect.leg_clearing_trade_price(buffer, index, packet, parent)
 
   return index
@@ -10041,31 +10241,31 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_broadcast_fields = function(buffer, o
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eti_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_derivatives_eti_t7_v12_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
-  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_trade_quantity = eurex_derivatives_eti_t7_v12_1_dissect.related_trade_quantity(buffer, index, packet, parent)
 
   -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, related_security_id = eurex_derivatives_eti_t7_v12_1_dissect.related_security_id(buffer, index, packet, parent)
 
-  -- Related Px: 8 Byte Unsigned Fixed Width Integer
+  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_px = eurex_derivatives_eti_t7_v12_1_dissect.related_px(buffer, index, packet, parent)
 
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_qty = eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -10300,34 +10500,34 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_approve_broadcast_fields = function(b
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eti_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_derivatives_eti_t7_v12_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
-  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_trade_quantity = eurex_derivatives_eti_t7_v12_1_dissect.related_trade_quantity(buffer, index, packet, parent)
 
   -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, related_security_id = eurex_derivatives_eti_t7_v12_1_dissect.related_security_id(buffer, index, packet, parent)
 
-  -- Related Px: 8 Byte Unsigned Fixed Width Integer
+  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_px = eurex_derivatives_eti_t7_v12_1_dissect.related_px(buffer, index, packet, parent)
 
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_qty = eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -12215,12 +12415,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.order_qty = 8
 
 -- Display: Order Qty
-eurex_derivatives_eti_t7_v12_1_display.order_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.order_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Order Qty: No Value"
+  end
+
   return "Order Qty: "..value
 end
 
 -- Translate: Order Qty
 translate.order_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -12230,7 +12440,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.order_qty = function(buffer, offset, pack
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.order_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.order_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.order_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.order_qty, range, value, display)
 
@@ -12241,12 +12451,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.offer_px = 8
 
 -- Display: Offer Px
-eurex_derivatives_eti_t7_v12_1_display.offer_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.offer_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Offer Px: No Value"
+  end
+
   return "Offer Px: "..value
 end
 
 -- Translate: Offer Px
 translate.offer_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -12256,7 +12476,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.offer_px = function(buffer, offset, packe
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.offer_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.offer_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.offer_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.offer_px, range, value, display)
 
@@ -12267,12 +12487,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.bid_px = 8
 
 -- Display: Bid Px
-eurex_derivatives_eti_t7_v12_1_display.bid_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.bid_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Bid Px: No Value"
+  end
+
   return "Bid Px: "..value
 end
 
 -- Translate: Bid Px
 translate.bid_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -12282,7 +12512,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.bid_px = function(buffer, offset, packet,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.bid_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.bid_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.bid_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.bid_px, range, value, display)
 
@@ -12293,12 +12523,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.underlying_delta_percentage = 8
 
 -- Display: Underlying Delta Percentage
-eurex_derivatives_eti_t7_v12_1_display.underlying_delta_percentage = function(value)
+eurex_derivatives_eti_t7_v12_1_display.underlying_delta_percentage = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Underlying Delta Percentage: No Value"
+  end
+
   return "Underlying Delta Percentage: "..value
 end
 
 -- Translate: Underlying Delta Percentage
 translate.underlying_delta_percentage = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -12308,7 +12548,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage = function(bu
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.underlying_delta_percentage(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_delta_percentage(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_delta_percentage(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.underlying_delta_percentage, range, value, display)
 
@@ -12319,12 +12559,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.quote_ref_price = 8
 
 -- Display: Quote Ref Price
-eurex_derivatives_eti_t7_v12_1_display.quote_ref_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.quote_ref_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Quote Ref Price: No Value"
+  end
+
   return "Quote Ref Price: "..value
 end
 
 -- Translate: Quote Ref Price
 translate.quote_ref_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -12334,7 +12584,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.quote_ref_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.quote_ref_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.quote_ref_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.quote_ref_price, range, value, display)
 
@@ -12369,19 +12619,19 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_update_negotiation_request_fields = 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -12461,12 +12711,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.underlying_price_stip_value = 8
 
 -- Display: Underlying Price Stip Value
-eurex_derivatives_eti_t7_v12_1_display.underlying_price_stip_value = function(value)
+eurex_derivatives_eti_t7_v12_1_display.underlying_price_stip_value = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Underlying Price Stip Value: No Value"
+  end
+
   return "Underlying Price Stip Value: "..value
 end
 
 -- Translate: Underlying Price Stip Value
 translate.underlying_price_stip_value = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -12476,7 +12736,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.underlying_price_stip_value = function(bu
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.underlying_price_stip_value(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_price_stip_value(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_price_stip_value(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.underlying_price_stip_value, range, value, display)
 
@@ -12511,13 +12771,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_update_deal_status_request_fields = 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_price_stip_value = eurex_derivatives_eti_t7_v12_1_dissect.underlying_price_stip_value(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -12867,12 +13127,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.offer_size = 8
 
 -- Display: Offer Size
-eurex_derivatives_eti_t7_v12_1_display.offer_size = function(value)
+eurex_derivatives_eti_t7_v12_1_display.offer_size = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Offer Size: No Value"
+  end
+
   return "Offer Size: "..value
 end
 
 -- Translate: Offer Size
 translate.offer_size = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -12882,7 +13152,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.offer_size = function(buffer, offset, pac
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.offer_size(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.offer_size(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.offer_size(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.offer_size, range, value, display)
 
@@ -12893,12 +13163,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.bid_size = 8
 
 -- Display: Bid Size
-eurex_derivatives_eti_t7_v12_1_display.bid_size = function(value)
+eurex_derivatives_eti_t7_v12_1_display.bid_size = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Bid Size: No Value"
+  end
+
   return "Bid Size: "..value
 end
 
 -- Translate: Bid Size
 translate.bid_size = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -12908,7 +13188,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.bid_size = function(buffer, offset, packe
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.bid_size(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.bid_size(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.bid_size(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.bid_size, range, value, display)
 
@@ -13059,25 +13339,25 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_quote_entry_grp_comp_fields = functi
   -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, secondary_quote_id = eurex_derivatives_eti_t7_v12_1_dissect.secondary_quote_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_size = eurex_derivatives_eti_t7_v12_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_size = eurex_derivatives_eti_t7_v12_1_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
   -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13344,22 +13624,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_quote_notification_fields = function
   -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, secondary_quote_id = eurex_derivatives_eti_t7_v12_1_dissect.secondary_quote_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_size = eurex_derivatives_eti_t7_v12_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_size = eurex_derivatives_eti_t7_v12_1_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -13775,12 +14055,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.trade_to_request_ratio = 8
 
 -- Display: Trade To Request Ratio
-eurex_derivatives_eti_t7_v12_1_display.trade_to_request_ratio = function(value)
+eurex_derivatives_eti_t7_v12_1_display.trade_to_request_ratio = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Trade To Request Ratio: No Value"
+  end
+
   return "Trade To Request Ratio: "..value
 end
 
 -- Translate: Trade To Request Ratio
 translate.trade_to_request_ratio = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -13790,7 +14080,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.trade_to_request_ratio = function(buffer,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.trade_to_request_ratio(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.trade_to_request_ratio(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.trade_to_request_ratio(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.trade_to_request_ratio, range, value, display)
 
@@ -13828,31 +14118,31 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_open_negotiation_requester_notificat
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = eurex_derivatives_eti_t7_v12_1_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Trade To Request Ratio: 8 Byte Unsigned Fixed Width Integer
+  -- Trade To Request Ratio: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trade_to_request_ratio = eurex_derivatives_eti_t7_v12_1_dissect.trade_to_request_ratio(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -14022,19 +14312,19 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_open_negotiation_request_fields = fu
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
   -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -14171,12 +14461,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.trade_to_quote_ratio = 8
 
 -- Display: Trade To Quote Ratio
-eurex_derivatives_eti_t7_v12_1_display.trade_to_quote_ratio = function(value)
+eurex_derivatives_eti_t7_v12_1_display.trade_to_quote_ratio = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Trade To Quote Ratio: No Value"
+  end
+
   return "Trade To Quote Ratio: "..value
 end
 
 -- Translate: Trade To Quote Ratio
 translate.trade_to_quote_ratio = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -14186,7 +14486,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.trade_to_quote_ratio = function(buffer, o
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.trade_to_quote_ratio(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.trade_to_quote_ratio(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.trade_to_quote_ratio(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.trade_to_quote_ratio, range, value, display)
 
@@ -14255,34 +14555,34 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_open_negotiation_notification_fields
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = eurex_derivatives_eti_t7_v12_1_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Trade To Request Ratio: 8 Byte Unsigned Fixed Width Integer
+  -- Trade To Request Ratio: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trade_to_request_ratio = eurex_derivatives_eti_t7_v12_1_dissect.trade_to_request_ratio(buffer, index, packet, parent)
 
-  -- Trade To Quote Ratio: 8 Byte Unsigned Fixed Width Integer
+  -- Trade To Quote Ratio: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trade_to_quote_ratio = eurex_derivatives_eti_t7_v12_1_dissect.trade_to_quote_ratio(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -14557,28 +14857,28 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_negotiation_requester_notification_f
   -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_execution_time = eurex_derivatives_eti_t7_v12_1_dissect.trd_reg_ts_execution_time(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
   -- Effective Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -14587,7 +14887,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_negotiation_requester_notification_f
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_update_time = eurex_derivatives_eti_t7_v12_1_dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Trade To Request Ratio: 8 Byte Unsigned Fixed Width Integer
+  -- Trade To Request Ratio: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trade_to_request_ratio = eurex_derivatives_eti_t7_v12_1_dissect.trade_to_request_ratio(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -14700,25 +15000,25 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_negotiation_notification_fields = fu
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eti_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
   -- Effective Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -14727,7 +15027,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_negotiation_notification_fields = fu
   -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_update_time = eurex_derivatives_eti_t7_v12_1_dissect.last_update_time(buffer, index, packet, parent)
 
-  -- Trade To Quote Ratio: 8 Byte Unsigned Fixed Width Integer
+  -- Trade To Quote Ratio: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trade_to_quote_ratio = eurex_derivatives_eti_t7_v12_1_dissect.trade_to_quote_ratio(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -15182,7 +15482,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.srqs_hit_quote_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15318,10 +15618,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_hit_quote_request_fields = function(
   -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, valid_until_time = eurex_derivatives_eti_t7_v12_1_dissect.valid_until_time(buffer, index, packet, parent)
 
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_qty = eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty(buffer, index, packet, parent)
 
-  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_price_stip_value = eurex_derivatives_eti_t7_v12_1_dissect.underlying_price_stip_value(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15470,19 +15770,19 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_enter_quote_request_fields = functio
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_size = eurex_derivatives_eti_t7_v12_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_size = eurex_derivatives_eti_t7_v12_1_dissect.offer_size(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15494,7 +15794,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_enter_quote_request_fields = functio
   -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_derivatives_eti_t7_v12_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_ref_price = eurex_derivatives_eti_t7_v12_1_dissect.quote_ref_price(buffer, index, packet, parent)
 
   -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15777,7 +16077,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.srqs_target_party_trd_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Side Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Side Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, side_last_qty = eurex_derivatives_eti_t7_v12_1_dissect.side_last_qty(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15961,16 +16261,16 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_deal_notification_fields = function(
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eti_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_price_stip_value = eurex_derivatives_eti_t7_v12_1_dissect.underlying_price_stip_value(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -16143,12 +16443,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.best_offer_size = 8
 
 -- Display: Best Offer Size
-eurex_derivatives_eti_t7_v12_1_display.best_offer_size = function(value)
+eurex_derivatives_eti_t7_v12_1_display.best_offer_size = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Offer Size: No Value"
+  end
+
   return "Best Offer Size: "..value
 end
 
 -- Translate: Best Offer Size
 translate.best_offer_size = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -16158,7 +16468,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.best_offer_size = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.best_offer_size(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.best_offer_size(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.best_offer_size(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.best_offer_size, range, value, display)
 
@@ -16169,12 +16479,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.best_offer_px = 8
 
 -- Display: Best Offer Px
-eurex_derivatives_eti_t7_v12_1_display.best_offer_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.best_offer_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Offer Px: No Value"
+  end
+
   return "Best Offer Px: "..value
 end
 
 -- Translate: Best Offer Px
 translate.best_offer_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -16184,7 +16504,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.best_offer_px = function(buffer, offset, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.best_offer_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.best_offer_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.best_offer_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.best_offer_px, range, value, display)
 
@@ -16195,12 +16515,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.best_bid_size = 8
 
 -- Display: Best Bid Size
-eurex_derivatives_eti_t7_v12_1_display.best_bid_size = function(value)
+eurex_derivatives_eti_t7_v12_1_display.best_bid_size = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Bid Size: No Value"
+  end
+
   return "Best Bid Size: "..value
 end
 
 -- Translate: Best Bid Size
 translate.best_bid_size = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -16210,7 +16540,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.best_bid_size = function(buffer, offset, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.best_bid_size(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.best_bid_size(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.best_bid_size(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.best_bid_size, range, value, display)
 
@@ -16221,12 +16551,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.best_bid_px = 8
 
 -- Display: Best Bid Px
-eurex_derivatives_eti_t7_v12_1_display.best_bid_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.best_bid_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Bid Px: No Value"
+  end
+
   return "Best Bid Px: "..value
 end
 
 -- Translate: Best Bid Px
 translate.best_bid_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -16236,7 +16576,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.best_bid_px = function(buffer, offset, pa
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.best_bid_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.best_bid_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.best_bid_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.best_bid_px, range, value, display)
 
@@ -16278,16 +16618,16 @@ eurex_derivatives_eti_t7_v12_1_dissect.order_book_item_grp_comp_fields = functio
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Best Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Best Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, best_bid_px = eurex_derivatives_eti_t7_v12_1_dissect.best_bid_px(buffer, index, packet, parent)
 
-  -- Best Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- Best Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, best_bid_size = eurex_derivatives_eti_t7_v12_1_dissect.best_bid_size(buffer, index, packet, parent)
 
-  -- Best Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Best Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, best_offer_px = eurex_derivatives_eti_t7_v12_1_dissect.best_offer_px(buffer, index, packet, parent)
 
-  -- Best Offer Size: 8 Byte Unsigned Fixed Width Integer
+  -- Best Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, best_offer_size = eurex_derivatives_eti_t7_v12_1_dissect.best_offer_size(buffer, index, packet, parent)
 
   -- Md Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -16344,12 +16684,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.underlying_effective_delta_percentage = 8
 
 -- Display: Underlying Effective Delta Percentage
-eurex_derivatives_eti_t7_v12_1_display.underlying_effective_delta_percentage = function(value)
+eurex_derivatives_eti_t7_v12_1_display.underlying_effective_delta_percentage = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Underlying Effective Delta Percentage: No Value"
+  end
+
   return "Underlying Effective Delta Percentage: "..value
 end
 
 -- Translate: Underlying Effective Delta Percentage
 translate.underlying_effective_delta_percentage = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -16359,7 +16709,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.underlying_effective_delta_percentage = f
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.underlying_effective_delta_percentage(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_effective_delta_percentage(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.underlying_effective_delta_percentage(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.underlying_effective_delta_percentage, range, value, display)
 
@@ -16394,10 +16744,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_create_deal_notification_fields = fu
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_derivatives_eti_t7_v12_1_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_qty = eurex_derivatives_eti_t7_v12_1_dissect.last_qty(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
@@ -16406,19 +16756,19 @@ eurex_derivatives_eti_t7_v12_1_dissect.srqs_create_deal_notification_fields = fu
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = eurex_derivatives_eti_t7_v12_1_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_delta_percentage(buffer, index, packet, parent)
 
-  -- Underlying Effective Delta Percentage: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Effective Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_effective_delta_percentage = eurex_derivatives_eti_t7_v12_1_dissect.underlying_effective_delta_percentage(buffer, index, packet, parent)
 
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_qty = eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty(buffer, index, packet, parent)
 
-  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_price_stip_value = eurex_derivatives_eti_t7_v12_1_dissect.underlying_price_stip_value(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -17635,7 +17985,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.rfq_request_fields = function(buffer, off
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -17724,12 +18074,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.leg_last_qty = 8
 
 -- Display: Leg Last Qty
-eurex_derivatives_eti_t7_v12_1_display.leg_last_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.leg_last_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leg Last Qty: No Value"
+  end
+
   return "Leg Last Qty: "..value
 end
 
 -- Translate: Leg Last Qty
 translate.leg_last_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -17739,7 +18099,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.leg_last_qty = function(buffer, offset, p
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.leg_last_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.leg_last_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.leg_last_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.leg_last_qty, range, value, display)
 
@@ -17750,12 +18110,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.leg_last_px = 8
 
 -- Display: Leg Last Px
-eurex_derivatives_eti_t7_v12_1_display.leg_last_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.leg_last_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leg Last Px: No Value"
+  end
+
   return "Leg Last Px: "..value
 end
 
 -- Translate: Leg Last Px
 translate.leg_last_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -17765,7 +18135,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.leg_last_px = function(buffer, offset, pa
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.leg_last_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.leg_last_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.leg_last_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.leg_last_px, range, value, display)
 
@@ -17805,10 +18175,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_leg_exec_grp_comp_fields = function
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v12_1_dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_last_px = eurex_derivatives_eti_t7_v12_1_dissect.leg_last_px(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_last_qty = eurex_derivatives_eti_t7_v12_1_dissect.leg_last_qty(buffer, index, packet, parent)
 
   -- Leg Exec Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -18059,12 +18429,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.quote_event_qty = 8
 
 -- Display: Quote Event Qty
-eurex_derivatives_eti_t7_v12_1_display.quote_event_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.quote_event_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Quote Event Qty: No Value"
+  end
+
   return "Quote Event Qty: "..value
 end
 
 -- Translate: Quote Event Qty
 translate.quote_event_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -18074,7 +18454,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_event_qty = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.quote_event_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.quote_event_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.quote_event_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.quote_event_qty, range, value, display)
 
@@ -18085,12 +18465,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
-eurex_derivatives_eti_t7_v12_1_display.quote_event_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.quote_event_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Quote Event Px: No Value"
+  end
+
   return "Quote Event Px: "..value
 end
 
 -- Translate: Quote Event Px
 translate.quote_event_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -18100,7 +18490,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_event_px = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.quote_event_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.quote_event_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.quote_event_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.quote_event_px, range, value, display)
 
@@ -18148,10 +18538,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_event_grp_comp_fields = function(bu
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_event_px = eurex_derivatives_eti_t7_v12_1_dissect.quote_event_px(buffer, index, packet, parent)
 
-  -- Quote Event Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Event Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_event_qty = eurex_derivatives_eti_t7_v12_1_dissect.quote_event_qty(buffer, index, packet, parent)
 
   -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -18856,12 +19246,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.risk_limit_qty = 8
 
 -- Display: Risk Limit Qty
-eurex_derivatives_eti_t7_v12_1_display.risk_limit_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.risk_limit_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Risk Limit Qty: No Value"
+  end
+
   return "Risk Limit Qty: "..value
 end
 
 -- Translate: Risk Limit Qty
 translate.risk_limit_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -18871,7 +19271,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_qty = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.risk_limit_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.risk_limit_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.risk_limit_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.risk_limit_qty, range, value, display)
 
@@ -18900,7 +19300,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_qty_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, risk_limit_qty = eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_qty(buffer, index, packet, parent)
 
   -- Risk Limit Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -19009,12 +19409,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.quote_weighting_coefficient = 8
 
 -- Display: Quote Weighting Coefficient
-eurex_derivatives_eti_t7_v12_1_display.quote_weighting_coefficient = function(value)
+eurex_derivatives_eti_t7_v12_1_display.quote_weighting_coefficient = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Quote Weighting Coefficient: No Value"
+  end
+
   return "Quote Weighting Coefficient: "..value
 end
 
 -- Translate: Quote Weighting Coefficient
 translate.quote_weighting_coefficient = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -19024,7 +19434,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_weighting_coefficient = function(bu
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.quote_weighting_coefficient(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.quote_weighting_coefficient(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.quote_weighting_coefficient(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.quote_weighting_coefficient, range, value, display)
 
@@ -19035,12 +19445,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.netting_coefficient = 8
 
 -- Display: Netting Coefficient
-eurex_derivatives_eti_t7_v12_1_display.netting_coefficient = function(value)
+eurex_derivatives_eti_t7_v12_1_display.netting_coefficient = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Netting Coefficient: No Value"
+  end
+
   return "Netting Coefficient: "..value
 end
 
 -- Translate: Netting Coefficient
 translate.netting_coefficient = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -19050,7 +19470,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.netting_coefficient = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.netting_coefficient(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.netting_coefficient(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.netting_coefficient(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.netting_coefficient, range, value, display)
 
@@ -19085,10 +19505,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.pre_trade_risk_limits_definition_request_
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Netting Coefficient: 8 Byte Unsigned Fixed Width Integer
+  -- Netting Coefficient: 8 Byte Unsigned Fixed Width Integer Nullable
   index, netting_coefficient = eurex_derivatives_eti_t7_v12_1_dissect.netting_coefficient(buffer, index, packet, parent)
 
-  -- Quote Weighting Coefficient: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Weighting Coefficient: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_weighting_coefficient = eurex_derivatives_eti_t7_v12_1_dissect.quote_weighting_coefficient(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -19229,12 +19649,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.risk_limit_net_position_qty = 8
 
 -- Display: Risk Limit Net Position Qty
-eurex_derivatives_eti_t7_v12_1_display.risk_limit_net_position_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.risk_limit_net_position_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Risk Limit Net Position Qty: No Value"
+  end
+
   return "Risk Limit Net Position Qty: "..value
 end
 
 -- Translate: Risk Limit Net Position Qty
 translate.risk_limit_net_position_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -19244,7 +19674,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_net_position_qty = function(bu
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.risk_limit_net_position_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.risk_limit_net_position_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.risk_limit_net_position_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.risk_limit_net_position_qty, range, value, display)
 
@@ -19255,12 +19685,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.risk_limit_open_qty = 8
 
 -- Display: Risk Limit Open Qty
-eurex_derivatives_eti_t7_v12_1_display.risk_limit_open_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.risk_limit_open_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Risk Limit Open Qty: No Value"
+  end
+
   return "Risk Limit Open Qty: "..value
 end
 
 -- Translate: Risk Limit Open Qty
 translate.risk_limit_open_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -19270,7 +19710,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_open_qty = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.risk_limit_open_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.risk_limit_open_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.risk_limit_open_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.risk_limit_open_qty, range, value, display)
 
@@ -19315,19 +19755,19 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.risk_limits_rpt_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, risk_limit_qty = eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_qty(buffer, index, packet, parent)
 
-  -- Risk Limit Open Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Risk Limit Open Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, risk_limit_open_qty = eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_open_qty(buffer, index, packet, parent)
 
-  -- Risk Limit Net Position Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Risk Limit Net Position Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, risk_limit_net_position_qty = eurex_derivatives_eti_t7_v12_1_dissect.risk_limit_net_position_qty(buffer, index, packet, parent)
 
-  -- Netting Coefficient: 8 Byte Unsigned Fixed Width Integer
+  -- Netting Coefficient: 8 Byte Unsigned Fixed Width Integer Nullable
   index, netting_coefficient = eurex_derivatives_eti_t7_v12_1_dissect.netting_coefficient(buffer, index, packet, parent)
 
-  -- Quote Weighting Coefficient: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Weighting Coefficient: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_weighting_coefficient = eurex_derivatives_eti_t7_v12_1_dissect.quote_weighting_coefficient(buffer, index, packet, parent)
 
   -- Activation Date: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -19900,12 +20340,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.order_event_qty = 8
 
 -- Display: Order Event Qty
-eurex_derivatives_eti_t7_v12_1_display.order_event_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.order_event_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Order Event Qty: No Value"
+  end
+
   return "Order Event Qty: "..value
 end
 
 -- Translate: Order Event Qty
 translate.order_event_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -19915,7 +20365,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.order_event_qty = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.order_event_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.order_event_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.order_event_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.order_event_qty, range, value, display)
 
@@ -19926,12 +20376,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.order_event_px = 8
 
 -- Display: Order Event Px
-eurex_derivatives_eti_t7_v12_1_display.order_event_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.order_event_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Order Event Px: No Value"
+  end
+
   return "Order Event Px: "..value
 end
 
 -- Translate: Order Event Px
 translate.order_event_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -19941,7 +20401,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.order_event_px = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.order_event_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.order_event_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.order_event_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.order_event_px, range, value, display)
 
@@ -19974,10 +20434,10 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.order_event_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Event Px: 8 Byte Unsigned Fixed Width Integer
+  -- Order Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_event_px = eurex_derivatives_eti_t7_v12_1_dissect.order_event_px(buffer, index, packet, parent)
 
-  -- Order Event Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Event Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_event_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_event_qty(buffer, index, packet, parent)
 
   -- Order Event Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -20063,10 +20523,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.instrmnt_leg_exec_grp_comp_fields = funct
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v12_1_dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_last_px = eurex_derivatives_eti_t7_v12_1_dissect.leg_last_px(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_last_qty = eurex_derivatives_eti_t7_v12_1_dissect.leg_last_qty(buffer, index, packet, parent)
 
   -- Leg Exec Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -20193,12 +20653,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.fill_qty = 8
 
 -- Display: Fill Qty
-eurex_derivatives_eti_t7_v12_1_display.fill_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.fill_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Fill Qty: No Value"
+  end
+
   return "Fill Qty: "..value
 end
 
 -- Translate: Fill Qty
 translate.fill_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -20208,7 +20678,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.fill_qty = function(buffer, offset, packe
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.fill_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.fill_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.fill_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.fill_qty, range, value, display)
 
@@ -20219,12 +20689,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.fill_px = 8
 
 -- Display: Fill Px
-eurex_derivatives_eti_t7_v12_1_display.fill_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.fill_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Fill Px: No Value"
+  end
+
   return "Fill Px: "..value
 end
 
 -- Translate: Fill Px
 translate.fill_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -20234,7 +20714,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.fill_px = function(buffer, offset, packet
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.fill_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.fill_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.fill_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.fill_px, range, value, display)
 
@@ -20269,10 +20749,10 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Fill Px: 8 Byte Unsigned Fixed Width Integer
+  -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, fill_px = eurex_derivatives_eti_t7_v12_1_dissect.fill_px(buffer, index, packet, parent)
 
-  -- Fill Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Fill Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, fill_qty = eurex_derivatives_eti_t7_v12_1_dissect.fill_qty(buffer, index, packet, parent)
 
   -- Fill Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -20674,12 +21154,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.cxl_qty = 8
 
 -- Display: Cxl Qty
-eurex_derivatives_eti_t7_v12_1_display.cxl_qty = function(value)
+eurex_derivatives_eti_t7_v12_1_display.cxl_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Cxl Qty: No Value"
+  end
+
   return "Cxl Qty: "..value
 end
 
 -- Translate: Cxl Qty
 translate.cxl_qty = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -20689,7 +21179,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty = function(buffer, offset, packet
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.cxl_qty(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.cxl_qty(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.cxl_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.cxl_qty, range, value, display)
 
@@ -20905,13 +21395,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.order_exec_response_fields = function(buf
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_derivatives_eti_t7_v12_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -21400,12 +21890,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.stop_px = 8
 
 -- Display: Stop Px
-eurex_derivatives_eti_t7_v12_1_display.stop_px = function(value)
+eurex_derivatives_eti_t7_v12_1_display.stop_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Stop Px: No Value"
+  end
+
   return "Stop Px: "..value
 end
 
 -- Translate: Stop Px
 translate.stop_px = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -21415,7 +21915,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.stop_px = function(buffer, offset, packet
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.stop_px(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.stop_px(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.stop_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.stop_px, range, value, display)
 
@@ -21468,22 +21968,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.order_exec_report_broadcast_fields = func
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_derivatives_eti_t7_v12_1_dissect.trd_reg_ts_time_priority(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_derivatives_eti_t7_v12_1_dissect.stop_px(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -21689,13 +22189,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.order_exec_notification_fields = function
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -22023,10 +22523,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_single_short_request_fields = f
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -22140,13 +22640,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_single_request_fields = functio
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_derivatives_eti_t7_v12_1_dissect.stop_px(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -22465,10 +22965,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_short_request_fields = function
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -22546,10 +23046,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_response_fields = function(buff
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -22661,7 +23161,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_request_fields = function(buffe
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_derivatives_eti_t7_v12_1_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_derivatives_eti_t7_v12_1_dissect.stop_px(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -22772,10 +23272,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_request_fields = function(buffe
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -22858,10 +23358,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_nr_response_fields = function(b
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -22947,10 +23447,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_complex_short_request_fields = 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23073,10 +23573,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.new_order_complex_request_fields = functi
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23239,7 +23739,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.side_alloc_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -23304,16 +23804,16 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_tes_trade_request_fields = functio
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_derivatives_eti_t7_v12_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
-  -- Related Px: 8 Byte Unsigned Fixed Width Integer
+  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_px = eurex_derivatives_eti_t7_v12_1_dissect.related_px(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -23419,10 +23919,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_single_short_request_fields 
   -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_derivatives_eti_t7_v12_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23575,13 +24075,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_single_request_fields = func
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_derivatives_eti_t7_v12_1_dissect.stop_px(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23815,10 +24315,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_short_request_fields = funct
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -23899,13 +24399,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_response_fields = function(b
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -24020,7 +24520,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_request_fields = function(bu
   -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = eurex_derivatives_eti_t7_v12_1_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, stop_px = eurex_derivatives_eti_t7_v12_1_dissect.stop_px(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -24137,10 +24637,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_request_fields = function(bu
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -24226,13 +24726,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_nr_response_fields = functio
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -24324,10 +24824,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_complex_short_request_fields
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -24453,10 +24953,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.modify_order_complex_request_fields = fun
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -24678,7 +25178,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.basket_side_alloc_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -24853,16 +25353,16 @@ eurex_derivatives_eti_t7_v12_1_dissect.instrmt_match_side_grp_comp_fields = func
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_derivatives_eti_t7_v12_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
-  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer
+  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, clearing_trade_price = eurex_derivatives_eti_t7_v12_1_dissect.clearing_trade_price(buffer, index, packet, parent)
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -25466,12 +25966,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.cxl_size = 8
 
 -- Display: Cxl Size
-eurex_derivatives_eti_t7_v12_1_display.cxl_size = function(value)
+eurex_derivatives_eti_t7_v12_1_display.cxl_size = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Cxl Size: No Value"
+  end
+
   return "Cxl Size: "..value
 end
 
 -- Translate: Cxl Size
 translate.cxl_size = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -25481,7 +25991,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.cxl_size = function(buffer, offset, packe
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.cxl_size(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.cxl_size(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.cxl_size(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.cxl_size, range, value, display)
 
@@ -25519,7 +26029,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_entry_ack_grp_comp_fields = functio
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Cxl Size: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_size = eurex_derivatives_eti_t7_v12_1_dissect.cxl_size(buffer, index, packet, parent)
 
   -- Quote Entry Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 35 values
@@ -25697,16 +26207,16 @@ eurex_derivatives_eti_t7_v12_1_dissect.quote_entry_grp_comp_fields = function(bu
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_px = eurex_derivatives_eti_t7_v12_1_dissect.bid_px(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_size = eurex_derivatives_eti_t7_v12_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_px = eurex_derivatives_eti_t7_v12_1_dissect.offer_px(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_size = eurex_derivatives_eti_t7_v12_1_dissect.offer_size(buffer, index, packet, parent)
 
   return index
@@ -25967,10 +26477,10 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.order_entry_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -26246,12 +26756,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.vega = 8
 
 -- Display: Vega
-eurex_derivatives_eti_t7_v12_1_display.vega = function(value)
+eurex_derivatives_eti_t7_v12_1_display.vega = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Vega: No Value"
+  end
+
   return "Vega: "..value
 end
 
 -- Translate: Vega
 translate.vega = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -26261,7 +26781,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.vega = function(buffer, offset, packet, p
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.vega(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.vega(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.vega(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.vega, range, value, display)
 
@@ -26272,12 +26792,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.delta = 8
 
 -- Display: Delta
-eurex_derivatives_eti_t7_v12_1_display.delta = function(value)
+eurex_derivatives_eti_t7_v12_1_display.delta = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Delta: No Value"
+  end
+
   return "Delta: "..value
 end
 
 -- Translate: Delta
 translate.delta = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -26287,7 +26817,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.delta = function(buffer, offset, packet, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.delta(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.delta(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.delta(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.delta, range, value, display)
 
@@ -26350,13 +26880,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.mm_parameter_definition_request_fields = 
   -- Exposure Duration: 8 Byte Signed Fixed Width Integer Nullable
   index, exposure_duration = eurex_derivatives_eti_t7_v12_1_dissect.exposure_duration(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Delta: 8 Byte Unsigned Fixed Width Integer
+  -- Delta: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delta = eurex_derivatives_eti_t7_v12_1_dissect.delta(buffer, index, packet, parent)
 
-  -- Vega: 8 Byte Unsigned Fixed Width Integer
+  -- Vega: 8 Byte Unsigned Fixed Width Integer Nullable
   index, vega = eurex_derivatives_eti_t7_v12_1_dissect.vega(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -27935,12 +28465,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.margin_based_risk_limit_short = 8
 
 -- Display: Margin Based Risk Limit Short
-eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_short = function(value)
+eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_short = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Margin Based Risk Limit Short: No Value"
+  end
+
   return "Margin Based Risk Limit Short: "..value
 end
 
 -- Translate: Margin Based Risk Limit Short
 translate.margin_based_risk_limit_short = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -27950,7 +28490,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.margin_based_risk_limit_short = function(
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.margin_based_risk_limit_short(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_short(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_short(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.margin_based_risk_limit_short, range, value, display)
 
@@ -27961,12 +28501,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.margin_based_risk_limit_long = 8
 
 -- Display: Margin Based Risk Limit Long
-eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_long = function(value)
+eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_long = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Margin Based Risk Limit Long: No Value"
+  end
+
   return "Margin Based Risk Limit Long: "..value
 end
 
 -- Translate: Margin Based Risk Limit Long
 translate.margin_based_risk_limit_long = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -27976,7 +28526,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.margin_based_risk_limit_long = function(b
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.margin_based_risk_limit_long(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_long(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.margin_based_risk_limit_long(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.margin_based_risk_limit_long, range, value, display)
 
@@ -28008,10 +28558,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.inquire_margin_based_risk_limit_response_
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v12_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Margin Based Risk Limit Long: 8 Byte Unsigned Fixed Width Integer
+  -- Margin Based Risk Limit Long: 8 Byte Unsigned Fixed Width Integer Nullable
   index, margin_based_risk_limit_long = eurex_derivatives_eti_t7_v12_1_dissect.margin_based_risk_limit_long(buffer, index, packet, parent)
 
-  -- Margin Based Risk Limit Short: 8 Byte Unsigned Fixed Width Integer
+  -- Margin Based Risk Limit Short: 8 Byte Unsigned Fixed Width Integer Nullable
   index, margin_based_risk_limit_short = eurex_derivatives_eti_t7_v12_1_dissect.margin_based_risk_limit_short(buffer, index, packet, parent)
 
   return index
@@ -28122,13 +28672,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.mm_parameter_grp_comp_fields = function(b
   -- Exposure Duration: 8 Byte Signed Fixed Width Integer Nullable
   index, exposure_duration = eurex_derivatives_eti_t7_v12_1_dissect.exposure_duration(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Delta: 8 Byte Unsigned Fixed Width Integer
+  -- Delta: 8 Byte Unsigned Fixed Width Integer Nullable
   index, delta = eurex_derivatives_eti_t7_v12_1_dissect.delta(buffer, index, packet, parent)
 
-  -- Vega: 8 Byte Unsigned Fixed Width Integer
+  -- Vega: 8 Byte Unsigned Fixed Width Integer Nullable
   index, vega = eurex_derivatives_eti_t7_v12_1_dissect.vega(buffer, index, packet, parent)
 
   -- Pct Count: 4 Byte Signed Fixed Width Integer Nullable
@@ -28800,28 +29350,28 @@ eurex_derivatives_eti_t7_v12_1_dissect.enter_tes_trade_request_fields = function
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_derivatives_eti_t7_v12_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_px = eurex_derivatives_eti_t7_v12_1_dissect.underlying_px(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
-  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_trade_quantity = eurex_derivatives_eti_t7_v12_1_dissect.related_trade_quantity(buffer, index, packet, parent)
 
   -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, related_security_id = eurex_derivatives_eti_t7_v12_1_dissect.related_security_id(buffer, index, packet, parent)
 
-  -- Related Px: 8 Byte Unsigned Fixed Width Integer
+  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_px = eurex_derivatives_eti_t7_v12_1_dissect.related_px(buffer, index, packet, parent)
 
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_qty = eurex_derivatives_eti_t7_v12_1_dissect.underlying_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -29088,12 +29638,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.maximum_price = 8
 
 -- Display: Maximum Price
-eurex_derivatives_eti_t7_v12_1_display.maximum_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.maximum_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Maximum Price: No Value"
+  end
+
   return "Maximum Price: "..value
 end
 
 -- Translate: Maximum Price
 translate.maximum_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -29103,7 +29663,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.maximum_price = function(buffer, offset, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.maximum_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.maximum_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.maximum_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.maximum_price, range, value, display)
 
@@ -29191,7 +29751,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.cross_request_side_grp_comp_fields = func
   -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_derivatives_eti_t7_v12_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Maximum Price: 8 Byte Unsigned Fixed Width Integer
+  -- Maximum Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, maximum_price = eurex_derivatives_eti_t7_v12_1_dissect.maximum_price(buffer, index, packet, parent)
 
   -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -29533,10 +30093,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.enter_clip_request_fields = function(buff
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -29984,10 +30544,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.delete_order_response_fields = function(b
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -30158,10 +30718,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.delete_order_nr_response_fields = functio
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
@@ -30332,10 +30892,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.delete_order_broadcast_fields = function(
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_derivatives_eti_t7_v12_1_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -31078,7 +31638,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.delete_all_order_request_fields = functio
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -31270,7 +31830,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.delete_all_order_broadcast_fields = funct
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = eurex_derivatives_eti_t7_v12_1_dissect.price(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -31412,7 +31972,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.cross_request_fields = function(buffer, o
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v12_1_dissect.order_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -31628,13 +32188,13 @@ eurex_derivatives_eti_t7_v12_1_dissect.clip_execution_notification_fields = func
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leaves_qty = eurex_derivatives_eti_t7_v12_1_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cum_qty = eurex_derivatives_eti_t7_v12_1_dissect.cum_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -31731,7 +32291,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.clip_deletion_notification_fields = funct
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cxl_qty = eurex_derivatives_eti_t7_v12_1_dissect.cxl_qty(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -32345,19 +32905,19 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.basket_side_alloc_ext_bc_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_px = eurex_derivatives_eti_t7_v12_1_dissect.last_px(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_derivatives_eti_t7_v12_1_dissect.trans_bkd_time(buffer, index, packet, parent)
 
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, related_close_price = eurex_derivatives_eti_t7_v12_1_dissect.related_close_price(buffer, index, packet, parent)
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -32594,7 +33154,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.approve_tes_trade_request_fields = functi
   -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_derivatives_eti_t7_v12_1_dissect.executing_trader(buffer, index, packet, parent)
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -32856,7 +33416,7 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.basket_side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v12_1_dissect.alloc_qty(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -33577,12 +34137,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.strike_price = 8
 
 -- Display: Strike Price
-eurex_derivatives_eti_t7_v12_1_display.strike_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.strike_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Strike Price: No Value"
+  end
+
   return "Strike Price: "..value
 end
 
 -- Translate: Strike Price
 translate.strike_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -33592,7 +34162,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.strike_price = function(buffer, offset, p
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.strike_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.strike_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.strike_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.strike_price, range, value, display)
 
@@ -33630,7 +34200,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.add_flexible_instrument_response_fields =
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v12_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Strike Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, strike_price = eurex_derivatives_eti_t7_v12_1_dissect.strike_price(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -33708,7 +34278,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.add_flexible_instrument_request_fields = 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v12_1_dissect.request_header_comp(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Strike Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, strike_price = eurex_derivatives_eti_t7_v12_1_dissect.strike_price(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -33791,7 +34361,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.instrmt_leg_grp_comp_fields = function(bu
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v12_1_dissect.leg_security_id(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_price = eurex_derivatives_eti_t7_v12_1_dissect.leg_price(buffer, index, packet, parent)
 
   -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
@@ -33854,12 +34424,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.high_limit_price = 8
 
 -- Display: High Limit Price
-eurex_derivatives_eti_t7_v12_1_display.high_limit_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.high_limit_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "High Limit Price: No Value"
+  end
+
   return "High Limit Price: "..value
 end
 
 -- Translate: High Limit Price
 translate.high_limit_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -33869,7 +34449,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.high_limit_price = function(buffer, offse
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.high_limit_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.high_limit_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.high_limit_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.high_limit_price, range, value, display)
 
@@ -33880,12 +34460,22 @@ end
 eurex_derivatives_eti_t7_v12_1_size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
-eurex_derivatives_eti_t7_v12_1_display.low_limit_price = function(value)
+eurex_derivatives_eti_t7_v12_1_display.low_limit_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Low Limit Price: No Value"
+  end
+
   return "Low Limit Price: "..value
 end
 
 -- Translate: Low Limit Price
 translate.low_limit_price = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/100000000
 end
 
@@ -33895,7 +34485,7 @@ eurex_derivatives_eti_t7_v12_1_dissect.low_limit_price = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.low_limit_price(raw)
-  local display = eurex_derivatives_eti_t7_v12_1_display.low_limit_price(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v12_1_display.low_limit_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.low_limit_price, range, value, display)
 
@@ -33927,10 +34517,10 @@ eurex_derivatives_eti_t7_v12_1_dissect.add_complex_instrument_response_fields = 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v12_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Unsigned Fixed Width Integer
+  -- Low Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, low_limit_price = eurex_derivatives_eti_t7_v12_1_dissect.low_limit_price(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Unsigned Fixed Width Integer
+  -- High Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, high_limit_price = eurex_derivatives_eti_t7_v12_1_dissect.high_limit_price(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
