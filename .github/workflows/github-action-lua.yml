@@ -59,4 +59,7 @@ jobs:
       - name: Run Nyse Equities OpenBook Ultra 2.1.b Dissector Tests
         run: bash -x .github/tests/Nyse-Equities-OpenBook-Ultra-v2-1-b-Test.sh
 
+      - name: Run Siac Opra Recipient Obi 6.2 Dissector Tests
+        run: bash -x .github/tests/Siac-Opra-Recipient-Obi-v6-2-Test.sh
+
 
