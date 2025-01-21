@@ -57,6 +57,7 @@ siac_cts_output_cta_v2_9.fields.dollar_value = ProtoField.new("Dollar Value", "s
 siac_cts_output_cta_v2_9.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cts.output.cta.v2.9.endofdaymessage", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.end_of_end_of_day_message = ProtoField.new("End Of End Of Day Message", "siac.cts.output.cta.v2.9.endofendofdaymessage", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.end_of_start_of_day_message = ProtoField.new("End Of Start Of Day Message", "siac.cts.output.cta.v2.9.endofstartofdaymessage", ftypes.STRING)
+siac_cts_output_cta_v2_9.fields.extended_hours_or_sequence_type = ProtoField.new("Extended Hours Or Sequence Type", "siac.cts.output.cta.v2.9.extendedhoursorsequencetype", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cts.output.cta.v2.9.financialstatusindicator", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.future_use = ProtoField.new("Future Use", "siac.cts.output.cta.v2.9.futureuse", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cts.output.cta.v2.9.haltreason", ftypes.STRING)
@@ -132,6 +133,7 @@ siac_cts_output_cta_v2_9.fields.settlement_type = ProtoField.new("Settlement Typ
 siac_cts_output_cta_v2_9.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.output.cta.v2.9.shortsalerestrictionindicator", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.short_trade_message = ProtoField.new("Short Trade Message", "siac.cts.output.cta.v2.9.shorttrademessage", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cts.output.cta.v2.9.sipblocktimestamp", ftypes.STRING)
+siac_cts_output_cta_v2_9.fields.sro_trade_detail = ProtoField.new("Sro Trade Detail", "siac.cts.output.cta.v2.9.srotradedetail", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cts.output.cta.v2.9.startofdaymessage", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.start_of_end_of_day_message = ProtoField.new("Start Of End Of Day Message", "siac.cts.output.cta.v2.9.startofendofdaymessage", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.start_of_start_of_day_message = ProtoField.new("Start Of Start Of Day Message", "siac.cts.output.cta.v2.9.startofstartofdaymessage", ftypes.STRING)
@@ -1342,6 +1344,96 @@ siac_cts_output_cta_v2_9_dissect.trade_price = function(buffer, offset, packet, 
   return offset + length, value
 end
 
+-- Size: Sro Trade Detail
+siac_cts_output_cta_v2_9_size_of.sro_trade_detail = 1
+
+-- Display: Sro Trade Detail
+siac_cts_output_cta_v2_9_display.sro_trade_detail = function(value)
+  if value == " " then
+    return "Sro Trade Detail: No Sro Required Trade Detail (<whitespace>)"
+  end
+  if value == "B" then
+    return "Sro Trade Detail: Average Price Trade (B)"
+  end
+  if value == "E" then
+    return "Sro Trade Detail: Automatic Execution (E)"
+  end
+  if value == "H" then
+    return "Sro Trade Detail: Price Variation Trade (H)"
+  end
+  if value == "I" then
+    return "Sro Trade Detail: Odd Lot Trade (I)"
+  end
+  if value == "K" then
+    return "Sro Trade Detail: Rule 127 Or 155 (K)"
+  end
+  if value == "M" then
+    return "Sro Trade Detail: Market Center Official Close (M)"
+  end
+  if value == "P" then
+    return "Sro Trade Detail: Prior Reference Price (P)"
+  end
+  if value == "Q" then
+    return "Sro Trade Detail: Market Center Official Open (Q)"
+  end
+  if value == "V" then
+    return "Sro Trade Detail: Contingent Trade (V)"
+  end
+  if value == "X" then
+    return "Sro Trade Detail: Cross Trade (X)"
+  end
+
+  return "Sro Trade Detail: Unknown("..value..")"
+end
+
+-- Dissect: Sro Trade Detail
+siac_cts_output_cta_v2_9_dissect.sro_trade_detail = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.sro_trade_detail
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_9_display.sro_trade_detail(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_9.fields.sro_trade_detail, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Extended Hours Or Sequence Type
+siac_cts_output_cta_v2_9_size_of.extended_hours_or_sequence_type = 1
+
+-- Display: Extended Hours Or Sequence Type
+siac_cts_output_cta_v2_9_display.extended_hours_or_sequence_type = function(value)
+  if value == " " then
+    return "Extended Hours Or Sequence Type: Not Extended Hours Or Sold Out Of Sequence (<whitespace>)"
+  end
+  if value == "L" then
+    return "Extended Hours Or Sequence Type: Sold Last (L)"
+  end
+  if value == "T" then
+    return "Extended Hours Or Sequence Type: Extended Hours Trade (T)"
+  end
+  if value == "U" then
+    return "Extended Hours Or Sequence Type: Extended Hours Sold (U)"
+  end
+  if value == "Z" then
+    return "Extended Hours Or Sequence Type: Sold Out Of Sequence (Z)"
+  end
+
+  return "Extended Hours Or Sequence Type: Unknown("..value..")"
+end
+
+-- Dissect: Extended Hours Or Sequence Type
+siac_cts_output_cta_v2_9_dissect.extended_hours_or_sequence_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.extended_hours_or_sequence_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_9_display.extended_hours_or_sequence_type(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_9.fields.extended_hours_or_sequence_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Trade Through Exempt Reason
 siac_cts_output_cta_v2_9_size_of.trade_through_exempt_reason = 1
 
@@ -1431,9 +1523,9 @@ siac_cts_output_cta_v2_9_size_of.sale_conditions = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_9_size_of.trade_through_exempt_reason
 
-  index = index + siac_cts_output_cta_v2_9_size_of.category_3
+  index = index + siac_cts_output_cta_v2_9_size_of.extended_hours_or_sequence_type
 
-  index = index + siac_cts_output_cta_v2_9_size_of.category_4
+  index = index + siac_cts_output_cta_v2_9_size_of.sro_trade_detail
 
   return index
 end
@@ -1453,11 +1545,11 @@ siac_cts_output_cta_v2_9_dissect.sale_conditions_fields = function(buffer, offse
   -- Trade Through Exempt Reason: 1 Byte Ascii String Enum with 9 values
   index, trade_through_exempt_reason = siac_cts_output_cta_v2_9_dissect.trade_through_exempt_reason(buffer, index, packet, parent)
 
-  -- Category 3
-  index, category_3 = siac_cts_output_cta_v2_9_dissect.category_3(buffer, index, packet, parent)
+  -- Extended Hours Or Sequence Type: 1 Byte Ascii String Enum with 5 values
+  index, extended_hours_or_sequence_type = siac_cts_output_cta_v2_9_dissect.extended_hours_or_sequence_type(buffer, index, packet, parent)
 
-  -- Category 4
-  index, category_4 = siac_cts_output_cta_v2_9_dissect.category_4(buffer, index, packet, parent)
+  -- Sro Trade Detail: 1 Byte Ascii String Enum with 11 values
+  index, sro_trade_detail = siac_cts_output_cta_v2_9_dissect.sro_trade_detail(buffer, index, packet, parent)
 
   return index
 end
