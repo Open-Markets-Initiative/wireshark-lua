@@ -83,6 +83,7 @@ siac_cts_output_cta_v2_9.fields.market_status = ProtoField.new("Market Status", 
 siac_cts_output_cta_v2_9.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.9.marketstatusmessagetype", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cts.output.cta.v2.9.marketstatuspayload", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cts.output.cta.v2.9.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
+siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.9.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cts.output.cta.v2.9.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.9.message", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.9.messagecategory", ftypes.STRING)
@@ -90,6 +91,7 @@ siac_cts_output_cta_v2_9.fields.message_header = ProtoField.new("Message Header"
 siac_cts_output_cta_v2_9.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.9.messageid", ftypes.UINT8)
 siac_cts_output_cta_v2_9.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.9.messagelength", ftypes.UINT16)
 siac_cts_output_cta_v2_9.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v2.9.messagesinblock", ftypes.UINT8)
+siac_cts_output_cta_v2_9.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.9.mwcblevel1", ftypes.INT64)
 siac_cts_output_cta_v2_9.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.9.mwcblevel2", ftypes.INT64)
 siac_cts_output_cta_v2_9.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.9.mwcblevel3", ftypes.INT64)
 siac_cts_output_cta_v2_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.output.cta.v2.9.nanoseconds", ftypes.UINT32)
@@ -2878,9 +2880,9 @@ siac_cts_output_cta_v2_9_size_of.original_trade = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_9_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + siac_cts_output_cta_v2_9_size_of.trade_price_long
+  index = index + siac_cts_output_cta_v2_9_size_of.trade_price
 
-  index = index + siac_cts_output_cta_v2_9_size_of.trade_volume_long
+  index = index + siac_cts_output_cta_v2_9_size_of.trade_volume
 
   index = index + siac_cts_output_cta_v2_9_size_of.sellers_sale_days
 
@@ -2907,11 +2909,11 @@ siac_cts_output_cta_v2_9_dissect.original_trade_fields = function(buffer, offset
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_9_dissect.sale_conditions(buffer, index, packet, parent)
 
-  -- Trade Price Long
-  index, trade_price_long = siac_cts_output_cta_v2_9_dissect.trade_price_long(buffer, index, packet, parent)
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_9_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Volume Long
-  index, trade_volume_long = siac_cts_output_cta_v2_9_dissect.trade_volume_long(buffer, index, packet, parent)
+  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  index, trade_volume = siac_cts_output_cta_v2_9_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
   index, sellers_sale_days = siac_cts_output_cta_v2_9_dissect.sellers_sale_days(buffer, index, packet, parent)
@@ -2950,9 +2952,9 @@ siac_cts_output_cta_v2_9_size_of.corrected_trade = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_9_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + siac_cts_output_cta_v2_9_size_of.trade_price_long
+  index = index + siac_cts_output_cta_v2_9_size_of.trade_price
 
-  index = index + siac_cts_output_cta_v2_9_size_of.trade_volume_long
+  index = index + siac_cts_output_cta_v2_9_size_of.trade_volume
 
   index = index + siac_cts_output_cta_v2_9_size_of.sellers_sale_days
 
@@ -2979,11 +2981,11 @@ siac_cts_output_cta_v2_9_dissect.corrected_trade_fields = function(buffer, offse
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_9_dissect.sale_conditions(buffer, index, packet, parent)
 
-  -- Trade Price Long
-  index, trade_price_long = siac_cts_output_cta_v2_9_dissect.trade_price_long(buffer, index, packet, parent)
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_9_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Volume Long
-  index, trade_volume_long = siac_cts_output_cta_v2_9_dissect.trade_volume_long(buffer, index, packet, parent)
+  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  index, trade_volume = siac_cts_output_cta_v2_9_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
   index, sellers_sale_days = siac_cts_output_cta_v2_9_dissect.sellers_sale_days(buffer, index, packet, parent)
@@ -4757,6 +4759,39 @@ siac_cts_output_cta_v2_9_dissect.reserved = function(buffer, offset, packet, par
   return offset + length, value
 end
 
+-- Size: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_level_indicator = 1
+
+-- Display: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_9_display.market_wide_circuit_breaker_level_indicator = function(value)
+  if value == " " then
+    return "Market Wide Circuit Breaker Level Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "1" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 3 Breached (3)"
+  end
+
+  return "Market Wide Circuit Breaker Level Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_9_dissect.market_wide_circuit_breaker_level_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_level_indicator
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_9_display.market_wide_circuit_breaker_level_indicator(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Read runtime size of: Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_status_message = function(buffer, offset)
   local index = offset
@@ -4791,7 +4826,7 @@ siac_cts_output_cta_v2_9_dissect.market_wide_circuit_breaker_status_message_fiel
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cts_output_cta_v2_9_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Market Wide Circuit Breaker Level Indicator
+  -- Market Wide Circuit Breaker Level Indicator: 1 Byte Ascii String Enum with 4 values
   index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v2_9_dissect.market_wide_circuit_breaker_level_indicator(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
@@ -4857,6 +4892,26 @@ siac_cts_output_cta_v2_9_dissect.mwcb_level_2 = function(buffer, offset, packet,
   return offset + length, value
 end
 
+-- Size: Mwcb Level 1
+siac_cts_output_cta_v2_9_size_of.mwcb_level_1 = 8
+
+-- Display: Mwcb Level 1
+siac_cts_output_cta_v2_9_display.mwcb_level_1 = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+siac_cts_output_cta_v2_9_dissect.mwcb_level_1 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.mwcb_level_1
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_9_display.mwcb_level_1(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_9.fields.mwcb_level_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Read runtime size of: Market Wide Circuit Breaker Decline Level Status Message
 siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset)
   local index = offset
@@ -4891,7 +4946,7 @@ siac_cts_output_cta_v2_9_dissect.market_wide_circuit_breaker_decline_level_statu
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cts_output_cta_v2_9_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Mwcb Level 1
+  -- Mwcb Level 1: 8 Byte Signed Fixed Width Integer
   index, mwcb_level_1 = siac_cts_output_cta_v2_9_dissect.mwcb_level_1(buffer, index, packet, parent)
 
   -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer

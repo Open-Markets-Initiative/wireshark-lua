@@ -75,6 +75,7 @@ siac_cts_output_cta_v2_10.fields.fractional_total_volume = ProtoField.new("Fract
 siac_cts_output_cta_v2_10.fields.fractional_trade_cancel_error_message = ProtoField.new("Fractional Trade Cancel Error Message", "siac.cts.output.cta.v2.10.fractionaltradecancelerrormessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.fractional_trade_correction_message = ProtoField.new("Fractional Trade Correction Message", "siac.cts.output.cta.v2.10.fractionaltradecorrectionmessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.fractional_trade_total_volume = ProtoField.new("Fractional Trade Total Volume", "siac.cts.output.cta.v2.10.fractionaltradetotalvolume", ftypes.UINT64)
+siac_cts_output_cta_v2_10.fields.fractional_trade_volume = ProtoField.new("Fractional Trade Volume", "siac.cts.output.cta.v2.10.fractionaltradevolume", ftypes.UINT32)
 siac_cts_output_cta_v2_10.fields.fractional_trade_volume_short = ProtoField.new("Fractional Trade Volume Short", "siac.cts.output.cta.v2.10.fractionaltradevolumeshort", ftypes.UINT32)
 siac_cts_output_cta_v2_10.fields.future_use = ProtoField.new("Future Use", "siac.cts.output.cta.v2.10.futureuse", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cts.output.cta.v2.10.haltreason", ftypes.STRING)
@@ -100,6 +101,7 @@ siac_cts_output_cta_v2_10.fields.market_status = ProtoField.new("Market Status",
 siac_cts_output_cta_v2_10.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.10.marketstatusmessagetype", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cts.output.cta.v2.10.marketstatuspayload", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING)
+siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cts.output.cta.v2.10.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.10.message", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.10.messagecategory", ftypes.STRING)
@@ -107,6 +109,7 @@ siac_cts_output_cta_v2_10.fields.message_header = ProtoField.new("Message Header
 siac_cts_output_cta_v2_10.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.10.messageid", ftypes.UINT8)
 siac_cts_output_cta_v2_10.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.10.messagelength", ftypes.UINT16)
 siac_cts_output_cta_v2_10.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v2.10.messagesinblock", ftypes.UINT8)
+siac_cts_output_cta_v2_10.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.10.mwcblevel1", ftypes.INT64)
 siac_cts_output_cta_v2_10.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.10.mwcblevel2", ftypes.INT64)
 siac_cts_output_cta_v2_10.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.10.mwcblevel3", ftypes.INT64)
 siac_cts_output_cta_v2_10.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.output.cta.v2.10.nanoseconds", ftypes.UINT32)
@@ -1419,6 +1422,26 @@ siac_cts_output_cta_v2_10_dissect.sellers_sale_days = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Size: Fractional Trade Volume
+siac_cts_output_cta_v2_10_size_of.fractional_trade_volume = 4
+
+-- Display: Fractional Trade Volume
+siac_cts_output_cta_v2_10_display.fractional_trade_volume = function(value)
+  return "Fractional Trade Volume: "..value
+end
+
+-- Dissect: Fractional Trade Volume
+siac_cts_output_cta_v2_10_dissect.fractional_trade_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10_size_of.fractional_trade_volume
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10_display.fractional_trade_volume(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_10.fields.fractional_trade_volume, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Trade Price
 siac_cts_output_cta_v2_10_size_of.trade_price = 8
 
@@ -1950,7 +1973,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_cancel_error_message_fields =
   -- Trade Price: 8 Byte Unsigned Fixed Width Integer
   index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Fractional Trade Volume
+  -- Fractional Trade Volume: 4 Byte Unsigned Fixed Width Integer
   index, fractional_trade_volume = siac_cts_output_cta_v2_10_dissect.fractional_trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
@@ -3232,7 +3255,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_long_trade_message_fields = functio
   -- Trade Price: 8 Byte Unsigned Fixed Width Integer
   index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Fractional Trade Volume
+  -- Fractional Trade Volume: 4 Byte Unsigned Fixed Width Integer
   index, fractional_trade_volume = siac_cts_output_cta_v2_10_dissect.fractional_trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
@@ -3438,7 +3461,7 @@ siac_cts_output_cta_v2_10_size_of.fractional_original_trade = function(buffer, o
 
   index = index + siac_cts_output_cta_v2_10_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + siac_cts_output_cta_v2_10_size_of.trade_price_long
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_price
 
   index = index + siac_cts_output_cta_v2_10_size_of.fractional_trade_volume
 
@@ -3467,10 +3490,10 @@ siac_cts_output_cta_v2_10_dissect.fractional_original_trade_fields = function(bu
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_10_dissect.sale_conditions(buffer, index, packet, parent)
 
-  -- Trade Price Long
-  index, trade_price_long = siac_cts_output_cta_v2_10_dissect.trade_price_long(buffer, index, packet, parent)
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Fractional Trade Volume
+  -- Fractional Trade Volume: 4 Byte Unsigned Fixed Width Integer
   index, fractional_trade_volume = siac_cts_output_cta_v2_10_dissect.fractional_trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
@@ -3510,7 +3533,7 @@ siac_cts_output_cta_v2_10_size_of.fractional_corrected_trade = function(buffer, 
 
   index = index + siac_cts_output_cta_v2_10_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + siac_cts_output_cta_v2_10_size_of.trade_price_long
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_price
 
   index = index + siac_cts_output_cta_v2_10_size_of.fractional_trade_volume
 
@@ -3539,10 +3562,10 @@ siac_cts_output_cta_v2_10_dissect.fractional_corrected_trade_fields = function(b
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_10_dissect.sale_conditions(buffer, index, packet, parent)
 
-  -- Trade Price Long
-  index, trade_price_long = siac_cts_output_cta_v2_10_dissect.trade_price_long(buffer, index, packet, parent)
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Fractional Trade Volume
+  -- Fractional Trade Volume: 4 Byte Unsigned Fixed Width Integer
   index, fractional_trade_volume = siac_cts_output_cta_v2_10_dissect.fractional_trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
@@ -3669,9 +3692,9 @@ siac_cts_output_cta_v2_10_size_of.original_trade = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_10_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + siac_cts_output_cta_v2_10_size_of.trade_price_long
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_price
 
-  index = index + siac_cts_output_cta_v2_10_size_of.trade_volume_long
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_volume
 
   index = index + siac_cts_output_cta_v2_10_size_of.sellers_sale_days
 
@@ -3698,11 +3721,11 @@ siac_cts_output_cta_v2_10_dissect.original_trade_fields = function(buffer, offse
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_10_dissect.sale_conditions(buffer, index, packet, parent)
 
-  -- Trade Price Long
-  index, trade_price_long = siac_cts_output_cta_v2_10_dissect.trade_price_long(buffer, index, packet, parent)
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Volume Long
-  index, trade_volume_long = siac_cts_output_cta_v2_10_dissect.trade_volume_long(buffer, index, packet, parent)
+  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  index, trade_volume = siac_cts_output_cta_v2_10_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
   index, sellers_sale_days = siac_cts_output_cta_v2_10_dissect.sellers_sale_days(buffer, index, packet, parent)
@@ -3741,9 +3764,9 @@ siac_cts_output_cta_v2_10_size_of.corrected_trade = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_10_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + siac_cts_output_cta_v2_10_size_of.trade_price_long
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_price
 
-  index = index + siac_cts_output_cta_v2_10_size_of.trade_volume_long
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_volume
 
   index = index + siac_cts_output_cta_v2_10_size_of.sellers_sale_days
 
@@ -3770,11 +3793,11 @@ siac_cts_output_cta_v2_10_dissect.corrected_trade_fields = function(buffer, offs
   -- Sale Conditions: Struct of 4 fields
   index, sale_conditions = siac_cts_output_cta_v2_10_dissect.sale_conditions(buffer, index, packet, parent)
 
-  -- Trade Price Long
-  index, trade_price_long = siac_cts_output_cta_v2_10_dissect.trade_price_long(buffer, index, packet, parent)
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Volume Long
-  index, trade_volume_long = siac_cts_output_cta_v2_10_dissect.trade_volume_long(buffer, index, packet, parent)
+  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  index, trade_volume = siac_cts_output_cta_v2_10_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
   index, sellers_sale_days = siac_cts_output_cta_v2_10_dissect.sellers_sale_days(buffer, index, packet, parent)
@@ -5175,7 +5198,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_message_fields = fu
   -- Trade Price: 8 Byte Unsigned Fixed Width Integer
   index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Fractional Trade Volume
+  -- Fractional Trade Volume: 4 Byte Unsigned Fixed Width Integer
   index, fractional_trade_volume = siac_cts_output_cta_v2_10_dissect.fractional_trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
@@ -6101,6 +6124,39 @@ siac_cts_output_cta_v2_10_dissect.reserved = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
+-- Size: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_10_size_of.market_wide_circuit_breaker_level_indicator = 1
+
+-- Display: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_10_display.market_wide_circuit_breaker_level_indicator = function(value)
+  if value == " " then
+    return "Market Wide Circuit Breaker Level Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "1" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Market Wide Circuit Breaker Level Indicator: Level 3 Breached (3)"
+  end
+
+  return "Market Wide Circuit Breaker Level Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_level_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10_size_of.market_wide_circuit_breaker_level_indicator
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10_display.market_wide_circuit_breaker_level_indicator(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Read runtime size of: Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v2_10_size_of.market_wide_circuit_breaker_status_message = function(buffer, offset)
   local index = offset
@@ -6135,7 +6191,7 @@ siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_status_message_fie
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cts_output_cta_v2_10_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Market Wide Circuit Breaker Level Indicator
+  -- Market Wide Circuit Breaker Level Indicator: 1 Byte Ascii String Enum with 4 values
   index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_level_indicator(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
@@ -6201,6 +6257,26 @@ siac_cts_output_cta_v2_10_dissect.mwcb_level_2 = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Size: Mwcb Level 1
+siac_cts_output_cta_v2_10_size_of.mwcb_level_1 = 8
+
+-- Display: Mwcb Level 1
+siac_cts_output_cta_v2_10_display.mwcb_level_1 = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+siac_cts_output_cta_v2_10_dissect.mwcb_level_1 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10_size_of.mwcb_level_1
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10_display.mwcb_level_1(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_10.fields.mwcb_level_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Read runtime size of: Market Wide Circuit Breaker Decline Level Status Message
 siac_cts_output_cta_v2_10_size_of.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset)
   local index = offset
@@ -6235,7 +6311,7 @@ siac_cts_output_cta_v2_10_dissect.market_wide_circuit_breaker_decline_level_stat
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, participant_reference_number = siac_cts_output_cta_v2_10_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Mwcb Level 1
+  -- Mwcb Level 1: 8 Byte Signed Fixed Width Integer
   index, mwcb_level_1 = siac_cts_output_cta_v2_10_dissect.mwcb_level_1(buffer, index, packet, parent)
 
   -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer
