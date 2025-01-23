@@ -1191,6 +1191,26 @@ siac_cts_output_cta_v2_9_dissect.timestamp_2 = function(buffer, offset, packet, 
   return siac_cts_output_cta_v2_9_dissect.timestamp_2_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Original Participant Reference Number
+siac_cts_output_cta_v2_9_size_of.original_participant_reference_number = 8
+
+-- Display: Original Participant Reference Number
+siac_cts_output_cta_v2_9_display.original_participant_reference_number = function(value)
+  return "Original Participant Reference Number: "..value
+end
+
+-- Dissect: Original Participant Reference Number
+siac_cts_output_cta_v2_9_dissect.original_participant_reference_number = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.original_participant_reference_number
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_9_display.original_participant_reference_number(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_9.fields.original_participant_reference_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Trade Reporting Facility Id
 siac_cts_output_cta_v2_9_size_of.trade_reporting_facility_id = 1
 
@@ -1864,8 +1884,8 @@ siac_cts_output_cta_v2_9_dissect.trade_cancel_error_message_fields = function(bu
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_9_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
-  -- Original Participant Reference Number Of Original Transaction Being Cancelled Or Errored
-  index, original_participant_reference_number_of_original_transaction_being_cancelled_or_errored = siac_cts_output_cta_v2_9_dissect.original_participant_reference_number_of_original_transaction_being_cancelled_or_errored(buffer, index, packet, parent)
+  -- Original Participant Reference Number: 8 Byte Signed Fixed Width Integer
+  index, original_participant_reference_number = siac_cts_output_cta_v2_9_dissect.original_participant_reference_number(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
   index, timestamp_2 = siac_cts_output_cta_v2_9_dissect.timestamp_2(buffer, index, packet, parent)
@@ -2922,26 +2942,6 @@ siac_cts_output_cta_v2_9_dissect.original_trade = function(buffer, offset, packe
   end
 
   return siac_cts_output_cta_v2_9_dissect.original_trade_fields(buffer, offset, packet, parent)
-end
-
--- Size: Original Participant Reference Number
-siac_cts_output_cta_v2_9_size_of.original_participant_reference_number = 8
-
--- Display: Original Participant Reference Number
-siac_cts_output_cta_v2_9_display.original_participant_reference_number = function(value)
-  return "Original Participant Reference Number: "..value
-end
-
--- Dissect: Original Participant Reference Number
-siac_cts_output_cta_v2_9_dissect.original_participant_reference_number = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_9_size_of.original_participant_reference_number
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_9_display.original_participant_reference_number(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cts_output_cta_v2_9.fields.original_participant_reference_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Calculate size of: Corrected Trade
