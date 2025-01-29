@@ -148,6 +148,7 @@ siac_cts_output_cta_v2_9.fields.timestamp_1 = ProtoField.new("Timestamp 1", "sia
 siac_cts_output_cta_v2_9.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.9.timestamp2", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.total_trades = ProtoField.new("Total Trades", "siac.cts.output.cta.v2.9.totaltrades", ftypes.UINT32)
 siac_cts_output_cta_v2_9.fields.total_volume = ProtoField.new("Total Volume", "siac.cts.output.cta.v2.9.totalvolume", ftypes.UINT64)
+siac_cts_output_cta_v2_9.fields.total_volume_short = ProtoField.new("Total Volume Short", "siac.cts.output.cta.v2.9.totalvolumeshort", ftypes.UINT32)
 siac_cts_output_cta_v2_9.fields.trade = ProtoField.new("Trade", "siac.cts.output.cta.v2.9.trade", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "siac.cts.output.cta.v2.9.tradecancelerrormessage", ftypes.STRING)
 siac_cts_output_cta_v2_9.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.9.tradecorrectionmessage", ftypes.STRING)
@@ -598,22 +599,48 @@ siac_cts_output_cta_v2_9_dissect.tick = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Total Volume
-siac_cts_output_cta_v2_9_size_of.total_volume = 8
+-- Size: Total Volume Short
+siac_cts_output_cta_v2_9_size_of.total_volume_short = 4
 
--- Display: Total Volume
-siac_cts_output_cta_v2_9_display.total_volume = function(value)
-  return "Total Volume: "..value
+-- Display: Total Volume Short
+siac_cts_output_cta_v2_9_display.total_volume_short = function(value)
+  return "Total Volume Short: "..value
 end
 
--- Dissect: Total Volume
-siac_cts_output_cta_v2_9_dissect.total_volume = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_9_size_of.total_volume
+-- Dissect: Total Volume Short
+siac_cts_output_cta_v2_9_dissect.total_volume_short = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.total_volume_short
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_9_display.total_volume(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_9_display.total_volume_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_9.fields.total_volume, range, value, display)
+  parent:add(siac_cts_output_cta_v2_9.fields.total_volume_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Open Price
+siac_cts_output_cta_v2_9_size_of.open_price = 8
+
+-- Display: Open Price
+siac_cts_output_cta_v2_9_display.open_price = function(value)
+  return "Open Price: "..value
+end
+
+-- Translate: Open Price
+translate.open_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Open Price
+siac_cts_output_cta_v2_9_dissect.open_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.open_price
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = translate.open_price(raw)
+  local display = siac_cts_output_cta_v2_9_display.open_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_9.fields.open_price, range, value, display)
 
   return offset + length, value
 end
@@ -696,6 +723,93 @@ siac_cts_output_cta_v2_9_dissect.last_price = function(buffer, offset, packet, p
   return offset + length, value
 end
 
+-- Size: Previous Close Price Date
+siac_cts_output_cta_v2_9_size_of.previous_close_price_date = 4
+
+-- Display: Previous Close Price Date
+siac_cts_output_cta_v2_9_display.previous_close_price_date = function(value)
+  return "Previous Close Price Date: "..value
+end
+
+-- Dissect: Previous Close Price Date
+siac_cts_output_cta_v2_9_dissect.previous_close_price_date = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.previous_close_price_date
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_9_display.previous_close_price_date(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_9.fields.previous_close_price_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Participant Data
+siac_cts_output_cta_v2_9_size_of.participant_data = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v2_9_size_of.previous_close_price_date
+
+  index = index + siac_cts_output_cta_v2_9_size_of.last_price
+
+  index = index + siac_cts_output_cta_v2_9_size_of.high_price
+
+  index = index + siac_cts_output_cta_v2_9_size_of.low_price
+
+  index = index + siac_cts_output_cta_v2_9_size_of.open_price
+
+  index = index + siac_cts_output_cta_v2_9_size_of.total_volume_short
+
+  index = index + siac_cts_output_cta_v2_9_size_of.tick
+
+  return index
+end
+
+-- Display: Participant Data
+siac_cts_output_cta_v2_9_display.participant_data = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Participant Data
+siac_cts_output_cta_v2_9_dissect.participant_data_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  index, previous_close_price_date = siac_cts_output_cta_v2_9_dissect.previous_close_price_date(buffer, index, packet, parent)
+
+  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  index, last_price = siac_cts_output_cta_v2_9_dissect.last_price(buffer, index, packet, parent)
+
+  -- High Price: 8 Byte Unsigned Fixed Width Integer
+  index, high_price = siac_cts_output_cta_v2_9_dissect.high_price(buffer, index, packet, parent)
+
+  -- Low Price: 8 Byte Unsigned Fixed Width Integer
+  index, low_price = siac_cts_output_cta_v2_9_dissect.low_price(buffer, index, packet, parent)
+
+  -- Open Price: 8 Byte Unsigned Fixed Width Integer
+  index, open_price = siac_cts_output_cta_v2_9_dissect.open_price(buffer, index, packet, parent)
+
+  -- Total Volume Short: 4 Byte Unsigned Fixed Width Integer
+  index, total_volume_short = siac_cts_output_cta_v2_9_dissect.total_volume_short(buffer, index, packet, parent)
+
+  -- Tick: 1 Byte Ascii String Enum with 5 values
+  index, tick = siac_cts_output_cta_v2_9_dissect.tick(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Participant Data
+siac_cts_output_cta_v2_9_dissect.participant_data = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.participant_data then
+    local length = siac_cts_output_cta_v2_9_size_of.participant_data(buffer, offset)
+    local range = buffer(offset, length)
+    local display = siac_cts_output_cta_v2_9_display.participant_data(buffer, packet, parent)
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.participant_data, range, display)
+  end
+
+  return siac_cts_output_cta_v2_9_dissect.participant_data_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Last Participant Id
 siac_cts_output_cta_v2_9_size_of.last_participant_id = 1
 
@@ -771,93 +885,6 @@ siac_cts_output_cta_v2_9_dissect.last_participant_id = function(buffer, offset, 
   return offset + length, value
 end
 
--- Size: Previous Close Price Date
-siac_cts_output_cta_v2_9_size_of.previous_close_price_date = 4
-
--- Display: Previous Close Price Date
-siac_cts_output_cta_v2_9_display.previous_close_price_date = function(value)
-  return "Previous Close Price Date: "..value
-end
-
--- Dissect: Previous Close Price Date
-siac_cts_output_cta_v2_9_dissect.previous_close_price_date = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_9_size_of.previous_close_price_date
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_9_display.previous_close_price_date(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cts_output_cta_v2_9.fields.previous_close_price_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Participant Data
-siac_cts_output_cta_v2_9_size_of.participant_data = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_9_size_of.previous_close_price_date
-
-  index = index + siac_cts_output_cta_v2_9_size_of.last_participant_id
-
-  index = index + siac_cts_output_cta_v2_9_size_of.last_price
-
-  index = index + siac_cts_output_cta_v2_9_size_of.high_price
-
-  index = index + siac_cts_output_cta_v2_9_size_of.low_price
-
-  index = index + siac_cts_output_cta_v2_9_size_of.total_volume
-
-  index = index + siac_cts_output_cta_v2_9_size_of.tick
-
-  return index
-end
-
--- Display: Participant Data
-siac_cts_output_cta_v2_9_display.participant_data = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Participant Data
-siac_cts_output_cta_v2_9_dissect.participant_data_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = siac_cts_output_cta_v2_9_dissect.previous_close_price_date(buffer, index, packet, parent)
-
-  -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, last_participant_id = siac_cts_output_cta_v2_9_dissect.last_participant_id(buffer, index, packet, parent)
-
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_price = siac_cts_output_cta_v2_9_dissect.last_price(buffer, index, packet, parent)
-
-  -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index, high_price = siac_cts_output_cta_v2_9_dissect.high_price(buffer, index, packet, parent)
-
-  -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index, low_price = siac_cts_output_cta_v2_9_dissect.low_price(buffer, index, packet, parent)
-
-  -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = siac_cts_output_cta_v2_9_dissect.total_volume(buffer, index, packet, parent)
-
-  -- Tick: 1 Byte Ascii String Enum with 5 values
-  index, tick = siac_cts_output_cta_v2_9_dissect.tick(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Participant Data
-siac_cts_output_cta_v2_9_dissect.participant_data = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.participant_data then
-    local length = siac_cts_output_cta_v2_9_size_of.participant_data(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.participant_data(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.participant_data, range, display)
-  end
-
-  return siac_cts_output_cta_v2_9_dissect.participant_data_fields(buffer, offset, packet, parent)
-end
-
 -- Calculate size of: Consolidated Data
 siac_cts_output_cta_v2_9_size_of.consolidated_data = function(buffer, offset)
   local index = 0
@@ -872,7 +899,7 @@ siac_cts_output_cta_v2_9_size_of.consolidated_data = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_9_size_of.low_price
 
-  index = index + siac_cts_output_cta_v2_9_size_of.total_volume
+  index = index + siac_cts_output_cta_v2_9_size_of.total_volume_short
 
   index = index + siac_cts_output_cta_v2_9_size_of.tick
 
@@ -903,8 +930,8 @@ siac_cts_output_cta_v2_9_dissect.consolidated_data_fields = function(buffer, off
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
   index, low_price = siac_cts_output_cta_v2_9_dissect.low_price(buffer, index, packet, parent)
 
-  -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = siac_cts_output_cta_v2_9_dissect.total_volume(buffer, index, packet, parent)
+  -- Total Volume Short: 4 Byte Unsigned Fixed Width Integer
+  index, total_volume_short = siac_cts_output_cta_v2_9_dissect.total_volume_short(buffer, index, packet, parent)
 
   -- Tick: 1 Byte Ascii String Enum with 5 values
   index, tick = siac_cts_output_cta_v2_9_dissect.tick(buffer, index, packet, parent)
@@ -3476,28 +3503,22 @@ siac_cts_output_cta_v2_9_dissect.trade = function(buffer, offset, packet, parent
   return offset + size_of_trade
 end
 
--- Size: Open Price
-siac_cts_output_cta_v2_9_size_of.open_price = 8
+-- Size: Total Volume
+siac_cts_output_cta_v2_9_size_of.total_volume = 8
 
--- Display: Open Price
-siac_cts_output_cta_v2_9_display.open_price = function(value)
-  return "Open Price: "..value
+-- Display: Total Volume
+siac_cts_output_cta_v2_9_display.total_volume = function(value)
+  return "Total Volume: "..value
 end
 
--- Translate: Open Price
-translate.open_price = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Open Price
-siac_cts_output_cta_v2_9_dissect.open_price = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_9_size_of.open_price
+-- Dissect: Total Volume
+siac_cts_output_cta_v2_9_dissect.total_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9_size_of.total_volume
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = translate.open_price(raw)
-  local display = siac_cts_output_cta_v2_9_display.open_price(value, buffer, offset, packet, parent)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_9_display.total_volume(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_9.fields.open_price, range, value, display)
+  parent:add(siac_cts_output_cta_v2_9.fields.total_volume, range, value, display)
 
   return offset + length, value
 end

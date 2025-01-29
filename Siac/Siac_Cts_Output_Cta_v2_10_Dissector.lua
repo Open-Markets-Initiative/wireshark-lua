@@ -68,6 +68,7 @@ siac_cts_output_cta_v2_10.fields.fractional_original_trade = ProtoField.new("Fra
 siac_cts_output_cta_v2_10.fields.fractional_participant_data = ProtoField.new("Fractional Participant Data", "siac.cts.output.cta.v2.10.fractionalparticipantdata", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.fractional_participant_end_of_day_summary_message = ProtoField.new("Fractional Participant End Of Day Summary Message", "siac.cts.output.cta.v2.10.fractionalparticipantendofdaysummarymessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.fractional_participants = ProtoField.new("Fractional Participants", "siac.cts.output.cta.v2.10.fractionalparticipants", ftypes.STRING)
+siac_cts_output_cta_v2_10.fields.fractional_prior_day_corrected_trade = ProtoField.new("Fractional Prior Day Corrected Trade", "siac.cts.output.cta.v2.10.fractionalpriordaycorrectedtrade", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_correction_message = ProtoField.new("Fractional Prior Day Trade Correction Message", "siac.cts.output.cta.v2.10.fractionalpriordaytradecorrectionmessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.fractional_prior_day_trade_message = ProtoField.new("Fractional Prior Day Trade Message", "siac.cts.output.cta.v2.10.fractionalpriordaytrademessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.fractional_short_trade_message = ProtoField.new("Fractional Short Trade Message", "siac.cts.output.cta.v2.10.fractionalshorttrademessage", ftypes.STRING)
@@ -132,7 +133,9 @@ siac_cts_output_cta_v2_10.fields.previous_close_price = ProtoField.new("Previous
 siac_cts_output_cta_v2_10.fields.previous_close_price_date = ProtoField.new("Previous Close Price Date", "siac.cts.output.cta.v2.10.previousclosepricedate", ftypes.UINT32)
 siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cts.output.cta.v2.10.primarylistingmarketparticipantid", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.prior_day = ProtoField.new("Prior Day", "siac.cts.output.cta.v2.10.priorday", ftypes.STRING)
+siac_cts_output_cta_v2_10.fields.prior_day_corrected_trade = ProtoField.new("Prior Day Corrected Trade", "siac.cts.output.cta.v2.10.priordaycorrectedtrade", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.output.cta.v2.10.priordaymessagetype", ftypes.STRING)
+siac_cts_output_cta_v2_10.fields.prior_day_original_trade = ProtoField.new("Prior Day Original Trade", "siac.cts.output.cta.v2.10.priordayoriginaltrade", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.prior_day_payload = ProtoField.new("Prior Day Payload", "siac.cts.output.cta.v2.10.priordaypayload", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.prior_day_trade_correction_message = ProtoField.new("Prior Day Trade Correction Message", "siac.cts.output.cta.v2.10.priordaytradecorrectionmessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.10.priordaytradedateandtime", ftypes.STRING)
@@ -166,6 +169,7 @@ siac_cts_output_cta_v2_10.fields.timestamp_1 = ProtoField.new("Timestamp 1", "si
 siac_cts_output_cta_v2_10.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.10.timestamp2", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.total_trades = ProtoField.new("Total Trades", "siac.cts.output.cta.v2.10.totaltrades", ftypes.UINT32)
 siac_cts_output_cta_v2_10.fields.total_volume = ProtoField.new("Total Volume", "siac.cts.output.cta.v2.10.totalvolume", ftypes.UINT64)
+siac_cts_output_cta_v2_10.fields.total_volume_short = ProtoField.new("Total Volume Short", "siac.cts.output.cta.v2.10.totalvolumeshort", ftypes.UINT32)
 siac_cts_output_cta_v2_10.fields.trade = ProtoField.new("Trade", "siac.cts.output.cta.v2.10.trade", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.trade_cancel_error_message = ProtoField.new("Trade Cancel Error Message", "siac.cts.output.cta.v2.10.tradecancelerrormessage", ftypes.STRING)
 siac_cts_output_cta_v2_10.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.10.tradecorrectionmessage", ftypes.STRING)
@@ -213,6 +217,7 @@ show.fractional_original_trade = true
 show.fractional_participant_data = true
 show.fractional_participant_end_of_day_summary_message = true
 show.fractional_participants = true
+show.fractional_prior_day_corrected_trade = true
 show.fractional_prior_day_trade_correction_message = true
 show.fractional_prior_day_trade_message = true
 show.fractional_short_trade_message = true
@@ -234,6 +239,8 @@ show.participant_end_of_day_summary_message = true
 show.participant_start_of_day_summary_message = true
 show.participants = true
 show.prior_day = true
+show.prior_day_corrected_trade = true
+show.prior_day_original_trade = true
 show.prior_day_trade_correction_message = true
 show.prior_day_trade_date_and_time = true
 show.prior_day_trade_message = true
@@ -286,6 +293,7 @@ siac_cts_output_cta_v2_10.prefs.show_fractional_original_trade = Pref.bool("Show
 siac_cts_output_cta_v2_10.prefs.show_fractional_participant_data = Pref.bool("Show Fractional Participant Data", show.fractional_participant_data, "Parse and add Fractional Participant Data to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_fractional_participant_end_of_day_summary_message = Pref.bool("Show Fractional Participant End Of Day Summary Message", show.fractional_participant_end_of_day_summary_message, "Parse and add Fractional Participant End Of Day Summary Message to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_fractional_participants = Pref.bool("Show Fractional Participants", show.fractional_participants, "Parse and add Fractional Participants to protocol tree")
+siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade = Pref.bool("Show Fractional Prior Day Corrected Trade", show.fractional_prior_day_corrected_trade, "Parse and add Fractional Prior Day Corrected Trade to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message = Pref.bool("Show Fractional Prior Day Trade Correction Message", show.fractional_prior_day_trade_correction_message, "Parse and add Fractional Prior Day Trade Correction Message to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_message = Pref.bool("Show Fractional Prior Day Trade Message", show.fractional_prior_day_trade_message, "Parse and add Fractional Prior Day Trade Message to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_fractional_short_trade_message = Pref.bool("Show Fractional Short Trade Message", show.fractional_short_trade_message, "Parse and add Fractional Short Trade Message to protocol tree")
@@ -307,6 +315,8 @@ siac_cts_output_cta_v2_10.prefs.show_participant_end_of_day_summary_message = Pr
 siac_cts_output_cta_v2_10.prefs.show_participant_start_of_day_summary_message = Pref.bool("Show Participant Start Of Day Summary Message", show.participant_start_of_day_summary_message, "Parse and add Participant Start Of Day Summary Message to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_participants = Pref.bool("Show Participants", show.participants, "Parse and add Participants to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_prior_day = Pref.bool("Show Prior Day", show.prior_day, "Parse and add Prior Day to protocol tree")
+siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade = Pref.bool("Show Prior Day Corrected Trade", show.prior_day_corrected_trade, "Parse and add Prior Day Corrected Trade to protocol tree")
+siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade = Pref.bool("Show Prior Day Original Trade", show.prior_day_original_trade, "Parse and add Prior Day Original Trade to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message = Pref.bool("Show Prior Day Trade Correction Message", show.prior_day_trade_correction_message, "Parse and add Prior Day Trade Correction Message to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_date_and_time = Pref.bool("Show Prior Day Trade Date And Time", show.prior_day_trade_date_and_time, "Parse and add Prior Day Trade Date And Time to protocol tree")
 siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_message = Pref.bool("Show Prior Day Trade Message", show.prior_day_trade_message, "Parse and add Prior Day Trade Message to protocol tree")
@@ -438,6 +448,10 @@ function siac_cts_output_cta_v2_10.prefs_changed()
     show.fractional_participants = siac_cts_output_cta_v2_10.prefs.show_fractional_participants
     changed = true
   end
+  if show.fractional_prior_day_corrected_trade ~= siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade then
+    show.fractional_prior_day_corrected_trade = siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_corrected_trade
+    changed = true
+  end
   if show.fractional_prior_day_trade_correction_message ~= siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message then
     show.fractional_prior_day_trade_correction_message = siac_cts_output_cta_v2_10.prefs.show_fractional_prior_day_trade_correction_message
     changed = true
@@ -520,6 +534,14 @@ function siac_cts_output_cta_v2_10.prefs_changed()
   end
   if show.prior_day ~= siac_cts_output_cta_v2_10.prefs.show_prior_day then
     show.prior_day = siac_cts_output_cta_v2_10.prefs.show_prior_day
+    changed = true
+  end
+  if show.prior_day_corrected_trade ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade then
+    show.prior_day_corrected_trade = siac_cts_output_cta_v2_10.prefs.show_prior_day_corrected_trade
+    changed = true
+  end
+  if show.prior_day_original_trade ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade then
+    show.prior_day_original_trade = siac_cts_output_cta_v2_10.prefs.show_prior_day_original_trade
     changed = true
   end
   if show.prior_day_trade_correction_message ~= siac_cts_output_cta_v2_10.prefs.show_prior_day_trade_correction_message then
@@ -720,6 +742,32 @@ siac_cts_output_cta_v2_10_dissect.fractional_total_volume = function(buffer, off
   return offset + length, value
 end
 
+-- Size: Open Price
+siac_cts_output_cta_v2_10_size_of.open_price = 8
+
+-- Display: Open Price
+siac_cts_output_cta_v2_10_display.open_price = function(value)
+  return "Open Price: "..value
+end
+
+-- Translate: Open Price
+translate.open_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Open Price
+siac_cts_output_cta_v2_10_dissect.open_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10_size_of.open_price
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = translate.open_price(raw)
+  local display = siac_cts_output_cta_v2_10_display.open_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_10.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Low Price
 siac_cts_output_cta_v2_10_size_of.low_price = 8
 
@@ -798,6 +846,93 @@ siac_cts_output_cta_v2_10_dissect.last_price = function(buffer, offset, packet, 
   return offset + length, value
 end
 
+-- Size: Previous Close Price Date
+siac_cts_output_cta_v2_10_size_of.previous_close_price_date = 4
+
+-- Display: Previous Close Price Date
+siac_cts_output_cta_v2_10_display.previous_close_price_date = function(value)
+  return "Previous Close Price Date: "..value
+end
+
+-- Dissect: Previous Close Price Date
+siac_cts_output_cta_v2_10_dissect.previous_close_price_date = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10_size_of.previous_close_price_date
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10_display.previous_close_price_date(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_10.fields.previous_close_price_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Fractional Participant Data
+siac_cts_output_cta_v2_10_size_of.fractional_participant_data = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v2_10_size_of.previous_close_price_date
+
+  index = index + siac_cts_output_cta_v2_10_size_of.last_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.high_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.low_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.open_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.fractional_total_volume
+
+  index = index + siac_cts_output_cta_v2_10_size_of.tick
+
+  return index
+end
+
+-- Display: Fractional Participant Data
+siac_cts_output_cta_v2_10_display.fractional_participant_data = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Fractional Participant Data
+siac_cts_output_cta_v2_10_dissect.fractional_participant_data_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
+  index, previous_close_price_date = siac_cts_output_cta_v2_10_dissect.previous_close_price_date(buffer, index, packet, parent)
+
+  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  index, last_price = siac_cts_output_cta_v2_10_dissect.last_price(buffer, index, packet, parent)
+
+  -- High Price: 8 Byte Unsigned Fixed Width Integer
+  index, high_price = siac_cts_output_cta_v2_10_dissect.high_price(buffer, index, packet, parent)
+
+  -- Low Price: 8 Byte Unsigned Fixed Width Integer
+  index, low_price = siac_cts_output_cta_v2_10_dissect.low_price(buffer, index, packet, parent)
+
+  -- Open Price: 8 Byte Unsigned Fixed Width Integer
+  index, open_price = siac_cts_output_cta_v2_10_dissect.open_price(buffer, index, packet, parent)
+
+  -- Fractional Total Volume: 8 Byte Unsigned Fixed Width Integer
+  index, fractional_total_volume = siac_cts_output_cta_v2_10_dissect.fractional_total_volume(buffer, index, packet, parent)
+
+  -- Tick: 1 Byte Ascii String Enum with 5 values
+  index, tick = siac_cts_output_cta_v2_10_dissect.tick(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional Participant Data
+siac_cts_output_cta_v2_10_dissect.fractional_participant_data = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.fractional_participant_data then
+    local length = siac_cts_output_cta_v2_10_size_of.fractional_participant_data(buffer, offset)
+    local range = buffer(offset, length)
+    local display = siac_cts_output_cta_v2_10_display.fractional_participant_data(buffer, packet, parent)
+    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_participant_data, range, display)
+  end
+
+  return siac_cts_output_cta_v2_10_dissect.fractional_participant_data_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Last Participant Id
 siac_cts_output_cta_v2_10_size_of.last_participant_id = 1
 
@@ -871,93 +1006,6 @@ siac_cts_output_cta_v2_10_dissect.last_participant_id = function(buffer, offset,
   parent:add(siac_cts_output_cta_v2_10.fields.last_participant_id, range, value, display)
 
   return offset + length, value
-end
-
--- Size: Previous Close Price Date
-siac_cts_output_cta_v2_10_size_of.previous_close_price_date = 4
-
--- Display: Previous Close Price Date
-siac_cts_output_cta_v2_10_display.previous_close_price_date = function(value)
-  return "Previous Close Price Date: "..value
-end
-
--- Dissect: Previous Close Price Date
-siac_cts_output_cta_v2_10_dissect.previous_close_price_date = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10_size_of.previous_close_price_date
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10_display.previous_close_price_date(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cts_output_cta_v2_10.fields.previous_close_price_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Fractional Participant Data
-siac_cts_output_cta_v2_10_size_of.fractional_participant_data = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_10_size_of.previous_close_price_date
-
-  index = index + siac_cts_output_cta_v2_10_size_of.last_participant_id
-
-  index = index + siac_cts_output_cta_v2_10_size_of.last_price
-
-  index = index + siac_cts_output_cta_v2_10_size_of.high_price
-
-  index = index + siac_cts_output_cta_v2_10_size_of.low_price
-
-  index = index + siac_cts_output_cta_v2_10_size_of.fractional_total_volume
-
-  index = index + siac_cts_output_cta_v2_10_size_of.tick
-
-  return index
-end
-
--- Display: Fractional Participant Data
-siac_cts_output_cta_v2_10_display.fractional_participant_data = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Fractional Participant Data
-siac_cts_output_cta_v2_10_dissect.fractional_participant_data_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = siac_cts_output_cta_v2_10_dissect.previous_close_price_date(buffer, index, packet, parent)
-
-  -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, last_participant_id = siac_cts_output_cta_v2_10_dissect.last_participant_id(buffer, index, packet, parent)
-
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_price = siac_cts_output_cta_v2_10_dissect.last_price(buffer, index, packet, parent)
-
-  -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index, high_price = siac_cts_output_cta_v2_10_dissect.high_price(buffer, index, packet, parent)
-
-  -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index, low_price = siac_cts_output_cta_v2_10_dissect.low_price(buffer, index, packet, parent)
-
-  -- Fractional Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, fractional_total_volume = siac_cts_output_cta_v2_10_dissect.fractional_total_volume(buffer, index, packet, parent)
-
-  -- Tick: 1 Byte Ascii String Enum with 5 values
-  index, tick = siac_cts_output_cta_v2_10_dissect.tick(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Fractional Participant Data
-siac_cts_output_cta_v2_10_dissect.fractional_participant_data = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.fractional_participant_data then
-    local length = siac_cts_output_cta_v2_10_size_of.fractional_participant_data(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_10_display.fractional_participant_data(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_participant_data, range, display)
-  end
-
-  return siac_cts_output_cta_v2_10_dissect.fractional_participant_data_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Fractional Consolidated Data
@@ -2032,22 +2080,22 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_cancel_error_message = functi
   return offset + size_of_fractional_trade_cancel_error_message
 end
 
--- Size: Total Volume
-siac_cts_output_cta_v2_10_size_of.total_volume = 8
+-- Size: Total Volume Short
+siac_cts_output_cta_v2_10_size_of.total_volume_short = 4
 
--- Display: Total Volume
-siac_cts_output_cta_v2_10_display.total_volume = function(value)
-  return "Total Volume: "..value
+-- Display: Total Volume Short
+siac_cts_output_cta_v2_10_display.total_volume_short = function(value)
+  return "Total Volume Short: "..value
 end
 
--- Dissect: Total Volume
-siac_cts_output_cta_v2_10_dissect.total_volume = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10_size_of.total_volume
+-- Dissect: Total Volume Short
+siac_cts_output_cta_v2_10_dissect.total_volume_short = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10_size_of.total_volume_short
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10_display.total_volume(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10_display.total_volume_short(value, buffer, offset, packet, parent)
 
-  parent:add(siac_cts_output_cta_v2_10.fields.total_volume, range, value, display)
+  parent:add(siac_cts_output_cta_v2_10.fields.total_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -2058,15 +2106,15 @@ siac_cts_output_cta_v2_10_size_of.participant_data = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_10_size_of.previous_close_price_date
 
-  index = index + siac_cts_output_cta_v2_10_size_of.last_participant_id
-
   index = index + siac_cts_output_cta_v2_10_size_of.last_price
 
   index = index + siac_cts_output_cta_v2_10_size_of.high_price
 
   index = index + siac_cts_output_cta_v2_10_size_of.low_price
 
-  index = index + siac_cts_output_cta_v2_10_size_of.total_volume
+  index = index + siac_cts_output_cta_v2_10_size_of.open_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.total_volume_short
 
   index = index + siac_cts_output_cta_v2_10_size_of.tick
 
@@ -2085,9 +2133,6 @@ siac_cts_output_cta_v2_10_dissect.participant_data_fields = function(buffer, off
   -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_10_dissect.previous_close_price_date(buffer, index, packet, parent)
 
-  -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, last_participant_id = siac_cts_output_cta_v2_10_dissect.last_participant_id(buffer, index, packet, parent)
-
   -- Last Price: 8 Byte Unsigned Fixed Width Integer
   index, last_price = siac_cts_output_cta_v2_10_dissect.last_price(buffer, index, packet, parent)
 
@@ -2097,8 +2142,11 @@ siac_cts_output_cta_v2_10_dissect.participant_data_fields = function(buffer, off
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
   index, low_price = siac_cts_output_cta_v2_10_dissect.low_price(buffer, index, packet, parent)
 
-  -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = siac_cts_output_cta_v2_10_dissect.total_volume(buffer, index, packet, parent)
+  -- Open Price: 8 Byte Unsigned Fixed Width Integer
+  index, open_price = siac_cts_output_cta_v2_10_dissect.open_price(buffer, index, packet, parent)
+
+  -- Total Volume Short: 4 Byte Unsigned Fixed Width Integer
+  index, total_volume_short = siac_cts_output_cta_v2_10_dissect.total_volume_short(buffer, index, packet, parent)
 
   -- Tick: 1 Byte Ascii String Enum with 5 values
   index, tick = siac_cts_output_cta_v2_10_dissect.tick(buffer, index, packet, parent)
@@ -2133,7 +2181,7 @@ siac_cts_output_cta_v2_10_size_of.consolidated_data = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_10_size_of.low_price
 
-  index = index + siac_cts_output_cta_v2_10_size_of.total_volume
+  index = index + siac_cts_output_cta_v2_10_size_of.total_volume_short
 
   index = index + siac_cts_output_cta_v2_10_size_of.tick
 
@@ -2164,8 +2212,8 @@ siac_cts_output_cta_v2_10_dissect.consolidated_data_fields = function(buffer, of
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
   index, low_price = siac_cts_output_cta_v2_10_dissect.low_price(buffer, index, packet, parent)
 
-  -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = siac_cts_output_cta_v2_10_dissect.total_volume(buffer, index, packet, parent)
+  -- Total Volume Short: 4 Byte Unsigned Fixed Width Integer
+  index, total_volume_short = siac_cts_output_cta_v2_10_dissect.total_volume_short(buffer, index, packet, parent)
 
   -- Tick: 1 Byte Ascii String Enum with 5 values
   index, tick = siac_cts_output_cta_v2_10_dissect.tick(buffer, index, packet, parent)
@@ -3545,8 +3593,6 @@ siac_cts_output_cta_v2_10_size_of.fractional_corrected_trade = function(buffer, 
 
   index = index + siac_cts_output_cta_v2_10_size_of.short_sale_restriction_indicator
 
-  index = index + siac_cts_output_cta_v2_10_size_of.prior_day_trade_date_and_time(buffer, offset + index)
-
   return index
 end
 
@@ -3579,9 +3625,6 @@ siac_cts_output_cta_v2_10_dissect.fractional_corrected_trade_fields = function(b
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_10_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
-
-  -- Prior Day Trade Date And Time: Struct of 2 fields
-  index, prior_day_trade_date_and_time = siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
 
   return index
 end
@@ -3639,7 +3682,7 @@ siac_cts_output_cta_v2_10_dissect.fractional_trade_correction_message_fields = f
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
   index, instrument_type = siac_cts_output_cta_v2_10_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Fractional Corrected Trade: Struct of 8 fields
+  -- Fractional Corrected Trade: Struct of 7 fields
   index, fractional_corrected_trade = siac_cts_output_cta_v2_10_dissect.fractional_corrected_trade(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
@@ -3704,8 +3747,6 @@ siac_cts_output_cta_v2_10_size_of.original_trade = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_10_size_of.short_sale_restriction_indicator
 
-  index = index + siac_cts_output_cta_v2_10_size_of.prior_day_trade_date_and_time(buffer, offset + index)
-
   return index
 end
 
@@ -3738,9 +3779,6 @@ siac_cts_output_cta_v2_10_dissect.original_trade_fields = function(buffer, offse
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_10_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
-
-  -- Prior Day Trade Date And Time: Struct of 2 fields
-  index, prior_day_trade_date_and_time = siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
 
   return index
 end
@@ -3776,8 +3814,6 @@ siac_cts_output_cta_v2_10_size_of.corrected_trade = function(buffer, offset)
 
   index = index + siac_cts_output_cta_v2_10_size_of.short_sale_restriction_indicator
 
-  index = index + siac_cts_output_cta_v2_10_size_of.prior_day_trade_date_and_time(buffer, offset + index)
-
   return index
 end
 
@@ -3810,9 +3846,6 @@ siac_cts_output_cta_v2_10_dissect.corrected_trade_fields = function(buffer, offs
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
   index, short_sale_restriction_indicator = siac_cts_output_cta_v2_10_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
-
-  -- Prior Day Trade Date And Time: Struct of 2 fields
-  index, prior_day_trade_date_and_time = siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
 
   return index
 end
@@ -3870,7 +3903,7 @@ siac_cts_output_cta_v2_10_dissect.trade_correction_message_fields = function(buf
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
   index, instrument_type = siac_cts_output_cta_v2_10_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Corrected Trade: Struct of 8 fields
+  -- Corrected Trade: Struct of 7 fields
   index, corrected_trade = siac_cts_output_cta_v2_10_dissect.corrected_trade(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
@@ -3882,7 +3915,7 @@ siac_cts_output_cta_v2_10_dissect.trade_correction_message_fields = function(buf
   -- Original Participant Reference Number: 8 Byte Signed Fixed Width Integer
   index, original_participant_reference_number = siac_cts_output_cta_v2_10_dissect.original_participant_reference_number(buffer, index, packet, parent)
 
-  -- Original Trade: Struct of 8 fields
+  -- Original Trade: Struct of 7 fields
   index, original_trade = siac_cts_output_cta_v2_10_dissect.original_trade(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
@@ -4332,32 +4365,6 @@ siac_cts_output_cta_v2_10_dissect.trade = function(buffer, offset, packet, paren
   return offset + size_of_trade
 end
 
--- Size: Open Price
-siac_cts_output_cta_v2_10_size_of.open_price = 8
-
--- Display: Open Price
-siac_cts_output_cta_v2_10_display.open_price = function(value)
-  return "Open Price: "..value
-end
-
--- Translate: Open Price
-translate.open_price = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Open Price
-siac_cts_output_cta_v2_10_dissect.open_price = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10_size_of.open_price
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = translate.open_price(raw)
-  local display = siac_cts_output_cta_v2_10_display.open_price(value, buffer, offset, packet, parent)
-
-  parent:add(siac_cts_output_cta_v2_10.fields.open_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Initiating Participant Id
 siac_cts_output_cta_v2_10_size_of.initiating_participant_id = 1
 
@@ -4521,6 +4528,26 @@ siac_cts_output_cta_v2_10_dissect.fractional_participant_end_of_day_summary_mess
   siac_cts_output_cta_v2_10_dissect.fractional_participant_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_fractional_participant_end_of_day_summary_message)
 
   return offset + size_of_fractional_participant_end_of_day_summary_message
+end
+
+-- Size: Total Volume
+siac_cts_output_cta_v2_10_size_of.total_volume = 8
+
+-- Display: Total Volume
+siac_cts_output_cta_v2_10_display.total_volume = function(value)
+  return "Total Volume: "..value
+end
+
+-- Dissect: Total Volume
+siac_cts_output_cta_v2_10_dissect.total_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10_size_of.total_volume
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10_display.total_volume(value, buffer, offset, packet, parent)
+
+  parent:add(siac_cts_output_cta_v2_10.fields.total_volume, range, value, display)
+
+  return offset + length, value
 end
 
 -- Read runtime size of: Participant End Of Day Summary Message
@@ -5326,6 +5353,78 @@ siac_cts_output_cta_v2_10_dissect.prior_day_trade_message = function(buffer, off
   return offset + size_of_prior_day_trade_message
 end
 
+-- Calculate size of: Fractional Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_size_of.fractional_prior_day_corrected_trade = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v2_10_size_of.sale_conditions(buffer, offset + index)
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.fractional_trade_volume
+
+  index = index + siac_cts_output_cta_v2_10_size_of.sellers_sale_days
+
+  index = index + siac_cts_output_cta_v2_10_size_of.stop_stock_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_through_exempt_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.short_sale_restriction_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.prior_day_trade_date_and_time(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Fractional Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_display.fractional_prior_day_corrected_trade = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Fractional Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_dissect.fractional_prior_day_corrected_trade_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sale Conditions: Struct of 4 fields
+  index, sale_conditions = siac_cts_output_cta_v2_10_dissect.sale_conditions(buffer, index, packet, parent)
+
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
+
+  -- Fractional Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  index, fractional_trade_volume = siac_cts_output_cta_v2_10_dissect.fractional_trade_volume(buffer, index, packet, parent)
+
+  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  index, sellers_sale_days = siac_cts_output_cta_v2_10_dissect.sellers_sale_days(buffer, index, packet, parent)
+
+  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  index, stop_stock_indicator = siac_cts_output_cta_v2_10_dissect.stop_stock_indicator(buffer, index, packet, parent)
+
+  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v2_10_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+
+  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v2_10_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+
+  -- Prior Day Trade Date And Time: Struct of 2 fields
+  index, prior_day_trade_date_and_time = siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_dissect.fractional_prior_day_corrected_trade = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.fractional_prior_day_corrected_trade then
+    local length = siac_cts_output_cta_v2_10_size_of.fractional_prior_day_corrected_trade(buffer, offset)
+    local range = buffer(offset, length)
+    local display = siac_cts_output_cta_v2_10_display.fractional_prior_day_corrected_trade(buffer, packet, parent)
+    parent = parent:add(siac_cts_output_cta_v2_10.fields.fractional_prior_day_corrected_trade, range, display)
+  end
+
+  return siac_cts_output_cta_v2_10_dissect.fractional_prior_day_corrected_trade_fields(buffer, offset, packet, parent)
+end
+
 -- Read runtime size of: Fractional Prior Day Trade Correction Message
 siac_cts_output_cta_v2_10_size_of.fractional_prior_day_trade_correction_message = function(buffer, offset)
   local index = offset
@@ -5366,14 +5465,14 @@ siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_correction_message_
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
   index, instrument_type = siac_cts_output_cta_v2_10_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Fractional Corrected Trade: Struct of 8 fields
-  index, fractional_corrected_trade = siac_cts_output_cta_v2_10_dissect.fractional_corrected_trade(buffer, index, packet, parent)
+  -- Fractional Prior Day Corrected Trade: Struct of 8 fields
+  index, fractional_prior_day_corrected_trade = siac_cts_output_cta_v2_10_dissect.fractional_prior_day_corrected_trade(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_10_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
-  -- Fractional Original Trade: Struct of 8 fields
-  index, fractional_original_trade = siac_cts_output_cta_v2_10_dissect.fractional_original_trade(buffer, index, packet, parent)
+  -- Fractional Prior Day Original Trade
+  index, fractional_prior_day_original_trade = siac_cts_output_cta_v2_10_dissect.fractional_prior_day_original_trade(buffer, index, packet, parent)
 
   return index
 end
@@ -5393,6 +5492,150 @@ siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_correction_message 
   siac_cts_output_cta_v2_10_dissect.fractional_prior_day_trade_correction_message_fields(buffer, offset, packet, parent, size_of_fractional_prior_day_trade_correction_message)
 
   return offset + size_of_fractional_prior_day_trade_correction_message
+end
+
+-- Calculate size of: Prior Day Original Trade
+siac_cts_output_cta_v2_10_size_of.prior_day_original_trade = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v2_10_size_of.sale_conditions(buffer, offset + index)
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_volume
+
+  index = index + siac_cts_output_cta_v2_10_size_of.sellers_sale_days
+
+  index = index + siac_cts_output_cta_v2_10_size_of.stop_stock_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_through_exempt_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.short_sale_restriction_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.prior_day_trade_date_and_time(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Prior Day Original Trade
+siac_cts_output_cta_v2_10_display.prior_day_original_trade = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Prior Day Original Trade
+siac_cts_output_cta_v2_10_dissect.prior_day_original_trade_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sale Conditions: Struct of 4 fields
+  index, sale_conditions = siac_cts_output_cta_v2_10_dissect.sale_conditions(buffer, index, packet, parent)
+
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
+
+  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  index, trade_volume = siac_cts_output_cta_v2_10_dissect.trade_volume(buffer, index, packet, parent)
+
+  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  index, sellers_sale_days = siac_cts_output_cta_v2_10_dissect.sellers_sale_days(buffer, index, packet, parent)
+
+  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  index, stop_stock_indicator = siac_cts_output_cta_v2_10_dissect.stop_stock_indicator(buffer, index, packet, parent)
+
+  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v2_10_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+
+  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v2_10_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+
+  -- Prior Day Trade Date And Time: Struct of 2 fields
+  index, prior_day_trade_date_and_time = siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Prior Day Original Trade
+siac_cts_output_cta_v2_10_dissect.prior_day_original_trade = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.prior_day_original_trade then
+    local length = siac_cts_output_cta_v2_10_size_of.prior_day_original_trade(buffer, offset)
+    local range = buffer(offset, length)
+    local display = siac_cts_output_cta_v2_10_display.prior_day_original_trade(buffer, packet, parent)
+    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_original_trade, range, display)
+  end
+
+  return siac_cts_output_cta_v2_10_dissect.prior_day_original_trade_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_size_of.prior_day_corrected_trade = function(buffer, offset)
+  local index = 0
+
+  index = index + siac_cts_output_cta_v2_10_size_of.sale_conditions(buffer, offset + index)
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_price
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_volume
+
+  index = index + siac_cts_output_cta_v2_10_size_of.sellers_sale_days
+
+  index = index + siac_cts_output_cta_v2_10_size_of.stop_stock_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.trade_through_exempt_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.short_sale_restriction_indicator
+
+  index = index + siac_cts_output_cta_v2_10_size_of.prior_day_trade_date_and_time(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_display.prior_day_corrected_trade = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_dissect.prior_day_corrected_trade_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sale Conditions: Struct of 4 fields
+  index, sale_conditions = siac_cts_output_cta_v2_10_dissect.sale_conditions(buffer, index, packet, parent)
+
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
+  index, trade_price = siac_cts_output_cta_v2_10_dissect.trade_price(buffer, index, packet, parent)
+
+  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  index, trade_volume = siac_cts_output_cta_v2_10_dissect.trade_volume(buffer, index, packet, parent)
+
+  -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
+  index, sellers_sale_days = siac_cts_output_cta_v2_10_dissect.sellers_sale_days(buffer, index, packet, parent)
+
+  -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
+  index, stop_stock_indicator = siac_cts_output_cta_v2_10_dissect.stop_stock_indicator(buffer, index, packet, parent)
+
+  -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v2_10_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+
+  -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v2_10_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+
+  -- Prior Day Trade Date And Time: Struct of 2 fields
+  index, prior_day_trade_date_and_time = siac_cts_output_cta_v2_10_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Prior Day Corrected Trade
+siac_cts_output_cta_v2_10_dissect.prior_day_corrected_trade = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.prior_day_corrected_trade then
+    local length = siac_cts_output_cta_v2_10_size_of.prior_day_corrected_trade(buffer, offset)
+    local range = buffer(offset, length)
+    local display = siac_cts_output_cta_v2_10_display.prior_day_corrected_trade(buffer, packet, parent)
+    parent = parent:add(siac_cts_output_cta_v2_10.fields.prior_day_corrected_trade, range, display)
+  end
+
+  return siac_cts_output_cta_v2_10_dissect.prior_day_corrected_trade_fields(buffer, offset, packet, parent)
 end
 
 -- Read runtime size of: Prior Day Trade Correction Message
@@ -5435,14 +5678,14 @@ siac_cts_output_cta_v2_10_dissect.prior_day_trade_correction_message_fields = fu
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
   index, instrument_type = siac_cts_output_cta_v2_10_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Corrected Trade: Struct of 8 fields
-  index, corrected_trade = siac_cts_output_cta_v2_10_dissect.corrected_trade(buffer, index, packet, parent)
+  -- Prior Day Corrected Trade: Struct of 8 fields
+  index, prior_day_corrected_trade = siac_cts_output_cta_v2_10_dissect.prior_day_corrected_trade(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 4 values
   index, trade_reporting_facility_id = siac_cts_output_cta_v2_10_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
-  -- Original Trade: Struct of 8 fields
-  index, original_trade = siac_cts_output_cta_v2_10_dissect.original_trade(buffer, index, packet, parent)
+  -- Prior Day Original Trade: Struct of 8 fields
+  index, prior_day_original_trade = siac_cts_output_cta_v2_10_dissect.prior_day_original_trade(buffer, index, packet, parent)
 
   return index
 end
