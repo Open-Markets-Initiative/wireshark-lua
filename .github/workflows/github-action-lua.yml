@@ -65,4 +65,7 @@ jobs:
       - name: Run Siac Cts Output Cta 2.9 Dissector Tests
         run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-9-Test.sh
 
+      - name: Run Siac Cts Output Cta 2.10 Dissector Tests
+        run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-10-Test.sh
+
 
