@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 320 | 3,178,593 |
+| 323 | 3,200,210 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -83,6 +83,8 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Cboe][Cboe.Directory] | Europe | [LastSale][Cboe.Europe.LastSale.Apf.v1.7.Dissector] | Apf | [1.7][Cboe.Europe.LastSale.Apf.v1.7.Dissector] | 10/2/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Cboe][Cboe.Directory] | Europe | [CedxMulticast][Cboe.Europe.CedxMulticast.Pitch.v1.11.Dissector] | Pitch | [1.11][Cboe.Europe.CedxMulticast.Pitch.v1.11.Dissector] | 2/27/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Europe | [DepthOfBook][Cboe.Europe.DepthOfBook.Pitch.v6.49.Dissector] | Pitch | [6.49][Cboe.Europe.DepthOfBook.Pitch.v6.49.Dissector] | 11/16/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Cboe][Cboe.Directory] | Futures | [OrderEntry][Cboe.Futures.OrderEntry.Boe3.v1.1.20.Dissector] | Boe3 | [1.1.20][Cboe.Futures.OrderEntry.Boe3.v1.1.20.Dissector] | 1/23/2025 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Cboe][Cboe.Directory] | Futures | [OrderEntry][Cboe.Futures.OrderEntry.Boe3.v1.0.Dissector] | Boe3 | [1.0][Cboe.Futures.OrderEntry.Boe3.v1.0.Dissector] | 5/21/2021 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Futures | [DepthOfBook][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector] | Pitch | [1.1.12][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector] | 1/12/2021 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Options | [Complex][Cboe.Options.Complex.Pitch.v2.1.37.Dissector] | Pitch | [2.1.37][Cboe.Options.Complex.Pitch.v2.1.37.Dissector] | 3/1/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Options | [Complex][Cboe.Options.Complex.Pitch.v2.1.18.Dissector] | Pitch | [2.1.18][Cboe.Options.Complex.Pitch.v2.1.18.Dissector] | 1/31/2020 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -265,6 +267,8 @@ Enjoy.
 [Cboe.Options.Complex.Pitch.v2.1.18.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Options_Complex_Pitch_v2_1_18_Dissector.lua "Cboe Options Complex Pitch v2.1.18 Lua Wireshark Dissector"
 [Cboe.Options.Complex.Pitch.v2.1.37.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Options_Complex_Pitch_v2_1_37_Dissector.lua "Cboe Options Complex Pitch v2.1.37 Lua Wireshark Dissector"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Futures_DepthOfBook_Pitch_v1_1_12_Dissector.lua "Cboe Futures DepthOfBook Pitch v1.1.12 Lua Wireshark Dissector"
+[Cboe.Futures.OrderEntry.Boe3.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Futures_OrderEntry_Boe3_v1_0_Dissector.lua "Cboe Futures OrderEntry Boe3 v1.0 Lua Wireshark Dissector"
+[Cboe.Futures.OrderEntry.Boe3.v1.1.20.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Futures_OrderEntry_Boe3_v1_1_20_Dissector.lua "Cboe Futures OrderEntry Boe3 v1.1.20 Lua Wireshark Dissector"
 [Cboe.Europe.LastSale.Apf.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Europe_LastSale_Apf_v1_7_Dissector.lua "Cboe Europe LastSale Apf v1.7 Lua Wireshark Dissector"
 [Cboe.Europe.DepthOfBook.Pitch.v6.49.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Europe_DepthOfBook_Pitch_v6_49_Dissector.lua "Cboe Europe DepthOfBook Pitch v6.49 Lua Wireshark Dissector"
 [Cboe.Europe.CedxMulticast.Pitch.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Europe_CedxMulticast_Pitch_v1_11_Dissector.lua "Cboe Europe CedxMulticast Pitch v1.11 Lua Wireshark Dissector"
