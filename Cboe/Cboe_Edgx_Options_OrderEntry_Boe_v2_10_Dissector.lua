@@ -16234,6 +16234,9 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.cross_order_cancelled_optional_fi
     index = cboe_edgx_options_orderentry_boe_v2_10_dissect.target_party_id(buffer, index, packet, parent)
   end
 
+  -- Dependency element: Cross Order Cancelled Bitfield Count
+  local cross_order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
+
   -- Runtime optional field exists: Target Party Id
   local target_party_id_exists = cross_order_cancelled_bitfield_count >= 9 and cross_order_cancelled_byte_9:bitfield(5) > 0
 
