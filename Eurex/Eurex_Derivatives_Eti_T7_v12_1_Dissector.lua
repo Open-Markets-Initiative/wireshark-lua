@@ -31,6 +31,7 @@ eurex_derivatives_eti_t7_v12_1.fields.add_scaled_simple_instrument_request = Pro
 eurex_derivatives_eti_t7_v12_1.fields.add_scaled_simple_instrument_response = ProtoField.new("Add Scaled Simple Instrument Response", "eurex.derivatives.eti.t7.v12.1.addscaledsimpleinstrumentresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v12_1.fields.affected_order_request_id = ProtoField.new("Affected Order Request Id", "eurex.derivatives.eti.t7.v12.1.affectedorderrequestid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v12_1.fields.affected_order_requests_grp_comp = ProtoField.new("Affected Order Requests Grp Comp", "eurex.derivatives.eti.t7.v12.1.affectedorderrequestsgrpcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v12_1.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.derivatives.eti.t7.v12.1.alignmentpadding", ftypes.BYTES)
 eurex_derivatives_eti_t7_v12_1.fields.alloc_id = ProtoField.new("Alloc Id", "eurex.derivatives.eti.t7.v12.1.allocid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v12_1.fields.alloc_qty = ProtoField.new("Alloc Qty", "eurex.derivatives.eti.t7.v12.1.allocqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v12_1.fields.amend_basket_trade_request = ProtoField.new("Amend Basket Trade Request", "eurex.derivatives.eti.t7.v12.1.amendbaskettraderequest", ftypes.STRING)
@@ -2601,7 +2602,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.password = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.password
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.password(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.password, range, value, display)
@@ -10044,6 +10056,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_delete_broadcast = function(buffer, o
   return offset + size_of_tes_delete_broadcast
 end
 
+-- Display: Alignment Padding
+eurex_derivatives_eti_t7_v12_1_display.alignment_padding = function(value)
+  return "Alignment Padding: "..value
+end
+
+-- Dissect runtime sized field: Alignment Padding
+eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eti_t7_v12_1_display.alignment_padding(value, buffer, offset, packet, parent, size)
+
+  parent:add(eurex_derivatives_eti_t7_v12_1.fields.alignment_padding, range, value, display)
+
+  return offset + size
+end
+
 -- Display: Var Text
 eurex_derivatives_eti_t7_v12_1_display.var_text = function(value)
   return "Var Text: "..value
@@ -10397,6 +10425,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_broadcast_fields = function(buffer, o
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
+
   return index
 end
 
@@ -10705,6 +10749,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.tes_approve_broadcast_fields = function(b
 
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
 
   return index
 end
@@ -17858,6 +17918,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.reject_fields = function(buffer, offset, 
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
+
   return index
 end
 
@@ -22361,6 +22437,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.news_broadcast_fields = function(buffer, 
 
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
 
   return index
 end
@@ -27071,7 +27163,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.default_cstm_appl_ver_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.default_cstm_appl_ver_id
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.default_cstm_appl_ver_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.default_cstm_appl_ver_id, range, value, display)
@@ -27279,6 +27382,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.logon_response_fields = function(buffer, 
   -- Public Key: 814 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.public_key(buffer, index, packet, parent, public_key_len)
 
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
+
   return index
 end
 
@@ -27316,7 +27435,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.application_system_vendor = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.application_system_vendor
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.application_system_vendor(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.application_system_vendor, range, value, display)
@@ -27341,7 +27471,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.application_system_version = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.application_system_version
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.application_system_version(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.application_system_version, range, value, display)
@@ -27366,7 +27507,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.application_system_name = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.application_system_name
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.application_system_name(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.application_system_name, range, value, display)
@@ -27391,7 +27543,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.fix_engine_vendor = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.fix_engine_vendor
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.fix_engine_vendor(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.fix_engine_vendor, range, value, display)
@@ -27416,7 +27579,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.fix_engine_version = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.fix_engine_version
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.fix_engine_version(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.fix_engine_version, range, value, display)
@@ -27441,7 +27615,18 @@ end
 eurex_derivatives_eti_t7_v12_1_dissect.fix_engine_name = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v12_1_size_of.fix_engine_name
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = eurex_derivatives_eti_t7_v12_1_display.fix_engine_name(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v12_1.fields.fix_engine_name, range, value, display)
@@ -27830,6 +28015,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.legal_notification_broadcast_fields = fun
 
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
 
   return index
 end
@@ -29248,6 +29449,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.forced_user_logout_notification_fields = 
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
+
   return index
 end
 
@@ -29298,6 +29515,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.forced_logout_notification_fields = funct
 
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
 
   return index
 end
@@ -32404,6 +32637,22 @@ eurex_derivatives_eti_t7_v12_1_dissect.broadcast_error_notification_fields = fun
 
   -- Var Text: 2000 Byte Ascii String Nullable
   index = eurex_derivatives_eti_t7_v12_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field exists: Alignment Padding
+  local alignment_padding_exists = body_len ~= index
+
+  -- Runtime optional field: Alignment Padding
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index = eurex_derivatives_eti_t7_v12_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+  end
 
   return index
 end
