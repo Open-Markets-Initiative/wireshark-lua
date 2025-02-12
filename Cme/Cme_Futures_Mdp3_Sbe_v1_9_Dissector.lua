@@ -29,7 +29,7 @@ cme_futures_mdp3_sbe_v1_9.fields.appl_id = ProtoField.new("Appl Id", "cme.future
 cme_futures_mdp3_sbe_v1_9.fields.asset = ProtoField.new("Asset", "cme.futures.mdp3.sbe.v1.9.asset", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.mdp3.sbe.v1.9.binarypacketheader", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.block_length = ProtoField.new("Block Length", "cme.futures.mdp3.sbe.v1.9.blocklength", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_9.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.futures.mdp3.sbe.v1.9.blocktradeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000004)
+cme_futures_mdp3_sbe_v1_9.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.futures.mdp3.sbe.v1.9.blocktradeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x04000000)
 cme_futures_mdp3_sbe_v1_9.fields.cfi_code = ProtoField.new("Cfi Code", "cme.futures.mdp3.sbe.v1.9.cficode", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.channel_reset = ProtoField.new("Channel Reset", "cme.futures.mdp3.sbe.v1.9.channelreset", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.channel_reset_group = ProtoField.new("Channel Reset Group", "cme.futures.mdp3.sbe.v1.9.channelresetgroup", ftypes.STRING)
@@ -39,18 +39,18 @@ cme_futures_mdp3_sbe_v1_9.fields.contract_multiplier = ProtoField.new("Contract 
 cme_futures_mdp3_sbe_v1_9.fields.contract_multiplier_unit = ProtoField.new("Contract Multiplier Unit", "cme.futures.mdp3.sbe.v1.9.contractmultiplierunit", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_9.fields.currency = ProtoField.new("Currency", "cme.futures.mdp3.sbe.v1.9.currency", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.current_chunk = ProtoField.new("Current Chunk", "cme.futures.mdp3.sbe.v1.9.currentchunk", ftypes.UINT32)
-cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility = ProtoField.new("Daily Product Eligibility", "cme.futures.mdp3.sbe.v1.9.dailyproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00020000)
+cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility = ProtoField.new("Daily Product Eligibility", "cme.futures.mdp3.sbe.v1.9.dailyproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000200)
 cme_futures_mdp3_sbe_v1_9.fields.day = ProtoField.new("Day", "cme.futures.mdp3.sbe.v1.9.day", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.decay_quantity = ProtoField.new("Decay Quantity", "cme.futures.mdp3.sbe.v1.9.decayquantity", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.decay_start_date = ProtoField.new("Decay Start Date", "cme.futures.mdp3.sbe.v1.9.decaystartdate", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.futures.mdp3.sbe.v1.9.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00008000)
+cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.futures.mdp3.sbe.v1.9.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00800000)
 cme_futures_mdp3_sbe_v1_9.fields.display_factor_decimal_9 = ProtoField.new("Display Factor Decimal 9", "cme.futures.mdp3.sbe.v1.9.displayfactordecimal9", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_9.fields.display_factor_float = ProtoField.new("Display Factor Float", "cme.futures.mdp3.sbe.v1.9.displayfactorfloat", ftypes.DOUBLE)
-cme_futures_mdp3_sbe_v1_9.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.futures.mdp3.sbe.v1.9.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000010)
-cme_futures_mdp3_sbe_v1_9.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.futures.mdp3.sbe.v1.9.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000008)
-cme_futures_mdp3_sbe_v1_9.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.futures.mdp3.sbe.v1.9.efreligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000040)
-cme_futures_mdp3_sbe_v1_9.fields.efs_eligible = ProtoField.new("Efs Eligible", "cme.futures.mdp3.sbe.v1.9.efseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000020)
-cme_futures_mdp3_sbe_v1_9.fields.electronic_match_eligible = ProtoField.new("Electronic Match Eligible", "cme.futures.mdp3.sbe.v1.9.electronicmatcheligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000001)
+cme_futures_mdp3_sbe_v1_9.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.futures.mdp3.sbe.v1.9.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x10000000)
+cme_futures_mdp3_sbe_v1_9.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.futures.mdp3.sbe.v1.9.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x08000000)
+cme_futures_mdp3_sbe_v1_9.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.futures.mdp3.sbe.v1.9.efreligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x40000000)
+cme_futures_mdp3_sbe_v1_9.fields.efs_eligible = ProtoField.new("Efs Eligible", "cme.futures.mdp3.sbe.v1.9.efseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x20000000)
+cme_futures_mdp3_sbe_v1_9.fields.electronic_match_eligible = ProtoField.new("Electronic Match Eligible", "cme.futures.mdp3.sbe.v1.9.electronicmatcheligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x01000000)
 cme_futures_mdp3_sbe_v1_9.fields.end_of_event = ProtoField.new("End Of Event", "cme.futures.mdp3.sbe.v1.9.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 cme_futures_mdp3_sbe_v1_9.fields.event_time = ProtoField.new("Event Time", "cme.futures.mdp3.sbe.v1.9.eventtime", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_9.fields.event_type = ProtoField.new("Event Type", "cme.futures.mdp3.sbe.v1.9.eventtype", ftypes.UINT8)
@@ -60,18 +60,18 @@ cme_futures_mdp3_sbe_v1_9.fields.final_daily = ProtoField.new("Final Daily", "cm
 cme_futures_mdp3_sbe_v1_9.fields.flow_schedule_type = ProtoField.new("Flow Schedule Type", "cme.futures.mdp3.sbe.v1.9.flowscheduletype", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_9.fields.group_size = ProtoField.new("Group Size", "cme.futures.mdp3.sbe.v1.9.groupsize", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.group_size_8_byte = ProtoField.new("Group Size 8 Byte", "cme.futures.mdp3.sbe.v1.9.groupsize8byte", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.futures.mdp3.sbe.v1.9.gtorderseligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00040000)
+cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.futures.mdp3.sbe.v1.9.gtorderseligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000400)
 cme_futures_mdp3_sbe_v1_9.fields.halt_reason = ProtoField.new("Halt Reason", "cme.futures.mdp3.sbe.v1.9.haltreason", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.futures.mdp3.sbe.v1.9.heartbtint", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_9.fields.high_limit_price_pricenul_l_9 = ProtoField.new("High Limit Price Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.highlimitpricepricenull9", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_9.fields.high_limit_price_pricenull = ProtoField.new("High Limit Price Pricenull", "cme.futures.mdp3.sbe.v1.9.highlimitpricepricenull", ftypes.DOUBLE)
-cme_futures_mdp3_sbe_v1_9.fields.i_link_indicative_mass_quoting_eligible = ProtoField.new("I Link Indicative Mass Quoting Eligible", "cme.futures.mdp3.sbe.v1.9.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000100)
-cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.futures.mdp3.sbe.v1.9.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00080000)
+cme_futures_mdp3_sbe_v1_9.fields.ilink_indicative_mass_quoting_eligible = ProtoField.new("ILink Indicative Mass Quoting Eligible", "cme.futures.mdp3.sbe.v1.9.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00010000)
+cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.futures.mdp3.sbe.v1.9.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000800)
 cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.futures.mdp3.sbe.v1.9.instattribgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.futures.mdp3.sbe.v1.9.instattribgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.futures.mdp3.sbe.v1.9.instattribvalue", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.intraday = ProtoField.new("Intraday", "cme.futures.mdp3.sbe.v1.9.intraday", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
-cme_futures_mdp3_sbe_v1_9.fields.is_fractional = ProtoField.new("Is Fractional", "cme.futures.mdp3.sbe.v1.9.isfractional", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000800)
+cme_futures_mdp3_sbe_v1_9.fields.is_fractional = ProtoField.new("Is Fractional", "cme.futures.mdp3.sbe.v1.9.isfractional", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00080000)
 cme_futures_mdp3_sbe_v1_9.fields.last_implied_msg = ProtoField.new("Last Implied Msg", "cme.futures.mdp3.sbe.v1.9.lastimpliedmsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 cme_futures_mdp3_sbe_v1_9.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "cme.futures.mdp3.sbe.v1.9.lastmsgseqnumprocessed", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.mdp3.sbe.v1.9.lastqty", ftypes.INT32)
@@ -191,8 +191,8 @@ cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_price = ProtoField.new("Min
 cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_pricenull = ProtoField.new("Min Price Increment Pricenull", "cme.futures.mdp3.sbe.v1.9.minpriceincrementpricenull", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_9.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.futures.mdp3.sbe.v1.9.mintradevol", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.month = ProtoField.new("Month", "cme.futures.mdp3.sbe.v1.9.month", ftypes.UINT8)
-cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000400)
-cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible = ProtoField.new("Negative Strike Eligible", "cme.futures.mdp3.sbe.v1.9.negativestrikeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000200)
+cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00040000)
+cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible = ProtoField.new("Negative Strike Eligible", "cme.futures.mdp3.sbe.v1.9.negativestrikeeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00020000)
 cme_futures_mdp3_sbe_v1_9.fields.no_chunks = ProtoField.new("No Chunks", "cme.futures.mdp3.sbe.v1.9.nochunks", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.null_value = ProtoField.new("Null Value", "cme.futures.mdp3.sbe.v1.9.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 cme_futures_mdp3_sbe_v1_9.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.mdp3.sbe.v1.9.numingroup", ftypes.UINT8)
@@ -200,13 +200,13 @@ cme_futures_mdp3_sbe_v1_9.fields.number_of_orders = ProtoField.new("Number Of Or
 cme_futures_mdp3_sbe_v1_9.fields.number_of_orders_optional = ProtoField.new("Number Of Orders Optional", "cme.futures.mdp3.sbe.v1.9.numberofordersoptional", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.mdp3.sbe.v1.9.openclosesettlflag", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.mdp3.sbe.v1.9.openinterestqty", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_9.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.futures.mdp3.sbe.v1.9.ordercrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000002)
+cme_futures_mdp3_sbe_v1_9.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.futures.mdp3.sbe.v1.9.ordercrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x02000000)
 cme_futures_mdp3_sbe_v1_9.fields.order_id = ProtoField.new("Order Id", "cme.futures.mdp3.sbe.v1.9.orderid", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_9.fields.order_id_optional = ProtoField.new("Order Id Optional", "cme.futures.mdp3.sbe.v1.9.orderidoptional", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_9.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.mdp3.sbe.v1.9.orderqty", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.order_update_action = ProtoField.new("Order Update Action", "cme.futures.mdp3.sbe.v1.9.orderupdateaction", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.futures.mdp3.sbe.v1.9.originalcontractsize", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_9.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.9.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000080)
+cme_futures_mdp3_sbe_v1_9.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.futures.mdp3.sbe.v1.9.otceligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x80000000)
 cme_futures_mdp3_sbe_v1_9.fields.packet = ProtoField.new("Packet", "cme.futures.mdp3.sbe.v1.9.packet", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.padding_1 = ProtoField.new("Padding 1", "cme.futures.mdp3.sbe.v1.9.padding1", ftypes.BYTES)
 cme_futures_mdp3_sbe_v1_9.fields.padding_2 = ProtoField.new("Padding 2", "cme.futures.mdp3.sbe.v1.9.padding2", ftypes.BYTES)
@@ -232,9 +232,10 @@ cme_futures_mdp3_sbe_v1_9.fields.related_sym_group = ProtoField.new("Related Sym
 cme_futures_mdp3_sbe_v1_9.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.mdp3.sbe.v1.9.relatedsymgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.related_symbol = ProtoField.new("Related Symbol", "cme.futures.mdp3.sbe.v1.9.relatedsymbol", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.reserved = ProtoField.new("Reserved", "cme.futures.mdp3.sbe.v1.9.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-cme_futures_mdp3_sbe_v1_9.fields.reserved_10 = ProtoField.new("Reserved 10", "cme.futures.mdp3.sbe.v1.9.reserved10", ftypes.UINT32, nil, base.DEC, 0xFFC00000)
+cme_futures_mdp3_sbe_v1_9.fields.reserved_2 = ProtoField.new("Reserved 2", "cme.futures.mdp3.sbe.v1.9.reserved2", ftypes.UINT32, nil, base.DEC, 0x0000C000)
+cme_futures_mdp3_sbe_v1_9.fields.reserved_8 = ProtoField.new("Reserved 8", "cme.futures.mdp3.sbe.v1.9.reserved8", ftypes.UINT32, nil, base.DEC, 0x000000FF)
 cme_futures_mdp3_sbe_v1_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.futures.mdp3.sbe.v1.9.reservedbits", ftypes.UINT8, nil, base.DEC, 0x70)
-cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible = ProtoField.new("Rfq Cross Eligible", "cme.futures.mdp3.sbe.v1.9.rfqcrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00002000)
+cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible = ProtoField.new("Rfq Cross Eligible", "cme.futures.mdp3.sbe.v1.9.rfqcrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00200000)
 cme_futures_mdp3_sbe_v1_9.fields.rounded = ProtoField.new("Rounded", "cme.futures.mdp3.sbe.v1.9.rounded", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
 cme_futures_mdp3_sbe_v1_9.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.futures.mdp3.sbe.v1.9.rptseq", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.mdp3.sbe.v1.9.schemaid", ftypes.UINT16)
@@ -279,7 +280,7 @@ cme_futures_mdp3_sbe_v1_9.fields.trading_reference_date = ProtoField.new("Tradin
 cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price_pricenul_l_9 = ProtoField.new("Trading Reference Price Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.tradingreferencepricepricenull9", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price_pricenull = ProtoField.new("Trading Reference Price Pricenull", "cme.futures.mdp3.sbe.v1.9.tradingreferencepricepricenull", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_9.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.mdp3.sbe.v1.9.transacttime", ftypes.UINT64)
-cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.futures.mdp3.sbe.v1.9.triangulationeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00100000)
+cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.futures.mdp3.sbe.v1.9.triangulationeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00001000)
 cme_futures_mdp3_sbe_v1_9.fields.underlying_product = ProtoField.new("Underlying Product", "cme.futures.mdp3.sbe.v1.9.underlyingproduct", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.underlying_product_optional = ProtoField.new("Underlying Product Optional", "cme.futures.mdp3.sbe.v1.9.underlyingproductoptional", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.mdp3.sbe.v1.9.underlyingsecurityid", ftypes.INT32)
@@ -290,13 +291,13 @@ cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure = ProtoField.new("Unit Of Measu
 cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty_decimal_9_null = ProtoField.new("Unit Of Measure Qty Decimal 9 Null", "cme.futures.mdp3.sbe.v1.9.unitofmeasureqtydecimal9null", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty_pricenull = ProtoField.new("Unit Of Measure Qty Pricenull", "cme.futures.mdp3.sbe.v1.9.unitofmeasureqtypricenull", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.mdp3.sbe.v1.9.userdefinedinstrument", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.futures.mdp3.sbe.v1.9.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00200000)
-cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.futures.mdp3.sbe.v1.9.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00010000)
+cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.futures.mdp3.sbe.v1.9.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00002000)
+cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.futures.mdp3.sbe.v1.9.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00000100)
 cme_futures_mdp3_sbe_v1_9.fields.version = ProtoField.new("Version", "cme.futures.mdp3.sbe.v1.9.version", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option = ProtoField.new("Volatility Quoted Option", "cme.futures.mdp3.sbe.v1.9.volatilityquotedoption", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00001000)
+cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option = ProtoField.new("Volatility Quoted Option", "cme.futures.mdp3.sbe.v1.9.volatilityquotedoption", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00100000)
 cme_futures_mdp3_sbe_v1_9.fields.week = ProtoField.new("Week", "cme.futures.mdp3.sbe.v1.9.week", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.year = ProtoField.new("Year", "cme.futures.mdp3.sbe.v1.9.year", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.zeropriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00004000)
+cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.zeropriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, 0x00400000)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -1410,93 +1411,93 @@ cme_futures_mdp3_sbe_v1_9_size_of.inst_attrib_value = 4
 cme_futures_mdp3_sbe_v1_9_display.inst_attrib_value = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Variable Cab Eligible flag set?
-  if buffer:bitfield(10) > 0 then
-    display = display.."Variable Cab Eligible|"
-  end
-  -- Is Triangulation Eligible flag set?
-  if buffer:bitfield(11) > 0 then
-    display = display.."Triangulation Eligible|"
-  end
-  -- Is Implied Matching Eligibility flag set?
-  if buffer:bitfield(12) > 0 then
-    display = display.."Implied Matching Eligibility|"
-  end
-  -- Is Gt Orders Eligibility flag set?
-  if buffer:bitfield(13) > 0 then
-    display = display.."Gt Orders Eligibility|"
-  end
-  -- Is Daily Product Eligibility flag set?
-  if buffer:bitfield(14) > 0 then
-    display = display.."Daily Product Eligibility|"
-  end
-  -- Is Variable Product Eligibility flag set?
-  if buffer:bitfield(15) > 0 then
-    display = display.."Variable Product Eligibility|"
-  end
-  -- Is Decaying Product Eligibility flag set?
-  if buffer:bitfield(16) > 0 then
-    display = display.."Decaying Product Eligibility|"
-  end
-  -- Is Zero Price Outright Eligible flag set?
-  if buffer:bitfield(17) > 0 then
-    display = display.."Zero Price Outright Eligible|"
-  end
-  -- Is Rfq Cross Eligible flag set?
-  if buffer:bitfield(18) > 0 then
-    display = display.."Rfq Cross Eligible|"
-  end
-  -- Is Volatility Quoted Option flag set?
-  if buffer:bitfield(19) > 0 then
-    display = display.."Volatility Quoted Option|"
-  end
-  -- Is Is Fractional flag set?
-  if buffer:bitfield(20) > 0 then
-    display = display.."Is Fractional|"
-  end
-  -- Is Negative Price Outright Eligible flag set?
-  if buffer:bitfield(21) > 0 then
-    display = display.."Negative Price Outright Eligible|"
-  end
-  -- Is Negative Strike Eligible flag set?
-  if buffer:bitfield(22) > 0 then
-    display = display.."Negative Strike Eligible|"
-  end
-  -- Is I Link Indicative Mass Quoting Eligible flag set?
-  if buffer:bitfield(23) > 0 then
-    display = display.."I Link Indicative Mass Quoting Eligible|"
-  end
   -- Is Otc Eligible flag set?
-  if buffer:bitfield(24) > 0 then
+  if buffer:bitfield(0) > 0 then
     display = display.."Otc Eligible|"
   end
   -- Is Efr Eligible flag set?
-  if buffer:bitfield(25) > 0 then
+  if buffer:bitfield(1) > 0 then
     display = display.."Efr Eligible|"
   end
   -- Is Efs Eligible flag set?
-  if buffer:bitfield(26) > 0 then
+  if buffer:bitfield(2) > 0 then
     display = display.."Efs Eligible|"
   end
   -- Is Ebf Eligible flag set?
-  if buffer:bitfield(27) > 0 then
+  if buffer:bitfield(3) > 0 then
     display = display.."Ebf Eligible|"
   end
   -- Is Efp Eligible flag set?
-  if buffer:bitfield(28) > 0 then
+  if buffer:bitfield(4) > 0 then
     display = display.."Efp Eligible|"
   end
   -- Is Block Trade Eligible flag set?
-  if buffer:bitfield(29) > 0 then
+  if buffer:bitfield(5) > 0 then
     display = display.."Block Trade Eligible|"
   end
   -- Is Order Cross Eligible flag set?
-  if buffer:bitfield(30) > 0 then
+  if buffer:bitfield(6) > 0 then
     display = display.."Order Cross Eligible|"
   end
   -- Is Electronic Match Eligible flag set?
-  if buffer:bitfield(31) > 0 then
+  if buffer:bitfield(7) > 0 then
     display = display.."Electronic Match Eligible|"
+  end
+  -- Is Decaying Product Eligibility flag set?
+  if buffer:bitfield(8) > 0 then
+    display = display.."Decaying Product Eligibility|"
+  end
+  -- Is Zero Price Outright Eligible flag set?
+  if buffer:bitfield(9) > 0 then
+    display = display.."Zero Price Outright Eligible|"
+  end
+  -- Is Rfq Cross Eligible flag set?
+  if buffer:bitfield(10) > 0 then
+    display = display.."Rfq Cross Eligible|"
+  end
+  -- Is Volatility Quoted Option flag set?
+  if buffer:bitfield(11) > 0 then
+    display = display.."Volatility Quoted Option|"
+  end
+  -- Is Is Fractional flag set?
+  if buffer:bitfield(12) > 0 then
+    display = display.."Is Fractional|"
+  end
+  -- Is Negative Price Outright Eligible flag set?
+  if buffer:bitfield(13) > 0 then
+    display = display.."Negative Price Outright Eligible|"
+  end
+  -- Is Negative Strike Eligible flag set?
+  if buffer:bitfield(14) > 0 then
+    display = display.."Negative Strike Eligible|"
+  end
+  -- Is ILink Indicative Mass Quoting Eligible flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."ILink Indicative Mass Quoting Eligible|"
+  end
+  -- Is Variable Cab Eligible flag set?
+  if buffer:bitfield(18) > 0 then
+    display = display.."Variable Cab Eligible|"
+  end
+  -- Is Triangulation Eligible flag set?
+  if buffer:bitfield(19) > 0 then
+    display = display.."Triangulation Eligible|"
+  end
+  -- Is Implied Matching Eligibility flag set?
+  if buffer:bitfield(20) > 0 then
+    display = display.."Implied Matching Eligibility|"
+  end
+  -- Is Gt Orders Eligibility flag set?
+  if buffer:bitfield(21) > 0 then
+    display = display.."Gt Orders Eligibility|"
+  end
+  -- Is Daily Product Eligibility flag set?
+  if buffer:bitfield(22) > 0 then
+    display = display.."Daily Product Eligibility|"
+  end
+  -- Is Variable Product Eligibility flag set?
+  if buffer:bitfield(23) > 0 then
+    display = display.."Variable Product Eligibility|"
   end
 
   return display:sub(1, -2)
@@ -1504,51 +1505,6 @@ end
 
 -- Dissect Bit Fields: Inst Attrib Value
 cme_futures_mdp3_sbe_v1_9_dissect.inst_attrib_value_bits = function(buffer, offset, packet, parent)
-
-  -- Reserved 10: 10 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.reserved_10, buffer(offset, 4))
-
-  -- Variable Cab Eligible: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible, buffer(offset, 4))
-
-  -- Triangulation Eligible: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible, buffer(offset, 4))
-
-  -- Implied Matching Eligibility: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility, buffer(offset, 4))
-
-  -- Gt Orders Eligibility: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility, buffer(offset, 4))
-
-  -- Daily Product Eligibility: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility, buffer(offset, 4))
-
-  -- Variable Product Eligibility: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility, buffer(offset, 4))
-
-  -- Decaying Product Eligibility: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility, buffer(offset, 4))
-
-  -- Zero Price Outright Eligible: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible, buffer(offset, 4))
-
-  -- Rfq Cross Eligible: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible, buffer(offset, 4))
-
-  -- Volatility Quoted Option: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option, buffer(offset, 4))
-
-  -- Is Fractional: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.is_fractional, buffer(offset, 4))
-
-  -- Negative Price Outright Eligible: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible, buffer(offset, 4))
-
-  -- Negative Strike Eligible: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible, buffer(offset, 4))
-
-  -- I Link Indicative Mass Quoting Eligible: 1 Bit
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.i_link_indicative_mass_quoting_eligible, buffer(offset, 4))
 
   -- Otc Eligible: 1 Bit
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.otc_eligible, buffer(offset, 4))
@@ -1573,6 +1529,54 @@ cme_futures_mdp3_sbe_v1_9_dissect.inst_attrib_value_bits = function(buffer, offs
 
   -- Electronic Match Eligible: 1 Bit
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.electronic_match_eligible, buffer(offset, 4))
+
+  -- Decaying Product Eligibility: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility, buffer(offset, 4))
+
+  -- Zero Price Outright Eligible: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.zero_price_outright_eligible, buffer(offset, 4))
+
+  -- Rfq Cross Eligible: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.rfq_cross_eligible, buffer(offset, 4))
+
+  -- Volatility Quoted Option: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.volatility_quoted_option, buffer(offset, 4))
+
+  -- Is Fractional: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.is_fractional, buffer(offset, 4))
+
+  -- Negative Price Outright Eligible: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible, buffer(offset, 4))
+
+  -- Negative Strike Eligible: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible, buffer(offset, 4))
+
+  -- ILink Indicative Mass Quoting Eligible: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.ilink_indicative_mass_quoting_eligible, buffer(offset, 4))
+
+  -- Reserved 2: 2 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.reserved_2, buffer(offset, 4))
+
+  -- Variable Cab Eligible: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible, buffer(offset, 4))
+
+  -- Triangulation Eligible: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible, buffer(offset, 4))
+
+  -- Implied Matching Eligibility: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility, buffer(offset, 4))
+
+  -- Gt Orders Eligibility: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility, buffer(offset, 4))
+
+  -- Daily Product Eligibility: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.daily_product_eligibility, buffer(offset, 4))
+
+  -- Variable Product Eligibility: 1 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility, buffer(offset, 4))
+
+  -- Reserved 8: 8 Bit
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.reserved_8, buffer(offset, 4))
 end
 
 -- Dissect: Inst Attrib Value
@@ -1607,7 +1611,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Inst Attrib Value: Struct of 23 fields
+  -- Inst Attrib Value: Struct of 24 fields
   index, inst_attrib_value = cme_futures_mdp3_sbe_v1_9_dissect.inst_attrib_value(buffer, index, packet, parent)
 
   return index
