@@ -497,11 +497,12 @@ asx_securities_ntp_itch_v1_05_size_of.timestamp = 4
 asx_securities_ntp_itch_v1_05_display.timestamp = function(nanoseconds, info, parent)
   -- Lookup seconds
   local seconds = asx_securities_ntp_itch_v1_05_store.seconds
-  if show.full_timestamp and seconds > 0 then
+
+  if seconds ~= nil then
     return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
   end
 
-  return "Timestamp: "..value
+  return "Timestamp: "..nanoseconds
 end
 
 -- Dissect: Timestamp
@@ -4483,8 +4484,8 @@ asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields = function(buffer, 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
   index, seconds = asx_securities_ntp_itch_v1_05_dissect.seconds(buffer, index, packet, parent)
 
-  -- Store: Seconds
-  asx_securities_ntp_itch_v1_05_store.seconds(seconds, info, parent)
+  -- Store Seconds Value
+  asx_securities_ntp_itch_v1_05_store.seconds = seconds
 
   return index
 end
