@@ -2155,27 +2155,13 @@ nasdaq_phlx_topo_itch_v3_3_dissect.message_header = function(buffer, offset, pac
   return nasdaq_phlx_topo_itch_v3_3_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Message
-nasdaq_phlx_topo_itch_v3_3_size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.message_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 nasdaq_phlx_topo_itch_v3_3_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-nasdaq_phlx_topo_itch_v3_3_dissect.message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -2191,16 +2177,17 @@ nasdaq_phlx_topo_itch_v3_3_dissect.message_fields = function(buffer, offset, pac
 end
 
 -- Dissect: Message
-nasdaq_phlx_topo_itch_v3_3_dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+nasdaq_phlx_topo_itch_v3_3_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = nasdaq_phlx_topo_itch_v3_3_size_of.message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = nasdaq_phlx_topo_itch_v3_3_display.message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.message, range, display)
   end
 
-  return nasdaq_phlx_topo_itch_v3_3_dissect.message_fields(buffer, offset, packet, parent)
+  nasdaq_phlx_topo_itch_v3_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
 end
 
 -- Size: Count
@@ -2338,7 +2325,15 @@ nasdaq_phlx_topo_itch_v3_3_dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = nasdaq_phlx_topo_itch_v3_3_dissect.message(buffer, index, packet, parent)
+
+    -- Dependency element: Length
+    local length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = length + 2
+
+    -- Message: Struct of 2 fields
+    index = nasdaq_phlx_topo_itch_v3_3_dissect.message(buffer, index, packet, parent, size_of_message)
   end
 
   return index
