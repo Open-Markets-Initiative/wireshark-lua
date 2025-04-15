@@ -31,7 +31,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 329 | 3,290,524 |
+| 330 | 3,294,969 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -102,6 +102,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Cme][Cme.Directory] | Futures | [Streamlined][Cme.Futures.Streamlined.Sbe.v5.9.Dissector] | Sbe | [5.9][Cme.Futures.Streamlined.Sbe.v5.9.Dissector] | 4/4/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Coinbase][Coinbase.Directory] | Derivatives | [MarketDataApi][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | Sbe | [1.7][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | 4/14/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Coinbase][Coinbase.Directory] | Derivatives | [OrdersApi][Coinbase.Derivatives.OrdersApi.Sbe.v1.6.Dissector] | Sbe | [1.6][Coinbase.Derivatives.OrdersApi.Sbe.v1.6.Dissector] | 10/13/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Eurex][Eurex.Directory] | Cash | [Edci][Eurex.Cash.Edci.T7.v13.0.Dissector] | T7 | [13.0][Eurex.Cash.Edci.T7.v13.0.Dissector] | 10/10/2024 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v13.0.Dissector] | T7 | [13.0][Eurex.Cash.Eti.T7.v13.0.Dissector] | 10/10/2024 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v12.1.Dissector] | T7 | [12.1][Eurex.Cash.Eti.T7.v12.1.Dissector] | 3/11/2024 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Derivatives | [Eobi][Eurex.Derivatives.Eobi.T7.v13.0.Dissector] | T7 | [13.0][Eurex.Derivatives.Eobi.T7.v13.0.Dissector] | 8/27/2024 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -294,6 +295,7 @@ Enjoy.
 [Eurex.Derivatives.Eobi.T7.v12.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Derivatives_Eobi_T7_v12_1_Dissector.lua "Eurex Derivatives Eobi T7 v12.1 Lua Wireshark Dissector"
 [Eurex.Cash.Eti.T7.v13.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Cash_Eti_T7_v13_0_Dissector.lua "Eurex Cash Eti T7 v13.0 Lua Wireshark Dissector"
 [Eurex.Derivatives.Eti.T7.v13.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Derivatives_Eti_T7_v13_0_Dissector.lua "Eurex Derivatives Eti T7 v13.0 Lua Wireshark Dissector"
+[Eurex.Cash.Edci.T7.v13.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Cash_Edci_T7_v13_0_Dissector.lua "Eurex Cash Edci T7 v13.0 Lua Wireshark Dissector"
 [Eurex.Derivatives.Eobi.T7.v13.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Derivatives_Eobi_T7_v13_0_Dissector.lua "Eurex Derivatives Eobi T7 v13.0 Lua Wireshark Dissector"
 [Euronext.Optiq.MarketDataGateway.Sbe.v5.51.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext_Optiq_MarketDataGateway_Sbe_v5_51_Dissector.lua "Euronext Optiq MarketDataGateway Sbe v5.51 Lua Wireshark Dissector"
 [Euronext.Optiq.OrderEntryGateway.Sbe.v5.51.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext_Optiq_OrderEntryGateway_Sbe_v5_51_Dissector.lua "Euronext Optiq OrderEntryGateway Sbe v5.51 Lua Wireshark Dissector"

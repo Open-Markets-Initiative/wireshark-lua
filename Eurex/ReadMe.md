@@ -5,6 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| Cash | [Edci][Eurex.Cash.Edci.T7.v13.0.Dissector] | T7 | [13.0][Eurex.Cash.Edci.T7.v13.0.Dissector] | 10/10/2024 | 4445 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Cash.Edci.T7.v13.0.Url] - [pdf][Eurex.Cash.Edci.T7.v13.0.Pdf] - [xml][Eurex.Cash.Edci.T7.v13.0.Xml] |
 | Cash | [Eti][Eurex.Cash.Eti.T7.v9.1.Dissector] | T7 | [9.1][Eurex.Cash.Eti.T7.v9.1.Dissector] | 4/6/2021 | 24291 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Cash.Eti.T7.v9.1.Url] - [pdf][Eurex.Cash.Eti.T7.v9.1.Pdf] - [xml][Eurex.Cash.Eti.T7.v9.1.Xml] |
 | Cash | [Eti][Eurex.Cash.Eti.T7.v9.0.Dissector] | T7 | [9.0][Eurex.Cash.Eti.T7.v9.0.Dissector] | 8/10/2020 | 24120 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Cash.Eti.T7.v9.0.Url] - [pdf][Eurex.Cash.Eti.T7.v9.0.Pdf] - [xml][Eurex.Cash.Eti.T7.v9.0.Xml] |
 | Cash | [Eti][Eurex.Cash.Eti.T7.v8.1.Dissector] | T7 | [8.1][Eurex.Cash.Eti.T7.v8.1.Dissector] | 3/25/2020 | 24709 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Cash.Eti.T7.v8.1.Url] - [pdf][Eurex.Cash.Eti.T7.v8.1.Pdf] - [xml][Eurex.Cash.Eti.T7.v8.1.Xml] |
@@ -279,6 +280,10 @@ Eurex: [website](https://www.eurex.com "Go to Eurex Exchange")
 [Eurex.Derivatives.Eti.T7.v13.0.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 13.0 Url"
 [Eurex.Derivatives.Eti.T7.v13.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Specifications/v13.0/Eurex.Derivatives.Eti.T7.v13.0.pdf "Eurex Exchange 13.0 Pdf"
 [Eurex.Derivatives.Eti.T7.v13.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Specifications/v13.0/Eurex.Derivatives.Eti.T7.v13.0.xml "Eurex Exchange 13.0 Xml"
+[Eurex.Cash.Edci.T7.v13.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Cash_Edci_T7_v13_0_Dissector.lua "Eurex Cash Edci T7 v13.0 Wireshark Dissector"
+[Eurex.Cash.Edci.T7.v13.0.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 13.0 Url"
+[Eurex.Cash.Edci.T7.v13.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Specifications/v13.0/Eurex.Derivatives.Edci.T7.v13.0.pdf "Eurex Exchange 13.0 Pdf"
+[Eurex.Cash.Edci.T7.v13.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Specifications/v13.0/Eurex.Derivatives.Eti.T7.v13.0.xml "Eurex Exchange 13.0 Xml"
 [Eurex.Derivatives.Eobi.T7.v13.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex_Derivatives_Eobi_T7_v13_0_Dissector.lua "Eurex Derivatives Eobi T7 v13.0 Wireshark Dissector"
 [Eurex.Derivatives.Eobi.T7.v13.0.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 13.0 Url"
 [Eurex.Derivatives.Eobi.T7.v13.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Eurex/Specifications/v13.0/Eurex.Derivatives.Eobi.T7.v13.0.pdf "Eurex Exchange 13.0 Pdf"
