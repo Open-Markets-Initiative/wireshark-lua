@@ -32,7 +32,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 336 | 3,386,869 |
+| 337 | 3,401,766 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -98,8 +98,8 @@ Enjoy.
 [Asx.Securities.Trade.Itch.v3.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx_Securities_Trade_Itch_v3_1_Dissector.lua "Asx Securities Trade Itch v3.1 Lua Wireshark Dissector"
 [Asx.Securities.Trade.Ouch.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx_Securities_Trade_Ouch_v3_6_Dissector.lua "Asx Securities Trade Ouch v3.6 Lua Wireshark Dissector"
 [B3.Equities.BinaryUmdf.Sbe.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3_Equities_BinaryUmdf_Sbe_v2_1_Dissector.lua "B3 Equities BinaryUmdf Sbe v2.1 Lua Wireshark Dissector"
-[B3.Equities.BinaryEntryPoint.Sbe.v8.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua "B3 Equities BinaryEntryPoint Sbe v8.1 Lua Wireshark Dissector"
 [B3.Equities.BinaryEntryPoint.Sbe.v8.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3_Equities_BinaryEntryPoint_Sbe_v8_2_Dissector.lua "B3 Equities BinaryEntryPoint Sbe v8.2 Lua Wireshark Dissector"
+[B3.Equities.BinaryEntryPoint.Sbe.v8.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3_Equities_BinaryEntryPoint_Sbe_v8_3_Dissector.lua "B3 Equities BinaryEntryPoint Sbe v8.3 Lua Wireshark Dissector"
 [Box.Options.Sola.Multicast.Hsvf.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box_Options_Sola_Multicast_Hsvf_v1_9_Dissector.lua "Box Options Sola Multicast Hsvf v1.9 Lua Wireshark Dissector"
 [Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Byx_Equities_DepthOfBook_Pitch_v2_41_29_Dissector.lua "Cboe Byx Equities DepthOfBook Pitch v2.41.29 Lua Wireshark Dissector"
 [Cboe.Byx.Equities.TopOfBook.Pitch.v1.3.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe_Byx_Equities_TopOfBook_Pitch_v1_3_2_Dissector.lua "Cboe Byx Equities TopOfBook Pitch v1.3.2 Lua Wireshark Dissector"
