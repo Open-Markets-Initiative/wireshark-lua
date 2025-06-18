@@ -5,7 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Forex | [Esp][Currenex.Forex.Esp.Citch.v9.0.Dissector] | Citch | [9.0][Currenex.Forex.Esp.Citch.v9.0.Dissector] | 3/24/2021 | 1659 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Currenex.Forex.Esp.Citch.v9.0.Url] - [pdf][Currenex.Forex.Esp.Citch.v9.0.Pdf] |
+| Forex | [Esp][Currenex.Forex.Esp.Citch.v9.0.Dissector] | Citch | [9.0][Currenex.Forex.Esp.Citch.v9.0.Dissector] | 3/24/2021 | 1659 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Currenex.Forex.Esp.Citch.v9.0.Url] - [pdf][Currenex.Forex.Esp.Citch.v9.0.Pdf] |
 
 
 Currenex: [website](https://currenex.com "Go to Currenex")
@@ -25,4 +25,4 @@ Currenex: [website](https://currenex.com "Go to Currenex")
 
 [Currenex.Forex.Esp.Citch.v9.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Currenex/Currenex_Forex_Esp_Citch_v9_0_Dissector.lua "Currenex Forex Esp Citch v9.0 Wireshark Dissector"
 [Currenex.Forex.Esp.Citch.v9.0.Url]: https://www.currenex.com/support "Currenex 9.0 Url"
-[Currenex.Forex.Esp.Citch.v9.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/Currenex.Forex.Esp.Citch.v9.pdf "Currenex 9.0 Pdf"
+[Currenex.Forex.Esp.Citch.v9.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Currenex/Specifications/Esp/Currenex.Forex.Esp.Citch.v9.pdf "Currenex 9.0 Pdf"
