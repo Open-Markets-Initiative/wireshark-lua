@@ -1067,7 +1067,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.exec_id = function(buffer, offset, 
 end
 
 -- Size: Quote Update Id
-cboe_futures_orderentry_boe3_v1_1_18_size_of.quote_update_id = 1
+cboe_futures_orderentry_boe3_v1_1_18_size_of.quote_update_id = 16
 
 -- Display: Quote Update Id
 cboe_futures_orderentry_boe3_v1_1_18_display.quote_update_id = function(value)
@@ -1117,7 +1117,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.tas_quote_restatement_fields = func
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
   index, transaction_time = cboe_futures_orderentry_boe3_v1_1_18_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
@@ -1319,7 +1319,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_cancelled_fields = function(b
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
   index, transaction_time = cboe_futures_orderentry_boe3_v1_1_18_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -1541,7 +1541,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_execution_fields = function(b
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
   index, transaction_time = cboe_futures_orderentry_boe3_v1_1_18_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -1681,7 +1681,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_restated_fields = function(bu
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
   index, transaction_time = cboe_futures_orderentry_boe3_v1_1_18_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -1845,7 +1845,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_rejected_fields = func
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
   index, transaction_time = cboe_futures_orderentry_boe3_v1_1_18_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Quote Reject Reason: 1 Byte Ascii String Enum with 27 values
@@ -2034,7 +2034,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_acknowledgement_fields
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
   index, transaction_time = cboe_futures_orderentry_boe3_v1_1_18_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
@@ -4230,7 +4230,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.country_code = function(buffer, off
 end
 
 -- Size: Oeo Id
-cboe_futures_orderentry_boe3_v1_1_18_size_of.oeo_id = 1
+cboe_futures_orderentry_boe3_v1_1_18_size_of.oeo_id = 18
 
 -- Display: Oeo Id
 cboe_futures_orderentry_boe3_v1_1_18_display.oeo_id = function(value)
@@ -4662,7 +4662,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.order_acknowledgement_option_fields
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Cum Qty
@@ -4875,7 +4875,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.order_acknowledgement_fields = func
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Cum Qty
@@ -5222,7 +5222,7 @@ end
 cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_option_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
@@ -5249,7 +5249,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_option_fields = functi
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Size Modifier: 1 Byte Ascii String Enum with 2 values
@@ -5380,7 +5380,7 @@ end
 cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Update Id: 1 Byte Ascii String
+  -- Quote Update Id: 16 Byte Ascii String
   index, quote_update_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
@@ -5407,7 +5407,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.quote_update_fields = function(buff
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Size Modifier: 1 Byte Ascii String Enum with 2 values
@@ -5728,7 +5728,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.purge_orders_fields = function(buff
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Custom Group Id Cnt: 1 Byte Unsigned Fixed Width Integer
@@ -5796,7 +5796,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.mass_cancel_order_fields = function
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   return index
@@ -5848,7 +5848,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.cancel_order_fields = function(buff
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   return index
@@ -5961,7 +5961,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.modify_order_fields = function(buff
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Frequent Trader Id: 6 Byte Ascii String
@@ -6111,7 +6111,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.new_order_option_fields = function(
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Frequent Trader Id: 6 Byte Ascii String
@@ -6276,7 +6276,7 @@ cboe_futures_orderentry_boe3_v1_1_18_dissect.new_order_fields = function(buffer,
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
   index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_1_18_dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Oeo Id: 1 Byte Ascii String
+  -- Oeo Id: 18 Byte Ascii String
   index, oeo_id = cboe_futures_orderentry_boe3_v1_1_18_dissect.oeo_id(buffer, index, packet, parent)
 
   -- Frequent Trader Id: 6 Byte Ascii String
