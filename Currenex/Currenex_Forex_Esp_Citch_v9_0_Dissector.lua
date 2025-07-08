@@ -27,6 +27,7 @@ currenex_forex_esp_citch_v9_0.fields.instrument_index = ProtoField.new("Instrume
 currenex_forex_esp_citch_v9_0.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.forex.esp.citch.v9.0.instrumentinfo", ftypes.STRING)
 currenex_forex_esp_citch_v9_0.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.forex.esp.citch.v9.0.instrumenttype", ftypes.STRING)
 currenex_forex_esp_citch_v9_0.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.forex.esp.citch.v9.0.itchetx", ftypes.INT8)
+currenex_forex_esp_citch_v9_0.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.forex.esp.citch.v9.0.itchsoh", ftypes.INT8)
 currenex_forex_esp_citch_v9_0.fields.logon = ProtoField.new("Logon", "currenex.forex.esp.citch.v9.0.logon", ftypes.STRING)
 currenex_forex_esp_citch_v9_0.fields.logout = ProtoField.new("Logout", "currenex.forex.esp.citch.v9.0.logout", ftypes.STRING)
 currenex_forex_esp_citch_v9_0.fields.max_amount = ProtoField.new("Max Amount", "currenex.forex.esp.citch.v9.0.maxamount", ftypes.INT64)
@@ -1557,6 +1558,26 @@ currenex_forex_esp_citch_v9_0_dissect.message_header = function(buffer, offset, 
   return currenex_forex_esp_citch_v9_0_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Itch Soh
+currenex_forex_esp_citch_v9_0_size_of.itch_soh = 1
+
+-- Display: Itch Soh
+currenex_forex_esp_citch_v9_0_display.itch_soh = function(value)
+  return "Itch Soh: "..value
+end
+
+-- Dissect: Itch Soh
+currenex_forex_esp_citch_v9_0_dissect.itch_soh = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_citch_v9_0_size_of.itch_soh
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_esp_citch_v9_0_display.itch_soh(value, buffer, offset, packet, parent)
+
+  parent:add(currenex_forex_esp_citch_v9_0.fields.itch_soh, range, value, display)
+
+  return offset + length, value
+end
+
 -- Dissect Packet
 currenex_forex_esp_citch_v9_0_dissect.packet = function(buffer, packet, parent)
   local index = 0
@@ -1566,7 +1587,7 @@ currenex_forex_esp_citch_v9_0_dissect.packet = function(buffer, packet, parent)
 
   while index < end_of_payload do
 
-    -- Itch Soh
+    -- Itch Soh: 1 Byte Fixed Width Integer Static
     index, itch_soh = currenex_forex_esp_citch_v9_0_dissect.itch_soh(buffer, index, packet, parent)
 
     -- Message Header: Struct of 3 fields
@@ -1620,10 +1641,25 @@ verify.currenex_forex_esp_citch_v9_0_packet_size = function(buffer)
   return true
 end
 
+-- Verify Itch Soh Field
+verify.itch_soh = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 1):int()
+
+  if value == 1 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Currenex Forex Esp Citch 9.0
 local function currenex_forex_esp_citch_v9_0_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not verify.currenex_forex_esp_citch_v9_0_packet_size(buffer) then return false end
+
+  -- Verify Itch Soh
+  if not verify.itch_soh(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = currenex_forex_esp_citch_v9_0
