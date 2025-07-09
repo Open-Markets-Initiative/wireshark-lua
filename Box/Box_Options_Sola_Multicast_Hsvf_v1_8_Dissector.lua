@@ -2916,8 +2916,8 @@ box_options_sola_multicast_hsvf_v1_8_size_of.option_marker = function(buffer, of
 end
 
 -- Display: Option Marker
-box_options_sola_multicast_hsvf_v1_8_display.option_marker = function(buffer, offset, value, packet, parent)
-  return "Option Marker: "..value
+box_options_sola_multicast_hsvf_v1_8_display.option_marker = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Option Marker
@@ -2939,9 +2939,8 @@ box_options_sola_multicast_hsvf_v1_8_dissect.option_marker = function(buffer, of
   if show.option_marker then
     local length = box_options_sola_multicast_hsvf_v1_8_size_of.option_marker(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:string()
-    local display = box_options_sola_multicast_hsvf_v1_8_display.option_marker(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.option_marker, range, value, display)
+    local display = box_options_sola_multicast_hsvf_v1_8_display.option_marker(buffer, packet, parent)
+    parent = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.option_marker, range, display)
   end
 
   return box_options_sola_multicast_hsvf_v1_8_dissect.option_marker_fields(buffer, offset, packet, parent)
@@ -4091,8 +4090,8 @@ box_options_sola_multicast_hsvf_v1_8_size_of.market_flow_indicator = function(bu
 end
 
 -- Display: Market Flow Indicator
-box_options_sola_multicast_hsvf_v1_8_display.market_flow_indicator = function(buffer, offset, value, packet, parent)
-  return "Market Flow Indicator: "..value
+box_options_sola_multicast_hsvf_v1_8_display.market_flow_indicator = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Market Flow Indicator
@@ -4114,9 +4113,8 @@ box_options_sola_multicast_hsvf_v1_8_dissect.market_flow_indicator = function(bu
   if show.market_flow_indicator then
     local length = box_options_sola_multicast_hsvf_v1_8_size_of.market_flow_indicator(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:string()
-    local display = box_options_sola_multicast_hsvf_v1_8_display.market_flow_indicator(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.market_flow_indicator, range, value, display)
+    local display = box_options_sola_multicast_hsvf_v1_8_display.market_flow_indicator(buffer, packet, parent)
+    parent = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.market_flow_indicator, range, display)
   end
 
   return box_options_sola_multicast_hsvf_v1_8_dissect.market_flow_indicator_fields(buffer, offset, packet, parent)

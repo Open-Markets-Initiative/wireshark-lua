@@ -140,6 +140,7 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.open_interest = ProtoField.new("Open
 box_options_sola_unicast_hsvf_v4_5_1.fields.open_price = ProtoField.new("Open Price", "box.options.sola.unicast.hsvf.v4.5.1.openprice", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.openpricefractionindicator", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_sign = ProtoField.new("Open Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.openpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_classes_requested = ProtoField.new("Option Classes Requested", "box.options.sola.unicast.hsvf.v4.5.1.optionclassesrequested", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_improvement_process_beginning_message = ProtoField.new("Option Improvement Process Beginning Message", "box.options.sola.unicast.hsvf.v4.5.1.optionimprovementprocessbeginningmessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_instrument_keys_message = ProtoField.new("Option Instrument Keys Message", "box.options.sola.unicast.hsvf.v4.5.1.optioninstrumentkeysmessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker = ProtoField.new("Option Marker", "box.options.sola.unicast.hsvf.v4.5.1.optionmarker", ftypes.STRING)
@@ -3307,8 +3308,8 @@ box_options_sola_unicast_hsvf_v4_5_1_size_of.option_marker = function(buffer, of
 end
 
 -- Display: Option Marker
-box_options_sola_unicast_hsvf_v4_5_1_display.option_marker = function(buffer, offset, value, packet, parent)
-  return "Option Marker: "..value
+box_options_sola_unicast_hsvf_v4_5_1_display.option_marker = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Option Marker
@@ -3330,9 +3331,8 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.option_marker = function(buffer, of
   if show.option_marker then
     local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.option_marker(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:string()
-    local display = box_options_sola_unicast_hsvf_v4_5_1_display.option_marker(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker, range, value, display)
+    local display = box_options_sola_unicast_hsvf_v4_5_1_display.option_marker(buffer, packet, parent)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker, range, display)
   end
 
   return box_options_sola_unicast_hsvf_v4_5_1_dissect.option_marker_fields(buffer, offset, packet, parent)
@@ -4351,8 +4351,8 @@ box_options_sola_unicast_hsvf_v4_5_1_size_of.market_flow_indicator = function(bu
 end
 
 -- Display: Market Flow Indicator
-box_options_sola_unicast_hsvf_v4_5_1_display.market_flow_indicator = function(buffer, offset, value, packet, parent)
-  return "Market Flow Indicator: "..value
+box_options_sola_unicast_hsvf_v4_5_1_display.market_flow_indicator = function(buffer, offset, size, packet, parent)
+  return ""
 end
 
 -- Dissect Fields: Market Flow Indicator
@@ -4374,9 +4374,8 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.market_flow_indicator = function(bu
   if show.market_flow_indicator then
     local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.market_flow_indicator(buffer, offset)
     local range = buffer(offset, length)
-    local value = range:string()
-    local display = box_options_sola_unicast_hsvf_v4_5_1_display.market_flow_indicator(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator, range, value, display)
+    local display = box_options_sola_unicast_hsvf_v4_5_1_display.market_flow_indicator(buffer, packet, parent)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator, range, display)
   end
 
   return box_options_sola_unicast_hsvf_v4_5_1_dissect.market_flow_indicator_fields(buffer, offset, packet, parent)
@@ -6169,6 +6168,26 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.end_of_transmission_message = funct
   return box_options_sola_unicast_hsvf_v4_5_1_dissect.end_of_transmission_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Option Classes Requested
+box_options_sola_unicast_hsvf_v4_5_1_size_of.option_classes_requested = 0
+
+-- Display: Option Classes Requested
+box_options_sola_unicast_hsvf_v4_5_1_display.option_classes_requested = function(value)
+  return "Option Classes Requested: "..value
+end
+
+-- Dissect: Option Classes Requested
+box_options_sola_unicast_hsvf_v4_5_1_dissect.option_classes_requested = function(buffer, offset, packet, parent)
+  local length = box_options_sola_unicast_hsvf_v4_5_1_size_of.option_classes_requested
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_options_sola_unicast_hsvf_v4_5_1_display.option_classes_requested(value, buffer, offset, packet, parent)
+
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_classes_requested, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Number Of Option Classes Requested
 box_options_sola_unicast_hsvf_v4_5_1_size_of.number_of_option_classes_requested = 3
 
@@ -6460,7 +6479,7 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.connection_message_fields = functio
   -- Number Of Option Classes Requested: 3 Byte Ascii String
   index, number_of_option_classes_requested = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_option_classes_requested(buffer, index, packet, parent)
 
-  -- Option Classes Requested
+  -- Option Classes Requested: 0 Byte Ascii String
   index, option_classes_requested = box_options_sola_unicast_hsvf_v4_5_1_dissect.option_classes_requested(buffer, index, packet, parent)
 
   return index
