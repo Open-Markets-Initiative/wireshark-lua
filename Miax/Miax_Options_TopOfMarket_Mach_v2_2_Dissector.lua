@@ -2877,7 +2877,7 @@ miax_options_topofmarket_mach_v2_2:register_heuristic("udp", miax_options_topofm
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Securities Exchange
+--   Organization: Miami International Holdings
 --   Version: 2.2
 --   Date: Friday, March 16, 2018
 --   Specification: Top_Of_Market_Feed_ToM_v2.2.pdf

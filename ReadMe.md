@@ -86,7 +86,7 @@ Enjoy.
 [Imperative.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Imperative "Imperative Execution"
 [Jnx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jnx "Japannext"
 [Lseg.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lseg "London Stock Exchange Group"
-[Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Securities Exchange"
+[Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Holdings"
 [Memx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Memx "Members Exchange"
 [Nasdaq.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nasdaq "National Association of Securities Dealers Automated Quotations"
 [Nyse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nyse "New York Stock Exchange"

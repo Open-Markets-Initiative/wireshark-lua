@@ -1,7 +1,7 @@
-[![Miax](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Images/Logo.png)](https://www.miaxoptions.com)
+[![Miax](https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Images/Logo.png)](https://www.miaxglobal.com)
 
 
-## Miami International Securities Exchange
+## Miami International Holdings
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
@@ -17,7 +17,7 @@
 | Pearl Options | [TopOfMarket][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | Mach | [1.0][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | 2/27/2017 | 2855 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Url] - [pdf][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Pdf] |
 
 
-Miax: [website](https://www.miaxoptions.com "Go to Miami International Securities Exchange")
+Miax: [website](https://www.miaxglobal.com "Go to Miami International Holdings")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
@@ -33,29 +33,29 @@ Miax: [website](https://www.miaxoptions.com "Go to Miami International Securitie
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
 [Miax.Options.ComplexTopOfMarket.Mach.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_ComplexTopOfMarket_Mach_v1_1_Dissector.lua "Miax Options ComplexTopOfMarket Mach v1.1 Wireshark Dissector"
-[Miax.Options.ComplexTopOfMarket.Mach.v1.1.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Securities Exchange 1.1 Url"
-[Miax.Options.ComplexTopOfMarket.Mach.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.ComplexTopOfMarket.Mach.v1.1.pdf "Miami International Securities Exchange 1.1 Pdf"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.1.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Holdings 1.1 Url"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.ComplexTopOfMarket.Mach.v1.1.pdf "Miami International Holdings 1.1 Pdf"
 [Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_ComplexTopOfMarket_Mach_v1_3_Dissector.lua "Miax Options ComplexTopOfMarket Mach v1.3 Wireshark Dissector"
-[Miax.Options.ComplexTopOfMarket.Mach.v1.3.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Securities Exchange 1.3 Url"
-[Miax.Options.ComplexTopOfMarket.Mach.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.ComplexTopOfMarket.Mach.v1.3.pdf "Miami International Securities Exchange 1.3 Pdf"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.3.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Holdings 1.3 Url"
+[Miax.Options.ComplexTopOfMarket.Mach.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.ComplexTopOfMarket.Mach.v1.3.pdf "Miami International Holdings 1.3 Pdf"
 [Miax.Options.TopOfMarket.Mach.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_TopOfMarket_Mach_v1_9_Dissector.lua "Miax Options TopOfMarket Mach v1.9 Wireshark Dissector"
-[Miax.Options.TopOfMarket.Mach.v1.9.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Securities Exchange 1.9 Url"
-[Miax.Options.TopOfMarket.Mach.v1.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.TopOfMarket.Mach.v1.1.pdf "Miami International Securities Exchange 1.9 Pdf"
+[Miax.Options.TopOfMarket.Mach.v1.9.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Holdings 1.9 Url"
+[Miax.Options.TopOfMarket.Mach.v1.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.TopOfMarket.Mach.v1.1.pdf "Miami International Holdings 1.9 Pdf"
 [Miax.Options.TopOfMarket.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_TopOfMarket_Mach_v2_2_Dissector.lua "Miax Options TopOfMarket Mach v2.2 Wireshark Dissector"
-[Miax.Options.TopOfMarket.Mach.v2.2.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Securities Exchange 2.2 Url"
-[Miax.Options.TopOfMarket.Mach.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.TopOfMarket.Mach.v2.2.pdf "Miami International Securities Exchange 2.2 Pdf"
+[Miax.Options.TopOfMarket.Mach.v2.2.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Holdings 2.2 Url"
+[Miax.Options.TopOfMarket.Mach.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.TopOfMarket.Mach.v2.2.pdf "Miami International Holdings 2.2 Pdf"
 [Miax.Options.TopOfMarket.Mach.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Options_TopOfMarket_Mach_v2_3_Dissector.lua "Miax Options TopOfMarket Mach v2.3 Wireshark Dissector"
-[Miax.Options.TopOfMarket.Mach.v2.3.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Securities Exchange 2.3 Url"
-[Miax.Options.TopOfMarket.Mach.v2.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.TopOfMarket.Mach.v2.3.pdf "Miami International Securities Exchange 2.3 Pdf"
+[Miax.Options.TopOfMarket.Mach.v2.3.Url]: https://www.miaxoptions.com/interface-specifications "Miami International Holdings 2.3 Url"
+[Miax.Options.TopOfMarket.Mach.v2.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Options.TopOfMarket.Mach.v2.3.pdf "Miami International Holdings 2.3 Pdf"
 [Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Pearl_Equities_DepthOfMarket_Mach_v1_3_a_Dissector.lua "Miax Pearl Equities DepthOfMarket Mach v1.3.a Wireshark Dissector"
-[Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Url]: https://www.miaxequities.com/interface-specifications/pearl-equities "Miami International Securities Exchange 1.3.a Url"
-[Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.pdf "Miami International Securities Exchange 1.3.a Pdf"
+[Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Url]: https://www.miaxequities.com/interface-specifications/pearl-equities "Miami International Holdings 1.3.a Url"
+[Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.pdf "Miami International Holdings 1.3.a Pdf"
 [Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Pearl_Equities_TopOfMarket_Mach_v1_1_a_Dissector.lua "Miax Pearl Equities TopOfMarket Mach v1.1.a Wireshark Dissector"
-[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Url]: https://www.miaxequities.com/interface-specifications/pearl-equities "Miami International Securities Exchange 1.1.a Url"
-[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Pdf "Miami International Securities Exchange 1.1.a Pdf"
+[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Url]: https://www.miaxequities.com/interface-specifications/pearl-equities "Miami International Holdings 1.1.a Url"
+[Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Pdf "Miami International Holdings 1.1.a Pdf"
 [Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_Pearl_Options_TopOfMarket_Mach_v1_0_Dissector.lua "Miax Pearl Options TopOfMarket Mach v1.0 Wireshark Dissector"
-[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Url]: https://www.miaxoptions.com/interface-specifications/pearl "Miami International Securities Exchange 1.0 Url"
-[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Pearl.Options.TopOfMarket.Mach.v1.0.pdf "Miami International Securities Exchange 1.0 Pdf"
+[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Url]: https://www.miaxoptions.com/interface-specifications/pearl "Miami International Holdings 1.0 Url"
+[Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/Miax.Pearl.Options.TopOfMarket.Mach.v1.0.pdf "Miami International Holdings 1.0 Pdf"
 [Miax.OnyxFutures.DepthOfMarket.Mach.v1.0.b.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax_OnyxFutures_DepthOfMarket_Mach_v1_0_b_Dissector.lua "Miax OnyxFutures DepthOfMarket Mach v1.0.b Wireshark Dissector"
 [Miax.OnyxFutures.DepthOfMarket.Mach.v1.0.b.Url]: https://www.miaxglobal.com/markets/futures/miax-futures/onyx-interface-specifications "Miami International Holdings 1.0.b Url"
 [Miax.OnyxFutures.DepthOfMarket.Mach.v1.0.b.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Miax/Specifications/OnyxFutures/Miax.OnyxFutures.DepthOfMarket.v1.0.b.pdf "Miami International Holdings 1.0.b Pdf"

@@ -1677,7 +1677,7 @@ miax_pearl_equities_topofmarket_mach_v1_1_a:register_heuristic("udp", miax_pearl
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Miami International Securities Exchange
+--   Organization: Miami International Holdings
 --   Version: 1.1.a
 --   Date: Thursday, November 5, 2020
 --   Specification: MIAX_PEARL_Equities_ToM_Feed_v1.1a.pdf
