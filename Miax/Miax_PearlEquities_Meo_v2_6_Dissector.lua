@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Miax PearlEquities Express Orders Meo 2.6 Protocol
-local miax_pearlequities_meo_v2_6 = Proto("Miax.PearlEquities.Meo.v2.6.Lua", "Miax PearlEquities Express Orders Meo 2.6")
+-- Miax PearlEquities ExpressOrders Meo 2.6 Protocol
+local miax_pearlequities_meo_v2_6 = Proto("Miax.PearlEquities.Meo.v2.6.Lua", "Miax PearlEquities ExpressOrders Meo 2.6")
 
 -- Component Tables
 local show = {}
@@ -20,7 +20,7 @@ local translate = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlEquities Express Orders Meo 2.6 Fields
+-- Miax PearlEquities ExpressOrders Meo 2.6 Fields
 miax_pearlequities_meo_v2_6.fields.account = ProtoField.new("Account", "miax.pearlequities.meo.v2.6.account", ftypes.STRING)
 miax_pearlequities_meo_v2_6.fields.action = ProtoField.new("Action", "miax.pearlequities.meo.v2.6.action", ftypes.STRING)
 miax_pearlequities_meo_v2_6.fields.additional_liquidity_indicator = ProtoField.new("Additional Liquidity Indicator", "miax.pearlequities.meo.v2.6.additionalliquidityindicator", ftypes.UINT8)
@@ -150,7 +150,7 @@ miax_pearlequities_meo_v2_6.fields.working_price = ProtoField.new("Working Price
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Miax PearlEquities Express Orders Meo 2.6 Element Dissection Options
+-- Miax PearlEquities ExpressOrders Meo 2.6 Element Dissection Options
 show.cancel_order_by_exchange_order_id_request = true
 show.cancel_order_by_exchange_order_id_response_message = true
 show.cancel_order_request = true
@@ -185,7 +185,7 @@ show.payload = false
 show.sequenced_message = false
 show.unsequenced_message = false
 
--- Register Miax PearlEquities Express Orders Meo 2.6 Show Options
+-- Register Miax PearlEquities ExpressOrders Meo 2.6 Show Options
 miax_pearlequities_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_request = Pref.bool("Show Cancel Order By Exchange Order Id Request", show.cancel_order_by_exchange_order_id_request, "Parse and add Cancel Order By Exchange Order Id Request to protocol tree")
 miax_pearlequities_meo_v2_6.prefs.show_cancel_order_by_exchange_order_id_response_message = Pref.bool("Show Cancel Order By Exchange Order Id Response Message", show.cancel_order_by_exchange_order_id_response_message, "Parse and add Cancel Order By Exchange Order Id Response Message to protocol tree")
 miax_pearlequities_meo_v2_6.prefs.show_cancel_order_request = Pref.bool("Show Cancel Order Request", show.cancel_order_request, "Parse and add Cancel Order Request to protocol tree")
@@ -384,7 +384,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Miax PearlEquities Express Orders Meo 2.6
+-- Dissect Miax PearlEquities ExpressOrders Meo 2.6
 -----------------------------------------------------------------------
 
 -- Display: Test Text
@@ -5028,7 +5028,7 @@ end
 function miax_pearlequities_meo_v2_6.init()
 end
 
--- Dissector for Miax PearlEquities Express Orders Meo 2.6
+-- Dissector for Miax PearlEquities ExpressOrders Meo 2.6
 function miax_pearlequities_meo_v2_6.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -5054,7 +5054,7 @@ verify.miax_pearlequities_meo_v2_6_packet_size = function(buffer)
   return true
 end
 
--- Dissector Heuristic for Miax PearlEquities Express Orders Meo 2.6
+-- Dissector Heuristic for Miax PearlEquities ExpressOrders Meo 2.6
 local function miax_pearlequities_meo_v2_6_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not verify.miax_pearlequities_meo_v2_6_packet_size(buffer) then return false end
@@ -5066,7 +5066,7 @@ local function miax_pearlequities_meo_v2_6_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Heuristic for Miax PearlEquities Express Orders Meo 2.6
+-- Register Heuristic for Miax PearlEquities ExpressOrders Meo 2.6
 miax_pearlequities_meo_v2_6:register_heuristic("tcp", miax_pearlequities_meo_v2_6_heuristic)
 
 -----------------------------------------------------------------------
