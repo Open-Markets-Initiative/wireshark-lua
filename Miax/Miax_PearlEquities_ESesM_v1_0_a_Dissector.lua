@@ -46,6 +46,7 @@ miax_pearlequities_esesm_v1_0_a.fields.retransmission_request = ProtoField.new("
 miax_pearlequities_esesm_v1_0_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.esesm.v1.0.a.sequencenumber", ftypes.UINT64)
 miax_pearlequities_esesm_v1_0_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.esesm.v1.0.a.sequenceddatapacket", ftypes.STRING)
 miax_pearlequities_esesm_v1_0_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "miax.pearlequities.esesm.v1.0.a.sequencedmessage", ftypes.BYTES)
+miax_pearlequities_esesm_v1_0_a.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearlequities.esesm.v1.0.a.sequencedmessagetype", ftypes.STRING)
 miax_pearlequities_esesm_v1_0_a.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.pearlequities.esesm.v1.0.a.startsequencenumber", ftypes.UINT64)
 miax_pearlequities_esesm_v1_0_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.esesm.v1.0.a.synchronizationcomplete", ftypes.STRING)
 miax_pearlequities_esesm_v1_0_a.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.esesm.v1.0.a.testpacket", ftypes.STRING)
@@ -53,6 +54,7 @@ miax_pearlequities_esesm_v1_0_a.fields.test_text = ProtoField.new("Test Text", "
 miax_pearlequities_esesm_v1_0_a.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.esesm.v1.0.a.tradingsessionid", ftypes.UINT8)
 miax_pearlequities_esesm_v1_0_a.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.esesm.v1.0.a.unsequenceddatapacket", ftypes.STRING)
 miax_pearlequities_esesm_v1_0_a.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "miax.pearlequities.esesm.v1.0.a.unsequencedmessage", ftypes.BYTES)
+miax_pearlequities_esesm_v1_0_a.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.esesm.v1.0.a.unsequencedmessagetype", ftypes.STRING)
 miax_pearlequities_esesm_v1_0_a.fields.username = ProtoField.new("Username", "miax.pearlequities.esesm.v1.0.a.username", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -864,6 +866,26 @@ miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message = function(buffer, o
   return offset + length, value
 end
 
+-- Size: Unsequenced Message Type
+miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_message_type = 2
+
+-- Display: Unsequenced Message Type
+miax_pearlequities_esesm_v1_0_a_display.unsequenced_message_type = function(value)
+  return "Unsequenced Message Type: "..value
+end
+
+-- Dissect: Unsequenced Message Type
+miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message_type = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_message_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_esesm_v1_0_a_display.unsequenced_message_type(value, buffer, offset, packet, parent)
+
+  parent:add(miax_pearlequities_esesm_v1_0_a.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Read runtime size of: Unsequenced Data Packet
 miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_data_packet = function(buffer, offset)
   local index = offset
@@ -871,7 +893,7 @@ miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_data_packet = function(buffe
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 1
+  return packet_length - 3
 end
 
 -- Display: Unsequenced Data Packet
@@ -882,6 +904,9 @@ end
 -- Dissect Fields: Unsequenced Data Packet
 miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
+
+  -- Unsequenced Message Type: 2 Byte Ascii String
+  index, unsequenced_message_type = miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message_type(buffer, index, packet, parent)
 
   -- Unsequenced Message: 0 Byte
   index, unsequenced_message = miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message(buffer, index, packet, parent)
@@ -922,6 +947,26 @@ miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message = function(buffer, off
   local display = miax_pearlequities_esesm_v1_0_a_display.sequenced_message(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_esesm_v1_0_a.fields.sequenced_message, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Sequenced Message Type
+miax_pearlequities_esesm_v1_0_a_size_of.sequenced_message_type = 2
+
+-- Display: Sequenced Message Type
+miax_pearlequities_esesm_v1_0_a_display.sequenced_message_type = function(value)
+  return "Sequenced Message Type: "..value
+end
+
+-- Dissect: Sequenced Message Type
+miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message_type = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a_size_of.sequenced_message_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_esesm_v1_0_a_display.sequenced_message_type(value, buffer, offset, packet, parent)
+
+  parent:add(miax_pearlequities_esesm_v1_0_a.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -973,7 +1018,7 @@ miax_pearlequities_esesm_v1_0_a_size_of.sequenced_data_packet = function(buffer,
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):le_uint()
 
-  return packet_length - 10
+  return packet_length - 12
 end
 
 -- Display: Sequenced Data Packet
@@ -990,6 +1035,9 @@ miax_pearlequities_esesm_v1_0_a_dissect.sequenced_data_packet_fields = function(
 
   -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
   index, matching_engine_id = miax_pearlequities_esesm_v1_0_a_dissect.matching_engine_id(buffer, index, packet, parent)
+
+  -- Sequenced Message Type: 2 Byte Ascii String
+  index, sequenced_message_type = miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message_type(buffer, index, packet, parent)
 
   -- Sequenced Message: 0 Byte
   index, sequenced_message = miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message(buffer, index, packet, parent)
