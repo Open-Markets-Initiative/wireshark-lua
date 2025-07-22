@@ -26,7 +26,6 @@ miax_pearlequities_expressorders_meo_v2_6.fields.action = ProtoField.new("Action
 miax_pearlequities_expressorders_meo_v2_6.fields.additional_liquidity_indicator = ProtoField.new("Additional Liquidity Indicator", "miax.pearlequities.expressorders.meo.v2.6.additionalliquidityindicator", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.expressorders.meo.v2.6.applicationprotocol", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.attributable_order = ProtoField.new("Attributable Order", "miax.pearlequities.expressorders.meo.v2.6.attributableorder", ftypes.UINT16, nil, base.DEC, 0x0300)
-miax_pearlequities_expressorders_meo_v2_6.fields.binary_u = ProtoField.new("Binary U", "miax.pearlequities.expressorders.meo.v2.6.binaryu", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_request = ProtoField.new("Cancel Order By Exchange Order Id Request", "miax.pearlequities.expressorders.meo.v2.6.cancelorderbyexchangeorderidrequest", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_by_exchange_order_id_response_message = ProtoField.new("Cancel Order By Exchange Order Id Response Message", "miax.pearlequities.expressorders.meo.v2.6.cancelorderbyexchangeorderidresponsemessage", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_if_not_a_nbbo_setter = ProtoField.new("Cancel Order If Not A Nbbo Setter", "miax.pearlequities.expressorders.meo.v2.6.cancelorderifnotanbbosetter", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x1000)
@@ -120,6 +119,7 @@ miax_pearlequities_expressorders_meo_v2_6.fields.reserved_10 = ProtoField.new("R
 miax_pearlequities_expressorders_meo_v2_6.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearlequities.expressorders.meo.v2.6.reserved12", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.reserved_18 = ProtoField.new("Reserved 18", "miax.pearlequities.expressorders.meo.v2.6.reserved18", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.reserved_19 = ProtoField.new("Reserved 19", "miax.pearlequities.expressorders.meo.v2.6.reserved19", ftypes.STRING)
+miax_pearlequities_expressorders_meo_v2_6.fields.reserved_26 = ProtoField.new("Reserved 26", "miax.pearlequities.expressorders.meo.v2.6.reserved26", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.pearlequities.expressorders.meo.v2.6.reserved28", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearlequities.expressorders.meo.v2.6.reserved8", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.pearlequities.expressorders.meo.v2.6.reserved9", ftypes.STRING)
@@ -4581,22 +4581,22 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_reduce_size_order_notif
   return miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, parent)
 end
 
--- Size: Binary U
-miax_pearlequities_expressorders_meo_v2_6_size_of.binary_u = 26
+-- Size: Reserved 26
+miax_pearlequities_expressorders_meo_v2_6_size_of.reserved_26 = 26
 
--- Display: Binary U
-miax_pearlequities_expressorders_meo_v2_6_display.binary_u = function(value)
-  return "Binary U: "..value
+-- Display: Reserved 26
+miax_pearlequities_expressorders_meo_v2_6_display.reserved_26 = function(value)
+  return "Reserved 26: "..value
 end
 
--- Dissect: Binary U
-miax_pearlequities_expressorders_meo_v2_6_dissect.binary_u = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_expressorders_meo_v2_6_size_of.binary_u
+-- Dissect: Reserved 26
+miax_pearlequities_expressorders_meo_v2_6_dissect.reserved_26 = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_6_size_of.reserved_26
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_expressorders_meo_v2_6_display.binary_u(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v2_6_display.reserved_26(value, buffer, offset, packet, parent)
 
-  parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.binary_u, range, value, display)
+  parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.reserved_26, range, value, display)
 
   return offset + length, value
 end
@@ -4665,7 +4665,7 @@ miax_pearlequities_expressorders_meo_v2_6_size_of.modify_order_notification = fu
 
   index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.locate_account
 
-  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.binary_u
+  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.reserved_26
 
   return index
 end
@@ -4724,8 +4724,8 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.modify_order_notification_fiel
   -- Locate Account: 4 Byte Ascii String
   index, locate_account = miax_pearlequities_expressorders_meo_v2_6_dissect.locate_account(buffer, index, packet, parent)
 
-  -- Binary U: 26 Byte Ascii String
-  index, binary_u = miax_pearlequities_expressorders_meo_v2_6_dissect.binary_u(buffer, index, packet, parent)
+  -- Reserved 26: 26 Byte Ascii String
+  index, reserved_26 = miax_pearlequities_expressorders_meo_v2_6_dissect.reserved_26(buffer, index, packet, parent)
 
   return index
 end
