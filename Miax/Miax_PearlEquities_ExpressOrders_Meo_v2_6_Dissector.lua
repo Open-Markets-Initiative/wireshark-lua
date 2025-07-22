@@ -34,6 +34,7 @@ miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_request = ProtoFie
 miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_response = ProtoField.new("Cancel Order Response", "miax.pearlequities.expressorders.meo.v2.6.cancelorderresponse", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.pearlequities.expressorders.meo.v2.6.cancelreason", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.cancel_reduce_size_order_notification = ProtoField.new("Cancel Reduce Size Order Notification", "miax.pearlequities.expressorders.meo.v2.6.cancelreducesizeordernotification", ftypes.STRING)
+miax_pearlequities_expressorders_meo_v2_6.fields.cancel_status = ProtoField.new("Cancel Status", "miax.pearlequities.expressorders.meo.v2.6.cancelstatus", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.capacity = ProtoField.new("Capacity", "miax.pearlequities.expressorders.meo.v2.6.capacity", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.clearing_account = ProtoField.new("Clearing Account", "miax.pearlequities.expressorders.meo.v2.6.clearingaccount", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.client_order_id = ProtoField.new("Client Order Id", "miax.pearlequities.expressorders.meo.v2.6.clientorderid", ftypes.STRING)
@@ -80,6 +81,7 @@ miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_instructions = Pro
 miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_notification = ProtoField.new("Modify Order Notification", "miax.pearlequities.expressorders.meo.v2.6.modifyordernotification", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_request_message = ProtoField.new("Modify Order Request Message", "miax.pearlequities.expressorders.meo.v2.6.modifyorderrequestmessage", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_response = ProtoField.new("Modify Order Response", "miax.pearlequities.expressorders.meo.v2.6.modifyorderresponse", ftypes.STRING)
+miax_pearlequities_expressorders_meo_v2_6.fields.modify_status = ProtoField.new("Modify Status", "miax.pearlequities.expressorders.meo.v2.6.modifystatus", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.mpid = ProtoField.new("Mpid", "miax.pearlequities.expressorders.meo.v2.6.mpid", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.nbbo_indicator = ProtoField.new("Nbbo Indicator", "miax.pearlequities.expressorders.meo.v2.6.nbboindicator", ftypes.STRING)
 miax_pearlequities_expressorders_meo_v2_6.fields.nbbo_setter_joiner = ProtoField.new("Nbbo Setter Joiner", "miax.pearlequities.expressorders.meo.v2.6.nbbosetterjoiner", ftypes.UINT8, nil, base.DEC, 0x07)
@@ -1394,7 +1396,7 @@ miax_pearlequities_expressorders_meo_v2_6_display.trade_status = function(value)
     return "Trade Status: Price Size Correction (C)"
   end
   if value == "X" then
-    return "Trade Status: Trade Cancellation Bust (X)"
+    return "Trade Status: Trade Cancellation (X)"
   end
 
   return "Trade Status: Unknown("..value..")"
@@ -2009,7 +2011,20 @@ miax_pearlequities_expressorders_meo_v2_6_size_of.action = 1
 
 -- Display: Action
 miax_pearlequities_expressorders_meo_v2_6_display.action = function(value)
-  return "Action: "..value
+  if value == "B" then
+    return "Action: Block Only (B)"
+  end
+  if value == "M" then
+    return "Action: Mass Cancel Only (M)"
+  end
+  if value == "X" then
+    return "Action: Block And Mass Cancel (X)"
+  end
+  if value == "R" then
+    return "Action: Remove Blocking For The Specified Scope (R)"
+  end
+
+  return "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -2110,7 +2125,7 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.mass_cancel_request_fields = f
   -- Scope: 1 Byte Ascii String Enum with 1 values
   index, scope = miax_pearlequities_expressorders_meo_v2_6_dissect.scope(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String
+  -- Action: 1 Byte Ascii String Enum with 4 values
   index, action = miax_pearlequities_expressorders_meo_v2_6_dissect.action(buffer, index, packet, parent)
 
   -- Purge Group: 1 Byte Ascii String
@@ -2135,218 +2150,74 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.mass_cancel_request = function
   return miax_pearlequities_expressorders_meo_v2_6_dissect.mass_cancel_request_fields(buffer, offset, packet, parent)
 end
 
--- Size: Order Status
-miax_pearlequities_expressorders_meo_v2_6_size_of.order_status = 1
+-- Size: Cancel Status
+miax_pearlequities_expressorders_meo_v2_6_size_of.cancel_status = 1
 
--- Display: Order Status
-miax_pearlequities_expressorders_meo_v2_6_display.order_status = function(value)
-  if value == "“ “" then
-    return "Order Status: Successful (“ “)"
+-- Display: Cancel Status
+miax_pearlequities_expressorders_meo_v2_6_display.cancel_status = function(value)
+  if value == " " then
+    return "Cancel Status: Successful (<whitespace>)"
   end
   if value == "A" then
-    return "Order Status: Duplicate Client Order Id (A)"
+    return "Cancel Status: Duplicate Client Order Id (A)"
   end
   if value == "B" then
-    return "Order Status: Not In Live Order Window (B)"
+    return "Cancel Status: Not In Live Order Window (B)"
   end
   if value == "C" then
-    return "Order Status: Matching Engine Is Not Available (C)"
+    return "Cancel Status: Matching Engine Is Not Available (C)"
   end
   if value == "D" then
-    return "Order Status: Duplicate Order Check Rejected (D)"
+    return "Cancel Status: Cannot Find Order With Target Client Order Id (D)"
   end
   if value == "E" then
-    return "Order Status: Exceeded Test Symbol Throttle (E)"
+    return "Cancel Status: Exceeded Test Symbol Throttle (E)"
   end
   if value == "F" then
-    return "Order Status: Iso Orders Not Allowed (F)"
-  end
-  if value == "G" then
-    return "Order Status: Invalid Self Trade Protection Group Or Its Use (G)"
-  end
-  if value == "H" then
-    return "Order Status: Blocked By Meo User (H)"
+    return "Cancel Status: Order Is Routed (F)"
   end
   if value == "I" then
-    return "Order Status: Invalid Mpid (I)"
-  end
-  if value == "J" then
-    return "Order Status: Invalid Price (J)"
-  end
-  if value == "K" then
-    return "Order Status: Invalid Size (K)"
-  end
-  if value == "L" then
-    return "Order Status: Blocked By Firm Over Miax Member Firm (L)"
-  end
-  if value == "M" then
-    return "Order Status: Exceeded Max Allowed Size (M)"
-  end
-  if value == "N" then
-    return "Order Status: Exceeded Max Notional Value (N)"
+    return "Cancel Status: Invalid Mpid (I)"
   end
   if value == "O" then
-    return "Order Status: Invalid Client Order Id (O)"
+    return "Cancel Status: Invalid Client Order Id (O)"
   end
   if value == "P" then
-    return "Order Status: Request Is Not Permitted For This Session (P)"
+    return "Cancel Status: Request Is Not Permitted For This Session (P)"
   end
   if value == "Q" then
-    return "Order Status: Short Sale Orders Not Allowed (Q)"
-  end
-  if value == "R" then
-    return "Order Status: Blocked By Cumulative Risk Metrics (R)"
+    return "Cancel Status: Specified Mpid Does Not Match Target Order (Q)"
   end
   if value == "S" then
-    return "Order Status: Invalid Symbol Id (S)"
+    return "Cancel Status: Invalid Symbol Id (S)"
   end
   if value == "T" then
-    return "Order Status: Invalid Order Type (T)"
-  end
-  if value == "U" then
-    return "Order Status: Invalid Use Of Locate Required (U)"
-  end
-  if value == "V" then
-    return "Order Status: Invalid Sell Short (V)"
-  end
-  if value == "W" then
-    return "Order Status: Limit Order Price Protection (W)"
+    return "Cancel Status: Invalid Target Client Order Id (T)"
   end
   if value == "X" then
-    return "Order Status: Mpid Not Permitted (X)"
-  end
-  if value == "Y" then
-    return "Order Status: Iso Attribute Not Compatible With The Order Type (Y)"
+    return "Cancel Status: Mpid Not Permitted (X)"
   end
   if value == "Z" then
-    return "Order Status: Undefined Reason (Z)"
-  end
-  if value == "a" then
-    return "Order Status: Invalid Capacity (a)"
-  end
-  if value == "b" then
-    return "Order Status: Invalid Time In Force (b)"
+    return "Cancel Status: Undefined Reason (Z)"
   end
   if value == "c" then
-    return "Order Status: Invalid Routing Instruction Or Use (c)"
-  end
-  if value == "d" then
-    return "Order Status: Invalid Self Trade Protection Level (d)"
-  end
-  if value == "e" then
-    return "Order Status: Invalid Self Trade Protection Instruction Or Use (e)"
-  end
-  if value == "f" then
-    return "Order Status: Invalid Attributable Value Or Use (f)"
-  end
-  if value == "g" then
-    return "Order Status: Invalid Price Sliding And Reprice Frequency Value Or Use (g)"
-  end
-  if value == "h" then
-    return "Order Status: Invalid Use Of Post Only Instruction (h)"
-  end
-  if value == "i" then
-    return "Order Status: Invalid Use Of Display Instruction (i)"
-  end
-  if value == "j" then
-    return "Order Status: Invalid Value Or Use For Available When Locked (j)"
-  end
-  if value == "k" then
-    return "Order Status: Market Order Price Protection (k)"
-  end
-  if value == "l" then
-    return "Order Status: Invalid Routing Strategy Or Its Use (l)"
-  end
-  if value == "m" then
-    return "Order Status: Invalid Value In Account (m)"
-  end
-  if value == "n" then
-    return "Order Status: Invalid Value In Clearing Account (n)"
-  end
-  if value == "o" then
-    return "Order Status: Invalid Use Of Trading Collar Dollar Value (o)"
-  end
-  if value == "p" then
-    return "Order Status: Invalid For Current Symbol Trading Status (p)"
-  end
-  if value == "q" then
-    return "Order Status: Primary Exchange Ipo Not Complete Ipo In Progress (q)"
-  end
-  if value == "r" then
-    return "Order Status: Invalid Use Of Min Qty Size Or Min Qty Exec Type Instruction (r)"
-  end
-  if value == "s" then
-    return "Order Status: Invalid Use Of Order Type (s)"
-  end
-  if value == "t" then
-    return "Order Status: Invalid Max Floor Qty (t)"
-  end
-  if value == "u" then
-    return "Order Status: Invalid Display Range Qty (u)"
-  end
-  if value == "v" then
-    return "Order Status: Feature Not Available (v)"
-  end
-  if value == "w" then
-    return "Order Status: Primary Listing Market Routing Not Supported (w)"
-  end
-  if value == "x" then
-    return "Order Status: Too Late For Primary Listing Market Order (x)"
-  end
-  if value == "y" then
-    return "Order Status: Pac Orders Are Not Allowed Routing To Primary (y)"
-  end
-  if value == "z" then
-    return "Order Status: Short Sale Exempt Orders Not Allowed (z)"
-  end
-  if value == "0" then
-    return "Order Status: Limit Price More Aggressive Than Market Impact Collar (0)"
-  end
-  if value == "1" then
-    return "Order Status: Market Orders Not Allowed (1)"
-  end
-  if value == "2" then
-    return "Order Status: Restricted Security Not Allowed (2)"
-  end
-  if value == "3" then
-    return "Order Status: Blocked By Order Rate Metrics (3)"
-  end
-  if value == "4" then
-    return "Order Status: Average Daily Volume Protection (4)"
-  end
-  if value == "5" then
-    return "Order Status: Invalid Offset For Primary Peg Order (5)"
-  end
-  if value == "6" then
-    return "Order Status: Invalid Purge Group Specified (6)"
-  end
-  if value == "7" then
-    return "Order Status: Invalid Or Not Permitted Value In Locate Account (7)"
-  end
-  if value == "8" then
-    return "Order Status: Blocked By Drop Copy Acod Event (8)"
-  end
-  if value == "9" then
-    return "Order Status: Blocked By Drop Copy Acosf Event (9)"
-  end
-  if value == "!" then
-    return "Order Status: Invalid Use Of‘ Cancel Order If Not A Nbbo Setter (!)"
+    return "Cancel Status: Modification Request Is Sent To Another Market And Pending Completion (c)"
   end
   if value == "*" then
-    return "Order Status: Downgraded From Older Version (*)"
+    return "Cancel Status: Downgraded From Older Version (*)"
   end
 
-  return "Order Status: Unknown("..value..")"
+  return "Cancel Status: Unknown("..value..")"
 end
 
--- Dissect: Order Status
-miax_pearlequities_expressorders_meo_v2_6_dissect.order_status = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_expressorders_meo_v2_6_size_of.order_status
+-- Dissect: Cancel Status
+miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_status = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_6_size_of.cancel_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_pearlequities_expressorders_meo_v2_6_display.order_status(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_expressorders_meo_v2_6_display.cancel_status(value, buffer, offset, packet, parent)
 
-  parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.order_status, range, value, display)
+  parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.cancel_status, range, value, display)
 
   return offset + length, value
 end
@@ -2387,7 +2258,7 @@ miax_pearlequities_expressorders_meo_v2_6_size_of.cancel_order_by_exchange_order
 
   index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.leaves_qty
 
-  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.order_status
+  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.cancel_status
 
   index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.reserved_10
 
@@ -2421,8 +2292,8 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_order_by_exchange_order
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
   index, leaves_qty = miax_pearlequities_expressorders_meo_v2_6_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Order Status: 1 Byte Ascii String Enum with 65 values
-  index, order_status = miax_pearlequities_expressorders_meo_v2_6_dissect.order_status(buffer, index, packet, parent)
+  -- Cancel Status: 1 Byte Ascii String Enum with 17 values
+  index, cancel_status = miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_status(buffer, index, packet, parent)
 
   -- Reserved 10: 10 Byte Ascii String
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_6_dissect.reserved_10(buffer, index, packet, parent)
@@ -2559,7 +2430,7 @@ miax_pearlequities_expressorders_meo_v2_6_size_of.cancel_order_response = functi
 
   index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.leaves_qty
 
-  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.order_status
+  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.cancel_status
 
   index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.reserved_10
 
@@ -2596,8 +2467,8 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_order_response_fields =
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
   index, leaves_qty = miax_pearlequities_expressorders_meo_v2_6_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Order Status: 1 Byte Ascii String Enum with 65 values
-  index, order_status = miax_pearlequities_expressorders_meo_v2_6_dissect.order_status(buffer, index, packet, parent)
+  -- Cancel Status: 1 Byte Ascii String Enum with 17 values
+  index, cancel_status = miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_status(buffer, index, packet, parent)
 
   -- Reserved 10: 10 Byte Ascii String
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_6_dissect.reserved_10(buffer, index, packet, parent)
@@ -2680,6 +2551,153 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_order_request = functio
   return miax_pearlequities_expressorders_meo_v2_6_dissect.cancel_order_request_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Modify Status
+miax_pearlequities_expressorders_meo_v2_6_size_of.modify_status = 1
+
+-- Display: Modify Status
+miax_pearlequities_expressorders_meo_v2_6_display.modify_status = function(value)
+  if value == " " then
+    return "Modify Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Modify Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Modify Status: Not In Live Order Window (B)"
+  end
+  if value == "C" then
+    return "Modify Status: Matching Engine Is Not Available (C)"
+  end
+  if value == "D" then
+    return "Modify Status: Cannot Find Order With Target Client Order Id (D)"
+  end
+  if value == "E" then
+    return "Modify Status: Exceeded Test Symbol Throttle (E)"
+  end
+  if value == "F" then
+    return "Modify Status: Order Is Routed (F)"
+  end
+  if value == "G" then
+    return "Modify Status: Short Sale Orders Not Allowed (G)"
+  end
+  if value == "H" then
+    return "Modify Status: Blocked By Meo User (H)"
+  end
+  if value == "I" then
+    return "Modify Status: Invalid Mpid (I)"
+  end
+  if value == "J" then
+    return "Modify Status: Invalid Price (J)"
+  end
+  if value == "K" then
+    return "Modify Status: Invalid Size (K)"
+  end
+  if value == "L" then
+    return "Modify Status: Blocked By Firm Over Miax Member Firm Portal Or By Helpdesk (L)"
+  end
+  if value == "M" then
+    return "Modify Status: Exceeded Max Allowed Size (M)"
+  end
+  if value == "N" then
+    return "Modify Status: Exceeded Max Notional Value (N)"
+  end
+  if value == "O" then
+    return "Modify Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Modify Status: Request Is Not Permitted For This Session (P)"
+  end
+  if value == "Q" then
+    return "Modify Status: Specified Mpid Does Not Match Target Order (Q)"
+  end
+  if value == "R" then
+    return "Modify Status: Blocked By Cumulative Risk Metrics (R)"
+  end
+  if value == "S" then
+    return "Modify Status: Invalid Symbol Id (S)"
+  end
+  if value == "T" then
+    return "Modify Status: Invalid Target Client Order Id (T)"
+  end
+  if value == "U" then
+    return "Modify Status: Invalid Use Of Locate Required (U)"
+  end
+  if value == "V" then
+    return "Modify Status: Invalid Sell Short (V)"
+  end
+  if value == "W" then
+    return "Modify Status: Limit Order Price Protection (W)"
+  end
+  if value == "X" then
+    return "Modify Status: Mpid Not Permitted (X)"
+  end
+  if value == "Z" then
+    return "Modify Status: Undefined Reason (Z)"
+  end
+  if value == "a" then
+    return "Modify Status: Invalid Min Qty Modification (a)"
+  end
+  if value == "b" then
+    return "Modify Status: Invalid To Change Max Floor Qty (b)"
+  end
+  if value == "c" then
+    return "Modify Status: Modification Request Is Sent To Another Market And Pending Completion (c)"
+  end
+  if value == "d" then
+    return "Modify Status: Not Allowed Order Is Already Pending Modification (d)"
+  end
+  if value == "t" then
+    return "Modify Status: Invalid Max Floor Qty (t)"
+  end
+  if value == "y" then
+    return "Modify Status: Pac Orders Are Not Allowed Routing To Primary (y)"
+  end
+  if value == "z" then
+    return "Modify Status: Short Sale Exempt Orders Not Allowed (z)"
+  end
+  if value == "0" then
+    return "Modify Status: Limit Price More Aggressive Than Market Impact (0)"
+  end
+  if value == "1" then
+    return "Modify Status: Market Orders Not Allowed (1)"
+  end
+  if value == "2" then
+    return "Modify Status: Restricted Security Not Allowed (2)"
+  end
+  if value == "3" then
+    return "Modify Status: Blocked By Order Rate Metrics (3)"
+  end
+  if value == "4" then
+    return "Modify Status: Average Daily Volume Protection (4)"
+  end
+  if value == "7" then
+    return "Modify Status: Invalid Or Not Permitted Value In Locate Account Field (7)"
+  end
+  if value == "8" then
+    return "Modify Status: Blocked By Drop Copy Acod Event (8)"
+  end
+  if value == "9" then
+    return "Modify Status: Blocked By Drop Copy Acosf Event (9)"
+  end
+  if value == "*" then
+    return "Modify Status: Downgraded From Older Version (*)"
+  end
+
+  return "Modify Status: Unknown("..value..")"
+end
+
+-- Dissect: Modify Status
+miax_pearlequities_expressorders_meo_v2_6_dissect.modify_status = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_6_size_of.modify_status
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v2_6_display.modify_status(value, buffer, offset, packet, parent)
+
+  parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.modify_status, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Price
 miax_pearlequities_expressorders_meo_v2_6_size_of.price = 8
 
@@ -2726,7 +2744,7 @@ miax_pearlequities_expressorders_meo_v2_6_size_of.modify_order_response = functi
 
   index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.price
 
-  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.order_status
+  index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.modify_status
 
   index = index + miax_pearlequities_expressorders_meo_v2_6_size_of.reserved_10
 
@@ -2766,8 +2784,8 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.modify_order_response_fields =
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = miax_pearlequities_expressorders_meo_v2_6_dissect.price(buffer, index, packet, parent)
 
-  -- Order Status: 1 Byte Ascii String Enum with 65 values
-  index, order_status = miax_pearlequities_expressorders_meo_v2_6_dissect.order_status(buffer, index, packet, parent)
+  -- Modify Status: 1 Byte Ascii String Enum with 42 values
+  index, modify_status = miax_pearlequities_expressorders_meo_v2_6_dissect.modify_status(buffer, index, packet, parent)
 
   -- Reserved 10: 10 Byte Ascii String
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_6_dissect.reserved_10(buffer, index, packet, parent)
@@ -3018,6 +3036,222 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.reserved_19 = function(buffer,
   local display = miax_pearlequities_expressorders_meo_v2_6_display.reserved_19(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.reserved_19, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Order Status
+miax_pearlequities_expressorders_meo_v2_6_size_of.order_status = 1
+
+-- Display: Order Status
+miax_pearlequities_expressorders_meo_v2_6_display.order_status = function(value)
+  if value == "“ “" then
+    return "Order Status: Successful (“ “)"
+  end
+  if value == "A" then
+    return "Order Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Order Status: Not In Live Order Window (B)"
+  end
+  if value == "C" then
+    return "Order Status: Matching Engine Is Not Available (C)"
+  end
+  if value == "D" then
+    return "Order Status: Duplicate Order Check Rejected (D)"
+  end
+  if value == "E" then
+    return "Order Status: Exceeded Test Symbol Throttle (E)"
+  end
+  if value == "F" then
+    return "Order Status: Iso Orders Not Allowed (F)"
+  end
+  if value == "G" then
+    return "Order Status: Invalid Self Trade Protection Group Or Its Use (G)"
+  end
+  if value == "H" then
+    return "Order Status: Blocked By Meo User (H)"
+  end
+  if value == "I" then
+    return "Order Status: Invalid Mpid (I)"
+  end
+  if value == "J" then
+    return "Order Status: Invalid Price (J)"
+  end
+  if value == "K" then
+    return "Order Status: Invalid Size (K)"
+  end
+  if value == "L" then
+    return "Order Status: Blocked By Firm Over Miax Member Firm (L)"
+  end
+  if value == "M" then
+    return "Order Status: Exceeded Max Allowed Size (M)"
+  end
+  if value == "N" then
+    return "Order Status: Exceeded Max Notional Value (N)"
+  end
+  if value == "O" then
+    return "Order Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Order Status: Request Is Not Permitted For This Session (P)"
+  end
+  if value == "Q" then
+    return "Order Status: Short Sale Orders Not Allowed (Q)"
+  end
+  if value == "R" then
+    return "Order Status: Blocked By Cumulative Risk Metrics (R)"
+  end
+  if value == "S" then
+    return "Order Status: Invalid Symbol Id (S)"
+  end
+  if value == "T" then
+    return "Order Status: Invalid Order Type (T)"
+  end
+  if value == "U" then
+    return "Order Status: Invalid Use Of Locate Required (U)"
+  end
+  if value == "V" then
+    return "Order Status: Invalid Sell Short (V)"
+  end
+  if value == "W" then
+    return "Order Status: Limit Order Price Protection (W)"
+  end
+  if value == "X" then
+    return "Order Status: Mpid Not Permitted (X)"
+  end
+  if value == "Y" then
+    return "Order Status: Iso Attribute Not Compatible With The Order Type (Y)"
+  end
+  if value == "Z" then
+    return "Order Status: Undefined Reason (Z)"
+  end
+  if value == "a" then
+    return "Order Status: Invalid Capacity (a)"
+  end
+  if value == "b" then
+    return "Order Status: Invalid Time In Force (b)"
+  end
+  if value == "c" then
+    return "Order Status: Invalid Routing Instruction Or Use (c)"
+  end
+  if value == "d" then
+    return "Order Status: Invalid Self Trade Protection Level (d)"
+  end
+  if value == "e" then
+    return "Order Status: Invalid Self Trade Protection Instruction Or Use (e)"
+  end
+  if value == "f" then
+    return "Order Status: Invalid Attributable Value Or Use (f)"
+  end
+  if value == "g" then
+    return "Order Status: Invalid Price Sliding And Reprice Frequency Value Or Use (g)"
+  end
+  if value == "h" then
+    return "Order Status: Invalid Use Of Post Only Instruction (h)"
+  end
+  if value == "i" then
+    return "Order Status: Invalid Use Of Display Instruction (i)"
+  end
+  if value == "j" then
+    return "Order Status: Invalid Value Or Use For Available When Locked (j)"
+  end
+  if value == "k" then
+    return "Order Status: Market Order Price Protection (k)"
+  end
+  if value == "l" then
+    return "Order Status: Invalid Routing Strategy Or Its Use (l)"
+  end
+  if value == "m" then
+    return "Order Status: Invalid Value In Account (m)"
+  end
+  if value == "n" then
+    return "Order Status: Invalid Value In Clearing Account (n)"
+  end
+  if value == "o" then
+    return "Order Status: Invalid Use Of Trading Collar Dollar Value (o)"
+  end
+  if value == "p" then
+    return "Order Status: Invalid For Current Symbol Trading Status (p)"
+  end
+  if value == "q" then
+    return "Order Status: Primary Exchange Ipo Not Complete Ipo In Progress (q)"
+  end
+  if value == "r" then
+    return "Order Status: Invalid Use Of Min Qty Size Or Min Qty Exec Type Instruction (r)"
+  end
+  if value == "s" then
+    return "Order Status: Invalid Use Of Order Type (s)"
+  end
+  if value == "t" then
+    return "Order Status: Invalid Max Floor Qty (t)"
+  end
+  if value == "u" then
+    return "Order Status: Invalid Display Range Qty (u)"
+  end
+  if value == "v" then
+    return "Order Status: Feature Not Available (v)"
+  end
+  if value == "w" then
+    return "Order Status: Primary Listing Market Routing Not Supported (w)"
+  end
+  if value == "x" then
+    return "Order Status: Too Late For Primary Listing Market Order (x)"
+  end
+  if value == "y" then
+    return "Order Status: Pac Orders Are Not Allowed Routing To Primary (y)"
+  end
+  if value == "z" then
+    return "Order Status: Short Sale Exempt Orders Not Allowed (z)"
+  end
+  if value == "0" then
+    return "Order Status: Limit Price More Aggressive Than Market Impact Collar (0)"
+  end
+  if value == "1" then
+    return "Order Status: Market Orders Not Allowed (1)"
+  end
+  if value == "2" then
+    return "Order Status: Restricted Security Not Allowed (2)"
+  end
+  if value == "3" then
+    return "Order Status: Blocked By Order Rate Metrics (3)"
+  end
+  if value == "4" then
+    return "Order Status: Average Daily Volume Protection (4)"
+  end
+  if value == "5" then
+    return "Order Status: Invalid Offset For Primary Peg Order (5)"
+  end
+  if value == "6" then
+    return "Order Status: Invalid Purge Group Specified (6)"
+  end
+  if value == "7" then
+    return "Order Status: Invalid Or Not Permitted Value In Locate Account (7)"
+  end
+  if value == "8" then
+    return "Order Status: Blocked By Drop Copy Acod Event (8)"
+  end
+  if value == "9" then
+    return "Order Status: Blocked By Drop Copy Acosf Event (9)"
+  end
+  if value == "!" then
+    return "Order Status: Invalid Use Of‘ Cancel Order If Not A Nbbo Setter (!)"
+  end
+  if value == "*" then
+    return "Order Status: Downgraded From Older Version (*)"
+  end
+
+  return "Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Order Status
+miax_pearlequities_expressorders_meo_v2_6_dissect.order_status = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_6_size_of.order_status
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v2_6_display.order_status(value, buffer, offset, packet, parent)
+
+  parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.order_status, range, value, display)
 
   return offset + length, value
 end
@@ -3290,10 +3524,10 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.routing_bits = function(buffer
   -- Unused 2: 2 Bit
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.unused_2, buffer(offset, 1))
 
-  -- Routing Strategy: 3 Bit
+  -- Routing Strategy: 3 Bit Enum with 3 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.routing_strategy, buffer(offset, 1))
 
-  -- Routing Instruction: 3 Bit
+  -- Routing Instruction: 3 Bit Enum with 3 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.routing_instruction, buffer(offset, 1))
 end
 
@@ -3348,10 +3582,10 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.self_trade_protection_bits = f
   -- Unused 2: 2 Bit
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.unused_2, buffer(offset, 1))
 
-  -- Self Trade Protection Instruction: 3 Bit
+  -- Self Trade Protection Instruction: 3 Bit Enum with 5 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_instruction, buffer(offset, 1))
 
-  -- Self Trade Protection Level: 3 Bit
+  -- Self Trade Protection Level: 3 Bit Enum with 4 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_level, buffer(offset, 1))
 end
 
@@ -3516,7 +3750,7 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.new_order_instructions_bits = 
   -- Unused 3: 3 Bit
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.unused_3, buffer(offset, 2))
 
-  -- Cancel Order If Not A Nbbo Setter: 1 Bit
+  -- Cancel Order If Not A Nbbo Setter: 1 Bit Enum with 2 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.cancel_order_if_not_a_nbbo_setter, buffer(offset, 2))
 
   -- Min Qty Exec Type: 2 Bit Enum with 3 values
@@ -3525,19 +3759,19 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.new_order_instructions_bits = 
   -- Attributable Order: 2 Bit Enum with 3 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.attributable_order, buffer(offset, 2))
 
-  -- Retail Order: 1 Bit
+  -- Retail Order: 1 Bit Enum with 2 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.retail_order, buffer(offset, 2))
 
-  -- Iso: 1 Bit
+  -- Iso: 1 Bit Enum with 2 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.iso, buffer(offset, 2))
 
   -- Locate Required: 1 Bit Enum with 2 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.locate_required, buffer(offset, 2))
 
-  -- Post Only: 1 Bit
+  -- Post Only: 1 Bit Enum with 2 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.post_only, buffer(offset, 2))
 
-  -- Displayed: 1 Bit
+  -- Displayed: 1 Bit Enum with 2 values
   parent:add(miax_pearlequities_expressorders_meo_v2_6.fields.displayed, buffer(offset, 2))
 
   -- Short Sale Indicator: 2 Bit Enum with 4 values
@@ -3953,7 +4187,17 @@ miax_pearlequities_expressorders_meo_v2_6_size_of.nbbo_indicator = 1
 
 -- Display: Nbbo Indicator
 miax_pearlequities_expressorders_meo_v2_6_display.nbbo_indicator = function(value)
-  return "Nbbo Indicator: "..value
+  if value == "Y" then
+    return "Nbbo Indicator: Order Set New Nbbo (Y)"
+  end
+  if value == "F" then
+    return "Nbbo Indicator: First Order To Set Mbbo Equal To Nbbo (F)"
+  end
+  if value == "N" then
+    return "Nbbo Indicator: Not Applicable (N)"
+  end
+
+  return "Nbbo Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Nbbo Indicator
@@ -4034,7 +4278,7 @@ miax_pearlequities_expressorders_meo_v2_6_dissect.order_price_update_notificatio
   -- Working Price: 8 Byte Unsigned Fixed Width Integer
   index, working_price = miax_pearlequities_expressorders_meo_v2_6_dissect.working_price(buffer, index, packet, parent)
 
-  -- Nbbo Indicator: 1 Byte Ascii String
+  -- Nbbo Indicator: 1 Byte Ascii String Enum with 3 values
   index, nbbo_indicator = miax_pearlequities_expressorders_meo_v2_6_dissect.nbbo_indicator(buffer, index, packet, parent)
 
   -- Reserved 9: 9 Byte Ascii String
@@ -4092,7 +4336,7 @@ miax_pearlequities_expressorders_meo_v2_6_size_of.pending_cancel_status = 1
 -- Display: Pending Cancel Status
 miax_pearlequities_expressorders_meo_v2_6_display.pending_cancel_status = function(value)
   if value == " " then
-    return "Pending Cancel Status: Pending Cancellation Is Completed Or (<whitespace>)"
+    return "Pending Cancel Status: Completed Or Not Applicable (<whitespace>)"
   end
   if value == "X" then
     return "Pending Cancel Status: Pending Cancellation Request Is Rejected (X)"
@@ -4167,7 +4411,7 @@ miax_pearlequities_expressorders_meo_v2_6_display.cancel_reason = function(value
     return "Cancel Reason: Route To Primary Listing Market Rejected (O)"
   end
   if value == "P" then
-    return "Cancel Reason: Cancelled By A Mass Cancel Request Over A (P)"
+    return "Cancel Reason: Cancelled By A Mass Cancel Request Over A Priority Purge Port (P)"
   end
   if value == "Q" then
     return "Cancel Reason: Unexpected Cancel By Primary Listing Market (Q)"
@@ -4199,17 +4443,17 @@ miax_pearlequities_expressorders_meo_v2_6_display.cancel_reason = function(value
   if value == "0" then
     return "Cancel Reason: Cancelled Due To Market Impact Collar (0)"
   end
-  if value == "1 – Full cancel due to Self" then
-    return "Cancel Reason: Trade Protection (1 – Full cancel due to Self)"
+  if value == "1" then
+    return "Cancel Reason: Cancel Newest Instruction (1)"
   end
-  if value == "2 – Full cancel due to Self" then
-    return "Cancel Reason: Trade Protection (2 – Full cancel due to Self)"
+  if value == "2" then
+    return "Cancel Reason: Cancel Oldest Instruction (2)"
   end
-  if value == "3 – Full cancel due to Self" then
-    return "Cancel Reason: Trade Protection (3 – Full cancel due to Self)"
+  if value == "3" then
+    return "Cancel Reason: Cancel Both Instruction (3)"
   end
-  if value == "4 – Full/Partial cancel due to Self" then
-    return "Cancel Reason: Trade Protection (4 – Full/Partial cancel due to Self)"
+  if value == "4" then
+    return "Cancel Reason: Decrement And Cancel Instruction (4)"
   end
   if value == "5" then
     return "Cancel Reason: Cancelled Due To Drop Copy Acod Event (5)"
