@@ -1894,7 +1894,41 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.purge_status = 1
 
 -- Display: Purge Status
 miax_pearlequities_expressorders_meo_v2_7_display.purge_status = function(value)
-  return "Purge Status: "..value
+  if value == " " then
+    return "Purge Status: Successful (<whitespace>)"
+  end
+  if value == "C" then
+    return "Purge Status: Matching Engine Is Not Available (C)"
+  end
+  if value == "E" then
+    return "Purge Status: Exceeded Test Symbol Throttle (E)"
+  end
+  if value == "I" then
+    return "Purge Status: Invalid Mpid (I)"
+  end
+  if value == "J" then
+    return "Purge Status: Invalid Price (J)"
+  end
+  if value == "O" then
+    return "Purge Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Purge Status: Request Is Not Permitted For This Session (P)"
+  end
+  if value == "S" then
+    return "Purge Status: Invalid Symbol Id (S)"
+  end
+  if value == "X" then
+    return "Purge Status: Mpid Not Permitted (X)"
+  end
+  if value == "Z" then
+    return "Purge Status: Undefined Reason (Z)"
+  end
+  if value == "*" then
+    return "Purge Status: Downgraded From Older Version (*)"
+  end
+
+  return "Purge Status: Unknown("..value..")"
 end
 
 -- Dissect: Purge Status
@@ -1973,7 +2007,7 @@ miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_response
   -- Symbold Id: 4 Byte Unsigned Fixed Width Integer
   index, symbold_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbold_id(buffer, index, packet, parent)
 
-  -- Purge Status: 1 Byte Ascii String
+  -- Purge Status: 1 Byte Ascii String Enum with 11 values
   index, purge_status = miax_pearlequities_expressorders_meo_v2_7_dissect.purge_status(buffer, index, packet, parent)
 
   -- Number Of Orders Cancelled: 1 Byte Unsigned Fixed Width Integer
