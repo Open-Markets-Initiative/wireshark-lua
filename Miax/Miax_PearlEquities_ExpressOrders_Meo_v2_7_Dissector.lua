@@ -1349,7 +1349,59 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.executing_trading_center = 1
 
 -- Display: Executing Trading Center
 miax_pearlequities_expressorders_meo_v2_7_display.executing_trading_center = function(value)
-  return "Executing Trading Center: "..value
+  if value == "A" then
+    return "Executing Trading Center: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Executing Trading Center: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Executing Trading Center: Nyse National (C)"
+  end
+  if value == "H" then
+    return "Executing Trading Center: Miax Pearl Equities (H)"
+  end
+  if value == "I" then
+    return "Executing Trading Center: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Executing Trading Center: Cboe Edga Exchange (J)"
+  end
+  if value == "K" then
+    return "Executing Trading Center: Cboe Edgx Exchange (K)"
+  end
+  if value == "L" then
+    return "Executing Trading Center: Long Term Stock Exchange (L)"
+  end
+  if value == "M" then
+    return "Executing Trading Center: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Executing Trading Center: New York Stock Exchange (N)"
+  end
+  if value == "P" then
+    return "Executing Trading Center: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Executing Trading Center: Nasdaq (Q)"
+  end
+  if value == "U" then
+    return "Executing Trading Center: Members Exchange (U)"
+  end
+  if value == "V" then
+    return "Executing Trading Center: Investors Exchange (V)"
+  end
+  if value == "X" then
+    return "Executing Trading Center: Nasdaq Phlx (X)"
+  end
+  if value == "Y" then
+    return "Executing Trading Center: Cboe Byx Exchange (Y)"
+  end
+  if value == "Z" then
+    return "Executing Trading Center: Cboe Bzx Exchange (Z)"
+  end
+
+  return "Executing Trading Center: Unknown("..value..")"
 end
 
 -- Dissect: Executing Trading Center
@@ -1687,7 +1739,7 @@ miax_pearlequities_expressorders_meo_v2_7_dissect.execution_notification_fields 
   -- Order Execution Instructions
   index, order_execution_instructions = miax_pearlequities_expressorders_meo_v2_7_dissect.order_execution_instructions(buffer, index, packet, parent)
 
-  -- Executing Trading Center: 1 Byte Ascii String
+  -- Executing Trading Center: 1 Byte Ascii String Enum with 17 values
   index, executing_trading_center = miax_pearlequities_expressorders_meo_v2_7_dissect.executing_trading_center(buffer, index, packet, parent)
 
   -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
