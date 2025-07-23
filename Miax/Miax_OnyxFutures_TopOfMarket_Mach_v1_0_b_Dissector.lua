@@ -14,6 +14,7 @@ local miax_onyxfutures_topofmarket_mach_v1_0_b_display = {}
 local miax_onyxfutures_topofmarket_mach_v1_0_b_dissect = {}
 local miax_onyxfutures_topofmarket_mach_v1_0_b_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -27,23 +28,23 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.fields.correction_number = ProtoField.n
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.currency = ProtoField.new("Currency", "miax.onyxfutures.topofmarket.mach.v1.0.b.currency", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.data = ProtoField.new("Data", "miax.onyxfutures.topofmarket.mach.v1.0.b.data", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.exchange = ProtoField.new("Exchange", "miax.onyxfutures.topofmarket.mach.v1.0.b.exchange", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.high_limit_price = ProtoField.new("High Limit Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.highlimitprice", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.high_limit_price = ProtoField.new("High Limit Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.highlimitprice", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_id = ProtoField.new("Instrument Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentid", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_id_source = ProtoField.new("Instrument Id Source", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentidsource", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message = ProtoField.new("Instrument Trading Status Notification Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumenttradingstatusnotificationmessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_type = ProtoField.new("Instrument Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumenttype", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.lastsalemessage", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.low_limit_price = ProtoField.new("Low Limit Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.lowlimitprice", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.low_limit_price = ProtoField.new("Low Limit Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.lowlimitprice", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.market_state = ProtoField.new("Market State", "miax.onyxfutures.topofmarket.mach.v1.0.b.marketstate", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.match_algorithm = ProtoField.new("Match Algorithm", "miax.onyxfutures.topofmarket.mach.v1.0.b.matchalgorithm", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "miax.onyxfutures.topofmarket.mach.v1.0.b.maturitymonthyear", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.maximum_size = ProtoField.new("Maximum Size", "miax.onyxfutures.topofmarket.mach.v1.0.b.maximumsize", ftypes.UINT32)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbb_price = ProtoField.new("Mbb Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.mbbprice", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbb_price = ProtoField.new("Mbb Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.mbbprice", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbb_size = ProtoField.new("Mbb Size", "miax.onyxfutures.topofmarket.mach.v1.0.b.mbbsize", ftypes.UINT32)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbo_price = ProtoField.new("Mbo Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.mboprice", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbo_price = ProtoField.new("Mbo Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.mboprice", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbo_size = ProtoField.new("Mbo Size", "miax.onyxfutures.topofmarket.mach.v1.0.b.mbosize", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.message = ProtoField.new("Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.message", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.messagetype", ftypes.STRING)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.messagetype", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.minimum_size = ProtoField.new("Minimum Size", "miax.onyxfutures.topofmarket.mach.v1.0.b.minimumsize", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.onyxfutures.topofmarket.mach.v1.0.b.numberoflegs", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.open_interest_quantity = ProtoField.new("Open Interest Quantity", "miax.onyxfutures.topofmarket.mach.v1.0.b.openinterestquantity", ftypes.UINT32)
@@ -51,34 +52,34 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet"
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.topofmarket.mach.v1.0.b.packetlength", ftypes.UINT16)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.packettype", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.payload = ProtoField.new("Payload", "miax.onyxfutures.topofmarket.mach.v1.0.b.payload", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.price = ProtoField.new("Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.price", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.price = ProtoField.new("Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.price", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.topofmarket.mach.v1.0.b.productgroupcode", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.topofmarket.mach.v1.0.b.reserved16", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.topofmarket.mach.v1.0.b.sequencenumber", ftypes.UINT64)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.sessionid", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.topofmarket.mach.v1.0.b.sessionnumber", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_currency = ProtoField.new("Settlement Currency", "miax.onyxfutures.topofmarket.mach.v1.0.b.settlementcurrency", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_price = ProtoField.new("Settlement Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.settlementprice", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_price = ProtoField.new("Settlement Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.settlementprice", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_price_type_calc_method = ProtoField.new("Settlement Price Type Calc Method", "miax.onyxfutures.topofmarket.mach.v1.0.b.settlementpricetypecalcmethod", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.simple_instrument_definition_message = ProtoField.new("Simple Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.simpleinstrumentdefinitionmessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.size = ProtoField.new("Size", "miax.onyxfutures.topofmarket.mach.v1.0.b.size", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.spread_type = ProtoField.new("Spread Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.spreadtype", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_state_message = ProtoField.new("System State Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.systemstatemessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_status = ProtoField.new("System Status", "miax.onyxfutures.topofmarket.mach.v1.0.b.systemstatus", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tick = ProtoField.new("Tick", "miax.onyxfutures.topofmarket.mach.v1.0.b.tick", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tick = ProtoField.new("Tick", "miax.onyxfutures.topofmarket.mach.v1.0.b.tick", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.timestamp = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp", ftypes.UINT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tom_version = ProtoField.new("Tom Version", "miax.onyxfutures.topofmarket.mach.v1.0.b.tomversion", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.total_volume = ProtoField.new("Total Volume", "miax.onyxfutures.topofmarket.mach.v1.0.b.totalvolume", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradecancelmessage", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_date = ProtoField.new("Trade Date", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradedate", ftypes.INT16)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_date = ProtoField.new("Trade Date", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradedate", ftypes.UINT16)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_id = ProtoField.new("Trade Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradeid", ftypes.UINT64)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trading_collar_variation = ProtoField.new("Trading Collar Variation", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradingcollarvariation", ftypes.INT64)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trading_collar_variation = ProtoField.new("Trading Collar Variation", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradingcollarvariation", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trading_collar_variation_type = ProtoField.new("Trading Collar Variation Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradingcollarvariationtype", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trading_status = ProtoField.new("Trading Status", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradingstatus", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset = ProtoField.new("Underlying Asset", "miax.onyxfutures.topofmarket.mach.v1.0.b.underlyingasset", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset_type = ProtoField.new("Underlying Asset Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.underlyingassettype", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasure", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.version = ProtoField.new("Version", "miax.onyxfutures.topofmarket.mach.v1.0.b.version", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -174,6 +175,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Miax OnyxFutures TopOfMarket Mach 1.0.b
 -----------------------------------------------------------------------
 
@@ -205,11 +224,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Price
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.price = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.price(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.price, range, value, display)
@@ -289,7 +314,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_date = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.trade_date
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:le_uint()
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_date, range, value, display)
@@ -302,7 +327,11 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.timestamp = 8
 
 -- Display: Timestamp
 miax_onyxfutures_topofmarket_mach_v1_0_b_display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -350,7 +379,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields = f
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Signed Fixed Width Integer
+  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
   index, trade_date = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
@@ -469,11 +498,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.mbo_price = function(value)
   return "Mbo Price: "..value
 end
 
+-- Translate: Mbo Price
+translate.mbo_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Mbo Price
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.mbo_price = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.mbo_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.mbo_price(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.mbo_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbo_price, range, value, display)
@@ -509,11 +544,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.mbb_price = function(value)
   return "Mbb Price: "..value
 end
 
+-- Translate: Mbb Price
+translate.mbb_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Mbb Price
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.mbb_price = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.mbb_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.mbb_price(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.mbb_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbb_price, range, value, display)
@@ -760,22 +801,22 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.session_id = function(buffer, o
   return offset + length, value
 end
 
--- Size: Version
-miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.version = 8
+-- Size: Tom Version
+miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.tom_version = 8
 
--- Display: Version
-miax_onyxfutures_topofmarket_mach_v1_0_b_display.version = function(value)
-  return "Version: "..value
+-- Display: Tom Version
+miax_onyxfutures_topofmarket_mach_v1_0_b_display.tom_version = function(value)
+  return "Tom Version: "..value
 end
 
--- Dissect: Version
-miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.version = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.version
+-- Dissect: Tom Version
+miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.tom_version = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.tom_version
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.version(value, buffer, offset, packet, parent)
+  local value = trim_right_spaces(range:string())
+  local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.tom_version(value, buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.version, range, value, display)
+  parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tom_version, range, value, display)
 
   return offset + length, value
 end
@@ -786,7 +827,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.system_state_message = function
 
   index = index + miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.timestamp
 
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.version
+  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.tom_version
 
   index = index + miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.session_id
 
@@ -807,8 +848,8 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.system_state_message_fields = f
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Version: 8 Byte Ascii String
-  index, version = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.version(buffer, index, packet, parent)
+  -- Tom Version: 8 Byte Ascii String
+  index, tom_version = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.tom_version(buffer, index, packet, parent)
 
   -- Session Id: 1 Byte Unsigned Fixed Width Integer
   index, session_id = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.session_id(buffer, index, packet, parent)
@@ -880,11 +921,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.trading_collar_variation = func
   return "Trading Collar Variation: "..value
 end
 
+-- Translate: Trading Collar Variation
+translate.trading_collar_variation = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Trading Collar Variation
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trading_collar_variation = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.trading_collar_variation
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.trading_collar_variation(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.trading_collar_variation(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trading_collar_variation, range, value, display)
@@ -967,7 +1014,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.unit_of_measure
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure, range, value, display)
@@ -983,11 +1030,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.tick = function(value)
   return "Tick: "..value
 end
 
+-- Translate: Tick
+translate.tick = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Tick
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.tick = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.tick
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.tick(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.tick(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tick, range, value, display)
@@ -1171,7 +1224,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.exchange = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.exchange
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.exchange(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.exchange, range, value, display)
@@ -1211,7 +1264,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.product_group_code = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.product_group_code
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.product_group_code(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.product_group_code, range, value, display)
@@ -1231,7 +1284,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.underlying_asset = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.underlying_asset
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.underlying_asset(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset, range, value, display)
@@ -1416,11 +1469,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.low_limit_price = function(valu
   return "Low Limit Price: "..value
 end
 
+-- Translate: Low Limit Price
+translate.low_limit_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Low Limit Price
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.low_limit_price = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.low_limit_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.low_limit_price(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.low_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.low_limit_price, range, value, display)
@@ -1436,11 +1495,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.high_limit_price = function(val
   return "High Limit Price: "..value
 end
 
+-- Translate: High Limit Price
+translate.high_limit_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: High Limit Price
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.high_limit_price = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.high_limit_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.high_limit_price(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.high_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.high_limit_price, range, value, display)
@@ -1523,11 +1588,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.settlement_price = function(val
   return "Settlement Price: "..value
 end
 
+-- Translate: Settlement Price
+translate.settlement_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Settlement Price
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.settlement_price = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.settlement_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.settlement_price(raw)
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_price, range, value, display)
@@ -1720,31 +1791,31 @@ end
 -- Calculate runtime size of: Data
 miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.data = function(buffer, offset, message_type)
   -- Size of Simple Instrument Definition Message
-  if message_type == "1" then
+  if message_type == 1 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.simple_instrument_definition_message(buffer, offset)
   end
   -- Size of Complex Instrument Definition Message
-  if message_type == "2" then
+  if message_type == 2 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.complex_instrument_definition_message(buffer, offset)
   end
   -- Size of System State Message
-  if message_type == "4" then
+  if message_type == 3 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.system_state_message(buffer, offset)
   end
   -- Size of Instrument Trading Status Notification Message
-  if message_type == "4" then
+  if message_type == 4 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.instrument_trading_status_notification_message(buffer, offset)
   end
   -- Size of Best Bid And Offer Message
-  if message_type == "15" then
+  if message_type == 15 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.best_bid_and_offer_message(buffer, offset)
   end
   -- Size of Last Sale Message
-  if message_type == "16" then
+  if message_type == 16 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.last_sale_message(buffer, offset)
   end
   -- Size of Trade Cancel Message
-  if message_type == "14" then
+  if message_type == 14 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.trade_cancel_message(buffer, offset)
   end
 
@@ -1759,31 +1830,31 @@ end
 -- Dissect Branches: Data
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Simple Instrument Definition Message
-  if message_type == "1" then
+  if message_type == 1 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Instrument Definition Message
-  if message_type == "2" then
+  if message_type == 2 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
-  if message_type == "4" then
+  if message_type == 3 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.system_state_message(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Trading Status Notification Message
-  if message_type == "4" then
+  if message_type == 4 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Best Bid And Offer Message
-  if message_type == "15" then
+  if message_type == 15 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.best_bid_and_offer_message(buffer, offset, packet, parent)
   end
   -- Dissect Last Sale Message
-  if message_type == "16" then
+  if message_type == 16 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.last_sale_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
-  if message_type == "14" then
+  if message_type == 14 then
     return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_cancel_message(buffer, offset, packet, parent)
   end
 
@@ -1815,25 +1886,25 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.message_type = 1
 
 -- Display: Message Type
 miax_onyxfutures_topofmarket_mach_v1_0_b_display.message_type = function(value)
-  if value == "1" then
+  if value == 1 then
     return "Message Type: Simple Instrument Definition Message (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Message Type: Complex Instrument Definition Message (2)"
   end
-  if value == "4" then
-    return "Message Type: System State Message (4)"
+  if value == 3 then
+    return "Message Type: System State Message (3)"
   end
-  if value == "4" then
+  if value == 4 then
     return "Message Type: Instrument Trading Status Notification Message (4)"
   end
-  if value == "15" then
+  if value == 15 then
     return "Message Type: Best Bid And Offer Message (15)"
   end
-  if value == "16" then
+  if value == 16 then
     return "Message Type: Last Sale Message (16)"
   end
-  if value == "14" then
+  if value == 14 then
     return "Message Type: Trade Cancel Message (14)"
   end
 
@@ -1844,7 +1915,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.message_type = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.message_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.message_type, range, value, display)
@@ -1852,18 +1923,14 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.message_type = function(buffer,
   return offset + length, value
 end
 
--- Calculate size of: Application Message
+-- Read runtime size of: Application Message
 miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.application_message = function(buffer, offset)
-  local index = 0
+  local index = offset
 
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.message_type
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 4, 2):le_uint()
 
-  -- Calculate runtime size of Data field
-  local data_offset = offset + index
-  local data_type = buffer(data_offset - 1, 1):string()
-  index = index + miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.data(buffer, data_offset, data_type)
-
-  return index
+  return packet_length - 12
 end
 
 -- Display: Application Message
@@ -1872,10 +1939,10 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.application_message = function(
 end
 
 -- Dissect Fields: Application Message
-miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.application_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.application_message_fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 7 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, message_type = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.message_type(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 7 branches
@@ -1886,15 +1953,19 @@ end
 
 -- Dissect: Application Message
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.application_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Parse runtime size
+  local size_of_application_message = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.application_message(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
   if show.application_message then
-    local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.application_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_application_message)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.application_message(buffer, packet, parent)
     parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.application_message, range, display)
   end
 
-  return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.application_message_fields(buffer, offset, packet, parent)
+  miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.application_message_fields(buffer, offset, packet, parent, size_of_application_message)
+
+  return offset + size_of_application_message
 end
 
 -- Calculate runtime size of: Payload
@@ -1954,7 +2025,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.session_number = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.session_number
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.session_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.session_number, range, value, display)
@@ -1987,7 +2058,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.packet_type = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.packet_type
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.packet_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet_type, range, value, display)
@@ -2049,7 +2120,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.message = function(buffer, offs
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 1):le_uint()
+  local payload_type = buffer(payload_offset - 2, 1):uint()
   index = index + miax_onyxfutures_topofmarket_mach_v1_0_b_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
