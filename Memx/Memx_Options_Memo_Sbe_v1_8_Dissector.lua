@@ -9719,7 +9719,7 @@ memx_options_memo_sbe_v1_8:register_heuristic("tcp", memx_options_memo_sbe_v1_8_
 --   Organization: Members Exchange
 --   Version: 1.8
 --   Date: Friday, August 2, 2024
---   Specification: MMEMO for US Options - SBE-v1_8.pdf
+--   Specification: MEMO for US Options - SBE-v1_8.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
