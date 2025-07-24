@@ -46,7 +46,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.match_algorithm = ProtoField.n
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "miax.onyxfutures.depthofmarket.mach.v1.0.b.maturitymonthyear", ftypes.UINT32)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maximum_size = ProtoField.new("Maximum Size", "miax.onyxfutures.depthofmarket.mach.v1.0.b.maximumsize", ftypes.UINT32)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message = ProtoField.new("Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.message", ftypes.STRING)
-miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.messagetype", ftypes.STRING)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.messagetype", ftypes.UINT8)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.minimum_size = ProtoField.new("Minimum Size", "miax.onyxfutures.depthofmarket.mach.v1.0.b.minimumsize", ftypes.UINT32)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_flags = ProtoField.new("Modify Flags", "miax.onyxfutures.depthofmarket.mach.v1.0.b.modifyflags", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_order_message = ProtoField.new("Modify Order Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.modifyordermessage", ftypes.STRING)
@@ -2420,59 +2420,59 @@ end
 -- Calculate runtime size of: Data
 miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.data = function(buffer, offset, message_type)
   -- Size of Simple Instrument Definition Message
-  if message_type == "1" then
+  if message_type == 1 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.simple_instrument_definition_message(buffer, offset)
   end
   -- Size of Complex Instrument Definition Message
-  if message_type == "2" then
+  if message_type == 2 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.complex_instrument_definition_message(buffer, offset)
   end
   -- Size of System State Message
-  if message_type == "3" then
+  if message_type == 3 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.system_state_message(buffer, offset)
   end
   -- Size of Instrument Trading Status Notification Message
-  if message_type == "4" then
+  if message_type == 4 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_trading_status_notification_message(buffer, offset)
   end
   -- Size of Anticipated Opening Price Message
-  if message_type == "5" then
+  if message_type == 5 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.anticipated_opening_price_message(buffer, offset)
   end
   -- Size of Settlement Price Update Message
-  if message_type == "6" then
+  if message_type == 6 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_update_message(buffer, offset)
   end
   -- Size of Open Interest Update Message
-  if message_type == "7" then
+  if message_type == 7 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.open_interest_update_message(buffer, offset)
   end
   -- Size of Total Volume Update Message
-  if message_type == "8" then
+  if message_type == 8 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.total_volume_update_message(buffer, offset)
   end
   -- Size of Instrument Clear Message
-  if message_type == "9" then
+  if message_type == 9 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_clear_message(buffer, offset)
   end
   -- Size of Add Order Message
-  if message_type == "10" then
+  if message_type == 10 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.add_order_message(buffer, offset)
   end
   -- Size of Modify Order Message
-  if message_type == "11" then
+  if message_type == 11 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_order_message(buffer, offset)
   end
   -- Size of Delete Order Message
-  if message_type == "12" then
+  if message_type == 12 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.delete_order_message(buffer, offset)
   end
   -- Size of Order Execution Message
-  if message_type == "13" then
+  if message_type == 13 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_execution_message(buffer, offset)
   end
   -- Size of Trade Cancel Message
-  if message_type == "14" then
+  if message_type == 14 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_cancel_message(buffer, offset)
   end
 
@@ -2487,59 +2487,59 @@ end
 -- Dissect Branches: Data
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Simple Instrument Definition Message
-  if message_type == "1" then
+  if message_type == 1 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Instrument Definition Message
-  if message_type == "2" then
+  if message_type == 2 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
-  if message_type == "3" then
+  if message_type == 3 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Trading Status Notification Message
-  if message_type == "4" then
+  if message_type == 4 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Anticipated Opening Price Message
-  if message_type == "5" then
+  if message_type == 5 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Settlement Price Update Message
-  if message_type == "6" then
+  if message_type == 6 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Open Interest Update Message
-  if message_type == "7" then
+  if message_type == 7 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Total Volume Update Message
-  if message_type == "8" then
+  if message_type == 8 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Clear Message
-  if message_type == "9" then
+  if message_type == 9 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message
-  if message_type == "10" then
+  if message_type == 10 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.add_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Message
-  if message_type == "11" then
+  if message_type == 11 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
-  if message_type == "12" then
+  if message_type == 12 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Execution Message
-  if message_type == "13" then
+  if message_type == 13 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_execution_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
-  if message_type == "14" then
+  if message_type == 14 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_cancel_message(buffer, offset, packet, parent)
   end
 
@@ -2571,46 +2571,46 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message_type = 1
 
 -- Display: Message Type
 miax_onyxfutures_depthofmarket_mach_v1_0_b_display.message_type = function(value)
-  if value == "1" then
+  if value == 1 then
     return "Message Type: Simple Instrument Definition Message (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Message Type: Complex Instrument Definition Message (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Message Type: System State Message (3)"
   end
-  if value == "4" then
+  if value == 4 then
     return "Message Type: Instrument Trading Status Notification Message (4)"
   end
-  if value == "5" then
+  if value == 5 then
     return "Message Type: Anticipated Opening Price Message (5)"
   end
-  if value == "6" then
+  if value == 6 then
     return "Message Type: Settlement Price Update Message (6)"
   end
-  if value == "7" then
+  if value == 7 then
     return "Message Type: Open Interest Update Message (7)"
   end
-  if value == "8" then
+  if value == 8 then
     return "Message Type: Total Volume Update Message (8)"
   end
-  if value == "9" then
+  if value == 9 then
     return "Message Type: Instrument Clear Message (9)"
   end
-  if value == "10" then
+  if value == 10 then
     return "Message Type: Add Order Message (10)"
   end
-  if value == "11" then
+  if value == 11 then
     return "Message Type: Modify Order Message (11)"
   end
-  if value == "12" then
+  if value == 12 then
     return "Message Type: Delete Order Message (12)"
   end
-  if value == "13" then
+  if value == 13 then
     return "Message Type: Order Execution Message (13)"
   end
-  if value == "14" then
+  if value == 14 then
     return "Message Type: Trade Cancel Message (14)"
   end
 
@@ -2621,7 +2621,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message_type = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message_type, range, value, display)
@@ -2629,18 +2629,14 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message_type = function(buffe
   return offset + length, value
 end
 
--- Calculate size of: Application Message
+-- Read runtime size of: Application Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.application_message = function(buffer, offset)
-  local index = 0
+  local index = offset
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message_type
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 4, 2):le_uint()
 
-  -- Calculate runtime size of Data field
-  local data_offset = offset + index
-  local data_type = buffer(data_offset - 1, 1):string()
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.data(buffer, data_offset, data_type)
-
-  return index
+  return packet_length - 12
 end
 
 -- Display: Application Message
@@ -2649,10 +2645,10 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.application_message = functio
 end
 
 -- Dissect Fields: Application Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message_fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 14 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, message_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message_type(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 14 branches
@@ -2663,15 +2659,19 @@ end
 
 -- Dissect: Application Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Parse runtime size
+  local size_of_application_message = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.application_message(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
   if show.application_message then
-    local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.application_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_application_message)
     local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.application_message(buffer, packet, parent)
     parent = parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.application_message, range, display)
   end
 
-  return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message_fields(buffer, offset, packet, parent)
+  miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message_fields(buffer, offset, packet, parent, size_of_application_message)
+
+  return offset + size_of_application_message
 end
 
 -- Calculate runtime size of: Payload
@@ -2731,7 +2731,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.session_number = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.session_number
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.session_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.session_number, range, value, display)
@@ -2764,7 +2764,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet_type = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.packet_type
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.packet_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_type, range, value, display)
@@ -2826,7 +2826,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message = function(buffer, of
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 1):le_uint()
+  local payload_type = buffer(payload_offset - 2, 1):uint()
   index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
