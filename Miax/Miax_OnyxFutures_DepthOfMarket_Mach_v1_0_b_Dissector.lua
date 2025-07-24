@@ -34,7 +34,6 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.data = ProtoField.new("Data", 
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.delete_order_message = ProtoField.new("Delete Order Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.deleteordermessage", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.dom_version = ProtoField.new("Dom Version", "miax.onyxfutures.depthofmarket.mach.v1.0.b.domversion", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.exchange = ProtoField.new("Exchange", "miax.onyxfutures.depthofmarket.mach.v1.0.b.exchange", ftypes.STRING)
-miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.flags = ProtoField.new("Flags", "miax.onyxfutures.depthofmarket.mach.v1.0.b.flags", ftypes.UINT8)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.high_limit_price = ProtoField.new("High Limit Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.highlimitprice", ftypes.DOUBLE)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_clear_message = ProtoField.new("Instrument Clear Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentclearmessage", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_id = ProtoField.new("Instrument Id", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentid", ftypes.UINT32)
@@ -49,6 +48,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maximum_size = ProtoField.new(
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message = ProtoField.new("Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.message", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.messagetype", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.minimum_size = ProtoField.new("Minimum Size", "miax.onyxfutures.depthofmarket.mach.v1.0.b.minimumsize", ftypes.UINT32)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_flags = ProtoField.new("Modify Flags", "miax.onyxfutures.depthofmarket.mach.v1.0.b.modifyflags", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_order_message = ProtoField.new("Modify Order Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.modifyordermessage", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.onyxfutures.depthofmarket.mach.v1.0.b.numberoflegs", ftypes.UINT8)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.open_interest_quantity = ProtoField.new("Open Interest Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.openinterestquantity", ftypes.UINT32)
@@ -56,6 +56,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.open_interest_update_message =
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.opening_match_quantity = ProtoField.new("Opening Match Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.openingmatchquantity", ftypes.UINT32)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_execution_message = ProtoField.new("Order Execution Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderexecutionmessage", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_id = ProtoField.new("Order Id", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderid", ftypes.UINT64)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position = ProtoField.new("Order Position", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderposition", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_side = ProtoField.new("Order Side", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderside", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.ordertype", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
@@ -93,6 +94,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.underlying_asset = ProtoField.
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.underlying_asset_type = ProtoField.new("Underlying Asset Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.underlyingassettype", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasure", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7 = ProtoField.new("Unused 7", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -107,6 +109,7 @@ show.delete_order_message = true
 show.instrument_clear_message = true
 show.instrument_trading_status_notification_message = true
 show.message = true
+show.modify_flags = true
 show.modify_order_message = true
 show.open_interest_update_message = true
 show.order_execution_message = true
@@ -128,6 +131,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_delete_order_message = Pre
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_clear_message = Pref.bool("Show Instrument Clear Message", show.instrument_clear_message, "Parse and add Instrument Clear Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message = Pref.bool("Show Instrument Trading Status Notification Message", show.instrument_trading_status_notification_message, "Parse and add Instrument Trading Status Notification Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_open_interest_update_message = Pref.bool("Show Open Interest Update Message", show.open_interest_update_message, "Parse and add Open Interest Update Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
@@ -175,6 +179,10 @@ function miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
   end
   if show.message ~= miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message then
     show.message = miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message
+    changed = true
+  end
+  if show.modify_flags ~= miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags then
+    show.modify_flags = miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags
     changed = true
   end
   if show.modify_order_message ~= miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_order_message then
@@ -687,24 +695,43 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message = functi
   return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.flags = 1
+-- Size: Modify Flags
+miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_flags = 1
 
--- Display: Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.flags = function(value)
-  return "Flags: "..value
+-- Display: Modify Flags
+miax_onyxfutures_depthofmarket_mach_v1_0_b_display.modify_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Order Position flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Order Position|"
+  end
+
+  return display:sub(1, -2)
 end
 
--- Dissect: Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.flags = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.flags
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.flags(value, buffer, offset, packet, parent)
+-- Dissect Bit Fields: Modify Flags
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags_bits = function(buffer, offset, packet, parent)
 
-  parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.flags, range, value, display)
+  -- Unused 7: 7 Bit
+  parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7, buffer(offset, 1))
 
-  return offset + length, value
+  -- Order Position: 1 Bit
+  parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position, buffer(offset, 1))
+end
+
+-- Dissect: Modify Flags
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags = function(buffer, offset, packet, parent)
+  local size = 1
+  local range = buffer(offset, size)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.modify_flags(range, packet, parent)
+  local element = parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_flags, range, display)
+
+  if show.modify_flags then
+    miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags_bits(buffer, offset, packet, element)
+  end
+
+  return offset + 1, range
 end
 
 -- Calculate size of: Modify Order Message
@@ -721,7 +748,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_order_message = functi
 
   index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.flags
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_flags
 
   return index
 end
@@ -750,8 +777,8 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message_fields =
   -- Size: 4 Byte Unsigned Fixed Width Integer
   index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
 
-  -- Flags: 1 Byte Unsigned Fixed Width Integer
-  index, flags = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.flags(buffer, index, packet, parent)
+  -- Modify Flags: Struct of 2 fields
+  index, modify_flags = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags(buffer, index, packet, parent)
 
   return index
 end
