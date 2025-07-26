@@ -14,6 +14,7 @@ local miax_pearlequities_depthofmarket_mach_v1_3_a_display = {}
 local miax_pearlequities_depthofmarket_mach_v1_3_a_dissect = {}
 local miax_pearlequities_depthofmarket_mach_v1_3_a_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -44,10 +45,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Pac
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet_length = ProtoField.new("Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.a.packetlength", ftypes.UINT16)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet_type = ProtoField.new("Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.packettype", ftypes.UINT8)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.payload = ProtoField.new("Payload", "miax.pearlequities.depthofmarket.mach.v1.3.a.payload", ftypes.STRING)
-miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.pearlequities.depthofmarket.mach.v1.3.a.price", ftypes.UINT64)
+miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.pearlequities.depthofmarket.mach.v1.3.a.price", ftypes.DOUBLE)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.depthofmarket.mach.v1.3.a.primarymarketcode", ftypes.STRING)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearlequities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
-miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved = ProtoField.new("Reserved", "miax.pearlequities.depthofmarket.mach.v1.3.a.reserved", ftypes.UINT8)
+miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.a.reserved1", ftypes.STRING)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.security_trading_status_notification_message = ProtoField.new("Security Trading Status Notification Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.securitytradingstatusnotificationmessage", ftypes.STRING)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.sessionid", ftypes.UINT8)
@@ -68,7 +69,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_flags = ProtoField.new
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradeid", ftypes.UINT64)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoField.new("Trade Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.trademessage", ftypes.STRING)
 miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
-miax_pearlequities_depthofmarket_mach_v1_3_a.fields.undefined = ProtoField.new("Undefined", "miax.pearlequities.depthofmarket.mach.v1.3.a.undefined", ftypes.UINT8, nil, base.DEC, 0xFE)
+miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7 = ProtoField.new("Unused 7", "miax.pearlequities.depthofmarket.mach.v1.3.a.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -206,6 +207,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Miax PearlEquities DepthOfMarket Mach 1.3.a
 -----------------------------------------------------------------------
 
@@ -237,11 +256,17 @@ miax_pearlequities_depthofmarket_mach_v1_3_a_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Price
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.price = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.price(raw)
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price, range, value, display)
@@ -409,8 +434,8 @@ end
 -- Dissect Bit Fields: Trade Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.trade_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Undefined: 7 Bit
-  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.undefined, buffer(offset, 1))
+  -- Unused 7: 7 Bit
+  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, buffer(offset, 1))
 
   -- Reportable: 1 Bit
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, buffer(offset, 1))
@@ -515,8 +540,8 @@ end
 -- Dissect Bit Fields: Order Execution Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.order_execution_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Undefined: 7 Bit
-  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.undefined, buffer(offset, 1))
+  -- Unused 7: 7 Bit
+  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, buffer(offset, 1))
 
   -- Reportable: 1 Bit
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, buffer(offset, 1))
@@ -688,8 +713,8 @@ end
 -- Dissect Bit Fields: Modify Order Flags
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.modify_order_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Undefined: 7 Bit
-  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.undefined, buffer(offset, 1))
+  -- Unused 7: 7 Bit
+  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused_7, buffer(offset, 1))
 
   -- Order Position: 1 Bit
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position, buffer(offset, 1))
@@ -783,7 +808,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.attributable_id = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.attributable_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.attributable_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.attributable_id, range, value, display)
@@ -1145,7 +1170,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.do_m_version = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.do_m_version
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.do_m_version(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.do_m_version, range, value, display)
@@ -1292,7 +1317,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.closing_time = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.closing_time
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.closing_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.closing_time, range, value, display)
@@ -1312,7 +1337,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.opening_time = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.opening_time
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.opening_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.opening_time, range, value, display)
@@ -1340,22 +1365,22 @@ miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.lot_size = function(buffer,
   return offset + length, value
 end
 
--- Size: Reserved
-miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved = 1
+-- Size: Reserved 1
+miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved_1 = 1
 
--- Display: Reserved
-miax_pearlequities_depthofmarket_mach_v1_3_a_display.reserved = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 1
+miax_pearlequities_depthofmarket_mach_v1_3_a_display.reserved_1 = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved
-miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.reserved = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved
+-- Dissect: Reserved 1
+miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved_1
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.reserved(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved, range, value, display)
+  parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1399,7 +1424,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.ticker_symbol = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.ticker_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.ticker_symbol(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.ticker_symbol, range, value, display)
@@ -1417,11 +1442,11 @@ miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.symbol_update_message = fun
 
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.ticker_symbol
 
-  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved_1
 
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.test_security_indicator
 
-  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved
+  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.reserved_1
 
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.lot_size
 
@@ -1452,14 +1477,14 @@ miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.symbol_update_message_field
   -- Ticker Symbol: 11 Byte Ascii String
   index, ticker_symbol = miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.ticker_symbol(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.reserved(buffer, index, packet, parent)
+  -- Reserved 1: 1 Byte Ascii String
+  index, reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Test Security Indicator: 1 Byte Ascii String Enum with 2 values
   index, test_security_indicator = miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.test_security_indicator(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.reserved(buffer, index, packet, parent)
+  -- Reserved 1: 1 Byte Ascii String
+  index, reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Lot Size: 2 Byte Unsigned Fixed Width Integer
   index, lot_size = miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.lot_size(buffer, index, packet, parent)
@@ -1705,18 +1730,14 @@ miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.message_type = function(buf
   return offset + length, value
 end
 
--- Calculate size of: Application Message
+-- Read runtime size of: Application Message
 miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.application_message = function(buffer, offset)
-  local index = 0
+  local index = offset
 
-  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.message_type
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 4, 2):le_uint()
 
-  -- Calculate runtime size of Data field
-  local data_offset = offset + index
-  local data_type = buffer(data_offset - 1, 1):string()
-  index = index + miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.data(buffer, data_offset, data_type)
-
-  return index
+  return packet_length - 12
 end
 
 -- Display: Application Message
@@ -1725,7 +1746,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a_display.application_message = funct
 end
 
 -- Dissect Fields: Application Message
-miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.application_message_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.application_message_fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String Enum with 11 values
@@ -1739,15 +1760,19 @@ end
 
 -- Dissect: Application Message
 miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.application_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Parse runtime size
+  local size_of_application_message = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.application_message(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
   if show.application_message then
-    local length = miax_pearlequities_depthofmarket_mach_v1_3_a_size_of.application_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_application_message)
     local display = miax_pearlequities_depthofmarket_mach_v1_3_a_display.application_message(buffer, packet, parent)
     parent = parent:add(miax_pearlequities_depthofmarket_mach_v1_3_a.fields.application_message, range, display)
   end
 
-  return miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.application_message_fields(buffer, offset, packet, parent)
+  miax_pearlequities_depthofmarket_mach_v1_3_a_dissect.application_message_fields(buffer, offset, packet, parent, size_of_application_message)
+
+  return offset + size_of_application_message
 end
 
 -- Calculate runtime size of: Payload

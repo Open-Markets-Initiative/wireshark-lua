@@ -14,6 +14,7 @@ local miax_pearloptions_topofmarket_mach_v1_0_display = {}
 local miax_pearloptions_topofmarket_mach_v1_0_dissect = {}
 local miax_pearloptions_topofmarket_mach_v1_0_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -23,7 +24,7 @@ local verify = {}
 miax_pearloptions_topofmarket_mach_v1_0.fields.active_on_pearl = ProtoField.new("Active On Pearl", "miax.pearloptions.topofmarket.mach.v1.0.activeonpearl", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.pearloptions.topofmarket.mach.v1.0.applicationmessage", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.bid_condition = ProtoField.new("Bid Condition", "miax.pearloptions.topofmarket.mach.v1.0.bidcondition", ftypes.STRING)
-miax_pearloptions_topofmarket_mach_v1_0.fields.bid_price = ProtoField.new("Bid Price", "miax.pearloptions.topofmarket.mach.v1.0.bidprice", ftypes.UINT16)
+miax_pearloptions_topofmarket_mach_v1_0.fields.bid_price = ProtoField.new("Bid Price", "miax.pearloptions.topofmarket.mach.v1.0.bidprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.bid_priority_customer_size = ProtoField.new("Bid Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.bidprioritycustomersize", ftypes.UINT16)
 miax_pearloptions_topofmarket_mach_v1_0.fields.bid_size = ProtoField.new("Bid Size", "miax.pearloptions.topofmarket.mach.v1.0.bidsize", ftypes.UINT16)
 miax_pearloptions_topofmarket_mach_v1_0.fields.call_or_put = ProtoField.new("Call Or Put", "miax.pearloptions.topofmarket.mach.v1.0.callorput", ftypes.STRING)
@@ -44,7 +45,7 @@ miax_pearloptions_topofmarket_mach_v1_0.fields.message = ProtoField.new("Message
 miax_pearloptions_topofmarket_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.pearloptions.topofmarket.mach.v1.0.messagetype", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.notification_time = ProtoField.new("Notification Time", "miax.pearloptions.topofmarket.mach.v1.0.notificationtime", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.offer_condition = ProtoField.new("Offer Condition", "miax.pearloptions.topofmarket.mach.v1.0.offercondition", ftypes.STRING)
-miax_pearloptions_topofmarket_mach_v1_0.fields.offer_price = ProtoField.new("Offer Price", "miax.pearloptions.topofmarket.mach.v1.0.offerprice", ftypes.UINT16)
+miax_pearloptions_topofmarket_mach_v1_0.fields.offer_price = ProtoField.new("Offer Price", "miax.pearloptions.topofmarket.mach.v1.0.offerprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.offer_priority_customer_size = ProtoField.new("Offer Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.offerprioritycustomersize", ftypes.UINT16)
 miax_pearloptions_topofmarket_mach_v1_0.fields.offer_size = ProtoField.new("Offer Size", "miax.pearloptions.topofmarket.mach.v1.0.offersize", ftypes.UINT16)
 miax_pearloptions_topofmarket_mach_v1_0.fields.opening_time = ProtoField.new("Opening Time", "miax.pearloptions.topofmarket.mach.v1.0.openingtime", ftypes.STRING)
@@ -54,7 +55,7 @@ miax_pearloptions_topofmarket_mach_v1_0.fields.packet_length = ProtoField.new("P
 miax_pearloptions_topofmarket_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.topofmarket.mach.v1.0.packettype", ftypes.UINT8)
 miax_pearloptions_topofmarket_mach_v1_0.fields.payload = ProtoField.new("Payload", "miax.pearloptions.topofmarket.mach.v1.0.payload", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_condition = ProtoField.new("Pbbo Condition", "miax.pearloptions.topofmarket.mach.v1.0.pbbocondition", ftypes.STRING)
-miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_price = ProtoField.new("Pbbo Price", "miax.pearloptions.topofmarket.mach.v1.0.pbboprice", ftypes.UINT16)
+miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_price = ProtoField.new("Pbbo Price", "miax.pearloptions.topofmarket.mach.v1.0.pbboprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_priority_customer_size = ProtoField.new("Pbbo Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.pbboprioritycustomersize", ftypes.UINT16)
 miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_size = ProtoField.new("Pbbo Size", "miax.pearloptions.topofmarket.mach.v1.0.pbbosize", ftypes.UINT16)
 miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_bbo_posting_increment_indicator = ProtoField.new("Pearl Bbo Posting Increment Indicator", "miax.pearloptions.topofmarket.mach.v1.0.pearlbbopostingincrementindicator", ftypes.STRING)
@@ -63,14 +64,14 @@ miax_pearloptions_topofmarket_mach_v1_0.fields.product_add_update_time = ProtoFi
 miax_pearloptions_topofmarket_mach_v1_0.fields.product_id = ProtoField.new("Product Id", "miax.pearloptions.topofmarket.mach.v1.0.productid", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.pearloptions.topofmarket.mach.v1.0.referencecorrectionnumber", ftypes.UINT8)
 miax_pearloptions_topofmarket_mach_v1_0.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.pearloptions.topofmarket.mach.v1.0.referencetradeid", ftypes.UINT32)
-miax_pearloptions_topofmarket_mach_v1_0.fields.reserved = ProtoField.new("Reserved", "miax.pearloptions.topofmarket.mach.v1.0.reserved", ftypes.BYTES)
+miax_pearloptions_topofmarket_mach_v1_0.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearloptions.topofmarket.mach.v1.0.reserved12", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.topofmarket.mach.v1.0.restrictedoption", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "miax.pearloptions.topofmarket.mach.v1.0.securitysymbol", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.topofmarket.mach.v1.0.sequencenumber", ftypes.UINT64)
 miax_pearloptions_topofmarket_mach_v1_0.fields.series_update_message = ProtoField.new("Series Update Message", "miax.pearloptions.topofmarket.mach.v1.0.seriesupdatemessage", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.session_id = ProtoField.new("Session Id", "miax.pearloptions.topofmarket.mach.v1.0.sessionid", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.pearloptions.topofmarket.mach.v1.0.sessionnumber", ftypes.UINT8)
-miax_pearloptions_topofmarket_mach_v1_0.fields.strike_price = ProtoField.new("Strike Price", "miax.pearloptions.topofmarket.mach.v1.0.strikeprice", ftypes.UINT32)
+miax_pearloptions_topofmarket_mach_v1_0.fields.strike_price = ProtoField.new("Strike Price", "miax.pearloptions.topofmarket.mach.v1.0.strikeprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.system_state_message = ProtoField.new("System State Message", "miax.pearloptions.topofmarket.mach.v1.0.systemstatemessage", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.system_status = ProtoField.new("System Status", "miax.pearloptions.topofmarket.mach.v1.0.systemstatus", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.topofmarket.mach.v1.0.timestamp", ftypes.UINT32)
@@ -78,19 +79,19 @@ miax_pearloptions_topofmarket_mach_v1_0.fields.to_m_version = ProtoField.new("To
 miax_pearloptions_topofmarket_mach_v1_0.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearloptions.topofmarket.mach.v1.0.tradecancelmessage", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.trade_condition = ProtoField.new("Trade Condition", "miax.pearloptions.topofmarket.mach.v1.0.tradecondition", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.trade_id = ProtoField.new("Trade Id", "miax.pearloptions.topofmarket.mach.v1.0.tradeid", ftypes.UINT32)
-miax_pearloptions_topofmarket_mach_v1_0.fields.trade_price = ProtoField.new("Trade Price", "miax.pearloptions.topofmarket.mach.v1.0.tradeprice", ftypes.UINT32)
+miax_pearloptions_topofmarket_mach_v1_0.fields.trade_price = ProtoField.new("Trade Price", "miax.pearloptions.topofmarket.mach.v1.0.tradeprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.trade_size = ProtoField.new("Trade Size", "miax.pearloptions.topofmarket.mach.v1.0.tradesize", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.trading_status = ProtoField.new("Trading Status", "miax.pearloptions.topofmarket.mach.v1.0.tradingstatus", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.pearloptions.topofmarket.mach.v1.0.underlyingsymbol", ftypes.STRING)
 miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_trading_status_notification = ProtoField.new("Underlying Trading Status Notification", "miax.pearloptions.topofmarket.mach.v1.0.underlyingtradingstatusnotification", ftypes.STRING)
-miax_pearloptions_topofmarket_mach_v1_0.fields.wide_bid_price = ProtoField.new("Wide Bid Price", "miax.pearloptions.topofmarket.mach.v1.0.widebidprice", ftypes.UINT32)
+miax_pearloptions_topofmarket_mach_v1_0.fields.wide_bid_price = ProtoField.new("Wide Bid Price", "miax.pearloptions.topofmarket.mach.v1.0.widebidprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_bid_priority_customer_size = ProtoField.new("Wide Bid Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.widebidprioritycustomersize", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_bid_size = ProtoField.new("Wide Bid Size", "miax.pearloptions.topofmarket.mach.v1.0.widebidsize", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top Of Market Message", "miax.pearloptions.topofmarket.mach.v1.0.widedoublesidedtopofmarketmessage", ftypes.STRING)
-miax_pearloptions_topofmarket_mach_v1_0.fields.wide_offer_price = ProtoField.new("Wide Offer Price", "miax.pearloptions.topofmarket.mach.v1.0.wideofferprice", ftypes.UINT32)
+miax_pearloptions_topofmarket_mach_v1_0.fields.wide_offer_price = ProtoField.new("Wide Offer Price", "miax.pearloptions.topofmarket.mach.v1.0.wideofferprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_offer_priority_customer_size = ProtoField.new("Wide Offer Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.wideofferprioritycustomersize", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_offer_size = ProtoField.new("Wide Offer Size", "miax.pearloptions.topofmarket.mach.v1.0.wideoffersize", ftypes.UINT32)
-miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_price = ProtoField.new("Wide Pbbo Price", "miax.pearloptions.topofmarket.mach.v1.0.widepbboprice", ftypes.UINT32)
+miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_price = ProtoField.new("Wide Pbbo Price", "miax.pearloptions.topofmarket.mach.v1.0.widepbboprice", ftypes.DOUBLE)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_priority_customer_size = ProtoField.new("Wide Pbbo Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.widepbboprioritycustomersize", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_size = ProtoField.new("Wide Pbbo Size", "miax.pearloptions.topofmarket.mach.v1.0.widepbbosize", ftypes.UINT32)
 miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_bid_message = ProtoField.new("Wide Top Of Market Best Bid Message", "miax.pearloptions.topofmarket.mach.v1.0.widetopofmarketbestbidmessage", ftypes.STRING)
@@ -220,6 +221,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Miax PearlOptions TopOfMarket Mach 1.0
 -----------------------------------------------------------------------
 
@@ -322,7 +341,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_symbol, range, value, display)
@@ -460,11 +479,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+translate.trade_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Trade Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.trade_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.trade_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.trade_price, range, value, display)
@@ -863,11 +888,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.wide_offer_price = function(valu
   return "Wide Offer Price: "..value
 end
 
+-- Translate: Wide Offer Price
+translate.wide_offer_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Wide Offer Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_offer_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.wide_offer_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.wide_offer_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.wide_offer_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_offer_price, range, value, display)
@@ -959,11 +990,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.wide_bid_price = function(value)
   return "Wide Bid Price: "..value
 end
 
+-- Translate: Wide Bid Price
+translate.wide_bid_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Wide Bid Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_bid_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.wide_bid_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.wide_bid_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.wide_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_bid_price, range, value, display)
@@ -1101,11 +1138,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.offer_price = function(value)
   return "Offer Price: "..value
 end
 
+-- Translate: Offer Price
+translate.offer_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Offer Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.offer_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.offer_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.offer_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.offer_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.offer_price, range, value, display)
@@ -1161,11 +1204,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.bid_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.bid_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.bid_price, range, value, display)
@@ -1339,11 +1388,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.wide_pbbo_price = function(value
   return "Wide Pbbo Price: "..value
 end
 
+-- Translate: Wide Pbbo Price
+translate.wide_pbbo_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Wide Pbbo Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_pbbo_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.wide_pbbo_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.wide_pbbo_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.wide_pbbo_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_price, range, value, display)
@@ -1523,11 +1578,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.pbbo_price = function(value)
   return "Pbbo Price: "..value
 end
 
+-- Translate: Pbbo Price
+translate.pbbo_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Pbbo Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.pbbo_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.pbbo_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.pbbo_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_price, range, value, display)
@@ -1724,7 +1785,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.to_m_version = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.to_m_version
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.to_m_version(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.to_m_version, range, value, display)
@@ -1804,22 +1865,22 @@ miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message = function(
   return miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reserved
-miax_pearloptions_topofmarket_mach_v1_0_size_of.reserved = 12
+-- Size: Reserved 12
+miax_pearloptions_topofmarket_mach_v1_0_size_of.reserved_12 = 12
 
--- Display: Reserved
-miax_pearloptions_topofmarket_mach_v1_0_display.reserved = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 12
+miax_pearloptions_topofmarket_mach_v1_0_display.reserved_12 = function(value)
+  return "Reserved 12: "..value
 end
 
--- Dissect: Reserved
-miax_pearloptions_topofmarket_mach_v1_0_dissect.reserved = function(buffer, offset, packet, parent)
-  local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.reserved
+-- Dissect: Reserved 12
+miax_pearloptions_topofmarket_mach_v1_0_dissect.reserved_12 = function(buffer, offset, packet, parent)
+  local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.reserved_12
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = miax_pearloptions_topofmarket_mach_v1_0_display.reserved(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = miax_pearloptions_topofmarket_mach_v1_0_display.reserved_12(value, buffer, offset, packet, parent)
 
-  parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.reserved, range, value, display)
+  parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.reserved_12, range, value, display)
 
   return offset + length, value
 end
@@ -2049,7 +2110,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.closing_time = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.closing_time
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.closing_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.closing_time, range, value, display)
@@ -2069,7 +2130,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.opening_time = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.opening_time
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.opening_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.opening_time, range, value, display)
@@ -2112,11 +2173,17 @@ miax_pearloptions_topofmarket_mach_v1_0_display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Strike Price
 miax_pearloptions_topofmarket_mach_v1_0_dissect.strike_price = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.strike_price(raw)
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.strike_price, range, value, display)
@@ -2136,7 +2203,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.expiration_date = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.expiration_date
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.expiration_date(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.expiration_date, range, value, display)
@@ -2156,7 +2223,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearloptions_topofmarket_mach_v1_0_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.security_symbol, range, value, display)
@@ -2218,7 +2285,7 @@ miax_pearloptions_topofmarket_mach_v1_0_size_of.series_update_message = function
 
   index = index + miax_pearloptions_topofmarket_mach_v1_0_size_of.opening_underlying_market_code
 
-  index = index + miax_pearloptions_topofmarket_mach_v1_0_size_of.reserved
+  index = index + miax_pearloptions_topofmarket_mach_v1_0_size_of.reserved_12
 
   return index
 end
@@ -2277,8 +2344,8 @@ miax_pearloptions_topofmarket_mach_v1_0_dissect.series_update_message_fields = f
   -- Opening Underlying Market Code: 1 Byte Ascii String Enum with 17 values
   index, opening_underlying_market_code = miax_pearloptions_topofmarket_mach_v1_0_dissect.opening_underlying_market_code(buffer, index, packet, parent)
 
-  -- Reserved: 12 Byte
-  index, reserved = miax_pearloptions_topofmarket_mach_v1_0_dissect.reserved(buffer, index, packet, parent)
+  -- Reserved 12: 12 Byte Ascii String
+  index, reserved_12 = miax_pearloptions_topofmarket_mach_v1_0_dissect.reserved_12(buffer, index, packet, parent)
 
   return index
 end
@@ -2523,18 +2590,14 @@ miax_pearloptions_topofmarket_mach_v1_0_dissect.message_type = function(buffer, 
   return offset + length, value
 end
 
--- Calculate size of: Application Message
+-- Read runtime size of: Application Message
 miax_pearloptions_topofmarket_mach_v1_0_size_of.application_message = function(buffer, offset)
-  local index = 0
+  local index = offset
 
-  index = index + miax_pearloptions_topofmarket_mach_v1_0_size_of.message_type
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 4, 2):le_uint()
 
-  -- Calculate runtime size of Data field
-  local data_offset = offset + index
-  local data_type = buffer(data_offset - 1, 1):string()
-  index = index + miax_pearloptions_topofmarket_mach_v1_0_size_of.data(buffer, data_offset, data_type)
-
-  return index
+  return packet_length - 12
 end
 
 -- Display: Application Message
@@ -2543,7 +2606,7 @@ miax_pearloptions_topofmarket_mach_v1_0_display.application_message = function(b
 end
 
 -- Dissect Fields: Application Message
-miax_pearloptions_topofmarket_mach_v1_0_dissect.application_message_fields = function(buffer, offset, packet, parent)
+miax_pearloptions_topofmarket_mach_v1_0_dissect.application_message_fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String Enum with 12 values
@@ -2557,15 +2620,19 @@ end
 
 -- Dissect: Application Message
 miax_pearloptions_topofmarket_mach_v1_0_dissect.application_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Parse runtime size
+  local size_of_application_message = miax_pearloptions_topofmarket_mach_v1_0_size_of.application_message(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
   if show.application_message then
-    local length = miax_pearloptions_topofmarket_mach_v1_0_size_of.application_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_application_message)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.application_message(buffer, packet, parent)
     parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.application_message, range, display)
   end
 
-  return miax_pearloptions_topofmarket_mach_v1_0_dissect.application_message_fields(buffer, offset, packet, parent)
+  miax_pearloptions_topofmarket_mach_v1_0_dissect.application_message_fields(buffer, offset, packet, parent, size_of_application_message)
+
+  return offset + size_of_application_message
 end
 
 -- Calculate runtime size of: Payload
