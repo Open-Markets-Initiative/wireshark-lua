@@ -17691,7 +17691,7 @@ euronext_optiq_marketdatagateway_sbe_v5_52:register_heuristic("udp", euronext_op
 -- Protocol:
 --   Organization: European New Exchange Technology
 --   Version: 5.52
---   Date: Friday, December 13, 2024
+--   Date: Tuesday, January 14, 2025
 --   Specification: Optiq MDG Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.352.0 + TC
 -- 
 -- Script:
