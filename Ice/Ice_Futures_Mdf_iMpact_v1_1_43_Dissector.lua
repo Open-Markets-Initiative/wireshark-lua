@@ -74,7 +74,6 @@ ice_futures_mdf_impact_v1_1_43.fields.fragment_bytes = ProtoField.new("Fragment 
 ice_futures_mdf_impact_v1_1_43.fields.fragment_length = ProtoField.new("Fragment Length", "ice.futures.mdf.impact.v1.1.43.fragmentlength", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_43.fields.fragment_offset = ProtoField.new("Fragment Offset", "ice.futures.mdf.impact.v1.1.43.fragmentoffset", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_43.fields.fragment_wrapper_message = ProtoField.new("Fragment Wrapper Message", "ice.futures.mdf.impact.v1.1.43.fragmentwrappermessage", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.future_trade_flags = ProtoField.new("Future Trade Flags", "ice.futures.mdf.impact.v1.1.43.futuretradeflags", ftypes.UINT8, nil, base.DEC, 0x0F)
 ice_futures_mdf_impact_v1_1_43.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "ice.futures.mdf.impact.v1.1.43.futurescontractsymbol", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.gbp_price = ProtoField.new("Gbp Price", "ice.futures.mdf.impact.v1.1.43.gbpprice", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.futures.mdf.impact.v1.1.43.gtallowed", ftypes.STRING)
@@ -236,8 +235,8 @@ ice_futures_mdf_impact_v1_1_43.fields.product_name = ProtoField.new("Product Nam
 ice_futures_mdf_impact_v1_1_43.fields.published_date_time = ProtoField.new("Published Date Time", "ice.futures.mdf.impact.v1.1.43.publisheddatetime", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.quantity = ProtoField.new("Quantity", "ice.futures.mdf.impact.v1.1.43.quantity", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp = ProtoField.new("Request Trading Engine Received Timestamp", "ice.futures.mdf.impact.v1.1.43.requesttradingenginereceivedtimestamp", ftypes.INT64)
-ice_futures_mdf_impact_v1_1_43.fields.reserved_2_bytes = ProtoField.new("Reserved 2 Bytes", "ice.futures.mdf.impact.v1.1.43.reserved2bytes", ftypes.BYTES)
-ice_futures_mdf_impact_v1_1_43.fields.reserved_bytes_4 = ProtoField.new("Reserved Bytes 4", "ice.futures.mdf.impact.v1.1.43.reservedbytes4", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_43.fields.reserved_2 = ProtoField.new("Reserved 2", "ice.futures.mdf.impact.v1.1.43.reserved2", ftypes.BYTES)
+ice_futures_mdf_impact_v1_1_43.fields.reserved_4 = ProtoField.new("Reserved 4", "ice.futures.mdf.impact.v1.1.43.reserved4", ftypes.BYTES)
 ice_futures_mdf_impact_v1_1_43.fields.rfq_message = ProtoField.new("Rfq Message", "ice.futures.mdf.impact.v1.1.43.rfqmessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.futures.mdf.impact.v1.1.43.rfqsystemid", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.round = ProtoField.new("Round", "ice.futures.mdf.impact.v1.1.43.round", ftypes.INT16)
@@ -293,6 +292,7 @@ ice_futures_mdf_impact_v1_1_43.fields.underlying_market_id = ProtoField.new("Und
 ice_futures_mdf_impact_v1_1_43.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.futures.mdf.impact.v1.1.43.unitofmeasure", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "ice.futures.mdf.impact.v1.1.43.unitqtydenominator", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.futures.mdf.impact.v1.1.43.unitquantity", ftypes.INT32)
+ice_futures_mdf_impact_v1_1_43.fields.unused_4 = ProtoField.new("Unused 4", "ice.futures.mdf.impact.v1.1.43.unused4", ftypes.UINT8, nil, base.DEC, 0x0F)
 ice_futures_mdf_impact_v1_1_43.fields.usd_price = ProtoField.new("Usd Price", "ice.futures.mdf.impact.v1.1.43.usdprice", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.valuation_date = ProtoField.new("Valuation Date", "ice.futures.mdf.impact.v1.1.43.valuationdate", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.futures.mdf.impact.v1.1.43.valuationdatetime", ftypes.INT64)
@@ -3537,22 +3537,22 @@ ice_futures_mdf_impact_v1_1_43_dissect.leg_side = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Size: Reserved 2 Bytes
-ice_futures_mdf_impact_v1_1_43_size_of.reserved_2_bytes = 2
+-- Size: Reserved 2
+ice_futures_mdf_impact_v1_1_43_size_of.reserved_2 = 2
 
--- Display: Reserved 2 Bytes
-ice_futures_mdf_impact_v1_1_43_display.reserved_2_bytes = function(value)
-  return "Reserved 2 Bytes: "..value
+-- Display: Reserved 2
+ice_futures_mdf_impact_v1_1_43_display.reserved_2 = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Reserved 2 Bytes
-ice_futures_mdf_impact_v1_1_43_dissect.reserved_2_bytes = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_43_size_of.reserved_2_bytes
+-- Dissect: Reserved 2
+ice_futures_mdf_impact_v1_1_43_dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.reserved_2
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = ice_futures_mdf_impact_v1_1_43_display.reserved_2_bytes(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_43_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_43.fields.reserved_2_bytes, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -3627,7 +3627,7 @@ ice_futures_mdf_impact_v1_1_43_size_of.extra_strategy_leg_definition = function(
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.leg_underlying_market_id
 
-  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2_bytes
+  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.leg_side
 
@@ -3662,8 +3662,8 @@ ice_futures_mdf_impact_v1_1_43_dissect.extra_strategy_leg_definition_fields = fu
   -- Leg Underlying Market Id: 4 Byte Signed Fixed Width Integer
   index, leg_underlying_market_id = ice_futures_mdf_impact_v1_1_43_dissect.leg_underlying_market_id(buffer, index, packet, parent)
 
-  -- Reserved 2 Bytes: 2 Byte
-  index, reserved_2_bytes = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2_bytes(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index, reserved_2 = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Ascii String Enum with 3 values
   index, leg_side = ice_futures_mdf_impact_v1_1_43_dissect.leg_side(buffer, index, packet, parent)
@@ -6642,7 +6642,7 @@ ice_futures_mdf_impact_v1_1_43_dissect.market_snapshot_order_message = function(
 end
 
 -- Size: Fragment Bytes
-ice_futures_mdf_impact_v1_1_43_size_of.fragment_bytes = 0
+ice_futures_mdf_impact_v1_1_43_size_of.fragment_bytes = 9
 
 -- Display: Fragment Bytes
 ice_futures_mdf_impact_v1_1_43_display.fragment_bytes = function(value)
@@ -6754,7 +6754,7 @@ ice_futures_mdf_impact_v1_1_43_dissect.fragment_wrapper_message_fields = functio
   -- Fragment Length: 2 Byte Signed Fixed Width Integer
   index, fragment_length = ice_futures_mdf_impact_v1_1_43_dissect.fragment_length(buffer, index, packet, parent)
 
-  -- Fragment Bytes: 0 Byte
+  -- Fragment Bytes: 9 Byte
   index, fragment_bytes = ice_futures_mdf_impact_v1_1_43_dissect.fragment_bytes(buffer, index, packet, parent)
 
   return index
@@ -7726,7 +7726,7 @@ ice_futures_mdf_impact_v1_1_43_size_of.extra_leg_definition = function(buffer, o
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.leg_market_id
 
-  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2_bytes
+  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.leg_side
 
@@ -7758,8 +7758,8 @@ ice_futures_mdf_impact_v1_1_43_dissect.extra_leg_definition_fields = function(bu
   -- Leg Market Id: 4 Byte Signed Fixed Width Integer
   index, leg_market_id = ice_futures_mdf_impact_v1_1_43_dissect.leg_market_id(buffer, index, packet, parent)
 
-  -- Reserved 2 Bytes: 2 Byte
-  index, reserved_2_bytes = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2_bytes(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index, reserved_2 = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Ascii String Enum with 3 values
   index, leg_side = ice_futures_mdf_impact_v1_1_43_dissect.leg_side(buffer, index, packet, parent)
@@ -8014,22 +8014,22 @@ ice_futures_mdf_impact_v1_1_43_dissect.allow_options = function(buffer, offset, 
   return offset + length, value
 end
 
--- Size: Reserved Bytes 4
-ice_futures_mdf_impact_v1_1_43_size_of.reserved_bytes_4 = 4
+-- Size: Reserved 4
+ice_futures_mdf_impact_v1_1_43_size_of.reserved_4 = 4
 
--- Display: Reserved Bytes 4
-ice_futures_mdf_impact_v1_1_43_display.reserved_bytes_4 = function(value)
-  return "Reserved Bytes 4: "..value
+-- Display: Reserved 4
+ice_futures_mdf_impact_v1_1_43_display.reserved_4 = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved Bytes 4
-ice_futures_mdf_impact_v1_1_43_dissect.reserved_bytes_4 = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_43_size_of.reserved_bytes_4
+-- Dissect: Reserved 4
+ice_futures_mdf_impact_v1_1_43_dissect.reserved_4 = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.reserved_4
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_43_display.reserved_bytes_4(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = ice_futures_mdf_impact_v1_1_43_display.reserved_4(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_43.fields.reserved_bytes_4, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -8163,7 +8163,7 @@ ice_futures_mdf_impact_v1_1_43_size_of.new_futures_strategy_definition_message =
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.gt_allowed
 
-  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_bytes_4
+  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_4
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.mifid_regulated_market
 
@@ -8296,8 +8296,8 @@ ice_futures_mdf_impact_v1_1_43_dissect.new_futures_strategy_definition_message_f
   -- Gt Allowed: 1 Byte Ascii String Enum with 2 values
   index, gt_allowed = ice_futures_mdf_impact_v1_1_43_dissect.gt_allowed(buffer, index, packet, parent)
 
-  -- Reserved Bytes 4: 4 Byte Signed Fixed Width Integer
-  index, reserved_bytes_4 = ice_futures_mdf_impact_v1_1_43_dissect.reserved_bytes_4(buffer, index, packet, parent)
+  -- Reserved 4: 4 Byte
+  index, reserved_4 = ice_futures_mdf_impact_v1_1_43_dissect.reserved_4(buffer, index, packet, parent)
 
   -- Mifid Regulated Market: 1 Byte Ascii String Enum with 2 values
   index, mifid_regulated_market = ice_futures_mdf_impact_v1_1_43_dissect.mifid_regulated_market(buffer, index, packet, parent)
@@ -9496,7 +9496,7 @@ ice_futures_mdf_impact_v1_1_43_size_of.index_prices_message = function(buffer, o
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.endex_status
 
-  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2_bytes
+  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.index_price_denominator
 
@@ -9530,8 +9530,8 @@ ice_futures_mdf_impact_v1_1_43_dissect.index_prices_message_fields = function(bu
   -- Endex Status: 1 Byte Ascii String Enum with 4 values
   index, endex_status = ice_futures_mdf_impact_v1_1_43_dissect.endex_status(buffer, index, packet, parent)
 
-  -- Reserved 2 Bytes: 2 Byte
-  index, reserved_2_bytes = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2_bytes(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index, reserved_2 = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2(buffer, index, packet, parent)
 
   -- Index Price Denominator: 1 Byte Ascii String
   index, index_price_denominator = ice_futures_mdf_impact_v1_1_43_dissect.index_price_denominator(buffer, index, packet, parent)
@@ -10544,8 +10544,8 @@ ice_futures_mdf_impact_v1_1_43_dissect.trade_flags_bits = function(buffer, offse
   -- Is Vertical Split: 1 Bit
   parent:add(ice_futures_mdf_impact_v1_1_43.fields.is_vertical_split, buffer(offset, 1))
 
-  -- Future Trade Flags: 4 Bit
-  parent:add(ice_futures_mdf_impact_v1_1_43.fields.future_trade_flags, buffer(offset, 1))
+  -- Unused 4: 4 Bit
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.unused_4, buffer(offset, 1))
 end
 
 -- Dissect: Trade Flags
@@ -11100,7 +11100,7 @@ ice_futures_mdf_impact_v1_1_43_size_of.market_snapshot_message = function(buffer
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.last_message_sequence_id
 
-  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2_bytes
+  index = index + ice_futures_mdf_impact_v1_1_43_size_of.reserved_2
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.open_interest_date
 
@@ -11181,8 +11181,8 @@ ice_futures_mdf_impact_v1_1_43_dissect.market_snapshot_message_fields = function
   -- Last Message Sequence Id: 4 Byte Signed Fixed Width Integer
   index, last_message_sequence_id = ice_futures_mdf_impact_v1_1_43_dissect.last_message_sequence_id(buffer, index, packet, parent)
 
-  -- Reserved 2 Bytes: 2 Byte
-  index, reserved_2_bytes = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2_bytes(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index, reserved_2 = ice_futures_mdf_impact_v1_1_43_dissect.reserved_2(buffer, index, packet, parent)
 
   -- Open Interest Date: 10 Byte Ascii String
   index, open_interest_date = ice_futures_mdf_impact_v1_1_43_dissect.open_interest_date(buffer, index, packet, parent)

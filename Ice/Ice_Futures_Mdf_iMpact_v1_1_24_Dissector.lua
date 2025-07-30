@@ -192,7 +192,7 @@ ice_futures_mdf_impact_v1_1_24.fields.product_id = ProtoField.new("Product Id", 
 ice_futures_mdf_impact_v1_1_24.fields.product_name = ProtoField.new("Product Name", "ice.futures.mdf.impact.v1.1.24.productname", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_24.fields.published_date_time = ProtoField.new("Published Date Time", "ice.futures.mdf.impact.v1.1.24.publisheddatetime", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_24.fields.quantity = ProtoField.new("Quantity", "ice.futures.mdf.impact.v1.1.24.quantity", ftypes.INT32)
-ice_futures_mdf_impact_v1_1_24.fields.reserved_field_1 = ProtoField.new("Reserved Field 1", "ice.futures.mdf.impact.v1.1.24.reservedfield1", ftypes.BYTES)
+ice_futures_mdf_impact_v1_1_24.fields.reserved_2 = ProtoField.new("Reserved 2", "ice.futures.mdf.impact.v1.1.24.reserved2", ftypes.BYTES)
 ice_futures_mdf_impact_v1_1_24.fields.rfq_message = ProtoField.new("Rfq Message", "ice.futures.mdf.impact.v1.1.24.rfqmessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_24.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.futures.mdf.impact.v1.1.24.rfqsystemid", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_24.fields.round = ProtoField.new("Round", "ice.futures.mdf.impact.v1.1.24.round", ftypes.INT16)
@@ -8772,22 +8772,22 @@ ice_futures_mdf_impact_v1_1_24_dissect.is_settle_price_official = function(buffe
   return offset + length, value
 end
 
--- Size: Reserved Field 1
-ice_futures_mdf_impact_v1_1_24_size_of.reserved_field_1 = 2
+-- Size: Reserved 2
+ice_futures_mdf_impact_v1_1_24_size_of.reserved_2 = 2
 
--- Display: Reserved Field 1
-ice_futures_mdf_impact_v1_1_24_display.reserved_field_1 = function(value)
-  return "Reserved Field 1: "..value
+-- Display: Reserved 2
+ice_futures_mdf_impact_v1_1_24_display.reserved_2 = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Reserved Field 1
-ice_futures_mdf_impact_v1_1_24_dissect.reserved_field_1 = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_24_size_of.reserved_field_1
+-- Dissect: Reserved 2
+ice_futures_mdf_impact_v1_1_24_dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_24_size_of.reserved_2
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = ice_futures_mdf_impact_v1_1_24_display.reserved_field_1(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_24_display.reserved_2(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_24.fields.reserved_field_1, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_24.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -8974,7 +8974,7 @@ ice_futures_mdf_impact_v1_1_24_size_of.market_snapshot_message = function(buffer
 
   index = index + ice_futures_mdf_impact_v1_1_24_size_of.last_message_sequence_id
 
-  index = index + ice_futures_mdf_impact_v1_1_24_size_of.reserved_field_1
+  index = index + ice_futures_mdf_impact_v1_1_24_size_of.reserved_2
 
   index = index + ice_futures_mdf_impact_v1_1_24_size_of.open_interest_date
 
@@ -9055,8 +9055,8 @@ ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_message_fields = function
   -- Last Message Sequence Id: 4 Byte Signed Fixed Width Integer
   index, last_message_sequence_id = ice_futures_mdf_impact_v1_1_24_dissect.last_message_sequence_id(buffer, index, packet, parent)
 
-  -- Reserved Field 1: 2 Byte
-  index, reserved_field_1 = ice_futures_mdf_impact_v1_1_24_dissect.reserved_field_1(buffer, index, packet, parent)
+  -- Reserved 2: 2 Byte
+  index, reserved_2 = ice_futures_mdf_impact_v1_1_24_dissect.reserved_2(buffer, index, packet, parent)
 
   -- Open Interest Date: 10 Byte Ascii String
   index, open_interest_date = ice_futures_mdf_impact_v1_1_24_dissect.open_interest_date(buffer, index, packet, parent)
