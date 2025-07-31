@@ -40,7 +40,6 @@ ice_futures_mdf_impact_v1_1_34.fields.close_price = ProtoField.new("Close Price"
 ice_futures_mdf_impact_v1_1_34.fields.close_price_message = ProtoField.new("Close Price Message", "ice.futures.mdf.impact.v1.1.34.closepricemessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.contract_symbol = ProtoField.new("Contract Symbol", "ice.futures.mdf.impact.v1.1.34.contractsymbol", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.contract_symbol_extra = ProtoField.new("Contract Symbol Extra", "ice.futures.mdf.impact.v1.1.34.contractsymbolextra", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_34.fields.count = ProtoField.new("Count", "ice.futures.mdf.impact.v1.1.34.count", ftypes.UINT16)
 ice_futures_mdf_impact_v1_1_34.fields.cross_order_supported = ProtoField.new("Cross Order Supported", "ice.futures.mdf.impact.v1.1.34.crossordersupported", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.currency = ProtoField.new("Currency", "ice.futures.mdf.impact.v1.1.34.currency", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "ice.futures.mdf.impact.v1.1.34.dealpricedenominator", ftypes.STRING)
@@ -171,6 +170,7 @@ ice_futures_mdf_impact_v1_1_34.fields.num_decimals_strike_price = ProtoField.new
 ice_futures_mdf_impact_v1_1_34.fields.num_of_book_entries = ProtoField.new("Num Of Book Entries", "ice.futures.mdf.impact.v1.1.34.numofbookentries", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_34.fields.number_of_hedge_definitions = ProtoField.new("Number Of Hedge Definitions", "ice.futures.mdf.impact.v1.1.34.numberofhedgedefinitions", ftypes.INT8)
 ice_futures_mdf_impact_v1_1_34.fields.number_of_leg_definitions = ProtoField.new("Number Of Leg Definitions", "ice.futures.mdf.impact.v1.1.34.numberoflegdefinitions", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_34.fields.number_of_msgs = ProtoField.new("Number Of Msgs", "ice.futures.mdf.impact.v1.1.34.numberofmsgs", ftypes.UINT16)
 ice_futures_mdf_impact_v1_1_34.fields.number_of_special_fields = ProtoField.new("Number Of Special Fields", "ice.futures.mdf.impact.v1.1.34.numberofspecialfields", ftypes.INT8)
 ice_futures_mdf_impact_v1_1_34.fields.number_of_strategy_leg_definitions = ProtoField.new("Number Of Strategy Leg Definitions", "ice.futures.mdf.impact.v1.1.34.numberofstrategylegdefinitions", ftypes.INT8)
 ice_futures_mdf_impact_v1_1_34.fields.off_exchange_increment_option_price = ProtoField.new("Off Exchange Increment Option Price", "ice.futures.mdf.impact.v1.1.34.offexchangeincrementoptionprice", ftypes.INT32)
@@ -224,6 +224,7 @@ ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_day = ProtoField.new("Sc
 ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_month = ProtoField.new("Screen Last Trade Month", "ice.futures.mdf.impact.v1.1.34.screenlasttrademonth", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_34.fields.screen_last_trade_year = ProtoField.new("Screen Last Trade Year", "ice.futures.mdf.impact.v1.1.34.screenlasttradeyear", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_34.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.futures.mdf.impact.v1.1.34.securitysubtype", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_34.fields.send_datetime = ProtoField.new("Send Datetime", "ice.futures.mdf.impact.v1.1.34.senddatetime", ftypes.UINT64)
 ice_futures_mdf_impact_v1_1_34.fields.sequence = ProtoField.new("Sequence", "ice.futures.mdf.impact.v1.1.34.sequence", ftypes.UINT32)
 ice_futures_mdf_impact_v1_1_34.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "ice.futures.mdf.impact.v1.1.34.sequencewithinmillis", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_34.fields.session = ProtoField.new("Session", "ice.futures.mdf.impact.v1.1.34.session", ftypes.UINT16)
@@ -840,7 +841,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.transact_date_time = 8
 
 -- Display: Transact Date Time
 ice_futures_mdf_impact_v1_1_34_display.transact_date_time = function(value)
-  return "Transact Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Transact Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Transact Date Time
@@ -1173,7 +1178,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.valuation_date_time = 8
 
 -- Display: Valuation Date Time
 ice_futures_mdf_impact_v1_1_34_display.valuation_date_time = function(value)
-  return "Valuation Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Valuation Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Valuation Date Time
@@ -1233,7 +1242,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.message_date_time = 8
 
 -- Display: Message Date Time
 ice_futures_mdf_impact_v1_1_34_display.message_date_time = function(value)
-  return "Message Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Message Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Message Date Time
@@ -1977,7 +1990,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.message_timestamp = 8
 
 -- Display: Message Timestamp
 ice_futures_mdf_impact_v1_1_34_display.message_timestamp = function(value)
-  return "Message Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Message Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Message Timestamp
@@ -4642,7 +4659,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.timestamp = 8
 
 -- Display: Timestamp
 ice_futures_mdf_impact_v1_1_34_display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -5471,7 +5492,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.time = 8
 
 -- Display: Time
 ice_futures_mdf_impact_v1_1_34_display.time = function(value)
-  return "Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Time
@@ -5639,7 +5664,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.auction_end_time = 8
 
 -- Display: Auction End Time
 ice_futures_mdf_impact_v1_1_34_display.auction_end_time = function(value)
-  return "Auction End Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Auction End Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Auction End Time
@@ -6018,7 +6047,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.order_entry_date_time = 8
 
 -- Display: Order Entry Date Time
 ice_futures_mdf_impact_v1_1_34_display.order_entry_date_time = function(value)
-  return "Order Entry Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Order Entry Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Order Entry Date Time
@@ -7921,7 +7954,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.notification_date_time = 8
 
 -- Display: Notification Date Time
 ice_futures_mdf_impact_v1_1_34_display.notification_date_time = function(value)
-  return "Notification Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Notification Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Notification Date Time
@@ -8725,7 +8762,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.published_date_time = 8
 
 -- Display: Published Date Time
 ice_futures_mdf_impact_v1_1_34_display.published_date_time = function(value)
-  return "Published Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Published Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Published Date Time
@@ -9678,7 +9719,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.delivery_end_date_time = 8
 
 -- Display: Delivery End Date Time
 ice_futures_mdf_impact_v1_1_34_display.delivery_end_date_time = function(value)
-  return "Delivery End Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Delivery End Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Delivery End Date Time
@@ -9698,7 +9743,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.delivery_begin_date_time = 8
 
 -- Display: Delivery Begin Date Time
 ice_futures_mdf_impact_v1_1_34_display.delivery_begin_date_time = function(value)
-  return "Delivery Begin Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Delivery Begin Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Delivery Begin Date Time
@@ -10186,7 +10235,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.settle_price_date_time = 8
 
 -- Display: Settle Price Date Time
 ice_futures_mdf_impact_v1_1_34_display.settle_price_date_time = function(value)
-  return "Settle Price Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Settle Price Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Settle Price Date Time
@@ -10206,7 +10259,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.last_trade_date_time = 8
 
 -- Display: Last Trade Date Time
 ice_futures_mdf_impact_v1_1_34_display.last_trade_date_time = function(value)
-  return "Last Trade Date Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Last Trade Date Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Last Trade Date Time
@@ -11055,22 +11112,46 @@ ice_futures_mdf_impact_v1_1_34_dissect.message = function(buffer, offset, packet
   return ice_futures_mdf_impact_v1_1_34_dissect.message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Count
-ice_futures_mdf_impact_v1_1_34_size_of.count = 2
+-- Size: Send Datetime
+ice_futures_mdf_impact_v1_1_34_size_of.send_datetime = 8
 
--- Display: Count
-ice_futures_mdf_impact_v1_1_34_display.count = function(value)
-  return "Count: "..value
+-- Display: Send Datetime
+ice_futures_mdf_impact_v1_1_34_display.send_datetime = function(value)
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Send Datetime: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
--- Dissect: Count
-ice_futures_mdf_impact_v1_1_34_dissect.count = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_34_size_of.count
+-- Dissect: Send Datetime
+ice_futures_mdf_impact_v1_1_34_dissect.send_datetime = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_34_size_of.send_datetime
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = ice_futures_mdf_impact_v1_1_34_display.send_datetime(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.send_datetime, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Number Of Msgs
+ice_futures_mdf_impact_v1_1_34_size_of.number_of_msgs = 2
+
+-- Display: Number Of Msgs
+ice_futures_mdf_impact_v1_1_34_display.number_of_msgs = function(value)
+  return "Number Of Msgs: "..value
+end
+
+-- Dissect: Number Of Msgs
+ice_futures_mdf_impact_v1_1_34_dissect.number_of_msgs = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_34_size_of.number_of_msgs
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = ice_futures_mdf_impact_v1_1_34_display.count(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_34_display.number_of_msgs(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_34.fields.count, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.number_of_msgs, range, value, display)
 
   return offset + length, value
 end
@@ -11123,9 +11204,9 @@ ice_futures_mdf_impact_v1_1_34_size_of.packet_header = function(buffer, offset)
 
   index = index + ice_futures_mdf_impact_v1_1_34_size_of.sequence
 
-  index = index + ice_futures_mdf_impact_v1_1_34_size_of.count
+  index = index + ice_futures_mdf_impact_v1_1_34_size_of.number_of_msgs
 
-  index = index + ice_futures_mdf_impact_v1_1_34_size_of.timestamp
+  index = index + ice_futures_mdf_impact_v1_1_34_size_of.send_datetime
 
   return index
 end
@@ -11145,11 +11226,11 @@ ice_futures_mdf_impact_v1_1_34_dissect.packet_header_fields = function(buffer, o
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = ice_futures_mdf_impact_v1_1_34_dissect.sequence(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = ice_futures_mdf_impact_v1_1_34_dissect.count(buffer, index, packet, parent)
+  -- Number Of Msgs: 2 Byte Unsigned Fixed Width Integer
+  index, number_of_msgs = ice_futures_mdf_impact_v1_1_34_dissect.number_of_msgs(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
-  index, timestamp = ice_futures_mdf_impact_v1_1_34_dissect.timestamp(buffer, index, packet, parent)
+  -- Send Datetime: 8 Byte Unsigned Fixed Width Integer
+  index, send_datetime = ice_futures_mdf_impact_v1_1_34_dissect.send_datetime(buffer, index, packet, parent)
 
   return index
 end
@@ -11174,11 +11255,11 @@ ice_futures_mdf_impact_v1_1_34_dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 4 fields
   index, packet_header = ice_futures_mdf_impact_v1_1_34_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 10, 2):uint()
+  -- Dependency element: Number Of Msgs
+  local number_of_msgs = buffer(index - 10, 2):uint()
 
   -- Message: Struct of 2 fields
-  for i = 1, count do
+  for i = 1, number_of_msgs do
     index = ice_futures_mdf_impact_v1_1_34_dissect.message(buffer, index, packet, parent)
   end
 
