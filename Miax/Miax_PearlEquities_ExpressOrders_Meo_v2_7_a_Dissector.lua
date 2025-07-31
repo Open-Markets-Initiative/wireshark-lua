@@ -3216,7 +3216,11 @@ miax_pearlequities_expressorders_meo_v2_7_a_size_of.order_expiry_time = 8
 
 -- Display: Order Expiry Time
 miax_pearlequities_expressorders_meo_v2_7_a_display.order_expiry_time = function(value)
-  return "Order Expiry Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000)
+  local milliseconds = value:tonumber()%1000
+
+  return "Order Expiry Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
 end
 
 -- Dissect: Order Expiry Time
