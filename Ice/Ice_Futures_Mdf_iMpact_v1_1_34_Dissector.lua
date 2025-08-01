@@ -60,7 +60,6 @@ ice_futures_mdf_impact_v1_1_34.fields.event_code = ProtoField.new("Event Code", 
 ice_futures_mdf_impact_v1_1_34.fields.event_type = ProtoField.new("Event Type", "ice.futures.mdf.impact.v1.1.34.eventtype", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.exchange_silo = ProtoField.new("Exchange Silo", "ice.futures.mdf.impact.v1.1.34.exchangesilo", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.extra_flags = ProtoField.new("Extra Flags", "ice.futures.mdf.impact.v1.1.34.extraflags", ftypes.INT8)
-ice_futures_mdf_impact_v1_1_34.fields.ff_market_trade_indicator = ProtoField.new("Ff Market Trade Indicator", "ice.futures.mdf.impact.v1.1.34.ffmarkettradeindicator", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.fixing_indicative_price_message_message = ProtoField.new("Fixing Indicative Price Message Message", "ice.futures.mdf.impact.v1.1.34.fixingindicativepricemessagemessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "ice.futures.mdf.impact.v1.1.34.fixinglockdownmessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.fixing_transition_message = ProtoField.new("Fixing Transition Message", "ice.futures.mdf.impact.v1.1.34.fixingtransitionmessage", ftypes.STRING)
@@ -259,7 +258,6 @@ ice_futures_mdf_impact_v1_1_34.fields.text_message = ProtoField.new("Text Messag
 ice_futures_mdf_impact_v1_1_34.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "ice.futures.mdf.impact.v1.1.34.textmessageextrafld", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.threshold_imbalance_qty = ProtoField.new("Threshold Imbalance Qty", "ice.futures.mdf.impact.v1.1.34.thresholdimbalanceqty", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_34.fields.tick_value = ProtoField.new("Tick Value", "ice.futures.mdf.impact.v1.1.34.tickvalue", ftypes.INT64)
-ice_futures_mdf_impact_v1_1_34.fields.time = ProtoField.new("Time", "ice.futures.mdf.impact.v1.1.34.time", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.timestamp = ProtoField.new("Timestamp", "ice.futures.mdf.impact.v1.1.34.timestamp", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.total_volume = ProtoField.new("Total Volume", "ice.futures.mdf.impact.v1.1.34.totalvolume", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_34.fields.trade_id = ProtoField.new("Trade Id", "ice.futures.mdf.impact.v1.1.34.tradeid", ftypes.INT64)
@@ -274,7 +272,7 @@ ice_futures_mdf_impact_v1_1_34.fields.unit_of_measure = ProtoField.new("Unit Of 
 ice_futures_mdf_impact_v1_1_34.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "ice.futures.mdf.impact.v1.1.34.unitqtydenominator", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.futures.mdf.impact.v1.1.34.unitquantity", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_34.fields.usd_price = ProtoField.new("Usd Price", "ice.futures.mdf.impact.v1.1.34.usdprice", ftypes.INT64)
-ice_futures_mdf_impact_v1_1_34.fields.valuation_date = ProtoField.new("Valuation Date", "ice.futures.mdf.impact.v1.1.34.valuationdate", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_34.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.futures.mdf.impact.v1.1.34.valuationdateapplyingdate", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_34.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.futures.mdf.impact.v1.1.34.valuationdatetime", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.volatility = ProtoField.new("Volatility", "ice.futures.mdf.impact.v1.1.34.volatility", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_34.fields.volume = ProtoField.new("Volume", "ice.futures.mdf.impact.v1.1.34.volume", ftypes.INT32)
@@ -5487,30 +5485,6 @@ ice_futures_mdf_impact_v1_1_34_dissect.description = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Size: Time
-ice_futures_mdf_impact_v1_1_34_size_of.time = 8
-
--- Display: Time
-ice_futures_mdf_impact_v1_1_34_display.time = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000)
-  local milliseconds = value:tonumber()%1000
-
-  return "Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
-end
-
--- Dissect: Time
-ice_futures_mdf_impact_v1_1_34_dissect.time = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_34_size_of.time
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_34_display.time(value, buffer, offset, packet, parent)
-
-  parent:add(ice_futures_mdf_impact_v1_1_34.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Auction Date
 ice_futures_mdf_impact_v1_1_34_size_of.auction_date = 10
 
@@ -5555,7 +5529,7 @@ ice_futures_mdf_impact_v1_1_34_size_of.fixing_lockdown_message = function(buffer
 
   index = index + ice_futures_mdf_impact_v1_1_34_size_of.auction_date
 
-  index = index + ice_futures_mdf_impact_v1_1_34_size_of.time
+  index = index + ice_futures_mdf_impact_v1_1_34_size_of.message_date_time
 
   index = index + ice_futures_mdf_impact_v1_1_34_size_of.description
 
@@ -5593,8 +5567,8 @@ ice_futures_mdf_impact_v1_1_34_dissect.fixing_lockdown_message_fields = function
   -- Auction Date: 10 Byte Ascii String
   index, auction_date = ice_futures_mdf_impact_v1_1_34_dissect.auction_date(buffer, index, packet, parent)
 
-  -- Time: 8 Byte Signed Fixed Width Integer
-  index, time = ice_futures_mdf_impact_v1_1_34_dissect.time(buffer, index, packet, parent)
+  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  index, message_date_time = ice_futures_mdf_impact_v1_1_34_dissect.message_date_time(buffer, index, packet, parent)
 
   -- Description: 20 Byte Ascii String
   index, description = ice_futures_mdf_impact_v1_1_34_dissect.description(buffer, index, packet, parent)
@@ -6007,7 +5981,11 @@ ice_futures_mdf_impact_v1_1_34_size_of.modification_timestamp = 8
 
 -- Display: Modification Timestamp
 ice_futures_mdf_impact_v1_1_34_display.modification_timestamp = function(value)
-  return "Modification Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Modification Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Modification Timestamp
@@ -8721,22 +8699,22 @@ ice_futures_mdf_impact_v1_1_34_dissect.end_of_day_market_summary_message = funct
   return ice_futures_mdf_impact_v1_1_34_dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Valuation Date
-ice_futures_mdf_impact_v1_1_34_size_of.valuation_date = 10
+-- Size: Valuation Date Applying Date
+ice_futures_mdf_impact_v1_1_34_size_of.valuation_date_applying_date = 10
 
--- Display: Valuation Date
-ice_futures_mdf_impact_v1_1_34_display.valuation_date = function(value)
+-- Display: Valuation Date Applying Date
+ice_futures_mdf_impact_v1_1_34_display.valuation_date_applying_date = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Valuation Date: No Value"
+    return "Valuation Date Applying Date: No Value"
   end
 
-  return "Valuation Date: "..value
+  return "Valuation Date Applying Date: "..value
 end
 
--- Dissect: Valuation Date
-ice_futures_mdf_impact_v1_1_34_dissect.valuation_date = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_34_size_of.valuation_date
+-- Dissect: Valuation Date Applying Date
+ice_futures_mdf_impact_v1_1_34_dissect.valuation_date_applying_date = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_34_size_of.valuation_date_applying_date
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8750,9 +8728,9 @@ ice_futures_mdf_impact_v1_1_34_dissect.valuation_date = function(buffer, offset,
     value = range:string()
   end
 
-  local display = ice_futures_mdf_impact_v1_1_34_display.valuation_date(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_34_display.valuation_date_applying_date(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_34.fields.valuation_date, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_34.fields.valuation_date_applying_date, range, value, display)
 
   return offset + length, value
 end
@@ -8829,7 +8807,7 @@ ice_futures_mdf_impact_v1_1_34_size_of.index_prices_message = function(buffer, o
 
   index = index + ice_futures_mdf_impact_v1_1_34_size_of.published_date_time
 
-  index = index + ice_futures_mdf_impact_v1_1_34_size_of.valuation_date
+  index = index + ice_futures_mdf_impact_v1_1_34_size_of.valuation_date_applying_date
 
   index = index + ice_futures_mdf_impact_v1_1_34_size_of.status
 
@@ -8859,8 +8837,8 @@ ice_futures_mdf_impact_v1_1_34_dissect.index_prices_message_fields = function(bu
   -- Published Date Time: 8 Byte Signed Fixed Width Integer
   index, published_date_time = ice_futures_mdf_impact_v1_1_34_dissect.published_date_time(buffer, index, packet, parent)
 
-  -- Valuation Date: 10 Byte Ascii String
-  index, valuation_date = ice_futures_mdf_impact_v1_1_34_dissect.valuation_date(buffer, index, packet, parent)
+  -- Valuation Date Applying Date: 10 Byte Ascii String
+  index, valuation_date_applying_date = ice_futures_mdf_impact_v1_1_34_dissect.valuation_date_applying_date(buffer, index, packet, parent)
 
   -- Status: 1 Byte Ascii String Enum with 3 values
   index, status = ice_futures_mdf_impact_v1_1_34_dissect.status(buffer, index, packet, parent)
@@ -9569,39 +9547,6 @@ ice_futures_mdf_impact_v1_1_34_dissect.investigation_status = function(buffer, o
   return offset + length, value
 end
 
--- Size: Ff Market Trade Indicator
-ice_futures_mdf_impact_v1_1_34_size_of.ff_market_trade_indicator = 1
-
--- Display: Ff Market Trade Indicator
-ice_futures_mdf_impact_v1_1_34_display.ff_market_trade_indicator = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Ff Market Trade Indicator: No Value"
-  end
-
-  return "Ff Market Trade Indicator: "..value
-end
-
--- Dissect: Ff Market Trade Indicator
-ice_futures_mdf_impact_v1_1_34_dissect.ff_market_trade_indicator = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_34_size_of.ff_market_trade_indicator
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_34_display.ff_market_trade_indicator(value, buffer, offset, packet, parent)
-
-  parent:add(ice_futures_mdf_impact_v1_1_34.fields.ff_market_trade_indicator, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Investigated Trade Message
 ice_futures_mdf_impact_v1_1_34_size_of.investigated_trade_message = function(buffer, offset)
   local index = 0
@@ -9614,7 +9559,7 @@ ice_futures_mdf_impact_v1_1_34_size_of.investigated_trade_message = function(buf
 
   index = index + ice_futures_mdf_impact_v1_1_34_size_of.quantity
 
-  index = index + ice_futures_mdf_impact_v1_1_34_size_of.ff_market_trade_indicator
+  index = index + ice_futures_mdf_impact_v1_1_34_size_of.off_market_trade_indicator
 
   index = index + ice_futures_mdf_impact_v1_1_34_size_of.message_date_time
 
@@ -9646,8 +9591,8 @@ ice_futures_mdf_impact_v1_1_34_dissect.investigated_trade_message_fields = funct
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index, quantity = ice_futures_mdf_impact_v1_1_34_dissect.quantity(buffer, index, packet, parent)
 
-  -- Ff Market Trade Indicator: 1 Byte Ascii String
-  index, ff_market_trade_indicator = ice_futures_mdf_impact_v1_1_34_dissect.ff_market_trade_indicator(buffer, index, packet, parent)
+  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
+  index, off_market_trade_indicator = ice_futures_mdf_impact_v1_1_34_dissect.off_market_trade_indicator(buffer, index, packet, parent)
 
   -- Message Date Time: 8 Byte Signed Fixed Width Integer
   index, message_date_time = ice_futures_mdf_impact_v1_1_34_dissect.message_date_time(buffer, index, packet, parent)

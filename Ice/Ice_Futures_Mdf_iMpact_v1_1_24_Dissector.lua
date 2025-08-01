@@ -231,7 +231,6 @@ ice_futures_mdf_impact_v1_1_24.fields.text_message = ProtoField.new("Text Messag
 ice_futures_mdf_impact_v1_1_24.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "ice.futures.mdf.impact.v1.1.24.textmessageextrafld", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_24.fields.threshold_imbalance_qty = ProtoField.new("Threshold Imbalance Qty", "ice.futures.mdf.impact.v1.1.24.thresholdimbalanceqty", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_24.fields.tick_value = ProtoField.new("Tick Value", "ice.futures.mdf.impact.v1.1.24.tickvalue", ftypes.INT64)
-ice_futures_mdf_impact_v1_1_24.fields.time = ProtoField.new("Time", "ice.futures.mdf.impact.v1.1.24.time", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_24.fields.total_volume = ProtoField.new("Total Volume", "ice.futures.mdf.impact.v1.1.24.totalvolume", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_24.fields.trade_id = ProtoField.new("Trade Id", "ice.futures.mdf.impact.v1.1.24.tradeid", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_24.fields.trade_message = ProtoField.new("Trade Message", "ice.futures.mdf.impact.v1.1.24.trademessage", ftypes.STRING)
@@ -4705,30 +4704,6 @@ ice_futures_mdf_impact_v1_1_24_dissect.description = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Size: Time
-ice_futures_mdf_impact_v1_1_24_size_of.time = 8
-
--- Display: Time
-ice_futures_mdf_impact_v1_1_24_display.time = function(value)
-  -- Parse unix timestamp
-  local seconds = math.floor(value:tonumber()/1000)
-  local milliseconds = value:tonumber()%1000
-
-  return "Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%06d", milliseconds)
-end
-
--- Dissect: Time
-ice_futures_mdf_impact_v1_1_24_dissect.time = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_24_size_of.time
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_24_display.time(value, buffer, offset, packet, parent)
-
-  parent:add(ice_futures_mdf_impact_v1_1_24.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Auction Date
 ice_futures_mdf_impact_v1_1_24_size_of.auction_date = 10
 
@@ -4773,7 +4748,7 @@ ice_futures_mdf_impact_v1_1_24_size_of.fixing_lockdown_message = function(buffer
 
   index = index + ice_futures_mdf_impact_v1_1_24_size_of.auction_date
 
-  index = index + ice_futures_mdf_impact_v1_1_24_size_of.time
+  index = index + ice_futures_mdf_impact_v1_1_24_size_of.message_date_time
 
   index = index + ice_futures_mdf_impact_v1_1_24_size_of.description
 
@@ -4811,8 +4786,8 @@ ice_futures_mdf_impact_v1_1_24_dissect.fixing_lockdown_message_fields = function
   -- Auction Date: 10 Byte Ascii String
   index, auction_date = ice_futures_mdf_impact_v1_1_24_dissect.auction_date(buffer, index, packet, parent)
 
-  -- Time: 8 Byte Signed Fixed Width Integer
-  index, time = ice_futures_mdf_impact_v1_1_24_dissect.time(buffer, index, packet, parent)
+  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  index, message_date_time = ice_futures_mdf_impact_v1_1_24_dissect.message_date_time(buffer, index, packet, parent)
 
   -- Description: 20 Byte Ascii String
   index, description = ice_futures_mdf_impact_v1_1_24_dissect.description(buffer, index, packet, parent)
