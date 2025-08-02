@@ -517,6 +517,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Tmx QuantumFeed TsxTsxvLevel2 Xmt 3.6
 -----------------------------------------------------------------------
 
@@ -863,7 +881,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol = function(buffer, offset, packet, parent)
   local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol, range, value, display)
@@ -1774,7 +1792,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_state = function(buffer, offset, packet, parent)
   local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_state
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_state(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_state, range, value, display)
@@ -1794,7 +1812,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.comment = function(buffer, offset, packet, parent)
   local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.comment
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.comment(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.comment, range, value, display)
@@ -4862,7 +4880,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cusip = function(buffer, offset, packet, parent)
   local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cusip
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cusip(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cusip, range, value, display)
@@ -5595,11 +5613,8 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.ack_required_poss_dup = 1
 
 -- Display: Ack Required Poss Dup
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.ack_required_poss_dup = function(value)
-  if value == "A" then
-    return "Ack Required Poss Dup: Receiver Needs To Ack (A)"
-  end
-  if value == "D" then
-    return "Ack Required Poss Dup: Possible Duplicates (D)"
+  if value == "0" then
+    return "Ack Required Poss Dup: Unused (0)"
   end
 
   return "Ack Required Poss Dup: Unknown("..value..")"
@@ -5682,7 +5697,11 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.protocol_name = 1
 
 -- Display: Protocol Name
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.protocol_name = function(value)
-  return "Protocol Name: "..value
+  if value == "X" then
+    return "Protocol Name: Xmt (X)"
+  end
+
+  return "Protocol Name: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Name
@@ -5702,7 +5721,11 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.start_of_frame = 1
 
 -- Display: Start Of Frame
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.start_of_frame = function(value)
-  return "Start Of Frame: "..value
+  if value == 2 then
+    return "Start Of Frame: New Frame (2)"
+  end
+
+  return "Start Of Frame: Unknown("..value..")"
 end
 
 -- Dissect: Start Of Frame
@@ -5747,10 +5770,10 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Start Of Frame: 1 Byte Fixed Width Integer
+  -- Start Of Frame: 1 Byte Fixed Width Integer Enum with 1 values
   index, start_of_frame = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.start_of_frame(buffer, index, packet, parent)
 
-  -- Protocol Name: 1 Byte Ascii String
+  -- Protocol Name: 1 Byte Ascii String Enum with 1 values
   index, protocol_name = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.protocol_name(buffer, index, packet, parent)
 
   -- Protocol Version: 1 Byte Ascii String
@@ -5762,7 +5785,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header_fields = function(bu
   -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.session_id(buffer, index, packet, parent)
 
-  -- Ack Required Poss Dup: 1 Byte Ascii String Enum with 2 values
+  -- Ack Required Poss Dup: 1 Byte Ascii String Enum with 1 values
   index, ack_required_poss_dup = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.ack_required_poss_dup(buffer, index, packet, parent)
 
   -- Num Body: 1 Byte Unsigned Fixed Width Integer

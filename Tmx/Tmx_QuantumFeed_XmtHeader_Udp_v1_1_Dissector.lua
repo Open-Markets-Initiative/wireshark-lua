@@ -466,11 +466,8 @@ tmx_quantumfeed_xmtheader_udp_v1_1_size_of.ack_required_poss_dup = 1
 
 -- Display: Ack Required Poss Dup
 tmx_quantumfeed_xmtheader_udp_v1_1_display.ack_required_poss_dup = function(value)
-  if value == "A" then
-    return "Ack Required Poss Dup: Receiver Needs To Ack (A)"
-  end
-  if value == "D" then
-    return "Ack Required Poss Dup: Possible Duplicates (D)"
+  if value == "0" then
+    return "Ack Required Poss Dup: Unused (0)"
   end
 
   return "Ack Required Poss Dup: Unknown("..value..")"
@@ -553,7 +550,11 @@ tmx_quantumfeed_xmtheader_udp_v1_1_size_of.protocol_name = 1
 
 -- Display: Protocol Name
 tmx_quantumfeed_xmtheader_udp_v1_1_display.protocol_name = function(value)
-  return "Protocol Name: "..value
+  if value == "X" then
+    return "Protocol Name: Xmt (X)"
+  end
+
+  return "Protocol Name: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Name
@@ -573,7 +574,11 @@ tmx_quantumfeed_xmtheader_udp_v1_1_size_of.start_of_frame = 1
 
 -- Display: Start Of Frame
 tmx_quantumfeed_xmtheader_udp_v1_1_display.start_of_frame = function(value)
-  return "Start Of Frame: "..value
+  if value == 2 then
+    return "Start Of Frame: New Frame (2)"
+  end
+
+  return "Start Of Frame: Unknown("..value..")"
 end
 
 -- Dissect: Start Of Frame
@@ -618,10 +623,10 @@ end
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Start Of Frame: 1 Byte Fixed Width Integer
+  -- Start Of Frame: 1 Byte Fixed Width Integer Enum with 1 values
   index, start_of_frame = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.start_of_frame(buffer, index, packet, parent)
 
-  -- Protocol Name: 1 Byte Ascii String
+  -- Protocol Name: 1 Byte Ascii String Enum with 1 values
   index, protocol_name = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.protocol_name(buffer, index, packet, parent)
 
   -- Protocol Version: 1 Byte Ascii String
@@ -633,7 +638,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header_fields = function(buffer
   -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.session_id(buffer, index, packet, parent)
 
-  -- Ack Required Poss Dup: 1 Byte Ascii String Enum with 2 values
+  -- Ack Required Poss Dup: 1 Byte Ascii String Enum with 1 values
   index, ack_required_poss_dup = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.ack_required_poss_dup(buffer, index, packet, parent)
 
   -- Num Body: 1 Byte Unsigned Fixed Width Integer
