@@ -27,6 +27,12 @@ ice_futures_mdf_impact_v1_1_43.fields.agg_offer_qty = ProtoField.new("Agg Offer 
 ice_futures_mdf_impact_v1_1_43.fields.aggressor_side = ProtoField.new("Aggressor Side", "ice.futures.mdf.impact.v1.1.43.aggressorside", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.allow_options = ProtoField.new("Allow Options", "ice.futures.mdf.impact.v1.1.43.allowoptions", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.allows_implied = ProtoField.new("Allows Implied", "ice.futures.mdf.impact.v1.1.43.allowsimplied", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_43.fields.alt_high_price = ProtoField.new("Alt High Price", "ice.futures.mdf.impact.v1.1.43.althighprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_43.fields.alt_last_trade_price = ProtoField.new("Alt Last Trade Price", "ice.futures.mdf.impact.v1.1.43.altlasttradeprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_43.fields.alt_low_price = ProtoField.new("Alt Low Price", "ice.futures.mdf.impact.v1.1.43.altlowprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_43.fields.alt_price = ProtoField.new("Alt Price", "ice.futures.mdf.impact.v1.1.43.altprice", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_43.fields.alt_vwap = ProtoField.new("Alt Vwap", "ice.futures.mdf.impact.v1.1.43.altvwap", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_43.fields.aon = ProtoField.new("Aon", "ice.futures.mdf.impact.v1.1.43.aon", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.auction_date = ProtoField.new("Auction Date", "ice.futures.mdf.impact.v1.1.43.auctiondate", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.auction_end_time = ProtoField.new("Auction End Time", "ice.futures.mdf.impact.v1.1.43.auctionendtime", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.begin_day = ProtoField.new("Begin Day", "ice.futures.mdf.impact.v1.1.43.beginday", ftypes.INT16)
@@ -256,10 +262,9 @@ ice_futures_mdf_impact_v1_1_43.fields.settlement_type = ProtoField.new("Settleme
 ice_futures_mdf_impact_v1_1_43.fields.short_name = ProtoField.new("Short Name", "ice.futures.mdf.impact.v1.1.43.shortname", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.side = ProtoField.new("Side", "ice.futures.mdf.impact.v1.1.43.side", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.special_field = ProtoField.new("Special Field", "ice.futures.mdf.impact.v1.1.43.specialfield", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.special_field_id = ProtoField.new("Special Field Id", "ice.futures.mdf.impact.v1.1.43.specialfieldid", ftypes.UINT8)
-ice_futures_mdf_impact_v1_1_43.fields.special_field_length = ProtoField.new("Special Field Length", "ice.futures.mdf.impact.v1.1.43.specialfieldlength", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_43.fields.special_field_id = ProtoField.new("Special Field Id", "ice.futures.mdf.impact.v1.1.43.specialfieldid", ftypes.INT8)
+ice_futures_mdf_impact_v1_1_43.fields.special_field_length = ProtoField.new("Special Field Length", "ice.futures.mdf.impact.v1.1.43.specialfieldlength", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_43.fields.special_field_message = ProtoField.new("Special Field Message", "ice.futures.mdf.impact.v1.1.43.specialfieldmessage", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.special_field_value = ProtoField.new("Special Field Value", "ice.futures.mdf.impact.v1.1.43.specialfieldvalue", ftypes.BYTES)
 ice_futures_mdf_impact_v1_1_43.fields.spot_market_trade_message = ProtoField.new("Spot Market Trade Message", "ice.futures.mdf.impact.v1.1.43.spotmarkettrademessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.start_or_end = ProtoField.new("Start Or End", "ice.futures.mdf.impact.v1.1.43.startorend", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.status = ProtoField.new("Status", "ice.futures.mdf.impact.v1.1.43.status", ftypes.STRING)
@@ -296,6 +301,7 @@ ice_futures_mdf_impact_v1_1_43.fields.unused_4 = ProtoField.new("Unused 4", "ice
 ice_futures_mdf_impact_v1_1_43.fields.usd_price = ProtoField.new("Usd Price", "ice.futures.mdf.impact.v1.1.43.usdprice", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.futures.mdf.impact.v1.1.43.valuationdateapplyingdate", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.futures.mdf.impact.v1.1.43.valuationdatetime", ftypes.INT64)
+ice_futures_mdf_impact_v1_1_43.fields.variable_field = ProtoField.new("Variable Field", "ice.futures.mdf.impact.v1.1.43.variablefield", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.volatility = ProtoField.new("Volatility", "ice.futures.mdf.impact.v1.1.43.volatility", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.volume = ProtoField.new("Volume", "ice.futures.mdf.impact.v1.1.43.volume", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_43.fields.vwap = ProtoField.new("Vwap", "ice.futures.mdf.impact.v1.1.43.vwap", ftypes.INT64)
@@ -356,6 +362,7 @@ show.system_text_message = true
 show.trade_flags = true
 show.trade_message = true
 show.payload = false
+show.variable_field = false
 
 -- Register Ice Futures Mdf iMpact 1.1.43 Show Options
 ice_futures_mdf_impact_v1_1_43.prefs.show_add_or_modify_order_message = Pref.bool("Show Add Or Modify Order Message", show.add_or_modify_order_message, "Parse and add Add Or Modify Order Message to protocol tree")
@@ -409,6 +416,7 @@ ice_futures_mdf_impact_v1_1_43.prefs.show_system_text_message = Pref.bool("Show 
 ice_futures_mdf_impact_v1_1_43.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
 ice_futures_mdf_impact_v1_1_43.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
 ice_futures_mdf_impact_v1_1_43.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+ice_futures_mdf_impact_v1_1_43.prefs.show_variable_field = Pref.bool("Show Variable Field", show.variable_field, "Parse and add Variable Field to protocol tree")
 
 -- Handle changed preferences
 function ice_futures_mdf_impact_v1_1_43.prefs_changed()
@@ -617,6 +625,10 @@ function ice_futures_mdf_impact_v1_1_43.prefs_changed()
   end
   if show.payload ~= ice_futures_mdf_impact_v1_1_43.prefs.show_payload then
     show.payload = ice_futures_mdf_impact_v1_1_43.prefs.show_payload
+    changed = true
+  end
+  if show.variable_field ~= ice_futures_mdf_impact_v1_1_43.prefs.show_variable_field then
+    show.variable_field = ice_futures_mdf_impact_v1_1_43.prefs.show_variable_field
     changed = true
   end
 
@@ -6789,20 +6801,222 @@ ice_futures_mdf_impact_v1_1_43_dissect.fragment_wrapper_message = function(buffe
   return ice_futures_mdf_impact_v1_1_43_dissect.fragment_wrapper_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Special Field Value
-ice_futures_mdf_impact_v1_1_43_display.special_field_value = function(value)
-  return "Special Field Value: "..value
+-- Size: Aon
+ice_futures_mdf_impact_v1_1_43_size_of.aon = 1
+
+-- Display: Aon
+ice_futures_mdf_impact_v1_1_43_display.aon = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Aon: No Value"
+  end
+
+  return "Aon: "..value
 end
 
--- Dissect runtime sized field: Special Field Value
-ice_futures_mdf_impact_v1_1_43_dissect.special_field_value = function(buffer, offset, packet, parent, size)
+-- Dissect: Aon
+ice_futures_mdf_impact_v1_1_43_dissect.aon = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.aon
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_43_display.aon(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.aon, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Alt Last Trade Price
+ice_futures_mdf_impact_v1_1_43_size_of.alt_last_trade_price = 8
+
+-- Display: Alt Last Trade Price
+ice_futures_mdf_impact_v1_1_43_display.alt_last_trade_price = function(value)
+  return "Alt Last Trade Price: "..value
+end
+
+-- Dissect: Alt Last Trade Price
+ice_futures_mdf_impact_v1_1_43_dissect.alt_last_trade_price = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.alt_last_trade_price
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_43_display.alt_last_trade_price(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.alt_last_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Alt Vwap
+ice_futures_mdf_impact_v1_1_43_size_of.alt_vwap = 8
+
+-- Display: Alt Vwap
+ice_futures_mdf_impact_v1_1_43_display.alt_vwap = function(value)
+  return "Alt Vwap: "..value
+end
+
+-- Dissect: Alt Vwap
+ice_futures_mdf_impact_v1_1_43_dissect.alt_vwap = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.alt_vwap
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_43_display.alt_vwap(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.alt_vwap, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Alt Low Price
+ice_futures_mdf_impact_v1_1_43_size_of.alt_low_price = 8
+
+-- Display: Alt Low Price
+ice_futures_mdf_impact_v1_1_43_display.alt_low_price = function(value)
+  return "Alt Low Price: "..value
+end
+
+-- Dissect: Alt Low Price
+ice_futures_mdf_impact_v1_1_43_dissect.alt_low_price = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.alt_low_price
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_43_display.alt_low_price(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.alt_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Alt High Price
+ice_futures_mdf_impact_v1_1_43_size_of.alt_high_price = 8
+
+-- Display: Alt High Price
+ice_futures_mdf_impact_v1_1_43_display.alt_high_price = function(value)
+  return "Alt High Price: "..value
+end
+
+-- Dissect: Alt High Price
+ice_futures_mdf_impact_v1_1_43_dissect.alt_high_price = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.alt_high_price
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_43_display.alt_high_price(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.alt_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Alt Price
+ice_futures_mdf_impact_v1_1_43_size_of.alt_price = 8
+
+-- Display: Alt Price
+ice_futures_mdf_impact_v1_1_43_display.alt_price = function(value)
+  return "Alt Price: "..value
+end
+
+-- Dissect: Alt Price
+ice_futures_mdf_impact_v1_1_43_dissect.alt_price = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_43_size_of.alt_price
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_43_display.alt_price(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.alt_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate runtime size of: Variable Field
+ice_futures_mdf_impact_v1_1_43_size_of.variable_field = function(buffer, offset, special_field_id)
+  -- Size of Alt Price
+  if special_field_id == 1 then
+    return ice_futures_mdf_impact_v1_1_43_size_of.alt_price(buffer, offset)
+  end
+  -- Size of Alt High Price
+  if special_field_id == 2 then
+    return ice_futures_mdf_impact_v1_1_43_size_of.alt_high_price(buffer, offset)
+  end
+  -- Size of Alt Low Price
+  if special_field_id == 3 then
+    return ice_futures_mdf_impact_v1_1_43_size_of.alt_low_price(buffer, offset)
+  end
+  -- Size of Alt Vwap
+  if special_field_id == 4 then
+    return ice_futures_mdf_impact_v1_1_43_size_of.alt_vwap(buffer, offset)
+  end
+  -- Size of Alt Last Trade Price
+  if special_field_id == 5 then
+    return ice_futures_mdf_impact_v1_1_43_size_of.alt_last_trade_price(buffer, offset)
+  end
+  -- Size of Aon
+  if special_field_id == 6 then
+    return ice_futures_mdf_impact_v1_1_43_size_of.aon(buffer, offset)
+  end
+
+  return 0
+end
+
+-- Display: Variable Field
+ice_futures_mdf_impact_v1_1_43_display.variable_field = function(buffer, offset, packet, parent)
+  return ""
+end
+
+-- Dissect Branches: Variable Field
+ice_futures_mdf_impact_v1_1_43_dissect.variable_field_branches = function(buffer, offset, packet, parent, special_field_id)
+  -- Dissect Alt Price
+  if special_field_id == 1 then
+    return ice_futures_mdf_impact_v1_1_43_dissect.alt_price(buffer, offset, packet, parent)
+  end
+  -- Dissect Alt High Price
+  if special_field_id == 2 then
+    return ice_futures_mdf_impact_v1_1_43_dissect.alt_high_price(buffer, offset, packet, parent)
+  end
+  -- Dissect Alt Low Price
+  if special_field_id == 3 then
+    return ice_futures_mdf_impact_v1_1_43_dissect.alt_low_price(buffer, offset, packet, parent)
+  end
+  -- Dissect Alt Vwap
+  if special_field_id == 4 then
+    return ice_futures_mdf_impact_v1_1_43_dissect.alt_vwap(buffer, offset, packet, parent)
+  end
+  -- Dissect Alt Last Trade Price
+  if special_field_id == 5 then
+    return ice_futures_mdf_impact_v1_1_43_dissect.alt_last_trade_price(buffer, offset, packet, parent)
+  end
+  -- Dissect Aon
+  if special_field_id == 6 then
+    return ice_futures_mdf_impact_v1_1_43_dissect.aon(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Dissect: Variable Field
+ice_futures_mdf_impact_v1_1_43_dissect.variable_field = function(buffer, offset, packet, parent, special_field_id)
+  if not show.variable_field then
+    return ice_futures_mdf_impact_v1_1_43_dissect.variable_field_branches(buffer, offset, packet, parent, special_field_id)
+  end
+
+  -- Calculate size and check that branch is not empty
+  local size = ice_futures_mdf_impact_v1_1_43_size_of.variable_field(buffer, offset, special_field_id)
+  if size == 0 then
+    return offset
+  end
+
+  -- Dissect Element
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = ice_futures_mdf_impact_v1_1_43_display.special_field_value(value, buffer, offset, packet, parent, size)
+  local display = ice_futures_mdf_impact_v1_1_43_display.variable_field(buffer, packet, parent)
+  local element = parent:add(ice_futures_mdf_impact_v1_1_43.fields.variable_field, range, display)
 
-  parent:add(ice_futures_mdf_impact_v1_1_43.fields.special_field_value, range, value, display)
-
-  return offset + size
+  return ice_futures_mdf_impact_v1_1_43_dissect.variable_field_branches(buffer, offset, packet, parent, special_field_id)
 end
 
 -- Size: Special Field Length
@@ -6817,7 +7031,7 @@ end
 ice_futures_mdf_impact_v1_1_43_dissect.special_field_length = function(buffer, offset, packet, parent)
   local length = ice_futures_mdf_impact_v1_1_43_size_of.special_field_length
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = ice_futures_mdf_impact_v1_1_43_display.special_field_length(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_43.fields.special_field_length, range, value, display)
@@ -6830,14 +7044,33 @@ ice_futures_mdf_impact_v1_1_43_size_of.special_field_id = 1
 
 -- Display: Special Field Id
 ice_futures_mdf_impact_v1_1_43_display.special_field_id = function(value)
-  return "Special Field Id: "..value
+  if value == 1 then
+    return "Special Field Id: Alt Price (1)"
+  end
+  if value == 2 then
+    return "Special Field Id: Alt High Price (2)"
+  end
+  if value == 3 then
+    return "Special Field Id: Alt Low Price (3)"
+  end
+  if value == 4 then
+    return "Special Field Id: Alt Vwap (4)"
+  end
+  if value == 5 then
+    return "Special Field Id: Alt Last Trade Price (5)"
+  end
+  if value == 6 then
+    return "Special Field Id: Aon (6)"
+  end
+
+  return "Special Field Id: Unknown("..value..")"
 end
 
 -- Dissect: Special Field Id
 ice_futures_mdf_impact_v1_1_43_dissect.special_field_id = function(buffer, offset, packet, parent)
   local length = ice_futures_mdf_impact_v1_1_43_size_of.special_field_id
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = ice_futures_mdf_impact_v1_1_43_display.special_field_id(value, buffer, offset, packet, parent)
 
   parent:add(ice_futures_mdf_impact_v1_1_43.fields.special_field_id, range, value, display)
@@ -6853,8 +7086,8 @@ ice_futures_mdf_impact_v1_1_43_size_of.special_field = function(buffer, offset)
 
   index = index + ice_futures_mdf_impact_v1_1_43_size_of.special_field_length
 
-  -- Parse runtime size of: Special Field Value
-  index = index + buffer(offset + index - 2, 2):uint()
+  -- Parse runtime size of: Variable Field
+  index = index + buffer(offset + index - 2, 2):int()
 
   return index
 end
@@ -6868,14 +7101,14 @@ end
 ice_futures_mdf_impact_v1_1_43_dissect.special_field_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Special Field Id: 1 Byte Unsigned Fixed Width Integer
+  -- Special Field Id: 1 Byte Signed Fixed Width Integer Enum with 6 values
   index, special_field_id = ice_futures_mdf_impact_v1_1_43_dissect.special_field_id(buffer, index, packet, parent)
 
-  -- Special Field Length: 2 Byte Unsigned Fixed Width Integer
+  -- Special Field Length: 2 Byte Signed Fixed Width Integer
   index, special_field_length = ice_futures_mdf_impact_v1_1_43_dissect.special_field_length(buffer, index, packet, parent)
 
-  -- Special Field Value: 0 Byte
-  index = ice_futures_mdf_impact_v1_1_43_dissect.special_field_value(buffer, index, packet, parent, special_field_length)
+  -- Variable Field: Runtime Type with 6 branches
+  index = ice_futures_mdf_impact_v1_1_43_dissect.variable_field(buffer, index, packet, parent, special_field_id)
 
   return index
 end
