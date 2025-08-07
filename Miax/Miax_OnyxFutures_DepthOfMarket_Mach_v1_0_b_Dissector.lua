@@ -38,8 +38,10 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.high_limit_price = ProtoField.
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_clear_message = ProtoField.new("Instrument Clear Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentclearmessage", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_id = ProtoField.new("Instrument Id", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentid", ftypes.UINT32)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_id_source = ProtoField.new("Instrument Id Source", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentidsource", ftypes.STRING)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg = ProtoField.new("Instrument Leg", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentleg", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message = ProtoField.new("Instrument Trading Status Notification Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumenttradingstatusnotificationmessage", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_type = ProtoField.new("Instrument Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumenttype", ftypes.STRING)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.leg_ratio = ProtoField.new("Leg Ratio", "miax.onyxfutures.depthofmarket.mach.v1.0.b.legratio", ftypes.INT32)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.low_limit_price = ProtoField.new("Low Limit Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.lowlimitprice", ftypes.DOUBLE)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.market_state = ProtoField.new("Market State", "miax.onyxfutures.depthofmarket.mach.v1.0.b.marketstate", ftypes.UINT8)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.match_algorithm = ProtoField.new("Match Algorithm", "miax.onyxfutures.depthofmarket.mach.v1.0.b.matchalgorithm", ftypes.STRING)
@@ -66,6 +68,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.payload = ProtoField.new("Payl
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.price = ProtoField.new("Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.price", ftypes.DOUBLE)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.depthofmarket.mach.v1.0.b.productgroupcode", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.depthofmarket.mach.v1.0.b.reserved16", ftypes.STRING)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.onyxfutures.depthofmarket.mach.v1.0.b.reserved8", ftypes.STRING)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.sell_order_id = ProtoField.new("Sell Order Id", "miax.onyxfutures.depthofmarket.mach.v1.0.b.sellorderid", ftypes.UINT64)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.depthofmarket.mach.v1.0.b.sequencenumber", ftypes.UINT64)
 miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.depthofmarket.mach.v1.0.b.sessionid", ftypes.UINT8)
@@ -107,6 +110,7 @@ show.application_message = true
 show.complex_instrument_definition_message = true
 show.delete_order_message = true
 show.instrument_clear_message = true
+show.instrument_leg = true
 show.instrument_trading_status_notification_message = true
 show.message = true
 show.modify_flags = true
@@ -129,6 +133,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_message = Pref
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_complex_instrument_definition_message = Pref.bool("Show Complex Instrument Definition Message", show.complex_instrument_definition_message, "Parse and add Complex Instrument Definition Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_clear_message = Pref.bool("Show Instrument Clear Message", show.instrument_clear_message, "Parse and add Instrument Clear Message to protocol tree")
+miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message = Pref.bool("Show Instrument Trading Status Notification Message", show.instrument_trading_status_notification_message, "Parse and add Instrument Trading Status Notification Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
@@ -171,6 +176,10 @@ function miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()
   end
   if show.instrument_clear_message ~= miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_clear_message then
     show.instrument_clear_message = miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_clear_message
+    changed = true
+  end
+  if show.instrument_leg ~= miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg then
+    show.instrument_leg = miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_leg
     changed = true
   end
   if show.instrument_trading_status_notification_message ~= miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_instrument_trading_status_notification_message then
@@ -1595,6 +1604,118 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message = functi
   return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Reserved 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_8 = 8
+
+-- Display: Reserved 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b_display.reserved_8 = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_8 = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_8
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.reserved_8(value, buffer, offset, packet, parent)
+
+  parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Maturity Month Year
+miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year = 4
+
+-- Display: Maturity Month Year
+miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maturity_month_year = function(value)
+  return "Maturity Month Year: "..value
+end
+
+-- Dissect: Maturity Month Year
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maturity_month_year(value, buffer, offset, packet, parent)
+
+  parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maturity_month_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg Ratio
+miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.leg_ratio = 4
+
+-- Display: Leg Ratio
+miax_onyxfutures_depthofmarket_mach_v1_0_b_display.leg_ratio = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.leg_ratio = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.leg_ratio
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.leg_ratio(value, buffer, offset, packet, parent)
+
+  parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Instrument Leg
+miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_leg = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.leg_ratio
+
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year
+
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_8
+
+  return index
+end
+
+-- Display: Instrument Leg
+miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_leg = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Instrument Leg
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+
+  -- Leg Ratio: 4 Byte Signed Fixed Width Integer
+  index, leg_ratio = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.leg_ratio(buffer, index, packet, parent)
+
+  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer
+  index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year(buffer, index, packet, parent)
+
+  -- Reserved 8: 8 Byte Ascii String
+  index, reserved_8 = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_8(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Leg
+miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.instrument_leg then
+    local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_leg(buffer, offset)
+    local range = buffer(offset, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_leg(buffer, packet, parent)
+    parent = parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg, range, display)
+  end
+
+  return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Number Of Legs
 miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.number_of_legs = 1
 
@@ -2087,7 +2208,9 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.complex_instrument_definition
 
   index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.number_of_legs
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_leg
+  -- Calculate field size from count
+  local instrument_leg_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + instrument_leg_count * 20
 
   return index
 end
@@ -2164,15 +2287,17 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
   index, number_of_legs = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.number_of_legs(buffer, index, packet, parent)
 
-  -- Instrument Leg
-  index, instrument_leg = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg(buffer, index, packet, parent)
+  -- Instrument Leg: Struct of 4 fields
+  for i = 1, number_of_legs do
+    index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Complex Instrument Definition Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.complex_instrument_definition_message then
     local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.complex_instrument_definition_message(buffer, offset)
     local range = buffer(offset, length)
@@ -2231,26 +2356,6 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.high_limit_price = function(b
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.high_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.high_limit_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Maturity Month Year
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year = 4
-
--- Display: Maturity Month Year
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maturity_month_year = function(value)
-  return "Maturity Month Year: "..value
-end
-
--- Dissect: Maturity Month Year
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maturity_month_year(value, buffer, offset, packet, parent)
-
-  parent:add(miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maturity_month_year, range, value, display)
 
   return offset + length, value
 end
