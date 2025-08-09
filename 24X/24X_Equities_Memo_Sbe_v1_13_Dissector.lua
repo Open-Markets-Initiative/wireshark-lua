@@ -52,7 +52,7 @@ n24x_equities_memo_sbe_v1_13.fields.execution_report_restatement_message = Proto
 n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_break_message = ProtoField.new("Execution Report Trade Break Message", "24x.equities.memo.sbe.v1.13.executionreporttradebreakmessage", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_correction_message = ProtoField.new("Execution Report Trade Correction Message", "24x.equities.memo.sbe.v1.13.executionreporttradecorrectionmessage", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "24x.equities.memo.sbe.v1.13.executionreporttrademessage", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.expire_time = ProtoField.new("Expire Time", "24x.equities.memo.sbe.v1.13.expiretime", ftypes.UINT8)
+n24x_equities_memo_sbe_v1_13.fields.expire_time = ProtoField.new("Expire Time", "24x.equities.memo.sbe.v1.13.expiretime", ftypes.UINT64)
 n24x_equities_memo_sbe_v1_13.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "24x.equities.memo.sbe.v1.13.extendedrestatementreason", ftypes.UINT8)
 n24x_equities_memo_sbe_v1_13.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "24x.equities.memo.sbe.v1.13.externalroutingnotallowed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0004)
 n24x_equities_memo_sbe_v1_13.fields.higher_than_price = ProtoField.new("Higher Than Price", "24x.equities.memo.sbe.v1.13.higherthanprice", ftypes.DOUBLE)
@@ -97,11 +97,6 @@ n24x_equities_memo_sbe_v1_13.fields.order_reject_reason = ProtoField.new("Order 
 n24x_equities_memo_sbe_v1_13.fields.origclordid = ProtoField.new("OrigClOrdId", "24x.equities.memo.sbe.v1.13.origclordid", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "24x.equities.memo.sbe.v1.13.origclordidoptional", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "24x.equities.memo.sbe.v1.13.packet", ftypes.STRING)
-n24x_equities_memo_sbe_v1_13.fields.padding_14 = ProtoField.new("Padding 14", "24x.equities.memo.sbe.v1.13.padding14", ftypes.BYTES)
-n24x_equities_memo_sbe_v1_13.fields.padding_21 = ProtoField.new("Padding 21", "24x.equities.memo.sbe.v1.13.padding21", ftypes.BYTES)
-n24x_equities_memo_sbe_v1_13.fields.padding_28 = ProtoField.new("Padding 28", "24x.equities.memo.sbe.v1.13.padding28", ftypes.BYTES)
-n24x_equities_memo_sbe_v1_13.fields.padding_35 = ProtoField.new("Padding 35", "24x.equities.memo.sbe.v1.13.padding35", ftypes.BYTES)
-n24x_equities_memo_sbe_v1_13.fields.padding_7 = ProtoField.new("Padding 7", "24x.equities.memo.sbe.v1.13.padding7", ftypes.BYTES)
 n24x_equities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "24x.equities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 n24x_equities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "24x.equities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "24x.equities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)
@@ -131,7 +126,7 @@ n24x_equities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", 
 n24x_equities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "24x.equities.memo.sbe.v1.13.schemaid", ftypes.UINT8)
 n24x_equities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "24x.equities.memo.sbe.v1.13.securitygroup", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "24x.equities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8)
-n24x_equities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.equities.memo.sbe.v1.13.sendingtime", ftypes.UINT8)
+n24x_equities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.equities.memo.sbe.v1.13.sendingtime", ftypes.UINT64)
 n24x_equities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "24x.equities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "24x.equities.memo.sbe.v1.13.sessionid", ftypes.UINT64)
 n24x_equities_memo_sbe_v1_13.fields.side = ProtoField.new("Side", "24x.equities.memo.sbe.v1.13.side", ftypes.STRING)
@@ -151,7 +146,7 @@ n24x_equities_memo_sbe_v1_13.fields.time_in_force = ProtoField.new("Time In Forc
 n24x_equities_memo_sbe_v1_13.fields.token = ProtoField.new("Token", "24x.equities.memo.sbe.v1.13.token", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.token_type = ProtoField.new("Token Type", "24x.equities.memo.sbe.v1.13.tokentype", ftypes.STRING)
 n24x_equities_memo_sbe_v1_13.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "24x.equities.memo.sbe.v1.13.totalsequencecount", ftypes.UINT64)
-n24x_equities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "24x.equities.memo.sbe.v1.13.transacttime", ftypes.UINT8)
+n24x_equities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "24x.equities.memo.sbe.v1.13.transacttime", ftypes.UINT64)
 n24x_equities_memo_sbe_v1_13.fields.trd_match_id = ProtoField.new("Trd Match Id", "24x.equities.memo.sbe.v1.13.trdmatchid", ftypes.UINT64)
 n24x_equities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "24x.equities.memo.sbe.v1.13.trdmatchingid", ftypes.UINT64)
 n24x_equities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "24x.equities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
@@ -446,26 +441,6 @@ end
 -- Dissect 24X Equities Memo Sbe 1.13
 -----------------------------------------------------------------------
 
--- Size: Padding 21
-n24x_equities_memo_sbe_v1_13_size_of.padding_21 = 21
-
--- Display: Padding 21
-n24x_equities_memo_sbe_v1_13_display.padding_21 = function(value)
-  return "Padding 21: "..value
-end
-
--- Dissect: Padding 21
-n24x_equities_memo_sbe_v1_13_dissect.padding_21 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memo_sbe_v1_13_size_of.padding_21
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memo_sbe_v1_13_display.padding_21(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.padding_21, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Mass Cancel Reject Reason
 n24x_equities_memo_sbe_v1_13_size_of.mass_cancel_reject_reason = 1
 
@@ -552,12 +527,12 @@ n24x_equities_memo_sbe_v1_13_dissect.cancel_group_id = function(buffer, offset, 
 end
 
 -- Size: Higher Than Price
-n24x_equities_memo_sbe_v1_13_size_of.higher_than_price = 1
+n24x_equities_memo_sbe_v1_13_size_of.higher_than_price = 8
 
 -- Display: Higher Than Price
 n24x_equities_memo_sbe_v1_13_display.higher_than_price = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Higher Than Price: No Value"
   end
 
@@ -567,18 +542,18 @@ end
 -- Translate: Higher Than Price
 translate.higher_than_price = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Higher Than Price
 n24x_equities_memo_sbe_v1_13_dissect.higher_than_price = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.higher_than_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.higher_than_price(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.higher_than_price(raw, value, buffer, offset, packet, parent)
 
@@ -588,12 +563,12 @@ n24x_equities_memo_sbe_v1_13_dissect.higher_than_price = function(buffer, offset
 end
 
 -- Size: Lower Than Price
-n24x_equities_memo_sbe_v1_13_size_of.lower_than_price = 1
+n24x_equities_memo_sbe_v1_13_size_of.lower_than_price = 8
 
 -- Display: Lower Than Price
 n24x_equities_memo_sbe_v1_13_display.lower_than_price = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Lower Than Price: No Value"
   end
 
@@ -603,18 +578,18 @@ end
 -- Translate: Lower Than Price
 translate.lower_than_price = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Lower Than Price
 n24x_equities_memo_sbe_v1_13_dissect.lower_than_price = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.lower_than_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.lower_than_price(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.lower_than_price(raw, value, buffer, offset, packet, parent)
 
@@ -781,18 +756,22 @@ n24x_equities_memo_sbe_v1_13_dissect.clordid = function(buffer, offset, packet, 
 end
 
 -- Size: Sending Time
-n24x_equities_memo_sbe_v1_13_size_of.sending_time = 1
+n24x_equities_memo_sbe_v1_13_size_of.sending_time = 8
 
 -- Display: Sending Time
 n24x_equities_memo_sbe_v1_13_display.sending_time = function(value)
-  return "Sending Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
 n24x_equities_memo_sbe_v1_13_dissect.sending_time = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.sending_time
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.sending_time(value, buffer, offset, packet, parent)
 
   parent:add(n24x_equities_memo_sbe_v1_13.fields.sending_time, range, value, display)
@@ -822,8 +801,6 @@ n24x_equities_memo_sbe_v1_13_size_of.mass_cancel_reject_message = function(buffe
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.mass_cancel_reject_reason
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_21
-
   return index
 end
 
@@ -836,7 +813,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -851,10 +828,10 @@ n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields = functio
   -- Side Optional: 1 Byte Ascii String Enum with 5 values
   index, side_optional = n24x_equities_memo_sbe_v1_13_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Lower Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, lower_than_price = n24x_equities_memo_sbe_v1_13_dissect.lower_than_price(buffer, index, packet, parent)
 
-  -- Higher Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, higher_than_price = n24x_equities_memo_sbe_v1_13_dissect.higher_than_price(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -862,9 +839,6 @@ n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields = functio
 
   -- Mass Cancel Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, mass_cancel_reject_reason = n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_reason(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = n24x_equities_memo_sbe_v1_13_dissect.padding_21(buffer, index, packet, parent)
 
   return index
 end
@@ -880,26 +854,6 @@ n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message = function(buffe
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 7
-n24x_equities_memo_sbe_v1_13_size_of.padding_7 = 7
-
--- Display: Padding 7
-n24x_equities_memo_sbe_v1_13_display.padding_7 = function(value)
-  return "Padding 7: "..value
-end
-
--- Dissect: Padding 7
-n24x_equities_memo_sbe_v1_13_dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memo_sbe_v1_13_size_of.padding_7
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memo_sbe_v1_13_display.padding_7(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.padding_7, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Link Id Optional
@@ -1130,8 +1084,6 @@ n24x_equities_memo_sbe_v1_13_size_of.order_cancel_reject_message = function(buff
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.link_id_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_7
-
   return index
 end
 
@@ -1144,7 +1096,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -1158,9 +1110,6 @@ n24x_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields = functi
 
   -- Link Id Optional: 4 Byte Ascii String Nullable
   index, link_id_optional = n24x_equities_memo_sbe_v1_13_dissect.link_id_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1501,7 +1450,7 @@ n24x_equities_memo_sbe_v1_13_dissect.extended_restatement_reason = function(buff
 end
 
 -- Size: Transact Time
-n24x_equities_memo_sbe_v1_13_size_of.transact_time = 1
+n24x_equities_memo_sbe_v1_13_size_of.transact_time = 8
 
 -- Display: Transact Time
 n24x_equities_memo_sbe_v1_13_display.transact_time = function(value)
@@ -1512,7 +1461,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.transact_time = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.transact_time
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(n24x_equities_memo_sbe_v1_13.fields.transact_time, range, value, display)
@@ -1619,12 +1568,12 @@ n24x_equities_memo_sbe_v1_13_dissect.leaves_qty = function(buffer, offset, packe
 end
 
 -- Size: Last Px Optional
-n24x_equities_memo_sbe_v1_13_size_of.last_px_optional = 1
+n24x_equities_memo_sbe_v1_13_size_of.last_px_optional = 8
 
 -- Display: Last Px Optional
 n24x_equities_memo_sbe_v1_13_display.last_px_optional = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Px Optional: No Value"
   end
 
@@ -1634,18 +1583,18 @@ end
 -- Translate: Last Px Optional
 translate.last_px_optional = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Px Optional
 n24x_equities_memo_sbe_v1_13_dissect.last_px_optional = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.last_px_optional
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.last_px_optional(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.last_px_optional(raw, value, buffer, offset, packet, parent)
 
@@ -1785,8 +1734,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_restatement_message = func
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.link_id_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_21
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -1801,7 +1748,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -1816,7 +1763,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message_fields
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
   index, ord_status = n24x_equities_memo_sbe_v1_13_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Px Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Last Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px_optional = n24x_equities_memo_sbe_v1_13_dissect.last_px_optional(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1831,7 +1778,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message_fields
   -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, exec_restatement_reason = n24x_equities_memo_sbe_v1_13_dissect.exec_restatement_reason(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = n24x_equities_memo_sbe_v1_13_dissect.transact_time(buffer, index, packet, parent)
 
   -- Extended Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
@@ -1839,9 +1786,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message_fields
 
   -- Link Id Optional: 4 Byte Ascii String Nullable
   index, link_id_optional = n24x_equities_memo_sbe_v1_13_dissect.link_id_optional(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = n24x_equities_memo_sbe_v1_13_dissect.padding_21(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -1961,8 +1905,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_trade_break_message = func
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.security_group
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -1977,7 +1919,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_break_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -2010,9 +1952,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_break_message_fields
   -- Security Group: 1 Byte Ascii String
   index, security_group = n24x_equities_memo_sbe_v1_13_dissect.security_group(buffer, index, packet, parent)
 
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
-
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
 
@@ -2030,26 +1969,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_break_message = func
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 14
-n24x_equities_memo_sbe_v1_13_size_of.padding_14 = 14
-
--- Display: Padding 14
-n24x_equities_memo_sbe_v1_13_display.padding_14 = function(value)
-  return "Padding 14: "..value
-end
-
--- Dissect: Padding 14
-n24x_equities_memo_sbe_v1_13_dissect.padding_14 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memo_sbe_v1_13_size_of.padding_14
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memo_sbe_v1_13_display.padding_14(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.padding_14, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Last Qty Optional
@@ -2078,7 +1997,7 @@ n24x_equities_memo_sbe_v1_13_dissect.last_qty_optional = function(buffer, offset
 end
 
 -- Size: Last Px
-n24x_equities_memo_sbe_v1_13_size_of.last_px = 1
+n24x_equities_memo_sbe_v1_13_size_of.last_px = 8
 
 -- Display: Last Px
 n24x_equities_memo_sbe_v1_13_display.last_px = function(value)
@@ -2087,14 +2006,14 @@ end
 
 -- Translate: Last Px
 translate.last_px = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Px
 n24x_equities_memo_sbe_v1_13_dissect.last_px = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.last_px
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.last_px(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.last_px(value, buffer, offset, packet, parent)
 
@@ -2133,8 +2052,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_trade_correction_message =
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.security_group
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_14
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -2149,7 +2066,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_correction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -2170,7 +2087,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_correction_message_f
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
   index, ord_status = n24x_equities_memo_sbe_v1_13_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = n24x_equities_memo_sbe_v1_13_dissect.last_px(buffer, index, packet, parent)
 
   -- Last Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -2187,9 +2104,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_correction_message_f
 
   -- Security Group: 1 Byte Ascii String
   index, security_group = n24x_equities_memo_sbe_v1_13_dissect.security_group(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -2305,12 +2219,12 @@ n24x_equities_memo_sbe_v1_13_dissect.display_qty = function(buffer, offset, pack
 end
 
 -- Size: Price
-n24x_equities_memo_sbe_v1_13_size_of.price = 1
+n24x_equities_memo_sbe_v1_13_size_of.price = 8
 
 -- Display: Price
 n24x_equities_memo_sbe_v1_13_display.price = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
   end
 
@@ -2320,18 +2234,18 @@ end
 -- Translate: Price
 translate.price = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Price
 n24x_equities_memo_sbe_v1_13_dissect.price = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.price(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.price(raw, value, buffer, offset, packet, parent)
 
@@ -2527,8 +2441,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_replaced_message = functio
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_21
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -2543,7 +2455,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -2573,7 +2485,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message_fields = 
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = n24x_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = n24x_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -2591,7 +2503,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message_fields = 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = n24x_equities_memo_sbe_v1_13_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = n24x_equities_memo_sbe_v1_13_dissect.transact_time(buffer, index, packet, parent)
 
   -- Link Id Optional: 4 Byte Ascii String Nullable
@@ -2599,9 +2511,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message_fields = 
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = n24x_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = n24x_equities_memo_sbe_v1_13_dissect.padding_21(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -2662,8 +2571,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_pending_replace_message = 
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_14
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -2678,7 +2585,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_replace_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -2708,7 +2615,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_replace_message_fi
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = n24x_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = n24x_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -2731,9 +2638,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_replace_message_fi
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = n24x_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -2762,8 +2666,6 @@ n24x_equities_memo_sbe_v1_13_size_of.mass_cancel_done_message = function(buffer,
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.clordid
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_7
-
   return index
 end
 
@@ -2776,14 +2678,11 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
   index, clordid = n24x_equities_memo_sbe_v1_13_dissect.clordid(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -2911,8 +2810,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_canceled_message = functio
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.link_id_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_14
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -2927,7 +2824,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_canceled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -2954,14 +2851,11 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_canceled_message_fields = 
   -- Cancel Reason: 1 Byte Unsigned Fixed Width Integer Enum with 21 values
   index, cancel_reason = n24x_equities_memo_sbe_v1_13_dissect.cancel_reason(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = n24x_equities_memo_sbe_v1_13_dissect.transact_time(buffer, index, packet, parent)
 
   -- Link Id Optional: 4 Byte Ascii String Nullable
   index, link_id_optional = n24x_equities_memo_sbe_v1_13_dissect.link_id_optional(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -3002,8 +2896,6 @@ n24x_equities_memo_sbe_v1_13_size_of.pending_mass_cancel_message = function(buff
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.cancel_group_id
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_21
-
   return index
 end
 
@@ -3016,7 +2908,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -3031,17 +2923,14 @@ n24x_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields = functi
   -- Side Optional: 1 Byte Ascii String Enum with 5 values
   index, side_optional = n24x_equities_memo_sbe_v1_13_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Lower Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, lower_than_price = n24x_equities_memo_sbe_v1_13_dissect.lower_than_price(buffer, index, packet, parent)
 
-  -- Higher Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, higher_than_price = n24x_equities_memo_sbe_v1_13_dissect.higher_than_price(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = n24x_equities_memo_sbe_v1_13_dissect.cancel_group_id(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = n24x_equities_memo_sbe_v1_13_dissect.padding_21(buffer, index, packet, parent)
 
   return index
 end
@@ -3085,8 +2974,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_pending_cancel_message = f
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.link_id_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -3101,7 +2988,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -3133,9 +3020,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_cancel_message_fie
 
   -- Link Id Optional: 4 Byte Ascii String Nullable
   index, link_id_optional = n24x_equities_memo_sbe_v1_13_dissect.link_id_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -3359,8 +3243,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_trade_message = function(b
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.security_group
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_21
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -3375,7 +3257,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -3393,7 +3275,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_message_fields = fun
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = n24x_equities_memo_sbe_v1_13_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = n24x_equities_memo_sbe_v1_13_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -3402,7 +3284,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_message_fields = fun
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = n24x_equities_memo_sbe_v1_13_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = n24x_equities_memo_sbe_v1_13_dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
@@ -3419,9 +3301,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_trade_message_fields = fun
 
   -- Security Group: 1 Byte Ascii String
   index, security_group = n24x_equities_memo_sbe_v1_13_dissect.security_group(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = n24x_equities_memo_sbe_v1_13_dissect.padding_21(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -3772,8 +3651,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_rejected_message = functio
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.link_id_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -3788,7 +3665,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 16 Byte Ascii String
@@ -3818,9 +3695,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_rejected_message_fields = 
   -- Link Id Optional: 4 Byte Ascii String Nullable
   index, link_id_optional = n24x_equities_memo_sbe_v1_13_dissect.link_id_optional(buffer, index, packet, parent)
 
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
-
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
 
@@ -3838,26 +3712,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_rejected_message = functio
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 35
-n24x_equities_memo_sbe_v1_13_size_of.padding_35 = 35
-
--- Display: Padding 35
-n24x_equities_memo_sbe_v1_13_display.padding_35 = function(value)
-  return "Padding 35: "..value
-end
-
--- Dissect: Padding 35
-n24x_equities_memo_sbe_v1_13_dissect.padding_35 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memo_sbe_v1_13_size_of.padding_35
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memo_sbe_v1_13_display.padding_35(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.padding_35, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Risk Group Id
@@ -4151,12 +4005,12 @@ n24x_equities_memo_sbe_v1_13_dissect.min_qty = function(buffer, offset, packet, 
 end
 
 -- Size: Expire Time
-n24x_equities_memo_sbe_v1_13_size_of.expire_time = 1
+n24x_equities_memo_sbe_v1_13_size_of.expire_time = 8
 
 -- Display: Expire Time
 n24x_equities_memo_sbe_v1_13_display.expire_time = function(value)
   -- Check if field has value
-  if value == 255 then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Expire Time: No Value"
   end
 
@@ -4167,7 +4021,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.expire_time = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.expire_time
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = n24x_equities_memo_sbe_v1_13_display.expire_time(value, buffer, offset, packet, parent)
 
   parent:add(n24x_equities_memo_sbe_v1_13.fields.expire_time, range, value, display)
@@ -4209,12 +4063,12 @@ n24x_equities_memo_sbe_v1_13_dissect.peg_price_type = function(buffer, offset, p
 end
 
 -- Size: Peg Offset Value
-n24x_equities_memo_sbe_v1_13_size_of.peg_offset_value = 1
+n24x_equities_memo_sbe_v1_13_size_of.peg_offset_value = 8
 
 -- Display: Peg Offset Value
 n24x_equities_memo_sbe_v1_13_display.peg_offset_value = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value: No Value"
   end
 
@@ -4224,18 +4078,18 @@ end
 -- Translate: Peg Offset Value
 translate.peg_offset_value = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Peg Offset Value
 n24x_equities_memo_sbe_v1_13_dissect.peg_offset_value = function(buffer, offset, packet, parent)
   local length = n24x_equities_memo_sbe_v1_13_size_of.peg_offset_value
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.peg_offset_value(raw)
   local display = n24x_equities_memo_sbe_v1_13_display.peg_offset_value(raw, value, buffer, offset, packet, parent)
 
@@ -4493,8 +4347,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_new_message = function(buf
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_35
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -4509,7 +4361,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -4539,7 +4391,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = funct
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = n24x_equities_memo_sbe_v1_13_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = n24x_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
@@ -4554,13 +4406,13 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = funct
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = n24x_equities_memo_sbe_v1_13_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value = n24x_equities_memo_sbe_v1_13_dissect.peg_offset_value(buffer, index, packet, parent)
 
   -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, peg_price_type = n24x_equities_memo_sbe_v1_13_dissect.peg_price_type(buffer, index, packet, parent)
 
-  -- Expire Time: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = n24x_equities_memo_sbe_v1_13_dissect.expire_time(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -4605,7 +4457,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = funct
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = n24x_equities_memo_sbe_v1_13_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = n24x_equities_memo_sbe_v1_13_dissect.transact_time(buffer, index, packet, parent)
 
   -- Link Id Optional: 4 Byte Ascii String Nullable
@@ -4613,9 +4465,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = funct
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = n24x_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 35: 35 Byte
-  index, padding_35 = n24x_equities_memo_sbe_v1_13_dissect.padding_35(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -4634,26 +4483,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message = function(buf
   end
 
   return n24x_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 28
-n24x_equities_memo_sbe_v1_13_size_of.padding_28 = 28
-
--- Display: Padding 28
-n24x_equities_memo_sbe_v1_13_display.padding_28 = function(value)
-  return "Padding 28: "..value
-end
-
--- Dissect: Padding 28
-n24x_equities_memo_sbe_v1_13_dissect.padding_28 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memo_sbe_v1_13_size_of.padding_28
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memo_sbe_v1_13_display.padding_28(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memo_sbe_v1_13.fields.padding_28, range, value, display)
-
-  return offset + length, value
 end
 
 -- Calculate size of: Execution Report Pending New Message
@@ -4728,8 +4557,6 @@ n24x_equities_memo_sbe_v1_13_size_of.execution_report_pending_new_message = func
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_28
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -4744,7 +4571,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = n24x_equities_memo_sbe_v1_13_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -4774,7 +4601,7 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_fields
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = n24x_equities_memo_sbe_v1_13_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = n24x_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
@@ -4789,13 +4616,13 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_fields
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = n24x_equities_memo_sbe_v1_13_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value = n24x_equities_memo_sbe_v1_13_dissect.peg_offset_value(buffer, index, packet, parent)
 
   -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, peg_price_type = n24x_equities_memo_sbe_v1_13_dissect.peg_price_type(buffer, index, packet, parent)
 
-  -- Expire Time: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = n24x_equities_memo_sbe_v1_13_dissect.expire_time(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -4846,9 +4673,6 @@ n24x_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_fields
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = n24x_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
 
-  -- Padding 28: 28 Byte
-  index, padding_28 = n24x_equities_memo_sbe_v1_13_dissect.padding_28(buffer, index, packet, parent)
-
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
 
@@ -4886,8 +4710,6 @@ n24x_equities_memo_sbe_v1_13_size_of.mass_cancel_request_message = function(buff
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.cancel_group_id
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_14
-
   return index
 end
 
@@ -4912,17 +4734,14 @@ n24x_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields = functi
   -- Side Optional: 1 Byte Ascii String Enum with 5 values
   index, side_optional = n24x_equities_memo_sbe_v1_13_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Lower Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, lower_than_price = n24x_equities_memo_sbe_v1_13_dissect.lower_than_price(buffer, index, packet, parent)
 
-  -- Higher Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, higher_than_price = n24x_equities_memo_sbe_v1_13_dissect.higher_than_price(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = n24x_equities_memo_sbe_v1_13_dissect.cancel_group_id(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -5086,8 +4905,6 @@ n24x_equities_memo_sbe_v1_13_size_of.order_cancel_replace_request_message = func
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_7
-
   return index
 end
 
@@ -5121,7 +4938,7 @@ n24x_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = n24x_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = n24x_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -5135,9 +4952,6 @@ n24x_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = n24x_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -5248,8 +5062,6 @@ n24x_equities_memo_sbe_v1_13_size_of.new_order_single_message = function(buffer,
 
   index = index + n24x_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.padding_21
-
   index = index + n24x_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -5282,7 +5094,7 @@ n24x_equities_memo_sbe_v1_13_dissect.new_order_single_message_fields = function(
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = n24x_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = n24x_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
@@ -5297,13 +5109,13 @@ n24x_equities_memo_sbe_v1_13_dissect.new_order_single_message_fields = function(
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = n24x_equities_memo_sbe_v1_13_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value = n24x_equities_memo_sbe_v1_13_dissect.peg_offset_value(buffer, index, packet, parent)
 
   -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, peg_price_type = n24x_equities_memo_sbe_v1_13_dissect.peg_price_type(buffer, index, packet, parent)
 
-  -- Expire Time: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, expire_time = n24x_equities_memo_sbe_v1_13_dissect.expire_time(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -5347,9 +5159,6 @@ n24x_equities_memo_sbe_v1_13_dissect.new_order_single_message_fields = function(
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = n24x_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = n24x_equities_memo_sbe_v1_13_dissect.padding_21(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = n24x_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -5749,27 +5558,13 @@ n24x_equities_memo_sbe_v1_13_dissect.sbe_header = function(buffer, offset, packe
   return n24x_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Sbe Message
-n24x_equities_memo_sbe_v1_13_size_of.sbe_message = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.sbe_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Sbe Message
 n24x_equities_memo_sbe_v1_13_display.sbe_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sbe Message
-n24x_equities_memo_sbe_v1_13_dissect.sbe_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memo_sbe_v1_13_dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -5785,23 +5580,25 @@ n24x_equities_memo_sbe_v1_13_dissect.sbe_message_fields = function(buffer, offse
 end
 
 -- Dissect: Sbe Message
-n24x_equities_memo_sbe_v1_13_dissect.sbe_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+n24x_equities_memo_sbe_v1_13_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
+  -- Optionally add struct element to protocol tree
   if show.sbe_message then
-    local length = n24x_equities_memo_sbe_v1_13_size_of.sbe_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_sbe_message)
     local display = n24x_equities_memo_sbe_v1_13_display.sbe_message(buffer, packet, parent)
     parent = parent:add(n24x_equities_memo_sbe_v1_13.fields.sbe_message, range, display)
   end
 
-  return n24x_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent)
+  n24x_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+
+  return offset + size_of_sbe_message
 end
 
 -- Calculate size of: Sequenced Message
 n24x_equities_memo_sbe_v1_13_size_of.sequenced_message = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.sbe_message(buffer, offset + index)
+  -- Parse runtime size of: Sbe Message
+  index = index + buffer(offset + index - 0, 2):uint()
 
   return index
 end
@@ -5815,8 +5612,14 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.sequenced_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Dependency element: Block Length
+  local block_length = buffer(index, 2):uint()
+
+  -- Runtime Size Of: Sbe Message
+  local size_of_sbe_message = block_length + 6
+
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = n24x_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent)
+  index = n24x_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
@@ -6407,7 +6210,8 @@ end
 n24x_equities_memo_sbe_v1_13_size_of.unsequenced_message = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memo_sbe_v1_13_size_of.sbe_message(buffer, offset + index)
+  -- Parse runtime size of: Sbe Message
+  index = index + buffer(offset + index - 0, 2):uint()
 
   return index
 end
@@ -6421,8 +6225,14 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.unsequenced_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Dependency element: Block Length
+  local block_length = buffer(index, 2):uint()
+
+  -- Runtime Size Of: Sbe Message
+  local size_of_sbe_message = block_length + 6
+
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = n24x_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent)
+  index = n24x_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end

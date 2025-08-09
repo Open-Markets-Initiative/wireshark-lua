@@ -45,9 +45,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message = ProtoField
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "24x.equities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.DOUBLE)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "24x.equities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.equities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
-n24x_equities_memoirdepthfeed_sbe_v1_3.fields.padding_14 = ProtoField.new("Padding 14", "24x.equities.memoirdepthfeed.sbe.v1.3.padding14", ftypes.BYTES)
-n24x_equities_memoirdepthfeed_sbe_v1_3.fields.padding_21 = ProtoField.new("Padding 21", "24x.equities.memoirdepthfeed.sbe.v1.3.padding21", ftypes.BYTES)
-n24x_equities_memoirdepthfeed_sbe_v1_3.fields.padding_7 = ProtoField.new("Padding 7", "24x.equities.memoirdepthfeed.sbe.v1.3.padding7", ftypes.BYTES)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.payload = ProtoField.new("Payload", "24x.equities.memoirdepthfeed.sbe.v1.3.payload", ftypes.STRING)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "24x.equities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "24x.equities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
@@ -71,7 +68,7 @@ n24x_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message = ProtoF
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "24x.equities.memoirdepthfeed.sbe.v1.3.symbol", ftypes.STRING)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "24x.equities.memoirdepthfeed.sbe.v1.3.symbolsfx", ftypes.STRING)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "24x.equities.memoirdepthfeed.sbe.v1.3.templateid", ftypes.UINT8)
-n24x_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "24x.equities.memoirdepthfeed.sbe.v1.3.timestamp", ftypes.UINT8)
+n24x_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "24x.equities.memoirdepthfeed.sbe.v1.3.timestamp", ftypes.UINT64)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "24x.equities.memoirdepthfeed.sbe.v1.3.tradeid", ftypes.UINT64)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "24x.equities.memoirdepthfeed.sbe.v1.3.trademessage", ftypes.STRING)
 n24x_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "24x.equities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
@@ -229,26 +226,6 @@ end
 -- Dissect 24X Equities MemoirDepthFeed Sbe 1.3
 -----------------------------------------------------------------------
 
--- Size: Padding 7
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7 = 7
-
--- Display: Padding 7
-n24x_equities_memoirdepthfeed_sbe_v1_3_display.padding_7 = function(value)
-  return "Padding 7: "..value
-end
-
--- Dissect: Padding 7
-n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.padding_7(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memoirdepthfeed_sbe_v1_3.fields.padding_7, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: As Of Sequence Number
 n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.as_of_sequence_number = 8
 
@@ -270,18 +247,22 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.as_of_sequence_number = function(
 end
 
 -- Size: Timestamp
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.timestamp = 1
+n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.timestamp = 8
 
 -- Display: Timestamp
 n24x_equities_memoirdepthfeed_sbe_v1_3_display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp = function(buffer, offset, packet, parent)
   local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.timestamp
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(n24x_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, range, value, display)
@@ -297,8 +278,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.snapshot_complete_message = funct
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.as_of_sequence_number
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
@@ -311,14 +290,11 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.snapshot_complete_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- As Of Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, as_of_sequence_number = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.as_of_sequence_number(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -364,8 +340,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.clear_book_message = function(buf
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.security_id
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
@@ -378,14 +352,11 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -403,28 +374,8 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message = function(buf
   return n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Padding 21
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_21 = 21
-
--- Display: Padding 21
-n24x_equities_memoirdepthfeed_sbe_v1_3_display.padding_21 = function(value)
-  return "Padding 21: "..value
-end
-
--- Dissect: Padding 21
-n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_21 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_21
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.padding_21(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memoirdepthfeed_sbe_v1_3.fields.padding_21, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Corrected Price
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price = 1
+n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price = 8
 
 -- Display: Corrected Price
 n24x_equities_memoirdepthfeed_sbe_v1_3_display.corrected_price = function(value)
@@ -433,14 +384,14 @@ end
 
 -- Translate: Corrected Price
 translate.corrected_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Corrected Price
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_price = function(buffer, offset, packet, parent)
   local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.corrected_price(raw)
   local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.corrected_price(value, buffer, offset, packet, parent)
 
@@ -470,7 +421,7 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_quantity = function(buf
 end
 
 -- Size: Original Price
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price = 1
+n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price = 8
 
 -- Display: Original Price
 n24x_equities_memoirdepthfeed_sbe_v1_3_display.original_price = function(value)
@@ -479,14 +430,14 @@ end
 
 -- Translate: Original Price
 translate.original_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Original Price
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price = function(buffer, offset, packet, parent)
   local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.original_price(raw)
   local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.original_price(value, buffer, offset, packet, parent)
 
@@ -553,8 +504,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_trade_message = functio
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_21
-
   return index
 end
 
@@ -567,7 +516,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -579,17 +528,14 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields = 
   -- Original Quantity: 4 Byte Unsigned Fixed Width Integer
   index, original_quantity = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.original_quantity(buffer, index, packet, parent)
 
-  -- Original Price: 1 Byte Signed Fixed Width Integer
+  -- Original Price: 8 Byte Signed Fixed Width Integer
   index, original_price = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price(buffer, index, packet, parent)
 
   -- Corrected Quantity: 4 Byte Unsigned Fixed Width Integer
   index, corrected_quantity = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_quantity(buffer, index, packet, parent)
 
-  -- Corrected Price: 1 Byte Signed Fixed Width Integer
+  -- Corrected Price: 8 Byte Signed Fixed Width Integer
   index, corrected_price = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_price(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_21(buffer, index, packet, parent)
 
   return index
 end
@@ -607,26 +553,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message = functio
   return n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Padding 14
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14 = 14
-
--- Display: Padding 14
-n24x_equities_memoirdepthfeed_sbe_v1_3_display.padding_14 = function(value)
-  return "Padding 14: "..value
-end
-
--- Dissect: Padding 14
-n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.padding_14(value, buffer, offset, packet, parent)
-
-  parent:add(n24x_equities_memoirdepthfeed_sbe_v1_3.fields.padding_14, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Broken Trade Message
 n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.broken_trade_message = function(buffer, offset)
   local index = 0
@@ -641,8 +567,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.broken_trade_message = function(b
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-
   return index
 end
 
@@ -655,7 +579,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -667,11 +591,8 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message_fields = fun
   -- Original Quantity: 4 Byte Unsigned Fixed Width Integer
   index, original_quantity = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.original_quantity(buffer, index, packet, parent)
 
-  -- Original Price: 1 Byte Signed Fixed Width Integer
+  -- Original Price: 8 Byte Signed Fixed Width Integer
   index, original_price = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -690,7 +611,7 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message = function(b
 end
 
 -- Size: Price
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.price = 1
+n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.price = 8
 
 -- Display: Price
 n24x_equities_memoirdepthfeed_sbe_v1_3_display.price = function(value)
@@ -699,14 +620,14 @@ end
 
 -- Translate: Price
 translate.price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Price
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.price = function(buffer, offset, packet, parent)
   local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.price(raw)
   local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.price(value, buffer, offset, packet, parent)
 
@@ -749,8 +670,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.trade_message = function(buffer, 
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.price
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-
   return index
 end
 
@@ -763,7 +682,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -775,11 +694,8 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message_fields = function(b
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.price(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -833,8 +749,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.order_executed_message = function
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.price
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-
   return index
 end
 
@@ -847,7 +761,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -862,11 +776,8 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message_fields = f
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.price(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -896,8 +807,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.order_reduced_message = function(
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.quantity
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
@@ -910,7 +819,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -921,9 +830,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message_fields = fu
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -951,8 +857,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.order_deleted_message = function(
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.order_id
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
@@ -965,7 +869,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -973,9 +877,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message_fields = fu
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1049,8 +950,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.order_added_message = function(bu
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.price
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-
   return index
 end
 
@@ -1063,7 +962,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1078,11 +977,8 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message_fields = func
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.price(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -1154,8 +1050,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.trading_session_status_message = 
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.trading_session
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
@@ -1168,14 +1062,11 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Trading Session: 1 Byte Ascii String Enum with 4 values
   index, trading_session = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1294,8 +1185,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status_message =
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status_reason
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
@@ -1308,7 +1197,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1319,9 +1208,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message_f
 
   -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
   index, security_trading_status_reason = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_reason(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1376,8 +1262,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.reg_sho_restriction_message = fun
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.short_sale_restriction
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
@@ -1390,7 +1274,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1398,9 +1282,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message_field
 
   -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, short_sale_restriction = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.short_sale_restriction(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1419,7 +1300,7 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message = fun
 end
 
 -- Size: Mpv
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv = 1
+n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv = 8
 
 -- Display: Mpv
 n24x_equities_memoirdepthfeed_sbe_v1_3_display.mpv = function(value)
@@ -1428,14 +1309,14 @@ end
 
 -- Translate: Mpv
 translate.mpv = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Mpv
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.mpv = function(buffer, offset, packet, parent)
   local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.mpv(raw)
   local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
@@ -1603,8 +1484,6 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.instrument_directory_message = fu
 
   index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv
 
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-
   return index
 end
 
@@ -1617,7 +1496,7 @@ end
 n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 1 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1638,11 +1517,8 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message_fiel
   -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, is_test_symbol = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.is_test_symbol(buffer, index, packet, parent)
 
-  -- Mpv: 1 Byte Signed Fixed Width Integer
+  -- Mpv: 8 Byte Signed Fixed Width Integer
   index, mpv = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.mpv(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -1973,27 +1849,13 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header = function(buffer, off
   return n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Sbe Message
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_message = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Sbe Message
 n24x_equities_memoirdepthfeed_sbe_v1_3_display.sbe_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sbe Message
-n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -2009,16 +1871,17 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields = function(buf
 end
 
 -- Dissect: Sbe Message
-n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
+  -- Optionally add struct element to protocol tree
   if show.sbe_message then
-    local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_sbe_message)
     local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.sbe_message(buffer, packet, parent)
     parent = parent:add(n24x_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_message, range, display)
   end
 
-  return n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent)
+  n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+
+  return offset + size_of_sbe_message
 end
 
 -- Size: Message Length
@@ -2041,46 +1904,42 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_length = function(buffer,
   return offset + length, value
 end
 
--- Calculate size of: Message
-n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.message_length
-
-  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_message(buffer, offset + index)
-
-  return index
-end
-
 -- Display: Message
 n24x_equities_memoirdepthfeed_sbe_v1_3_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_length(buffer, index, packet, parent)
 
+  -- Dependency element: Block Length
+  local block_length = buffer(index, 2):uint()
+
+  -- Runtime Size Of: Sbe Message
+  local size_of_sbe_message = block_length + 6
+
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent)
+  index = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
 
 -- Dissect: Message
-n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = n24x_equities_memoirdepthfeed_sbe_v1_3_display.message(buffer, packet, parent)
     parent = parent:add(n24x_equities_memoirdepthfeed_sbe_v1_3.fields.message, range, display)
   end
 
-  return n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent)
+  n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
 end
 
 -- Size: Message Count
@@ -2103,11 +1962,16 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_count = function(buffer, 
   return offset + length, value
 end
 
--- Size Of: Sequenced Message
+-- Calculate size of: Sequenced Message
 n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.sequenced_message = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index)
+  index = index + n24x_equities_memoirdepthfeed_sbe_v1_3_size_of.message_count
+
+  -- Parse runtime size of: Message
+  index = index + buffer(offset + index - 0, 2):uint()
+
+  return index
 end
 
 -- Display: Sequenced Message
@@ -2122,12 +1986,17 @@ n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.sequenced_message_fields = functi
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message_count(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
   -- Message: Struct of 2 fields
-  while index < end_of_payload do
-    index = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message(buffer, index, packet, parent)
+  for i = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    index = n24x_equities_memoirdepthfeed_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
   end
 
   return index
