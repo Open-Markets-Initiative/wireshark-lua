@@ -661,22 +661,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
   return index
@@ -1299,13 +1299,13 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mtp Modifier: 1 Byte Ascii String
+  -- Mtp Modifier: Text
   index, mtp_modifier = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mtp_modifier(buffer, index, packet, parent)
 
-  -- Unique Id Level: 1 Byte Ascii String
+  -- Unique Id Level: Text
   index, unique_id_level = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.unique_id_level(buffer, index, packet, parent)
 
-  -- Trading Group Id: 1 Byte Ascii String
+  -- Trading Group Id: Alphanumeric
   index, trading_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trading_group_id(buffer, index, packet, parent)
 
   return index
@@ -1771,130 +1771,130 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Ascii String Enum with 2 values
+  -- Exec Inst: Text
   index, exec_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type: Alphanumeric
   index, ord_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 7 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: Binary
   index, min_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Capacity: Alpha
   index, capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.capacity(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: Text
   index, account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.account(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
-  -- Display Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Display Indicator: Alphanumeric
   index, display_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_indicator(buffer, index, packet, parent)
 
-  -- Max Floor: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
   -- Prevent Match: Struct of 3 fields
   index, prevent_match = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match(buffer, index, packet, parent)
 
-  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: BinaryPrice
   index, strike_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Ascii String Enum with 2 values
+  -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Ascii String Enum with 3 values
+  -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.open_close(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: Binary
   index, leaves_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Display Price: 8 Byte Signed Fixed Width Integer
+  -- Display Price: BinaryPrice
   index, display_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_price(buffer, index, packet, parent)
 
-  -- Working Price: 8 Byte Signed Fixed Width Integer
+  -- Working Price: BinaryPrice
   index, working_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.working_price(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer
+  -- Expire Time: DateTime
   index, expire_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Attributed Quote: 1 Byte Ascii String Enum with 4 values
+  -- Attributed Quote: Alphanumeric
   index, attributed_quote = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.attributed_quote(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: BinaryPrice
   index, stop_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Routing Inst: 4 Byte Ascii String
+  -- Routing Inst: Text
   index, routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_inst(buffer, index, packet, parent)
 
-  -- Rout Strategy: 6 Byte Ascii String
+  -- Rout Strategy: Text
   index, rout_strategy = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.rout_strategy(buffer, index, packet, parent)
 
-  -- Route Delivery Method: 3 Byte Ascii String Enum with 2 values
+  -- Route Delivery Method: Text
   index, route_delivery_method = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.route_delivery_method(buffer, index, packet, parent)
 
-  -- Ex Destination: 1 Byte Ascii String Enum with 18 values
+  -- Ex Destination: Text
   index, ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ex_destination(buffer, index, packet, parent)
 
   -- Target Party Id
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.target_party_id(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Clearing Optional Data: 16 Byte Ascii String
+  -- Clearing Optional Data: Text
   index, clearing_optional_data = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_optional_data(buffer, index, packet, parent)
 
-  -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Cum Qty: Binary
   index, cum_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Drill Thru Protection: 8 Byte Signed Fixed Width Integer
+  -- Drill Thru Protection: BinaryPrice
   index, drill_thru_protection = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.drill_thru_protection(buffer, index, packet, parent)
 
   -- Equity Party Id
   index, equity_party_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.equity_party_id(buffer, index, packet, parent)
 
-  -- Client Id Attr: 4 Byte Ascii String
+  -- Client Id Attr: Text
   index, client_id_attr = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.client_id_attr(buffer, index, packet, parent)
 
   -- Frequent Trader Id
@@ -2031,22 +2031,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- No Of Securities: 4 Byte Unsigned Fixed Width Integer
+  -- No Of Securities: Binary
   index, no_of_securities = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.no_of_securities(buffer, index, packet, parent)
 
-  -- Order Reject Reason: 1 Byte Ascii String
+  -- Order Reject Reason: Text
   index, order_reject_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_reject_reason(buffer, index, packet, parent)
 
-  -- Text: 60 Byte Ascii String
+  -- Text: Text
   index, text = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.text(buffer, index, packet, parent)
 
   return index
@@ -2137,22 +2137,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: BinaryPrice
   index, strike_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Cfi Code: 2 Byte Ascii String Enum with 1 values
+  -- Cfi Code: Alphanumeric
   index, cfi_code = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cfi_code(buffer, index, packet, parent)
 
-  -- Ratio Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Ratio Qty: Binary
   index, ratio_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ratio_qty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
   return index
@@ -2223,22 +2223,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_accepted_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- No Of Securities: 4 Byte Unsigned Fixed Width Integer
+  -- No Of Securities: Binary
   index, no_of_securities = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.no_of_securities(buffer, index, packet, parent)
 
-  -- Leg Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Leg Cnt: Binary
   index, leg_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
   -- Complex Leg: Struct of 6 fields
@@ -2401,28 +2401,28 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Mass Cancel Id: 20 Byte Ascii String
+  -- Mass Cancel Id: Text
   index, mass_cancel_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id(buffer, index, packet, parent)
 
-  -- Cancelled Order Count: 4 Byte Unsigned Fixed Width Integer
+  -- Cancelled Order Count: Binary
   index, cancelled_order_count = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancelled_order_count(buffer, index, packet, parent)
 
-  -- Source Matching Unit: 1 Byte Unsigned Fixed Width Integer
+  -- Source Matching Unit: Binary
   index, source_matching_unit = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.source_matching_unit(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Risk Root: 6 Byte Ascii String
+  -- Risk Root: Text
   index, risk_root = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_root(buffer, index, packet, parent)
 
-  -- Mass Cancel Lockout: 1 Byte Ascii String Enum with 2 values
+  -- Mass Cancel Lockout: Text
   index, mass_cancel_lockout = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_lockout(buffer, index, packet, parent)
 
   return index
@@ -2489,22 +2489,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Mass Cancel Id: 20 Byte Ascii String
+  -- Mass Cancel Id: Text
   index, mass_cancel_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id(buffer, index, packet, parent)
 
-  -- Cancelled Order Count: 4 Byte Unsigned Fixed Width Integer
+  -- Cancelled Order Count: Binary
   index, cancelled_order_count = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancelled_order_count(buffer, index, packet, parent)
 
-  -- Source Matching Unit: 1 Byte Unsigned Fixed Width Integer
+  -- Source Matching Unit: Binary
   index, source_matching_unit = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.source_matching_unit(buffer, index, packet, parent)
 
-  -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Received Time: DateTime
   index, request_received_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
@@ -2569,19 +2569,19 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Mass Cancel Id: 20 Byte Ascii String
+  -- Mass Cancel Id: Text
   index, mass_cancel_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id(buffer, index, packet, parent)
 
-  -- Mass Cancel Reject Reason: 1 Byte Ascii String
+  -- Mass Cancel Reject Reason: Text
   index, mass_cancel_reject_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_reject_reason(buffer, index, packet, parent)
 
-  -- Text: 60 Byte Ascii String
+  -- Text: Text
   index, text = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.text(buffer, index, packet, parent)
 
   return index
@@ -2626,19 +2626,19 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Mass Cancel Id: 20 Byte Ascii String
+  -- Mass Cancel Id: Text
   index, mass_cancel_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id(buffer, index, packet, parent)
 
-  -- Cancelled Order Count: 4 Byte Unsigned Fixed Width Integer
+  -- Cancelled Order Count: Binary
   index, cancelled_order_count = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancelled_order_count(buffer, index, packet, parent)
 
-  -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Received Time: DateTime
   index, request_received_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
@@ -2758,16 +2758,16 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Risk Status Id: 16 Byte Ascii String
+  -- Risk Status Id: Text
   index, risk_status_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_status_id(buffer, index, packet, parent)
 
-  -- Risk Reset Result: 1 Byte Ascii String Enum with 12 values
+  -- Risk Reset Result: Text
   index, risk_reset_result = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_reset_result(buffer, index, packet, parent)
 
-  -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Received Time: DateTime
   index, request_received_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
@@ -2832,19 +2832,19 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Mass Cancel Id: 20 Byte Ascii String
+  -- Mass Cancel Id: Text
   index, mass_cancel_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id(buffer, index, packet, parent)
 
-  -- Purge Reject Reason: 1 Byte Ascii String
+  -- Purge Reject Reason: Text
   index, purge_reject_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_reject_reason(buffer, index, packet, parent)
 
-  -- Text: 60 Byte Ascii String
+  -- Text: Text
   index, text = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.text(buffer, index, packet, parent)
 
   return index
@@ -3119,67 +3119,67 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Ref Id: Binary
   index, exec_ref_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_ref_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Base Liquidity Indicator: Alphanumeric
   index, base_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Sub Liquidity Indicator: Alphanumeric
   index, sub_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
-  -- Last Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Last Shares: Binary
   index, last_shares = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_shares(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: BinaryPrice
   index, last_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_px(buffer, index, packet, parent)
 
-  -- Corrected Price: 8 Byte Unsigned Fixed Width Integer
+  -- Corrected Price: Binary
   index, corrected_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.corrected_price(buffer, index, packet, parent)
 
-  -- Corrected Size: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Size: Binary
   index, corrected_size = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.corrected_size(buffer, index, packet, parent)
 
-  -- Orig Time: 8 Byte Unsigned Fixed Width Integer
+  -- Orig Time: DateTime
   index, orig_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.orig_time(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: BinaryPrice
   index, strike_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Ascii String Enum with 2 values
+  -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Capacity: Alpha
   index, capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.capacity(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Ascii String Enum with 3 values
+  -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.open_close(buffer, index, packet, parent)
 
   -- Marketing Fee Code
@@ -3188,7 +3188,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message_fie
   -- Target Party Id
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.target_party_id(buffer, index, packet, parent)
 
-  -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number(buffer, index, packet, parent)
 
   return index
@@ -3399,58 +3399,58 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 16 Byte Ascii String
+  -- Quote Update Id: Text
   index, quote_update_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: Binary
   index, exec_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Quote Symbol: 1 Byte Ascii String
+  -- Quote Symbol: Alphanumeric
   index, quote_symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_symbol(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Last Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Last Shares: Binary
   index, last_shares = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_shares(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: BinaryPrice
   index, last_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_px(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: Binary
   index, leaves_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Contra Trader: 4 Byte Ascii String
+  -- Contra Trader: Alphanumeric
   index, contra_trader = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_trader(buffer, index, packet, parent)
 
-  -- Contra Capacity: 1 Byte Ascii String
+  -- Contra Capacity: Alphanumeric
   index, contra_capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_capacity(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Base Liquidity Indicator: Alphanumeric
   index, base_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Sub Liquidity Indicator: Alphanumeric
   index, sub_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Fee Code: 2 Byte Ascii String
+  -- Fee Code: Alphanumeric
   index, fee_code = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.fee_code(buffer, index, packet, parent)
 
   -- Marketing Fee Code
   index, marketing_fee_code = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.marketing_fee_code(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trade_date(buffer, index, packet, parent)
 
   return index
@@ -3616,70 +3616,70 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_execution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Exec Id: Binary
   index, exec_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Last Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Last Shares: Binary
   index, last_shares = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_shares(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: BinaryPrice
   index, last_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_px(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: Binary
   index, leaves_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Base Liquidity Indicator: Alphanumeric
   index, base_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Sub Liquidity Indicator: Alphanumeric
   index, sub_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Contra Broker: 4 Byte Ascii String
+  -- Contra Broker: Alphanumeric
   index, contra_broker = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_broker(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Contra Trader: 4 Byte Ascii String
+  -- Contra Trader: Alphanumeric
   index, contra_trader = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_trader(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Contra Capacity: 1 Byte Ascii String
+  -- Contra Capacity: Alphanumeric
   index, contra_capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.contra_capacity(buffer, index, packet, parent)
 
-  -- Fee Code: 2 Byte Ascii String
+  -- Fee Code: Alphanumeric
   index, fee_code = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.fee_code(buffer, index, packet, parent)
 
   -- Marketing Fee Code
   index, marketing_fee_code = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.marketing_fee_code(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
   -- Cross Exclusion Indicator
   index, cross_exclusion_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cross_exclusion_indicator(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Multileg Reporting Type: 1 Byte Ascii String Enum with 4 values
+  -- Multileg Reporting Type: Alphanumeric
   index, multileg_reporting_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.multileg_reporting_type(buffer, index, packet, parent)
 
-  -- Secondary Exec Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Exec Id: Binary
   index, secondary_exec_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.secondary_exec_id(buffer, index, packet, parent)
 
   -- Price Type
@@ -3697,7 +3697,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_execution_message_fields =
   -- Floor Trade Time
   index, floor_trade_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.floor_trade_time(buffer, index, packet, parent)
 
-  -- Ex Destination: 1 Byte Ascii String Enum with 18 values
+  -- Ex Destination: Text
   index, ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ex_destination(buffer, index, packet, parent)
 
   -- Equity Ex Destination
@@ -3769,25 +3769,25 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Cancel Reject Reason: 1 Byte Ascii String
+  -- Cancel Reject Reason: Text
   index, cancel_reject_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_reject_reason(buffer, index, packet, parent)
 
-  -- Text: 60 Byte Ascii String
+  -- Text: Text
   index, text = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.text(buffer, index, packet, parent)
 
   return index
@@ -3878,28 +3878,28 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 16 Byte Ascii String
+  -- Quote Update Id: Text
   index, quote_update_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Quote Symbol: 1 Byte Ascii String
+  -- Quote Symbol: Alphanumeric
   index, quote_symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_symbol(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Ascii String
+  -- Cancel Reason: Text
   index, cancel_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_reason(buffer, index, packet, parent)
 
-  -- Cancel Sub Reason: 1 Byte Ascii String
+  -- Cancel Sub Reason: Text
   index, cancel_sub_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_sub_reason(buffer, index, packet, parent)
 
   return index
@@ -3952,31 +3952,31 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Ascii String
+  -- Cancel Reason: Text
   index, cancel_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_reason(buffer, index, packet, parent)
 
-  -- Cancel Sub Reason: 1 Byte Ascii String
+  -- Cancel Sub Reason: Text
   index, cancel_sub_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_sub_reason(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Received Time: DateTime
   index, request_received_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
@@ -4067,28 +4067,28 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String
+  -- Orig Cl Ord Id: Text
   index, orig_cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Modify Reject Reason: 1 Byte Ascii String
+  -- Modify Reject Reason: Text
   index, modify_reject_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_reject_reason(buffer, index, packet, parent)
 
-  -- Text: 60 Byte Ascii String
+  -- Text: Text
   index, text = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.text(buffer, index, packet, parent)
 
   return index
@@ -4168,31 +4168,31 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 16 Byte Ascii String
+  -- Quote Update Id: Text
   index, quote_update_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: Binary
   index, leaves_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Working Price: 8 Byte Signed Fixed Width Integer
+  -- Working Price: BinaryPrice
   index, working_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.working_price(buffer, index, packet, parent)
 
-  -- Quote Symbol: 1 Byte Ascii String
+  -- Quote Symbol: Alphanumeric
   index, quote_symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_symbol(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Restatement Reason: 1 Byte Ascii String Enum with 2 values
+  -- Restatement Reason: Text
   index, restatement_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.restatement_reason(buffer, index, packet, parent)
 
   return index
@@ -4320,55 +4320,55 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_restated_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Order Restatement Reason: 1 Byte Ascii String Enum with 6 values
+  -- Order Restatement Reason: Text
   index, order_restatement_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_restatement_reason(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: Binary
   index, leaves_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Display Price: 8 Byte Signed Fixed Width Integer
+  -- Display Price: BinaryPrice
   index, display_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_price(buffer, index, packet, parent)
 
-  -- Working Price: 8 Byte Signed Fixed Width Integer
+  -- Working Price: BinaryPrice
   index, working_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.working_price(buffer, index, packet, parent)
 
-  -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Base Liquidity Indicator: Alphanumeric
   index, base_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Order Id: Binary
   index, secondary_order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.secondary_order_id(buffer, index, packet, parent)
 
-  -- Last Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Last Shares: Binary
   index, last_shares = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_shares(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer
+  -- Last Px: BinaryPrice
   index, last_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.last_px(buffer, index, packet, parent)
 
   return index
@@ -4441,61 +4441,61 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_modified_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String
+  -- Orig Cl Ord Id: Text
   index, orig_cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type: Alphanumeric
   index, ord_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Max Floor: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: BinaryPrice
   index, stop_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: Binary
   index, leaves_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Display Price: 8 Byte Signed Fixed Width Integer
+  -- Display Price: BinaryPrice
   index, display_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_price(buffer, index, packet, parent)
 
-  -- Working Price: 8 Byte Signed Fixed Width Integer
+  -- Working Price: BinaryPrice
   index, working_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.working_price(buffer, index, packet, parent)
 
-  -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Base Liquidity Indicator: Alphanumeric
   index, base_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Order Id: Binary
   index, secondary_order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.secondary_order_id(buffer, index, packet, parent)
 
-  -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Received Time: DateTime
   index, request_received_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
@@ -4558,16 +4558,16 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 16 Byte Ascii String
+  -- Quote Update Id: Text
   index, quote_update_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id(buffer, index, packet, parent)
 
-  -- Quote Reject Reason: 1 Byte Ascii String
+  -- Quote Reject Reason: Text
   index, quote_reject_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_reject_reason(buffer, index, packet, parent)
 
   return index
@@ -4616,25 +4616,25 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Order Reject Reason: 1 Byte Ascii String
+  -- Order Reject Reason: Text
   index, order_reject_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_reject_reason(buffer, index, packet, parent)
 
-  -- Text: 60 Byte Ascii String
+  -- Text: Text
   index, text = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.text(buffer, index, packet, parent)
 
   return index
@@ -4775,16 +4775,16 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Quote Result: 1 Byte Ascii String Enum with 19 values
+  -- Quote Result: Text
   index, quote_result = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_result(buffer, index, packet, parent)
 
-  -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Sub Liquidity Indicator: Alphanumeric
   index, sub_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Quote Reject Sub Reason: 1 Byte Ascii String
+  -- Quote Reject Sub Reason: Text
   index, quote_reject_sub_reason = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_reject_sub_reason(buffer, index, packet, parent)
 
   return index
@@ -4853,19 +4853,19 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Quote Update Id: 16 Byte Ascii String
+  -- Quote Update Id: Text
   index, quote_update_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id(buffer, index, packet, parent)
 
-  -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Received Time: DateTime
   index, request_received_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time(buffer, index, packet, parent)
 
-  -- Quote Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Quote Cnt: Binary
   index, quote_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_cnt(buffer, index, packet, parent)
 
   -- Quote Acknowledgement: Struct of 4 fields
@@ -5087,49 +5087,49 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- In Flight: 2 Byte Unsigned Fixed Width Integer
+  -- In Flight: Binary
   index, in_flight = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.in_flight(buffer, index, packet, parent)
 
-  -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
+  -- Transaction Time: DateTime
   index, transaction_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.transaction_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: Binary
   index, leaves_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Display Price: 8 Byte Signed Fixed Width Integer
+  -- Display Price: BinaryPrice
   index, display_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_price(buffer, index, packet, parent)
 
-  -- Working Price: 8 Byte Signed Fixed Width Integer
+  -- Working Price: BinaryPrice
   index, working_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.working_price(buffer, index, packet, parent)
 
-  -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Base Liquidity Indicator: Alphanumeric
   index, base_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Sub Liquidity Indicator: Alphanumeric
   index, sub_liquidity_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
+  -- Request Received Time: DateTime
   index, request_received_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.request_received_time(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 43 values
@@ -5261,25 +5261,25 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Risk Status Id: 16 Byte Ascii String
+  -- Risk Status Id: Text
   index, risk_status_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_status_id(buffer, index, packet, parent)
 
-  -- Risk Reset: 8 Byte Ascii String
+  -- Risk Reset: Text
   index, risk_reset = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_reset(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Risk Root: 6 Byte Ascii String
+  -- Risk Root: Text
   index, risk_root = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_root(buffer, index, packet, parent)
 
-  -- Target Matching Unit: 1 Byte Unsigned Fixed Width Integer
+  -- Target Matching Unit: Binary
   index, target_matching_unit = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.target_matching_unit(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
@@ -5486,22 +5486,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Clearing Firm Filter: 1 Byte Ascii String
+  -- Clearing Firm Filter: Alphanumeric
   index, clearing_firm_filter = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm_filter(buffer, index, packet, parent)
 
-  -- Acknowledgement Style: 1 Byte Ascii String
+  -- Acknowledgement Style: Alphanumeric
   index, acknowledgement_style = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_style(buffer, index, packet, parent)
 
-  -- Lockout Instruction: 1 Byte Ascii String
+  -- Lockout Instruction: Alphanumeric
   index, lockout_instruction = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.lockout_instruction(buffer, index, packet, parent)
 
-  -- Instrument Type Filter: 1 Byte Ascii String
+  -- Instrument Type Filter: Alphanumeric
   index, instrument_type_filter = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.instrument_type_filter(buffer, index, packet, parent)
 
-  -- Gtc Order Filter: 1 Byte Ascii String
+  -- Gtc Order Filter: Alphanumeric
   index, gtc_order_filter = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.gtc_order_filter(buffer, index, packet, parent)
 
-  -- Instruction Details: 3 Byte Ascii String
+  -- Instruction Details: Alphanumeric
   index, instruction_details = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.instruction_details(buffer, index, packet, parent)
 
   return index
@@ -5556,31 +5556,31 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.purge_orders_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mass Cancel Id: 20 Byte Ascii String
+  -- Mass Cancel Id: Text
   index, mass_cancel_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Risk Root: 6 Byte Ascii String
+  -- Risk Root: Text
   index, risk_root = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_root(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 6 fields
   index, mass_cancel_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst(buffer, index, packet, parent)
 
-  -- Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Send Time: DateTime
   index, send_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.send_time(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
-  -- Custom Group Id Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id Cnt: Binary
   index, custom_group_id_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id_cnt(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   for i = 1, custom_group_id_cnt do
     index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
   end
@@ -5675,22 +5675,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Symbol: 1 Byte Ascii String
+  -- Quote Symbol: Alphanumeric
   index, quote_symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_symbol(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Ascii String Enum with 3 values
+  -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.open_close(buffer, index, packet, parent)
 
-  -- Price Short: 4 Byte Signed Fixed Width Integer
+  -- Price Short: ShortBinaryPrice
   index, price_short = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price_short(buffer, index, packet, parent)
 
-  -- Order Qty Short: 2 Byte Unsigned Fixed Width Integer
+  -- Order Qty Short: Binary
   index, order_qty_short = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty_short(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
@@ -5845,34 +5845,34 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Update Id: 16 Byte Ascii String
+  -- Quote Update Id: Text
   index, quote_update_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
 
-  -- Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Send Time: DateTime
   index, send_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.send_time(buffer, index, packet, parent)
 
-  -- Posting Instruction: 1 Byte Ascii String Enum with 16 values
+  -- Posting Instruction: Alpha
   index, posting_instruction = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.posting_instruction(buffer, index, packet, parent)
 
   -- Session Eligibility
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_eligibility(buffer, index, packet, parent)
 
-  -- Size Modifier: 1 Byte Ascii String Enum with 2 values
+  -- Size Modifier: Text
   index, size_modifier = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.size_modifier(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
-  -- Quote Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Quote Cnt: Binary
   index, quote_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_cnt(buffer, index, packet, parent)
 
   -- Quote Short: Struct of 6 fields
@@ -5924,22 +5924,22 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Symbol: 1 Byte Ascii String
+  -- Quote Symbol: Alphanumeric
   index, quote_symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_symbol(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Ascii String Enum with 3 values
+  -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.open_close(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
@@ -6002,40 +6002,40 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Update Id: 16 Byte Ascii String
+  -- Quote Update Id: Text
   index, quote_update_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_update_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
-  -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: Text
   index, account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.account(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
 
-  -- Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Send Time: DateTime
   index, send_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.send_time(buffer, index, packet, parent)
 
-  -- Posting Instruction: 1 Byte Ascii String Enum with 16 values
+  -- Posting Instruction: Alpha
   index, posting_instruction = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.posting_instruction(buffer, index, packet, parent)
 
   -- Session Eligibility
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_eligibility(buffer, index, packet, parent)
 
-  -- Size Modifier: 1 Byte Ascii String Enum with 2 values
+  -- Size Modifier: Text
   index, size_modifier = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.size_modifier(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
-  -- Quote Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Quote Cnt: Binary
   index, quote_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_cnt(buffer, index, packet, parent)
 
   -- Quote: Struct of 6 fields
@@ -6126,40 +6126,40 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.modify_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String
+  -- Orig Cl Ord Id: Text
   index, orig_cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type: Alphanumeric
   index, ord_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Max Floor: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: BinaryPrice
   index, stop_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Cancel Orig On Reject: 1 Byte Ascii String Enum with 2 values
+  -- Cancel Orig On Reject: Alpha
   index, cancel_orig_on_reject = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_orig_on_reject(buffer, index, packet, parent)
 
   -- Reserved
   index, reserved = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.reserved(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
@@ -6208,25 +6208,25 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mass Cancel Id: 20 Byte Ascii String
+  -- Mass Cancel Id: Text
   index, mass_cancel_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Risk Root: 6 Byte Ascii String
+  -- Risk Root: Text
   index, risk_root = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.risk_root(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 6 fields
   index, mass_cancel_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst(buffer, index, packet, parent)
 
-  -- Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Send Time: DateTime
   index, send_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.send_time(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
@@ -6269,16 +6269,16 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String
+  -- Orig Cl Ord Id: Text
   index, orig_cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
@@ -6401,61 +6401,61 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Ascii String Enum with 2 values
+  -- Exec Inst: Text
   index, exec_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type: Alphanumeric
   index, ord_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 7 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Capacity: Alpha
   index, capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.capacity(buffer, index, packet, parent)
 
-  -- Routing Inst: 4 Byte Ascii String
+  -- Routing Inst: Text
   index, routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_inst(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: Text
   index, account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.account(buffer, index, packet, parent)
 
   -- Prevent Match: Struct of 3 fields
   index, prevent_match = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match(buffer, index, packet, parent)
 
-  -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number(buffer, index, packet, parent)
 
   -- Target Party Id
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.target_party_id(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
 
   -- Equity Party Id
@@ -6467,7 +6467,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_short_message_
   -- Session Eligibility
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_eligibility(buffer, index, packet, parent)
 
-  -- Max Floor: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor(buffer, index, packet, parent)
 
   -- Floor Destination
@@ -6476,13 +6476,13 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_short_message_
   -- Floor Routing Inst
   index, floor_routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.floor_routing_inst(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
-  -- Leg Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Leg Cnt: Binary
   index, leg_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
-  -- Leg Position Effect: 1 Byte Ascii String Enum with 3 values
+  -- Leg Position Effect: Text
   for i = 1, leg_cnt do
     index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
   end
@@ -6629,79 +6629,79 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Ascii String Enum with 2 values
+  -- Exec Inst: Text
   index, exec_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type: Alphanumeric
   index, ord_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 7 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Capacity: Alpha
   index, capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.capacity(buffer, index, packet, parent)
 
-  -- Routing Inst: 4 Byte Ascii String
+  -- Routing Inst: Text
   index, routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_inst(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: Text
   index, account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.account(buffer, index, packet, parent)
 
   -- Prevent Match: Struct of 3 fields
   index, prevent_match = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer
+  -- Expire Time: DateTime
   index, expire_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number(buffer, index, packet, parent)
 
   -- Target Party Id
   index, target_party_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.target_party_id(buffer, index, packet, parent)
 
-  -- Attributed Quote: 1 Byte Ascii String Enum with 4 values
+  -- Attributed Quote: Alphanumeric
   index, attributed_quote = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.attributed_quote(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Drill Thru Protection: 8 Byte Signed Fixed Width Integer
+  -- Drill Thru Protection: BinaryPrice
   index, drill_thru_protection = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.drill_thru_protection(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
 
   -- Equity Party Id
   index, equity_party_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.equity_party_id(buffer, index, packet, parent)
 
-  -- Clearing Optional Data: 16 Byte Ascii String
+  -- Clearing Optional Data: Text
   index, clearing_optional_data = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_optional_data(buffer, index, packet, parent)
 
-  -- Client Id Attr: 4 Byte Ascii String
+  -- Client Id Attr: Text
   index, client_id_attr = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.client_id_attr(buffer, index, packet, parent)
 
   -- Frequent Trader Id
@@ -6710,10 +6710,10 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_message_fields
   -- Session Eligibility
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_eligibility(buffer, index, packet, parent)
 
-  -- Max Floor: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor(buffer, index, packet, parent)
 
-  -- Display Range: 4 Byte Unsigned Fixed Width Integer
+  -- Display Range: Binary
   index, display_range = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_range(buffer, index, packet, parent)
 
   -- Combo Order
@@ -6752,13 +6752,13 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_message_fields
   -- Held
   index, held = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.held(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
-  -- Leg Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Leg Cnt: Binary
   index, leg_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
-  -- Leg Position Effect: 1 Byte Ascii String Enum with 3 values
+  -- Leg Position Effect: Text
   for i = 1, leg_cnt do
     index = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
   end
@@ -6807,16 +6807,16 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
-  -- Leg Cnt: 1 Byte Unsigned Fixed Width Integer
+  -- Leg Cnt: Binary
   index, leg_cnt = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
   -- Complex Leg: Struct of 6 fields
@@ -6910,85 +6910,85 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Ascii String Enum with 2 values
+  -- Exec Inst: Text
   index, exec_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type: Alphanumeric
   index, ord_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 7 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: Binary
   index, min_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Max Floor: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Capacity: Alpha
   index, capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.capacity(buffer, index, packet, parent)
 
-  -- Routing Inst: 4 Byte Ascii String
+  -- Routing Inst: Text
   index, routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_inst(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: Text
   index, account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.account(buffer, index, packet, parent)
 
-  -- Display Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Display Indicator: Alphanumeric
   index, display_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_indicator(buffer, index, packet, parent)
 
   -- Prevent Match: Struct of 3 fields
   index, prevent_match = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Ascii String Enum with 3 values
+  -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.open_close(buffer, index, packet, parent)
 
-  -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number(buffer, index, packet, parent)
 
   -- Session Eligibility
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_eligibility(buffer, index, packet, parent)
 
-  -- Attributed Quote: 1 Byte Ascii String Enum with 4 values
+  -- Attributed Quote: Alphanumeric
   index, attributed_quote = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.attributed_quote(buffer, index, packet, parent)
 
-  -- Rout Strategy: 6 Byte Ascii String
+  -- Rout Strategy: Text
   index, rout_strategy = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.rout_strategy(buffer, index, packet, parent)
 
-  -- Ex Destination: 1 Byte Ascii String Enum with 18 values
+  -- Ex Destination: Text
   index, ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ex_destination(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
 
   -- Frequent Trader Id
   index, frequent_trader_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.frequent_trader_id(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
@@ -7113,73 +7113,73 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
+  -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.side(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Order Qty: Binary
   index, order_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Clearing Firm: 4 Byte Ascii String
+  -- Clearing Firm: Alpha
   index, clearing_firm = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_firm(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: Text
   index, clearing_account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Price
   index, price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.price(buffer, index, packet, parent)
 
-  -- Exec Inst: 1 Byte Ascii String Enum with 2 values
+  -- Exec Inst: Text
   index, exec_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 4 values
+  -- Ord Type: Alphanumeric
   index, ord_type = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 7 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: Binary
   index, min_qty = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Max Floor: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor: Binary
   index, max_floor = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.max_floor(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.symbol(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Capacity: Alpha
   index, capacity = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.capacity(buffer, index, packet, parent)
 
-  -- Routing Inst: 4 Byte Ascii String
+  -- Routing Inst: Text
   index, routing_inst = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_inst(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: Text
   index, account = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.account(buffer, index, packet, parent)
 
-  -- Display Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Display Indicator: Alphanumeric
   index, display_indicator = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_indicator(buffer, index, packet, parent)
 
   -- Prevent Match: Struct of 3 fields
   index, prevent_match = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.prevent_match(buffer, index, packet, parent)
 
-  -- Expire Time: 8 Byte Unsigned Fixed Width Integer
+  -- Expire Time: DateTime
   index, expire_time = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.expire_time(buffer, index, packet, parent)
 
-  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: Date
   index, maturity_date = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: BinaryPrice
   index, strike_price = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Ascii String Enum with 2 values
+  -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Open Close: 1 Byte Ascii String Enum with 3 values
+  -- Open Close: Alphanumeric
   index, open_close = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.open_close(buffer, index, packet, parent)
 
-  -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cmta Number: Binary
   index, cmta_number = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.cmta_number(buffer, index, packet, parent)
 
   -- Target Party Id
@@ -7188,37 +7188,37 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields = funct
   -- Session Eligibility
   index, session_eligibility = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.session_eligibility(buffer, index, packet, parent)
 
-  -- Attributed Quote: 1 Byte Ascii String Enum with 4 values
+  -- Attributed Quote: Alphanumeric
   index, attributed_quote = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.attributed_quote(buffer, index, packet, parent)
 
-  -- Display Range: 4 Byte Unsigned Fixed Width Integer
+  -- Display Range: Binary
   index, display_range = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.display_range(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: BinaryPrice
   index, stop_px = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.stop_px(buffer, index, packet, parent)
 
-  -- Rout Strategy: 6 Byte Ascii String
+  -- Rout Strategy: Text
   index, rout_strategy = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.rout_strategy(buffer, index, packet, parent)
 
-  -- Route Delivery Method: 3 Byte Ascii String Enum with 2 values
+  -- Route Delivery Method: Text
   index, route_delivery_method = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.route_delivery_method(buffer, index, packet, parent)
 
-  -- Ex Destination: 1 Byte Ascii String Enum with 18 values
+  -- Ex Destination: Text
   index, ex_destination = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.ex_destination(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Routing Firm Id: 4 Byte Ascii String
+  -- Routing Firm Id: Alpha
   index, routing_firm_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.routing_firm_id(buffer, index, packet, parent)
 
-  -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
+  -- Custom Group Id: Binary
   index, custom_group_id = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
 
-  -- Clearing Optional Data: 16 Byte Ascii String
+  -- Clearing Optional Data: Text
   index, clearing_optional_data = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.clearing_optional_data(buffer, index, packet, parent)
 
-  -- Client Id Attr: 4 Byte Ascii String
+  -- Client Id Attr: Text
   index, client_id_attr = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.client_id_attr(buffer, index, packet, parent)
 
   -- Frequent Trader Id
@@ -7245,7 +7245,7 @@ cboe_c2_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields = funct
   -- Held
   index, held = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.held(buffer, index, packet, parent)
 
-  -- Scratch Pad: 2 Byte Unsigned Fixed Width Integer
+  -- Scratch Pad: Binary
   index, scratch_pad = cboe_c2_options_orderentry_boe3_v1_0_12_dissect.scratch_pad(buffer, index, packet, parent)
 
   return index
