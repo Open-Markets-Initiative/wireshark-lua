@@ -162,8 +162,6 @@ memx_options_riskcontrol_sbe_v1_7.fields.number_msgs_sent = ProtoField.new("Numb
 memx_options_riskcontrol_sbe_v1_7.fields.option_security_id = ProtoField.new("Option Security Id", "memx.options.riskcontrol.sbe.v1.7.optionsecurityid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_7.fields.order_id = ProtoField.new("Order Id", "memx.options.riskcontrol.sbe.v1.7.orderid", ftypes.UINT64)
 memx_options_riskcontrol_sbe_v1_7.fields.packet = ProtoField.new("Packet", "memx.options.riskcontrol.sbe.v1.7.packet", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_7.fields.padding_21 = ProtoField.new("Padding 21", "memx.options.riskcontrol.sbe.v1.7.padding21", ftypes.BYTES)
-memx_options_riskcontrol_sbe_v1_7.fields.padding_7 = ProtoField.new("Padding 7", "memx.options.riskcontrol.sbe.v1.7.padding7", ftypes.BYTES)
 memx_options_riskcontrol_sbe_v1_7.fields.passive_risk_threshold_notification_message = ProtoField.new("Passive Risk Threshold Notification Message", "memx.options.riskcontrol.sbe.v1.7.passiveriskthresholdnotificationmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_7.fields.payload = ProtoField.new("Payload", "memx.options.riskcontrol.sbe.v1.7.payload", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_7.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.riskcontrol.sbe.v1.7.pendingmessagecount", ftypes.UINT32)
@@ -190,7 +188,7 @@ memx_options_riskcontrol_sbe_v1_7.fields.sbe_header = ProtoField.new("Sbe Header
 memx_options_riskcontrol_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.riskcontrol.sbe.v1.7.sbemessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "memx.options.riskcontrol.sbe.v1.7.schemaid", ftypes.UINT8)
 memx_options_riskcontrol_sbe_v1_7.fields.send_cancels = ProtoField.new("Send Cancels", "memx.options.riskcontrol.sbe.v1.7.sendcancels", ftypes.UINT8)
-memx_options_riskcontrol_sbe_v1_7.fields.sending_time = ProtoField.new("Sending Time", "memx.options.riskcontrol.sbe.v1.7.sendingtime", ftypes.UINT8)
+memx_options_riskcontrol_sbe_v1_7.fields.sending_time = ProtoField.new("Sending Time", "memx.options.riskcontrol.sbe.v1.7.sendingtime", ftypes.UINT64)
 memx_options_riskcontrol_sbe_v1_7.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.riskcontrol.sbe.v1.7.sequencedmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_7.fields.session_id = ProtoField.new("Session Id", "memx.options.riskcontrol.sbe.v1.7.sessionid", ftypes.UINT64)
 memx_options_riskcontrol_sbe_v1_7.fields.side = ProtoField.new("Side", "memx.options.riskcontrol.sbe.v1.7.side", ftypes.STRING)
@@ -220,7 +218,7 @@ memx_options_riskcontrol_sbe_v1_7.fields.token_type = ProtoField.new("Token Type
 memx_options_riskcontrol_sbe_v1_7.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "memx.options.riskcontrol.sbe.v1.7.totalaffectedorders", ftypes.UINT32)
 memx_options_riskcontrol_sbe_v1_7.fields.total_executions = ProtoField.new("Total Executions", "memx.options.riskcontrol.sbe.v1.7.totalexecutions", ftypes.UINT32)
 memx_options_riskcontrol_sbe_v1_7.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.options.riskcontrol.sbe.v1.7.totalsequencecount", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_7.fields.transact_time = ProtoField.new("Transact Time", "memx.options.riskcontrol.sbe.v1.7.transacttime", ftypes.UINT8)
+memx_options_riskcontrol_sbe_v1_7.fields.transact_time = ProtoField.new("Transact Time", "memx.options.riskcontrol.sbe.v1.7.transacttime", ftypes.UINT64)
 memx_options_riskcontrol_sbe_v1_7.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.riskcontrol.sbe.v1.7.trdmatchid", ftypes.UINT64)
 memx_options_riskcontrol_sbe_v1_7.fields.unacked_quantity = ProtoField.new("Unacked Quantity", "memx.options.riskcontrol.sbe.v1.7.unackedquantity", ftypes.UINT32)
 memx_options_riskcontrol_sbe_v1_7.fields.underlier = ProtoField.new("Underlier", "memx.options.riskcontrol.sbe.v1.7.underlier", ftypes.STRING)
@@ -3217,28 +3215,8 @@ memx_options_riskcontrol_sbe_v1_7_dissect.single_order_allow_iso_orders_state_me
   return memx_options_riskcontrol_sbe_v1_7_dissect.single_order_allow_iso_orders_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Padding 7
-memx_options_riskcontrol_sbe_v1_7_size_of.padding_7 = 7
-
--- Display: Padding 7
-memx_options_riskcontrol_sbe_v1_7_display.padding_7 = function(value)
-  return "Padding 7: "..value
-end
-
--- Dissect: Padding 7
-memx_options_riskcontrol_sbe_v1_7_dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_7_size_of.padding_7
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = memx_options_riskcontrol_sbe_v1_7_display.padding_7(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_7.fields.padding_7, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Transact Time
-memx_options_riskcontrol_sbe_v1_7_size_of.transact_time = 1
+memx_options_riskcontrol_sbe_v1_7_size_of.transact_time = 8
 
 -- Display: Transact Time
 memx_options_riskcontrol_sbe_v1_7_display.transact_time = function(value)
@@ -3249,7 +3227,7 @@ end
 memx_options_riskcontrol_sbe_v1_7_dissect.transact_time = function(buffer, offset, packet, parent)
   local length = memx_options_riskcontrol_sbe_v1_7_size_of.transact_time
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_7_display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_riskcontrol_sbe_v1_7.fields.transact_time, range, value, display)
@@ -3370,8 +3348,6 @@ memx_options_riskcontrol_sbe_v1_7_size_of.passive_risk_threshold_notification_me
 
   index = index + memx_options_riskcontrol_sbe_v1_7_size_of.transact_time
 
-  index = index + memx_options_riskcontrol_sbe_v1_7_size_of.padding_7
-
   return index
 end
 
@@ -3402,11 +3378,8 @@ memx_options_riskcontrol_sbe_v1_7_dissect.passive_risk_threshold_notification_me
   -- Breach Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, breach_id_optional = memx_options_riskcontrol_sbe_v1_7_dissect.breach_id_optional(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_riskcontrol_sbe_v1_7_dissect.transact_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_riskcontrol_sbe_v1_7_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -4121,26 +4094,6 @@ memx_options_riskcontrol_sbe_v1_7_dissect.cp_volume_threshold_state_message = fu
   return memx_options_riskcontrol_sbe_v1_7_dissect.cp_volume_threshold_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Padding 21
-memx_options_riskcontrol_sbe_v1_7_size_of.padding_21 = 21
-
--- Display: Padding 21
-memx_options_riskcontrol_sbe_v1_7_display.padding_21 = function(value)
-  return "Padding 21: "..value
-end
-
--- Dissect: Padding 21
-memx_options_riskcontrol_sbe_v1_7_dissect.padding_21 = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_7_size_of.padding_21
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = memx_options_riskcontrol_sbe_v1_7_display.padding_21(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_7.fields.padding_21, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Unacked Quantity
 memx_options_riskcontrol_sbe_v1_7_size_of.unacked_quantity = 4
 
@@ -4182,7 +4135,7 @@ memx_options_riskcontrol_sbe_v1_7_dissect.last_qty = function(buffer, offset, pa
 end
 
 -- Size: Last Px
-memx_options_riskcontrol_sbe_v1_7_size_of.last_px = 1
+memx_options_riskcontrol_sbe_v1_7_size_of.last_px = 8
 
 -- Display: Last Px
 memx_options_riskcontrol_sbe_v1_7_display.last_px = function(value)
@@ -4191,14 +4144,14 @@ end
 
 -- Translate: Last Px
 translate.last_px = function(raw)
-  return raw/100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Last Px
 memx_options_riskcontrol_sbe_v1_7_dissect.last_px = function(buffer, offset, packet, parent)
   local length = memx_options_riskcontrol_sbe_v1_7_size_of.last_px
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.last_px(raw)
   local display = memx_options_riskcontrol_sbe_v1_7_display.last_px(value, buffer, offset, packet, parent)
 
@@ -4396,7 +4349,7 @@ memx_options_riskcontrol_sbe_v1_7_dissect.order_id = function(buffer, offset, pa
 end
 
 -- Size: Sending Time
-memx_options_riskcontrol_sbe_v1_7_size_of.sending_time = 1
+memx_options_riskcontrol_sbe_v1_7_size_of.sending_time = 8
 
 -- Display: Sending Time
 memx_options_riskcontrol_sbe_v1_7_display.sending_time = function(value)
@@ -4407,7 +4360,7 @@ end
 memx_options_riskcontrol_sbe_v1_7_dissect.sending_time = function(buffer, offset, packet, parent)
   local length = memx_options_riskcontrol_sbe_v1_7_size_of.sending_time
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = memx_options_riskcontrol_sbe_v1_7_display.sending_time(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_riskcontrol_sbe_v1_7.fields.sending_time, range, value, display)
@@ -4441,8 +4394,6 @@ memx_options_riskcontrol_sbe_v1_7_size_of.active_risk_quantity_update_notificati
 
   index = index + memx_options_riskcontrol_sbe_v1_7_size_of.unacked_quantity
 
-  index = index + memx_options_riskcontrol_sbe_v1_7_size_of.padding_21
-
   return index
 end
 
@@ -4455,10 +4406,10 @@ end
 memx_options_riskcontrol_sbe_v1_7_dissect.active_risk_quantity_update_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_riskcontrol_sbe_v1_7_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_riskcontrol_sbe_v1_7_dissect.transact_time(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -4479,7 +4430,7 @@ memx_options_riskcontrol_sbe_v1_7_dissect.active_risk_quantity_update_notificati
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = memx_options_riskcontrol_sbe_v1_7_dissect.side(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = memx_options_riskcontrol_sbe_v1_7_dissect.last_px(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -4487,9 +4438,6 @@ memx_options_riskcontrol_sbe_v1_7_dissect.active_risk_quantity_update_notificati
 
   -- Unacked Quantity: 4 Byte Unsigned Fixed Width Integer
   index, unacked_quantity = memx_options_riskcontrol_sbe_v1_7_dissect.unacked_quantity(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = memx_options_riskcontrol_sbe_v1_7_dissect.padding_21(buffer, index, packet, parent)
 
   return index
 end

@@ -127,10 +127,6 @@ memx_options_memo_sbe_v1_8.fields.orig_list_seq_no = ProtoField.new("Orig List S
 memx_options_memo_sbe_v1_8.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.options.memo.sbe.v1.8.origclordid", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "memx.options.memo.sbe.v1.8.origclordidoptional", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.packet = ProtoField.new("Packet", "memx.options.memo.sbe.v1.8.packet", ftypes.STRING)
-memx_options_memo_sbe_v1_8.fields.padding_14 = ProtoField.new("Padding 14", "memx.options.memo.sbe.v1.8.padding14", ftypes.BYTES)
-memx_options_memo_sbe_v1_8.fields.padding_2 = ProtoField.new("Padding 2", "memx.options.memo.sbe.v1.8.padding2", ftypes.BYTES)
-memx_options_memo_sbe_v1_8.fields.padding_21 = ProtoField.new("Padding 21", "memx.options.memo.sbe.v1.8.padding21", ftypes.BYTES)
-memx_options_memo_sbe_v1_8.fields.padding_7 = ProtoField.new("Padding 7", "memx.options.memo.sbe.v1.8.padding7", ftypes.BYTES)
 memx_options_memo_sbe_v1_8.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.options.memo.sbe.v1.8.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 memx_options_memo_sbe_v1_8.fields.parties_group = ProtoField.new("Parties Group", "memx.options.memo.sbe.v1.8.partiesgroup", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.parties_groups = ProtoField.new("Parties Groups", "memx.options.memo.sbe.v1.8.partiesgroups", ftypes.STRING)
@@ -169,7 +165,7 @@ memx_options_memo_sbe_v1_8.fields.schema_id = ProtoField.new("Schema Id", "memx.
 memx_options_memo_sbe_v1_8.fields.secondary_alloc_id = ProtoField.new("Secondary Alloc Id", "memx.options.memo.sbe.v1.8.secondaryallocid", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.security_id = ProtoField.new("Security Id", "memx.options.memo.sbe.v1.8.securityid", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.send_cancels = ProtoField.new("Send Cancels", "memx.options.memo.sbe.v1.8.sendcancels", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
-memx_options_memo_sbe_v1_8.fields.sending_time = ProtoField.new("Sending Time", "memx.options.memo.sbe.v1.8.sendingtime", ftypes.UINT8)
+memx_options_memo_sbe_v1_8.fields.sending_time = ProtoField.new("Sending Time", "memx.options.memo.sbe.v1.8.sendingtime", ftypes.UINT64)
 memx_options_memo_sbe_v1_8.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.memo.sbe.v1.8.sequencedmessage", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.session_id = ProtoField.new("Session Id", "memx.options.memo.sbe.v1.8.sessionid", ftypes.UINT64)
 memx_options_memo_sbe_v1_8.fields.short_one_sided_bulk_quote_message = ProtoField.new("Short One Sided Bulk Quote Message", "memx.options.memo.sbe.v1.8.shortonesidedbulkquotemessage", ftypes.STRING)
@@ -193,7 +189,7 @@ memx_options_memo_sbe_v1_8.fields.total_sequence_count = ProtoField.new("Total S
 memx_options_memo_sbe_v1_8.fields.trade_date = ProtoField.new("Trade Date", "memx.options.memo.sbe.v1.8.tradedate", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.trade_id = ProtoField.new("Trade Id", "memx.options.memo.sbe.v1.8.tradeid", ftypes.UINT64)
 memx_options_memo_sbe_v1_8.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.options.memo.sbe.v1.8.tradingcapacity", ftypes.UINT8)
-memx_options_memo_sbe_v1_8.fields.transact_time = ProtoField.new("Transact Time", "memx.options.memo.sbe.v1.8.transacttime", ftypes.UINT8)
+memx_options_memo_sbe_v1_8.fields.transact_time = ProtoField.new("Transact Time", "memx.options.memo.sbe.v1.8.transacttime", ftypes.UINT64)
 memx_options_memo_sbe_v1_8.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.memo.sbe.v1.8.trdmatchid", ftypes.UINT64)
 memx_options_memo_sbe_v1_8.fields.underlier = ProtoField.new("Underlier", "memx.options.memo.sbe.v1.8.underlier", ftypes.STRING)
 memx_options_memo_sbe_v1_8.fields.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional = ProtoField.new("Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional", "memx.options.memo.sbe.v1.8.underliermasscancelbulkclearlockoutsbyefidorunderlierrequestunderlieroptional", ftypes.STRING)
@@ -647,39 +643,23 @@ end
 -- Dissect Memx Options Memo Sbe 1.8
 -----------------------------------------------------------------------
 
--- Size: Padding 7
-memx_options_memo_sbe_v1_8_size_of.padding_7 = 7
-
--- Display: Padding 7
-memx_options_memo_sbe_v1_8_display.padding_7 = function(value)
-  return "Padding 7: "..value
-end
-
--- Dissect: Padding 7
-memx_options_memo_sbe_v1_8_dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_8_size_of.padding_7
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = memx_options_memo_sbe_v1_8_display.padding_7(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memo_sbe_v1_8.fields.padding_7, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Sending Time
-memx_options_memo_sbe_v1_8_size_of.sending_time = 1
+memx_options_memo_sbe_v1_8_size_of.sending_time = 8
 
 -- Display: Sending Time
 memx_options_memo_sbe_v1_8_display.sending_time = function(value)
-  return "Sending Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
 memx_options_memo_sbe_v1_8_dissect.sending_time = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_8_size_of.sending_time
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = memx_options_memo_sbe_v1_8_display.sending_time(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memo_sbe_v1_8.fields.sending_time, range, value, display)
@@ -731,8 +711,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_bulk_clear_lockout_accepted_messa
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -748,11 +726,8 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_bulk_clear_lockout_accepted_messa
   -- Cl Ord I D Mass Cancel Bulk Clear Lockout Accepted Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id = memx_options_memo_sbe_v1_8_dissect.cl_ord_i_d_mass_cancel_bulk_clear_lockout_accepted_cl_ord_id(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -879,8 +854,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_bulk_clear_lockout_reject_message
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -899,11 +872,8 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_bulk_clear_lockout_reject_message
   -- Rej Reason: 2 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, rej_reason = memx_options_memo_sbe_v1_8_dissect.rej_reason(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -921,28 +891,8 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_bulk_clear_lockout_reject_message
   return memx_options_memo_sbe_v1_8_dissect.mass_cancel_bulk_clear_lockout_reject_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Padding 14
-memx_options_memo_sbe_v1_8_size_of.padding_14 = 14
-
--- Display: Padding 14
-memx_options_memo_sbe_v1_8_display.padding_14 = function(value)
-  return "Padding 14: "..value
-end
-
--- Dissect: Padding 14
-memx_options_memo_sbe_v1_8_dissect.padding_14 = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_8_size_of.padding_14
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = memx_options_memo_sbe_v1_8_display.padding_14(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memo_sbe_v1_8.fields.padding_14, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Transact Time
-memx_options_memo_sbe_v1_8_size_of.transact_time = 1
+memx_options_memo_sbe_v1_8_size_of.transact_time = 8
 
 -- Display: Transact Time
 memx_options_memo_sbe_v1_8_display.transact_time = function(value)
@@ -953,7 +903,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.transact_time = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_8_size_of.transact_time
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = memx_options_memo_sbe_v1_8_display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memo_sbe_v1_8.fields.transact_time, range, value, display)
@@ -1067,8 +1017,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_clear_lockout_done_message = func
 
   index = index + memx_options_memo_sbe_v1_8_size_of.transact_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   return index
 end
 
@@ -1090,14 +1038,11 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_clear_lockout_done_message_fields
   -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_8_dissect.lockout_id(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -1165,8 +1110,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_clear_lockout_reject_message = fu
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -1191,11 +1134,8 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_clear_lockout_reject_message_fiel
   -- Rej Reason: 2 Byte Unsigned Fixed Width Integer Enum with 14 values
   index, rej_reason = memx_options_memo_sbe_v1_8_dissect.rej_reason(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1251,8 +1191,6 @@ memx_options_memo_sbe_v1_8_size_of.user_notification_message = function(buffer, 
 
   index = index + memx_options_memo_sbe_v1_8_size_of.user_status
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -1265,14 +1203,11 @@ end
 memx_options_memo_sbe_v1_8_dissect.user_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, user_status = memx_options_memo_sbe_v1_8_dissect.user_status(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1565,7 +1500,7 @@ memx_options_memo_sbe_v1_8_dissect.reported_allocations_groups = function(buffer
 end
 
 -- Size: Last Px
-memx_options_memo_sbe_v1_8_size_of.last_px = 1
+memx_options_memo_sbe_v1_8_size_of.last_px = 8
 
 -- Display: Last Px
 memx_options_memo_sbe_v1_8_display.last_px = function(value)
@@ -1574,14 +1509,14 @@ end
 
 -- Translate: Last Px
 translate.last_px = function(raw)
-  return raw/100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Last Px
 memx_options_memo_sbe_v1_8_dissect.last_px = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_8_size_of.last_px
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.last_px(raw)
   local display = memx_options_memo_sbe_v1_8_display.last_px(value, buffer, offset, packet, parent)
 
@@ -1640,8 +1575,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_allocations_group = function(buffer
 
   index = index + memx_options_memo_sbe_v1_8_size_of.last_px
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -1660,11 +1593,8 @@ memx_options_memo_sbe_v1_8_dissect.execution_allocations_group_fields = function
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_options_memo_sbe_v1_8_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = memx_options_memo_sbe_v1_8_dissect.last_px(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -1710,7 +1640,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_allocations_groups_fields = functio
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Execution Allocations Group: Struct of 4 fields
+  -- Execution Allocations Group: Struct of 3 fields
   for i = 1, num_in_group do
     index = memx_options_memo_sbe_v1_8_dissect.execution_allocations_group(buffer, index, packet, parent)
   end
@@ -1994,8 +1924,6 @@ memx_options_memo_sbe_v1_8_size_of.allocation_instruction_alert_message = functi
 
   index = index + memx_options_memo_sbe_v1_8_size_of.trade_date
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   index = index + memx_options_memo_sbe_v1_8_size_of.execution_allocations_groups(buffer, offset + index)
 
   index = index + memx_options_memo_sbe_v1_8_size_of.reported_allocations_groups(buffer, offset + index)
@@ -2012,7 +1940,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.allocation_instruction_alert_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- Alloc Id: 20 Byte Ascii String
@@ -2038,9 +1966,6 @@ memx_options_memo_sbe_v1_8_dissect.allocation_instruction_alert_message_fields =
 
   -- Trade Date: 8 Byte Ascii String
   index, trade_date = memx_options_memo_sbe_v1_8_dissect.trade_date(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   -- Execution Allocations Groups: Struct of 2 fields
   index, execution_allocations_groups = memx_options_memo_sbe_v1_8_dissect.execution_allocations_groups(buffer, index, packet, parent)
@@ -2219,8 +2144,6 @@ memx_options_memo_sbe_v1_8_size_of.allocation_instruction_ack_message = function
 
   index = index + memx_options_memo_sbe_v1_8_size_of.alloc_rej_code
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   index = index + memx_options_memo_sbe_v1_8_size_of.reported_allocations_groups(buffer, offset + index)
 
   return index
@@ -2235,7 +2158,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.allocation_instruction_ack_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- Alloc Id: 20 Byte Ascii String
@@ -2258,9 +2181,6 @@ memx_options_memo_sbe_v1_8_dissect.allocation_instruction_ack_message_fields = f
 
   -- Alloc Rej Code: 2 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, alloc_rej_code = memx_options_memo_sbe_v1_8_dissect.alloc_rej_code(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   -- Reported Allocations Groups: Struct of 2 fields
   index, reported_allocations_groups = memx_options_memo_sbe_v1_8_dissect.reported_allocations_groups(buffer, index, packet, parent)
@@ -2660,8 +2580,6 @@ memx_options_memo_sbe_v1_8_size_of.order_cancel_reject_message = function(buffer
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -2692,11 +2610,8 @@ memx_options_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields = function
   -- Side Optional: 1 Byte Ascii String Enum with 4 values
   index, side_optional = memx_options_memo_sbe_v1_8_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -2746,8 +2661,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_done_message = function(buffer, o
 
   index = index + memx_options_memo_sbe_v1_8_size_of.transact_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   return index
 end
 
@@ -2766,14 +2679,11 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields = function(bu
   -- Total Affected Orders: 4 Byte Unsigned Fixed Width Integer
   index, total_affected_orders = memx_options_memo_sbe_v1_8_dissect.total_affected_orders(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -3080,8 +2990,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_reject_message = function(buffer,
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -3118,11 +3026,8 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields = function(
   -- Mass Cancel Inst: Struct of 4 fields
   index, mass_cancel_inst = memx_options_memo_sbe_v1_8_dissect.mass_cancel_inst(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -3253,8 +3158,6 @@ memx_options_memo_sbe_v1_8_size_of.pending_mass_cancel_message = function(buffer
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -3291,11 +3194,8 @@ memx_options_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields = function
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = memx_options_memo_sbe_v1_8_dissect.cancel_group_id(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -3311,26 +3211,6 @@ memx_options_memo_sbe_v1_8_dissect.pending_mass_cancel_message = function(buffer
   end
 
   return memx_options_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 21
-memx_options_memo_sbe_v1_8_size_of.padding_21 = 21
-
--- Display: Padding 21
-memx_options_memo_sbe_v1_8_display.padding_21 = function(value)
-  return "Padding 21: "..value
-end
-
--- Dissect: Padding 21
-memx_options_memo_sbe_v1_8_dissect.padding_21 = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_8_size_of.padding_21
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = memx_options_memo_sbe_v1_8_display.padding_21(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memo_sbe_v1_8.fields.padding_21, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Cum Qty
@@ -3602,8 +3482,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_restatement_message = functi
 
   index = index + memx_options_memo_sbe_v1_8_size_of.transact_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_21
-
   return index
 end
 
@@ -3643,7 +3521,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields =
   -- Side: 1 Byte Ascii String Enum with 3 values
   index, side = memx_options_memo_sbe_v1_8_dissect.side(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = memx_options_memo_sbe_v1_8_dissect.last_px(buffer, index, packet, parent)
 
   -- Last Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -3655,14 +3533,11 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields =
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = memx_options_memo_sbe_v1_8_dissect.padding_21(buffer, index, packet, parent)
 
   return index
 end
@@ -3744,8 +3619,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_trade_break_message = functi
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -3785,11 +3658,8 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields =
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -3835,8 +3705,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_trade_correction_message = f
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   return index
 end
 
@@ -3873,7 +3741,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fie
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_options_memo_sbe_v1_8_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = memx_options_memo_sbe_v1_8_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -3882,11 +3750,8 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fie
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -3925,12 +3790,12 @@ memx_options_memo_sbe_v1_8_dissect.orig_list_seq_no = function(buffer, offset, p
 end
 
 -- Size: Price Optional
-memx_options_memo_sbe_v1_8_size_of.price_optional = 1
+memx_options_memo_sbe_v1_8_size_of.price_optional = 8
 
 -- Display: Price Optional
 memx_options_memo_sbe_v1_8_display.price_optional = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Price Optional: No Value"
   end
 
@@ -3940,18 +3805,18 @@ end
 -- Translate: Price Optional
 translate.price_optional = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return 0/0
   end
 
-  return raw/100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Price Optional
 memx_options_memo_sbe_v1_8_dissect.price_optional = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_8_size_of.price_optional
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.price_optional(raw)
   local display = memx_options_memo_sbe_v1_8_display.price_optional(raw, value, buffer, offset, packet, parent)
 
@@ -4092,8 +3957,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_replaced_message = function(
 
   index = index + memx_options_memo_sbe_v1_8_size_of.orig_list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_21
-
   return index
 end
 
@@ -4136,7 +3999,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields = fu
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_8_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price_optional = memx_options_memo_sbe_v1_8_dissect.price_optional(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -4145,17 +4008,14 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields = fu
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
 
   -- Orig List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, orig_list_seq_no = memx_options_memo_sbe_v1_8_dissect.orig_list_seq_no(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = memx_options_memo_sbe_v1_8_dissect.padding_21(buffer, index, packet, parent)
 
   return index
 end
@@ -4205,8 +4065,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_pending_replace_message = fu
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   return index
 end
 
@@ -4249,7 +4107,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fiel
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_8_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price_optional = memx_options_memo_sbe_v1_8_dissect.price_optional(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -4258,11 +4116,8 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fiel
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -4471,8 +4326,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_canceled_message = function(
 
   index = index + memx_options_memo_sbe_v1_8_size_of.orig_list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   return index
 end
 
@@ -4518,17 +4371,14 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields = fu
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
 
   -- Orig List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, orig_list_seq_no = memx_options_memo_sbe_v1_8_dissect.orig_list_seq_no(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -4570,8 +4420,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_pending_cancel_message = fun
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -4611,11 +4459,8 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_field
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -5090,8 +4935,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_trade_message = function(buf
 
   index = index + memx_options_memo_sbe_v1_8_size_of.contra_trading_capacity
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_21
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -5133,7 +4976,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_trade_message_fields = funct
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_options_memo_sbe_v1_8_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer
   index, last_px = memx_options_memo_sbe_v1_8_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -5142,10 +4985,10 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_trade_message_fields = funct
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
 
   -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -5162,9 +5005,6 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_trade_message_fields = funct
 
   -- Contra Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, contra_trading_capacity = memx_options_memo_sbe_v1_8_dissect.contra_trading_capacity(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = memx_options_memo_sbe_v1_8_dissect.padding_21(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
@@ -5548,8 +5388,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_rejected_message = function(
 
   index = index + memx_options_memo_sbe_v1_8_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -5589,11 +5427,8 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields = fu
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -5641,8 +5476,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_bulk_quote_component_new_mes
 
   index = index + memx_options_memo_sbe_v1_8_size_of.transact_time
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_21
-
   return index
 end
 
@@ -5679,7 +5512,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_bulk_quote_component_new_mes
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = memx_options_memo_sbe_v1_8_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price_optional = memx_options_memo_sbe_v1_8_dissect.price_optional(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -5688,14 +5521,11 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_bulk_quote_component_new_mes
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = memx_options_memo_sbe_v1_8_dissect.padding_21(buffer, index, packet, parent)
 
   return index
 end
@@ -5976,8 +5806,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_bulk_quote_pending_new_messa
 
   index = index + memx_options_memo_sbe_v1_8_size_of.number_of_orders
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -6007,10 +5835,10 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_bulk_quote_pending_new_messa
   -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, trading_capacity = memx_options_memo_sbe_v1_8_dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
 
   -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -6027,9 +5855,6 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_bulk_quote_pending_new_messa
 
   -- Number Of Orders: 1 Byte Unsigned Fixed Width Integer
   index, number_of_orders = memx_options_memo_sbe_v1_8_dissect.number_of_orders(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
@@ -6214,8 +6039,6 @@ memx_options_memo_sbe_v1_8_size_of.execution_report_new_message = function(buffe
 
   index = index + memx_options_memo_sbe_v1_8_size_of.risk_group_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_21
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -6257,7 +6080,7 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_new_message_fields = functio
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_8_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price_optional = memx_options_memo_sbe_v1_8_dissect.price_optional(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
@@ -6284,10 +6107,10 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_new_message_fields = functio
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_options_memo_sbe_v1_8_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Transact Time: 1 Byte Unsigned Fixed Width Integer
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_options_memo_sbe_v1_8_dissect.transact_time(buffer, index, packet, parent)
 
   -- Mtp Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -6301,9 +6124,6 @@ memx_options_memo_sbe_v1_8_dissect.execution_report_new_message_fields = functio
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_memo_sbe_v1_8_dissect.risk_group_id(buffer, index, packet, parent)
-
-  -- Padding 21: 21 Byte
-  index, padding_21 = memx_options_memo_sbe_v1_8_dissect.padding_21(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
@@ -6433,8 +6253,6 @@ memx_options_memo_sbe_v1_8_size_of.allocation_instruction_message = function(buf
 
   index = index + memx_options_memo_sbe_v1_8_size_of.side
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   index = index + memx_options_memo_sbe_v1_8_size_of.execution_allocations_groups(buffer, offset + index)
 
   index = index + memx_options_memo_sbe_v1_8_size_of.requested_allocations_groups(buffer, offset + index)
@@ -6451,7 +6269,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.allocation_instruction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- Alloc Id: 20 Byte Ascii String
@@ -6471,9 +6289,6 @@ memx_options_memo_sbe_v1_8_dissect.allocation_instruction_message_fields = funct
 
   -- Side: 1 Byte Ascii String Enum with 3 values
   index, side = memx_options_memo_sbe_v1_8_dissect.side(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   -- Execution Allocations Groups: Struct of 2 fields
   index, execution_allocations_groups = memx_options_memo_sbe_v1_8_dissect.execution_allocations_groups(buffer, index, packet, parent)
@@ -6617,8 +6432,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_bulk_clear_lockouts_by_efid_or_un
 
   index = index + memx_options_memo_sbe_v1_8_size_of.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -6631,7 +6444,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- Cl Ord I D Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Cl Ord Id: 20 Byte Ascii String
@@ -6642,9 +6455,6 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_bulk_clear_lockouts_by_efid_or_un
 
   -- Underlier Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Underlier optional: 6 Byte Ascii String Nullable
   index, underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional = memx_options_memo_sbe_v1_8_dissect.underlier_mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_underlier_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -6706,8 +6516,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_bulk_clear_all_lockouts_request_m
 
   index = index + memx_options_memo_sbe_v1_8_size_of.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -6720,14 +6528,11 @@ end
 memx_options_memo_sbe_v1_8_dissect.mass_cancel_bulk_clear_all_lockouts_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- Cl Ord I D Mass Cancel Bulk Clear All Lockouts Request Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id = memx_options_memo_sbe_v1_8_dissect.cl_ord_i_d_mass_cancel_bulk_clear_all_lockouts_request_cl_ord_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -6793,8 +6598,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_clear_lockout_request_message = f
 
   index = index + memx_options_memo_sbe_v1_8_size_of.lockout_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -6807,7 +6610,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.mass_cancel_clear_lockout_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -6818,9 +6621,6 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_clear_lockout_request_message_fie
 
   -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_8_dissect.lockout_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -6858,8 +6658,6 @@ memx_options_memo_sbe_v1_8_size_of.mass_cancel_request_message = function(buffer
 
   index = index + memx_options_memo_sbe_v1_8_size_of.mass_cancel_inst
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -6872,7 +6670,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -6895,9 +6693,6 @@ memx_options_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields = function
 
   -- Mass Cancel Inst: Struct of 4 fields
   index, mass_cancel_inst = memx_options_memo_sbe_v1_8_dissect.mass_cancel_inst(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -6958,8 +6753,6 @@ memx_options_memo_sbe_v1_8_size_of.order_cancel_request_message = function(buffe
 
   index = index + memx_options_memo_sbe_v1_8_size_of.side_optional
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   return index
 end
 
@@ -6972,7 +6765,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.order_cancel_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -6992,9 +6785,6 @@ memx_options_memo_sbe_v1_8_dissect.order_cancel_request_message_fields = functio
 
   -- Side Optional: 1 Byte Ascii String Enum with 4 values
   index, side_optional = memx_options_memo_sbe_v1_8_dissect.side_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
@@ -7036,8 +6826,6 @@ memx_options_memo_sbe_v1_8_size_of.order_cancel_replace_request_message = functi
 
   index = index + memx_options_memo_sbe_v1_8_size_of.price_optional
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   return index
 end
 
@@ -7050,7 +6838,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -7077,11 +6865,8 @@ memx_options_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields =
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_8_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price_optional = memx_options_memo_sbe_v1_8_dissect.price_optional(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
@@ -7099,28 +6884,8 @@ memx_options_memo_sbe_v1_8_dissect.order_cancel_replace_request_message = functi
   return memx_options_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Padding 2
-memx_options_memo_sbe_v1_8_size_of.padding_2 = 2
-
--- Display: Padding 2
-memx_options_memo_sbe_v1_8_display.padding_2 = function(value)
-  return "Padding 2: "..value
-end
-
--- Dissect: Padding 2
-memx_options_memo_sbe_v1_8_dissect.padding_2 = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_8_size_of.padding_2
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = memx_options_memo_sbe_v1_8_display.padding_2(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memo_sbe_v1_8.fields.padding_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Offer Px
-memx_options_memo_sbe_v1_8_size_of.offer_px = 1
+memx_options_memo_sbe_v1_8_size_of.offer_px = 2
 
 -- Display: Offer Px
 memx_options_memo_sbe_v1_8_display.offer_px = function(value)
@@ -7136,7 +6901,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.offer_px = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_8_size_of.offer_px
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = translate.offer_px(raw)
   local display = memx_options_memo_sbe_v1_8_display.offer_px(value, buffer, offset, packet, parent)
 
@@ -7166,7 +6931,7 @@ memx_options_memo_sbe_v1_8_dissect.offer_size = function(buffer, offset, packet,
 end
 
 -- Size: Bid Px
-memx_options_memo_sbe_v1_8_size_of.bid_px = 1
+memx_options_memo_sbe_v1_8_size_of.bid_px = 2
 
 -- Display: Bid Px
 memx_options_memo_sbe_v1_8_display.bid_px = function(value)
@@ -7182,7 +6947,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.bid_px = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_8_size_of.bid_px
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = translate.bid_px(raw)
   local display = memx_options_memo_sbe_v1_8_display.bid_px(value, buffer, offset, packet, parent)
 
@@ -7227,8 +6992,6 @@ memx_options_memo_sbe_v1_8_size_of.quotes_group = function(buffer, offset)
 
   index = index + memx_options_memo_sbe_v1_8_size_of.offer_px
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_2
-
   return index
 end
 
@@ -7250,17 +7013,14 @@ memx_options_memo_sbe_v1_8_dissect.quotes_group_fields = function(buffer, offset
   -- Bid Size: 2 Byte Unsigned Fixed Width Integer
   index, bid_size = memx_options_memo_sbe_v1_8_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Bid Px: 1 Byte Signed Fixed Width Integer
+  -- Bid Px: 2 Byte Unsigned Fixed Width Integer
   index, bid_px = memx_options_memo_sbe_v1_8_dissect.bid_px(buffer, index, packet, parent)
 
   -- Offer Size: 2 Byte Unsigned Fixed Width Integer
   index, offer_size = memx_options_memo_sbe_v1_8_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Offer Px: 1 Byte Signed Fixed Width Integer
+  -- Offer Px: 2 Byte Unsigned Fixed Width Integer
   index, offer_px = memx_options_memo_sbe_v1_8_dissect.offer_px(buffer, index, packet, parent)
-
-  -- Padding 2: 2 Byte
-  index, padding_2 = memx_options_memo_sbe_v1_8_dissect.padding_2(buffer, index, packet, parent)
 
   return index
 end
@@ -7306,7 +7066,7 @@ memx_options_memo_sbe_v1_8_dissect.quotes_groups_fields = function(buffer, offse
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Quotes Group: Struct of 7 fields
+  -- Quotes Group: Struct of 6 fields
   for i = 1, num_in_group do
     index = memx_options_memo_sbe_v1_8_dissect.quotes_group(buffer, index, packet, parent)
   end
@@ -7349,8 +7109,6 @@ memx_options_memo_sbe_v1_8_size_of.long_one_sided_bulk_quote_message = function(
 
   index = index + memx_options_memo_sbe_v1_8_size_of.risk_group_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   index = index + memx_options_memo_sbe_v1_8_size_of.quotes_groups(buffer, offset + index)
@@ -7367,7 +7125,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.long_one_sided_bulk_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -7393,9 +7151,6 @@ memx_options_memo_sbe_v1_8_dissect.long_one_sided_bulk_quote_message_fields = fu
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_memo_sbe_v1_8_dissect.risk_group_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
@@ -7441,8 +7196,6 @@ memx_options_memo_sbe_v1_8_size_of.short_one_sided_bulk_quote_message = function
 
   index = index + memx_options_memo_sbe_v1_8_size_of.risk_group_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   index = index + memx_options_memo_sbe_v1_8_size_of.quotes_groups(buffer, offset + index)
@@ -7459,7 +7212,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.short_one_sided_bulk_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -7485,9 +7238,6 @@ memx_options_memo_sbe_v1_8_dissect.short_one_sided_bulk_quote_message_fields = f
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_memo_sbe_v1_8_dissect.risk_group_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
@@ -7533,8 +7283,6 @@ memx_options_memo_sbe_v1_8_size_of.long_two_sided_bulk_quote_message = function(
 
   index = index + memx_options_memo_sbe_v1_8_size_of.risk_group_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   index = index + memx_options_memo_sbe_v1_8_size_of.quotes_groups(buffer, offset + index)
@@ -7551,7 +7299,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.long_two_sided_bulk_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -7577,9 +7325,6 @@ memx_options_memo_sbe_v1_8_dissect.long_two_sided_bulk_quote_message_fields = fu
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_memo_sbe_v1_8_dissect.risk_group_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
@@ -7625,8 +7370,6 @@ memx_options_memo_sbe_v1_8_size_of.short_two_sided_bulk_quote_message = function
 
   index = index + memx_options_memo_sbe_v1_8_size_of.risk_group_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_7
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   index = index + memx_options_memo_sbe_v1_8_size_of.quotes_groups(buffer, offset + index)
@@ -7643,7 +7386,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.short_two_sided_bulk_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -7669,9 +7412,6 @@ memx_options_memo_sbe_v1_8_dissect.short_two_sided_bulk_quote_message_fields = f
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_memo_sbe_v1_8_dissect.risk_group_id(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = memx_options_memo_sbe_v1_8_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
@@ -7733,8 +7473,6 @@ memx_options_memo_sbe_v1_8_size_of.new_order_single_message = function(buffer, o
 
   index = index + memx_options_memo_sbe_v1_8_size_of.risk_group_id
 
-  index = index + memx_options_memo_sbe_v1_8_size_of.padding_14
-
   index = index + memx_options_memo_sbe_v1_8_size_of.parties_groups(buffer, offset + index)
 
   return index
@@ -7749,7 +7487,7 @@ end
 memx_options_memo_sbe_v1_8_dissect.new_order_single_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sending Time: 1 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_8_dissect.sending_time(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -7767,7 +7505,7 @@ memx_options_memo_sbe_v1_8_dissect.new_order_single_message_fields = function(bu
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_8_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price_optional = memx_options_memo_sbe_v1_8_dissect.price_optional(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
@@ -7799,9 +7537,6 @@ memx_options_memo_sbe_v1_8_dissect.new_order_single_message_fields = function(bu
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_memo_sbe_v1_8_dissect.risk_group_id(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = memx_options_memo_sbe_v1_8_dissect.padding_14(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = memx_options_memo_sbe_v1_8_dissect.parties_groups(buffer, index, packet, parent)
