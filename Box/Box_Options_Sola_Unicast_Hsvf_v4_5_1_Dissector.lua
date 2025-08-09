@@ -712,25 +712,25 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_initial_and_improvement_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Deletion Type: 1 Byte Ascii String Enum with 3 values
+  -- Deletion Type: N
   index, deletion_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.deletion_type(buffer, index, packet, parent)
 
-  -- Order Sequence Number: 6 Byte Ascii String
+  -- Order Sequence Number: N
   index, order_sequence_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_sequence_number(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Order Side: X
   index, order_side = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_side(buffer, index, packet, parent)
 
-  -- Improvement Phase Sequential Number: 6 Byte Ascii String
+  -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_sequential_number(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: X
   index, auction_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.auction_type(buffer, index, packet, parent)
 
   return index
@@ -998,25 +998,25 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root Symbol: 6 Byte Ascii String
+  -- Root Symbol: x
   index, root_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.root_symbol(buffer, index, packet, parent)
 
-  -- Expiry Month Code: 1 Byte Ascii String Enum with 11 values
+  -- Expiry Month Code: A
   index, expiry_month_code = box_options_sola_unicast_hsvf_v4_5_1_dissect.expiry_month_code(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- Strike Price: 7 Byte Ascii String
+  -- Strike Price: N
   index, strike_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: 1 Byte Ascii String
+  -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.strike_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Ascii String
+  -- Expiry Year: N
   index, expiry_year = box_options_sola_unicast_hsvf_v4_5_1_dissect.expiry_year(buffer, index, packet, parent)
 
-  -- Expiry Day: 2 Byte Ascii String
+  -- Expiry Day: N
   index, expiry_day = box_options_sola_unicast_hsvf_v4_5_1_dissect.expiry_day(buffer, index, packet, parent)
 
   return index
@@ -1065,25 +1065,25 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_and_improvement_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Deletion Type: 1 Byte Ascii String Enum with 3 values
+  -- Deletion Type: N
   index, deletion_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.deletion_type(buffer, index, packet, parent)
 
-  -- Order Sequence Number: 6 Byte Ascii String
+  -- Order Sequence Number: N
   index, order_sequence_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_sequence_number(buffer, index, packet, parent)
 
-  -- Improvement Order Side: 1 Byte Ascii String Enum with 3 values
+  -- Improvement Order Side: X
   index, improvement_order_side = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_order_side(buffer, index, packet, parent)
 
-  -- Improvement Phase Sequential Number: 6 Byte Ascii String
+  -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_sequential_number(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: X
   index, auction_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.auction_type(buffer, index, packet, parent)
 
   return index
@@ -1353,52 +1353,52 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_market_sheet_initial_and_improvement_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Order Side: X
   index, order_side = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_side(buffer, index, packet, parent)
 
-  -- Type Of Order: 1 Byte Ascii String Enum with 2 values
+  -- Type Of Order: X
   index, type_of_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_order(buffer, index, packet, parent)
 
-  -- Limit Entered For An Order Sign: 1 Byte Ascii String Enum with 2 values
+  -- Limit Entered For An Order Sign: X
   index, limit_entered_for_an_order_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.limit_entered_for_an_order_sign(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- Limit Fraction Indicator: 1 Byte Ascii String
+  -- Limit Fraction Indicator: X
   index, limit_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.limit_fraction_indicator(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Ascii String
+  -- Order Quantity: n
   index, order_quantity = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_quantity(buffer, index, packet, parent)
 
-  -- Order Sequence Number: 6 Byte Ascii String
+  -- Order Sequence Number: N
   index, order_sequence_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_sequence_number(buffer, index, packet, parent)
 
-  -- Improvement Phase Sequential Number: 6 Byte Ascii String
+  -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_sequential_number(buffer, index, packet, parent)
 
-  -- Type Of Clearing Account: 1 Byte Ascii String Enum with 6 values
+  -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_clearing_account(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- End Of The Exposition: 8 Byte Ascii String
+  -- End Of The Exposition: N
   index, end_of_the_exposition = box_options_sola_unicast_hsvf_v4_5_1_dissect.end_of_the_exposition(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: X
   index, auction_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.auction_type(buffer, index, packet, parent)
 
-  -- Firm Id: 4 Byte Ascii String
+  -- Firm Id: X
   index, firm_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.firm_id(buffer, index, packet, parent)
 
-  -- Cmta: 4 Byte Ascii String
+  -- Cmta: X
   index, cmta = box_options_sola_unicast_hsvf_v4_5_1_dissect.cmta(buffer, index, packet, parent)
 
   return index
@@ -1463,49 +1463,49 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.market_sheet_initial_and_improvement_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Order Side: X
   index, order_side = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_side(buffer, index, packet, parent)
 
-  -- Type Of Order: 1 Byte Ascii String Enum with 2 values
+  -- Type Of Order: X
   index, type_of_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_order(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- Limit Fraction Indicator: 1 Byte Ascii String
+  -- Limit Fraction Indicator: X
   index, limit_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.limit_fraction_indicator(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Ascii String
+  -- Order Quantity: n
   index, order_quantity = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_quantity(buffer, index, packet, parent)
 
-  -- Order Sequence Number: 6 Byte Ascii String
+  -- Order Sequence Number: N
   index, order_sequence_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.order_sequence_number(buffer, index, packet, parent)
 
-  -- Improvement Phase Sequential Number: 6 Byte Ascii String
+  -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_sequential_number(buffer, index, packet, parent)
 
-  -- Type Of Clearing Account: 1 Byte Ascii String Enum with 6 values
+  -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_clearing_account(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- End Of The Exposition: 8 Byte Ascii String
+  -- End Of The Exposition: N
   index, end_of_the_exposition = box_options_sola_unicast_hsvf_v4_5_1_dissect.end_of_the_exposition(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: X
   index, auction_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.auction_type(buffer, index, packet, parent)
 
-  -- Firm Id: 4 Byte Ascii String
+  -- Firm Id: X
   index, firm_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.firm_id(buffer, index, packet, parent)
 
-  -- Cmta: 4 Byte Ascii String
+  -- Cmta: X
   index, cmta = box_options_sola_unicast_hsvf_v4_5_1_dissect.cmta(buffer, index, packet, parent)
 
   return index
@@ -1775,43 +1775,43 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_improvement_process_beginning_message_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Improvement Phase Sequential Number: 6 Byte Ascii String
+  -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_sequential_number(buffer, index, packet, parent)
 
-  -- Initial Order Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Initial Order Price Sign: X
   index, initial_order_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_price_sign(buffer, index, packet, parent)
 
-  -- Initial Order Price: 6 Byte Ascii String
+  -- Initial Order Price: N
   index, initial_order_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_price(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Indicator: 1 Byte Ascii String
+  -- Initial Order Price Fraction Indicator: X
   index, initial_order_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Initial Order Quantity: 8 Byte Ascii String
+  -- Initial Order Quantity: X
   index, initial_order_quantity = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_quantity(buffer, index, packet, parent)
 
-  -- Initial Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Initial Order Side: A
   index, initial_order_side = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_side(buffer, index, packet, parent)
 
-  -- Improvement Phase Expiry Time: 8 Byte Ascii String
+  -- Improvement Phase Expiry Time: A
   index, improvement_phase_expiry_time = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_expiry_time(buffer, index, packet, parent)
 
-  -- Improvement Process Expiry Duration: 4 Byte Ascii String
+  -- Improvement Process Expiry Duration: N
   index, improvement_process_expiry_duration = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_process_expiry_duration(buffer, index, packet, parent)
 
-  -- Minimum Quantity For Improvement Order: 8 Byte Ascii String
+  -- Minimum Quantity For Improvement Order: n
   index, minimum_quantity_for_improvement_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_quantity_for_improvement_order(buffer, index, packet, parent)
 
-  -- Percentage Assured To Initial Order: 8 Byte Ascii String
+  -- Percentage Assured To Initial Order: X
   index, percentage_assured_to_initial_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.percentage_assured_to_initial_order(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: X
   index, auction_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.auction_type(buffer, index, packet, parent)
 
   return index
@@ -1872,40 +1872,40 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_improvement_process_beginning_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Improvement Phase Sequential Number: 6 Byte Ascii String
+  -- Improvement Phase Sequential Number: N
   index, improvement_phase_sequential_number = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_sequential_number(buffer, index, packet, parent)
 
-  -- Initial Order Price: 6 Byte Ascii String
+  -- Initial Order Price: N
   index, initial_order_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_price(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Indicator: 1 Byte Ascii String
+  -- Initial Order Price Fraction Indicator: X
   index, initial_order_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Initial Order Quantity: 8 Byte Ascii String
+  -- Initial Order Quantity: X
   index, initial_order_quantity = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_quantity(buffer, index, packet, parent)
 
-  -- Initial Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Initial Order Side: A
   index, initial_order_side = box_options_sola_unicast_hsvf_v4_5_1_dissect.initial_order_side(buffer, index, packet, parent)
 
-  -- Improvement Phase Expiry Time: 8 Byte Ascii String
+  -- Improvement Phase Expiry Time: A
   index, improvement_phase_expiry_time = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_phase_expiry_time(buffer, index, packet, parent)
 
-  -- Improvement Process Expiry Duration: 4 Byte Ascii String
+  -- Improvement Process Expiry Duration: N
   index, improvement_process_expiry_duration = box_options_sola_unicast_hsvf_v4_5_1_dissect.improvement_process_expiry_duration(buffer, index, packet, parent)
 
-  -- Minimum Quantity For Improvement Order: 8 Byte Ascii String
+  -- Minimum Quantity For Improvement Order: n
   index, minimum_quantity_for_improvement_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_quantity_for_improvement_order(buffer, index, packet, parent)
 
-  -- Percentage Assured To Initial Order: 8 Byte Ascii String
+  -- Percentage Assured To Initial Order: X
   index, percentage_assured_to_initial_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.percentage_assured_to_initial_order(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: X
   index, auction_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.auction_type(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
@@ -1992,10 +1992,10 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.end_of_sales_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved: 1 Byte Ascii String
+  -- Reserved: A
   index, reserved = box_options_sola_unicast_hsvf_v4_5_1_dissect.reserved(buffer, index, packet, parent)
 
-  -- Time: 6 Byte Ascii String
+  -- Time: N
   index, time = box_options_sola_unicast_hsvf_v4_5_1_dissect.time(buffer, index, packet, parent)
 
   return index
@@ -2120,13 +2120,13 @@ box_options_sola_unicast_hsvf_v4_5_1_dissect.bulletins_message_fields = function
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- Bulletin Type: 1 Byte Ascii String Enum with 2 values
+  -- Bulletin Type: X
   index, bulletin_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.bulletin_type(buffer, index, packet, parent)
 
-  -- Bulletin Contents: 79 Byte Ascii String
+  -- Bulletin Contents: x
   index, bulletin_contents = box_options_sola_unicast_hsvf_v4_5_1_dissect.bulletin_contents(buffer, index, packet, parent)
 
-  -- Continue Marker: 1 Byte Ascii String Enum with 2 values
+  -- Continue Marker: N
   index, continue_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.continue_marker(buffer, index, packet, parent)
 
   return index
@@ -2232,13 +2232,13 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_group_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Group Of The Complex Order Instrument: 2 Byte Ascii String
+  -- Group Of The Complex Order Instrument: X
   index, group_of_the_complex_order_instrument = box_options_sola_unicast_hsvf_v4_5_1_dissect.group_of_the_complex_order_instrument(buffer, index, packet, parent)
 
-  -- Group Status: 1 Byte Ascii String Enum with 8 values
+  -- Group Status: A
   index, group_status = box_options_sola_unicast_hsvf_v4_5_1_dissect.group_status(buffer, index, packet, parent)
 
   return index
@@ -2279,13 +2279,13 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.group_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Root Symbol: 6 Byte Ascii String
+  -- Root Symbol: x
   index, root_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.root_symbol(buffer, index, packet, parent)
 
-  -- Group Status: 1 Byte Ascii String Enum with 8 values
+  -- Group Status: A
   index, group_status = box_options_sola_unicast_hsvf_v4_5_1_dissect.group_status(buffer, index, packet, parent)
 
   return index
@@ -2353,16 +2353,16 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.group_opening_time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Root Symbol: 6 Byte Ascii String
+  -- Root Symbol: x
   index, root_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.root_symbol(buffer, index, packet, parent)
 
-  -- Group Status: 1 Byte Ascii String Enum with 8 values
+  -- Group Status: A
   index, group_status = box_options_sola_unicast_hsvf_v4_5_1_dissect.group_status(buffer, index, packet, parent)
 
-  -- Scheduled Time: 6 Byte Ascii String
+  -- Scheduled Time: N
   index, scheduled_time = box_options_sola_unicast_hsvf_v4_5_1_dissect.scheduled_time(buffer, index, packet, parent)
 
   return index
@@ -2399,7 +2399,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.beginning_of_complex_order_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   return index
@@ -2436,7 +2436,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.beginning_of_options_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   return index
@@ -3093,82 +3093,82 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Bid Price Sign: 1 Byte Ascii String
+  -- Bid Price Sign: X
   index, bid_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_sign(buffer, index, packet, parent)
 
-  -- Bid Price: 6 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: n
   index, bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Ask Price Sign: X
   index, ask_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_sign(buffer, index, packet, parent)
 
-  -- Ask Price: 6 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: n
   index, ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Last Price Sign: 1 Byte Ascii String
+  -- Last Price Sign: X
   index, last_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.last_price_sign(buffer, index, packet, parent)
 
-  -- Last Price: 6 Byte Ascii String
+  -- Last Price: N
   index, last_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: 1 Byte Ascii String
+  -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.last_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Open Price Sign: X
   index, open_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_price_sign(buffer, index, packet, parent)
 
-  -- Open Price: 6 Byte Ascii String
+  -- Open Price: N
   index, open_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_price(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: 1 Byte Ascii String
+  -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- High Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- High Price Sign: X
   index, high_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.high_price_sign(buffer, index, packet, parent)
 
-  -- High Price: 6 Byte Ascii String
+  -- High Price: N
   index, high_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.high_price(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: 1 Byte Ascii String
+  -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.high_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Low Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Low Price Sign: X
   index, low_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.low_price_sign(buffer, index, packet, parent)
 
-  -- Low Price: 6 Byte Ascii String
+  -- Low Price: N
   index, low_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.low_price(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: 1 Byte Ascii String
+  -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign: 1 Byte Ascii String Enum with 2 values
+  -- Net Change Sign: X
   index, net_change_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_sign(buffer, index, packet, parent)
 
-  -- Net Change: 6 Byte Ascii String
+  -- Net Change: N
   index, net_change = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: 1 Byte Ascii String
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_fraction_indicator(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = box_options_sola_unicast_hsvf_v4_5_1_dissect.volume(buffer, index, packet, parent)
 
   return index
@@ -3316,10 +3316,10 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_marker_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Type Of Market: 1 Byte Ascii String
+  -- Type Of Market: A
   index, type_of_market = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_market(buffer, index, packet, parent)
 
-  -- Type Of Options: 1 Byte Ascii String Enum with 1 values
+  -- Type Of Options: A
   index, type_of_options = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_options(buffer, index, packet, parent)
 
   return index
@@ -3458,82 +3458,82 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Bid Price: 6 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: n
   index, bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 6 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: n
   index, ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Last Price: 6 Byte Ascii String
+  -- Last Price: N
   index, last_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: 1 Byte Ascii String
+  -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.last_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Interest: 7 Byte Ascii String
+  -- Open Interest: n
   index, open_interest = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Tick: 1 Byte Ascii String Enum with 2 values
+  -- Tick: X
   index, tick = box_options_sola_unicast_hsvf_v4_5_1_dissect.tick(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = box_options_sola_unicast_hsvf_v4_5_1_dissect.volume(buffer, index, packet, parent)
 
-  -- Net Change Sign: 1 Byte Ascii String Enum with 2 values
+  -- Net Change Sign: X
   index, net_change_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_sign(buffer, index, packet, parent)
 
-  -- Net Change: 6 Byte Ascii String
+  -- Net Change: N
   index, net_change = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: 1 Byte Ascii String
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Price: 6 Byte Ascii String
+  -- Open Price: N
   index, open_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_price(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: 1 Byte Ascii String
+  -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- High Price: 6 Byte Ascii String
+  -- High Price: N
   index, high_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.high_price(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: 1 Byte Ascii String
+  -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.high_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Low Price: 6 Byte Ascii String
+  -- Low Price: N
   index, low_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.low_price(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: 1 Byte Ascii String
+  -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
   -- Option Marker: Struct of 2 fields
   index, option_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.option_marker(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 10 Byte Ascii String
+  -- Underlying Symbol: x
   index, underlying_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Reference Price: 6 Byte Ascii String
+  -- Reference Price: N
   index, reference_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.reference_price(buffer, index, packet, parent)
 
-  -- Reference Price Fraction Indicator: 1 Byte Ascii String
+  -- Reference Price Fraction Indicator: X
   index, reference_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.reference_price_fraction_indicator(buffer, index, packet, parent)
 
   return index
@@ -3646,13 +3646,13 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Ratio Sign: 1 Byte Ascii String Enum with 2 values
+  -- Leg Ratio Sign: X
   index, leg_ratio_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.leg_ratio_sign(buffer, index, packet, parent)
 
-  -- Leg Ratio: 8 Byte Ascii String
+  -- Leg Ratio: N
   index, leg_ratio = box_options_sola_unicast_hsvf_v4_5_1_dissect.leg_ratio(buffer, index, packet, parent)
 
-  -- Leg Symbol: 30 Byte Ascii String
+  -- Leg Symbol: x
   index, leg_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.leg_symbol(buffer, index, packet, parent)
 
   return index
@@ -4161,67 +4161,67 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_keys_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Ascii String
+  -- Expiry Year: N
   index, expiry_year = box_options_sola_unicast_hsvf_v4_5_1_dissect.expiry_year(buffer, index, packet, parent)
 
-  -- Delivery Month: 1 Byte Ascii String Enum with 11 values
+  -- Delivery Month: A
   index, delivery_month = box_options_sola_unicast_hsvf_v4_5_1_dissect.delivery_month(buffer, index, packet, parent)
 
-  -- Expiry Day: 2 Byte Ascii String
+  -- Expiry Day: N
   index, expiry_day = box_options_sola_unicast_hsvf_v4_5_1_dissect.expiry_day(buffer, index, packet, parent)
 
-  -- Max Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Max Number Of Contracts Per Order: n
   index, max_number_of_contracts_per_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.max_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Min Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Min Number Of Contracts Per Order: n
   index, min_number_of_contracts_per_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.min_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Max Threshold Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Max Threshold Price Sign: X
   index, max_threshold_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.max_threshold_price_sign(buffer, index, packet, parent)
 
-  -- Max Threshold Price: 6 Byte Ascii String
+  -- Max Threshold Price: n
   index, max_threshold_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.max_threshold_price(buffer, index, packet, parent)
 
-  -- Max Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Max Threshold Price Fraction Indicator: X
   index, max_threshold_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.max_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Min Threshold Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Min Threshold Price Sign: X
   index, min_threshold_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.min_threshold_price_sign(buffer, index, packet, parent)
 
-  -- Min Threshold Price: 6 Byte Ascii String
+  -- Min Threshold Price: n
   index, min_threshold_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.min_threshold_price(buffer, index, packet, parent)
 
-  -- Min Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Min Threshold Price Fraction Indicator: X
   index, min_threshold_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.min_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Tick Increment: 6 Byte Ascii String
+  -- Tick Increment: X
   index, tick_increment = box_options_sola_unicast_hsvf_v4_5_1_dissect.tick_increment(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator: 1 Byte Ascii String
+  -- Tick Increment Fraction Indicator: N
   index, tick_increment_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.tick_increment_fraction_indicator(buffer, index, packet, parent)
 
-  -- Filler 2: 2 Byte Ascii String
+  -- Filler 2: X
   index, filler_2 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_2(buffer, index, packet, parent)
 
-  -- Group: 2 Byte Ascii String
+  -- Group: X
   index, group = box_options_sola_unicast_hsvf_v4_5_1_dissect.group(buffer, index, packet, parent)
 
-  -- Instrument: 4 Byte Ascii String
+  -- Instrument: X
   index, instrument = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument(buffer, index, packet, parent)
 
-  -- Instrument External Code: 30 Byte Ascii String
+  -- Instrument External Code: x
   index, instrument_external_code = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Allow Implied: 1 Byte Ascii String Enum with 3 values
+  -- Complex Order Instrument Allow Implied: A
   index, complex_order_instrument_allow_implied = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_allow_implied(buffer, index, packet, parent)
 
-  -- Number Of Legs: 2 Byte Ascii String
+  -- Number Of Legs: N
   index, number_of_legs = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Instrument Leg: Struct of 3 fields
@@ -4359,10 +4359,10 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.market_flow_indicator_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Type Of Instrument: 1 Byte Ascii String Enum with 2 values
+  -- Type Of Instrument: X
   index, type_of_instrument = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_instrument(buffer, index, packet, parent)
 
-  -- Type Of Underlying: 1 Byte Ascii String Enum with 2 values
+  -- Type Of Underlying: X
   index, type_of_underlying = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_underlying(buffer, index, packet, parent)
 
   return index
@@ -4627,58 +4627,58 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_instrument_keys_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Strike Price Currency: 3 Byte Ascii String Enum with 2 values
+  -- Strike Price Currency: X
   index, strike_price_currency = box_options_sola_unicast_hsvf_v4_5_1_dissect.strike_price_currency(buffer, index, packet, parent)
 
-  -- Maximum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Maximum Number Of Contracts Per Order: n
   index, maximum_number_of_contracts_per_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.maximum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Minimum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Minimum Number Of Contracts Per Order: n
   index, minimum_number_of_contracts_per_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price: 6 Byte Ascii String
+  -- Maximum Threshold Price: n
   index, maximum_threshold_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.maximum_threshold_price(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.maximum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price: 6 Byte Ascii String
+  -- Minimum Threshold Price: n
   index, minimum_threshold_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_threshold_price(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.minimum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Tick Increment: 6 Byte Ascii String
+  -- Tick Increment: X
   index, tick_increment = box_options_sola_unicast_hsvf_v4_5_1_dissect.tick_increment(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator: 1 Byte Ascii String
+  -- Tick Increment Fraction Indicator: N
   index, tick_increment_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.tick_increment_fraction_indicator(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: X
   index, option_type = box_options_sola_unicast_hsvf_v4_5_1_dissect.option_type(buffer, index, packet, parent)
 
   -- Market Flow Indicator: Struct of 2 fields
   index, market_flow_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.market_flow_indicator(buffer, index, packet, parent)
 
-  -- Group Instrument: 2 Byte Ascii String
+  -- Group Instrument: X
   index, group_instrument = box_options_sola_unicast_hsvf_v4_5_1_dissect.group_instrument(buffer, index, packet, parent)
 
-  -- Instrument: 4 Byte Ascii String
+  -- Instrument: X
   index, instrument = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument(buffer, index, packet, parent)
 
-  -- Instrument External Code: 30 Byte Ascii String
+  -- Instrument External Code: x
   index, instrument_external_code = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_external_code(buffer, index, packet, parent)
 
   -- Option Marker: Struct of 2 fields
   index, option_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.option_marker(buffer, index, packet, parent)
 
-  -- Underlying Symbol Root: 10 Byte Ascii String
+  -- Underlying Symbol Root: x
   index, underlying_symbol_root = box_options_sola_unicast_hsvf_v4_5_1_dissect.underlying_symbol_root(buffer, index, packet, parent)
 
   return index
@@ -4895,31 +4895,31 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_trade_cancellation_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = box_options_sola_unicast_hsvf_v4_5_1_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price Sign: 1 Byte Ascii String
+  -- Trade Price Sign: X
   index, trade_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price_sign(buffer, index, packet, parent)
 
-  -- Trade Price: 6 Byte Ascii String
+  -- Trade Price: N
   index, trade_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte Ascii String
   index, filler_6 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_6(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Ascii String
+  -- Timestamp: N
   index, timestamp = box_options_sola_unicast_hsvf_v4_5_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: 1 Byte Ascii String Enum with 11 values
+  -- Price Indicator Marker: A
   index, price_indicator_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.price_indicator_marker(buffer, index, packet, parent)
 
   return index
@@ -4974,34 +4974,34 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_trade_cancellation_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = box_options_sola_unicast_hsvf_v4_5_1_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price: 6 Byte Ascii String
+  -- Trade Price: N
   index, trade_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte Ascii String
   index, filler_6 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_6(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Ascii String
+  -- Timestamp: N
   index, timestamp = box_options_sola_unicast_hsvf_v4_5_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Open Interest: 7 Byte Ascii String
+  -- Open Interest: n
   index, open_interest = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_interest(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: 1 Byte Ascii String Enum with 11 values
+  -- Price Indicator Marker: A
   index, price_indicator_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.price_indicator_marker(buffer, index, packet, parent)
 
   return index
@@ -5143,37 +5143,37 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_market_depth_level_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Level Of Market Depth: 1 Byte Ascii String Enum with 8 values
+  -- Level Of Market Depth: X
   index, level_of_market_depth = box_options_sola_unicast_hsvf_v4_5_1_dissect.level_of_market_depth(buffer, index, packet, parent)
 
-  -- Bid Price Sign: 1 Byte Ascii String
+  -- Bid Price Sign: X
   index, bid_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_sign(buffer, index, packet, parent)
 
-  -- Bid Price: 6 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: n
   index, bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Number Of Bid Orders: 2 Byte Ascii String
+  -- Number Of Bid Orders: X
   index, number_of_bid_orders = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_bid_orders(buffer, index, packet, parent)
 
-  -- Ask Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Ask Price Sign: X
   index, ask_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_sign(buffer, index, packet, parent)
 
-  -- Ask Price: 6 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: n
   index, ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Number Of Ask Orders: 2 Byte Ascii String
+  -- Number Of Ask Orders: X
   index, number_of_ask_orders = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_ask_orders(buffer, index, packet, parent)
 
   return index
@@ -5299,16 +5299,16 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_market_depth_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Number Of Levels: 1 Byte Ascii String
+  -- Number Of Levels: N
   index, number_of_levels = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_levels(buffer, index, packet, parent)
 
   -- Complex Market Depth Level: Struct of 11 fields
@@ -5366,31 +5366,31 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.market_depth_level_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Level Of Market Depth: 1 Byte Ascii String Enum with 8 values
+  -- Level Of Market Depth: X
   index, level_of_market_depth = box_options_sola_unicast_hsvf_v4_5_1_dissect.level_of_market_depth(buffer, index, packet, parent)
 
-  -- Bid Price: 6 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: n
   index, bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Number Of Bid Orders: 2 Byte Ascii String
+  -- Number Of Bid Orders: X
   index, number_of_bid_orders = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_bid_orders(buffer, index, packet, parent)
 
-  -- Ask Price: 6 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: n
   index, ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Number Of Ask Orders: 2 Byte Ascii String
+  -- Number Of Ask Orders: X
   index, number_of_ask_orders = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_ask_orders(buffer, index, packet, parent)
 
   return index
@@ -5437,16 +5437,16 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_market_depth_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Number Of Levels: 1 Byte Ascii String
+  -- Number Of Levels: N
   index, number_of_levels = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_levels(buffer, index, packet, parent)
 
   -- Market Depth Level: Struct of 9 fields
@@ -5562,43 +5562,43 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Bid Price Sign: 1 Byte Ascii String
+  -- Bid Price Sign: X
   index, bid_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_sign(buffer, index, packet, parent)
 
-  -- Bid Price: 6 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: n
   index, bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price Sign: 1 Byte Ascii String Enum with 2 values
+  -- Ask Price Sign: X
   index, ask_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_sign(buffer, index, packet, parent)
 
-  -- Ask Price: 6 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: n
   index, ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Public Customer Bid Size: 5 Byte Ascii String
+  -- Public Customer Bid Size: n
   index, public_customer_bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.public_customer_bid_size(buffer, index, packet, parent)
 
-  -- Public Customer Ask Size: 5 Byte Ascii String
+  -- Public Customer Ask Size: n
   index, public_customer_ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.public_customer_ask_size(buffer, index, packet, parent)
 
   return index
@@ -5657,40 +5657,40 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Bid Price: 6 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: n
   index, bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 6 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: n
   index, ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.ask_size(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Public Customer Bid Size: 5 Byte Ascii String
+  -- Public Customer Bid Size: n
   index, public_customer_bid_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.public_customer_bid_size(buffer, index, packet, parent)
 
-  -- Public Customer Ask Size: 5 Byte Ascii String
+  -- Public Customer Ask Size: n
   index, public_customer_ask_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.public_customer_ask_size(buffer, index, packet, parent)
 
   return index
@@ -5756,13 +5756,13 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_request_for_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Requested Size: 8 Byte Ascii String
+  -- Requested Size: n
   index, requested_size = box_options_sola_unicast_hsvf_v4_5_1_dissect.requested_size(buffer, index, packet, parent)
 
   return index
@@ -5821,40 +5821,40 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: 30 Byte Ascii String
+  -- Complex Order Instrument Symbol: x
   index, complex_order_instrument_symbol = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = box_options_sola_unicast_hsvf_v4_5_1_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price Sign: 1 Byte Ascii String
+  -- Trade Price Sign: X
   index, trade_price_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price_sign(buffer, index, packet, parent)
 
-  -- Trade Price: 6 Byte Ascii String
+  -- Trade Price: N
   index, trade_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign: 1 Byte Ascii String Enum with 2 values
+  -- Net Change Sign: X
   index, net_change_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_sign(buffer, index, packet, parent)
 
-  -- Net Change: 6 Byte Ascii String
+  -- Net Change: N
   index, net_change = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: 1 Byte Ascii String
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_fraction_indicator(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte Ascii String
   index, filler_6 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_6(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Ascii String
+  -- Timestamp: N
   index, timestamp = box_options_sola_unicast_hsvf_v4_5_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: 1 Byte Ascii String Enum with 11 values
+  -- Price Indicator Marker: A
   index, price_indicator_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.price_indicator_marker(buffer, index, packet, parent)
 
   return index
@@ -5915,43 +5915,43 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.option_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_unicast_hsvf_v4_5_1_dissect.instrument_description(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = box_options_sola_unicast_hsvf_v4_5_1_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price: 6 Byte Ascii String
+  -- Trade Price: N
   index, trade_price = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign: 1 Byte Ascii String Enum with 2 values
+  -- Net Change Sign: X
   index, net_change_sign = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_sign(buffer, index, packet, parent)
 
-  -- Net Change: 6 Byte Ascii String
+  -- Net Change: N
   index, net_change = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: 1 Byte Ascii String
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_options_sola_unicast_hsvf_v4_5_1_dissect.net_change_fraction_indicator(buffer, index, packet, parent)
 
   -- Filler 6: 6 Byte Ascii String
   index, filler_6 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_6(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Ascii String
+  -- Timestamp: N
   index, timestamp = box_options_sola_unicast_hsvf_v4_5_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Open Interest: 7 Byte Ascii String
+  -- Open Interest: n
   index, open_interest = box_options_sola_unicast_hsvf_v4_5_1_dissect.open_interest(buffer, index, packet, parent)
 
   -- Filler 1: 1 Byte Ascii String
   index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1_dissect.filler_1(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: 1 Byte Ascii String Enum with 11 values
+  -- Price Indicator Marker: A
   index, price_indicator_marker = box_options_sola_unicast_hsvf_v4_5_1_dissect.price_indicator_marker(buffer, index, packet, parent)
 
   return index
@@ -6013,7 +6013,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.system_timestamp_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trading Engine Timestamp: 9 Byte Ascii String
+  -- Trading Engine Timestamp: N
   index, trading_engine_timestamp = box_options_sola_unicast_hsvf_v4_5_1_dissect.trading_engine_timestamp(buffer, index, packet, parent)
 
   return index
@@ -6107,7 +6107,7 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.circuit_assurance_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 6 Byte Ascii String
+  -- Time: N
   index, time = box_options_sola_unicast_hsvf_v4_5_1_dissect.time(buffer, index, packet, parent)
 
   return index
@@ -6146,10 +6146,10 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.end_of_transmission_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String
+  -- Exchange Id: A
   index, exchange_id = box_options_sola_unicast_hsvf_v4_5_1_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Time: 6 Byte Ascii String
+  -- Time: N
   index, time = box_options_sola_unicast_hsvf_v4_5_1_dissect.time(buffer, index, packet, parent)
 
   return index
@@ -6452,31 +6452,31 @@ end
 box_options_sola_unicast_hsvf_v4_5_1_dissect.connection_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reset Sequence: 10 Byte Ascii String
+  -- Reset Sequence: N
   index, reset_sequence = box_options_sola_unicast_hsvf_v4_5_1_dissect.reset_sequence(buffer, index, packet, parent)
 
-  -- System Default: 1 Byte Ascii String
+  -- System Default: A
   index, system_default = box_options_sola_unicast_hsvf_v4_5_1_dissect.system_default(buffer, index, packet, parent)
 
-  -- System Value: 1 Byte Ascii String
+  -- System Value: A
   index, system_value = box_options_sola_unicast_hsvf_v4_5_1_dissect.system_value(buffer, index, packet, parent)
 
-  -- Type Of Market Data: 1 Byte Ascii String Enum with 6 values
+  -- Type Of Market Data: A
   index, type_of_market_data = box_options_sola_unicast_hsvf_v4_5_1_dissect.type_of_market_data(buffer, index, packet, parent)
 
-  -- Complex Order: 1 Byte Ascii String
+  -- Complex Order: A
   index, complex_order = box_options_sola_unicast_hsvf_v4_5_1_dissect.complex_order(buffer, index, packet, parent)
 
-  -- Market Summaries: 1 Byte Ascii String Enum with 2 values
+  -- Market Summaries: A
   index, market_summaries = box_options_sola_unicast_hsvf_v4_5_1_dissect.market_summaries(buffer, index, packet, parent)
 
-  -- Gap Control: 1 Byte Ascii String Enum with 2 values
+  -- Gap Control: N
   index, gap_control = box_options_sola_unicast_hsvf_v4_5_1_dissect.gap_control(buffer, index, packet, parent)
 
-  -- Hsvf Protocol: 2 Byte Ascii String
+  -- Hsvf Protocol: X
   index, hsvf_protocol = box_options_sola_unicast_hsvf_v4_5_1_dissect.hsvf_protocol(buffer, index, packet, parent)
 
-  -- Number Of Option Classes Requested: 3 Byte Ascii String
+  -- Number Of Option Classes Requested: N
   index, number_of_option_classes_requested = box_options_sola_unicast_hsvf_v4_5_1_dissect.number_of_option_classes_requested(buffer, index, packet, parent)
 
   -- Option Classes Requested: 0 Byte Ascii String

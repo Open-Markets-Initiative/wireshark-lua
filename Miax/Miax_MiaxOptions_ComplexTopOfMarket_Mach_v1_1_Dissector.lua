@@ -445,22 +445,22 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.underlying_trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 3 values
+  -- Trading Status: Alphanumeric
   index, trading_status = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Event Reason: 1 Byte Ascii String Enum with 2 values
+  -- Event Reason: Alphanumeric
   index, event_reason = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.event_reason(buffer, index, packet, parent)
 
-  -- Seconds Part: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds Part: SecTime
   index, seconds_part = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.seconds_part(buffer, index, packet, parent)
 
-  -- Expected Event Time Nano Seconds Part: 4 Byte Unsigned Fixed Width Integer
+  -- Expected Event Time Nano Seconds Part: BinaryU
   index, expected_event_time_nano_seconds_part = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.expected_event_time_nano_seconds_part(buffer, index, packet, parent)
 
   return index
@@ -642,25 +642,25 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: BinaryU
   index, trade_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Net Price: 8 Byte Signed Fixed Width Integer
+  -- Net Price: BinaryPrc4S
   index, net_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.net_price(buffer, index, packet, parent)
 
-  -- Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Size: BinaryU
   index, trade_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.trade_size(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 2 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Reserved 16: 16 Byte Ascii String
+  -- Reserved 16: Reserved
   index, reserved_16 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_16(buffer, index, packet, parent)
 
   return index
@@ -811,16 +811,16 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_offer_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Wide Offer Price: 8 Byte Signed Fixed Width Integer
+  -- Wide Offer Price: BinaryPrc4S
   index, wide_offer_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_offer_price(buffer, index, packet, parent)
 
-  -- Wide Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Offer Size: BinaryU
   index, wide_offer_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_offer_size(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte Ascii String
+  -- Reserved 4: BinaryU
   index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_4(buffer, index, packet, parent)
 
-  -- Offer Condition: 1 Byte Ascii String Enum with 7 values
+  -- Offer Condition: Alphanumeric
   index, offer_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.offer_condition(buffer, index, packet, parent)
 
   return index
@@ -951,16 +951,16 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_bid_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Wide Bid Price: 8 Byte Signed Fixed Width Integer
+  -- Wide Bid Price: BinaryPrc4S
   index, wide_bid_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_bid_price(buffer, index, packet, parent)
 
-  -- Wide Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Bid Size: BinaryU
   index, wide_bid_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_bid_size(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte Ascii String
+  -- Reserved 4: BinaryU
   index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_4(buffer, index, packet, parent)
 
-  -- Bid Condition: 1 Byte Ascii String Enum with 7 values
+  -- Bid Condition: Alphanumeric
   index, bid_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.bid_condition(buffer, index, packet, parent)
 
   return index
@@ -1003,10 +1003,10 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_complex_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
   -- Wide Bid: Struct of 4 fields
@@ -1121,16 +1121,16 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_offer_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Compact Offer Price: 2 Byte Signed Fixed Width Integer
+  -- Compact Offer Price: BinaryPrc2S
   index, compact_offer_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_offer_price(buffer, index, packet, parent)
 
-  -- Compact Offer Size: 2 Byte Unsigned Fixed Width Integer
+  -- Compact Offer Size: BinaryU
   index, compact_offer_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_offer_size(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte Ascii String
+  -- Reserved 2: BinaryU
   index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Offer Condition: 1 Byte Ascii String Enum with 7 values
+  -- Offer Condition: Alphanumeric
   index, offer_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.offer_condition(buffer, index, packet, parent)
 
   return index
@@ -1219,16 +1219,16 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_bid_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Compact Bid Price: 2 Byte Signed Fixed Width Integer
+  -- Compact Bid Price: BinaryPrc2S
   index, compact_bid_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_bid_price(buffer, index, packet, parent)
 
-  -- Compact Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Compact Bid Size: BinaryU
   index, compact_bid_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_bid_size(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte Ascii String
+  -- Reserved 2: BinaryU
   index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Bid Condition: 1 Byte Ascii String Enum with 7 values
+  -- Bid Condition: Alphanumeric
   index, bid_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.bid_condition(buffer, index, packet, parent)
 
   return index
@@ -1271,10 +1271,10 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_complex_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
   -- Compact Bid: Struct of 4 fields
@@ -1403,22 +1403,22 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_complex_top_of_market_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Wide Price: 8 Byte Signed Fixed Width Integer
+  -- Wide Price: BinaryPrc4S
   index, wide_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_price(buffer, index, packet, parent)
 
-  -- Wide Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Size: BinaryU
   index, wide_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_size(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte Ascii String
+  -- Reserved 4: BinaryU
   index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_4(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: Alphanumeric
   index, top_of_market_quote_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
@@ -1465,22 +1465,22 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_complex_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Wide Price: 8 Byte Signed Fixed Width Integer
+  -- Wide Price: BinaryPrc4S
   index, wide_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_price(buffer, index, packet, parent)
 
-  -- Wide Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Size: BinaryU
   index, wide_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.wide_size(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte Ascii String
+  -- Reserved 4: BinaryU
   index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_4(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: Alphanumeric
   index, top_of_market_quote_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
@@ -1573,22 +1573,22 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_complex_top_of_market_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Compact Price: 2 Byte Signed Fixed Width Integer
+  -- Compact Price: BinaryPrc2S
   index, compact_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_price(buffer, index, packet, parent)
 
-  -- Compact Size: 2 Byte Unsigned Fixed Width Integer
+  -- Compact Size: BinaryU
   index, compact_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_size(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte Ascii String
+  -- Reserved 2: BinaryU
   index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: Alphanumeric
   index, top_of_market_quote_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
@@ -1633,19 +1633,19 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_complex_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Compact Price: 2 Byte Signed Fixed Width Integer
+  -- Compact Price: BinaryPrc2S
   index, compact_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_price(buffer, index, packet, parent)
 
-  -- Compact Size: 2 Byte Unsigned Fixed Width Integer
+  -- Compact Size: BinaryU
   index, compact_size = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.compact_size(buffer, index, packet, parent)
 
-  -- Top Of Market Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Top Of Market Quote Condition: Alphanumeric
   index, top_of_market_quote_condition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.top_of_market_quote_condition(buffer, index, packet, parent)
 
   return index
@@ -1781,16 +1781,16 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.system_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: 4 Byte Unsigned Fixed Width Integer
+  -- Notification Time: NanoTime
   index, notification_time = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.notification_time(buffer, index, packet, parent)
 
-  -- C To M Version: 8 Byte Ascii String
+  -- C To M Version: Alphanumeric
   index, c_to_m_version = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.c_to_m_version(buffer, index, packet, parent)
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: BinaryU
   index, session_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.session_id(buffer, index, packet, parent)
 
-  -- System Status: 1 Byte Ascii String Enum with 4 values
+  -- System Status: Alphanumeric
   index, system_status = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.system_status(buffer, index, packet, parent)
 
   return index
@@ -1920,16 +1920,16 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.product_id(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio Qty: BinaryU
   index, leg_ratio_qty = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.leg_ratio_qty(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: Alphanumeric
   index, leg_side = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.leg_side(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: Reserved
   index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -2118,28 +2118,28 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.complex_strategy_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Strategy Add Time: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Add Time: NanoTime
   index, strategy_add_time = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_add_time(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Active On Miax: 1 Byte Ascii String Enum with 2 values
+  -- Active On Miax: Alphanumeric
   index, active_on_miax = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.active_on_miax(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte Ascii String
+  -- Reserved 1: BinaryU
   index, reserved_1 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Update Reason: 1 Byte Ascii String Enum with 2 values
+  -- Update Reason: Alphanumeric
   index, update_reason = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.update_reason(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_10(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Legs: BinaryU
   index, number_of_legs = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Leg Definition: Struct of 4 fields
@@ -2578,55 +2578,55 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.series_update_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: 4 Byte Unsigned Fixed Width Integer
+  -- Product Add Update Time: NanoTime
   index, product_add_update_time = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.product_add_update_time(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.product_id(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Security Symbol: 6 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Date: 8 Byte Ascii String
+  -- Expiration Date: Alphanumeric
   index, expiration_date = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.expiration_date(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: BinaryPrc4U
   index, strike_price = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Call Or Put: 1 Byte Ascii String Enum with 2 values
+  -- Call Or Put: Alphanumeric
   index, call_or_put = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.call_or_put(buffer, index, packet, parent)
 
-  -- Opening Time: 8 Byte Ascii String
+  -- Opening Time: Alphanumeric
   index, opening_time = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.opening_time(buffer, index, packet, parent)
 
-  -- Closing Time: 8 Byte Ascii String
+  -- Closing Time: Alphanumeric
   index, closing_time = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.closing_time(buffer, index, packet, parent)
 
-  -- Restricted Option: 1 Byte Ascii String Enum with 2 values
+  -- Restricted Option: Alphanumeric
   index, restricted_option = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.restricted_option(buffer, index, packet, parent)
 
-  -- Long Term Option: 1 Byte Ascii String Enum with 2 values
+  -- Long Term Option: Alphanumeric
   index, long_term_option = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.long_term_option(buffer, index, packet, parent)
 
-  -- Active On Miax: 1 Byte Ascii String Enum with 2 values
+  -- Active On Miax: Alphanumeric
   index, active_on_miax = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.active_on_miax(buffer, index, packet, parent)
 
-  -- Miax Bbo Posting Increment Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Miax Bbo Posting Increment Indicator: Alphanumeric
   index, miax_bbo_posting_increment_indicator = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.miax_bbo_posting_increment_indicator(buffer, index, packet, parent)
 
-  -- Liquidity Acceptance Increment Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Liquidity Acceptance Increment Indicator: Alphanumeric
   index, liquidity_acceptance_increment_indicator = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.liquidity_acceptance_increment_indicator(buffer, index, packet, parent)
 
-  -- Opening Underlying Market Code: 1 Byte Ascii String Enum with 17 values
+  -- Opening Underlying Market Code: Alphanumeric
   index, opening_underlying_market_code = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.opening_underlying_market_code(buffer, index, packet, parent)
 
-  -- Priority Quote Width: 4 Byte Unsigned Fixed Width Integer
+  -- Priority Quote Width: BinaryPrc4U
   index, priority_quote_width = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.priority_quote_width(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: Reserved
   index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -2663,7 +2663,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.system_time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
   return index

@@ -319,19 +319,19 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.market_at_close_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Indicative Price: 8 Byte Unsigned Fixed Width Integer
+  -- Indicative Price: u64
   index, indicative_price = a2x_equities_rtmdf_amd_v1_3_2_dissect.indicative_price(buffer, index, packet, parent)
 
-  -- Closing Buy Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Closing Buy Qty: u32
   index, closing_buy_qty = a2x_equities_rtmdf_amd_v1_3_2_dissect.closing_buy_qty(buffer, index, packet, parent)
 
-  -- Closing Sell Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Closing Sell Qty: u32
   index, closing_sell_qty = a2x_equities_rtmdf_amd_v1_3_2_dissect.closing_sell_qty(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -394,16 +394,16 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.auction_on_demand_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Indicative Price: 8 Byte Unsigned Fixed Width Integer
+  -- Indicative Price: u64
   index, indicative_price = a2x_equities_rtmdf_amd_v1_3_2_dissect.indicative_price(buffer, index, packet, parent)
 
-  -- Match Vol: 4 Byte Unsigned Fixed Width Integer
+  -- Match Vol: u32
   index, match_vol = a2x_equities_rtmdf_amd_v1_3_2_dissect.match_vol(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -535,16 +535,16 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.security_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Trading Status: u8
   index, trading_status = a2x_equities_rtmdf_amd_v1_3_2_dissect.trading_status(buffer, index, packet, parent)
 
   -- Market Flags: Struct of 4 fields
   index, market_flags = a2x_equities_rtmdf_amd_v1_3_2_dissect.market_flags(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -820,22 +820,22 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.security_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Umtf: 6 Byte Ascii String
+  -- Umtf: char(6)
   index, umtf = a2x_equities_rtmdf_amd_v1_3_2_dissect.umtf(buffer, index, packet, parent)
 
-  -- Isin: 12 Byte Ascii String
+  -- Isin: char(12)
   index, isin = a2x_equities_rtmdf_amd_v1_3_2_dissect.isin(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: char(3)
   index, currency = a2x_equities_rtmdf_amd_v1_3_2_dissect.currency(buffer, index, packet, parent)
 
-  -- Mic: 4 Byte Ascii String
+  -- Mic: char(4)
   index, mic = a2x_equities_rtmdf_amd_v1_3_2_dissect.mic(buffer, index, packet, parent)
 
-  -- Tick Table Id: 1 Byte Unsigned Fixed Width Integer
+  -- Tick Table Id: u8
   index, tick_table_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_id(buffer, index, packet, parent)
 
   -- Security Flags: Struct of 6 fields
@@ -957,16 +957,16 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_data_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tick Table Id: 1 Byte Unsigned Fixed Width Integer
+  -- Tick Table Id: u8
   index, tick_table_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_id(buffer, index, packet, parent)
 
-  -- Name: 10 Byte Ascii String
+  -- Name: char(10)
   index, name = a2x_equities_rtmdf_amd_v1_3_2_dissect.name(buffer, index, packet, parent)
 
-  -- Threshold: 8 Byte Unsigned Fixed Width Integer
+  -- Threshold: u64
   index, threshold = a2x_equities_rtmdf_amd_v1_3_2_dissect.threshold(buffer, index, packet, parent)
 
-  -- Tick Size: 8 Byte Unsigned Fixed Width Integer
+  -- Tick Size: u64
   index, tick_size = a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_size(buffer, index, packet, parent)
 
   return index
@@ -1071,19 +1071,19 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_bust_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: u32
   index, quantity = a2x_equities_rtmdf_amd_v1_3_2_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: u64
   index, price = a2x_equities_rtmdf_amd_v1_3_2_dissect.price(buffer, index, packet, parent)
 
-  -- Trade Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Ref: u32
   index, trade_ref = a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_ref(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -1191,25 +1191,25 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trade Type: u8
   index, trade_type = a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_type(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: u32
   index, quantity = a2x_equities_rtmdf_amd_v1_3_2_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: u64
   index, price = a2x_equities_rtmdf_amd_v1_3_2_dissect.price(buffer, index, packet, parent)
 
-  -- Order Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Order Ref: u32
   index, order_ref = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_ref(buffer, index, packet, parent)
 
-  -- Trade Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Ref: u32
   index, trade_ref = a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_ref(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -1254,19 +1254,19 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_modify_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: u32
   index, quantity = a2x_equities_rtmdf_amd_v1_3_2_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: u64
   index, price = a2x_equities_rtmdf_amd_v1_3_2_dissect.price(buffer, index, packet, parent)
 
-  -- Order Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Order Ref: u32
   index, order_ref = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_ref(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -1307,13 +1307,13 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Order Ref: u32
   index, order_ref = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_ref(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -1387,22 +1387,22 @@ end
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_add_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Side: u8
   index, side = a2x_equities_rtmdf_amd_v1_3_2_dissect.side(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: u32
   index, quantity = a2x_equities_rtmdf_amd_v1_3_2_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: u64
   index, price = a2x_equities_rtmdf_amd_v1_3_2_dissect.price(buffer, index, packet, parent)
 
-  -- Order Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Order Ref: u32
   index, order_ref = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_ref(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_rtmdf_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index

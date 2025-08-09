@@ -786,10 +786,10 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.start_of_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Business Date: 8 Byte Ascii String
+  -- Business Date: N
   index, business_date = tmx_mx_sola_multicast_hsvf_v1_14_dissect.business_date(buffer, index, packet, parent)
 
   return index
@@ -851,7 +851,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.circuit_assurance_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 6 Byte Ascii String
+  -- Time: N
   index, time = tmx_mx_sola_multicast_hsvf_v1_14_dissect.time(buffer, index, packet, parent)
 
   return index
@@ -890,10 +890,10 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.end_of_transmission_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Time: 6 Byte Ascii String
+  -- Time: N
   index, time = tmx_mx_sola_multicast_hsvf_v1_14_dissect.time(buffer, index, packet, parent)
 
   return index
@@ -1026,16 +1026,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_entry_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Min Price: 7 Byte Ascii String
+  -- Min Price: N
   index, min_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.min_price(buffer, index, packet, parent)
 
-  -- Min Price Fraction Indicator: 1 Byte Ascii String
+  -- Min Price Fraction Indicator: X
   index, min_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.min_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Tick Price: 7 Byte Ascii String
+  -- Tick Price: N
   index, tick_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_price(buffer, index, packet, parent)
 
-  -- Tick Price Fraction Indicator: 1 Byte Ascii String
+  -- Tick Price Fraction Indicator: X
   index, tick_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_price_fraction_indicator(buffer, index, packet, parent)
 
   return index
@@ -1147,16 +1147,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_table_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Tick Table Name: 50 Byte Ascii String
+  -- Tick Table Name: X
   index, tick_table_name = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_table_name(buffer, index, packet, parent)
 
-  -- Tick Table Short Name: 2 Byte Ascii String
+  -- Tick Table Short Name: X
   index, tick_table_short_name = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_table_short_name(buffer, index, packet, parent)
 
-  -- Number Of Entries: 2 Byte Ascii String
+  -- Number Of Entries: N
   index, number_of_entries = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_entries(buffer, index, packet, parent)
 
   -- Tick Entry: Struct of 4 fields
@@ -1223,7 +1223,7 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.end_of_sales_message_fields = function(
   -- Reserved: 1 Byte Ascii String
   index, reserved = tmx_mx_sola_multicast_hsvf_v1_14_dissect.reserved(buffer, index, packet, parent)
 
-  -- Time: 6 Byte Ascii String
+  -- Time: N
   index, time = tmx_mx_sola_multicast_hsvf_v1_14_dissect.time(buffer, index, packet, parent)
 
   return index
@@ -1329,13 +1329,13 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.special_text_bulletin_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol: 30 Byte Ascii String
+  -- Symbol: X
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol(buffer, index, packet, parent)
 
-  -- Bulletin Contents X 49: 49 Byte Ascii String
+  -- Bulletin Contents X 49: X
   index, bulletin_contents_x_49 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bulletin_contents_x_49(buffer, index, packet, parent)
 
-  -- Continue Marker: 1 Byte Ascii String
+  -- Continue Marker: N
   index, continue_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.continue_marker(buffer, index, packet, parent)
 
   return index
@@ -1394,10 +1394,10 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.regular_text_bulletin_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Regular Bulletin Contents: 79 Byte Ascii String
+  -- Regular Bulletin Contents: X
   index, regular_bulletin_contents = tmx_mx_sola_multicast_hsvf_v1_14_dissect.regular_bulletin_contents(buffer, index, packet, parent)
 
-  -- Continue Marker: 1 Byte Ascii String
+  -- Continue Marker: N
   index, continue_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.continue_marker(buffer, index, packet, parent)
 
   return index
@@ -1524,7 +1524,7 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.bulletins_message_fields = function(buf
   -- Reserved: 1 Byte Ascii String
   index, reserved = tmx_mx_sola_multicast_hsvf_v1_14_dissect.reserved(buffer, index, packet, parent)
 
-  -- Bulletin Type: 1 Byte Ascii String Enum with 2 values
+  -- Bulletin Type: X
   index, bulletin_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bulletin_type(buffer, index, packet, parent)
 
   -- Bulletin: Runtime Type with 2 branches
@@ -1709,22 +1709,22 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.bond_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Maturity Date: 8 Byte Ascii String
+  -- Maturity Date: A
   index, maturity_date = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Coupon: 7 Byte Ascii String
+  -- Coupon: N
   index, coupon = tmx_mx_sola_multicast_hsvf_v1_14_dissect.coupon(buffer, index, packet, parent)
 
-  -- Coupon Fraction Indicator: 1 Byte Ascii String
+  -- Coupon Fraction Indicator: A
   index, coupon_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.coupon_fraction_indicator(buffer, index, packet, parent)
 
-  -- Outstanding Bond Value: 8 Byte Ascii String
+  -- Outstanding Bond Value: N
   index, outstanding_bond_value = tmx_mx_sola_multicast_hsvf_v1_14_dissect.outstanding_bond_value(buffer, index, packet, parent)
 
-  -- Conversion Factor: 7 Byte Ascii String
+  -- Conversion Factor: N
   index, conversion_factor = tmx_mx_sola_multicast_hsvf_v1_14_dissect.conversion_factor(buffer, index, packet, parent)
 
-  -- Conversion Factor Fraction Indicator: 1 Byte Ascii String
+  -- Conversion Factor Fraction Indicator: X
   index, conversion_factor_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.conversion_factor_fraction_indicator(buffer, index, packet, parent)
 
   return index
@@ -1882,16 +1882,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root: 6 Byte Ascii String
+  -- Root: X
   index, root = tmx_mx_sola_multicast_hsvf_v1_14_dissect.root(buffer, index, packet, parent)
 
-  -- Symbol Month: 1 Byte Ascii String
+  -- Symbol Month: A
   index, symbol_month = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol_month(buffer, index, packet, parent)
 
-  -- Symbol Year: 2 Byte Ascii String
+  -- Symbol Year: N
   index, symbol_year = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol_year(buffer, index, packet, parent)
 
-  -- Expiry Day: 2 Byte Ascii String
+  -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_day(buffer, index, packet, parent)
 
   return index
@@ -1936,13 +1936,13 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_deliverables_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Number Of Bonds: 2 Byte Ascii String
+  -- Number Of Bonds: N
   index, number_of_bonds = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_bonds(buffer, index, packet, parent)
 
   -- Bond Definition: Struct of 6 fields
@@ -2028,13 +2028,13 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_status_strategies_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Group Instrument: 2 Byte Ascii String
+  -- Group Instrument: X
   index, group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_instrument(buffer, index, packet, parent)
 
-  -- Group Status: 1 Byte Ascii String
+  -- Group Status: A
   index, group_status = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_status(buffer, index, packet, parent)
 
   return index
@@ -2075,13 +2075,13 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Root: 6 Byte Ascii String
+  -- Root: X
   index, root = tmx_mx_sola_multicast_hsvf_v1_14_dissect.root(buffer, index, packet, parent)
 
-  -- Group Status: 1 Byte Ascii String
+  -- Group Status: A
   index, group_status = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_status(buffer, index, packet, parent)
 
   return index
@@ -2311,34 +2311,34 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.futures_trade_correction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price N 6: 6 Byte Ascii String
+  -- Trade Price N 6: N
   index, trade_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_6(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: 1 Byte Ascii String
+  -- Net Change Sign X 1: X
   index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_x_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: 1 Byte Ascii String
+  -- Price Indicator Marker X 1: X
   index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_x_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
   return index
@@ -2419,13 +2419,13 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_auction_ending_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 30 Byte Ascii String
+  -- Strategy Symbol: X
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -2599,22 +2599,22 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root: 6 Byte Ascii String
+  -- Root: X
   index, root = tmx_mx_sola_multicast_hsvf_v1_14_dissect.root(buffer, index, packet, parent)
 
-  -- Expiry Month: 1 Byte Ascii String Enum with 12 values
+  -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_month(buffer, index, packet, parent)
 
-  -- Strike Price: 7 Byte Ascii String
+  -- Strike Price: N
   index, strike_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: 1 Byte Ascii String
+  -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strike_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Ascii String
+  -- Expiry Year: N
   index, expiry_year = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_year(buffer, index, packet, parent)
 
-  -- Expiry Day: 2 Byte Ascii String
+  -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_day(buffer, index, packet, parent)
 
   return index
@@ -2655,13 +2655,13 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_auction_ending_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -2698,7 +2698,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.beginning_of_strategy_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   return index
@@ -2735,7 +2735,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.beginning_of_futures_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   return index
@@ -2772,7 +2772,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.beginning_of_future_options_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   return index
@@ -2809,7 +2809,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.beginning_of_options_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   return index
@@ -3028,34 +3028,34 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_initial_and_improvement_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 30 Byte Ascii String
+  -- Strategy Symbol: X
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Order Side: X
   index, order_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_side(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Ascii String
+  -- Order Quantity: N
   index, order_quantity = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_quantity(buffer, index, packet, parent)
 
-  -- Order Price: 7 Byte Ascii String
+  -- Order Price: N
   index, order_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_price(buffer, index, packet, parent)
 
-  -- Order Price Fraction Indicator: 1 Byte Ascii String
+  -- Order Price Fraction Indicator: X
   index, order_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 2 values
+  -- Order Type: X
   index, order_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_type(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Ascii String
+  -- Order Id: X
   index, order_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_id(buffer, index, packet, parent)
 
-  -- Previous Order Id: 8 Byte Ascii String
+  -- Previous Order Id: X
   index, previous_order_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_order_id(buffer, index, packet, parent)
 
   return index
@@ -3110,34 +3110,34 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_initial_and_improvement_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Order Side: X
   index, order_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_side(buffer, index, packet, parent)
 
-  -- Order Quantity: 8 Byte Ascii String
+  -- Order Quantity: N
   index, order_quantity = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_quantity(buffer, index, packet, parent)
 
-  -- Order Price: 7 Byte Ascii String
+  -- Order Price: N
   index, order_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_price(buffer, index, packet, parent)
 
-  -- Order Price Fraction Indicator: 1 Byte Ascii String
+  -- Order Price Fraction Indicator: X
   index, order_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 2 values
+  -- Order Type: X
   index, order_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_type(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Ascii String
+  -- Order Id: X
   index, order_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.order_id(buffer, index, packet, parent)
 
-  -- Previous Order Id: 8 Byte Ascii String
+  -- Previous Order Id: X
   index, previous_order_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_order_id(buffer, index, packet, parent)
 
   return index
@@ -3689,85 +3689,85 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 30 Byte Ascii String
+  -- Strategy Symbol: X
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Bid Price Sign: 1 Byte Ascii String
+  -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_sign(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price Sign: 1 Byte Ascii String
+  -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_sign(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Last Price Sign: 1 Byte Ascii String
+  -- Last Price Sign: X
   index, last_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price_sign(buffer, index, packet, parent)
 
-  -- Last Price: 7 Byte Ascii String
+  -- Last Price: N
   index, last_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: 1 Byte Ascii String
+  -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Price Sign: 1 Byte Ascii String
+  -- Open Price Sign: X
   index, open_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_price_sign(buffer, index, packet, parent)
 
-  -- Open Price: 7 Byte Ascii String
+  -- Open Price: N
   index, open_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_price(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: 1 Byte Ascii String
+  -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- High Price Sign: 1 Byte Ascii String
+  -- High Price Sign: X
   index, high_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price_sign(buffer, index, packet, parent)
 
-  -- High Price: 7 Byte Ascii String
+  -- High Price: N
   index, high_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: 1 Byte Ascii String
+  -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Low Price Sign: 1 Byte Ascii String
+  -- Low Price Sign: X
   index, low_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price_sign(buffer, index, packet, parent)
 
-  -- Low Price: 7 Byte Ascii String
+  -- Low Price: N
   index, low_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: 1 Byte Ascii String
+  -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: 1 Byte Ascii String
+  -- Net Change Sign X 1: X
   index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_x_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Ascii String Enum with 4 values
+  -- Reason: X
   index, reason = tmx_mx_sola_multicast_hsvf_v1_14_dissect.reason(buffer, index, packet, parent)
 
   return index
@@ -4045,91 +4045,91 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.futures_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Last Price: 7 Byte Ascii String
+  -- Last Price: N
   index, last_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: 1 Byte Ascii String
+  -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Price: 7 Byte Ascii String
+  -- Open Price: N
   index, open_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_price(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: 1 Byte Ascii String
+  -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- High Price: 7 Byte Ascii String
+  -- High Price: N
   index, high_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: 1 Byte Ascii String
+  -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Low Price: 7 Byte Ascii String
+  -- Low Price: N
   index, low_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: 1 Byte Ascii String
+  -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Settlement Price: 7 Byte Ascii String
+  -- Settlement Price: N
   index, settlement_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator: 1 Byte Ascii String
+  -- Settlement Price Fraction Indicator: X
   index, settlement_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.settlement_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: 1 Byte Ascii String
+  -- Net Change Sign X 1: X
   index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_x_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Previous Settlement: 7 Byte Ascii String
+  -- Previous Settlement: N
   index, previous_settlement = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_settlement(buffer, index, packet, parent)
 
-  -- Previous Settlement Fraction Indicator: 1 Byte Ascii String
+  -- Previous Settlement Fraction Indicator: X
   index, previous_settlement_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_settlement_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Interest: 7 Byte Ascii String
+  -- Open Interest: N
   index, open_interest = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Open Interest Date N 7: 7 Byte Ascii String
+  -- Open Interest Date N 7: N
   index, open_interest_date_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_interest_date_n_7(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Ascii String Enum with 4 values
+  -- Reason: X
   index, reason = tmx_mx_sola_multicast_hsvf_v1_14_dissect.reason(buffer, index, packet, parent)
 
-  -- External Price At Source: 7 Byte Ascii String
+  -- External Price At Source: N
   index, external_price_at_source = tmx_mx_sola_multicast_hsvf_v1_14_dissect.external_price_at_source(buffer, index, packet, parent)
 
-  -- External Price Fraction Indicator: 1 Byte Ascii String
+  -- External Price Fraction Indicator: X
   index, external_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.external_price_fraction_indicator(buffer, index, packet, parent)
 
   return index
@@ -4347,25 +4347,25 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root: 6 Byte Ascii String
+  -- Root: X
   index, root = tmx_mx_sola_multicast_hsvf_v1_14_dissect.root(buffer, index, packet, parent)
 
-  -- Symbol Month: 1 Byte Ascii String
+  -- Symbol Month: A
   index, symbol_month = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol_month(buffer, index, packet, parent)
 
-  -- Symbol Year: 2 Byte Ascii String
+  -- Symbol Year: N
   index, symbol_year = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol_year(buffer, index, packet, parent)
 
-  -- Expiry Day: 2 Byte Ascii String
+  -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_day(buffer, index, packet, parent)
 
-  -- Call Put Code: 1 Byte Ascii String Enum with 2 values
+  -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.call_put_code(buffer, index, packet, parent)
 
-  -- Strike Price: 7 Byte Ascii String
+  -- Strike Price: N
   index, strike_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Strike Price Fraction Indicator: 1 Byte Ascii String
+  -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strike_price_fraction_indicator(buffer, index, packet, parent)
 
   return index
@@ -4456,88 +4456,88 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Last Price: 7 Byte Ascii String
+  -- Last Price: N
   index, last_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: 1 Byte Ascii String
+  -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Interest: 7 Byte Ascii String
+  -- Open Interest: N
   index, open_interest = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Open Interest Date N 6: 6 Byte Ascii String
+  -- Open Interest Date N 6: N
   index, open_interest_date_n_6 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_interest_date_n_6(buffer, index, packet, parent)
 
-  -- Tick: 1 Byte Ascii String Enum with 2 values
+  -- Tick: X
   index, tick = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: 1 Byte Ascii String
+  -- Net Change Sign X 1: X
   index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_x_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Opening Price: 7 Byte Ascii String
+  -- Opening Price: N
   index, opening_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.opening_price(buffer, index, packet, parent)
 
-  -- Opening Price Fraction Indicator: 1 Byte Ascii String
+  -- Opening Price Fraction Indicator: X
   index, opening_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.opening_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- High Price: 7 Byte Ascii String
+  -- High Price: N
   index, high_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: 1 Byte Ascii String
+  -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Low Price: 7 Byte Ascii String
+  -- Low Price: N
   index, low_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: 1 Byte Ascii String
+  -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Settlement Price: 7 Byte Ascii String
+  -- Settlement Price: N
   index, settlement_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator: 1 Byte Ascii String
+  -- Settlement Price Fraction Indicator: X
   index, settlement_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.settlement_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Previous Settlement Price: 7 Byte Ascii String
+  -- Previous Settlement Price: N
   index, previous_settlement_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_settlement_price(buffer, index, packet, parent)
 
-  -- Previous Settlement Price Fraction Indicator: 1 Byte Ascii String
+  -- Previous Settlement Price Fraction Indicator: X
   index, previous_settlement_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_settlement_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Ascii String Enum with 4 values
+  -- Reason: X
   index, reason = tmx_mx_sola_multicast_hsvf_v1_14_dissect.reason(buffer, index, packet, parent)
 
   return index
@@ -4745,91 +4745,91 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Last Price: 7 Byte Ascii String
+  -- Last Price: N
   index, last_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Price Fraction Indicator: 1 Byte Ascii String
+  -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Open Interest: 7 Byte Ascii String
+  -- Open Interest: N
   index, open_interest = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Open Interest Date N 6: 6 Byte Ascii String
+  -- Open Interest Date N 6: N
   index, open_interest_date_n_6 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_interest_date_n_6(buffer, index, packet, parent)
 
-  -- Tick: 1 Byte Ascii String Enum with 2 values
+  -- Tick: X
   index, tick = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: 1 Byte Ascii String
+  -- Net Change Sign X 1: X
   index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_x_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Open Price: 7 Byte Ascii String
+  -- Open Price: N
   index, open_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_price(buffer, index, packet, parent)
 
-  -- Open Price Fraction Indicator: 1 Byte Ascii String
+  -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.open_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- High Price: 7 Byte Ascii String
+  -- High Price: N
   index, high_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price(buffer, index, packet, parent)
 
-  -- High Price Fraction Indicator: 1 Byte Ascii String
+  -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.high_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Low Price: 7 Byte Ascii String
+  -- Low Price: N
   index, low_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price(buffer, index, packet, parent)
 
-  -- Low Price Fraction Indicator: 1 Byte Ascii String
+  -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Option Marker: 2 Byte Ascii String
+  -- Option Marker: A
   index, option_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_marker(buffer, index, packet, parent)
 
-  -- Closing Price: 7 Byte Ascii String
+  -- Closing Price: N
   index, closing_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.closing_price(buffer, index, packet, parent)
 
-  -- Closing Price Fraction Indicator: 1 Byte Ascii String
+  -- Closing Price Fraction Indicator: N
   index, closing_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.closing_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Previous Closing Price: 7 Byte Ascii String
+  -- Previous Closing Price: N
   index, previous_closing_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_closing_price(buffer, index, packet, parent)
 
-  -- Previous Closing Price Fraction Indicator: 1 Byte Ascii String
+  -- Previous Closing Price Fraction Indicator: X
   index, previous_closing_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.previous_closing_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Ascii String Enum with 4 values
+  -- Reason: X
   index, reason = tmx_mx_sola_multicast_hsvf_v1_14_dissect.reason(buffer, index, packet, parent)
 
   return index
@@ -5051,34 +5051,34 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_auction_beginning_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 30 Byte Ascii String
+  -- Strategy Symbol: X
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Initial Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Initial Order Side: X
   index, initial_order_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_side(buffer, index, packet, parent)
 
-  -- Initial Order Quantity: 8 Byte Ascii String
+  -- Initial Order Quantity: N
   index, initial_order_quantity = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_quantity(buffer, index, packet, parent)
 
-  -- Initial Order Price: 7 Byte Ascii String
+  -- Initial Order Price: N
   index, initial_order_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_price(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Indicator: 1 Byte Ascii String
+  -- Initial Order Price Fraction Indicator: X
   index, initial_order_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Auction Expiry Timestamp: 20 Byte Ascii String
+  -- Auction Expiry Timestamp: X
   index, auction_expiry_timestamp = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_expiry_timestamp(buffer, index, packet, parent)
 
-  -- Auction Duration: 12 Byte Ascii String
+  -- Auction Duration: N
   index, auction_duration = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_duration(buffer, index, packet, parent)
 
-  -- Initial Quantity Assured: 8 Byte Ascii String
+  -- Initial Quantity Assured: N
   index, initial_quantity_assured = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_quantity_assured(buffer, index, packet, parent)
 
   return index
@@ -5133,34 +5133,34 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_auction_beginning_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Initial Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Initial Order Side: X
   index, initial_order_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_side(buffer, index, packet, parent)
 
-  -- Initial Order Quantity: 8 Byte Ascii String
+  -- Initial Order Quantity: N
   index, initial_order_quantity = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_quantity(buffer, index, packet, parent)
 
-  -- Initial Order Price: 7 Byte Ascii String
+  -- Initial Order Price: N
   index, initial_order_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_price(buffer, index, packet, parent)
 
-  -- Initial Order Price Fraction Indicator: 1 Byte Ascii String
+  -- Initial Order Price Fraction Indicator: X
   index, initial_order_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_order_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Auction Expiry Timestamp: 20 Byte Ascii String
+  -- Auction Expiry Timestamp: X
   index, auction_expiry_timestamp = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_expiry_timestamp(buffer, index, packet, parent)
 
-  -- Auction Duration: 12 Byte Ascii String
+  -- Auction Duration: N
   index, auction_duration = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_duration(buffer, index, packet, parent)
 
-  -- Initial Quantity Assured: 8 Byte Ascii String
+  -- Initial Quantity Assured: N
   index, initial_quantity_assured = tmx_mx_sola_multicast_hsvf_v1_14_dissect.initial_quantity_assured(buffer, index, packet, parent)
 
   return index
@@ -5337,22 +5337,22 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_instrument_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Group Instrument: 2 Byte Ascii String
+  -- Leg Group Instrument: X
   index, leg_group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.leg_group_instrument(buffer, index, packet, parent)
 
-  -- Leg Instrument: 4 Byte Ascii String
+  -- Leg Instrument: X
   index, leg_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.leg_instrument(buffer, index, packet, parent)
 
-  -- Leg Ratio Or Delta: 4 Byte Ascii String
+  -- Leg Ratio Or Delta: N
   index, leg_ratio_or_delta = tmx_mx_sola_multicast_hsvf_v1_14_dissect.leg_ratio_or_delta(buffer, index, packet, parent)
 
-  -- Leg Ratio Or Delta Fraction Indicator: 1 Byte Ascii String
+  -- Leg Ratio Or Delta Fraction Indicator: X
   index, leg_ratio_or_delta_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.leg_ratio_or_delta_fraction_indicator(buffer, index, packet, parent)
 
-  -- Leg Price: 7 Byte Ascii String
+  -- Leg Price: N
   index, leg_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.leg_price(buffer, index, packet, parent)
 
-  -- Leg Price Fraction Indicator: 1 Byte Ascii String
+  -- Leg Price Fraction Indicator: X
   index, leg_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.leg_price_fraction_indicator(buffer, index, packet, parent)
 
   return index
@@ -5812,73 +5812,73 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_instrument_keys_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 30 Byte Ascii String
+  -- Strategy Symbol: X
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Expiry Year: 2 Byte Ascii String
+  -- Expiry Year: N
   index, expiry_year = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_year(buffer, index, packet, parent)
 
-  -- Expiry Month: 1 Byte Ascii String Enum with 12 values
+  -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_month(buffer, index, packet, parent)
 
-  -- Expiry Day: 2 Byte Ascii String
+  -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_day(buffer, index, packet, parent)
 
-  -- Maximum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Maximum Number Of Contracts Per Order: X
   index, maximum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Minimum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price: 7 Byte Ascii String
+  -- Maximum Threshold Price: N
   index, maximum_threshold_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price X 7: 7 Byte Ascii String
+  -- Minimum Threshold Price X 7: X
   index, minimum_threshold_price_x_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_x_7(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Tick Increment: 7 Byte Ascii String
+  -- Tick Increment: X
   index, tick_increment = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator X 1: 1 Byte Ascii String
+  -- Tick Increment Fraction Indicator X 1: X
   index, tick_increment_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Market Flow Indicator: 2 Byte Ascii String
+  -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_flow_indicator(buffer, index, packet, parent)
 
-  -- Group Instrument: 2 Byte Ascii String
+  -- Group Instrument: X
   index, group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_instrument(buffer, index, packet, parent)
 
-  -- Instrument: 4 Byte Ascii String
+  -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument(buffer, index, packet, parent)
 
-  -- Instrument External Code: 30 Byte Ascii String
+  -- Instrument External Code: X
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Strategy Allow Implied: 1 Byte Ascii String Enum with 2 values
+  -- Strategy Allow Implied: A
   index, strategy_allow_implied = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_allow_implied(buffer, index, packet, parent)
 
-  -- Strategy Code: 2 Byte Ascii String
+  -- Strategy Code: X
   index, strategy_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_code(buffer, index, packet, parent)
 
-  -- Strategy Type: 1 Byte Ascii String Enum with 4 values
+  -- Strategy Type: X
   index, strategy_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_type(buffer, index, packet, parent)
 
-  -- Last Trading Datetime: 14 Byte Ascii String
+  -- Last Trading Datetime: N
   index, last_trading_datetime = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_trading_datetime(buffer, index, packet, parent)
 
-  -- Variable Legs Strategy Code: 2 Byte Ascii String
+  -- Variable Legs Strategy Code: X
   index, variable_legs_strategy_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.variable_legs_strategy_code(buffer, index, packet, parent)
 
-  -- Number Of Legs: 2 Byte Ascii String
+  -- Number Of Legs: N
   index, number_of_legs = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Strategy Instrument Leg: Struct of 6 fields
@@ -5926,16 +5926,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.associated_product_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root: 6 Byte Ascii String
+  -- Root: X
   index, root = tmx_mx_sola_multicast_hsvf_v1_14_dissect.root(buffer, index, packet, parent)
 
-  -- Symbol Month: 1 Byte Ascii String
+  -- Symbol Month: A
   index, symbol_month = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol_month(buffer, index, packet, parent)
 
-  -- Symbol Year: 2 Byte Ascii String
+  -- Symbol Year: N
   index, symbol_year = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol_year(buffer, index, packet, parent)
 
-  -- Expiry Day: 2 Byte Ascii String
+  -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_day(buffer, index, packet, parent)
 
   return index
@@ -6223,73 +6223,73 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.futures_instrument_keys_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Expiry Date: 6 Byte Ascii String
+  -- Expiry Date: N
   index, expiry_date = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_date(buffer, index, packet, parent)
 
-  -- Maximum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Maximum Number Of Contracts Per Order: X
   index, maximum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Minimum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price: 7 Byte Ascii String
+  -- Maximum Threshold Price: N
   index, maximum_threshold_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price N 7: 7 Byte Ascii String
+  -- Minimum Threshold Price N 7: N
   index, minimum_threshold_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_n_7(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Tick Increment: 7 Byte Ascii String
+  -- Tick Increment: X
   index, tick_increment = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator X 7: 7 Byte Ascii String
+  -- Tick Increment Fraction Indicator X 7: X
   index, tick_increment_fraction_indicator_x_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment_fraction_indicator_x_7(buffer, index, packet, parent)
 
-  -- Market Flow Indicator: 2 Byte Ascii String
+  -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_flow_indicator(buffer, index, packet, parent)
 
-  -- Group Instrument: 2 Byte Ascii String
+  -- Group Instrument: X
   index, group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_instrument(buffer, index, packet, parent)
 
-  -- Instrument: 4 Byte Ascii String
+  -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument(buffer, index, packet, parent)
 
-  -- Instrument External Code: 30 Byte Ascii String
+  -- Instrument External Code: X
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Contract Size: 8 Byte Ascii String
+  -- Contract Size: N
   index, contract_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.contract_size(buffer, index, packet, parent)
 
-  -- Tick Value: 7 Byte Ascii String
+  -- Tick Value: N
   index, tick_value = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_value(buffer, index, packet, parent)
 
-  -- Tick Value Fraction Indicator: 1 Byte Ascii String
+  -- Tick Value Fraction Indicator: X
   index, tick_value_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_value_fraction_indicator(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: A
   index, currency = tmx_mx_sola_multicast_hsvf_v1_14_dissect.currency(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 12 Byte Ascii String
+  -- Underlying Symbol: A
   index, underlying_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Delivery Type: 1 Byte Ascii String Enum with 2 values
+  -- Delivery Type: X
   index, delivery_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.delivery_type(buffer, index, packet, parent)
 
   -- Associated Product: Struct of 4 fields
   index, associated_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.associated_product(buffer, index, packet, parent)
 
-  -- Last Trading Datetime: 14 Byte Ascii String
+  -- Last Trading Datetime: N
   index, last_trading_datetime = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_trading_datetime(buffer, index, packet, parent)
 
   return index
@@ -6334,19 +6334,19 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.underlying_instrument_keys_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Group Instrument: 2 Byte Ascii String
+  -- Group Instrument: X
   index, group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_instrument(buffer, index, packet, parent)
 
-  -- Instrument: 4 Byte Ascii String
+  -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument(buffer, index, packet, parent)
 
-  -- Instrument External Code: 30 Byte Ascii String
+  -- Instrument External Code: X
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Market Flow Indicator: 2 Byte Ascii String
+  -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_flow_indicator(buffer, index, packet, parent)
 
   return index
@@ -6516,79 +6516,79 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_instrument_keys_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Expiry Date: 6 Byte Ascii String
+  -- Expiry Date: N
   index, expiry_date = tmx_mx_sola_multicast_hsvf_v1_14_dissect.expiry_date(buffer, index, packet, parent)
 
-  -- Strike Price Currency: 3 Byte Ascii String
+  -- Strike Price Currency: A
   index, strike_price_currency = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strike_price_currency(buffer, index, packet, parent)
 
-  -- Maximum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Maximum Number Of Contracts Per Order: X
   index, maximum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Minimum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price: 7 Byte Ascii String
+  -- Maximum Threshold Price: N
   index, maximum_threshold_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price N 7: 7 Byte Ascii String
+  -- Minimum Threshold Price N 7: N
   index, minimum_threshold_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_n_7(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Tick Increment: 7 Byte Ascii String
+  -- Tick Increment: X
   index, tick_increment = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator X 1: 1 Byte Ascii String
+  -- Tick Increment Fraction Indicator X 1: X
   index, tick_increment_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Market Flow Indicator: 2 Byte Ascii String
+  -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_flow_indicator(buffer, index, packet, parent)
 
-  -- Group Instrument: 2 Byte Ascii String
+  -- Group Instrument: X
   index, group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_instrument(buffer, index, packet, parent)
 
-  -- Instrument: 4 Byte Ascii String
+  -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument(buffer, index, packet, parent)
 
-  -- Instrument External Code: 30 Byte Ascii String
+  -- Instrument External Code: X
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Contract Size: 8 Byte Ascii String
+  -- Contract Size: N
   index, contract_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.contract_size(buffer, index, packet, parent)
 
-  -- Tick Value: 7 Byte Ascii String
+  -- Tick Value: N
   index, tick_value = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_value(buffer, index, packet, parent)
 
-  -- Tick Value Fraction Indicator: 1 Byte Ascii String
+  -- Tick Value Fraction Indicator: X
   index, tick_value_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_value_fraction_indicator(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: A
   index, currency = tmx_mx_sola_multicast_hsvf_v1_14_dissect.currency(buffer, index, packet, parent)
 
-  -- Delivery Type: 1 Byte Ascii String Enum with 2 values
+  -- Delivery Type: X
   index, delivery_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.delivery_type(buffer, index, packet, parent)
 
-  -- Underlying Root Symbol: 6 Byte Ascii String
+  -- Underlying Root Symbol: A
   index, underlying_root_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.underlying_root_symbol(buffer, index, packet, parent)
 
-  -- Underlying Symbol Month: 1 Byte Ascii String
+  -- Underlying Symbol Month: A
   index, underlying_symbol_month = tmx_mx_sola_multicast_hsvf_v1_14_dissect.underlying_symbol_month(buffer, index, packet, parent)
 
-  -- Underlying Symbol Year: 2 Byte Ascii String
+  -- Underlying Symbol Year: N
   index, underlying_symbol_year = tmx_mx_sola_multicast_hsvf_v1_14_dissect.underlying_symbol_year(buffer, index, packet, parent)
 
-  -- Last Trading Datetime: 14 Byte Ascii String
+  -- Last Trading Datetime: N
   index, last_trading_datetime = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_trading_datetime(buffer, index, packet, parent)
 
   return index
@@ -6723,76 +6723,76 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_instrument_keys_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Strike Price Currency: 3 Byte Ascii String
+  -- Strike Price Currency: A
   index, strike_price_currency = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strike_price_currency(buffer, index, packet, parent)
 
-  -- Maximum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Maximum Number Of Contracts Per Order: X
   index, maximum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Minimum Number Of Contracts Per Order: 6 Byte Ascii String
+  -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_number_of_contracts_per_order(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price: 7 Byte Ascii String
+  -- Maximum Threshold Price: N
   index, maximum_threshold_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maximum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price N 7: 7 Byte Ascii String
+  -- Minimum Threshold Price N 7: N
   index, minimum_threshold_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_n_7(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price Fraction Indicator: 1 Byte Ascii String
+  -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.minimum_threshold_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Tick Increment: 7 Byte Ascii String
+  -- Tick Increment: X
   index, tick_increment = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment(buffer, index, packet, parent)
 
-  -- Tick Increment Fraction Indicator X 1: 1 Byte Ascii String
+  -- Tick Increment Fraction Indicator X 1: X
   index, tick_increment_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_increment_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: N
   index, option_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_type(buffer, index, packet, parent)
 
-  -- Market Flow Indicator: 2 Byte Ascii String
+  -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_flow_indicator(buffer, index, packet, parent)
 
-  -- Group Instrument: 2 Byte Ascii String
+  -- Group Instrument: X
   index, group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.group_instrument(buffer, index, packet, parent)
 
-  -- Instrument: 4 Byte Ascii String
+  -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument(buffer, index, packet, parent)
 
-  -- Instrument External Code: 30 Byte Ascii String
+  -- Instrument External Code: X
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Option Marker: 2 Byte Ascii String
+  -- Option Marker: A
   index, option_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_marker(buffer, index, packet, parent)
 
-  -- Underlying Symbol Root: 12 Byte Ascii String
+  -- Underlying Symbol Root: X
   index, underlying_symbol_root = tmx_mx_sola_multicast_hsvf_v1_14_dissect.underlying_symbol_root(buffer, index, packet, parent)
 
-  -- Contract Size: 8 Byte Ascii String
+  -- Contract Size: N
   index, contract_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.contract_size(buffer, index, packet, parent)
 
-  -- Tick Value: 7 Byte Ascii String
+  -- Tick Value: N
   index, tick_value = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_value(buffer, index, packet, parent)
 
-  -- Tick Value Fraction Indicator: 1 Byte Ascii String
+  -- Tick Value Fraction Indicator: X
   index, tick_value_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_value_fraction_indicator(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: A
   index, currency = tmx_mx_sola_multicast_hsvf_v1_14_dissect.currency(buffer, index, packet, parent)
 
-  -- Delivery Type: 1 Byte Ascii String Enum with 2 values
+  -- Delivery Type: X
   index, delivery_type = tmx_mx_sola_multicast_hsvf_v1_14_dissect.delivery_type(buffer, index, packet, parent)
 
-  -- Last Trading Datetime: 14 Byte Ascii String
+  -- Last Trading Datetime: N
   index, last_trading_datetime = tmx_mx_sola_multicast_hsvf_v1_14_dissect.last_trading_datetime(buffer, index, packet, parent)
 
   return index
@@ -6888,28 +6888,28 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_trade_cancellation_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Symbol: 30 Byte Ascii String
+  -- Symbol: X
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price Sign: 1 Byte Ascii String
+  -- Trade Price Sign: X
   index, trade_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_sign(buffer, index, packet, parent)
 
-  -- Trade Price N 7: 7 Byte Ascii String
+  -- Trade Price N 7: N
   index, trade_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_7(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -6960,28 +6960,28 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_trade_cancellation_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price N 7: 7 Byte Ascii String
+  -- Trade Price N 7: N
   index, trade_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_7(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: 1 Byte Ascii String
+  -- Price Indicator Marker X 1: X
   index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_x_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -7097,28 +7097,28 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_trade_cancellation_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Price: 7 Byte Ascii String
+  -- Price: N
   index, price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price(buffer, index, packet, parent)
 
-  -- Price Fraction Indicator: 1 Byte Ascii String
+  -- Price Fraction Indicator: X
   index, price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: 1 Byte Ascii String
+  -- Price Indicator Marker A 1: A
   index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_a_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -7169,28 +7169,28 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_trade_cancellation_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price N 7: 7 Byte Ascii String
+  -- Trade Price N 7: N
   index, trade_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_7(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: 1 Byte Ascii String
+  -- Price Indicator Marker A 1: A
   index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_a_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -7307,37 +7307,37 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_market_depth_level_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Level Of Market Depth: 1 Byte Ascii String
+  -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_14_dissect.level_of_market_depth(buffer, index, packet, parent)
 
-  -- Bid Price Sign: 1 Byte Ascii String
+  -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_sign(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Number Of Bid Orders: 2 Byte Ascii String
+  -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_bid_orders(buffer, index, packet, parent)
 
-  -- Ask Price Sign: 1 Byte Ascii String
+  -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_sign(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Number Of Ask Orders: 2 Byte Ascii String
+  -- Number Of Ask Orders: X
   index, number_of_ask_orders = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_ask_orders(buffer, index, packet, parent)
 
   return index
@@ -7463,16 +7463,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_market_depth_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Symbol: 30 Byte Ascii String
+  -- Symbol: X
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Number Of Levels: 1 Byte Ascii String
+  -- Number Of Levels: N
   index, number_of_levels = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_levels(buffer, index, packet, parent)
 
   -- Strategy Market Depth Level: Struct of 11 fields
@@ -7530,31 +7530,31 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_depth_level_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Level Of Market Depth: 1 Byte Ascii String
+  -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_14_dissect.level_of_market_depth(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Number Of Bid Orders: 2 Byte Ascii String
+  -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_bid_orders(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Number Of Ask Orders: 2 Byte Ascii String
+  -- Number Of Ask Orders: X
   index, number_of_ask_orders = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_ask_orders(buffer, index, packet, parent)
 
   return index
@@ -7601,16 +7601,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.futures_market_depth_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Number Of Levels: 1 Byte Ascii String
+  -- Number Of Levels: N
   index, number_of_levels = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_levels(buffer, index, packet, parent)
 
   -- Market Depth Level: Struct of 9 fields
@@ -7662,16 +7662,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_market_depth_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Number Of Levels: 1 Byte Ascii String
+  -- Number Of Levels: N
   index, number_of_levels = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_levels(buffer, index, packet, parent)
 
   -- Market Depth Level: Struct of 9 fields
@@ -7723,16 +7723,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_market_depth_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
-  -- Number Of Levels: 1 Byte Ascii String
+  -- Number Of Levels: N
   index, number_of_levels = tmx_mx_sola_multicast_hsvf_v1_14_dissect.number_of_levels(buffer, index, packet, parent)
 
   -- Market Depth Level: Struct of 9 fields
@@ -7794,37 +7794,37 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Symbol: 30 Byte Ascii String
+  -- Symbol: X
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol(buffer, index, packet, parent)
 
-  -- Bid Price Sign: 1 Byte Ascii String
+  -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_sign(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price Sign: 1 Byte Ascii String
+  -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_sign(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
   return index
@@ -7877,31 +7877,31 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.futures_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
   return index
@@ -7954,31 +7954,31 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
   return index
@@ -8031,31 +8031,31 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Bid Price: 7 Byte Ascii String
+  -- Bid Price: N
   index, bid_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Price Fraction Indicator: 1 Byte Ascii String
+  -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Bid Size: 5 Byte Ascii String
+  -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 7 Byte Ascii String
+  -- Ask Price: N
   index, ask_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: 1 Byte Ascii String
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Ask Size: 5 Byte Ascii String
+  -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.ask_size(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
+  -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_status_marker(buffer, index, packet, parent)
 
   return index
@@ -8177,16 +8177,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_schedule_notice_strategy_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 30 Byte Ascii String
+  -- Strategy Symbol: X
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Series Status: 1 Byte Ascii String Enum with 11 values
+  -- Series Status: A
   index, series_status = tmx_mx_sola_multicast_hsvf_v1_14_dissect.series_status(buffer, index, packet, parent)
 
-  -- Scheduled Status Change Time: 6 Byte Ascii String
+  -- Scheduled Status Change Time: N
   index, scheduled_status_change_time = tmx_mx_sola_multicast_hsvf_v1_14_dissect.scheduled_status_change_time(buffer, index, packet, parent)
 
   return index
@@ -8229,16 +8229,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_schedule_notice_future_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Series Status: 1 Byte Ascii String Enum with 11 values
+  -- Series Status: A
   index, series_status = tmx_mx_sola_multicast_hsvf_v1_14_dissect.series_status(buffer, index, packet, parent)
 
-  -- Scheduled Status Change Time: 6 Byte Ascii String
+  -- Scheduled Status Change Time: N
   index, scheduled_status_change_time = tmx_mx_sola_multicast_hsvf_v1_14_dissect.scheduled_status_change_time(buffer, index, packet, parent)
 
   return index
@@ -8281,16 +8281,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_schedule_notice_futures_option_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Series Status: 1 Byte Ascii String Enum with 11 values
+  -- Series Status: A
   index, series_status = tmx_mx_sola_multicast_hsvf_v1_14_dissect.series_status(buffer, index, packet, parent)
 
-  -- Scheduled Status Change Time: 6 Byte Ascii String
+  -- Scheduled Status Change Time: N
   index, scheduled_status_change_time = tmx_mx_sola_multicast_hsvf_v1_14_dissect.scheduled_status_change_time(buffer, index, packet, parent)
 
   return index
@@ -8333,16 +8333,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.instrument_schedule_notice_option_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Series Status: 1 Byte Ascii String Enum with 11 values
+  -- Series Status: A
   index, series_status = tmx_mx_sola_multicast_hsvf_v1_14_dissect.series_status(buffer, index, packet, parent)
 
-  -- Scheduled Status Change Time: 6 Byte Ascii String
+  -- Scheduled Status Change Time: N
   index, scheduled_status_change_time = tmx_mx_sola_multicast_hsvf_v1_14_dissect.scheduled_status_change_time(buffer, index, packet, parent)
 
   return index
@@ -8435,16 +8435,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_request_for_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Symbol: 30 Byte Ascii String
+  -- Symbol: X
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol(buffer, index, packet, parent)
 
-  -- Requested Size: 8 Byte Ascii String
+  -- Requested Size: X
   index, requested_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_size(buffer, index, packet, parent)
 
-  -- Requested Market Side: 1 Byte Ascii String Enum with 3 values
+  -- Requested Market Side: X
   index, requested_market_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_market_side(buffer, index, packet, parent)
 
   return index
@@ -8487,16 +8487,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_request_for_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Requested Size: 8 Byte Ascii String
+  -- Requested Size: X
   index, requested_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_size(buffer, index, packet, parent)
 
-  -- Requested Market Side: 1 Byte Ascii String Enum with 3 values
+  -- Requested Market Side: X
   index, requested_market_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_market_side(buffer, index, packet, parent)
 
   return index
@@ -8539,16 +8539,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_request_for_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Requested Size: 8 Byte Ascii String
+  -- Requested Size: X
   index, requested_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_size(buffer, index, packet, parent)
 
-  -- Requested Market Side: 1 Byte Ascii String Enum with 3 values
+  -- Requested Market Side: X
   index, requested_market_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_market_side(buffer, index, packet, parent)
 
   return index
@@ -8591,16 +8591,16 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_request_for_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Requested Size: 8 Byte Ascii String
+  -- Requested Size: X
   index, requested_size = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_size(buffer, index, packet, parent)
 
-  -- Requested Market Side: 1 Byte Ascii String Enum with 3 values
+  -- Requested Market Side: X
   index, requested_market_side = tmx_mx_sola_multicast_hsvf_v1_14_dissect.requested_market_side(buffer, index, packet, parent)
 
   return index
@@ -8659,40 +8659,40 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Symbol: 30 Byte Ascii String
+  -- Symbol: X
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price Sign: 1 Byte Ascii String
+  -- Trade Price Sign: X
   index, trade_price_sign = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_sign(buffer, index, packet, parent)
 
-  -- Trade Price N 7: 7 Byte Ascii String
+  -- Trade Price N 7: N
   index, trade_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_7(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: 1 Byte Ascii String
+  -- Net Change Sign X 1: X
   index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_x_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: 1 Byte Ascii String
+  -- Price Indicator Marker X 1: X
   index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_x_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -8749,37 +8749,37 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.futures_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_product(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price N 7: 7 Byte Ascii String
+  -- Trade Price N 7: N
   index, trade_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_7(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: 1 Byte Ascii String
+  -- Net Change Sign X 1: X
   index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_x_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: 1 Byte Ascii String
+  -- Price Indicator Marker X 1: X
   index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_x_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -8876,37 +8876,37 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_option_symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price N 7: 7 Byte Ascii String
+  -- Trade Price N 7: N
   index, trade_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_7(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: 1 Byte Ascii String
+  -- Price Indicator Marker A 1: A
   index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_a_1(buffer, index, packet, parent)
 
-  -- Net Change Sign A 1: 1 Byte Ascii String
+  -- Net Change Sign A 1: A
   index, net_change_sign_a_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_a_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator A 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator A 1: A
   index, net_change_fraction_indicator_a_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_a_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index
@@ -8963,37 +8963,37 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: 1 Byte Ascii String Enum with 1 values
+  -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.exchange_id(buffer, index, packet, parent)
 
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_symbol(buffer, index, packet, parent)
 
-  -- Volume: 8 Byte Ascii String
+  -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14_dissect.volume(buffer, index, packet, parent)
 
-  -- Trade Price N 7: 7 Byte Ascii String
+  -- Trade Price N 7: N
   index, trade_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_n_7(buffer, index, packet, parent)
 
-  -- Trade Price Fraction Indicator: 1 Byte Ascii String
+  -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Net Change Sign A 1: 1 Byte Ascii String
+  -- Net Change Sign A 1: A
   index, net_change_sign_a_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_sign_a_1(buffer, index, packet, parent)
 
-  -- Net Change: 7 Byte Ascii String
+  -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: 1 Byte Ascii String
+  -- Net Change Fraction Indicator X 1: X
   index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.net_change_fraction_indicator_x_1(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: 1 Byte Ascii String
+  -- Price Indicator Marker A 1: A
   index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14_dissect.price_indicator_marker_a_1(buffer, index, packet, parent)
 
-  -- Trade Number: 8 Byte Ascii String
+  -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14_dissect.trade_number(buffer, index, packet, parent)
 
-  -- Auction Id: 6 Byte Ascii String
+  -- Auction Id: X
   index, auction_id = tmx_mx_sola_multicast_hsvf_v1_14_dissect.auction_id(buffer, index, packet, parent)
 
   return index

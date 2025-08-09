@@ -790,7 +790,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.synchronization_complete_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Matching Engines: BinaryU
   index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_7_dissect.number_of_matching_engines(buffer, index, packet, parent)
 
   return index
@@ -921,7 +921,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.login_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Matching Engines: BinaryU
   index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_7_dissect.number_of_matching_engines(buffer, index, packet, parent)
 
   -- Login Status: 1 Byte Ascii String Enum with 9 values
@@ -1706,61 +1706,61 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.execution_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: BinaryU
   index, trade_id = miax_pearlequities_expressorders_meo_v2_7_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: BinaryU
   index, execution_id = miax_pearlequities_expressorders_meo_v2_7_dissect.execution_id(buffer, index, packet, parent)
 
-  -- Correction Number: 1 Byte Unsigned Fixed Width Integer
+  -- Correction Number: BinaryU
   index, correction_number = miax_pearlequities_expressorders_meo_v2_7_dissect.correction_number(buffer, index, packet, parent)
 
-  -- Trade Status: 1 Byte Ascii String Enum with 3 values
+  -- Trade Status: Alphanumeric
   index, trade_status = miax_pearlequities_expressorders_meo_v2_7_dissect.trade_status(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: Price6U
   index, last_price = miax_pearlequities_expressorders_meo_v2_7_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Size: 4 Byte Unsigned Fixed Width Integer
+  -- Last Size: BinaryU
   index, last_size = miax_pearlequities_expressorders_meo_v2_7_dissect.last_size(buffer, index, packet, parent)
 
   -- Order Execution Instructions
   index, order_execution_instructions = miax_pearlequities_expressorders_meo_v2_7_dissect.order_execution_instructions(buffer, index, packet, parent)
 
-  -- Executing Trading Center: 1 Byte Ascii String Enum with 17 values
+  -- Executing Trading Center: Alphanumeric
   index, executing_trading_center = miax_pearlequities_expressorders_meo_v2_7_dissect.executing_trading_center(buffer, index, packet, parent)
 
-  -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Order Id: BinaryU
   index, secondary_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.secondary_order_id(buffer, index, packet, parent)
 
-  -- Liquidity Indicator: 3 Byte Ascii String
+  -- Liquidity Indicator: String
   index, liquidity_indicator = miax_pearlequities_expressorders_meo_v2_7_dissect.liquidity_indicator(buffer, index, packet, parent)
 
-  -- Locate Account: 4 Byte Ascii String
+  -- Locate Account: String
   index, locate_account = miax_pearlequities_expressorders_meo_v2_7_dissect.locate_account(buffer, index, packet, parent)
 
-  -- Original Order Capacity: 1 Byte Ascii String Enum with 3 values
+  -- Original Order Capacity: Alphanumeric
   index, original_order_capacity = miax_pearlequities_expressorders_meo_v2_7_dissect.original_order_capacity(buffer, index, packet, parent)
 
   -- Additional Liquidity Indicator: Struct of 2 fields
   index, additional_liquidity_indicator = miax_pearlequities_expressorders_meo_v2_7_dissect.additional_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Executing Trading Center Mpid: 4 Byte Ascii String
+  -- Executing Trading Center Mpid: String
   index, executing_trading_center_mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.executing_trading_center_mpid(buffer, index, packet, parent)
 
-  -- Reserved 12: 12 Byte Ascii String
+  -- Reserved 12: BinaryU
   index, reserved_12 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_12(buffer, index, packet, parent)
 
   return index
@@ -1867,22 +1867,22 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.reserve_order_replenishment_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Secondary Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Secondary Order Id: BinaryU
   index, secondary_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.secondary_order_id(buffer, index, packet, parent)
 
-  -- Display Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Display Qty: BinaryU
   index, display_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.display_qty(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2047,28 +2047,28 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbold Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbold Id: BinaryU
   index, symbold_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbold_id(buffer, index, packet, parent)
 
-  -- Purge Status: 1 Byte Ascii String Enum with 11 values
+  -- Purge Status: Alphanumeric
   index, purge_status = miax_pearlequities_expressorders_meo_v2_7_dissect.purge_status(buffer, index, packet, parent)
 
-  -- Number Of Orders Cancelled: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Orders Cancelled: BinaryU
   index, number_of_orders_cancelled = miax_pearlequities_expressorders_meo_v2_7_dissect.number_of_orders_cancelled(buffer, index, packet, parent)
 
-  -- Asp Eligible Orders Cancelled: 1 Byte Ascii String
+  -- Asp Eligible Orders Cancelled: Alphanumeric
   index, asp_eligible_orders_cancelled = miax_pearlequities_expressorders_meo_v2_7_dissect.asp_eligible_orders_cancelled(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2202,25 +2202,25 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
   -- Purge Instructions: Struct of 2 fields
   index, purge_instructions = miax_pearlequities_expressorders_meo_v2_7_dissect.purge_instructions(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price6U
   index, price = miax_pearlequities_expressorders_meo_v2_7_dissect.price(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2348,22 +2348,22 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: 8 Byte Unsigned Fixed Width Integer
+  -- Notification Time: NanoTime
   index, notification_time = miax_pearlequities_expressorders_meo_v2_7_dissect.notification_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Matching Engines: BinaryU
   index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_7_dissect.number_of_matching_engines(buffer, index, packet, parent)
 
-  -- Matching Engine Status: 24 Byte Ascii String Enum with 12 values
+  -- Matching Engine Status: Alphanumeric
   index, matching_engine_status = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_status(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2509,25 +2509,25 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Scope: 1 Byte Ascii String Enum with 1 values
+  -- Scope: Alphanumeric
   index, scope = miax_pearlequities_expressorders_meo_v2_7_dissect.scope(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String Enum with 4 values
+  -- Action: Alphanumeric
   index, action = miax_pearlequities_expressorders_meo_v2_7_dissect.action(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_pearlequities_expressorders_meo_v2_7_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Reserved 9: 9 Byte Ascii String
+  -- Reserved 9: BinaryU
   index, reserved_9 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_9(buffer, index, packet, parent)
 
   return index
@@ -2670,28 +2670,28 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_response_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cancel Status: 1 Byte Ascii String Enum with 17 values
+  -- Cancel Status: Alphanumeric
   index, cancel_status = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_status(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2738,22 +2738,22 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2842,31 +2842,31 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cancel Status: 1 Byte Ascii String Enum with 17 values
+  -- Cancel Status: Alphanumeric
   index, cancel_status = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_status(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2913,22 +2913,22 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -3142,34 +3142,34 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price6U
   index, price = miax_pearlequities_expressorders_meo_v2_7_dissect.price(buffer, index, packet, parent)
 
-  -- Modify Status: 1 Byte Ascii String Enum with 46 values
+  -- Modify Status: Alphanumeric
   index, modify_status = miax_pearlequities_expressorders_meo_v2_7_dissect.modify_status(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -3417,46 +3417,46 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price6U
   index, price = miax_pearlequities_expressorders_meo_v2_7_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_pearlequities_expressorders_meo_v2_7_dissect.size(buffer, index, packet, parent)
 
   -- Modify Order Instructions: Struct of 3 fields
   index, modify_order_instructions = miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_instructions(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: BinaryU
   index, min_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Max Floor Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor Qty: BinaryU
   index, max_floor_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.max_floor_qty(buffer, index, packet, parent)
 
-  -- Locate Account: 4 Byte Ascii String
+  -- Locate Account: String
   index, locate_account = miax_pearlequities_expressorders_meo_v2_7_dissect.locate_account(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 6 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = miax_pearlequities_expressorders_meo_v2_7_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Expiry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Time: MilliTime
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_dissect.order_expiry_time(buffer, index, packet, parent)
 
-  -- Reserved 19: 19 Byte Ascii String
+  -- Reserved 19: BinaryU
   index, reserved_19 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_19(buffer, index, packet, parent)
 
   return index
@@ -3734,31 +3734,31 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_response_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price6U
   index, price = miax_pearlequities_expressorders_meo_v2_7_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_pearlequities_expressorders_meo_v2_7_dissect.size(buffer, index, packet, parent)
 
-  -- Order Status: 1 Byte Ascii String Enum with 68 values
+  -- Order Status: Alphanumeric
   index, order_status = miax_pearlequities_expressorders_meo_v2_7_dissect.order_status(buffer, index, packet, parent)
 
-  -- Reserved 19: 19 Byte Ascii String
+  -- Reserved 19: BinaryU
   index, reserved_19 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_19(buffer, index, packet, parent)
 
   return index
@@ -4305,79 +4305,79 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price6U
   index, price = miax_pearlequities_expressorders_meo_v2_7_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_pearlequities_expressorders_meo_v2_7_dissect.size(buffer, index, packet, parent)
 
   -- New Order Instructions: Struct of 12 fields
   index, new_order_instructions = miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_instructions(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 6 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = miax_pearlequities_expressorders_meo_v2_7_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 6 values
+  -- Order Type: Alphanumeric
   index, order_type = miax_pearlequities_expressorders_meo_v2_7_dissect.order_type(buffer, index, packet, parent)
 
-  -- Price Sliding And Reprice Frequency: 1 Byte Ascii String Enum with 5 values
+  -- Price Sliding And Reprice Frequency: Alphanumeric
   index, price_sliding_and_reprice_frequency = miax_pearlequities_expressorders_meo_v2_7_dissect.price_sliding_and_reprice_frequency(buffer, index, packet, parent)
 
   -- Self Trade Protection: Struct of 3 fields
   index, self_trade_protection = miax_pearlequities_expressorders_meo_v2_7_dissect.self_trade_protection(buffer, index, packet, parent)
 
-  -- Self Trade Protection Group: 1 Byte Ascii String
+  -- Self Trade Protection Group: Alphanumeric
   index, self_trade_protection_group = miax_pearlequities_expressorders_meo_v2_7_dissect.self_trade_protection_group(buffer, index, packet, parent)
 
   -- Routing: Struct of 3 fields
   index, routing = miax_pearlequities_expressorders_meo_v2_7_dissect.routing(buffer, index, packet, parent)
 
-  -- Trading Collar Dollar Value: 8 Byte Signed Fixed Width Integer
+  -- Trading Collar Dollar Value: Price6S
   index, trading_collar_dollar_value = miax_pearlequities_expressorders_meo_v2_7_dissect.trading_collar_dollar_value(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 3 values
+  -- Capacity: Alphanumeric
   index, capacity = miax_pearlequities_expressorders_meo_v2_7_dissect.capacity(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: String
   index, account = miax_pearlequities_expressorders_meo_v2_7_dissect.account(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: String
   index, clearing_account = miax_pearlequities_expressorders_meo_v2_7_dissect.clearing_account(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: BinaryU
   index, min_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Max Floor Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor Qty: BinaryU
   index, max_floor_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.max_floor_qty(buffer, index, packet, parent)
 
-  -- Display Range Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Display Range Qty: BinaryU
   index, display_range_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.display_range_qty(buffer, index, packet, parent)
 
-  -- Peg Offset: 8 Byte Signed Fixed Width Integer
+  -- Peg Offset: Price6S
   index, peg_offset = miax_pearlequities_expressorders_meo_v2_7_dissect.peg_offset(buffer, index, packet, parent)
 
-  -- Locate Account: 4 Byte Ascii String
+  -- Locate Account: String
   index, locate_account = miax_pearlequities_expressorders_meo_v2_7_dissect.locate_account(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_pearlequities_expressorders_meo_v2_7_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Order Expiry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Time: MilliTime
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_dissect.order_expiry_time(buffer, index, packet, parent)
 
-  -- Reserved 11: 11 Byte Ascii String
+  -- Reserved 11: BinaryU
   index, reserved_11 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_11(buffer, index, packet, parent)
 
   return index
@@ -4745,25 +4745,25 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.order_price_update_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Working Price: 8 Byte Unsigned Fixed Width Integer
+  -- Working Price: Price6U
   index, working_price = miax_pearlequities_expressorders_meo_v2_7_dissect.working_price(buffer, index, packet, parent)
 
-  -- Nbbo Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Nbbo Indicator: Alphanumeric
   index, nbbo_indicator = miax_pearlequities_expressorders_meo_v2_7_dissect.nbbo_indicator(buffer, index, packet, parent)
 
-  -- Reserved 9: 9 Byte Ascii String
+  -- Reserved 9: BinaryU
   index, reserved_9 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_9(buffer, index, packet, parent)
 
   return index
@@ -5011,40 +5011,40 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_reduce_size_order_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Ascii String Enum with 36 values
+  -- Cancel Reason: Alphanumeric
   index, cancel_reason = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_reason(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: Price6U
   index, last_price = miax_pearlequities_expressorders_meo_v2_7_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Size: 4 Byte Unsigned Fixed Width Integer
+  -- Last Size: BinaryU
   index, last_size = miax_pearlequities_expressorders_meo_v2_7_dissect.last_size(buffer, index, packet, parent)
 
-  -- Pending Cancel Status: 1 Byte Ascii String Enum with 3 values
+  -- Pending Cancel Status: Alphanumeric
   index, pending_cancel_status = miax_pearlequities_expressorders_meo_v2_7_dissect.pending_cancel_status(buffer, index, packet, parent)
 
-  -- Pending Reject Reason: 1 Byte Ascii String Enum with 3 values
+  -- Pending Reject Reason: Alphanumeric
   index, pending_reject_reason = miax_pearlequities_expressorders_meo_v2_7_dissect.pending_reject_reason(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -5165,58 +5165,58 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price6U
   index, price = miax_pearlequities_expressorders_meo_v2_7_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_pearlequities_expressorders_meo_v2_7_dissect.size(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Modify Order Instructions: Struct of 3 fields
   index, modify_order_instructions = miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_instructions(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: BinaryU
   index, min_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Max Floor Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor Qty: BinaryU
   index, max_floor_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.max_floor_qty(buffer, index, packet, parent)
 
-  -- Pending Modify Status: 1 Byte Ascii String Enum with 3 values
+  -- Pending Modify Status: Alphanumeric
   index, pending_modify_status = miax_pearlequities_expressorders_meo_v2_7_dissect.pending_modify_status(buffer, index, packet, parent)
 
-  -- Pending Reject Reason: 1 Byte Ascii String Enum with 3 values
+  -- Pending Reject Reason: Alphanumeric
   index, pending_reject_reason = miax_pearlequities_expressorders_meo_v2_7_dissect.pending_reject_reason(buffer, index, packet, parent)
 
-  -- Locate Account: 4 Byte Ascii String
+  -- Locate Account: String
   index, locate_account = miax_pearlequities_expressorders_meo_v2_7_dissect.locate_account(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 6 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = miax_pearlequities_expressorders_meo_v2_7_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Expiry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Time: MilliTime
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_dissect.order_expiry_time(buffer, index, packet, parent)
 
-  -- Reserved 17: 17 Byte Ascii String
+  -- Reserved 17: Alphanumeric
   index, reserved_17 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_17(buffer, index, packet, parent)
 
   return index
@@ -5305,85 +5305,85 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphanumeric
   index, mpid = miax_pearlequities_expressorders_meo_v2_7_dissect.mpid(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.order_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_pearlequities_expressorders_meo_v2_7_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Price6U
   index, price = miax_pearlequities_expressorders_meo_v2_7_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_pearlequities_expressorders_meo_v2_7_dissect.size(buffer, index, packet, parent)
 
   -- New Order Instructions: Struct of 12 fields
   index, new_order_instructions = miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_instructions(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 6 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = miax_pearlequities_expressorders_meo_v2_7_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 6 values
+  -- Order Type: Alphanumeric
   index, order_type = miax_pearlequities_expressorders_meo_v2_7_dissect.order_type(buffer, index, packet, parent)
 
-  -- Price Sliding And Reprice Frequency: 1 Byte Ascii String Enum with 5 values
+  -- Price Sliding And Reprice Frequency: Alphanumeric
   index, price_sliding_and_reprice_frequency = miax_pearlequities_expressorders_meo_v2_7_dissect.price_sliding_and_reprice_frequency(buffer, index, packet, parent)
 
   -- Self Trade Protection: Struct of 3 fields
   index, self_trade_protection = miax_pearlequities_expressorders_meo_v2_7_dissect.self_trade_protection(buffer, index, packet, parent)
 
-  -- Self Trade Protection Group: 1 Byte Ascii String
+  -- Self Trade Protection Group: Alphanumeric
   index, self_trade_protection_group = miax_pearlequities_expressorders_meo_v2_7_dissect.self_trade_protection_group(buffer, index, packet, parent)
 
   -- Routing: Struct of 3 fields
   index, routing = miax_pearlequities_expressorders_meo_v2_7_dissect.routing(buffer, index, packet, parent)
 
-  -- Trading Collar Dollar Value: 8 Byte Signed Fixed Width Integer
+  -- Trading Collar Dollar Value: Price6S
   index, trading_collar_dollar_value = miax_pearlequities_expressorders_meo_v2_7_dissect.trading_collar_dollar_value(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 3 values
+  -- Capacity: Alphanumeric
   index, capacity = miax_pearlequities_expressorders_meo_v2_7_dissect.capacity(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: String
   index, account = miax_pearlequities_expressorders_meo_v2_7_dissect.account(buffer, index, packet, parent)
 
-  -- Clearing Account: 4 Byte Ascii String
+  -- Clearing Account: String
   index, clearing_account = miax_pearlequities_expressorders_meo_v2_7_dissect.clearing_account(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: BinaryU
   index, min_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Max Floor Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Max Floor Qty: BinaryU
   index, max_floor_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.max_floor_qty(buffer, index, packet, parent)
 
-  -- Display Range Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Display Range Qty: BinaryU
   index, display_range_qty = miax_pearlequities_expressorders_meo_v2_7_dissect.display_range_qty(buffer, index, packet, parent)
 
-  -- Peg Offset: 8 Byte Signed Fixed Width Integer
+  -- Peg Offset: Price6S
   index, peg_offset = miax_pearlequities_expressorders_meo_v2_7_dissect.peg_offset(buffer, index, packet, parent)
 
-  -- Locate Account: 4 Byte Ascii String
+  -- Locate Account: String
   index, locate_account = miax_pearlequities_expressorders_meo_v2_7_dissect.locate_account(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_pearlequities_expressorders_meo_v2_7_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Original Order Capacity: 1 Byte Ascii String Enum with 3 values
+  -- Original Order Capacity: Alphanumeric
   index, original_order_capacity = miax_pearlequities_expressorders_meo_v2_7_dissect.original_order_capacity(buffer, index, packet, parent)
 
-  -- Order Expiry Time: 8 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Time: MilliTime
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_dissect.order_expiry_time(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -5501,19 +5501,19 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.system_state_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Meo Version: 8 Byte Ascii String
+  -- Meo Version: Alphanumeric
   index, meo_version = miax_pearlequities_expressorders_meo_v2_7_dissect.meo_version(buffer, index, packet, parent)
 
-  -- Session Id: 1 Byte Unsigned Fixed Width Integer
+  -- Session Id: BinaryU
   index, session_id = miax_pearlequities_expressorders_meo_v2_7_dissect.session_id(buffer, index, packet, parent)
 
-  -- System Status: 1 Byte Ascii String Enum with 4 values
+  -- System Status: Alphanumeric
   index, system_status = miax_pearlequities_expressorders_meo_v2_7_dissect.system_status(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -5789,37 +5789,37 @@ end
 miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_update_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_pearlequities_expressorders_meo_v2_7_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: BinaryU
   index, symbol_id = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_id(buffer, index, packet, parent)
 
-  -- Ticker Symbol: 11 Byte Ascii String
+  -- Ticker Symbol: Alphanumeric
   index, ticker_symbol = miax_pearlequities_expressorders_meo_v2_7_dissect.ticker_symbol(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte Ascii String
+  -- Reserved 1: BinaryU
   index, reserved_1 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Test Security Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Test Security Indicator: Alphanumeric
   index, test_security_indicator = miax_pearlequities_expressorders_meo_v2_7_dissect.test_security_indicator(buffer, index, packet, parent)
 
-  -- Future: 1 Byte Unsigned Fixed Width Integer
+  -- Future: BinaryU
   index, future = miax_pearlequities_expressorders_meo_v2_7_dissect.future(buffer, index, packet, parent)
 
-  -- Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Lot Size: BinaryU
   index, lot_size = miax_pearlequities_expressorders_meo_v2_7_dissect.lot_size(buffer, index, packet, parent)
 
-  -- Opening Time: 8 Byte Ascii String
+  -- Opening Time: Alphanumeric
   index, opening_time = miax_pearlequities_expressorders_meo_v2_7_dissect.opening_time(buffer, index, packet, parent)
 
-  -- Closing Time: 8 Byte Ascii String
+  -- Closing Time: Alphanumeric
   index, closing_time = miax_pearlequities_expressorders_meo_v2_7_dissect.closing_time(buffer, index, packet, parent)
 
-  -- Primary Market Code: 1 Byte Ascii String Enum with 17 values
+  -- Primary Market Code: Alphanumeric
   index, primary_market_code = miax_pearlequities_expressorders_meo_v2_7_dissect.primary_market_code(buffer, index, packet, parent)
 
-  -- Reserved 12: 12 Byte Ascii String
+  -- Reserved 12: BinaryU
   index, reserved_12 = miax_pearlequities_expressorders_meo_v2_7_dissect.reserved_12(buffer, index, packet, parent)
 
   return index

@@ -233,16 +233,16 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_snapshot_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: u32
   index, quantity = a2x_equities_snapshot_amd_v1_3_2_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: u64
   index, price = a2x_equities_snapshot_amd_v1_3_2_dissect.price(buffer, index, packet, parent)
 
-  -- Order Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Order Ref: u32
   index, order_ref = a2x_equities_snapshot_amd_v1_3_2_dissect.order_ref(buffer, index, packet, parent)
 
   return index
@@ -285,16 +285,16 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_snapshot_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: u32
   index, quantity = a2x_equities_snapshot_amd_v1_3_2_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: u64
   index, price = a2x_equities_snapshot_amd_v1_3_2_dissect.price(buffer, index, packet, parent)
 
-  -- Order Ref: 4 Byte Unsigned Fixed Width Integer
+  -- Order Ref: u32
   index, order_ref = a2x_equities_snapshot_amd_v1_3_2_dissect.order_ref(buffer, index, packet, parent)
 
   return index
@@ -496,25 +496,25 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 2 Byte Unsigned Fixed Width Integer
+  -- Security Id: u16
   index, security_id = a2x_equities_snapshot_amd_v1_3_2_dissect.security_id(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Unsigned Fixed Width Integer
+  -- Trading Status: u8
   index, trading_status = a2x_equities_snapshot_amd_v1_3_2_dissect.trading_status(buffer, index, packet, parent)
 
   -- Market Flags: Struct of 4 fields
   index, market_flags = a2x_equities_snapshot_amd_v1_3_2_dissect.market_flags(buffer, index, packet, parent)
 
-  -- Entries: 2 Byte Unsigned Fixed Width Integer
+  -- Entries: u16
   index, entries = a2x_equities_snapshot_amd_v1_3_2_dissect.entries(buffer, index, packet, parent)
 
-  -- Closing Buy Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Closing Buy Qty: u32
   index, closing_buy_qty = a2x_equities_snapshot_amd_v1_3_2_dissect.closing_buy_qty(buffer, index, packet, parent)
 
-  -- Closing Sell Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Closing Sell Qty: u32
   index, closing_sell_qty = a2x_equities_snapshot_amd_v1_3_2_dissect.closing_sell_qty(buffer, index, packet, parent)
 
-  -- Indicative Price: 8 Byte Unsigned Fixed Width Integer
+  -- Indicative Price: u64
   index, indicative_price = a2x_equities_snapshot_amd_v1_3_2_dissect.indicative_price(buffer, index, packet, parent)
 
   return index
@@ -615,13 +615,13 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stream Seq No: 4 Byte Unsigned Fixed Width Integer
+  -- Stream Seq No: u32
   index, stream_seq_no = a2x_equities_snapshot_amd_v1_3_2_dissect.stream_seq_no(buffer, index, packet, parent)
 
-  -- Security Count: 2 Byte Unsigned Fixed Width Integer
+  -- Security Count: u16
   index, security_count = a2x_equities_snapshot_amd_v1_3_2_dissect.security_count(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: u64
   index, timestamp = a2x_equities_snapshot_amd_v1_3_2_dissect.timestamp(buffer, index, packet, parent)
 
   return index

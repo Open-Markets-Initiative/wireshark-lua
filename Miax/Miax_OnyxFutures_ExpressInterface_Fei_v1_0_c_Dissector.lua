@@ -720,7 +720,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response_fields = fun
   -- Login Status: 1 Byte Ascii String Enum with 7 values
   index, login_status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_status(buffer, index, packet, parent)
 
-  -- Session Id: 1 Byte Unsigned Fixed Width Integer
+  -- Session Id: BinaryU
   index, session_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.session_id(buffer, index, packet, parent)
 
   -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
@@ -1108,22 +1108,22 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id String 20: 20 Byte Ascii String
+  -- Instrument Id String 20: String
   index, instrument_id_string_20 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_string_20(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alphanumeric
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.status(buffer, index, packet, parent)
 
-  -- Reserved 16: 16 Byte Ascii String
+  -- Reserved 16: BinaryU
   index, reserved_16 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_16(buffer, index, packet, parent)
 
   return index
@@ -1224,13 +1224,13 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio: BinaryS
   index, leg_ratio = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.leg_ratio(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -1399,25 +1399,25 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Reserved 16: 16 Byte Ascii String
+  -- Reserved 16: BinaryU
   index, reserved_16 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_16(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Legs: BinaryU
   index, number_of_legs = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Strategy Leg: Struct of 3 fields
@@ -1487,19 +1487,19 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alphanumeric
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.status(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -1694,40 +1694,40 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_10(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Scope: 1 Byte Ascii String
+  -- Scope: Alphanumeric
   index, scope = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.scope(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String
+  -- Action: Alphanumeric
   index, action = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.action(buffer, index, packet, parent)
 
-  -- Product Group Code: 6 Byte Ascii String
+  -- Product Group Code: String
   index, product_group_code = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.product_group_code(buffer, index, packet, parent)
 
-  -- Product Type: 1 Byte Ascii String
+  -- Product Type: Alphanumeric
   index, product_type = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.product_type(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Reserved 9: 9 Byte Ascii String
+  -- Reserved 9: BinaryU
   index, reserved_9 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_9(buffer, index, packet, parent)
 
   return index
@@ -1832,25 +1832,25 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order: 20 Byte Ascii String
+  -- Original Client Order: String
   index, original_client_order = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.original_client_order(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alphanumeric
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.status(buffer, index, packet, parent)
 
   return index
@@ -1939,31 +1939,31 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2036,31 +2036,31 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alphanumeric
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.status(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2348,52 +2348,52 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Order Trigger Price: 8 Byte Signed Fixed Width Integer
+  -- Stop Order Trigger Price: Price9S
   index, stop_order_trigger_price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.stop_order_trigger_price(buffer, index, packet, parent)
 
-  -- Size Binary S 4: 4 Byte Signed Fixed Width Integer
+  -- Size Binary S 4: BinaryS
   index, size_binary_s_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.size_binary_s_4(buffer, index, packet, parent)
 
-  -- Order Expiry Date: 2 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Date: Date
   index, order_expiry_date = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_expiry_date(buffer, index, packet, parent)
 
-  -- Self Trade Protection Group: 2 Byte Ascii String
+  -- Self Trade Protection Group: String
   index, self_trade_protection_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection_group(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Customer Order Handling Instruction: 1 Byte Ascii String
+  -- Customer Order Handling Instruction: Alphanumeric
   index, customer_order_handling_instruction = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.customer_order_handling_instruction(buffer, index, packet, parent)
 
   -- Additional Order Indicators: Struct of 4 fields
   index, additional_order_indicators = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.additional_order_indicators(buffer, index, packet, parent)
 
-  -- Reserved 32: 32 Byte Ascii String
+  -- Reserved 32: BinaryU
   index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32(buffer, index, packet, parent)
 
   return index
@@ -2466,25 +2466,25 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine: NanoTime
   index, matching_engine = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alphanumeric
   index, status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.status(buffer, index, packet, parent)
 
-  -- Reserved 10: 10 Byte Ascii String
+  -- Reserved 10: BinaryU
   index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_10(buffer, index, packet, parent)
 
   return index
@@ -2858,76 +2858,76 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: String
   index, account = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.account(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Order Trigger Price: 8 Byte Signed Fixed Width Integer
+  -- Stop Order Trigger Price: Price9S
   index, stop_order_trigger_price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.stop_order_trigger_price(buffer, index, packet, parent)
 
-  -- Size Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Size Binary U 4: BinaryU
   index, size_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.size_binary_u_4(buffer, index, packet, parent)
 
   -- Order Instructions: Struct of 2 fields
   index, order_instructions = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_instructions(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String
+  -- Order Type: Alphanumeric
   index, order_type = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_type(buffer, index, packet, parent)
 
   -- Self Trade Protection: Struct of 3 fields
   index, self_trade_protection = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection(buffer, index, packet, parent)
 
-  -- Self Trade Protection Group: 2 Byte Ascii String
+  -- Self Trade Protection Group: String
   index, self_trade_protection_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection_group(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Customer Order Handling Instruction: 1 Byte Ascii String
+  -- Customer Order Handling Instruction: Alphanumeric
   index, customer_order_handling_instruction = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.customer_order_handling_instruction(buffer, index, packet, parent)
 
   -- Additional Order Indicators: Struct of 4 fields
   index, additional_order_indicators = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.additional_order_indicators(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: BinaryU
   index, min_qty = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Order Expiry Date: 2 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Date: Date
   index, order_expiry_date = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_expiry_date(buffer, index, packet, parent)
 
-  -- Trading Collar Dollar Value: 8 Byte Signed Fixed Width Integer
+  -- Trading Collar Dollar Value: Price9S
   index, trading_collar_dollar_value = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trading_collar_dollar_value(buffer, index, packet, parent)
 
-  -- Cti Code: 1 Byte Ascii String
+  -- Cti Code: Alphanumeric
   index, cti_code = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cti_code(buffer, index, packet, parent)
 
-  -- Text Memo: 20 Byte Ascii String
+  -- Text Memo: String
   index, text_memo = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.text_memo(buffer, index, packet, parent)
 
-  -- Reserved 32: 32 Byte Ascii String
+  -- Reserved 32: BinaryU
   index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32(buffer, index, packet, parent)
 
   return index
@@ -3281,34 +3281,34 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Complex Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Complex Trade Id: BinaryU
   index, complex_trade_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_trade_id(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Last Net Price: 8 Byte Signed Fixed Width Integer
+  -- Last Net Price: Price9S
   index, last_net_price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_net_price(buffer, index, packet, parent)
 
-  -- Last Size: 4 Byte Unsigned Fixed Width Integer
+  -- Last Size: BinaryU
   index, last_size = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_size(buffer, index, packet, parent)
 
   -- Order Instructions: Struct of 2 fields
   index, order_instructions = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_instructions(buffer, index, packet, parent)
 
-  -- Reserved 32: 32 Byte Ascii String
+  -- Reserved 32: BinaryU
   index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32(buffer, index, packet, parent)
 
   return index
@@ -3525,64 +3525,64 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Simple Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Simple Trade Id: BinaryU
   index, simple_trade_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_trade_id(buffer, index, packet, parent)
 
-  -- Complex Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Complex Trade Id: BinaryU
   index, complex_trade_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_trade_id(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: BinaryU
   index, execution_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.execution_id(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Correction Number: 1 Byte Unsigned Fixed Width Integer
+  -- Correction Number: BinaryU
   index, correction_number = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.correction_number(buffer, index, packet, parent)
 
-  -- Trade Status: 1 Byte Ascii String
+  -- Trade Status: Alphanumeric
   index, trade_status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trade_status(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Signed Fixed Width Integer
+  -- Last Price: Price9S
   index, last_price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Size: 4 Byte Unsigned Fixed Width Integer
+  -- Last Size: BinaryU
   index, last_size = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_size(buffer, index, packet, parent)
 
   -- Order Instructions: Struct of 2 fields
   index, order_instructions = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_instructions(buffer, index, packet, parent)
 
-  -- Cti Code: 1 Byte Ascii String
+  -- Cti Code: Alphanumeric
   index, cti_code = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cti_code(buffer, index, packet, parent)
 
-  -- Text Memo: 20 Byte Ascii String
+  -- Text Memo: String
   index, text_memo = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.text_memo(buffer, index, packet, parent)
 
-  -- Liquidity Indicator: 3 Byte Ascii String
+  -- Liquidity Indicator: String
   index, liquidity_indicator = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.liquidity_indicator(buffer, index, packet, parent)
 
-  -- Reserved 32: 32 Byte Ascii String
+  -- Reserved 32: BinaryU
   index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32(buffer, index, packet, parent)
 
   return index
@@ -3647,19 +3647,19 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Update Status: 1 Byte Ascii String
+  -- Update Status: Alphanumeric
   index, update_status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.update_status(buffer, index, packet, parent)
 
-  -- Reserved 32: 32 Byte Ascii String
+  -- Reserved 32: BinaryU
   index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32(buffer, index, packet, parent)
 
   return index
@@ -3740,43 +3740,43 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Ascii String
+  -- Cancel Reason: Alphanumeric
   index, cancel_reason = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reason(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Signed Fixed Width Integer
+  -- Last Price: Price9S
   index, last_price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_price(buffer, index, packet, parent)
 
-  -- Last Size: 4 Byte Unsigned Fixed Width Integer
+  -- Last Size: BinaryU
   index, last_size = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.last_size(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -3849,61 +3849,61 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leaves Qty: BinaryU
   index, leaves_qty = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Original Client Order Id: 20 Byte Ascii String
+  -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.original_client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Order Trigger Price: 8 Byte Signed Fixed Width Integer
+  -- Stop Order Trigger Price: Price9S
   index, stop_order_trigger_price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.stop_order_trigger_price(buffer, index, packet, parent)
 
-  -- Size Binary S 4: 4 Byte Signed Fixed Width Integer
+  -- Size Binary S 4: BinaryS
   index, size_binary_s_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.size_binary_s_4(buffer, index, packet, parent)
 
-  -- Order Expiry Date: 2 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Date: Date
   index, order_expiry_date = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_expiry_date(buffer, index, packet, parent)
 
-  -- Self Trade Protection Group: 2 Byte Ascii String
+  -- Self Trade Protection Group: String
   index, self_trade_protection_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection_group(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Customer Order Handling Instruction: 1 Byte Ascii String
+  -- Customer Order Handling Instruction: Alphanumeric
   index, customer_order_handling_instruction = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.customer_order_handling_instruction(buffer, index, packet, parent)
 
   -- Additional Order Indicators: Struct of 4 fields
   index, additional_order_indicators = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.additional_order_indicators(buffer, index, packet, parent)
 
-  -- Reserved 32: 32 Byte Ascii String
+  -- Reserved 32: BinaryU
   index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32(buffer, index, packet, parent)
 
   return index
@@ -3990,82 +3990,82 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Mp Id: 5 Byte Ascii String
+  -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mp_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_id(buffer, index, packet, parent)
 
-  -- Client Send Time: 8 Byte Unsigned Fixed Width Integer
+  -- Client Send Time: NanoTime
   index, client_send_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_send_time(buffer, index, packet, parent)
 
-  -- Operator Id: 18 Byte Ascii String
+  -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_id(buffer, index, packet, parent)
 
-  -- Operator Location: 6 Byte Ascii String
+  -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.operator_location(buffer, index, packet, parent)
 
-  -- Account: 16 Byte Ascii String
+  -- Account: String
   index, account = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.account(buffer, index, packet, parent)
 
-  -- Client Order Id: 20 Byte Ascii String
+  -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.price(buffer, index, packet, parent)
 
-  -- Stop Order Trigger Price: 8 Byte Signed Fixed Width Integer
+  -- Stop Order Trigger Price: Price9S
   index, stop_order_trigger_price = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.stop_order_trigger_price(buffer, index, packet, parent)
 
-  -- Size Binary U 4: 4 Byte Unsigned Fixed Width Integer
+  -- Size Binary U 4: BinaryU
   index, size_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.size_binary_u_4(buffer, index, packet, parent)
 
   -- Order Instructions: Struct of 2 fields
   index, order_instructions = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_instructions(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 5 values
+  -- Time In Force: Alphanumeric
   index, time_in_force = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String
+  -- Order Type: Alphanumeric
   index, order_type = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_type(buffer, index, packet, parent)
 
   -- Self Trade Protection: Struct of 3 fields
   index, self_trade_protection = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection(buffer, index, packet, parent)
 
-  -- Self Trade Protection Group: 2 Byte Ascii String
+  -- Self Trade Protection Group: String
   index, self_trade_protection_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.self_trade_protection_group(buffer, index, packet, parent)
 
-  -- Purge Group: 1 Byte Ascii String
+  -- Purge Group: Alphanumeric
   index, purge_group = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.purge_group(buffer, index, packet, parent)
 
-  -- Customer Order Handling Instruction: 1 Byte Ascii String
+  -- Customer Order Handling Instruction: Alphanumeric
   index, customer_order_handling_instruction = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.customer_order_handling_instruction(buffer, index, packet, parent)
 
   -- Additional Order Indicators: Struct of 4 fields
   index, additional_order_indicators = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.additional_order_indicators(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Qty: BinaryU
   index, min_qty = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Order Expiry Date: 2 Byte Unsigned Fixed Width Integer
+  -- Order Expiry Date: Date
   index, order_expiry_date = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_expiry_date(buffer, index, packet, parent)
 
-  -- Trading Collar Dollar Value: 8 Byte Signed Fixed Width Integer
+  -- Trading Collar Dollar Value: Price9S
   index, trading_collar_dollar_value = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.trading_collar_dollar_value(buffer, index, packet, parent)
 
-  -- Cti Code: 1 Byte Ascii String
+  -- Cti Code: Alphanumeric
   index, cti_code = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cti_code(buffer, index, packet, parent)
 
-  -- Text Memo: 20 Byte Ascii String
+  -- Text Memo: String
   index, text_memo = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.text_memo(buffer, index, packet, parent)
 
-  -- Reserved 32: 32 Byte Ascii String
+  -- Reserved 32: BinaryU
   index, reserved_32 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_32(buffer, index, packet, parent)
 
   return index
@@ -4150,19 +4150,19 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine Time: 8 Byte Unsigned Fixed Width Integer
+  -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.matching_engine_time(buffer, index, packet, parent)
 
-  -- Version: 8 Byte Ascii String
+  -- Version: Alphanumeric
   index, version = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.version(buffer, index, packet, parent)
 
-  -- Session Id: 1 Byte Unsigned Fixed Width Integer
+  -- Session Id: BinaryU
   index, session_id = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.session_id(buffer, index, packet, parent)
 
-  -- System Status: 1 Byte Ascii String
+  -- System Status: Alphanumeric
   index, system_status = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_status(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.reserved_8(buffer, index, packet, parent)
 
   return index

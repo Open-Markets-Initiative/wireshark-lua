@@ -448,25 +448,25 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: BinaryU
   index, trade_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Correction Number: 1 Byte Unsigned Fixed Width Integer
+  -- Correction Number: BinaryU
   index, correction_number = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.correction_number(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
 
   return index
@@ -591,34 +591,34 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_execution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Buy Order Id: BinaryU
   index, buy_order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.buy_order_id(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sell Order Id: BinaryU
   index, sell_order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.sell_order_id(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Ascii String Enum with 3 values
+  -- Aggressor Side: Alphanumeric
   index, aggressor_side = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.aggressor_side(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: BinaryU
   index, trade_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Correction Number: 1 Byte Unsigned Fixed Width Integer
+  -- Correction Number: BinaryU
   index, correction_number = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.correction_number(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
 
   return index
@@ -679,13 +679,13 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_id(buffer, index, packet, parent)
 
   return index
@@ -771,19 +771,19 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
 
   -- Modify Flags: Struct of 2 fields
@@ -892,25 +892,25 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.add_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 3 values
+  -- Order Type: Alphanumeric
   index, order_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_type(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_id(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Ascii String Enum with 2 values
+  -- Order Side: Alphanumeric
   index, order_side = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_side(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price9S
   index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: BinaryU
   index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
 
   return index
@@ -949,10 +949,10 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_clear_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
   return index
@@ -1015,16 +1015,16 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Total Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume: BinaryU
   index, total_volume = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume(buffer, index, packet, parent)
 
   return index
@@ -1087,16 +1087,16 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Open Interest Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Open Interest Quantity: BinaryU
   index, open_interest_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_quantity(buffer, index, packet, parent)
 
   return index
@@ -1223,22 +1223,22 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Trade Date: 2 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Date
   index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: Price9S
   index, settlement_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Settlement Price Type: 1 Byte Ascii String Enum with 2 values
+  -- Settlement Price Type: Alphanumeric
   index, settlement_price_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type(buffer, index, packet, parent)
 
-  -- Settlement Price Type Calc Method: 1 Byte Ascii String Enum with 2 values
+  -- Settlement Price Type Calc Method: Alphanumeric
   index, settlement_price_type_calc_method = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type_calc_method(buffer, index, packet, parent)
 
   return index
@@ -1327,16 +1327,16 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Anticipated Opening Price: 8 Byte Signed Fixed Width Integer
+  -- Anticipated Opening Price: Price9S
   index, anticipated_opening_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price(buffer, index, packet, parent)
 
-  -- Opening Match Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Opening Match Quantity: BinaryU
   index, opening_match_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.opening_match_quantity(buffer, index, packet, parent)
 
   return index
@@ -1451,16 +1451,16 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Trading Status: BinaryU
   index, trading_status = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Market State: BinaryU
   index, market_state = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.market_state(buffer, index, packet, parent)
 
   return index
@@ -1576,16 +1576,16 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Dom Version: 8 Byte Ascii String
+  -- Dom Version: Alphanumeric
   index, dom_version = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.dom_version(buffer, index, packet, parent)
 
-  -- Session Id: 1 Byte Unsigned Fixed Width Integer
+  -- Session Id: BinaryU
   index, session_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.session_id(buffer, index, packet, parent)
 
-  -- System Status: 1 Byte Ascii String Enum with 4 values
+  -- System Status: Alphanumeric
   index, system_status = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_status(buffer, index, packet, parent)
 
   return index
@@ -1688,16 +1688,16 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio: BinaryS
   index, leg_ratio = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.leg_ratio(buffer, index, packet, parent)
 
-  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer
+  -- Maturity Month Year: BinaryU
   index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Ascii String
+  -- Reserved 8: BinaryU
   index, reserved_8 = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_8(buffer, index, packet, parent)
 
   return index
@@ -2224,67 +2224,67 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Underlying Asset Type: 1 Byte Ascii String Enum with 2 values
+  -- Underlying Asset Type: Alphanumeric
   index, underlying_asset_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset_type(buffer, index, packet, parent)
 
-  -- Underlying Asset: 4 Byte Ascii String
+  -- Underlying Asset: Alphanumeric
   index, underlying_asset = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset(buffer, index, packet, parent)
 
-  -- Product Group Code: 6 Byte Ascii String
+  -- Product Group Code: Alphanumeric
   index, product_group_code = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.product_group_code(buffer, index, packet, parent)
 
-  -- Spread Type: 1 Byte Ascii String
+  -- Spread Type: Alphanumeric
   index, spread_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.spread_type(buffer, index, packet, parent)
 
-  -- Exchange: 4 Byte Ascii String Enum with 1 values
+  -- Exchange: Alphanumeric
   index, exchange = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.exchange(buffer, index, packet, parent)
 
-  -- Instrument Id Source: 1 Byte Ascii String Enum with 1 values
+  -- Instrument Id Source: Alphanumeric
   index, instrument_id_source = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id_source(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 1 values
+  -- Instrument Type: Alphanumeric
   index, instrument_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Currency: 1 Byte Ascii String Enum with 1 values
+  -- Currency: Alphanumeric
   index, currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.currency(buffer, index, packet, parent)
 
-  -- Settlement Currency: 1 Byte Ascii String Enum with 1 values
+  -- Settlement Currency: Alphanumeric
   index, settlement_currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_currency(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String Enum with 1 values
+  -- Match Algorithm: Alphanumeric
   index, match_algorithm = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.match_algorithm(buffer, index, packet, parent)
 
-  -- Minimum Size: 4 Byte Unsigned Fixed Width Integer
+  -- Minimum Size: BinaryU
   index, minimum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.minimum_size(buffer, index, packet, parent)
 
-  -- Maximum Size: 4 Byte Unsigned Fixed Width Integer
+  -- Maximum Size: BinaryU
   index, maximum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maximum_size(buffer, index, packet, parent)
 
-  -- Tick: 8 Byte Signed Fixed Width Integer
+  -- Tick: Price9S
   index, tick = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.tick(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 5 Byte Ascii String Enum with 2 values
+  -- Unit Of Measure: Alphanumeric
   index, unit_of_measure = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Unit Of Measure Quantity: BinaryU
   index, unit_of_measure_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure_quantity(buffer, index, packet, parent)
 
-  -- Trading Collar Variation Type: 1 Byte Ascii String Enum with 5 values
+  -- Trading Collar Variation Type: Alphanumeric
   index, trading_collar_variation_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation_type(buffer, index, packet, parent)
 
-  -- Trading Collar Variation: 8 Byte Signed Fixed Width Integer
+  -- Trading Collar Variation: Price9S
   index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation(buffer, index, packet, parent)
 
-  -- Reserved 16: 16 Byte Ascii String
+  -- Reserved 16: BinaryU
   index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_16(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Legs: BinaryU
   index, number_of_legs = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Instrument Leg: Struct of 4 fields
@@ -2428,82 +2428,82 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: NanoTime
   index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Underlying Asset Type: 1 Byte Ascii String Enum with 2 values
+  -- Underlying Asset Type: Alphanumeric
   index, underlying_asset_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset_type(buffer, index, packet, parent)
 
-  -- Underlying Asset: 4 Byte Ascii String
+  -- Underlying Asset: Alphanumeric
   index, underlying_asset = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset(buffer, index, packet, parent)
 
-  -- Product Group Code: 6 Byte Ascii String
+  -- Product Group Code: Alphanumeric
   index, product_group_code = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.product_group_code(buffer, index, packet, parent)
 
-  -- Exchange: 4 Byte Ascii String Enum with 1 values
+  -- Exchange: Alphanumeric
   index, exchange = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.exchange(buffer, index, packet, parent)
 
-  -- Instrument Id Source: 1 Byte Ascii String Enum with 1 values
+  -- Instrument Id Source: Alphanumeric
   index, instrument_id_source = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id_source(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 1 values
+  -- Instrument Type: Alphanumeric
   index, instrument_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer
+  -- Maturity Month Year: BinaryU
   index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year(buffer, index, packet, parent)
 
-  -- Currency: 1 Byte Ascii String Enum with 1 values
+  -- Currency: Alphanumeric
   index, currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.currency(buffer, index, packet, parent)
 
-  -- Settlement Currency: 1 Byte Ascii String Enum with 1 values
+  -- Settlement Currency: Alphanumeric
   index, settlement_currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_currency(buffer, index, packet, parent)
 
-  -- Match Algorithm: 1 Byte Ascii String Enum with 1 values
+  -- Match Algorithm: Alphanumeric
   index, match_algorithm = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.match_algorithm(buffer, index, packet, parent)
 
-  -- Minimum Size: 4 Byte Unsigned Fixed Width Integer
+  -- Minimum Size: BinaryU
   index, minimum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.minimum_size(buffer, index, packet, parent)
 
-  -- Maximum Size: 4 Byte Unsigned Fixed Width Integer
+  -- Maximum Size: BinaryU
   index, maximum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maximum_size(buffer, index, packet, parent)
 
-  -- Tick: 8 Byte Signed Fixed Width Integer
+  -- Tick: Price9S
   index, tick = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.tick(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 5 Byte Ascii String Enum with 2 values
+  -- Unit Of Measure: Alphanumeric
   index, unit_of_measure = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Unit Of Measure Quantity: BinaryU
   index, unit_of_measure_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure_quantity(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: Price9S
   index, settlement_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Settlement Price Type Calc Method: 1 Byte Ascii String Enum with 2 values
+  -- Settlement Price Type Calc Method: Alphanumeric
   index, settlement_price_type_calc_method = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type_calc_method(buffer, index, packet, parent)
 
-  -- Total Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume: BinaryU
   index, total_volume = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume(buffer, index, packet, parent)
 
-  -- Open Interest Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Open Interest Quantity: BinaryU
   index, open_interest_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_quantity(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer
+  -- High Limit Price: Price9S
   index, high_limit_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.high_limit_price(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer
+  -- Low Limit Price: Price9S
   index, low_limit_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.low_limit_price(buffer, index, packet, parent)
 
-  -- Trading Collar Variation Type: 1 Byte Ascii String Enum with 5 values
+  -- Trading Collar Variation Type: Alphanumeric
   index, trading_collar_variation_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation_type(buffer, index, packet, parent)
 
-  -- Trading Collar Variation: 8 Byte Signed Fixed Width Integer
+  -- Trading Collar Variation: Price9S
   index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation(buffer, index, packet, parent)
 
-  -- Reserved 16: 16 Byte Ascii String
+  -- Reserved 16: BinaryU
   index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_16(buffer, index, packet, parent)
 
   return index

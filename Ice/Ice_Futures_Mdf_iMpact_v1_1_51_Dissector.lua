@@ -1269,25 +1269,25 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.rfq_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Message Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Message Timestamp: Numeric
   index, message_timestamp = ice_futures_mdf_impact_v1_1_51_dissect.message_timestamp(buffer, index, packet, parent)
 
-  -- Rfq System Id: 8 Byte Signed Fixed Width Integer
+  -- Rfq System Id: Numeric
   index, rfq_system_id = ice_futures_mdf_impact_v1_1_51_dissect.rfq_system_id(buffer, index, packet, parent)
 
-  -- Market Type Id: 2 Byte Signed Fixed Width Integer Enum with 140 values
+  -- Market Type Id: Numeric
   index, market_type_id = ice_futures_mdf_impact_v1_1_51_dissect.market_type_id(buffer, index, packet, parent)
 
-  -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Market Id: Numeric
   index, underlying_market_id = ice_futures_mdf_impact_v1_1_51_dissect.underlying_market_id(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = ice_futures_mdf_impact_v1_1_51_dissect.side(buffer, index, packet, parent)
 
   return index
@@ -1374,16 +1374,16 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.delete_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = ice_futures_mdf_impact_v1_1_51_dissect.side(buffer, index, packet, parent)
 
-  -- Price Level Position: 1 Byte Signed Fixed Width Integer
+  -- Price Level Position: Numeric
   index, price_level_position = ice_futures_mdf_impact_v1_1_51_dissect.price_level_position(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = ice_futures_mdf_impact_v1_1_51_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -1516,31 +1516,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.change_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = ice_futures_mdf_impact_v1_1_51_dissect.side(buffer, index, packet, parent)
 
-  -- Price Level Position: 1 Byte Signed Fixed Width Integer
+  -- Price Level Position: Numeric
   index, price_level_position = ice_futures_mdf_impact_v1_1_51_dissect.price_level_position(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Order Count: 2 Byte Signed Fixed Width Integer
+  -- Order Count: Numeric
   index, order_count = ice_futures_mdf_impact_v1_1_51_dissect.order_count(buffer, index, packet, parent)
 
-  -- Implied Quantity: 4 Byte Signed Fixed Width Integer
+  -- Implied Quantity: Numeric
   index, implied_quantity = ice_futures_mdf_impact_v1_1_51_dissect.implied_quantity(buffer, index, packet, parent)
 
-  -- Implied Order Count: 2 Byte Signed Fixed Width Integer
+  -- Implied Order Count: Numeric
   index, implied_order_count = ice_futures_mdf_impact_v1_1_51_dissect.implied_order_count(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = ice_futures_mdf_impact_v1_1_51_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -1593,31 +1593,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.add_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = ice_futures_mdf_impact_v1_1_51_dissect.side(buffer, index, packet, parent)
 
-  -- Price Level Position: 1 Byte Signed Fixed Width Integer
+  -- Price Level Position: Numeric
   index, price_level_position = ice_futures_mdf_impact_v1_1_51_dissect.price_level_position(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Order Count: 2 Byte Signed Fixed Width Integer
+  -- Order Count: Numeric
   index, order_count = ice_futures_mdf_impact_v1_1_51_dissect.order_count(buffer, index, packet, parent)
 
-  -- Implied Quantity: 4 Byte Signed Fixed Width Integer
+  -- Implied Quantity: Numeric
   index, implied_quantity = ice_futures_mdf_impact_v1_1_51_dissect.implied_quantity(buffer, index, packet, parent)
 
-  -- Implied Order Count: 2 Byte Signed Fixed Width Integer
+  -- Implied Order Count: Numeric
   index, implied_order_count = ice_futures_mdf_impact_v1_1_51_dissect.implied_order_count(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Numeric
   index, timestamp = ice_futures_mdf_impact_v1_1_51_dissect.timestamp(buffer, index, packet, parent)
 
   return index
@@ -1668,28 +1668,28 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.market_snapshot_price_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = ice_futures_mdf_impact_v1_1_51_dissect.side(buffer, index, packet, parent)
 
-  -- Price Level Position: 1 Byte Signed Fixed Width Integer
+  -- Price Level Position: Numeric
   index, price_level_position = ice_futures_mdf_impact_v1_1_51_dissect.price_level_position(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Order Count: 2 Byte Signed Fixed Width Integer
+  -- Order Count: Numeric
   index, order_count = ice_futures_mdf_impact_v1_1_51_dissect.order_count(buffer, index, packet, parent)
 
-  -- Implied Quantity: 4 Byte Signed Fixed Width Integer
+  -- Implied Quantity: Numeric
   index, implied_quantity = ice_futures_mdf_impact_v1_1_51_dissect.implied_quantity(buffer, index, packet, parent)
 
-  -- Implied Order Count: 2 Byte Signed Fixed Width Integer
+  -- Implied Order Count: Numeric
   index, implied_order_count = ice_futures_mdf_impact_v1_1_51_dissect.implied_order_count(buffer, index, packet, parent)
 
   return index
@@ -1832,22 +1832,22 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.fixing_indicative_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Iba Currency: 3 Byte Ascii String
+  -- Iba Currency: Alpha
   index, iba_currency = ice_futures_mdf_impact_v1_1_51_dissect.iba_currency(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Price In Gram: 8 Byte Signed Fixed Width Integer
+  -- Price In Gram: Numeric
   index, price_in_gram = ice_futures_mdf_impact_v1_1_51_dissect.price_in_gram(buffer, index, packet, parent)
 
-  -- Num Decimals Price: 1 Byte Signed Fixed Width Integer
+  -- Num Decimals Price: Numeric
   index, num_decimals_price = ice_futures_mdf_impact_v1_1_51_dissect.num_decimals_price(buffer, index, packet, parent)
 
-  -- Num Decimals Price In Gram: 1 Byte Signed Fixed Width Integer
+  -- Num Decimals Price In Gram: Numeric
   index, num_decimals_price_in_gram = ice_futures_mdf_impact_v1_1_51_dissect.num_decimals_price_in_gram(buffer, index, packet, parent)
 
   return index
@@ -2224,43 +2224,43 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.fixing_lockdown_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Auction Date: 10 Byte Ascii String
+  -- Auction Date: Alpha
   index, auction_date = ice_futures_mdf_impact_v1_1_51_dissect.auction_date(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Description: 20 Byte Ascii String
+  -- Description: Alpha
   index, description = ice_futures_mdf_impact_v1_1_51_dissect.description(buffer, index, packet, parent)
 
-  -- Round: 2 Byte Signed Fixed Width Integer
+  -- Round: Numeric
   index, round = ice_futures_mdf_impact_v1_1_51_dissect.round(buffer, index, packet, parent)
 
-  -- Agg Bid Qty: 4 Byte Signed Fixed Width Integer
+  -- Agg Bid Qty: Numeric
   index, agg_bid_qty = ice_futures_mdf_impact_v1_1_51_dissect.agg_bid_qty(buffer, index, packet, parent)
 
-  -- Agg Offer Qty: 4 Byte Signed Fixed Width Integer
+  -- Agg Offer Qty: Numeric
   index, agg_offer_qty = ice_futures_mdf_impact_v1_1_51_dissect.agg_offer_qty(buffer, index, packet, parent)
 
-  -- Usd Price: 8 Byte Signed Fixed Width Integer
+  -- Usd Price: Numeric
   index, usd_price = ice_futures_mdf_impact_v1_1_51_dissect.usd_price(buffer, index, packet, parent)
 
-  -- Is Balanced: 1 Byte Ascii String Enum with 2 values
+  -- Is Balanced: Alpha
   index, is_balanced = ice_futures_mdf_impact_v1_1_51_dissect.is_balanced(buffer, index, packet, parent)
 
-  -- Is Final: 1 Byte Ascii String Enum with 2 values
+  -- Is Final: Alpha
   index, is_final = ice_futures_mdf_impact_v1_1_51_dissect.is_final(buffer, index, packet, parent)
 
-  -- Gbp Price: 8 Byte Signed Fixed Width Integer
+  -- Gbp Price: Numeric
   index, gbp_price = ice_futures_mdf_impact_v1_1_51_dissect.gbp_price(buffer, index, packet, parent)
 
-  -- Eur Price: 8 Byte Signed Fixed Width Integer
+  -- Eur Price: Numeric
   index, eur_price = ice_futures_mdf_impact_v1_1_51_dissect.eur_price(buffer, index, packet, parent)
 
-  -- Num Decimals Quantity: 1 Byte Signed Fixed Width Integer
+  -- Num Decimals Quantity: Numeric
   index, num_decimals_quantity = ice_futures_mdf_impact_v1_1_51_dissect.num_decimals_quantity(buffer, index, packet, parent)
 
   return index
@@ -2394,22 +2394,22 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.fixing_transition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Fixing Status: 1 Byte Ascii String Enum with 3 values
+  -- Fixing Status: Alpha
   index, fixing_status = ice_futures_mdf_impact_v1_1_51_dissect.fixing_status(buffer, index, packet, parent)
 
-  -- Auction End Time: 8 Byte Signed Fixed Width Integer
+  -- Auction End Time: Numeric
   index, auction_end_time = ice_futures_mdf_impact_v1_1_51_dissect.auction_end_time(buffer, index, packet, parent)
 
-  -- Threshold Imbalance Qty: 4 Byte Signed Fixed Width Integer
+  -- Threshold Imbalance Qty: Numeric
   index, threshold_imbalance_qty = ice_futures_mdf_impact_v1_1_51_dissect.threshold_imbalance_qty(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Num Decimals Quantity: 1 Byte Signed Fixed Width Integer
+  -- Num Decimals Quantity: Numeric
   index, num_decimals_quantity = ice_futures_mdf_impact_v1_1_51_dissect.num_decimals_quantity(buffer, index, packet, parent)
 
   return index
@@ -2550,13 +2550,13 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.message_bundle_marker_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Start Or End: 1 Byte Ascii String Enum with 2 values
+  -- Start Or End: Alpha
   index, start_or_end = ice_futures_mdf_impact_v1_1_51_dissect.start_or_end(buffer, index, packet, parent)
 
-  -- Trade Transaction Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Transaction Id: Numeric
   index, trade_transaction_id = ice_futures_mdf_impact_v1_1_51_dissect.trade_transaction_id(buffer, index, packet, parent)
 
-  -- Is Transaction End: 1 Byte Ascii String Enum with 2 values
+  -- Is Transaction End: Alpha
   index, is_transaction_end = ice_futures_mdf_impact_v1_1_51_dissect.is_transaction_end(buffer, index, packet, parent)
 
   return index
@@ -2665,19 +2665,19 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = ice_futures_mdf_impact_v1_1_51_dissect.order_id(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Sequence Within Millis: 4 Byte Signed Fixed Width Integer
+  -- Sequence Within Millis: Numeric
   index, sequence_within_millis = ice_futures_mdf_impact_v1_1_51_dissect.sequence_within_millis(buffer, index, packet, parent)
 
-  -- Request Trading Engine Received Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Request Trading Engine Received Timestamp: Numeric
   index, request_trading_engine_received_timestamp = ice_futures_mdf_impact_v1_1_51_dissect.request_trading_engine_received_timestamp(buffer, index, packet, parent)
 
   return index
@@ -2925,43 +2925,43 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = ice_futures_mdf_impact_v1_1_51_dissect.order_id(buffer, index, packet, parent)
 
-  -- Order Sequence Id: 2 Byte Signed Fixed Width Integer
+  -- Order Sequence Id: Numeric
   index, order_sequence_id = ice_futures_mdf_impact_v1_1_51_dissect.order_sequence_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = ice_futures_mdf_impact_v1_1_51_dissect.side(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Is Implied: 1 Byte Ascii String Enum with 2 values
+  -- Is Implied: Alpha
   index, is_implied = ice_futures_mdf_impact_v1_1_51_dissect.is_implied(buffer, index, packet, parent)
 
-  -- Is Rfq: 1 Byte Ascii String Enum with 2 values
+  -- Is Rfq: Alpha
   index, is_rfq = ice_futures_mdf_impact_v1_1_51_dissect.is_rfq(buffer, index, packet, parent)
 
-  -- Order Entry Date Time: 8 Byte Signed Fixed Width Integer
+  -- Order Entry Date Time: Numeric
   index, order_entry_date_time = ice_futures_mdf_impact_v1_1_51_dissect.order_entry_date_time(buffer, index, packet, parent)
 
   -- Modify Flags: Struct of 2 fields
   index, modify_flags = ice_futures_mdf_impact_v1_1_51_dissect.modify_flags(buffer, index, packet, parent)
 
-  -- Sequence Within Millis: 4 Byte Signed Fixed Width Integer
+  -- Sequence Within Millis: Numeric
   index, sequence_within_millis = ice_futures_mdf_impact_v1_1_51_dissect.sequence_within_millis(buffer, index, packet, parent)
 
-  -- Modification Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Modification Timestamp: Numeric
   index, modification_timestamp = ice_futures_mdf_impact_v1_1_51_dissect.modification_timestamp(buffer, index, packet, parent)
 
-  -- Request Trading Engine Received Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Request Trading Engine Received Timestamp: Numeric
   index, request_trading_engine_received_timestamp = ice_futures_mdf_impact_v1_1_51_dissect.request_trading_engine_received_timestamp(buffer, index, packet, parent)
 
   return index
@@ -3016,34 +3016,34 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.market_snapshot_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Numeric
   index, order_id = ice_futures_mdf_impact_v1_1_51_dissect.order_id(buffer, index, packet, parent)
 
-  -- Order Sequence Id: 2 Byte Signed Fixed Width Integer
+  -- Order Sequence Id: Numeric
   index, order_sequence_id = ice_futures_mdf_impact_v1_1_51_dissect.order_sequence_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = ice_futures_mdf_impact_v1_1_51_dissect.side(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Is Implied: 1 Byte Ascii String Enum with 2 values
+  -- Is Implied: Alpha
   index, is_implied = ice_futures_mdf_impact_v1_1_51_dissect.is_implied(buffer, index, packet, parent)
 
-  -- Is Rfq: 1 Byte Ascii String Enum with 2 values
+  -- Is Rfq: Alpha
   index, is_rfq = ice_futures_mdf_impact_v1_1_51_dissect.is_rfq(buffer, index, packet, parent)
 
-  -- Order Entry Date Time: 8 Byte Signed Fixed Width Integer
+  -- Order Entry Date Time: Numeric
   index, order_entry_date_time = ice_futures_mdf_impact_v1_1_51_dissect.order_entry_date_time(buffer, index, packet, parent)
 
-  -- Sequence Within Millis: 4 Byte Signed Fixed Width Integer
+  -- Sequence Within Millis: Numeric
   index, sequence_within_millis = ice_futures_mdf_impact_v1_1_51_dissect.sequence_within_millis(buffer, index, packet, parent)
 
   return index
@@ -3238,28 +3238,28 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.option_settlement_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Settlement Price With Deal Price Precision: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price With Deal Price Precision: Numeric
   index, settlement_price_with_deal_price_precision = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price_with_deal_price_precision(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Is Official: 1 Byte Ascii String Enum with 2 values
+  -- Is Official: Alpha
   index, is_official = ice_futures_mdf_impact_v1_1_51_dissect.is_official(buffer, index, packet, parent)
 
-  -- Valuation Date Time: 8 Byte Signed Fixed Width Integer
+  -- Valuation Date Time: Numeric
   index, valuation_date_time = ice_futures_mdf_impact_v1_1_51_dissect.valuation_date_time(buffer, index, packet, parent)
 
-  -- Volatility: 8 Byte Signed Fixed Width Integer
+  -- Volatility: Numeric
   index, volatility = ice_futures_mdf_impact_v1_1_51_dissect.volatility(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: Numeric
   index, settlement_price = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Delta: 8 Byte Signed Fixed Width Integer
+  -- Delta: Numeric
   index, delta = ice_futures_mdf_impact_v1_1_51_dissect.delta(buffer, index, packet, parent)
 
   return index
@@ -3358,16 +3358,16 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.option_open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Open Interest: 4 Byte Signed Fixed Width Integer
+  -- Open Interest: Numeric
   index, open_interest = ice_futures_mdf_impact_v1_1_51_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Open Interest Date: 10 Byte Ascii String
+  -- Open Interest Date: Alpha
   index, open_interest_date = ice_futures_mdf_impact_v1_1_51_dissect.open_interest_date(buffer, index, packet, parent)
 
   return index
@@ -4631,127 +4631,127 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.new_options_market_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Market Id: Numeric
   index, underlying_market_id = ice_futures_mdf_impact_v1_1_51_dissect.underlying_market_id(buffer, index, packet, parent)
 
-  -- Futures Contract Symbol: 70 Byte Ascii String
+  -- Futures Contract Symbol: Alpha
   index, futures_contract_symbol = ice_futures_mdf_impact_v1_1_51_dissect.futures_contract_symbol(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 5 values
+  -- Trading Status: Alpha
   index, trading_status = ice_futures_mdf_impact_v1_1_51_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Order Price Denominator: 1 Byte Ascii String
+  -- Order Price Denominator: Alpha
   index, order_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.order_price_denominator(buffer, index, packet, parent)
 
-  -- Increment Qty: 4 Byte Signed Fixed Width Integer
+  -- Increment Qty: Numeric
   index, increment_qty = ice_futures_mdf_impact_v1_1_51_dissect.increment_qty(buffer, index, packet, parent)
 
-  -- Lot Size: 4 Byte Signed Fixed Width Integer
+  -- Lot Size: Numeric
   index, lot_size = ice_futures_mdf_impact_v1_1_51_dissect.lot_size(buffer, index, packet, parent)
 
-  -- Market Desc: 120 Byte Ascii String
+  -- Market Desc: Alpha
   index, market_desc = ice_futures_mdf_impact_v1_1_51_dissect.market_desc(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: Alpha
   index, option_type = ice_futures_mdf_impact_v1_1_51_dissect.option_type(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: Numeric
   index, strike_price = ice_futures_mdf_impact_v1_1_51_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Deal Price Denominator: 1 Byte Ascii String
+  -- Deal Price Denominator: Alpha
   index, deal_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.deal_price_denominator(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Signed Fixed Width Integer
+  -- Min Qty: Numeric
   index, min_qty = ice_futures_mdf_impact_v1_1_51_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Currency: 20 Byte Ascii String
+  -- Currency: Alpha
   index, currency = ice_futures_mdf_impact_v1_1_51_dissect.currency(buffer, index, packet, parent)
 
-  -- Num Decimals Strike Price: 1 Byte Ascii String
+  -- Num Decimals Strike Price: Alpha
   index, num_decimals_strike_price = ice_futures_mdf_impact_v1_1_51_dissect.num_decimals_strike_price(buffer, index, packet, parent)
 
-  -- Min Options Price: 8 Byte Signed Fixed Width Integer
+  -- Min Options Price: Numeric
   index, min_options_price = ice_futures_mdf_impact_v1_1_51_dissect.min_options_price(buffer, index, packet, parent)
 
-  -- Max Options Price: 8 Byte Signed Fixed Width Integer
+  -- Max Options Price: Numeric
   index, max_options_price = ice_futures_mdf_impact_v1_1_51_dissect.max_options_price(buffer, index, packet, parent)
 
-  -- Increment Premium Price: 4 Byte Signed Fixed Width Integer
+  -- Increment Premium Price: Numeric
   index, increment_premium_price = ice_futures_mdf_impact_v1_1_51_dissect.increment_premium_price(buffer, index, packet, parent)
 
-  -- Options Expiration Year: 2 Byte Signed Fixed Width Integer
+  -- Options Expiration Year: Numeric
   index, options_expiration_year = ice_futures_mdf_impact_v1_1_51_dissect.options_expiration_year(buffer, index, packet, parent)
 
-  -- Options Expiration Month: 2 Byte Signed Fixed Width Integer
+  -- Options Expiration Month: Numeric
   index, options_expiration_month = ice_futures_mdf_impact_v1_1_51_dissect.options_expiration_month(buffer, index, packet, parent)
 
-  -- Options Expiration Day: 2 Byte Signed Fixed Width Integer
+  -- Options Expiration Day: Numeric
   index, options_expiration_day = ice_futures_mdf_impact_v1_1_51_dissect.options_expiration_day(buffer, index, packet, parent)
 
-  -- Options Style: 1 Byte Ascii String Enum with 5 values
+  -- Options Style: Alpha
   index, options_style = ice_futures_mdf_impact_v1_1_51_dissect.options_style(buffer, index, packet, parent)
 
-  -- Options Expiration Type: 1 Byte Ascii String Enum with 2 values
+  -- Options Expiration Type: Alpha
   index, options_expiration_type = ice_futures_mdf_impact_v1_1_51_dissect.options_expiration_type(buffer, index, packet, parent)
 
-  -- Hedge Market Id: 4 Byte Signed Fixed Width Integer
+  -- Hedge Market Id: Numeric
   index, hedge_market_id = ice_futures_mdf_impact_v1_1_51_dissect.hedge_market_id(buffer, index, packet, parent)
 
-  -- Settle Price Denominator: 1 Byte Ascii String
+  -- Settle Price Denominator: Alpha
   index, settle_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.settle_price_denominator(buffer, index, packet, parent)
 
-  -- Unit Qty Denominator: 1 Byte Ascii String
+  -- Unit Qty Denominator: Alpha
   index, unit_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.unit_qty_denominator(buffer, index, packet, parent)
 
-  -- Tick Value: 8 Byte Signed Fixed Width Integer
+  -- Tick Value: Numeric
   index, tick_value = ice_futures_mdf_impact_v1_1_51_dissect.tick_value(buffer, index, packet, parent)
 
-  -- Flex Allowed: 1 Byte Ascii String Enum with 2 values
+  -- Flex Allowed: Alpha
   index, flex_allowed = ice_futures_mdf_impact_v1_1_51_dissect.flex_allowed(buffer, index, packet, parent)
 
-  -- Settlement Type: 1 Byte Ascii String Enum with 2 values
+  -- Settlement Type: Alpha
   index, settlement_type = ice_futures_mdf_impact_v1_1_51_dissect.settlement_type(buffer, index, packet, parent)
 
-  -- Is Block Only: 1 Byte Ascii String Enum with 2 values
+  -- Is Block Only: Alpha
   index, is_block_only = ice_futures_mdf_impact_v1_1_51_dissect.is_block_only(buffer, index, packet, parent)
 
-  -- Gt Allowed: 1 Byte Ascii String Enum with 2 values
+  -- Gt Allowed: Alpha
   index, gt_allowed = ice_futures_mdf_impact_v1_1_51_dissect.gt_allowed(buffer, index, packet, parent)
 
-  -- Cross Order Supported: 1 Byte Ascii String Enum with 2 values
+  -- Cross Order Supported: Alpha
   index, cross_order_supported = ice_futures_mdf_impact_v1_1_51_dissect.cross_order_supported(buffer, index, packet, parent)
 
-  -- Guaranteed Cross Supported: 1 Byte Ascii String Enum with 2 values
+  -- Guaranteed Cross Supported: Alpha
   index, guaranteed_cross_supported = ice_futures_mdf_impact_v1_1_51_dissect.guaranteed_cross_supported(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: Alpha
   index, unit_of_measure = ice_futures_mdf_impact_v1_1_51_dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Mifid Regulated Market: 1 Byte Ascii String Enum with 2 values
+  -- Mifid Regulated Market: Alpha
   index, mifid_regulated_market = ice_futures_mdf_impact_v1_1_51_dissect.mifid_regulated_market(buffer, index, packet, parent)
 
-  -- Screen Last Trade Year: 2 Byte Signed Fixed Width Integer
+  -- Screen Last Trade Year: Numeric
   index, screen_last_trade_year = ice_futures_mdf_impact_v1_1_51_dissect.screen_last_trade_year(buffer, index, packet, parent)
 
-  -- Screen Last Trade Month: 2 Byte Signed Fixed Width Integer
+  -- Screen Last Trade Month: Numeric
   index, screen_last_trade_month = ice_futures_mdf_impact_v1_1_51_dissect.screen_last_trade_month(buffer, index, packet, parent)
 
-  -- Screen Last Trade Day: 2 Byte Signed Fixed Width Integer
+  -- Screen Last Trade Day: Numeric
   index, screen_last_trade_day = ice_futures_mdf_impact_v1_1_51_dissect.screen_last_trade_day(buffer, index, packet, parent)
 
-  -- Is Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Is Tradable: Alpha
   index, is_tradable = ice_futures_mdf_impact_v1_1_51_dissect.is_tradable(buffer, index, packet, parent)
 
-  -- Old Num Of Cycles: 2 Byte Signed Fixed Width Integer
+  -- Old Num Of Cycles: Numeric
   index, old_num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.old_num_of_cycles(buffer, index, packet, parent)
 
-  -- Market Type Id: 2 Byte Signed Fixed Width Integer Enum with 140 values
+  -- Market Type Id: Numeric
   index, market_type_id = ice_futures_mdf_impact_v1_1_51_dissect.market_type_id(buffer, index, packet, parent)
 
-  -- Num Of Cycles: 4 Byte Signed Fixed Width Integer
+  -- Num Of Cycles: Numeric
   index, num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.num_of_cycles(buffer, index, packet, parent)
 
   return index
@@ -5069,34 +5069,34 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.extra_strategy_leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Body Length: 1 Byte Signed Fixed Width Integer
+  -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
 
-  -- Leg Market Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Market Id: Numeric
   index, leg_market_id = ice_futures_mdf_impact_v1_1_51_dissect.leg_market_id(buffer, index, packet, parent)
 
-  -- Leg Underlying Market Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Underlying Market Id: Numeric
   index, leg_underlying_market_id = ice_futures_mdf_impact_v1_1_51_dissect.leg_underlying_market_id(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: N/A
   index, reserved_2 = ice_futures_mdf_impact_v1_1_51_dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 3 values
+  -- Leg Side: Alpha
   index, leg_side = ice_futures_mdf_impact_v1_1_51_dissect.leg_side(buffer, index, packet, parent)
 
-  -- Leg Strategy Code: 2 Byte Signed Fixed Width Integer
+  -- Leg Strategy Code: Numeric
   index, leg_strategy_code = ice_futures_mdf_impact_v1_1_51_dissect.leg_strategy_code(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Numerator: Numeric
   index, leg_ratio_qty_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Denominator: Numeric
   index, leg_ratio_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_denominator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Numerator: Numeric
   index, leg_ratio_price_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Denominator: Numeric
   index, leg_ratio_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_denominator(buffer, index, packet, parent)
 
   return index
@@ -5944,31 +5944,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.hedge_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Hedge Body Length: 1 Byte Signed Fixed Width Integer
+  -- Hedge Body Length: Numeric
   index, hedge_body_length = ice_futures_mdf_impact_v1_1_51_dissect.hedge_body_length(buffer, index, packet, parent)
 
-  -- Hedge Market Id: 4 Byte Signed Fixed Width Integer
+  -- Hedge Market Id: Numeric
   index, hedge_market_id = ice_futures_mdf_impact_v1_1_51_dissect.hedge_market_id(buffer, index, packet, parent)
 
-  -- Hedge Security Type: 1 Byte Ascii String
+  -- Hedge Security Type: Alpha
   index, hedge_security_type = ice_futures_mdf_impact_v1_1_51_dissect.hedge_security_type(buffer, index, packet, parent)
 
-  -- Hedge Side: 1 Byte Ascii String Enum with 3 values
+  -- Hedge Side: Alpha
   index, hedge_side = ice_futures_mdf_impact_v1_1_51_dissect.hedge_side(buffer, index, packet, parent)
 
-  -- Hedge Price: 8 Byte Signed Fixed Width Integer
+  -- Hedge Price: Numeric
   index, hedge_price = ice_futures_mdf_impact_v1_1_51_dissect.hedge_price(buffer, index, packet, parent)
 
-  -- Hedge Price Denominator: 1 Byte Ascii String
+  -- Hedge Price Denominator: Alpha
   index, hedge_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.hedge_price_denominator(buffer, index, packet, parent)
 
-  -- Hedge Delta Obsolete: 2 Byte Signed Fixed Width Integer
+  -- Hedge Delta Obsolete: Numeric
   index, hedge_delta_obsolete = ice_futures_mdf_impact_v1_1_51_dissect.hedge_delta_obsolete(buffer, index, packet, parent)
 
-  -- Hedge Strategy Code: 2 Byte Signed Fixed Width Integer
+  -- Hedge Strategy Code: Numeric
   index, hedge_strategy_code = ice_futures_mdf_impact_v1_1_51_dissect.hedge_strategy_code(buffer, index, packet, parent)
 
-  -- Hedge Delta: 4 Byte Signed Fixed Width Integer
+  -- Hedge Delta: Numeric
   index, hedge_delta = ice_futures_mdf_impact_v1_1_51_dissect.hedge_delta(buffer, index, packet, parent)
 
   return index
@@ -6063,34 +6063,34 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.strategy_leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Body Length: 1 Byte Signed Fixed Width Integer
+  -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
 
-  -- Leg Market Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Market Id: Numeric
   index, leg_market_id = ice_futures_mdf_impact_v1_1_51_dissect.leg_market_id(buffer, index, packet, parent)
 
-  -- Leg Underlying Market Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Underlying Market Id: Numeric
   index, leg_underlying_market_id = ice_futures_mdf_impact_v1_1_51_dissect.leg_underlying_market_id(buffer, index, packet, parent)
 
-  -- Leg Ratio Obsolete: 2 Byte Signed Fixed Width Integer
+  -- Leg Ratio Obsolete: Numeric
   index, leg_ratio_obsolete = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_obsolete(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 3 values
+  -- Leg Side: Alpha
   index, leg_side = ice_futures_mdf_impact_v1_1_51_dissect.leg_side(buffer, index, packet, parent)
 
-  -- Leg Strategy Code: 2 Byte Signed Fixed Width Integer
+  -- Leg Strategy Code: Numeric
   index, leg_strategy_code = ice_futures_mdf_impact_v1_1_51_dissect.leg_strategy_code(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Numerator: Numeric
   index, leg_ratio_qty_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Denominator: Numeric
   index, leg_ratio_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_denominator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Numerator: Numeric
   index, leg_ratio_price_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Denominator: Numeric
   index, leg_ratio_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_denominator(buffer, index, packet, parent)
 
   return index
@@ -6277,31 +6277,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.new_options_strategy_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Underlying Market Id: 4 Byte Signed Fixed Width Integer
+  -- Underlying Market Id: Numeric
   index, underlying_market_id = ice_futures_mdf_impact_v1_1_51_dissect.underlying_market_id(buffer, index, packet, parent)
 
-  -- Contract Symbol: 35 Byte Ascii String
+  -- Contract Symbol: Alpha
   index, contract_symbol = ice_futures_mdf_impact_v1_1_51_dissect.contract_symbol(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 5 values
+  -- Trading Status: Alpha
   index, trading_status = ice_futures_mdf_impact_v1_1_51_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Order Price Denominator: 1 Byte Ascii String
+  -- Order Price Denominator: Alpha
   index, order_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.order_price_denominator(buffer, index, packet, parent)
 
-  -- Increment Price: 4 Byte Signed Fixed Width Integer
+  -- Increment Price: Numeric
   index, increment_price = ice_futures_mdf_impact_v1_1_51_dissect.increment_price(buffer, index, packet, parent)
 
-  -- Increment Qty: 4 Byte Signed Fixed Width Integer
+  -- Increment Qty: Numeric
   index, increment_qty = ice_futures_mdf_impact_v1_1_51_dissect.increment_qty(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Signed Fixed Width Integer
+  -- Min Qty: Numeric
   index, min_qty = ice_futures_mdf_impact_v1_1_51_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Number Of Strategy Leg Definitions: 1 Byte Signed Fixed Width Integer
+  -- Number Of Strategy Leg Definitions: Numeric
   index, number_of_strategy_leg_definitions = ice_futures_mdf_impact_v1_1_51_dissect.number_of_strategy_leg_definitions(buffer, index, packet, parent)
 
   -- Strategy Leg Definition: Struct of 10 fields
@@ -6309,7 +6309,7 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_options_strategy_definition_message_f
     index = ice_futures_mdf_impact_v1_1_51_dissect.strategy_leg_definition(buffer, index, packet, parent)
   end
 
-  -- Number Of Hedge Definitions: 1 Byte Signed Fixed Width Integer
+  -- Number Of Hedge Definitions: Numeric
   index, number_of_hedge_definitions = ice_futures_mdf_impact_v1_1_51_dissect.number_of_hedge_definitions(buffer, index, packet, parent)
 
   -- Hedge Definition: Struct of 9 fields
@@ -6317,61 +6317,61 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_options_strategy_definition_message_f
     index = ice_futures_mdf_impact_v1_1_51_dissect.hedge_definition(buffer, index, packet, parent)
   end
 
-  -- Security Sub Type: 2 Byte Signed Fixed Width Integer Enum with 120 values
+  -- Security Sub Type: Numeric
   index, security_sub_type = ice_futures_mdf_impact_v1_1_51_dissect.security_sub_type(buffer, index, packet, parent)
 
-  -- Is Block Only: 1 Byte Ascii String Enum with 2 values
+  -- Is Block Only: Alpha
   index, is_block_only = ice_futures_mdf_impact_v1_1_51_dissect.is_block_only(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 18 Byte Ascii String
+  -- Strategy Symbol: Alpha
   index, strategy_symbol = ice_futures_mdf_impact_v1_1_51_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Gt Allowed: 1 Byte Ascii String Enum with 2 values
+  -- Gt Allowed: Alpha
   index, gt_allowed = ice_futures_mdf_impact_v1_1_51_dissect.gt_allowed(buffer, index, packet, parent)
 
-  -- Mifid Regulated Market: 1 Byte Ascii String Enum with 2 values
+  -- Mifid Regulated Market: Alpha
   index, mifid_regulated_market = ice_futures_mdf_impact_v1_1_51_dissect.mifid_regulated_market(buffer, index, packet, parent)
 
-  -- Deal Price Denominator: 1 Byte Ascii String
+  -- Deal Price Denominator: Alpha
   index, deal_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.deal_price_denominator(buffer, index, packet, parent)
 
-  -- Settle Price Denominator: 1 Byte Ascii String
+  -- Settle Price Denominator: Alpha
   index, settle_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.settle_price_denominator(buffer, index, packet, parent)
 
-  -- Unit Qty Denominator: 1 Byte Ascii String
+  -- Unit Qty Denominator: Alpha
   index, unit_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.unit_qty_denominator(buffer, index, packet, parent)
 
-  -- Test Market Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Test Market Indicator: Alpha
   index, test_market_indicator = ice_futures_mdf_impact_v1_1_51_dissect.test_market_indicator(buffer, index, packet, parent)
 
-  -- Contract Symbol Extra: 35 Byte Ascii String
+  -- Contract Symbol Extra: Alpha
   index, contract_symbol_extra = ice_futures_mdf_impact_v1_1_51_dissect.contract_symbol_extra(buffer, index, packet, parent)
 
-  -- Leg Deal Suppressed: 1 Byte Ascii String Enum with 2 values
+  -- Leg Deal Suppressed: Alpha
   index, leg_deal_suppressed = ice_futures_mdf_impact_v1_1_51_dissect.leg_deal_suppressed(buffer, index, packet, parent)
 
-  -- Is Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Is Tradable: Alpha
   index, is_tradable = ice_futures_mdf_impact_v1_1_51_dissect.is_tradable(buffer, index, packet, parent)
 
-  -- Old Num Of Cycles: 2 Byte Signed Fixed Width Integer
+  -- Old Num Of Cycles: Numeric
   index, old_num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.old_num_of_cycles(buffer, index, packet, parent)
 
-  -- Options Expiration Year: 2 Byte Signed Fixed Width Integer
+  -- Options Expiration Year: Numeric
   index, options_expiration_year = ice_futures_mdf_impact_v1_1_51_dissect.options_expiration_year(buffer, index, packet, parent)
 
-  -- Options Expiration Month: 2 Byte Signed Fixed Width Integer
+  -- Options Expiration Month: Numeric
   index, options_expiration_month = ice_futures_mdf_impact_v1_1_51_dissect.options_expiration_month(buffer, index, packet, parent)
 
-  -- Options Expiration Day: 2 Byte Signed Fixed Width Integer
+  -- Options Expiration Day: Numeric
   index, options_expiration_day = ice_futures_mdf_impact_v1_1_51_dissect.options_expiration_day(buffer, index, packet, parent)
 
-  -- Market Type Id: 2 Byte Signed Fixed Width Integer Enum with 140 values
+  -- Market Type Id: Numeric
   index, market_type_id = ice_futures_mdf_impact_v1_1_51_dissect.market_type_id(buffer, index, packet, parent)
 
-  -- Override Block Min: 1 Byte Ascii String
+  -- Override Block Min: Alpha
   index, override_block_min = ice_futures_mdf_impact_v1_1_51_dissect.override_block_min(buffer, index, packet, parent)
 
-  -- Number Of Extra Strategy Leg Definitions: 1 Byte Signed Fixed Width Integer
+  -- Number Of Extra Strategy Leg Definitions: Numeric
   index, number_of_extra_strategy_leg_definitions = ice_futures_mdf_impact_v1_1_51_dissect.number_of_extra_strategy_leg_definitions(buffer, index, packet, parent)
 
   -- Extra Strategy Leg Definition: Struct of 10 fields
@@ -6379,13 +6379,13 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_options_strategy_definition_message_f
     index = ice_futures_mdf_impact_v1_1_51_dissect.extra_strategy_leg_definition(buffer, index, packet, parent)
   end
 
-  -- Num Of Cycles: 4 Byte Signed Fixed Width Integer
+  -- Num Of Cycles: Numeric
   index, num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.num_of_cycles(buffer, index, packet, parent)
 
-  -- Min Price: 8 Byte Signed Fixed Width Integer
+  -- Min Price: Numeric
   index, min_price = ice_futures_mdf_impact_v1_1_51_dissect.min_price(buffer, index, packet, parent)
 
-  -- Max Price: 8 Byte Signed Fixed Width Integer
+  -- Max Price: Numeric
   index, max_price = ice_futures_mdf_impact_v1_1_51_dissect.max_price(buffer, index, packet, parent)
 
   return index
@@ -6508,16 +6508,16 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.fragment_wrapper_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Total Length: 2 Byte Signed Fixed Width Integer
+  -- Total Length: Numeric
   index, total_length = ice_futures_mdf_impact_v1_1_51_dissect.total_length(buffer, index, packet, parent)
 
-  -- Fragment Offset: 2 Byte Signed Fixed Width Integer
+  -- Fragment Offset: Numeric
   index, fragment_offset = ice_futures_mdf_impact_v1_1_51_dissect.fragment_offset(buffer, index, packet, parent)
 
-  -- Fragment Length: 2 Byte Signed Fixed Width Integer
+  -- Fragment Length: Numeric
   index, fragment_length = ice_futures_mdf_impact_v1_1_51_dissect.fragment_length(buffer, index, packet, parent)
 
-  -- Fragment Bytes: 0 Byte
+  -- Fragment Bytes: Bytes
   index, fragment_bytes = ice_futures_mdf_impact_v1_1_51_dissect.fragment_bytes(buffer, index, packet, parent)
 
   return index
@@ -6991,10 +6991,10 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.special_field_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Special Field Id: 1 Byte Signed Fixed Width Integer Enum with 11 values
+  -- Special Field Id: Numeric
   index, special_field_id = ice_futures_mdf_impact_v1_1_51_dissect.special_field_id(buffer, index, packet, parent)
 
-  -- Special Field Length: 2 Byte Signed Fixed Width Integer
+  -- Special Field Length: Numeric
   index, special_field_length = ice_futures_mdf_impact_v1_1_51_dissect.special_field_length(buffer, index, packet, parent)
 
   -- Variable Field: Runtime Type with 11 branches
@@ -7059,7 +7059,7 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.special_field_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Special Fields: 1 Byte Signed Fixed Width Integer
+  -- Number Of Special Fields: Numeric
   index, number_of_special_fields = ice_futures_mdf_impact_v1_1_51_dissect.number_of_special_fields(buffer, index, packet, parent)
 
   -- Special Field: Struct of 3 fields
@@ -7669,136 +7669,136 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.new_expiry_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Market Type Id: 2 Byte Signed Fixed Width Integer Enum with 140 values
+  -- Market Type Id: Numeric
   index, market_type_id = ice_futures_mdf_impact_v1_1_51_dissect.market_type_id(buffer, index, packet, parent)
 
-  -- Order Price Denominator: 1 Byte Ascii String
+  -- Order Price Denominator: Alpha
   index, order_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.order_price_denominator(buffer, index, packet, parent)
 
-  -- Increment Price: 4 Byte Signed Fixed Width Integer
+  -- Increment Price: Numeric
   index, increment_price = ice_futures_mdf_impact_v1_1_51_dissect.increment_price(buffer, index, packet, parent)
 
-  -- Increment Qty: 4 Byte Signed Fixed Width Integer
+  -- Increment Qty: Numeric
   index, increment_qty = ice_futures_mdf_impact_v1_1_51_dissect.increment_qty(buffer, index, packet, parent)
 
-  -- Lot Size: 4 Byte Signed Fixed Width Integer
+  -- Lot Size: Numeric
   index, lot_size = ice_futures_mdf_impact_v1_1_51_dissect.lot_size(buffer, index, packet, parent)
 
-  -- Market Desc: 120 Byte Ascii String
+  -- Market Desc: Alpha
   index, market_desc = ice_futures_mdf_impact_v1_1_51_dissect.market_desc(buffer, index, packet, parent)
 
-  -- Maturity Year: 2 Byte Signed Fixed Width Integer
+  -- Maturity Year: Numeric
   index, maturity_year = ice_futures_mdf_impact_v1_1_51_dissect.maturity_year(buffer, index, packet, parent)
 
-  -- Maturity Month: 2 Byte Signed Fixed Width Integer
+  -- Maturity Month: Numeric
   index, maturity_month = ice_futures_mdf_impact_v1_1_51_dissect.maturity_month(buffer, index, packet, parent)
 
-  -- Maturity Day: 2 Byte Signed Fixed Width Integer
+  -- Maturity Day: Numeric
   index, maturity_day = ice_futures_mdf_impact_v1_1_51_dissect.maturity_day(buffer, index, packet, parent)
 
-  -- Deal Price Denominator: 1 Byte Ascii String
+  -- Deal Price Denominator: Alpha
   index, deal_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.deal_price_denominator(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Signed Fixed Width Integer
+  -- Min Qty: Numeric
   index, min_qty = ice_futures_mdf_impact_v1_1_51_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Unit Quantity: 4 Byte Signed Fixed Width Integer
+  -- Unit Quantity: Numeric
   index, unit_quantity = ice_futures_mdf_impact_v1_1_51_dissect.unit_quantity(buffer, index, packet, parent)
 
-  -- Currency: 20 Byte Ascii String
+  -- Currency: Alpha
   index, currency = ice_futures_mdf_impact_v1_1_51_dissect.currency(buffer, index, packet, parent)
 
-  -- Cleared Alias: 15 Byte Ascii String
+  -- Cleared Alias: Alpha
   index, cleared_alias = ice_futures_mdf_impact_v1_1_51_dissect.cleared_alias(buffer, index, packet, parent)
 
-  -- Min Price: 8 Byte Signed Fixed Width Integer
+  -- Min Price: Numeric
   index, min_price = ice_futures_mdf_impact_v1_1_51_dissect.min_price(buffer, index, packet, parent)
 
-  -- Max Price: 8 Byte Signed Fixed Width Integer
+  -- Max Price: Numeric
   index, max_price = ice_futures_mdf_impact_v1_1_51_dissect.max_price(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: Numeric
   index, product_id = ice_futures_mdf_impact_v1_1_51_dissect.product_id(buffer, index, packet, parent)
 
-  -- Product Name: 62 Byte Ascii String
+  -- Product Name: Alpha
   index, product_name = ice_futures_mdf_impact_v1_1_51_dissect.product_name(buffer, index, packet, parent)
 
-  -- Hub Id: 4 Byte Signed Fixed Width Integer
+  -- Hub Id: Numeric
   index, hub_id = ice_futures_mdf_impact_v1_1_51_dissect.hub_id(buffer, index, packet, parent)
 
-  -- Hub Alias: 80 Byte Ascii String
+  -- Hub Alias: Alpha
   index, hub_alias = ice_futures_mdf_impact_v1_1_51_dissect.hub_alias(buffer, index, packet, parent)
 
-  -- Strip Id: 4 Byte Signed Fixed Width Integer
+  -- Strip Id: Numeric
   index, strip_id = ice_futures_mdf_impact_v1_1_51_dissect.strip_id(buffer, index, packet, parent)
 
-  -- Strip Name: 39 Byte Ascii String
+  -- Strip Name: Alpha
   index, strip_name = ice_futures_mdf_impact_v1_1_51_dissect.strip_name(buffer, index, packet, parent)
 
-  -- Settle Price Denominator: 1 Byte Ascii String
+  -- Settle Price Denominator: Alpha
   index, settle_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.settle_price_denominator(buffer, index, packet, parent)
 
-  -- Mic Code: 4 Byte Ascii String
+  -- Mic Code: Alpha
   index, mic_code = ice_futures_mdf_impact_v1_1_51_dissect.mic_code(buffer, index, packet, parent)
 
-  -- Unit Qty Denominator: 1 Byte Ascii String
+  -- Unit Qty Denominator: Alpha
   index, unit_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.unit_qty_denominator(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Qty Denominator: 1 Byte Ascii String
+  -- Off Exchange Increment Qty Denominator: Alpha
   index, off_exchange_increment_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_qty_denominator(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Qty: 4 Byte Signed Fixed Width Integer
+  -- Off Exchange Increment Qty: Numeric
   index, off_exchange_increment_qty = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_qty(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Price: 4 Byte Signed Fixed Width Integer
+  -- Off Exchange Increment Price: Numeric
   index, off_exchange_increment_price = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_price(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Option Price: 4 Byte Signed Fixed Width Integer
+  -- Off Exchange Increment Option Price: Numeric
   index, off_exchange_increment_option_price = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_option_price(buffer, index, packet, parent)
 
-  -- Contract Symbol: 35 Byte Ascii String
+  -- Contract Symbol: Alpha
   index, contract_symbol = ice_futures_mdf_impact_v1_1_51_dissect.contract_symbol(buffer, index, packet, parent)
 
-  -- Underlying Isin: 12 Byte Ascii String
+  -- Underlying Isin: Alpha
   index, underlying_isin = ice_futures_mdf_impact_v1_1_51_dissect.underlying_isin(buffer, index, packet, parent)
 
-  -- Num Decimals Options Price: 1 Byte Ascii String
+  -- Num Decimals Options Price: Alpha
   index, num_decimals_options_price = ice_futures_mdf_impact_v1_1_51_dissect.num_decimals_options_price(buffer, index, packet, parent)
 
-  -- Hedge Market Id: 4 Byte Signed Fixed Width Integer
+  -- Hedge Market Id: Numeric
   index, hedge_market_id = ice_futures_mdf_impact_v1_1_51_dissect.hedge_market_id(buffer, index, packet, parent)
 
-  -- Settlement Type: 1 Byte Ascii String Enum with 2 values
+  -- Settlement Type: Alpha
   index, settlement_type = ice_futures_mdf_impact_v1_1_51_dissect.settlement_type(buffer, index, packet, parent)
 
-  -- Gt Allowed: 1 Byte Ascii String Enum with 2 values
+  -- Gt Allowed: Alpha
   index, gt_allowed = ice_futures_mdf_impact_v1_1_51_dissect.gt_allowed(buffer, index, packet, parent)
 
-  -- Cross Order Supported: 1 Byte Ascii String Enum with 2 values
+  -- Cross Order Supported: Alpha
   index, cross_order_supported = ice_futures_mdf_impact_v1_1_51_dissect.cross_order_supported(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: Alpha
   index, unit_of_measure = ice_futures_mdf_impact_v1_1_51_dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Mifid Regulated Market: 1 Byte Ascii String Enum with 2 values
+  -- Mifid Regulated Market: Alpha
   index, mifid_regulated_market = ice_futures_mdf_impact_v1_1_51_dissect.mifid_regulated_market(buffer, index, packet, parent)
 
-  -- Screen Last Trade Year: 2 Byte Signed Fixed Width Integer
+  -- Screen Last Trade Year: Numeric
   index, screen_last_trade_year = ice_futures_mdf_impact_v1_1_51_dissect.screen_last_trade_year(buffer, index, packet, parent)
 
-  -- Screen Last Trade Month: 2 Byte Signed Fixed Width Integer
+  -- Screen Last Trade Month: Numeric
   index, screen_last_trade_month = ice_futures_mdf_impact_v1_1_51_dissect.screen_last_trade_month(buffer, index, packet, parent)
 
-  -- Screen Last Trade Day: 2 Byte Signed Fixed Width Integer
+  -- Screen Last Trade Day: Numeric
   index, screen_last_trade_day = ice_futures_mdf_impact_v1_1_51_dissect.screen_last_trade_day(buffer, index, packet, parent)
 
-  -- Old Num Of Cycles: 2 Byte Signed Fixed Width Integer
+  -- Old Num Of Cycles: Numeric
   index, old_num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.old_num_of_cycles(buffer, index, packet, parent)
 
-  -- Num Of Cycles: 4 Byte Signed Fixed Width Integer
+  -- Num Of Cycles: Numeric
   index, num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.num_of_cycles(buffer, index, packet, parent)
 
   return index
@@ -7851,31 +7851,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.extra_leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Body Length: 1 Byte Signed Fixed Width Integer
+  -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
 
-  -- Leg Market Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Market Id: Numeric
   index, leg_market_id = ice_futures_mdf_impact_v1_1_51_dissect.leg_market_id(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: N/A
   index, reserved_2 = ice_futures_mdf_impact_v1_1_51_dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 3 values
+  -- Leg Side: Alpha
   index, leg_side = ice_futures_mdf_impact_v1_1_51_dissect.leg_side(buffer, index, packet, parent)
 
-  -- Leg Strategy Code: 2 Byte Signed Fixed Width Integer
+  -- Leg Strategy Code: Numeric
   index, leg_strategy_code = ice_futures_mdf_impact_v1_1_51_dissect.leg_strategy_code(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Numerator: Numeric
   index, leg_ratio_qty_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Denominator: Numeric
   index, leg_ratio_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_denominator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Numerator: Numeric
   index, leg_ratio_price_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Denominator: Numeric
   index, leg_ratio_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_denominator(buffer, index, packet, parent)
 
   return index
@@ -8131,31 +8131,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Body Length: 1 Byte Signed Fixed Width Integer
+  -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
 
-  -- Leg Market Id: 4 Byte Signed Fixed Width Integer
+  -- Leg Market Id: Numeric
   index, leg_market_id = ice_futures_mdf_impact_v1_1_51_dissect.leg_market_id(buffer, index, packet, parent)
 
-  -- Leg Ratio Obsolete: 2 Byte Signed Fixed Width Integer
+  -- Leg Ratio Obsolete: Numeric
   index, leg_ratio_obsolete = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_obsolete(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 3 values
+  -- Leg Side: Alpha
   index, leg_side = ice_futures_mdf_impact_v1_1_51_dissect.leg_side(buffer, index, packet, parent)
 
-  -- Leg Strategy Code: 2 Byte Signed Fixed Width Integer
+  -- Leg Strategy Code: Numeric
   index, leg_strategy_code = ice_futures_mdf_impact_v1_1_51_dissect.leg_strategy_code(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Numerator: Numeric
   index, leg_ratio_qty_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Qty Denominator: Numeric
   index, leg_ratio_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_qty_denominator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Numerator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Numerator: Numeric
   index, leg_ratio_price_numerator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_numerator(buffer, index, packet, parent)
 
-  -- Leg Ratio Price Denominator: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio Price Denominator: Numeric
   index, leg_ratio_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.leg_ratio_price_denominator(buffer, index, packet, parent)
 
   return index
@@ -8322,28 +8322,28 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.new_futures_strategy_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Futures Contract Symbol: 70 Byte Ascii String
+  -- Futures Contract Symbol: Alpha
   index, futures_contract_symbol = ice_futures_mdf_impact_v1_1_51_dissect.futures_contract_symbol(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 5 values
+  -- Trading Status: Alpha
   index, trading_status = ice_futures_mdf_impact_v1_1_51_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Order Price Denominator: 1 Byte Ascii String
+  -- Order Price Denominator: Alpha
   index, order_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.order_price_denominator(buffer, index, packet, parent)
 
-  -- Increment Price: 4 Byte Signed Fixed Width Integer
+  -- Increment Price: Numeric
   index, increment_price = ice_futures_mdf_impact_v1_1_51_dissect.increment_price(buffer, index, packet, parent)
 
-  -- Increment Qty: 4 Byte Signed Fixed Width Integer
+  -- Increment Qty: Numeric
   index, increment_qty = ice_futures_mdf_impact_v1_1_51_dissect.increment_qty(buffer, index, packet, parent)
 
-  -- Min Qty: 4 Byte Signed Fixed Width Integer
+  -- Min Qty: Numeric
   index, min_qty = ice_futures_mdf_impact_v1_1_51_dissect.min_qty(buffer, index, packet, parent)
 
-  -- Number Of Leg Definitions: 1 Byte Signed Fixed Width Integer
+  -- Number Of Leg Definitions: Numeric
   index, number_of_leg_definitions = ice_futures_mdf_impact_v1_1_51_dissect.number_of_leg_definitions(buffer, index, packet, parent)
 
   -- Leg Definition: Struct of 9 fields
@@ -8351,127 +8351,127 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_futures_strategy_definition_message_f
     index = ice_futures_mdf_impact_v1_1_51_dissect.leg_definition(buffer, index, packet, parent)
   end
 
-  -- Security Sub Type: 2 Byte Signed Fixed Width Integer Enum with 120 values
+  -- Security Sub Type: Numeric
   index, security_sub_type = ice_futures_mdf_impact_v1_1_51_dissect.security_sub_type(buffer, index, packet, parent)
 
-  -- Is Block Only: 1 Byte Ascii String Enum with 2 values
+  -- Is Block Only: Alpha
   index, is_block_only = ice_futures_mdf_impact_v1_1_51_dissect.is_block_only(buffer, index, packet, parent)
 
-  -- Strategy Symbol: 18 Byte Ascii String
+  -- Strategy Symbol: Alpha
   index, strategy_symbol = ice_futures_mdf_impact_v1_1_51_dissect.strategy_symbol(buffer, index, packet, parent)
 
-  -- Gt Allowed: 1 Byte Ascii String Enum with 2 values
+  -- Gt Allowed: Alpha
   index, gt_allowed = ice_futures_mdf_impact_v1_1_51_dissect.gt_allowed(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: Numeric
   index, reserved_4 = ice_futures_mdf_impact_v1_1_51_dissect.reserved_4(buffer, index, packet, parent)
 
-  -- Mifid Regulated Market: 1 Byte Ascii String Enum with 2 values
+  -- Mifid Regulated Market: Alpha
   index, mifid_regulated_market = ice_futures_mdf_impact_v1_1_51_dissect.mifid_regulated_market(buffer, index, packet, parent)
 
-  -- Market Desc: 120 Byte Ascii String
+  -- Market Desc: Alpha
   index, market_desc = ice_futures_mdf_impact_v1_1_51_dissect.market_desc(buffer, index, packet, parent)
 
-  -- Maturity Year: 2 Byte Signed Fixed Width Integer
+  -- Maturity Year: Numeric
   index, maturity_year = ice_futures_mdf_impact_v1_1_51_dissect.maturity_year(buffer, index, packet, parent)
 
-  -- Maturity Month: 2 Byte Signed Fixed Width Integer
+  -- Maturity Month: Numeric
   index, maturity_month = ice_futures_mdf_impact_v1_1_51_dissect.maturity_month(buffer, index, packet, parent)
 
-  -- Maturity Day: 2 Byte Signed Fixed Width Integer
+  -- Maturity Day: Numeric
   index, maturity_day = ice_futures_mdf_impact_v1_1_51_dissect.maturity_day(buffer, index, packet, parent)
 
-  -- Deal Price Denominator: 1 Byte Ascii String
+  -- Deal Price Denominator: Alpha
   index, deal_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.deal_price_denominator(buffer, index, packet, parent)
 
-  -- Unit Quantity: 4 Byte Signed Fixed Width Integer
+  -- Unit Quantity: Numeric
   index, unit_quantity = ice_futures_mdf_impact_v1_1_51_dissect.unit_quantity(buffer, index, packet, parent)
 
-  -- Num Decimals Options Price: 1 Byte Ascii String
+  -- Num Decimals Options Price: Alpha
   index, num_decimals_options_price = ice_futures_mdf_impact_v1_1_51_dissect.num_decimals_options_price(buffer, index, packet, parent)
 
-  -- Allow Options: 1 Byte Ascii String Enum with 2 values
+  -- Allow Options: Alpha
   index, allow_options = ice_futures_mdf_impact_v1_1_51_dissect.allow_options(buffer, index, packet, parent)
 
-  -- Cleared Alias: 15 Byte Ascii String
+  -- Cleared Alias: Alpha
   index, cleared_alias = ice_futures_mdf_impact_v1_1_51_dissect.cleared_alias(buffer, index, packet, parent)
 
-  -- Allows Implied: 1 Byte Ascii String Enum with 2 values
+  -- Allows Implied: Alpha
   index, allows_implied = ice_futures_mdf_impact_v1_1_51_dissect.allows_implied(buffer, index, packet, parent)
 
-  -- Min Price: 8 Byte Signed Fixed Width Integer
+  -- Min Price: Numeric
   index, min_price = ice_futures_mdf_impact_v1_1_51_dissect.min_price(buffer, index, packet, parent)
 
-  -- Max Price: 8 Byte Signed Fixed Width Integer
+  -- Max Price: Numeric
   index, max_price = ice_futures_mdf_impact_v1_1_51_dissect.max_price(buffer, index, packet, parent)
 
-  -- Product Name: 62 Byte Ascii String
+  -- Product Name: Alpha
   index, product_name = ice_futures_mdf_impact_v1_1_51_dissect.product_name(buffer, index, packet, parent)
 
-  -- Hub Alias: 80 Byte Ascii String
+  -- Hub Alias: Alpha
   index, hub_alias = ice_futures_mdf_impact_v1_1_51_dissect.hub_alias(buffer, index, packet, parent)
 
-  -- Strip Name: 39 Byte Ascii String
+  -- Strip Name: Alpha
   index, strip_name = ice_futures_mdf_impact_v1_1_51_dissect.strip_name(buffer, index, packet, parent)
 
-  -- Is Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Is Tradable: Alpha
   index, is_tradable = ice_futures_mdf_impact_v1_1_51_dissect.is_tradable(buffer, index, packet, parent)
 
-  -- Settle Price Denominator: 1 Byte Ascii String
+  -- Settle Price Denominator: Alpha
   index, settle_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.settle_price_denominator(buffer, index, packet, parent)
 
-  -- Mic Code: 4 Byte Ascii String
+  -- Mic Code: Alpha
   index, mic_code = ice_futures_mdf_impact_v1_1_51_dissect.mic_code(buffer, index, packet, parent)
 
-  -- Unit Qty Denominator: 1 Byte Ascii String
+  -- Unit Qty Denominator: Alpha
   index, unit_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.unit_qty_denominator(buffer, index, packet, parent)
 
-  -- Hedge Only: 1 Byte Ascii String Enum with 2 values
+  -- Hedge Only: Alpha
   index, hedge_only = ice_futures_mdf_impact_v1_1_51_dissect.hedge_only(buffer, index, packet, parent)
 
-  -- Exchange Silo: 1 Byte Ascii String Enum with 3 values
+  -- Exchange Silo: Alpha
   index, exchange_silo = ice_futures_mdf_impact_v1_1_51_dissect.exchange_silo(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Qty Denominator: 1 Byte Ascii String
+  -- Off Exchange Increment Qty Denominator: Alpha
   index, off_exchange_increment_qty_denominator = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_qty_denominator(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Qty: 4 Byte Signed Fixed Width Integer
+  -- Off Exchange Increment Qty: Numeric
   index, off_exchange_increment_qty = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_qty(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Price: 4 Byte Signed Fixed Width Integer
+  -- Off Exchange Increment Price: Numeric
   index, off_exchange_increment_price = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_price(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Option Price: 4 Byte Signed Fixed Width Integer
+  -- Off Exchange Increment Option Price: Numeric
   index, off_exchange_increment_option_price = ice_futures_mdf_impact_v1_1_51_dissect.off_exchange_increment_option_price(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Signed Fixed Width Integer
+  -- Product Id: Numeric
   index, product_id = ice_futures_mdf_impact_v1_1_51_dissect.product_id(buffer, index, packet, parent)
 
-  -- Hub Id: 4 Byte Signed Fixed Width Integer
+  -- Hub Id: Numeric
   index, hub_id = ice_futures_mdf_impact_v1_1_51_dissect.hub_id(buffer, index, packet, parent)
 
-  -- Strip Id: 4 Byte Signed Fixed Width Integer
+  -- Strip Id: Numeric
   index, strip_id = ice_futures_mdf_impact_v1_1_51_dissect.strip_id(buffer, index, packet, parent)
 
-  -- Underlying Isin: 12 Byte Ascii String
+  -- Underlying Isin: Alpha
   index, underlying_isin = ice_futures_mdf_impact_v1_1_51_dissect.underlying_isin(buffer, index, packet, parent)
 
-  -- Test Market Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Test Market Indicator: Alpha
   index, test_market_indicator = ice_futures_mdf_impact_v1_1_51_dissect.test_market_indicator(buffer, index, packet, parent)
 
-  -- Leg Deal Suppressed: 1 Byte Ascii String Enum with 2 values
+  -- Leg Deal Suppressed: Alpha
   index, leg_deal_suppressed = ice_futures_mdf_impact_v1_1_51_dissect.leg_deal_suppressed(buffer, index, packet, parent)
 
-  -- Old Num Of Cycles: 2 Byte Signed Fixed Width Integer
+  -- Old Num Of Cycles: Numeric
   index, old_num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.old_num_of_cycles(buffer, index, packet, parent)
 
-  -- Market Type Id: 2 Byte Signed Fixed Width Integer Enum with 140 values
+  -- Market Type Id: Numeric
   index, market_type_id = ice_futures_mdf_impact_v1_1_51_dissect.market_type_id(buffer, index, packet, parent)
 
-  -- Override Block Min: 1 Byte Ascii String
+  -- Override Block Min: Alpha
   index, override_block_min = ice_futures_mdf_impact_v1_1_51_dissect.override_block_min(buffer, index, packet, parent)
 
-  -- Number Of Extra Leg Definitions: 1 Byte Signed Fixed Width Integer
+  -- Number Of Extra Leg Definitions: Numeric
   index, number_of_extra_leg_definitions = ice_futures_mdf_impact_v1_1_51_dissect.number_of_extra_leg_definitions(buffer, index, packet, parent)
 
   -- Extra Leg Definition: Struct of 9 fields
@@ -8479,13 +8479,13 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_futures_strategy_definition_message_f
     index = ice_futures_mdf_impact_v1_1_51_dissect.extra_leg_definition(buffer, index, packet, parent)
   end
 
-  -- Num Of Cycles: 4 Byte Signed Fixed Width Integer
+  -- Num Of Cycles: Numeric
   index, num_of_cycles = ice_futures_mdf_impact_v1_1_51_dissect.num_of_cycles(buffer, index, packet, parent)
 
-  -- Unit Of Measure: 30 Byte Ascii String
+  -- Unit Of Measure: Alpha
   index, unit_of_measure = ice_futures_mdf_impact_v1_1_51_dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Currency: 20 Byte Ascii String
+  -- Currency: Alpha
   index, currency = ice_futures_mdf_impact_v1_1_51_dissect.currency(buffer, index, packet, parent)
 
   return index
@@ -8732,28 +8732,28 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.interval_price_limit_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Ipl Tpl Hold Type: 1 Byte Ascii String
+  -- Ipl Tpl Hold Type: Alpha
   index, ipl_tpl_hold_type = ice_futures_mdf_impact_v1_1_51_dissect.ipl_tpl_hold_type(buffer, index, packet, parent)
 
-  -- Notification Date Time: 8 Byte Signed Fixed Width Integer
+  -- Notification Date Time: Numeric
   index, notification_date_time = ice_futures_mdf_impact_v1_1_51_dissect.notification_date_time(buffer, index, packet, parent)
 
-  -- Is Up: 1 Byte Ascii String Enum with 4 values
+  -- Is Up: Alpha
   index, is_up = ice_futures_mdf_impact_v1_1_51_dissect.is_up(buffer, index, packet, parent)
 
-  -- Ipl Tpl Hold Duration: 4 Byte Signed Fixed Width Integer
+  -- Ipl Tpl Hold Duration: Numeric
   index, ipl_tpl_hold_duration = ice_futures_mdf_impact_v1_1_51_dissect.ipl_tpl_hold_duration(buffer, index, packet, parent)
 
-  -- Ipl Tpl Up: 8 Byte Signed Fixed Width Integer
+  -- Ipl Tpl Up: Numeric
   index, ipl_tpl_up = ice_futures_mdf_impact_v1_1_51_dissect.ipl_tpl_up(buffer, index, packet, parent)
 
-  -- Ipl Tpl Down: 8 Byte Signed Fixed Width Integer
+  -- Ipl Tpl Down: Numeric
   index, ipl_tpl_down = ice_futures_mdf_impact_v1_1_51_dissect.ipl_tpl_down(buffer, index, packet, parent)
 
-  -- Ipl Tpl Type: 1 Byte Ascii String
+  -- Ipl Tpl Type: Alpha
   index, ipl_tpl_type = ice_futures_mdf_impact_v1_1_51_dissect.ipl_tpl_type(buffer, index, packet, parent)
 
   return index
@@ -9020,34 +9020,34 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.strip_info_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Old Strip Id: 2 Byte Signed Fixed Width Integer
+  -- Old Strip Id: Numeric
   index, old_strip_id = ice_futures_mdf_impact_v1_1_51_dissect.old_strip_id(buffer, index, packet, parent)
 
-  -- Strip Type: 20 Byte Ascii String
+  -- Strip Type: Alpha
   index, strip_type = ice_futures_mdf_impact_v1_1_51_dissect.strip_type(buffer, index, packet, parent)
 
-  -- Begin Year: 2 Byte Signed Fixed Width Integer
+  -- Begin Year: Numeric
   index, begin_year = ice_futures_mdf_impact_v1_1_51_dissect.begin_year(buffer, index, packet, parent)
 
-  -- Begin Month: 2 Byte Signed Fixed Width Integer
+  -- Begin Month: Numeric
   index, begin_month = ice_futures_mdf_impact_v1_1_51_dissect.begin_month(buffer, index, packet, parent)
 
-  -- Begin Day: 2 Byte Signed Fixed Width Integer
+  -- Begin Day: Numeric
   index, begin_day = ice_futures_mdf_impact_v1_1_51_dissect.begin_day(buffer, index, packet, parent)
 
-  -- End Year: 2 Byte Signed Fixed Width Integer
+  -- End Year: Numeric
   index, end_year = ice_futures_mdf_impact_v1_1_51_dissect.end_year(buffer, index, packet, parent)
 
-  -- End Month: 2 Byte Signed Fixed Width Integer
+  -- End Month: Numeric
   index, end_month = ice_futures_mdf_impact_v1_1_51_dissect.end_month(buffer, index, packet, parent)
 
-  -- End Day: 2 Byte Signed Fixed Width Integer
+  -- End Day: Numeric
   index, end_day = ice_futures_mdf_impact_v1_1_51_dissect.end_day(buffer, index, packet, parent)
 
-  -- Strip Info: 50 Byte Ascii String
+  -- Strip Info: Alpha
   index, strip_info = ice_futures_mdf_impact_v1_1_51_dissect.strip_info(buffer, index, packet, parent)
 
-  -- Strip Id: 4 Byte Signed Fixed Width Integer
+  -- Strip Id: Numeric
   index, strip_id = ice_futures_mdf_impact_v1_1_51_dissect.strip_id(buffer, index, packet, parent)
 
   return index
@@ -9165,19 +9165,19 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.pre_open_price_indicator_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Pre Open Price: 8 Byte Signed Fixed Width Integer
+  -- Pre Open Price: Numeric
   index, pre_open_price = ice_futures_mdf_impact_v1_1_51_dissect.pre_open_price(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Has Pre Open Volume: 1 Byte Ascii String
+  -- Has Pre Open Volume: Alpha
   index, has_pre_open_volume = ice_futures_mdf_impact_v1_1_51_dissect.has_pre_open_volume(buffer, index, packet, parent)
 
-  -- Pre Open Volume: 4 Byte Signed Fixed Width Integer
+  -- Pre Open Volume: Numeric
   index, pre_open_volume = ice_futures_mdf_impact_v1_1_51_dissect.pre_open_volume(buffer, index, packet, parent)
 
   return index
@@ -9255,13 +9255,13 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.market_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Event Type: 1 Byte Ascii String Enum with 1 values
+  -- Event Type: Alpha
   index, event_type = ice_futures_mdf_impact_v1_1_51_dissect.event_type(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
   return index
@@ -9482,43 +9482,43 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.end_of_day_market_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Signed Fixed Width Integer
+  -- Volume: Numeric
   index, volume = ice_futures_mdf_impact_v1_1_51_dissect.volume(buffer, index, packet, parent)
 
-  -- Block Volume: 4 Byte Signed Fixed Width Integer
+  -- Block Volume: Numeric
   index, block_volume = ice_futures_mdf_impact_v1_1_51_dissect.block_volume(buffer, index, packet, parent)
 
-  -- Efs Volume: 4 Byte Signed Fixed Width Integer
+  -- Efs Volume: Numeric
   index, efs_volume = ice_futures_mdf_impact_v1_1_51_dissect.efs_volume(buffer, index, packet, parent)
 
-  -- Efp Volume: 4 Byte Signed Fixed Width Integer
+  -- Efp Volume: Numeric
   index, efp_volume = ice_futures_mdf_impact_v1_1_51_dissect.efp_volume(buffer, index, packet, parent)
 
-  -- Opening Price: 8 Byte Signed Fixed Width Integer
+  -- Opening Price: Numeric
   index, opening_price = ice_futures_mdf_impact_v1_1_51_dissect.opening_price(buffer, index, packet, parent)
 
-  -- High: 8 Byte Signed Fixed Width Integer
+  -- High: Numeric
   index, high = ice_futures_mdf_impact_v1_1_51_dissect.high(buffer, index, packet, parent)
 
-  -- Low: 8 Byte Signed Fixed Width Integer
+  -- Low: Numeric
   index, low = ice_futures_mdf_impact_v1_1_51_dissect.low(buffer, index, packet, parent)
 
-  -- Vwap: 8 Byte Signed Fixed Width Integer
+  -- Vwap: Numeric
   index, vwap = ice_futures_mdf_impact_v1_1_51_dissect.vwap(buffer, index, packet, parent)
 
-  -- Settlement Price With Deal Price Precision: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price With Deal Price Precision: Numeric
   index, settlement_price_with_deal_price_precision = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price_with_deal_price_precision(buffer, index, packet, parent)
 
-  -- Open Interest: 4 Byte Signed Fixed Width Integer
+  -- Open Interest: Numeric
   index, open_interest = ice_futures_mdf_impact_v1_1_51_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: Numeric
   index, settlement_price = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price(buffer, index, packet, parent)
 
   return index
@@ -9764,28 +9764,28 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.index_prices_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Short Name: 30 Byte Ascii String
+  -- Short Name: Alpha
   index, short_name = ice_futures_mdf_impact_v1_1_51_dissect.short_name(buffer, index, packet, parent)
 
-  -- Published Date Time: 8 Byte Signed Fixed Width Integer
+  -- Published Date Time: Numeric
   index, published_date_time = ice_futures_mdf_impact_v1_1_51_dissect.published_date_time(buffer, index, packet, parent)
 
-  -- Valuation Date Applying Date: 10 Byte Ascii String
+  -- Valuation Date Applying Date: Alpha
   index, valuation_date_applying_date = ice_futures_mdf_impact_v1_1_51_dissect.valuation_date_applying_date(buffer, index, packet, parent)
 
-  -- Endex Status: 1 Byte Ascii String Enum with 4 values
+  -- Endex Status: Alpha
   index, endex_status = ice_futures_mdf_impact_v1_1_51_dissect.endex_status(buffer, index, packet, parent)
 
-  -- Alt Market Id: 4 Byte Signed Fixed Width Integer
+  -- Alt Market Id: Numeric
   index, alt_market_id = ice_futures_mdf_impact_v1_1_51_dissect.alt_market_id(buffer, index, packet, parent)
 
-  -- Index Price Denominator: 1 Byte Ascii String
+  -- Index Price Denominator: Alpha
   index, index_price_denominator = ice_futures_mdf_impact_v1_1_51_dissect.index_price_denominator(buffer, index, packet, parent)
 
   return index
@@ -9832,22 +9832,22 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.settlement_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Settlement Price With Deal Price Precision: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price With Deal Price Precision: Numeric
   index, settlement_price_with_deal_price_precision = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price_with_deal_price_precision(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Is Official: 1 Byte Ascii String Enum with 2 values
+  -- Is Official: Alpha
   index, is_official = ice_futures_mdf_impact_v1_1_51_dissect.is_official(buffer, index, packet, parent)
 
-  -- Valuation Date Time: 8 Byte Signed Fixed Width Integer
+  -- Valuation Date Time: Numeric
   index, valuation_date_time = ice_futures_mdf_impact_v1_1_51_dissect.valuation_date_time(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: Numeric
   index, settlement_price = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price(buffer, index, packet, parent)
 
   return index
@@ -9908,13 +9908,13 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.close_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Close Price: 8 Byte Signed Fixed Width Integer
+  -- Close Price: Numeric
   index, close_price = ice_futures_mdf_impact_v1_1_51_dissect.close_price(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
   return index
@@ -9975,13 +9975,13 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.open_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Open Price: 8 Byte Signed Fixed Width Integer
+  -- Open Price: Numeric
   index, open_price = ice_futures_mdf_impact_v1_1_51_dissect.open_price(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
   return index
@@ -10046,19 +10046,19 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Open Interest: 4 Byte Signed Fixed Width Integer
+  -- Open Interest: Numeric
   index, open_interest = ice_futures_mdf_impact_v1_1_51_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Open Interest Change: 4 Byte Signed Fixed Width Integer
+  -- Open Interest Change: Numeric
   index, open_interest_change = ice_futures_mdf_impact_v1_1_51_dissect.open_interest_change(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Open Interest Date: 10 Byte Ascii String
+  -- Open Interest Date: Alpha
   index, open_interest_date = ice_futures_mdf_impact_v1_1_51_dissect.open_interest_date(buffer, index, packet, parent)
 
   return index
@@ -10171,13 +10171,13 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.system_text_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text Message: 200 Byte Ascii String
+  -- Text Message: Alpha
   index, text_message = ice_futures_mdf_impact_v1_1_51_dissect.text_message(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Text Message Extra Fld: 800 Byte Ascii String
+  -- Text Message Extra Fld: Alpha
   index, text_message_extra_fld = ice_futures_mdf_impact_v1_1_51_dissect.text_message_extra_fld(buffer, index, packet, parent)
 
   return index
@@ -10218,13 +10218,13 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.market_state_change_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 5 values
+  -- Trading Status: Alpha
   index, trading_status = ice_futures_mdf_impact_v1_1_51_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
   return index
@@ -10277,31 +10277,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.market_statistics_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Signed Fixed Width Integer
+  -- Volume: Numeric
   index, volume = ice_futures_mdf_impact_v1_1_51_dissect.volume(buffer, index, packet, parent)
 
-  -- Block Volume: 4 Byte Signed Fixed Width Integer
+  -- Block Volume: Numeric
   index, block_volume = ice_futures_mdf_impact_v1_1_51_dissect.block_volume(buffer, index, packet, parent)
 
-  -- Efs Volume: 4 Byte Signed Fixed Width Integer
+  -- Efs Volume: Numeric
   index, efs_volume = ice_futures_mdf_impact_v1_1_51_dissect.efs_volume(buffer, index, packet, parent)
 
-  -- Efp Volume: 4 Byte Signed Fixed Width Integer
+  -- Efp Volume: Numeric
   index, efp_volume = ice_futures_mdf_impact_v1_1_51_dissect.efp_volume(buffer, index, packet, parent)
 
-  -- High: 8 Byte Signed Fixed Width Integer
+  -- High: Numeric
   index, high = ice_futures_mdf_impact_v1_1_51_dissect.high(buffer, index, packet, parent)
 
-  -- Low: 8 Byte Signed Fixed Width Integer
+  -- Low: Numeric
   index, low = ice_futures_mdf_impact_v1_1_51_dissect.low(buffer, index, packet, parent)
 
-  -- Vwap: 8 Byte Signed Fixed Width Integer
+  -- Vwap: Numeric
   index, vwap = ice_futures_mdf_impact_v1_1_51_dissect.vwap(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
   return index
@@ -10468,25 +10468,25 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.cancelled_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = ice_futures_mdf_impact_v1_1_51_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Old Off Market Trade Type: 1 Byte Ascii String
+  -- Old Off Market Trade Type: Alpha
   index, old_off_market_trade_type = ice_futures_mdf_impact_v1_1_51_dissect.old_off_market_trade_type(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String Enum with 11 values
+  -- Off Market Trade Type: Alpha
   index, off_market_trade_type = ice_futures_mdf_impact_v1_1_51_dissect.off_market_trade_type(buffer, index, packet, parent)
 
   return index
@@ -10577,28 +10577,28 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.investigated_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = ice_futures_mdf_impact_v1_1_51_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Old Off Market Trade Type: 1 Byte Ascii String
+  -- Old Off Market Trade Type: Alpha
   index, old_off_market_trade_type = ice_futures_mdf_impact_v1_1_51_dissect.old_off_market_trade_type(buffer, index, packet, parent)
 
-  -- Message Date Time: 8 Byte Signed Fixed Width Integer
+  -- Message Date Time: Numeric
   index, message_date_time = ice_futures_mdf_impact_v1_1_51_dissect.message_date_time(buffer, index, packet, parent)
 
-  -- Investigation Status: 1 Byte Ascii String Enum with 2 values
+  -- Investigation Status: Alpha
   index, investigation_status = ice_futures_mdf_impact_v1_1_51_dissect.investigation_status(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String Enum with 11 values
+  -- Off Market Trade Type: Alpha
   index, off_market_trade_type = ice_futures_mdf_impact_v1_1_51_dissect.off_market_trade_type(buffer, index, packet, parent)
 
   return index
@@ -10783,31 +10783,31 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.spot_market_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = ice_futures_mdf_impact_v1_1_51_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Transact Date Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Date Time: Numeric
   index, transact_date_time = ice_futures_mdf_impact_v1_1_51_dissect.transact_date_time(buffer, index, packet, parent)
 
-  -- Extra Flags: 1 Byte Signed Fixed Width Integer
+  -- Extra Flags: Numeric
   index, extra_flags = ice_futures_mdf_impact_v1_1_51_dissect.extra_flags(buffer, index, packet, parent)
 
-  -- Delivery Begin Date Time: 8 Byte Signed Fixed Width Integer
+  -- Delivery Begin Date Time: Numeric
   index, delivery_begin_date_time = ice_futures_mdf_impact_v1_1_51_dissect.delivery_begin_date_time(buffer, index, packet, parent)
 
-  -- Delivery End Date Time: 8 Byte Signed Fixed Width Integer
+  -- Delivery End Date Time: Numeric
   index, delivery_end_date_time = ice_futures_mdf_impact_v1_1_51_dissect.delivery_end_date_time(buffer, index, packet, parent)
 
-  -- Is System Priced Leg: 1 Byte Ascii String Enum with 2 values
+  -- Is System Priced Leg: Alpha
   index, is_system_priced_leg = ice_futures_mdf_impact_v1_1_51_dissect.is_system_priced_leg(buffer, index, packet, parent)
 
   return index
@@ -11095,49 +11095,49 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Signed Fixed Width Integer
+  -- Trade Id: Numeric
   index, trade_id = ice_futures_mdf_impact_v1_1_51_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Is System Priced Leg: 1 Byte Ascii String Enum with 2 values
+  -- Is System Priced Leg: Alpha
   index, is_system_priced_leg = ice_futures_mdf_impact_v1_1_51_dissect.is_system_priced_leg(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Numeric
   index, price = ice_futures_mdf_impact_v1_1_51_dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Signed Fixed Width Integer
+  -- Quantity: Numeric
   index, quantity = ice_futures_mdf_impact_v1_1_51_dissect.quantity(buffer, index, packet, parent)
 
-  -- Old Off Market Trade Type: 1 Byte Ascii String
+  -- Old Off Market Trade Type: Alpha
   index, old_off_market_trade_type = ice_futures_mdf_impact_v1_1_51_dissect.old_off_market_trade_type(buffer, index, packet, parent)
 
-  -- Transact Date Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Date Time: Numeric
   index, transact_date_time = ice_futures_mdf_impact_v1_1_51_dissect.transact_date_time(buffer, index, packet, parent)
 
-  -- System Priced Leg Type: 1 Byte Ascii String Enum with 2 values
+  -- System Priced Leg Type: Alpha
   index, system_priced_leg_type = ice_futures_mdf_impact_v1_1_51_dissect.system_priced_leg_type(buffer, index, packet, parent)
 
-  -- Is Implied Spread At Market Open: 1 Byte Ascii String
+  -- Is Implied Spread At Market Open: Alpha
   index, is_implied_spread_at_market_open = ice_futures_mdf_impact_v1_1_51_dissect.is_implied_spread_at_market_open(buffer, index, packet, parent)
 
-  -- Is Adjusted Trade: 1 Byte Ascii String
+  -- Is Adjusted Trade: Alpha
   index, is_adjusted_trade = ice_futures_mdf_impact_v1_1_51_dissect.is_adjusted_trade(buffer, index, packet, parent)
 
-  -- Aggressor Side: 1 Byte Ascii String Enum with 3 values
+  -- Aggressor Side: Alpha
   index, aggressor_side = ice_futures_mdf_impact_v1_1_51_dissect.aggressor_side(buffer, index, packet, parent)
 
   -- Trade Flags: Struct of 7 fields
   index, trade_flags = ice_futures_mdf_impact_v1_1_51_dissect.trade_flags(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String Enum with 11 values
+  -- Off Market Trade Type: Alpha
   index, off_market_trade_type = ice_futures_mdf_impact_v1_1_51_dissect.off_market_trade_type(buffer, index, packet, parent)
 
-  -- Sequence Within Millis: 4 Byte Signed Fixed Width Integer
+  -- Sequence Within Millis: Numeric
   index, sequence_within_millis = ice_futures_mdf_impact_v1_1_51_dissect.sequence_within_millis(buffer, index, packet, parent)
 
-  -- Request Trading Engine Received Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Request Trading Engine Received Timestamp: Numeric
   index, request_trading_engine_received_timestamp = ice_futures_mdf_impact_v1_1_51_dissect.request_trading_engine_received_timestamp(buffer, index, packet, parent)
 
   return index
@@ -11470,79 +11470,79 @@ end
 ice_futures_mdf_impact_v1_1_51_dissect.market_snapshot_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Id: 4 Byte Signed Fixed Width Integer
+  -- Market Id: Numeric
   index, market_id = ice_futures_mdf_impact_v1_1_51_dissect.market_id(buffer, index, packet, parent)
 
-  -- Market Type: 2 Byte Signed Fixed Width Integer
+  -- Market Type: Numeric
   index, market_type = ice_futures_mdf_impact_v1_1_51_dissect.market_type(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 5 values
+  -- Trading Status: Alpha
   index, trading_status = ice_futures_mdf_impact_v1_1_51_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Signed Fixed Width Integer
+  -- Volume: Numeric
   index, volume = ice_futures_mdf_impact_v1_1_51_dissect.volume(buffer, index, packet, parent)
 
-  -- Block Volume: 4 Byte Signed Fixed Width Integer
+  -- Block Volume: Numeric
   index, block_volume = ice_futures_mdf_impact_v1_1_51_dissect.block_volume(buffer, index, packet, parent)
 
-  -- Efs Volume: 4 Byte Signed Fixed Width Integer
+  -- Efs Volume: Numeric
   index, efs_volume = ice_futures_mdf_impact_v1_1_51_dissect.efs_volume(buffer, index, packet, parent)
 
-  -- Efp Volume: 4 Byte Signed Fixed Width Integer
+  -- Efp Volume: Numeric
   index, efp_volume = ice_futures_mdf_impact_v1_1_51_dissect.efp_volume(buffer, index, packet, parent)
 
-  -- Open Interest: 4 Byte Signed Fixed Width Integer
+  -- Open Interest: Numeric
   index, open_interest = ice_futures_mdf_impact_v1_1_51_dissect.open_interest(buffer, index, packet, parent)
 
-  -- Opening Price: 8 Byte Signed Fixed Width Integer
+  -- Opening Price: Numeric
   index, opening_price = ice_futures_mdf_impact_v1_1_51_dissect.opening_price(buffer, index, packet, parent)
 
-  -- Settlement Price With Deal Price Precision: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price With Deal Price Precision: Numeric
   index, settlement_price_with_deal_price_precision = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price_with_deal_price_precision(buffer, index, packet, parent)
 
-  -- High: 8 Byte Signed Fixed Width Integer
+  -- High: Numeric
   index, high = ice_futures_mdf_impact_v1_1_51_dissect.high(buffer, index, packet, parent)
 
-  -- Low: 8 Byte Signed Fixed Width Integer
+  -- Low: Numeric
   index, low = ice_futures_mdf_impact_v1_1_51_dissect.low(buffer, index, packet, parent)
 
-  -- Vwap: 8 Byte Signed Fixed Width Integer
+  -- Vwap: Numeric
   index, vwap = ice_futures_mdf_impact_v1_1_51_dissect.vwap(buffer, index, packet, parent)
 
-  -- Num Of Book Entries: 4 Byte Signed Fixed Width Integer
+  -- Num Of Book Entries: Numeric
   index, num_of_book_entries = ice_futures_mdf_impact_v1_1_51_dissect.num_of_book_entries(buffer, index, packet, parent)
 
-  -- Last Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Price: Numeric
   index, last_trade_price = ice_futures_mdf_impact_v1_1_51_dissect.last_trade_price(buffer, index, packet, parent)
 
-  -- Last Trade Quantity: 4 Byte Signed Fixed Width Integer
+  -- Last Trade Quantity: Numeric
   index, last_trade_quantity = ice_futures_mdf_impact_v1_1_51_dissect.last_trade_quantity(buffer, index, packet, parent)
 
-  -- Last Trade Date Time: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Date Time: Numeric
   index, last_trade_date_time = ice_futures_mdf_impact_v1_1_51_dissect.last_trade_date_time(buffer, index, packet, parent)
 
-  -- Settle Price Date Time: 8 Byte Signed Fixed Width Integer
+  -- Settle Price Date Time: Numeric
   index, settle_price_date_time = ice_futures_mdf_impact_v1_1_51_dissect.settle_price_date_time(buffer, index, packet, parent)
 
-  -- Last Message Sequence Id: 4 Byte Signed Fixed Width Integer
+  -- Last Message Sequence Id: Numeric
   index, last_message_sequence_id = ice_futures_mdf_impact_v1_1_51_dissect.last_message_sequence_id(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: N/A
   index, reserved_2 = ice_futures_mdf_impact_v1_1_51_dissect.reserved_2(buffer, index, packet, parent)
 
-  -- Open Interest Date: 10 Byte Ascii String
+  -- Open Interest Date: Alpha
   index, open_interest_date = ice_futures_mdf_impact_v1_1_51_dissect.open_interest_date(buffer, index, packet, parent)
 
-  -- Is Settle Price Official: 1 Byte Ascii String Enum with 2 values
+  -- Is Settle Price Official: Alpha
   index, is_settle_price_official = ice_futures_mdf_impact_v1_1_51_dissect.is_settle_price_official(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: Numeric
   index, settlement_price = ice_futures_mdf_impact_v1_1_51_dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Has Previous Day Settlement Price: 1 Byte Ascii String Enum with 2 values
+  -- Has Previous Day Settlement Price: Alpha
   index, has_previous_day_settlement_price = ice_futures_mdf_impact_v1_1_51_dissect.has_previous_day_settlement_price(buffer, index, packet, parent)
 
-  -- Previous Day Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Previous Day Settlement Price: Numeric
   index, previous_day_settlement_price = ice_futures_mdf_impact_v1_1_51_dissect.previous_day_settlement_price(buffer, index, packet, parent)
 
   return index

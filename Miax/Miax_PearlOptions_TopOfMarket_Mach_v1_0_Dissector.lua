@@ -397,22 +397,22 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_trading_status_notification_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String
+  -- Trading Status: Alphanumeric
   index, trading_status = miax_pearloptions_topofmarket_mach_v1_0_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Event Reason: 1 Byte Ascii String Enum with 2 values
+  -- Event Reason: Alphanumeric
   index, event_reason = miax_pearloptions_topofmarket_mach_v1_0_dissect.event_reason(buffer, index, packet, parent)
 
-  -- Expected Event Time Seconds Part: 4 Byte Unsigned Fixed Width Integer
+  -- Expected Event Time Seconds Part: SecTime
   index, expected_event_time_seconds_part = miax_pearloptions_topofmarket_mach_v1_0_dissect.expected_event_time_seconds_part(buffer, index, packet, parent)
 
-  -- Expected Event Time Nano Seconds Part: 4 Byte Unsigned Fixed Width Integer
+  -- Expected Event Time Nano Seconds Part: BinaryU
   index, expected_event_time_nano_seconds_part = miax_pearloptions_topofmarket_mach_v1_0_dissect.expected_event_time_nano_seconds_part(buffer, index, packet, parent)
 
   return index
@@ -587,25 +587,25 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: BinaryU
   index, trade_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Correction Number: 1 Byte Unsigned Fixed Width Integer
+  -- Correction Number: BinaryU
   index, correction_number = miax_pearloptions_topofmarket_mach_v1_0_dissect.correction_number(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Price: BinaryPrc4U
   index, trade_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Size: BinaryU
   index, trade_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_size(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String
+  -- Trade Condition: Alphanumeric
   index, trade_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -698,31 +698,31 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.last_sale_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: BinaryU
   index, trade_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Correction Number: 1 Byte Unsigned Fixed Width Integer
+  -- Correction Number: BinaryU
   index, correction_number = miax_pearloptions_topofmarket_mach_v1_0_dissect.correction_number(buffer, index, packet, parent)
 
-  -- Reference Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Trade Id: BinaryU
   index, reference_trade_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.reference_trade_id(buffer, index, packet, parent)
 
-  -- Reference Correction Number: 1 Byte Unsigned Fixed Width Integer
+  -- Reference Correction Number: BinaryU
   index, reference_correction_number = miax_pearloptions_topofmarket_mach_v1_0_dissect.reference_correction_number(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Price: BinaryPrc4U
   index, trade_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_price(buffer, index, packet, parent)
 
-  -- Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Size: BinaryU
   index, trade_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_size(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String
+  -- Trade Condition: Alphanumeric
   index, trade_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -1044,34 +1044,34 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Wide Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Bid Price: BinaryPrc4U
   index, wide_bid_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_bid_price(buffer, index, packet, parent)
 
-  -- Wide Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Bid Size: BinaryU
   index, wide_bid_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_bid_size(buffer, index, packet, parent)
 
-  -- Wide Bid Priority Customer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Bid Priority Customer Size: BinaryU
   index, wide_bid_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_bid_priority_customer_size(buffer, index, packet, parent)
 
-  -- Bid Condition: 1 Byte Ascii String Enum with 5 values
+  -- Bid Condition: Alphanumeric
   index, bid_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.bid_condition(buffer, index, packet, parent)
 
-  -- Wide Offer Price: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Offer Price: BinaryPrc4U
   index, wide_offer_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_offer_price(buffer, index, packet, parent)
 
-  -- Wide Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Offer Size: BinaryU
   index, wide_offer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_offer_size(buffer, index, packet, parent)
 
-  -- Wide Offer Priority Customer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Offer Priority Customer Size: BinaryU
   index, wide_offer_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_offer_priority_customer_size(buffer, index, packet, parent)
 
-  -- Offer Condition: 1 Byte Ascii String Enum with 26 values
+  -- Offer Condition: Alphanumeric
   index, offer_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.offer_condition(buffer, index, packet, parent)
 
   return index
@@ -1258,34 +1258,34 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_double_sided_top_of_market_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Price: BinaryPrc2U
   index, bid_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size: BinaryU
   index, bid_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Bid Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Priority Customer Size: BinaryU
   index, bid_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.bid_priority_customer_size(buffer, index, packet, parent)
 
-  -- Bid Condition: 1 Byte Ascii String Enum with 5 values
+  -- Bid Condition: Alphanumeric
   index, bid_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.bid_condition(buffer, index, packet, parent)
 
-  -- Offer Price: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Price: BinaryPrc2U
   index, offer_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.offer_price(buffer, index, packet, parent)
 
-  -- Offer Size: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Size: BinaryU
   index, offer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.offer_size(buffer, index, packet, parent)
 
-  -- Offer Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Priority Customer Size: BinaryU
   index, offer_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.offer_priority_customer_size(buffer, index, packet, parent)
 
-  -- Offer Condition: 1 Byte Ascii String Enum with 26 values
+  -- Offer Condition: Alphanumeric
   index, offer_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.offer_condition(buffer, index, packet, parent)
 
   return index
@@ -1434,22 +1434,22 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Wide Pbbo Price: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Pbbo Price: BinaryPrc4U
   index, wide_pbbo_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_pbbo_price(buffer, index, packet, parent)
 
-  -- Wide Pbbo Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Pbbo Size: BinaryU
   index, wide_pbbo_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_pbbo_size(buffer, index, packet, parent)
 
-  -- Wide Pbbo Priority Customer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Pbbo Priority Customer Size: BinaryU
   index, wide_pbbo_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_pbbo_priority_customer_size(buffer, index, packet, parent)
 
-  -- Pbbo Condition: 1 Byte Ascii String Enum with 5 values
+  -- Pbbo Condition: Alphanumeric
   index, pbbo_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_condition(buffer, index, packet, parent)
 
   return index
@@ -1496,22 +1496,22 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_bid_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Wide Pbbo Price: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Pbbo Price: BinaryPrc4U
   index, wide_pbbo_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_pbbo_price(buffer, index, packet, parent)
 
-  -- Wide Pbbo Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Pbbo Size: BinaryU
   index, wide_pbbo_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_pbbo_size(buffer, index, packet, parent)
 
-  -- Wide Pbbo Priority Customer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Wide Pbbo Priority Customer Size: BinaryU
   index, wide_pbbo_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_pbbo_priority_customer_size(buffer, index, packet, parent)
 
-  -- Pbbo Condition: 1 Byte Ascii String Enum with 5 values
+  -- Pbbo Condition: Alphanumeric
   index, pbbo_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_condition(buffer, index, packet, parent)
 
   return index
@@ -1624,22 +1624,22 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_best_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Pbbo Price: 2 Byte Unsigned Fixed Width Integer
+  -- Pbbo Price: BinaryPrc2U
   index, pbbo_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_price(buffer, index, packet, parent)
 
-  -- Pbbo Size: 2 Byte Unsigned Fixed Width Integer
+  -- Pbbo Size: BinaryU
   index, pbbo_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_size(buffer, index, packet, parent)
 
-  -- Pbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
+  -- Pbbo Priority Customer Size: BinaryU
   index, pbbo_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_priority_customer_size(buffer, index, packet, parent)
 
-  -- Pbbo Condition: 1 Byte Ascii String Enum with 5 values
+  -- Pbbo Condition: Alphanumeric
   index, pbbo_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_condition(buffer, index, packet, parent)
 
   return index
@@ -1686,22 +1686,22 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_bid_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Pbbo Price: 2 Byte Unsigned Fixed Width Integer
+  -- Pbbo Price: BinaryPrc2U
   index, pbbo_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_price(buffer, index, packet, parent)
 
-  -- Pbbo Size: 2 Byte Unsigned Fixed Width Integer
+  -- Pbbo Size: BinaryU
   index, pbbo_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_size(buffer, index, packet, parent)
 
-  -- Pbbo Priority Customer Size: 2 Byte Unsigned Fixed Width Integer
+  -- Pbbo Priority Customer Size: BinaryU
   index, pbbo_priority_customer_size = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_priority_customer_size(buffer, index, packet, parent)
 
-  -- Pbbo Condition: 1 Byte Ascii String Enum with 5 values
+  -- Pbbo Condition: Alphanumeric
   index, pbbo_condition = miax_pearloptions_topofmarket_mach_v1_0_dissect.pbbo_condition(buffer, index, packet, parent)
 
   return index
@@ -1837,16 +1837,16 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Notification Time: 4 Byte Unsigned Fixed Width Integer
+  -- Notification Time: NanoTime
   index, notification_time = miax_pearloptions_topofmarket_mach_v1_0_dissect.notification_time(buffer, index, packet, parent)
 
-  -- To M Version: 8 Byte Ascii String
+  -- To M Version: Alphanumeric
   index, to_m_version = miax_pearloptions_topofmarket_mach_v1_0_dissect.to_m_version(buffer, index, packet, parent)
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: BinaryU
   index, session_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- System Status: 1 Byte Ascii String Enum with 4 values
+  -- System Status: Alphanumeric
   index, system_status = miax_pearloptions_topofmarket_mach_v1_0_dissect.system_status(buffer, index, packet, parent)
 
   return index
@@ -2299,52 +2299,52 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.series_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Add Update Time: 4 Byte Unsigned Fixed Width Integer
+  -- Product Add Update Time: NanoTime
   index, product_add_update_time = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_add_update_time(buffer, index, packet, parent)
 
-  -- Product Id: 4 Byte Unsigned Fixed Width Integer
+  -- Product Id: BinaryU
   index, product_id = miax_pearloptions_topofmarket_mach_v1_0_dissect.product_id(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Security Symbol: 6 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = miax_pearloptions_topofmarket_mach_v1_0_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Expiration Date: 8 Byte Ascii String
+  -- Expiration Date: Alphanumeric
   index, expiration_date = miax_pearloptions_topofmarket_mach_v1_0_dissect.expiration_date(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: BinaryPrc4U
   index, strike_price = miax_pearloptions_topofmarket_mach_v1_0_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Call Or Put: 1 Byte Ascii String Enum with 2 values
+  -- Call Or Put: Alphanumeric
   index, call_or_put = miax_pearloptions_topofmarket_mach_v1_0_dissect.call_or_put(buffer, index, packet, parent)
 
-  -- Opening Time: 8 Byte Ascii String
+  -- Opening Time: Alphanumeric
   index, opening_time = miax_pearloptions_topofmarket_mach_v1_0_dissect.opening_time(buffer, index, packet, parent)
 
-  -- Closing Time: 8 Byte Ascii String
+  -- Closing Time: Alphanumeric
   index, closing_time = miax_pearloptions_topofmarket_mach_v1_0_dissect.closing_time(buffer, index, packet, parent)
 
-  -- Restricted Option: 1 Byte Ascii String Enum with 2 values
+  -- Restricted Option: Alphanumeric
   index, restricted_option = miax_pearloptions_topofmarket_mach_v1_0_dissect.restricted_option(buffer, index, packet, parent)
 
-  -- Long Term Option: 1 Byte Ascii String Enum with 2 values
+  -- Long Term Option: Alphanumeric
   index, long_term_option = miax_pearloptions_topofmarket_mach_v1_0_dissect.long_term_option(buffer, index, packet, parent)
 
-  -- Active On Pearl: 1 Byte Ascii String Enum with 2 values
+  -- Active On Pearl: Alphanumeric
   index, active_on_pearl = miax_pearloptions_topofmarket_mach_v1_0_dissect.active_on_pearl(buffer, index, packet, parent)
 
-  -- Pearl Bbo Posting Increment Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Pearl Bbo Posting Increment Indicator: Alphanumeric
   index, pearl_bbo_posting_increment_indicator = miax_pearloptions_topofmarket_mach_v1_0_dissect.pearl_bbo_posting_increment_indicator(buffer, index, packet, parent)
 
-  -- Liquidity Acceptance Increment Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Liquidity Acceptance Increment Indicator: Alphanumeric
   index, liquidity_acceptance_increment_indicator = miax_pearloptions_topofmarket_mach_v1_0_dissect.liquidity_acceptance_increment_indicator(buffer, index, packet, parent)
 
-  -- Opening Underlying Market Code: 1 Byte Ascii String Enum with 17 values
+  -- Opening Underlying Market Code: Alphanumeric
   index, opening_underlying_market_code = miax_pearloptions_topofmarket_mach_v1_0_dissect.opening_underlying_market_code(buffer, index, packet, parent)
 
-  -- Reserved 12: 12 Byte Ascii String
+  -- Reserved 12: Reserved
   index, reserved_12 = miax_pearloptions_topofmarket_mach_v1_0_dissect.reserved_12(buffer, index, packet, parent)
 
   return index
@@ -2381,7 +2381,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.pearl_system_time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: SecTime
   index, timestamp = miax_pearloptions_topofmarket_mach_v1_0_dissect.timestamp(buffer, index, packet, parent)
 
   return index
