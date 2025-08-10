@@ -807,22 +807,22 @@ end
 -- Dissect Bit Fields: Sale Condition Flags
 iex_equities_deep_iextp_v1_0_8_dissect.sale_condition_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Intermarket Sweep: bit
+  -- Intermarket Sweep: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.intermarket_sweep, buffer(offset, 1))
 
-  -- Extended Hours: bit
+  -- Extended Hours: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.extended_hours, buffer(offset, 1))
 
-  -- Odd Lot: bit
+  -- Odd Lot: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.odd_lot, buffer(offset, 1))
 
-  -- Trade Through Exempt: bit
+  -- Trade Through Exempt: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.trade_through_exempt, buffer(offset, 1))
 
-  -- Singleprice Cross Trade: bit
+  -- Singleprice Cross Trade: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.singleprice_cross_trade, buffer(offset, 1))
 
-  -- Unused 3: bit
+  -- Unused 3: 3 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.unused_3, buffer(offset, 1))
 end
 
@@ -1760,16 +1760,16 @@ end
 -- Dissect Bit Fields: Security Directory Flags
 iex_equities_deep_iextp_v1_0_8_dissect.security_directory_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Test Security: bit
+  -- Test Security: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.test_security, buffer(offset, 1))
 
-  -- When Issued: bit
+  -- When Issued: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.when_issued, buffer(offset, 1))
 
-  -- Etp: bit
+  -- Etp: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.etp, buffer(offset, 1))
 
-  -- Unused 5: bit
+  -- Unused 5: 5 Bit
   parent:add(iex_equities_deep_iextp_v1_0_8.fields.unused_5, buffer(offset, 1))
 end
 

@@ -54,7 +54,7 @@ iex_equities_deepplus_iextp_v1_0_1.fields.price = ProtoField.new("Price", "iex.e
 iex_equities_deepplus_iextp_v1_0_1.fields.priority = ProtoField.new("Priority", "iex.equities.deepplus.iextp.v1.0.1.priority", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 iex_equities_deepplus_iextp_v1_0_1.fields.reason = ProtoField.new("Reason", "iex.equities.deepplus.iextp.v1.0.1.reason", ftypes.STRING)
 iex_equities_deepplus_iextp_v1_0_1.fields.reserved = ProtoField.new("Reserved", "iex.equities.deepplus.iextp.v1.0.1.reserved", ftypes.BYTES)
-iex_equities_deepplus_iextp_v1_0_1.fields.reserved_byte = ProtoField.new("Reserved Byte", "iex.equities.deepplus.iextp.v1.0.1.reservedbyte", ftypes.STRING)
+iex_equities_deepplus_iextp_v1_0_1.fields.reserved_1 = ProtoField.new("Reserved 1", "iex.equities.deepplus.iextp.v1.0.1.reserved1", ftypes.STRING)
 iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator = ProtoField.new("Retail Liquidity Indicator", "iex.equities.deepplus.iextp.v1.0.1.retailliquidityindicator", ftypes.STRING)
 iex_equities_deepplus_iextp_v1_0_1.fields.retail_liquidity_indicator_message = ProtoField.new("Retail Liquidity Indicator Message", "iex.equities.deepplus.iextp.v1.0.1.retailliquidityindicatormessage", ftypes.STRING)
 iex_equities_deepplus_iextp_v1_0_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.equities.deepplus.iextp.v1.0.1.roundlotsize", ftypes.UINT32)
@@ -307,22 +307,22 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp = function(buffer, offset, 
   return offset + length, value
 end
 
--- Size: Reserved Byte
-iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_byte = 1
+-- Size: Reserved 1
+iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_1 = 1
 
--- Display: Reserved Byte
-iex_equities_deepplus_iextp_v1_0_1_display.reserved_byte = function(value)
-  return "Reserved Byte: "..value
+-- Display: Reserved 1
+iex_equities_deepplus_iextp_v1_0_1_display.reserved_1 = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved Byte
-iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_byte = function(buffer, offset, packet, parent)
-  local length = iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_byte
+-- Dissect: Reserved 1
+iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local length = iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_1
   local range = buffer(offset, length)
   local value = range:string()
-  local display = iex_equities_deepplus_iextp_v1_0_1_display.reserved_byte(value, buffer, offset, packet, parent)
+  local display = iex_equities_deepplus_iextp_v1_0_1_display.reserved_1(value, buffer, offset, packet, parent)
 
-  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.reserved_byte, range, value, display)
+  parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -331,7 +331,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_size_of.clear_book_message = function(buffer, offset)
   local index = 0
 
-  index = index + iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_byte
+  index = index + iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_1
 
   index = index + iex_equities_deepplus_iextp_v1_0_1_size_of.timestamp
 
@@ -349,8 +349,8 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.clear_book_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved Byte: Byte
-  index, reserved_byte = iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_byte(buffer, index, packet, parent)
+  -- Reserved 1: Byte
+  index, reserved_1 = iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
@@ -474,22 +474,22 @@ end
 -- Dissect Bit Fields: Sale Condition Flags
 iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Intermarket Sweep: bit
+  -- Intermarket Sweep: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.intermarket_sweep, buffer(offset, 1))
 
-  -- Extended Hours: bit
+  -- Extended Hours: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.extended_hours, buffer(offset, 1))
 
-  -- Odd Lot: bit
+  -- Odd Lot: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.odd_lot, buffer(offset, 1))
 
-  -- Trade Through Exempt: bit
+  -- Trade Through Exempt: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trade_through_exempt, buffer(offset, 1))
 
-  -- Singleprice Cross Trade: bit
+  -- Singleprice Cross Trade: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.singleprice_cross_trade, buffer(offset, 1))
 
-  -- Unused 3: bit
+  -- Unused 3: 3 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_3, buffer(offset, 1))
 end
 
@@ -722,7 +722,7 @@ end
 iex_equities_deepplus_iextp_v1_0_1_size_of.order_delete_message = function(buffer, offset)
   local index = 0
 
-  index = index + iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_byte
+  index = index + iex_equities_deepplus_iextp_v1_0_1_size_of.reserved_1
 
   index = index + iex_equities_deepplus_iextp_v1_0_1_size_of.timestamp
 
@@ -742,8 +742,8 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.order_delete_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved Byte: Byte
-  index, reserved_byte = iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_byte(buffer, index, packet, parent)
+  -- Reserved 1: Byte
+  index, reserved_1 = iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
@@ -788,10 +788,10 @@ end
 -- Dissect Bit Fields: Modify Flags
 iex_equities_deepplus_iextp_v1_0_1_dissect.modify_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Priority: bit
+  -- Priority: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.priority, buffer(offset, 1))
 
-  -- Unused 7: bit
+  -- Unused 7: 7 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_7, buffer(offset, 1))
 end
 
@@ -1529,16 +1529,16 @@ end
 -- Dissect Bit Fields: Security Directory Flags
 iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Test Security: bit
+  -- Test Security: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.test_security, buffer(offset, 1))
 
-  -- When Issued: bit
+  -- When Issued: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.when_issued, buffer(offset, 1))
 
-  -- Etp: bit
+  -- Etp: 1 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.etp, buffer(offset, 1))
 
-  -- Unused 5: bit
+  -- Unused 5: 5 Bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_5, buffer(offset, 1))
 end
 

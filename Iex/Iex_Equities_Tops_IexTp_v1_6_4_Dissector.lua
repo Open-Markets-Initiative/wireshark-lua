@@ -32,7 +32,7 @@ iex_equities_tops_iextp_v1_6_4.fields.bid_size = ProtoField.new("Bid Size", "iex
 iex_equities_tops_iextp_v1_6_4.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.tops.iextp.v1.6.4.channelid", ftypes.UINT32)
 iex_equities_tops_iextp_v1_6_4.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "iex.equities.tops.iextp.v1.6.4.collarreferenceprice", ftypes.DOUBLE)
 iex_equities_tops_iextp_v1_6_4.fields.detail = ProtoField.new("Detail", "iex.equities.tops.iextp.v1.6.4.detail", ftypes.STRING)
-iex_equities_tops_iextp_v1_6_4.fields.etp = ProtoField.new("Etp", "iex.equities.tops.iextp.v1.6.4.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+iex_equities_tops_iextp_v1_6_4.fields.etp = ProtoField.new("Etp", "iex.equities.tops.iextp.v1.6.4.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 iex_equities_tops_iextp_v1_6_4.fields.extended_hours = ProtoField.new("Extended Hours", "iex.equities.tops.iextp.v1.6.4.extendedhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 iex_equities_tops_iextp_v1_6_4.fields.extension_number = ProtoField.new("Extension Number", "iex.equities.tops.iextp.v1.6.4.extensionnumber", ftypes.STRING)
 iex_equities_tops_iextp_v1_6_4.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.equities.tops.iextp.v1.6.4.firstmessagesequencenumber", ftypes.UINT64)
@@ -84,7 +84,7 @@ iex_equities_tops_iextp_v1_6_4.fields.symbol = ProtoField.new("Symbol", "iex.equ
 iex_equities_tops_iextp_v1_6_4.fields.symbol_availability = ProtoField.new("Symbol Availability", "iex.equities.tops.iextp.v1.6.4.symbolavailability", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 iex_equities_tops_iextp_v1_6_4.fields.system_event = ProtoField.new("System Event", "iex.equities.tops.iextp.v1.6.4.systemevent", ftypes.STRING)
 iex_equities_tops_iextp_v1_6_4.fields.system_event_message = ProtoField.new("System Event Message", "iex.equities.tops.iextp.v1.6.4.systemeventmessage", ftypes.STRING)
-iex_equities_tops_iextp_v1_6_4.fields.test_security = ProtoField.new("Test Security", "iex.equities.tops.iextp.v1.6.4.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+iex_equities_tops_iextp_v1_6_4.fields.test_security = ProtoField.new("Test Security", "iex.equities.tops.iextp.v1.6.4.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 iex_equities_tops_iextp_v1_6_4.fields.timestamp = ProtoField.new("Timestamp", "iex.equities.tops.iextp.v1.6.4.timestamp", ftypes.INT64)
 iex_equities_tops_iextp_v1_6_4.fields.trade_break_message = ProtoField.new("Trade Break Message", "iex.equities.tops.iextp.v1.6.4.tradebreakmessage", ftypes.STRING)
 iex_equities_tops_iextp_v1_6_4.fields.trade_id = ProtoField.new("Trade Id", "iex.equities.tops.iextp.v1.6.4.tradeid", ftypes.UINT64)
@@ -805,22 +805,22 @@ end
 -- Dissect Bit Fields: Sale Condition Flags
 iex_equities_tops_iextp_v1_6_4_dissect.sale_condition_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Intermarket Sweep: bit
+  -- Intermarket Sweep: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.intermarket_sweep, buffer(offset, 1))
 
-  -- Extended Hours: bit
+  -- Extended Hours: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.extended_hours, buffer(offset, 1))
 
-  -- Odd Lot: bit
+  -- Odd Lot: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.odd_lot, buffer(offset, 1))
 
-  -- Trade Through Exempt: bit
+  -- Trade Through Exempt: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.trade_through_exempt, buffer(offset, 1))
 
-  -- Singleprice Cross Trade: bit
+  -- Singleprice Cross Trade: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.singleprice_cross_trade, buffer(offset, 1))
 
-  -- Unused 3: bit
+  -- Unused 3: 3 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.unused_3, buffer(offset, 1))
 end
 
@@ -1181,13 +1181,13 @@ end
 -- Dissect Bit Fields: Quote Update Flags
 iex_equities_tops_iextp_v1_6_4_dissect.quote_update_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Symbol Availability: bit
+  -- Symbol Availability: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.symbol_availability, buffer(offset, 1))
 
-  -- Market Session: bit
+  -- Market Session: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.market_session, buffer(offset, 1))
 
-  -- Unused 6: bit
+  -- Unused 6: 6 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.unused_6, buffer(offset, 1))
 end
 
@@ -1720,17 +1720,17 @@ iex_equities_tops_iextp_v1_6_4_size_of.security_directory_flags = 1
 iex_equities_tops_iextp_v1_6_4_display.security_directory_flags = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Etp flag set?
+  -- Is Test Security flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Etp|"
+    display = display.."Test Security|"
   end
   -- Is When Issued flag set?
   if buffer:bitfield(1) > 0 then
     display = display.."When Issued|"
   end
-  -- Is Test Security flag set?
+  -- Is Etp flag set?
   if buffer:bitfield(2) > 0 then
-    display = display.."Test Security|"
+    display = display.."Etp|"
   end
 
   return display:sub(1, -2)
@@ -1739,16 +1739,16 @@ end
 -- Dissect Bit Fields: Security Directory Flags
 iex_equities_tops_iextp_v1_6_4_dissect.security_directory_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Etp: bit
-  parent:add(iex_equities_tops_iextp_v1_6_4.fields.etp, buffer(offset, 1))
-
-  -- When Issued: bit
-  parent:add(iex_equities_tops_iextp_v1_6_4.fields.when_issued, buffer(offset, 1))
-
-  -- Test Security: bit
+  -- Test Security: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.test_security, buffer(offset, 1))
 
-  -- Unused 5: bit
+  -- When Issued: 1 Bit
+  parent:add(iex_equities_tops_iextp_v1_6_4.fields.when_issued, buffer(offset, 1))
+
+  -- Etp: 1 Bit
+  parent:add(iex_equities_tops_iextp_v1_6_4.fields.etp, buffer(offset, 1))
+
+  -- Unused 5: 5 Bit
   parent:add(iex_equities_tops_iextp_v1_6_4.fields.unused_5, buffer(offset, 1))
 end
 

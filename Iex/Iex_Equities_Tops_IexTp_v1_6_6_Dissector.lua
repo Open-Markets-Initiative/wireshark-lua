@@ -43,7 +43,7 @@ iex_equities_tops_iextp_v1_6_6.fields.indicative_clearing_price = ProtoField.new
 iex_equities_tops_iextp_v1_6_6.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.equities.tops.iextp.v1.6.6.intermarketsweep", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 iex_equities_tops_iextp_v1_6_6.fields.lower_auction_collar = ProtoField.new("Lower Auction Collar", "iex.equities.tops.iextp.v1.6.6.lowerauctioncollar", ftypes.DOUBLE)
 iex_equities_tops_iextp_v1_6_6.fields.luld_tier = ProtoField.new("Luld Tier", "iex.equities.tops.iextp.v1.6.6.luldtier", ftypes.UINT8)
-iex_equities_tops_iextp_v1_6_6.fields.market_session = ProtoField.new("Market Session", "iex.equities.tops.iextp.v1.6.6.marketsession", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
+iex_equities_tops_iextp_v1_6_6.fields.market_session = ProtoField.new("Market Session", "iex.equities.tops.iextp.v1.6.6.marketsession", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 iex_equities_tops_iextp_v1_6_6.fields.message = ProtoField.new("Message", "iex.equities.tops.iextp.v1.6.6.message", ftypes.STRING)
 iex_equities_tops_iextp_v1_6_6.fields.message_count = ProtoField.new("Message Count", "iex.equities.tops.iextp.v1.6.6.messagecount", ftypes.UINT16)
 iex_equities_tops_iextp_v1_6_6.fields.message_data = ProtoField.new("Message Data", "iex.equities.tops.iextp.v1.6.6.messagedata", ftypes.STRING)
@@ -81,7 +81,7 @@ iex_equities_tops_iextp_v1_6_6.fields.singleprice_cross_trade = ProtoField.new("
 iex_equities_tops_iextp_v1_6_6.fields.size = ProtoField.new("Size", "iex.equities.tops.iextp.v1.6.6.size", ftypes.UINT32)
 iex_equities_tops_iextp_v1_6_6.fields.stream_offset = ProtoField.new("Stream Offset", "iex.equities.tops.iextp.v1.6.6.streamoffset", ftypes.UINT64)
 iex_equities_tops_iextp_v1_6_6.fields.symbol = ProtoField.new("Symbol", "iex.equities.tops.iextp.v1.6.6.symbol", ftypes.STRING)
-iex_equities_tops_iextp_v1_6_6.fields.symbol_availability = ProtoField.new("Symbol Availability", "iex.equities.tops.iextp.v1.6.6.symbolavailability", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x08)
+iex_equities_tops_iextp_v1_6_6.fields.symbol_availability = ProtoField.new("Symbol Availability", "iex.equities.tops.iextp.v1.6.6.symbolavailability", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 iex_equities_tops_iextp_v1_6_6.fields.system_event = ProtoField.new("System Event", "iex.equities.tops.iextp.v1.6.6.systemevent", ftypes.STRING)
 iex_equities_tops_iextp_v1_6_6.fields.system_event_message = ProtoField.new("System Event Message", "iex.equities.tops.iextp.v1.6.6.systemeventmessage", ftypes.STRING)
 iex_equities_tops_iextp_v1_6_6.fields.test_security = ProtoField.new("Test Security", "iex.equities.tops.iextp.v1.6.6.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
@@ -92,10 +92,9 @@ iex_equities_tops_iextp_v1_6_6.fields.trade_report_message = ProtoField.new("Tra
 iex_equities_tops_iextp_v1_6_6.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.equities.tops.iextp.v1.6.6.tradethroughexempt", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x10)
 iex_equities_tops_iextp_v1_6_6.fields.trading_status = ProtoField.new("Trading Status", "iex.equities.tops.iextp.v1.6.6.tradingstatus", ftypes.STRING)
 iex_equities_tops_iextp_v1_6_6.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.equities.tops.iextp.v1.6.6.tradingstatusmessage", ftypes.STRING)
-iex_equities_tops_iextp_v1_6_6.fields.unused_2 = ProtoField.new("Unused 2", "iex.equities.tops.iextp.v1.6.6.unused2", ftypes.UINT8, nil, base.DEC, 0x03)
 iex_equities_tops_iextp_v1_6_6.fields.unused_3 = ProtoField.new("Unused 3", "iex.equities.tops.iextp.v1.6.6.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
-iex_equities_tops_iextp_v1_6_6.fields.unused_4 = ProtoField.new("Unused 4", "iex.equities.tops.iextp.v1.6.6.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
 iex_equities_tops_iextp_v1_6_6.fields.unused_5 = ProtoField.new("Unused 5", "iex.equities.tops.iextp.v1.6.6.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
+iex_equities_tops_iextp_v1_6_6.fields.unused_6 = ProtoField.new("Unused 6", "iex.equities.tops.iextp.v1.6.6.unused6", ftypes.UINT8, nil, base.DEC, 0x3F)
 iex_equities_tops_iextp_v1_6_6.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.equities.tops.iextp.v1.6.6.upperauctioncollar", ftypes.DOUBLE)
 iex_equities_tops_iextp_v1_6_6.fields.version = ProtoField.new("Version", "iex.equities.tops.iextp.v1.6.6.version", ftypes.UINT8)
 iex_equities_tops_iextp_v1_6_6.fields.when_issued = ProtoField.new("When Issued", "iex.equities.tops.iextp.v1.6.6.whenissued", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
@@ -1168,11 +1167,11 @@ iex_equities_tops_iextp_v1_6_6_display.quote_update_flags = function(buffer, pac
   local display = ""
 
   -- Is Symbol Availability flag set?
-  if buffer:bitfield(4) > 0 then
+  if buffer:bitfield(0) > 0 then
     display = display.."Symbol Availability|"
   end
   -- Is Market Session flag set?
-  if buffer:bitfield(5) > 0 then
+  if buffer:bitfield(1) > 0 then
     display = display.."Market Session|"
   end
 
@@ -1182,17 +1181,14 @@ end
 -- Dissect Bit Fields: Quote Update Flags
 iex_equities_tops_iextp_v1_6_6_dissect.quote_update_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Unused 4: 4 Bit
-  parent:add(iex_equities_tops_iextp_v1_6_6.fields.unused_4, buffer(offset, 1))
-
   -- Symbol Availability: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_6.fields.symbol_availability, buffer(offset, 1))
 
   -- Market Session: 1 Bit
   parent:add(iex_equities_tops_iextp_v1_6_6.fields.market_session, buffer(offset, 1))
 
-  -- Unused 2: 2 Bit
-  parent:add(iex_equities_tops_iextp_v1_6_6.fields.unused_2, buffer(offset, 1))
+  -- Unused 6: 6 Bit
+  parent:add(iex_equities_tops_iextp_v1_6_6.fields.unused_6, buffer(offset, 1))
 end
 
 -- Dissect: Quote Update Flags
@@ -1239,7 +1235,7 @@ end
 iex_equities_tops_iextp_v1_6_6_dissect.quote_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Update Flags: Struct of 4 fields
+  -- Quote Update Flags: Struct of 3 fields
   index, quote_update_flags = iex_equities_tops_iextp_v1_6_6_dissect.quote_update_flags(buffer, index, packet, parent)
 
   -- Timestamp: Timestamp

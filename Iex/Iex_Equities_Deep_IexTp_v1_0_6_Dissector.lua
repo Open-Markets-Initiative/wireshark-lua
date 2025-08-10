@@ -28,7 +28,7 @@ iex_equities_deep_iextp_v1_0_6.fields.auction_type = ProtoField.new("Auction Typ
 iex_equities_deep_iextp_v1_0_6.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.deep.iextp.v1.0.6.channelid", ftypes.UINT32)
 iex_equities_deep_iextp_v1_0_6.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "iex.equities.deep.iextp.v1.0.6.collarreferenceprice", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0_6.fields.detail = ProtoField.new("Detail", "iex.equities.deep.iextp.v1.0.6.detail", ftypes.STRING)
-iex_equities_deep_iextp_v1_0_6.fields.etp = ProtoField.new("Etp", "iex.equities.deep.iextp.v1.0.6.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
+iex_equities_deep_iextp_v1_0_6.fields.etp = ProtoField.new("Etp", "iex.equities.deep.iextp.v1.0.6.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 iex_equities_deep_iextp_v1_0_6.fields.event_flags = ProtoField.new("Event Flags", "iex.equities.deep.iextp.v1.0.6.eventflags", ftypes.UINT8)
 iex_equities_deep_iextp_v1_0_6.fields.extended_hours = ProtoField.new("Extended Hours", "iex.equities.deep.iextp.v1.0.6.extendedhours", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
 iex_equities_deep_iextp_v1_0_6.fields.extension_number = ProtoField.new("Extension Number", "iex.equities.deep.iextp.v1.0.6.extensionnumber", ftypes.STRING)
@@ -79,7 +79,7 @@ iex_equities_deep_iextp_v1_0_6.fields.stream_offset = ProtoField.new("Stream Off
 iex_equities_deep_iextp_v1_0_6.fields.symbol = ProtoField.new("Symbol", "iex.equities.deep.iextp.v1.0.6.symbol", ftypes.STRING)
 iex_equities_deep_iextp_v1_0_6.fields.system_event = ProtoField.new("System Event", "iex.equities.deep.iextp.v1.0.6.systemevent", ftypes.STRING)
 iex_equities_deep_iextp_v1_0_6.fields.system_event_message = ProtoField.new("System Event Message", "iex.equities.deep.iextp.v1.0.6.systemeventmessage", ftypes.STRING)
-iex_equities_deep_iextp_v1_0_6.fields.test_security = ProtoField.new("Test Security", "iex.equities.deep.iextp.v1.0.6.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
+iex_equities_deep_iextp_v1_0_6.fields.test_security = ProtoField.new("Test Security", "iex.equities.deep.iextp.v1.0.6.testsecurity", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 iex_equities_deep_iextp_v1_0_6.fields.timestamp = ProtoField.new("Timestamp", "iex.equities.deep.iextp.v1.0.6.timestamp", ftypes.INT64)
 iex_equities_deep_iextp_v1_0_6.fields.trade_break_message = ProtoField.new("Trade Break Message", "iex.equities.deep.iextp.v1.0.6.tradebreakmessage", ftypes.STRING)
 iex_equities_deep_iextp_v1_0_6.fields.trade_id = ProtoField.new("Trade Id", "iex.equities.deep.iextp.v1.0.6.tradeid", ftypes.UINT64)
@@ -799,22 +799,22 @@ end
 -- Dissect Bit Fields: Sale Condition Flags
 iex_equities_deep_iextp_v1_0_6_dissect.sale_condition_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Intermarket Sweep: bit
+  -- Intermarket Sweep: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.intermarket_sweep, buffer(offset, 1))
 
-  -- Extended Hours: bit
+  -- Extended Hours: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.extended_hours, buffer(offset, 1))
 
-  -- Odd Lot: bit
+  -- Odd Lot: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.odd_lot, buffer(offset, 1))
 
-  -- Trade Through Exempt: bit
+  -- Trade Through Exempt: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.trade_through_exempt, buffer(offset, 1))
 
-  -- Singleprice Cross Trade: bit
+  -- Singleprice Cross Trade: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.singleprice_cross_trade, buffer(offset, 1))
 
-  -- Unused 3: bit
+  -- Unused 3: 3 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.unused_3, buffer(offset, 1))
 end
 
@@ -1650,17 +1650,17 @@ iex_equities_deep_iextp_v1_0_6_size_of.security_directory_flags = 1
 iex_equities_deep_iextp_v1_0_6_display.security_directory_flags = function(buffer, packet, parent)
   local display = ""
 
-  -- Is Etp flag set?
+  -- Is Test Security flag set?
   if buffer:bitfield(0) > 0 then
-    display = display.."Etp|"
+    display = display.."Test Security|"
   end
   -- Is When Issued flag set?
   if buffer:bitfield(1) > 0 then
     display = display.."When Issued|"
   end
-  -- Is Test Security flag set?
+  -- Is Etp flag set?
   if buffer:bitfield(2) > 0 then
-    display = display.."Test Security|"
+    display = display.."Etp|"
   end
 
   return display:sub(1, -2)
@@ -1669,16 +1669,16 @@ end
 -- Dissect Bit Fields: Security Directory Flags
 iex_equities_deep_iextp_v1_0_6_dissect.security_directory_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Etp: bit
-  parent:add(iex_equities_deep_iextp_v1_0_6.fields.etp, buffer(offset, 1))
-
-  -- When Issued: bit
-  parent:add(iex_equities_deep_iextp_v1_0_6.fields.when_issued, buffer(offset, 1))
-
-  -- Test Security: bit
+  -- Test Security: 1 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.test_security, buffer(offset, 1))
 
-  -- Unused 5: bit
+  -- When Issued: 1 Bit
+  parent:add(iex_equities_deep_iextp_v1_0_6.fields.when_issued, buffer(offset, 1))
+
+  -- Etp: 1 Bit
+  parent:add(iex_equities_deep_iextp_v1_0_6.fields.etp, buffer(offset, 1))
+
+  -- Unused 5: 5 Bit
   parent:add(iex_equities_deep_iextp_v1_0_6.fields.unused_5, buffer(offset, 1))
 end
 
