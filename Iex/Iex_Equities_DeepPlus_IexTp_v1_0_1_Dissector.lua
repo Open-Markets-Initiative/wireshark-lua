@@ -349,13 +349,13 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.clear_book_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved Byte: 1 Byte Ascii String
+  -- Reserved Byte: Byte
   index, reserved_byte = iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_byte(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
   return index
@@ -474,22 +474,22 @@ end
 -- Dissect Bit Fields: Sale Condition Flags
 iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Intermarket Sweep: 1 Bit
+  -- Intermarket Sweep: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.intermarket_sweep, buffer(offset, 1))
 
-  -- Extended Hours: 1 Bit
+  -- Extended Hours: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.extended_hours, buffer(offset, 1))
 
-  -- Odd Lot: 1 Bit
+  -- Odd Lot: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.odd_lot, buffer(offset, 1))
 
-  -- Trade Through Exempt: 1 Bit
+  -- Trade Through Exempt: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.trade_through_exempt, buffer(offset, 1))
 
-  -- Singleprice Cross Trade: 1 Bit
+  -- Singleprice Cross Trade: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.singleprice_cross_trade, buffer(offset, 1))
 
-  -- Unused 3: 3 Bit
+  -- Unused 3: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_3, buffer(offset, 1))
 end
 
@@ -538,19 +538,19 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.trade_break_message_fields = function
   -- Sale Condition Flags: Struct of 6 fields
   index, sale_condition_flags = iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = iex_equities_deepplus_iextp_v1_0_1_dissect.size(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = iex_equities_deepplus_iextp_v1_0_1_dissect.price(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Long
   index, trade_id = iex_equities_deepplus_iextp_v1_0_1_dissect.trade_id(buffer, index, packet, parent)
 
   return index
@@ -600,19 +600,19 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.trade_message_fields = function(buffe
   -- Sale Condition Flags: Struct of 6 fields
   index, sale_condition_flags = iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = iex_equities_deepplus_iextp_v1_0_1_dissect.size(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = iex_equities_deepplus_iextp_v1_0_1_dissect.price(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Long
   index, trade_id = iex_equities_deepplus_iextp_v1_0_1_dissect.trade_id(buffer, index, packet, parent)
 
   return index
@@ -684,22 +684,22 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.order_executed_message_fields = funct
   -- Sale Condition Flags: Struct of 6 fields
   index, sale_condition_flags = iex_equities_deepplus_iextp_v1_0_1_dissect.sale_condition_flags(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Order Id Reference: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id Reference: Long
   index, order_id_reference = iex_equities_deepplus_iextp_v1_0_1_dissect.order_id_reference(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = iex_equities_deepplus_iextp_v1_0_1_dissect.size(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = iex_equities_deepplus_iextp_v1_0_1_dissect.price(buffer, index, packet, parent)
 
-  -- Trade Id: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Long
   index, trade_id = iex_equities_deepplus_iextp_v1_0_1_dissect.trade_id(buffer, index, packet, parent)
 
   return index
@@ -742,16 +742,16 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.order_delete_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved Byte: 1 Byte Ascii String
+  -- Reserved Byte: Byte
   index, reserved_byte = iex_equities_deepplus_iextp_v1_0_1_dissect.reserved_byte(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Order Id Reference: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id Reference: Long
   index, order_id_reference = iex_equities_deepplus_iextp_v1_0_1_dissect.order_id_reference(buffer, index, packet, parent)
 
   return index
@@ -788,10 +788,10 @@ end
 -- Dissect Bit Fields: Modify Flags
 iex_equities_deepplus_iextp_v1_0_1_dissect.modify_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Priority: 1 Bit
+  -- Priority: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.priority, buffer(offset, 1))
 
-  -- Unused 7: 7 Bit
+  -- Unused 7: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_7, buffer(offset, 1))
 end
 
@@ -840,19 +840,19 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.order_modify_message_fields = functio
   -- Modify Flags: Struct of 2 fields
   index, modify_flags = iex_equities_deepplus_iextp_v1_0_1_dissect.modify_flags(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Order Id Reference: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id Reference: Long
   index, order_id_reference = iex_equities_deepplus_iextp_v1_0_1_dissect.order_id_reference(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = iex_equities_deepplus_iextp_v1_0_1_dissect.size(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = iex_equities_deepplus_iextp_v1_0_1_dissect.price(buffer, index, packet, parent)
 
   return index
@@ -939,22 +939,22 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.add_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Side: 1 Byte Ascii String
+  -- Side: Byte
   index, side = iex_equities_deepplus_iextp_v1_0_1_dissect.side(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Long
   index, order_id = iex_equities_deepplus_iextp_v1_0_1_dissect.order_id(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = iex_equities_deepplus_iextp_v1_0_1_dissect.size(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Price
   index, price = iex_equities_deepplus_iextp_v1_0_1_dissect.price(buffer, index, packet, parent)
 
   return index
@@ -1028,13 +1028,13 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.security_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Event: 1 Byte Ascii String Enum with 4 values
+  -- Security Event: Byte
   index, security_event = iex_equities_deepplus_iextp_v1_0_1_dissect.security_event(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
   return index
@@ -1140,16 +1140,16 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.short_sale_price_test_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Short Sale Price Test Status: 1 Byte Ascii String Enum with 2 values
+  -- Short Sale Price Test Status: Byte
   index, short_sale_price_test_status = iex_equities_deepplus_iextp_v1_0_1_dissect.short_sale_price_test_status(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Detail: 1 Byte Ascii String Enum with 5 values
+  -- Detail: Byte
   index, detail = iex_equities_deepplus_iextp_v1_0_1_dissect.detail(buffer, index, packet, parent)
 
   return index
@@ -1217,13 +1217,13 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.operational_halt_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Operational Halt Status: 1 Byte Ascii String Enum with 2 values
+  -- Operational Halt Status: Byte
   index, operational_halt_status = iex_equities_deepplus_iextp_v1_0_1_dissect.operational_halt_status(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
   return index
@@ -1297,13 +1297,13 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.retail_liquidity_indicator_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Retail Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Retail Liquidity Indicator: Byte
   index, retail_liquidity_indicator = iex_equities_deepplus_iextp_v1_0_1_dissect.retail_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
   return index
@@ -1399,16 +1399,16 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trading Status: 1 Byte Ascii String Enum with 4 values
+  -- Trading Status: Byte
   index, trading_status = iex_equities_deepplus_iextp_v1_0_1_dissect.trading_status(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Reason: 4 Byte Ascii String
+  -- Reason: String
   index, reason = iex_equities_deepplus_iextp_v1_0_1_dissect.reason(buffer, index, packet, parent)
 
   return index
@@ -1529,16 +1529,16 @@ end
 -- Dissect Bit Fields: Security Directory Flags
 iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Test Security: 1 Bit
+  -- Test Security: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.test_security, buffer(offset, 1))
 
-  -- When Issued: 1 Bit
+  -- When Issued: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.when_issued, buffer(offset, 1))
 
-  -- Etp: 1 Bit
+  -- Etp: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.etp, buffer(offset, 1))
 
-  -- Unused 5: 5 Bit
+  -- Unused 5: bit
   parent:add(iex_equities_deepplus_iextp_v1_0_1.fields.unused_5, buffer(offset, 1))
 end
 
@@ -1587,19 +1587,19 @@ iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_message_fields = f
   -- Security Directory Flags: Struct of 4 fields
   index, security_directory_flags = iex_equities_deepplus_iextp_v1_0_1_dissect.security_directory_flags(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol: 8 Byte Ascii String
+  -- Symbol: String
   index, symbol = iex_equities_deepplus_iextp_v1_0_1_dissect.symbol(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Integer
   index, round_lot_size = iex_equities_deepplus_iextp_v1_0_1_dissect.round_lot_size(buffer, index, packet, parent)
 
-  -- Adjusted Poc Price: 8 Byte Signed Fixed Width Integer
+  -- Adjusted Poc Price: Price
   index, adjusted_poc_price = iex_equities_deepplus_iextp_v1_0_1_dissect.adjusted_poc_price(buffer, index, packet, parent)
 
-  -- Luld Tier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Luld Tier: Byte (int)
   index, luld_tier = iex_equities_deepplus_iextp_v1_0_1_dissect.luld_tier(buffer, index, packet, parent)
 
   return index
@@ -1677,10 +1677,10 @@ end
 iex_equities_deepplus_iextp_v1_0_1_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- System Event: 1 Byte Ascii String Enum with 6 values
+  -- System Event: Byte
   index, system_event = iex_equities_deepplus_iextp_v1_0_1_dissect.system_event(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Signed Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = iex_equities_deepplus_iextp_v1_0_1_dissect.timestamp(buffer, index, packet, parent)
 
   return index
