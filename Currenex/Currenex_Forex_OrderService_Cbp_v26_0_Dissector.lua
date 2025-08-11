@@ -345,10 +345,10 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.gap_fill_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- New Seq No: 4 Byte Signed Fixed Width Integer
+  -- New Seq No: Integer
   index, new_seq_no = currenex_forex_orderservice_cbp_v26_0_dissect.new_seq_no(buffer, index, packet, parent)
 
-  -- Reason Code: 1 Byte Ascii String
+  -- Reason Code: Alpha
   index, reason_code = currenex_forex_orderservice_cbp_v26_0_dissect.reason_code(buffer, index, packet, parent)
 
   return index
@@ -405,7 +405,7 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.resend_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq No: 4 Byte Signed Fixed Width Integer
+  -- Begin Seq No: Integer
   index, begin_seq_no = currenex_forex_orderservice_cbp_v26_0_dissect.begin_seq_no(buffer, index, packet, parent)
 
   return index
@@ -598,22 +598,22 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.trade_pending_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exec Type: 1 Byte Ascii String
+  -- Exec Type: Alpha
   index, exec_type = currenex_forex_orderservice_cbp_v26_0_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Settle Date: 8 Byte Signed Fixed Width Integer
+  -- Settle Date: Long
   index, settle_date = currenex_forex_orderservice_cbp_v26_0_dissect.settle_date(buffer, index, packet, parent)
 
-  -- Trade Date: 8 Byte Signed Fixed Width Integer
+  -- Trade Date: Long
   index, trade_date = currenex_forex_orderservice_cbp_v26_0_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: Long
   index, transact_time = currenex_forex_orderservice_cbp_v26_0_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Leaves Amt: 8 Byte Signed Fixed Width Integer
+  -- Leaves Amt: Long
   index, leaves_amt = currenex_forex_orderservice_cbp_v26_0_dissect.leaves_amt(buffer, index, packet, parent)
 
-  -- Aggressor Flag: 1 Byte Ascii String
+  -- Aggressor Flag: Alpha
   index, aggressor_flag = currenex_forex_orderservice_cbp_v26_0_dissect.aggressor_flag(buffer, index, packet, parent)
 
   return index
@@ -714,13 +714,13 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_cancel_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Cl Order Id: Integer
   index, cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.cl_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Long
   index, order_id = currenex_forex_orderservice_cbp_v26_0_dissect.order_id(buffer, index, packet, parent)
 
-  -- Trade Link Id: 4 Byte Signed Fixed Width Integer
+  -- Trade Link Id: Integer
   index, trade_link_id = currenex_forex_orderservice_cbp_v26_0_dissect.trade_link_id(buffer, index, packet, parent)
 
   return index
@@ -829,25 +829,25 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Cl Order Id: Integer
   index, cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.cl_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Long
   index, order_id = currenex_forex_orderservice_cbp_v26_0_dissect.order_id(buffer, index, packet, parent)
 
-  -- Trade Link Id: 4 Byte Signed Fixed Width Integer
+  -- Trade Link Id: Integer
   index, trade_link_id = currenex_forex_orderservice_cbp_v26_0_dissect.trade_link_id(buffer, index, packet, parent)
 
-  -- Fill Amt: 8 Byte Signed Fixed Width Integer
+  -- Fill Amt: Long
   index, fill_amt = currenex_forex_orderservice_cbp_v26_0_dissect.fill_amt(buffer, index, packet, parent)
 
-  -- Fill Rate: 4 Byte Signed Fixed Width Integer
+  -- Fill Rate: Integer
   index, fill_rate = currenex_forex_orderservice_cbp_v26_0_dissect.fill_rate(buffer, index, packet, parent)
 
-  -- Aggressor Flag: 1 Byte Ascii String
+  -- Aggressor Flag: Alpha
   index, aggressor_flag = currenex_forex_orderservice_cbp_v26_0_dissect.aggressor_flag(buffer, index, packet, parent)
 
-  -- Exec Broker: 4 Byte Ascii String
+  -- Exec Broker: Alpha
   index, exec_broker = currenex_forex_orderservice_cbp_v26_0_dissect.exec_broker(buffer, index, packet, parent)
 
   return index
@@ -983,46 +983,46 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.trade_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Cl Order Id: Integer
   index, cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.cl_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Long
   index, order_id = currenex_forex_orderservice_cbp_v26_0_dissect.order_id(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: Alpha
   index, side = currenex_forex_orderservice_cbp_v26_0_dissect.side(buffer, index, packet, parent)
 
-  -- Fill Amt: 8 Byte Signed Fixed Width Integer
+  -- Fill Amt: Long
   index, fill_amt = currenex_forex_orderservice_cbp_v26_0_dissect.fill_amt(buffer, index, packet, parent)
 
-  -- Fill Rate: 4 Byte Signed Fixed Width Integer
+  -- Fill Rate: Integer
   index, fill_rate = currenex_forex_orderservice_cbp_v26_0_dissect.fill_rate(buffer, index, packet, parent)
 
-  -- Exec Broker: 4 Byte Ascii String
+  -- Exec Broker: Alpha
   index, exec_broker = currenex_forex_orderservice_cbp_v26_0_dissect.exec_broker(buffer, index, packet, parent)
 
-  -- Execution Id: 20 Byte Ascii String
+  -- Execution Id: Alpha
   index, execution_id = currenex_forex_orderservice_cbp_v26_0_dissect.execution_id(buffer, index, packet, parent)
 
-  -- Exec Type: 1 Byte Ascii String
+  -- Exec Type: Alpha
   index, exec_type = currenex_forex_orderservice_cbp_v26_0_dissect.exec_type(buffer, index, packet, parent)
 
-  -- Settle Date: 8 Byte Signed Fixed Width Integer
+  -- Settle Date: Long
   index, settle_date = currenex_forex_orderservice_cbp_v26_0_dissect.settle_date(buffer, index, packet, parent)
 
-  -- Trade Date: 8 Byte Signed Fixed Width Integer
+  -- Trade Date: Long
   index, trade_date = currenex_forex_orderservice_cbp_v26_0_dissect.trade_date(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: Long
   index, transact_time = currenex_forex_orderservice_cbp_v26_0_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Leaves Amt: 8 Byte Signed Fixed Width Integer
+  -- Leaves Amt: Long
   index, leaves_amt = currenex_forex_orderservice_cbp_v26_0_dissect.leaves_amt(buffer, index, packet, parent)
 
-  -- Aggressor Flag: 1 Byte Ascii String
+  -- Aggressor Flag: Alpha
   index, aggressor_flag = currenex_forex_orderservice_cbp_v26_0_dissect.aggressor_flag(buffer, index, packet, parent)
 
   return index
@@ -1118,16 +1118,16 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.order_canceled_or_expired_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Cl Order Id: Integer
   index, cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.cl_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Long
   index, order_id = currenex_forex_orderservice_cbp_v26_0_dissect.order_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alpha
   index, status = currenex_forex_orderservice_cbp_v26_0_dissect.status(buffer, index, packet, parent)
 
-  -- Type: 2 Byte Signed Fixed Width Integer
+  -- Type: Short
   index, type = currenex_forex_orderservice_cbp_v26_0_dissect.type(buffer, index, packet, parent)
 
   return index
@@ -1230,16 +1230,16 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_ack_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- New Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- New Cl Order Id: Integer
   index, new_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.new_cl_order_id(buffer, index, packet, parent)
 
-  -- Prev Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Prev Cl Order Id: Integer
   index, prev_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.prev_cl_order_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alpha
   index, status = currenex_forex_orderservice_cbp_v26_0_dissect.status(buffer, index, packet, parent)
 
-  -- Error Code: 2 Byte Signed Fixed Width Integer
+  -- Error Code: Short
   index, error_code = currenex_forex_orderservice_cbp_v26_0_dissect.error_code(buffer, index, packet, parent)
 
   return index
@@ -1344,19 +1344,19 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- New Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- New Cl Order Id: Integer
   index, new_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.new_cl_order_id(buffer, index, packet, parent)
 
-  -- Orig Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Orig Cl Order Id: Integer
   index, orig_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.orig_cl_order_id(buffer, index, packet, parent)
 
-  -- Order Amt: 8 Byte Signed Fixed Width Integer
+  -- Order Amt: Long
   index, order_amt = currenex_forex_orderservice_cbp_v26_0_dissect.order_amt(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Rate
   index, price = currenex_forex_orderservice_cbp_v26_0_dissect.price(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_index(buffer, index, packet, parent)
 
   return index
@@ -1397,13 +1397,13 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_reject_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- New Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- New Cl Order Id: Integer
   index, new_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.new_cl_order_id(buffer, index, packet, parent)
 
-  -- Prev Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Prev Cl Order Id: Integer
   index, prev_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.prev_cl_order_id(buffer, index, packet, parent)
 
-  -- Error Code: 2 Byte Signed Fixed Width Integer
+  -- Error Code: Short
   index, error_code = currenex_forex_orderservice_cbp_v26_0_dissect.error_code(buffer, index, packet, parent)
 
   return index
@@ -1444,13 +1444,13 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- New Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- New Cl Order Id: Integer
   index, new_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.new_cl_order_id(buffer, index, packet, parent)
 
-  -- Prev Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Prev Cl Order Id: Integer
   index, prev_cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.prev_cl_order_id(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_index(buffer, index, packet, parent)
 
   return index
@@ -1493,16 +1493,16 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.new_order_ack_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Cl Order Id: Integer
   index, cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.cl_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: Long
   index, order_id = currenex_forex_orderservice_cbp_v26_0_dissect.order_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: Alpha
   index, status = currenex_forex_orderservice_cbp_v26_0_dissect.status(buffer, index, packet, parent)
 
-  -- Error Code: 2 Byte Signed Fixed Width Integer
+  -- Error Code: Short
   index, error_code = currenex_forex_orderservice_cbp_v26_0_dissect.error_code(buffer, index, packet, parent)
 
   return index
@@ -1668,31 +1668,31 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.new_order_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Order Id: 4 Byte Signed Fixed Width Integer
+  -- Cl Order Id: Integer
   index, cl_order_id = currenex_forex_orderservice_cbp_v26_0_dissect.cl_order_id(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String
+  -- Order Type: Alpha
   index, order_type = currenex_forex_orderservice_cbp_v26_0_dissect.order_type(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: Alpha
   index, side = currenex_forex_orderservice_cbp_v26_0_dissect.side(buffer, index, packet, parent)
 
-  -- Order Amt: 8 Byte Signed Fixed Width Integer
+  -- Order Amt: Long
   index, order_amt = currenex_forex_orderservice_cbp_v26_0_dissect.order_amt(buffer, index, packet, parent)
 
-  -- Min Amt: 8 Byte Signed Fixed Width Integer
+  -- Min Amt: Long
   index, min_amt = currenex_forex_orderservice_cbp_v26_0_dissect.min_amt(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Rate
   index, price = currenex_forex_orderservice_cbp_v26_0_dissect.price(buffer, index, packet, parent)
 
-  -- Show Amt: 8 Byte Signed Fixed Width Integer
+  -- Show Amt: Long
   index, show_amt = currenex_forex_orderservice_cbp_v26_0_dissect.show_amt(buffer, index, packet, parent)
 
-  -- Expire Type: 1 Byte Ascii String Enum with 2 values
+  -- Expire Type: Alpha
   index, expire_type = currenex_forex_orderservice_cbp_v26_0_dissect.expire_type(buffer, index, packet, parent)
 
   return index
@@ -1830,19 +1830,19 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_orderservice_cbp_v26_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String
+  -- Instrument Type: Alpha
   index, instrument_type = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Instrument Id: 20 Byte Ascii String
+  -- Instrument Id: Alpha
   index, instrument_id = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Settlement Date: 8 Byte Signed Fixed Width Integer
+  -- Settlement Date: Long
   index, settlement_date = currenex_forex_orderservice_cbp_v26_0_dissect.settlement_date(buffer, index, packet, parent)
 
   return index
@@ -1879,7 +1879,7 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_orderservice_cbp_v26_0_dissect.session_id(buffer, index, packet, parent)
 
   return index
@@ -1916,7 +1916,7 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_orderservice_cbp_v26_0_dissect.session_id(buffer, index, packet, parent)
 
   return index
@@ -1997,13 +1997,13 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.logout_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- User Id: 20 Byte Ascii String
+  -- User Id: Alpha
   index, user_id = currenex_forex_orderservice_cbp_v26_0_dissect.user_id(buffer, index, packet, parent)
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_orderservice_cbp_v26_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- Reason: 3 Byte Ascii String
+  -- Reason: Alpha
   index, reason = currenex_forex_orderservice_cbp_v26_0_dissect.reason(buffer, index, packet, parent)
 
   return index
@@ -2064,13 +2064,13 @@ end
 currenex_forex_orderservice_cbp_v26_0_dissect.logon_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- User Id: 20 Byte Ascii String
+  -- User Id: Alpha
   index, user_id = currenex_forex_orderservice_cbp_v26_0_dissect.user_id(buffer, index, packet, parent)
 
-  -- Password: 20 Byte Ascii String
+  -- Password: Alpha
   index, password = currenex_forex_orderservice_cbp_v26_0_dissect.password(buffer, index, packet, parent)
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_orderservice_cbp_v26_0_dissect.session_id(buffer, index, packet, parent)
 
   return index

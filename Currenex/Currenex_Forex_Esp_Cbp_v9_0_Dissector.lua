@@ -297,13 +297,13 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.reject_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_esp_cbp_v9_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- Reject Msg Type: 1 Byte Ascii String
+  -- Reject Msg Type: Alpha
   index, reject_msg_type = currenex_forex_esp_cbp_v9_0_dissect.reject_msg_type(buffer, index, packet, parent)
 
-  -- Reject Reason: 50 Byte Ascii String
+  -- Reject Reason: Alpha
   index, reject_reason = currenex_forex_esp_cbp_v9_0_dissect.reject_reason(buffer, index, packet, parent)
 
   return index
@@ -446,16 +446,16 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.trade_ticker_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_esp_cbp_v9_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Rate: 4 Byte Signed Fixed Width Integer
+  -- Rate: Rate
   index, rate = currenex_forex_esp_cbp_v9_0_dissect.rate(buffer, index, packet, parent)
 
-  -- Ticker Type: 1 Byte Ascii String Enum with 2 values
+  -- Ticker Type: Alpha
   index, ticker_type = currenex_forex_esp_cbp_v9_0_dissect.ticker_type(buffer, index, packet, parent)
 
-  -- Transact Time: 8 Byte Signed Fixed Width Integer
+  -- Transact Time: Long
   index, transact_time = currenex_forex_esp_cbp_v9_0_dissect.transact_time(buffer, index, packet, parent)
 
   return index
@@ -514,10 +514,10 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.price_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_esp_cbp_v9_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Price Id: 1 Byte Signed Fixed Width Integer
+  -- Price Id: Integer
   index, price_id = currenex_forex_esp_cbp_v9_0_dissect.price_id(buffer, index, packet, parent)
 
   return index
@@ -728,28 +728,28 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_esp_cbp_v9_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Price Id: 1 Byte Signed Fixed Width Integer
+  -- Price Id: Integer
   index, price_id = currenex_forex_esp_cbp_v9_0_dissect.price_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = currenex_forex_esp_cbp_v9_0_dissect.side(buffer, index, packet, parent)
 
-  -- Max Amount: 8 Byte Signed Fixed Width Integer
+  -- Max Amount: Amount
   index, max_amount = currenex_forex_esp_cbp_v9_0_dissect.max_amount(buffer, index, packet, parent)
 
-  -- Min Amount: 8 Byte Signed Fixed Width Integer
+  -- Min Amount: Amount
   index, min_amount = currenex_forex_esp_cbp_v9_0_dissect.min_amount(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Rate
   index, price = currenex_forex_esp_cbp_v9_0_dissect.price(buffer, index, packet, parent)
 
-  -- Attributed: 1 Byte Ascii String Enum with 2 values
+  -- Attributed: Alpha
   index, attributed = currenex_forex_esp_cbp_v9_0_dissect.attributed(buffer, index, packet, parent)
 
-  -- Price Provider: 4 Byte Ascii String
+  -- Price Provider: Alpha
   index, price_provider = currenex_forex_esp_cbp_v9_0_dissect.price_provider(buffer, index, packet, parent)
 
   return index
@@ -832,16 +832,16 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.subscription_reply_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_esp_cbp_v9_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_esp_cbp_v9_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Reply Type: 1 Byte Ascii String Enum with 2 values
+  -- Reply Type: Alpha
   index, reply_type = currenex_forex_esp_cbp_v9_0_dissect.reply_type(buffer, index, packet, parent)
 
-  -- Reject Reason: 50 Byte Ascii String
+  -- Reject Reason: Alpha
   index, reject_reason = currenex_forex_esp_cbp_v9_0_dissect.reject_reason(buffer, index, packet, parent)
 
   return index
@@ -967,16 +967,16 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.subscription_request_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_esp_cbp_v9_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- Subscription Type: 1 Byte Ascii String Enum with 3 values
+  -- Subscription Type: Alpha
   index, subscription_type = currenex_forex_esp_cbp_v9_0_dissect.subscription_type(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_esp_cbp_v9_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Subscribe To Ticker: 1 Byte Ascii String Enum with 2 values
+  -- Subscribe To Ticker: Alpha
   index, subscribe_to_ticker = currenex_forex_esp_cbp_v9_0_dissect.subscribe_to_ticker(buffer, index, packet, parent)
 
   return index
@@ -1101,19 +1101,19 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.instrument_info_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_esp_cbp_v9_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- Instrument Index: 2 Byte Signed Fixed Width Integer
+  -- Instrument Index: Short
   index, instrument_index = currenex_forex_esp_cbp_v9_0_dissect.instrument_index(buffer, index, packet, parent)
 
-  -- Instrument Type: 1 Byte Ascii String Enum with 2 values
+  -- Instrument Type: Alpha
   index, instrument_type = currenex_forex_esp_cbp_v9_0_dissect.instrument_type(buffer, index, packet, parent)
 
-  -- Instrument Id: 20 Byte Ascii String
+  -- Instrument Id: Alpha
   index, instrument_id = currenex_forex_esp_cbp_v9_0_dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Settlement Date: 8 Byte Signed Fixed Width Integer
+  -- Settlement Date: Long
   index, settlement_date = currenex_forex_esp_cbp_v9_0_dissect.settlement_date(buffer, index, packet, parent)
 
   return index
@@ -1150,7 +1150,7 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.heartbeat_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_esp_cbp_v9_0_dissect.session_id(buffer, index, packet, parent)
 
   return index
@@ -1231,13 +1231,13 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.logout_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- User Id: 20 Byte Ascii String
+  -- User Id: Alpha
   index, user_id = currenex_forex_esp_cbp_v9_0_dissect.user_id(buffer, index, packet, parent)
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_esp_cbp_v9_0_dissect.session_id(buffer, index, packet, parent)
 
-  -- Reason: 3 Byte Ascii String
+  -- Reason: Alpha
   index, reason = currenex_forex_esp_cbp_v9_0_dissect.reason(buffer, index, packet, parent)
 
   return index
@@ -1298,13 +1298,13 @@ end
 currenex_forex_esp_cbp_v9_0_dissect.logon_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- User Id: 20 Byte Ascii String
+  -- User Id: Alpha
   index, user_id = currenex_forex_esp_cbp_v9_0_dissect.user_id(buffer, index, packet, parent)
 
-  -- Password: 20 Byte Ascii String
+  -- Password: Alpha
   index, password = currenex_forex_esp_cbp_v9_0_dissect.password(buffer, index, packet, parent)
 
-  -- Session Id: 4 Byte Signed Fixed Width Integer
+  -- Session Id: Integer
   index, session_id = currenex_forex_esp_cbp_v9_0_dissect.session_id(buffer, index, packet, parent)
 
   return index
