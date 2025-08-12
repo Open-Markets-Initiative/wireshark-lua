@@ -607,7 +607,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.noii_message = function(buffer, offset)
 end
 
 -- Display: Noii Message
-nasdaq_nomoptions_itto_itch_v4_0_display.noii_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.noii_message = function(packet, parent, length)
   return ""
 end
 
@@ -653,15 +653,20 @@ end
 
 -- Dissect: Noii Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.noii_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.noii_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.noii_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.noii_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.noii_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.noii_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.noii_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.noii_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.noii_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.noii_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Number
@@ -720,7 +725,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.broken_trade_order_executed_message = f
 end
 
 -- Display: Broken Trade Order Executed Message
-nasdaq_nomoptions_itto_itch_v4_0_display.broken_trade_order_executed_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.broken_trade_order_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -745,15 +750,20 @@ end
 
 -- Dissect: Broken Trade Order Executed Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.broken_trade_order_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.broken_trade_order_executed_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.broken_trade_order_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.broken_trade_order_executed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.broken_trade_order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.broken_trade_order_executed_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.broken_trade_order_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.broken_trade_order_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.broken_trade_order_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.broken_trade_order_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Volume Long
@@ -853,7 +863,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.options_cross_trade_message = function(
 end
 
 -- Display: Options Cross Trade Message
-nasdaq_nomoptions_itto_itch_v4_0_display.options_cross_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.options_cross_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -890,15 +900,20 @@ end
 
 -- Dissect: Options Cross Trade Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.options_cross_trade_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.options_cross_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.options_cross_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_cross_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_cross_trade_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.options_cross_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Buy Sell Indicator
@@ -952,7 +967,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.options_trade_messages_non_auction = fu
 end
 
 -- Display: Options Trade Messages Non Auction
-nasdaq_nomoptions_itto_itch_v4_0_display.options_trade_messages_non_auction = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.options_trade_messages_non_auction = function(packet, parent, length)
   return ""
 end
 
@@ -989,15 +1004,20 @@ end
 
 -- Dissect: Options Trade Messages Non Auction
 nasdaq_nomoptions_itto_itch_v4_0_dissect.options_trade_messages_non_auction = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.options_trade_messages_non_auction then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.options_trade_messages_non_auction(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.options_trade_messages_non_auction(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_trade_messages_non_auction, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_trade_messages_non_auction, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.options_trade_messages_non_auction_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.options_trade_messages_non_auction(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.options_trade_messages_non_auction_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.options_trade_messages_non_auction_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ask Reference Number
@@ -1056,7 +1076,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.quote_delete_message = function(buffer,
 end
 
 -- Display: Quote Delete Message
-nasdaq_nomoptions_itto_itch_v4_0_display.quote_delete_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.quote_delete_message = function(packet, parent, length)
   return ""
 end
 
@@ -1081,15 +1101,20 @@ end
 
 -- Dissect: Quote Delete Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_delete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_delete_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.quote_delete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.quote_delete_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_delete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_delete_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.quote_delete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ask Size Long
@@ -1252,7 +1277,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.quote_replace_message_long_form = funct
 end
 
 -- Display: Quote Replace Message Long Form
-nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_long_form = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_long_form = function(packet, parent, length)
   return ""
 end
 
@@ -1295,15 +1320,20 @@ end
 
 -- Dissect: Quote Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_long_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_replace_message_long_form then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.quote_replace_message_long_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_long_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_long_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_long_form, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_long_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ask Size
@@ -1426,7 +1456,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.quote_replace_message_short_form = func
 end
 
 -- Display: Quote Replace Message Short Form
-nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_short_form = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_short_form = function(packet, parent, length)
   return ""
 end
 
@@ -1469,15 +1499,20 @@ end
 
 -- Dissect: Quote Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_short_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_replace_message_short_form then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.quote_replace_message_short_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_short_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_short_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.quote_replace_message_short_form, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.quote_replace_message_short_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Change Reason
@@ -1550,7 +1585,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_change_message = function(b
 end
 
 -- Display: Single Side Change Message
-nasdaq_nomoptions_itto_itch_v4_0_display.single_side_change_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.single_side_change_message = function(packet, parent, length)
   return ""
 end
 
@@ -1581,15 +1616,20 @@ end
 
 -- Dissect: Single Side Change Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_change_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_change_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_change_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_change_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_change_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_change_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_change_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_change_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_change_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_change_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Side Delete Message
@@ -1606,7 +1646,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_delete_message = function(b
 end
 
 -- Display: Single Side Delete Message
-nasdaq_nomoptions_itto_itch_v4_0_display.single_side_delete_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.single_side_delete_message = function(packet, parent, length)
   return ""
 end
 
@@ -1628,15 +1668,20 @@ end
 
 -- Dissect: Single Side Delete Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_delete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_delete_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_delete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_delete_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_delete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_delete_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_delete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: New Reference Number
@@ -1699,7 +1744,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_replace_message_long_form =
 end
 
 -- Display: Single Side Replace Message Long Form
-nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_long_form = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_long_form = function(packet, parent, length)
   return ""
 end
 
@@ -1730,15 +1775,20 @@ end
 
 -- Dissect: Single Side Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_replace_message_long_form then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_replace_message_long_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_long_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_long_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_long_form, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_long_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Volume
@@ -1807,7 +1857,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_replace_message_short_form 
 end
 
 -- Display: Single Side Replace Message Short Form
-nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_short_form = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_short_form = function(packet, parent, length)
   return ""
 end
 
@@ -1838,15 +1888,20 @@ end
 
 -- Dissect: Single Side Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_short_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_replace_message_short_form then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_replace_message_short_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_short_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_form, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_replace_message_short_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancelled Contracts
@@ -1905,7 +1960,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.order_cancel_message = function(buffer,
 end
 
 -- Display: Order Cancel Message
-nasdaq_nomoptions_itto_itch_v4_0_display.order_cancel_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.order_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -1930,15 +1985,20 @@ end
 
 -- Dissect: Order Cancel Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.order_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.order_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.order_cancel_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.order_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.order_cancel_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.order_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Printable
@@ -1992,7 +2052,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_executed_with_price_message
 end
 
 -- Display: Single Side Executed With Price Message
-nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_with_price_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_with_price_message = function(packet, parent, length)
   return ""
 end
 
@@ -2029,15 +2089,20 @@ end
 
 -- Dissect: Single Side Executed With Price Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_with_price_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_executed_with_price_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_executed_with_price_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_with_price_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_with_price_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_with_price_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_with_price_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Executed Contracts
@@ -2080,7 +2145,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_executed_message = function
 end
 
 -- Display: Single Side Executed Message
-nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -2111,15 +2176,20 @@ end
 
 -- Dissect: Single Side Executed Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_executed_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.single_side_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_executed_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.single_side_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ask
@@ -2188,7 +2258,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.add_quote_message_long_form_message = f
 end
 
 -- Display: Add Quote Message Long Form Message
-nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_long_form_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_long_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -2228,15 +2298,20 @@ end
 
 -- Dissect: Add Quote Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_long_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_quote_message_long_form_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.add_quote_message_long_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_long_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_long_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_long_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_long_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_long_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Add Quote Message Short Form Message
@@ -2265,7 +2340,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.add_quote_message_short_form_message = 
 end
 
 -- Display: Add Quote Message Short Form Message
-nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_short_form_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_short_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -2305,15 +2380,20 @@ end
 
 -- Dissect: Add Quote Message Short Form Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_short_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_quote_message_short_form_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.add_quote_message_short_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_short_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_short_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_short_form_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_short_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_quote_message_short_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_short_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_quote_message_short_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Side
@@ -2365,7 +2445,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.add_order_message_long_form_message = f
 end
 
 -- Display: Add Order Message Long Form Message
-nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_long_form_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_long_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -2399,15 +2479,20 @@ end
 
 -- Dissect: Add Order Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_long_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_message_long_form_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.add_order_message_long_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_long_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_long_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_long_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_long_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_long_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Add Order Message Short Message Form
@@ -2432,7 +2517,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.add_order_message_short_message_form = 
 end
 
 -- Display: Add Order Message Short Message Form
-nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_short_message_form = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_short_message_form = function(packet, parent, length)
   return ""
 end
 
@@ -2466,15 +2551,20 @@ end
 
 -- Dissect: Add Order Message Short Message Form
 nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_short_message_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_message_short_message_form then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.add_order_message_short_message_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_short_message_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_short_message_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.add_order_message_short_message_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_short_message_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.add_order_message_short_message_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Open State
@@ -2520,7 +2610,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.security_open_message = function(buffer
 end
 
 -- Display: Security Open Message
-nasdaq_nomoptions_itto_itch_v4_0_display.security_open_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.security_open_message = function(packet, parent, length)
   return ""
 end
 
@@ -2545,15 +2635,20 @@ end
 
 -- Dissect: Security Open Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.security_open_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_open_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.security_open_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.security_open_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.security_open_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.security_open_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.security_open_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.security_open_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.security_open_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.security_open_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Current Trading State
@@ -2605,7 +2700,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.trading_action_message = function(buffe
 end
 
 -- Display: Trading Action Message
-nasdaq_nomoptions_itto_itch_v4_0_display.trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.trading_action_message = function(packet, parent, length)
   return ""
 end
 
@@ -2630,15 +2725,20 @@ end
 
 -- Dissect: Trading Action Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.trading_action_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.trading_action_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.trading_action_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mpv
@@ -2934,7 +3034,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.options_directory_message = function(bu
 end
 
 -- Display: Options Directory Message
-nasdaq_nomoptions_itto_itch_v4_0_display.options_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.options_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -2989,15 +3089,20 @@ end
 
 -- Dissect: Options Directory Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.options_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.options_directory_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.options_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.options_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.options_directory_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.options_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.options_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.options_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.options_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -3056,7 +3161,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.system_event_message = function(buffer,
 end
 
 -- Display: System Event Message
-nasdaq_nomoptions_itto_itch_v4_0_display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -3078,15 +3183,20 @@ end
 
 -- Dissect: System Event Message
 nasdaq_nomoptions_itto_itch_v4_0_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -3421,7 +3531,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.message_header = function(buffer, offse
 end
 
 -- Display: Message Header
-nasdaq_nomoptions_itto_itch_v4_0_display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -3440,19 +3550,24 @@ end
 
 -- Dissect: Message Header
 nasdaq_nomoptions_itto_itch_v4_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-nasdaq_nomoptions_itto_itch_v4_0_display.message = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -3576,7 +3691,7 @@ nasdaq_nomoptions_itto_itch_v4_0_size_of.packet_header = function(buffer, offset
 end
 
 -- Display: Packet Header
-nasdaq_nomoptions_itto_itch_v4_0_display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_nomoptions_itto_itch_v4_0_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -3598,15 +3713,20 @@ end
 
 -- Dissect: Packet Header
 nasdaq_nomoptions_itto_itch_v4_0_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nasdaq_nomoptions_itto_itch_v4_0_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nomoptions_itto_itch_v4_0_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_nomoptions_itto_itch_v4_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nomoptions_itto_itch_v4_0_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nomoptions_itto_itch_v4_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nomoptions_itto_itch_v4_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

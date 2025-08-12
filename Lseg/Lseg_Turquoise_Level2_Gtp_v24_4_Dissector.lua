@@ -659,7 +659,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.trade_summary_message = function(buffer,
 end
 
 -- Display: Trade Summary Message
-lseg_turquoise_level2_gtp_v24_4_display.trade_summary_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.trade_summary_message = function(packet, parent, length)
   return ""
 end
 
@@ -711,15 +711,20 @@ end
 
 -- Dissect: Trade Summary Message
 lseg_turquoise_level2_gtp_v24_4_dissect.trade_summary_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_summary_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.trade_summary_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.trade_summary_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_summary_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_summary_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.trade_summary_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.trade_summary_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.trade_summary_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.trade_summary_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Opening Closing Price Indicator
@@ -938,7 +943,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.statistics_update_message = function(buf
 end
 
 -- Display: Statistics Update Message
-lseg_turquoise_level2_gtp_v24_4_display.statistics_update_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.statistics_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -981,15 +986,20 @@ end
 
 -- Dissect: Statistics Update Message
 lseg_turquoise_level2_gtp_v24_4_dissect.statistics_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.statistics_update_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.statistics_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.statistics_update_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistics_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistics_update_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.statistics_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.statistics_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.statistics_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.statistics_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Turnover Onbook Only
@@ -1218,7 +1228,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.statistics_message = function(buffer, of
 end
 
 -- Display: Statistics Message
-lseg_turquoise_level2_gtp_v24_4_display.statistics_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.statistics_message = function(packet, parent, length)
   return ""
 end
 
@@ -1264,15 +1274,20 @@ end
 
 -- Dissect: Statistics Message
 lseg_turquoise_level2_gtp_v24_4_dissect.statistics_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.statistics_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.statistics_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.statistics_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistics_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.statistics_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.statistics_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.statistics_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.statistics_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.statistics_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Flags
@@ -1483,7 +1498,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.trade_cross_message = function(buffer, o
 end
 
 -- Display: Trade Cross Message
-lseg_turquoise_level2_gtp_v24_4_display.trade_cross_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.trade_cross_message = function(packet, parent, length)
   return ""
 end
 
@@ -1529,15 +1544,20 @@ end
 
 -- Dissect: Trade Cross Message
 lseg_turquoise_level2_gtp_v24_4_dissect.trade_cross_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cross_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.trade_cross_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.trade_cross_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_cross_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_cross_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.trade_cross_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.trade_cross_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.trade_cross_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.trade_cross_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Qualifier
@@ -1739,7 +1759,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.trade_message = function(buffer, offset)
 end
 
 -- Display: Trade Message
-lseg_turquoise_level2_gtp_v24_4_display.trade_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -1791,15 +1811,20 @@ end
 
 -- Dissect: Trade Message
 lseg_turquoise_level2_gtp_v24_4_dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.trade_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.trade_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Book Type
@@ -1842,7 +1867,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.order_book_clear_message = function(buff
 end
 
 -- Display: Order Book Clear Message
-lseg_turquoise_level2_gtp_v24_4_display.order_book_clear_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.order_book_clear_message = function(packet, parent, length)
   return ""
 end
 
@@ -1867,15 +1892,20 @@ end
 
 -- Dissect: Order Book Clear Message
 lseg_turquoise_level2_gtp_v24_4_dissect.order_book_clear_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_book_clear_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.order_book_clear_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.order_book_clear_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_book_clear_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_book_clear_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.order_book_clear_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Previous Quantity
@@ -1976,7 +2006,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.order_delete_message = function(buffer, 
 end
 
 -- Display: Order Delete Message
-lseg_turquoise_level2_gtp_v24_4_display.order_delete_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.order_delete_message = function(packet, parent, length)
   return ""
 end
 
@@ -2016,15 +2046,20 @@ end
 
 -- Dissect: Order Delete Message
 lseg_turquoise_level2_gtp_v24_4_dissect.order_delete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_delete_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.order_delete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.order_delete_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_delete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_delete_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.order_delete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: New Price
@@ -2172,7 +2207,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.order_modify_message = function(buffer, 
 end
 
 -- Display: Order Modify Message
-lseg_turquoise_level2_gtp_v24_4_display.order_modify_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.order_modify_message = function(packet, parent, length)
   return ""
 end
 
@@ -2224,15 +2259,20 @@ end
 
 -- Dissect: Order Modify Message
 lseg_turquoise_level2_gtp_v24_4_dissect.order_modify_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_modify_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.order_modify_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.order_modify_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_modify_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.order_modify_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.order_modify_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.order_modify_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.order_modify_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.order_modify_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Rfq Id
@@ -2353,7 +2393,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.add_order_incremental_message = function
 end
 
 -- Display: Add Order Incremental Message
-lseg_turquoise_level2_gtp_v24_4_display.add_order_incremental_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.add_order_incremental_message = function(packet, parent, length)
   return ""
 end
 
@@ -2402,15 +2442,20 @@ end
 
 -- Dissect: Add Order Incremental Message
 lseg_turquoise_level2_gtp_v24_4_dissect.add_order_incremental_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_incremental_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.add_order_incremental_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.add_order_incremental_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.add_order_incremental_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.add_order_incremental_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.add_order_incremental_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: New End Time
@@ -2545,7 +2590,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.instrument_status_message = function(buf
 end
 
 -- Display: Instrument Status Message
-lseg_turquoise_level2_gtp_v24_4_display.instrument_status_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.instrument_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -2579,15 +2624,20 @@ end
 
 -- Dissect: Instrument Status Message
 lseg_turquoise_level2_gtp_v24_4_dissect.instrument_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_status_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.instrument_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.instrument_status_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.instrument_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.instrument_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 38
@@ -2886,7 +2936,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.instrument_directory_message = function(
 end
 
 -- Display: Instrument Directory Message
-lseg_turquoise_level2_gtp_v24_4_display.instrument_directory_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.instrument_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -2941,15 +2991,20 @@ end
 
 -- Dissect: Instrument Directory Message
 lseg_turquoise_level2_gtp_v24_4_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_directory_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.instrument_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.instrument_directory_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.instrument_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.instrument_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -2993,7 +3048,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.system_event_message = function(buffer, 
 end
 
 -- Display: System Event Message
-lseg_turquoise_level2_gtp_v24_4_display.system_event_message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -3015,15 +3070,20 @@ end
 
 -- Dissect: System Event Message
 lseg_turquoise_level2_gtp_v24_4_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -3248,7 +3308,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.message_header = function(buffer, offset
 end
 
 -- Display: Message Header
-lseg_turquoise_level2_gtp_v24_4_display.message_header = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -3267,15 +3327,20 @@ end
 
 -- Dissect: Message Header
 lseg_turquoise_level2_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.message_header(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Message
@@ -3293,7 +3358,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-lseg_turquoise_level2_gtp_v24_4_display.message = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -3422,7 +3487,7 @@ lseg_turquoise_level2_gtp_v24_4_size_of.unit_header = function(buffer, offset)
 end
 
 -- Display: Unit Header
-lseg_turquoise_level2_gtp_v24_4_display.unit_header = function(buffer, offset, size, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_display.unit_header = function(packet, parent, length)
   return ""
 end
 
@@ -3447,15 +3512,20 @@ end
 
 -- Dissect: Unit Header
 lseg_turquoise_level2_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unit_header then
-    local length = lseg_turquoise_level2_gtp_v24_4_size_of.unit_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_turquoise_level2_gtp_v24_4_display.unit_header(buffer, packet, parent)
-    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.unit_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    local index = lseg_turquoise_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_turquoise_level2_gtp_v24_4_display.unit_header(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_turquoise_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_turquoise_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

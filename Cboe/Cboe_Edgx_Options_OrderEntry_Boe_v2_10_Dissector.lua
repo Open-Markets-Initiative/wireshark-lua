@@ -4928,7 +4928,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.complex_instrument_rejected_bitfi
 end
 
 -- Display: Complex Instrument Rejected Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_rejected_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -5331,7 +5331,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.complex_instrument_rejected_messa
 end
 
 -- Display: Complex Instrument Rejected Message
-cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -6919,7 +6919,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.complex_instrument_accepted_bitfi
 end
 
 -- Display: Complex Instrument Accepted Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_accepted_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_accepted_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -7219,7 +7219,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.complex_instrument_accepted_messa
 end
 
 -- Display: Complex Instrument Accepted Message
-cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_accepted_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_accepted_message = function(packet, parent, length)
   return ""
 end
 
@@ -7325,7 +7325,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.mass_cancel_acknowledgment_messag
 end
 
 -- Display: Mass Cancel Acknowledgment Message
-cboe_edgx_options_orderentry_boe_v2_10_display.mass_cancel_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.mass_cancel_acknowledgment_message = function(packet, parent, length)
   return ""
 end
 
@@ -7450,7 +7450,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.reset_risk_acknowledgment_message
 end
 
 -- Display: Reset Risk Acknowledgment Message
-cboe_edgx_options_orderentry_boe_v2_10_display.reset_risk_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.reset_risk_acknowledgment_message = function(packet, parent, length)
   return ""
 end
 
@@ -8950,7 +8950,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.purge_rejected_bitfield_count = f
 end
 
 -- Display: Purge Rejected Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.purge_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.purge_rejected_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -9281,7 +9281,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.purge_rejected_message = function
 end
 
 -- Display: Purge Rejected Message
-cboe_edgx_options_orderentry_boe_v2_10_display.purge_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.purge_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -11177,7 +11177,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.trade_cancel_or_correct_bitfield_
 end
 
 -- Display: Trade Cancel Or Correct Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.trade_cancel_or_correct_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.trade_cancel_or_correct_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -11746,7 +11746,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.trade_cancel_or_correct_message =
 end
 
 -- Display: Trade Cancel Or Correct Message
-cboe_edgx_options_orderentry_boe_v2_10_display.trade_cancel_or_correct_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.trade_cancel_or_correct_message = function(packet, parent, length)
   return ""
 end
 
@@ -11953,7 +11953,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_execution_message = functio
 end
 
 -- Display: Quote Execution Message
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_execution_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_execution_message = function(packet, parent, length)
   return ""
 end
 
@@ -13720,7 +13720,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.cancel_rejected_bitfield_count = 
 end
 
 -- Display: Cancel Rejected Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.cancel_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cancel_rejected_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -14251,7 +14251,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cancel_rejected_message = functio
 end
 
 -- Display: Cancel Rejected Message
-cboe_edgx_options_orderentry_boe_v2_10_display.cancel_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cancel_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -15949,7 +15949,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.cross_order_cancelled_bitfield_co
 end
 
 -- Display: Cross Order Cancelled Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_cancelled_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_cancelled_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -16459,7 +16459,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cross_order_cancelled_message = f
 end
 
 -- Display: Cross Order Cancelled Message
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -16519,7 +16519,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_cancelled_message = functio
 end
 
 -- Display: Quote Cancelled Message
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -18433,7 +18433,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.order_cancelled_bitfield_count = 
 end
 
 -- Display: Order Cancelled Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_cancelled_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_cancelled_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -19086,7 +19086,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_cancelled_message = functio
 end
 
 -- Display: Order Cancelled Message
-cboe_edgx_options_orderentry_boe_v2_10_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -20601,7 +20601,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.user_modify_rejected_bitfield_cou
 end
 
 -- Display: User Modify Rejected Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.user_modify_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.user_modify_rejected_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -20964,7 +20964,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.user_modify_rejected_message = fu
 end
 
 -- Display: User Modify Rejected Message
-cboe_edgx_options_orderentry_boe_v2_10_display.user_modify_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.user_modify_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -21047,7 +21047,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_restated_message = function
 end
 
 -- Display: Quote Restated Message
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_restated_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_restated_message = function(packet, parent, length)
   return ""
 end
 
@@ -22585,7 +22585,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.order_restated_bitfield_count = f
 end
 
 -- Display: Order Restated Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_restated_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_restated_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -23260,7 +23260,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_restated_message = function
 end
 
 -- Display: Order Restated Message
-cboe_edgx_options_orderentry_boe_v2_10_display.order_restated_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_restated_message = function(packet, parent, length)
   return ""
 end
 
@@ -24848,7 +24848,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.order_modified_bitfield_count = f
 end
 
 -- Display: Order Modified Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_modified_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_modified_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -25513,7 +25513,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_modified_message = function
 end
 
 -- Display: Order Modified Message
-cboe_edgx_options_orderentry_boe_v2_10_display.order_modified_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_modified_message = function(packet, parent, length)
   return ""
 end
 
@@ -25683,7 +25683,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_update_rejected_message = f
 end
 
 -- Display: Quote Update Rejected Message
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_update_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_update_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -27189,7 +27189,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.cross_order_rejected_bitfield_cou
 end
 
 -- Display: Cross Order Rejected Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_rejected_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -27526,7 +27526,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cross_order_rejected_message = fu
 end
 
 -- Display: Cross Order Rejected Message
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -29044,7 +29044,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.order_rejected_bitfield_count = f
 end
 
 -- Display: Order Rejected Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_rejected_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -29629,7 +29629,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_rejected_message = function
 end
 
 -- Display: Order Rejected Message
-cboe_edgx_options_orderentry_boe_v2_10_display.order_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -29825,7 +29825,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_result_group = function(buf
 end
 
 -- Display: Quote Result Group
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_result_group = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_result_group = function(packet, parent, length)
   return ""
 end
 
@@ -29850,15 +29850,20 @@ end
 
 -- Dissect: Quote Result Group
 cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_result_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_result_group then
-    local length = cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_result_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_orderentry_boe_v2_10_display.quote_result_group(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.quote_result_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.quote_result_group, buffer(offset, 0))
+    local index = cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_orderentry_boe_v2_10_display.quote_result_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Quote Results
@@ -29892,7 +29897,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_update_acknowledgment_messa
 end
 
 -- Display: Quote Update Acknowledgment Message
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_update_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_update_acknowledgment_message = function(packet, parent, length)
   return ""
 end
 
@@ -31406,7 +31411,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.cross_order_acknowledgment_bitfie
 end
 
 -- Display: Cross Order Acknowledgment Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_acknowledgment_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_acknowledgment_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -31831,7 +31836,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cross_order_acknowledgment_messag
 end
 
 -- Display: Cross Order Acknowledgment Message
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_acknowledgment_message = function(packet, parent, length)
   return ""
 end
 
@@ -33346,7 +33351,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.order_acknowledgment_bitfield_cou
 end
 
 -- Display: Order Acknowledgment Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_acknowledgment_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_acknowledgment_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -34011,7 +34016,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_acknowledgment_message = fu
 end
 
 -- Display: Order Acknowledgment Message
-cboe_edgx_options_orderentry_boe_v2_10_display.order_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_acknowledgment_message = function(packet, parent, length)
   return ""
 end
 
@@ -34166,7 +34171,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.new_complex_instrument_bitfield_c
 end
 
 -- Display: New Complex Instrument Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.new_complex_instrument_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_complex_instrument_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -34247,7 +34252,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.new_complex_instrument_message = 
 end
 
 -- Display: New Complex Instrument Message
-cboe_edgx_options_orderentry_boe_v2_10_display.new_complex_instrument_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_complex_instrument_message = function(packet, parent, length)
   return ""
 end
 
@@ -34378,7 +34383,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.risk_reset_message = function(buf
 end
 
 -- Display: Risk Reset Message
-cboe_edgx_options_orderentry_boe_v2_10_display.risk_reset_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.risk_reset_message = function(packet, parent, length)
   return ""
 end
 
@@ -34642,7 +34647,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.modify_order_bitfield_count = fun
 end
 
 -- Display: Modify Order Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.modify_order_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.modify_order_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -34801,7 +34806,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.purge_order_message = function(bu
 end
 
 -- Display: Purge Order Message
-cboe_edgx_options_orderentry_boe_v2_10_display.purge_order_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.purge_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -34881,7 +34886,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.short_quote_update = function(buf
 end
 
 -- Display: Short Quote Update
-cboe_edgx_options_orderentry_boe_v2_10_display.short_quote_update = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.short_quote_update = function(packet, parent, length)
   return ""
 end
 
@@ -34912,15 +34917,20 @@ end
 
 -- Dissect: Short Quote Update
 cboe_edgx_options_orderentry_boe_v2_10_dissect.short_quote_update = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.short_quote_update then
-    local length = cboe_edgx_options_orderentry_boe_v2_10_size_of.short_quote_update(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_orderentry_boe_v2_10_display.short_quote_update(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.short_quote_update, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.short_quote_update, buffer(offset, 0))
+    local index = cboe_edgx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_orderentry_boe_v2_10_display.short_quote_update(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Short Quote Updates
@@ -35027,7 +35037,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.short_quote_update_message = func
 end
 
 -- Display: Short Quote Update Message
-cboe_edgx_options_orderentry_boe_v2_10_display.short_quote_update_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.short_quote_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -35130,7 +35140,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_update = function(buffer, o
 end
 
 -- Display: Quote Update
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_update = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_update = function(packet, parent, length)
   return ""
 end
 
@@ -35161,15 +35171,20 @@ end
 
 -- Dissect: Quote Update
 cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_update = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_update then
-    local length = cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_update(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_orderentry_boe_v2_10_display.quote_update(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.quote_update, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.quote_update, buffer(offset, 0))
+    local index = cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_update_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_orderentry_boe_v2_10_display.quote_update(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_update_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_update_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Quote Updates
@@ -35223,7 +35238,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.quote_update_message = function(b
 end
 
 -- Display: Quote Update Message
-cboe_edgx_options_orderentry_boe_v2_10_display.quote_update_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.quote_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -35303,7 +35318,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.modify_order_message = function(b
 end
 
 -- Display: Modify Order Message
-cboe_edgx_options_orderentry_boe_v2_10_display.modify_order_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.modify_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -35584,7 +35599,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.cancel_order_bitfield_count = fun
 end
 
 -- Display: Cancel Order Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.cancel_order_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cancel_order_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -35699,7 +35714,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cancel_order_message = function(b
 end
 
 -- Display: Cancel Order Message
-cboe_edgx_options_orderentry_boe_v2_10_display.cancel_order_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -36502,7 +36517,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.new_order_cross_multileg_bitfield
 end
 
 -- Display: New Order Cross Multileg Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_multileg_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_multileg_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -36807,7 +36822,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.new_order_cross_multileg_message 
 end
 
 -- Display: New Order Cross Multileg Message
-cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_multileg_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_multileg_message = function(packet, parent, length)
   return ""
 end
 
@@ -36870,7 +36885,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.new_order_complex_message = funct
 end
 
 -- Display: New Order Complex Message
-cboe_edgx_options_orderentry_boe_v2_10_display.new_order_complex_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_order_complex_message = function(packet, parent, length)
   return ""
 end
 
@@ -37277,7 +37292,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.new_order_cross_bitfield_count = 
 end
 
 -- Display: New Order Cross Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -37564,7 +37579,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.new_order_cross_message = functio
 end
 
 -- Display: New Order Cross Message
-cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_order_cross_message = function(packet, parent, length)
   return ""
 end
 
@@ -38422,7 +38437,7 @@ cboe_edgx_options_orderentry_boe_v2_10_dissect.new_order_bitfield_count = functi
 end
 
 -- Display: New Order Optional Fields
-cboe_edgx_options_orderentry_boe_v2_10_display.new_order_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_order_optional_fields = function(packet, parent, length)
   return ""
 end
 
@@ -38863,7 +38878,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.new_order_message = function(buff
 end
 
 -- Display: New Order Message
-cboe_edgx_options_orderentry_boe_v2_10_display.new_order_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.new_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -38961,7 +38976,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.unit_sequence = function(buffer, 
 end
 
 -- Display: Unit Sequence
-cboe_edgx_options_orderentry_boe_v2_10_display.unit_sequence = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.unit_sequence = function(packet, parent, length)
   return ""
 end
 
@@ -38980,15 +38995,20 @@ end
 
 -- Dissect: Unit Sequence
 cboe_edgx_options_orderentry_boe_v2_10_dissect.unit_sequence = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unit_sequence then
-    local length = cboe_edgx_options_orderentry_boe_v2_10_size_of.unit_sequence(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_orderentry_boe_v2_10_display.unit_sequence(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.unit_sequence, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_edgx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_orderentry_boe_v2_10_display.unit_sequence(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Units
@@ -39095,7 +39115,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.logout_message = function(buffer,
 end
 
 -- Display: Logout Message
-cboe_edgx_options_orderentry_boe_v2_10_display.logout_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.logout_message = function(packet, parent, length)
   return ""
 end
 
@@ -39151,7 +39171,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.complex_instrument_rejected_retur
 end
 
 -- Display: Complex Instrument Rejected Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_rejected_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -39363,7 +39383,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.complex_instrument_accepted_retur
 end
 
 -- Display: Complex Instrument Accepted Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_accepted_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.complex_instrument_accepted_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -39575,7 +39595,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.purge_rejected_return_bitfields =
 end
 
 -- Display: Purge Rejected Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.purge_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.purge_rejected_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -39787,7 +39807,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.trade_cancel_or_correct_return_bi
 end
 
 -- Display: Trade Cancel Or Correct Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.trade_cancel_or_correct_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.trade_cancel_or_correct_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -41464,7 +41484,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_execution_return_bitfields 
 end
 
 -- Display: Order Execution Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_execution_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_execution_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -41676,7 +41696,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cancel_rejected_return_bitfields 
 end
 
 -- Display: Cancel Rejected Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.cancel_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cancel_rejected_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -41888,7 +41908,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cross_order_cancelled_return_bitf
 end
 
 -- Display: Cross Order Cancelled Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_cancelled_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_cancelled_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -42100,7 +42120,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_cancelled_return_bitfields 
 end
 
 -- Display: Order Cancelled Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_cancelled_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_cancelled_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -42312,7 +42332,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.user_modify_rejected_return_bitfi
 end
 
 -- Display: User Modify Rejected Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.user_modify_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.user_modify_rejected_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -42524,7 +42544,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_restated_return_bitfields =
 end
 
 -- Display: Order Restated Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_restated_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_restated_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -42736,7 +42756,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_modified_return_bitfields =
 end
 
 -- Display: Order Modified Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_modified_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_modified_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -42948,7 +42968,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cross_order_rejected_return_bitfi
 end
 
 -- Display: Cross Order Rejected Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_rejected_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -43160,7 +43180,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_rejected_return_bitfields =
 end
 
 -- Display: Order Rejected Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_rejected_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -43372,7 +43392,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.cross_order_acknowledgment_return
 end
 
 -- Display: Cross Order Acknowledgment Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_acknowledgment_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.cross_order_acknowledgment_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -43584,7 +43604,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.order_acknowledgment_return_bitfi
 end
 
 -- Display: Order Acknowledgment Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.order_acknowledgment_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.order_acknowledgment_return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -44019,7 +44039,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.return_bitfields = function(buffe
 end
 
 -- Display: Return Bitfields
-cboe_edgx_options_orderentry_boe_v2_10_display.return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.return_bitfields = function(packet, parent, length)
   return ""
 end
 
@@ -44099,7 +44119,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.unit_sequences = function(buffer,
 end
 
 -- Display: Unit Sequences
-cboe_edgx_options_orderentry_boe_v2_10_display.unit_sequences = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.unit_sequences = function(packet, parent, length)
   return ""
 end
 
@@ -44246,7 +44266,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.param_header = function(buffer, o
 end
 
 -- Display: Param Header
-cboe_edgx_options_orderentry_boe_v2_10_display.param_header = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.param_header = function(packet, parent, length)
   return ""
 end
 
@@ -44265,19 +44285,24 @@ end
 
 -- Dissect: Param Header
 cboe_edgx_options_orderentry_boe_v2_10_dissect.param_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.param_header then
-    local length = cboe_edgx_options_orderentry_boe_v2_10_size_of.param_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_orderentry_boe_v2_10_display.param_header(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.param_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.param_header, buffer(offset, 0))
+    local index = cboe_edgx_options_orderentry_boe_v2_10_dissect.param_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_orderentry_boe_v2_10_display.param_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_orderentry_boe_v2_10_dissect.param_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_orderentry_boe_v2_10_dissect.param_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Param Group
-cboe_edgx_options_orderentry_boe_v2_10_display.param_group = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.param_group = function(packet, parent, length)
   return ""
 end
 
@@ -44410,7 +44435,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.login_response_message = function
 end
 
 -- Display: Login Response Message
-cboe_edgx_options_orderentry_boe_v2_10_display.login_response_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.login_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -44542,7 +44567,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.login_request_message = function(
 end
 
 -- Display: Login Request Message
-cboe_edgx_options_orderentry_boe_v2_10_display.login_request_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.login_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -45153,7 +45178,7 @@ cboe_edgx_options_orderentry_boe_v2_10_size_of.message_header = function(buffer,
 end
 
 -- Display: Message Header
-cboe_edgx_options_orderentry_boe_v2_10_display.message_header = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_orderentry_boe_v2_10_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -45181,15 +45206,20 @@ end
 
 -- Dissect: Message Header
 cboe_edgx_options_orderentry_boe_v2_10_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = cboe_edgx_options_orderentry_boe_v2_10_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_orderentry_boe_v2_10_display.message_header(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.message_header, buffer(offset, 0))
+    local index = cboe_edgx_options_orderentry_boe_v2_10_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_orderentry_boe_v2_10_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_orderentry_boe_v2_10_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_orderentry_boe_v2_10_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

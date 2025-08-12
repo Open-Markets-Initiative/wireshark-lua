@@ -5,9 +5,9 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Memo][24X.Equities.Memo.Sbe.v1.13.Dissector] | Sbe | [1.13][24X.Equities.Memo.Sbe.v1.13.Dissector] | 9/1/2025 | 6916 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.Memo.Sbe.v1.13.Url] - [pdf][24X.Equities.Memo.Sbe.v1.13.Pdf] - [xml][24X.Equities.Memo.Sbe.v1.13.Xml] |
-| Equities | [MemoirDepthFeed][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2322 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Xml] |
-| Equities | [MemoirLastSale][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | 9/1/2025 | 2406 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][24X.Equities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirLastSale.Sbe.v1.3.Xml] |
+| Equities | [Memo][24X.Equities.Memo.Sbe.v1.13.Dissector] | Sbe | [1.13][24X.Equities.Memo.Sbe.v1.13.Dissector] | 9/1/2025 | 7036 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.Memo.Sbe.v1.13.Url] - [pdf][24X.Equities.Memo.Sbe.v1.13.Pdf] - [xml][24X.Equities.Memo.Sbe.v1.13.Xml] |
+| Equities | [MemoirDepthFeed][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2397 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Xml] |
+| Equities | [MemoirLastSale][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | 9/1/2025 | 2451 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][24X.Equities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirLastSale.Sbe.v1.3.Xml] |
 
 
 24X: [website](https://24exchange.com "Go to 24 Exchange")

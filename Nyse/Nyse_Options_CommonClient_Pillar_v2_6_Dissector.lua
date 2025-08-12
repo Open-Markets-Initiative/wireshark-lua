@@ -151,7 +151,7 @@ nyse_options_commonclient_pillar_v2_6_size_of.message_header = function(buffer, 
 end
 
 -- Display: Message Header
-nyse_options_commonclient_pillar_v2_6_display.message_header = function(buffer, offset, size, packet, parent)
+nyse_options_commonclient_pillar_v2_6_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -170,19 +170,24 @@ end
 
 -- Dissect: Message Header
 nyse_options_commonclient_pillar_v2_6_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nyse_options_commonclient_pillar_v2_6_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_commonclient_pillar_v2_6_display.message_header(buffer, packet, parent)
-    parent = parent:add(nyse_options_commonclient_pillar_v2_6.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_commonclient_pillar_v2_6.fields.message_header, buffer(offset, 0))
+    local index = nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_commonclient_pillar_v2_6_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-nyse_options_commonclient_pillar_v2_6_display.message = function(buffer, offset, size, packet, parent)
+nyse_options_commonclient_pillar_v2_6_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -393,7 +398,7 @@ nyse_options_commonclient_pillar_v2_6_size_of.packet_header = function(buffer, o
 end
 
 -- Display: Packet Header
-nyse_options_commonclient_pillar_v2_6_display.packet_header = function(buffer, offset, size, packet, parent)
+nyse_options_commonclient_pillar_v2_6_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -424,15 +429,20 @@ end
 
 -- Dissect: Packet Header
 nyse_options_commonclient_pillar_v2_6_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nyse_options_commonclient_pillar_v2_6_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_commonclient_pillar_v2_6_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nyse_options_commonclient_pillar_v2_6.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_commonclient_pillar_v2_6.fields.packet_header, buffer(offset, 0))
+    local index = nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_commonclient_pillar_v2_6_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

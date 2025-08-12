@@ -400,7 +400,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.underlying_trading_status_message
 end
 
 -- Display: Underlying Trading Status Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.underlying_trading_status_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.underlying_trading_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -431,15 +431,20 @@ end
 
 -- Dissect: Underlying Trading Status Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.underlying_trading_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.underlying_trading_status_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.underlying_trading_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.underlying_trading_status_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.underlying_trading_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.underlying_trading_status_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.underlying_trading_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.underlying_trading_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Condition
@@ -594,7 +599,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.trade_cancel_message = function(b
 end
 
 -- Display: Trade Cancel Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.trade_cancel_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.trade_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -628,15 +633,20 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancel_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.trade_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_cancel_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.trade_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reference Correction Number
@@ -705,7 +715,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.trade_message = function(buffer, 
 end
 
 -- Display: Trade Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.trade_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -745,15 +755,20 @@ end
 
 -- Dissect: Trade Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.trade_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Offer Condition
@@ -982,7 +997,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.wide_double_sided_top_of_market_m
 end
 
 -- Display: Wide Double Sided Top Of Market Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.wide_double_sided_top_of_market_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.wide_double_sided_top_of_market_message = function(packet, parent, length)
   return ""
 end
 
@@ -1025,15 +1040,20 @@ end
 
 -- Dissect: Wide Double Sided Top Of Market Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.wide_double_sided_top_of_market_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.wide_double_sided_top_of_market_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.wide_double_sided_top_of_market_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_double_sided_top_of_market_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_double_sided_top_of_market_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.wide_double_sided_top_of_market_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Offer Priority Customer Size 2
@@ -1196,7 +1216,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.double_sided_top_of_market_compac
 end
 
 -- Display: Double Sided Top Of Market Compact Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.double_sided_top_of_market_compact_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.double_sided_top_of_market_compact_message = function(packet, parent, length)
   return ""
 end
 
@@ -1239,15 +1259,20 @@ end
 
 -- Dissect: Double Sided Top Of Market Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.double_sided_top_of_market_compact_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.double_sided_top_of_market_compact_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.double_sided_top_of_market_compact_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.double_sided_top_of_market_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.double_sided_top_of_market_compact_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.double_sided_top_of_market_compact_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.double_sided_top_of_market_compact_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.double_sided_top_of_market_compact_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mbbo Condition
@@ -1369,7 +1394,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.wide_top_of_market_offer_message 
 end
 
 -- Display: Wide Top Of Market Offer Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_offer_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_offer_message = function(packet, parent, length)
   return ""
 end
 
@@ -1400,15 +1425,20 @@ end
 
 -- Dissect: Wide Top Of Market Offer Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_offer_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_offer_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.wide_top_of_market_offer_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_offer_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_offer_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_offer_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_offer_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_offer_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Wide Top Of Market Bid Message
@@ -1431,7 +1461,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.wide_top_of_market_bid_message = 
 end
 
 -- Display: Wide Top Of Market Bid Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_bid_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_bid_message = function(packet, parent, length)
   return ""
 end
 
@@ -1462,15 +1492,20 @@ end
 
 -- Dissect: Wide Top Of Market Bid Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_bid_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_bid_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.wide_top_of_market_bid_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_bid_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_bid_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_bid_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.wide_top_of_market_bid_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.wide_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mbbo Priority Customer Size 2
@@ -1559,7 +1594,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.top_of_market_offer_compact_messa
 end
 
 -- Display: Top Of Market Offer Compact Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_offer_compact_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_offer_compact_message = function(packet, parent, length)
   return ""
 end
 
@@ -1590,15 +1625,20 @@ end
 
 -- Dissect: Top Of Market Offer Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_offer_compact_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.top_of_market_offer_compact_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.top_of_market_offer_compact_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_offer_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.top_of_market_offer_compact_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.top_of_market_offer_compact_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_offer_compact_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_offer_compact_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Top Of Market Bid Compact Message
@@ -1621,7 +1661,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.top_of_market_bid_compact_message
 end
 
 -- Display: Top Of Market Bid Compact Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_bid_compact_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_bid_compact_message = function(packet, parent, length)
   return ""
 end
 
@@ -1652,15 +1692,20 @@ end
 
 -- Dissect: Top Of Market Bid Compact Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_bid_compact_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.top_of_market_bid_compact_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.top_of_market_bid_compact_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_bid_compact_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.top_of_market_bid_compact_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.top_of_market_bid_compact_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.top_of_market_bid_compact_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.top_of_market_bid_compact_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: System Status
@@ -1778,7 +1823,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.system_state_message = function(b
 end
 
 -- Display: System State Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.system_state_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.system_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1803,15 +1848,20 @@ end
 
 -- Dissect: System State Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_state_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.system_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.system_state_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.system_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.system_state_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.system_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 8
@@ -2240,7 +2290,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.series_update = function(buffer, 
 end
 
 -- Display: Series Update
-miax_miaxoptions_topofmarket_mach_v1_9_display.series_update = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.series_update = function(packet, parent, length)
   return ""
 end
 
@@ -2304,15 +2354,20 @@ end
 
 -- Dissect: Series Update
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.series_update = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.series_update then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.series_update(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.series_update(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.series_update, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.series_update, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.series_update_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.series_update(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.series_update_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.series_update_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: System Time Message
@@ -2325,7 +2380,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.system_time_message = function(bu
 end
 
 -- Display: System Time Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.system_time_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.system_time_message = function(packet, parent, length)
   return ""
 end
 
@@ -2341,15 +2396,20 @@ end
 
 -- Dissect: System Time Message
 miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_time_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_time_message then
-    local length = miax_miaxoptions_topofmarket_mach_v1_9_size_of.system_time_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.system_time_message(buffer, packet, parent)
-    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.system_time_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_miaxoptions_topofmarket_mach_v1_9.fields.system_time_message, buffer(offset, 0))
+    local index = miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_time_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_miaxoptions_topofmarket_mach_v1_9_display.system_time_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_time_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_miaxoptions_topofmarket_mach_v1_9_dissect.system_time_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Data
@@ -2553,7 +2613,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.application_message = function(bu
 end
 
 -- Display: Application Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.application_message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.application_message = function(packet, parent, length)
   return ""
 end
 
@@ -2746,7 +2806,7 @@ miax_miaxoptions_topofmarket_mach_v1_9_size_of.message = function(buffer, offset
 end
 
 -- Display: Message
-miax_miaxoptions_topofmarket_mach_v1_9_display.message = function(buffer, offset, size, packet, parent)
+miax_miaxoptions_topofmarket_mach_v1_9_display.message = function(packet, parent, length)
   return ""
 end
 

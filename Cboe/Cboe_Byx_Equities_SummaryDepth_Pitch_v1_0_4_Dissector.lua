@@ -334,7 +334,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.trading_status_message = fun
 end
 
 -- Display: Trading Status Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trading_status_message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trading_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -362,15 +362,20 @@ end
 
 -- Dissect: Trading Status Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trading_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_status_message then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.trading_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trading_status_message(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.trading_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trading_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Break Flags
@@ -495,7 +500,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.trade_break_message = functi
 end
 
 -- Display: Trade Break Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_break_message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_break_message = function(packet, parent, length)
   return ""
 end
 
@@ -529,15 +534,20 @@ end
 
 -- Dissect: Trade Break Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_break_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_break_message then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.trade_break_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_break_message(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.trade_break_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.trade_break_message, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_break_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Flags
@@ -658,7 +668,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.trade_message = function(buf
 end
 
 -- Display: Trade Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -698,15 +708,20 @@ end
 
 -- Dissect: Trade Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_message(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.trade_message, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Retail Price Improvement
@@ -758,7 +773,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.rpi_message = function(buffe
 end
 
 -- Display: Rpi Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.rpi_message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.rpi_message = function(packet, parent, length)
   return ""
 end
 
@@ -783,15 +798,20 @@ end
 
 -- Dissect: Rpi Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.rpi_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.rpi_message then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.rpi_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.rpi_message(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.rpi_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.rpi_message, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.rpi_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.rpi_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.rpi_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.rpi_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity Long
@@ -874,7 +894,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.long_update_adap_block = fun
 end
 
 -- Display: Long Update Adap Block
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.long_update_adap_block = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.long_update_adap_block = function(packet, parent, length)
   return ""
 end
 
@@ -896,15 +916,20 @@ end
 
 -- Dissect: Long Update Adap Block
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.long_update_adap_block = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.long_update_adap_block then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.long_update_adap_block(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.long_update_adap_block(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.long_update_adap_block, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.long_update_adap_block, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.long_update_adap_block_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.long_update_adap_block(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.long_update_adap_block_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.long_update_adap_block_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity Short
@@ -967,7 +992,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.short_update_adap_block = fu
 end
 
 -- Display: Short Update Adap Block
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.short_update_adap_block = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.short_update_adap_block = function(packet, parent, length)
   return ""
 end
 
@@ -989,15 +1014,20 @@ end
 
 -- Dissect: Short Update Adap Block
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.short_update_adap_block = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.short_update_adap_block then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.short_update_adap_block(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.short_update_adap_block(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.short_update_adap_block, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.short_update_adap_block, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.short_update_adap_block_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.short_update_adap_block(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.short_update_adap_block_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.short_update_adap_block_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Adap Update
@@ -1088,7 +1118,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.adap_block = function(buffer
 end
 
 -- Display: Adap Block
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.adap_block = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.adap_block = function(packet, parent, length)
   return ""
 end
 
@@ -1234,7 +1264,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.adap_message = function(buff
 end
 
 -- Display: Adap Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.adap_message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.adap_message = function(packet, parent, length)
   return ""
 end
 
@@ -1351,7 +1381,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.cboe_market_status_message =
 end
 
 -- Display: Cboe Market Status Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.cboe_market_status_message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.cboe_market_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1376,15 +1406,20 @@ end
 
 -- Dissect: Cboe Market Status Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.cboe_market_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cboe_market_status_message then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.cboe_market_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.cboe_market_status_message(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.cboe_market_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.cboe_market_status_message, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.cboe_market_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.cboe_market_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.cboe_market_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.cboe_market_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Clear Quote Message
@@ -1401,7 +1436,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.clear_quote_message = functi
 end
 
 -- Display: Clear Quote Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.clear_quote_message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.clear_quote_message = function(packet, parent, length)
   return ""
 end
 
@@ -1423,15 +1458,20 @@ end
 
 -- Dissect: Clear Quote Message
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.clear_quote_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.clear_quote_message then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.clear_quote_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.clear_quote_message(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.clear_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.clear_quote_message, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.clear_quote_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.clear_quote_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.clear_quote_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.clear_quote_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1601,7 +1641,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.message_header = function(bu
 end
 
 -- Display: Message Header
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.message_header = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1620,19 +1660,24 @@ end
 
 -- Dissect: Message Header
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.message_header(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.message_header, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.message = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -1762,7 +1807,7 @@ cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.packet_header = function(buf
 end
 
 -- Display: Packet Header
-cboe_byx_equities_summarydepth_pitch_v1_0_4_display.packet_header = function(buffer, offset, size, packet, parent)
+cboe_byx_equities_summarydepth_pitch_v1_0_4_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -1787,15 +1832,20 @@ end
 
 -- Dissect: Packet Header
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = cboe_byx_equities_summarydepth_pitch_v1_0_4_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.packet_header(buffer, packet, parent)
-    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.packet_header, buffer(offset, 0))
+    local index = cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_byx_equities_summarydepth_pitch_v1_0_4_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

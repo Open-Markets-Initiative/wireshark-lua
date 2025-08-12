@@ -259,7 +259,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.auction_response = function(b
 end
 
 -- Display: Auction Response
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.auction_response = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.auction_response = function(packet, parent, length)
   return ""
 end
 
@@ -278,15 +278,20 @@ end
 
 -- Dissect: Auction Response
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.auction_response = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_response then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.auction_response(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.auction_response(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.auction_response(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Responses
@@ -738,7 +743,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.complex_strategy_auction_mess
 end
 
 -- Display: Complex Strategy Auction Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_auction_message = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_auction_message = function(packet, parent, length)
   return ""
 end
 
@@ -847,7 +852,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.complex_strategy_order_on_boo
 end
 
 -- Display: Complex Strategy Order On Book Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_order_on_book_message = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_order_on_book_message = function(packet, parent, length)
   return ""
 end
 
@@ -896,15 +901,20 @@ end
 
 -- Dissect: Complex Strategy Order On Book Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.complex_strategy_order_on_book_message then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.complex_strategy_order_on_book_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_order_on_book_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_order_on_book_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Open State
@@ -948,7 +958,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.strategy_open_closed_message 
 end
 
 -- Display: Strategy Open Closed Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_open_closed_message = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_open_closed_message = function(packet, parent, length)
   return ""
 end
 
@@ -970,15 +980,20 @@ end
 
 -- Dissect: Strategy Open Closed Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.strategy_open_closed_message then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.strategy_open_closed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_open_closed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_open_closed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_open_closed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Current Trading State
@@ -1022,7 +1037,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.strategy_trading_action_messa
 end
 
 -- Display: Strategy Trading Action Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_trading_action_message = function(packet, parent, length)
   return ""
 end
 
@@ -1044,15 +1059,20 @@ end
 
 -- Dissect: Strategy Trading Action Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.strategy_trading_action_message then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.strategy_trading_action_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_trading_action_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.strategy_trading_action_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Leg Ratio
@@ -1306,7 +1326,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.leg_information = function(bu
 end
 
 -- Display: Leg Information
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.leg_information = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.leg_information = function(packet, parent, length)
   return ""
 end
 
@@ -1349,15 +1369,20 @@ end
 
 -- Dissect: Leg Information
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.leg_information = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.leg_information then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.leg_information(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.leg_information(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.leg_information_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.leg_information(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.leg_information_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.leg_information_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Legs
@@ -1492,7 +1517,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.complex_strategy_directory_me
 end
 
 -- Display: Complex Strategy Directory Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.complex_strategy_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -1706,7 +1731,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.system_event_message = functi
 end
 
 -- Display: System Event Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -1740,15 +1765,20 @@ end
 
 -- Dissect: System Event Message
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1907,7 +1937,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.message_header = function(buf
 end
 
 -- Display: Message Header
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1926,19 +1956,24 @@ end
 
 -- Dissect: Message Header
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -2062,7 +2097,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.packet_header = function(buff
 end
 
 -- Display: Packet Header
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -2084,15 +2119,20 @@ end
 
 -- Dissect: Packet Header
 nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nasdaq_iseoptions_ordercombofeed_itch_v1_1_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

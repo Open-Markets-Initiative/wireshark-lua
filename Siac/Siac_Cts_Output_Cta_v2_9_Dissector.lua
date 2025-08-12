@@ -765,7 +765,7 @@ siac_cts_output_cta_v2_9_size_of.participant_data = function(buffer, offset)
 end
 
 -- Display: Participant Data
-siac_cts_output_cta_v2_9_display.participant_data = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.participant_data = function(packet, parent, length)
   return ""
 end
 
@@ -799,15 +799,20 @@ end
 
 -- Dissect: Participant Data
 siac_cts_output_cta_v2_9_dissect.participant_data = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.participant_data then
-    local length = siac_cts_output_cta_v2_9_size_of.participant_data(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.participant_data(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.participant_data, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.participant_data, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.participant_data_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.participant_data(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.participant_data_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.participant_data_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Last Participant Id
@@ -907,7 +912,7 @@ siac_cts_output_cta_v2_9_size_of.consolidated_data = function(buffer, offset)
 end
 
 -- Display: Consolidated Data
-siac_cts_output_cta_v2_9_display.consolidated_data = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.consolidated_data = function(packet, parent, length)
   return ""
 end
 
@@ -941,15 +946,20 @@ end
 
 -- Dissect: Consolidated Data
 siac_cts_output_cta_v2_9_dissect.consolidated_data = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.consolidated_data then
-    local length = siac_cts_output_cta_v2_9_size_of.consolidated_data(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.consolidated_data(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.consolidated_data, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.consolidated_data, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.consolidated_data_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.consolidated_data(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.consolidated_data_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.consolidated_data_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Financial Status Indicator
@@ -1190,7 +1200,7 @@ siac_cts_output_cta_v2_9_size_of.timestamp_2 = function(buffer, offset)
 end
 
 -- Display: Timestamp 2
-siac_cts_output_cta_v2_9_display.timestamp_2 = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.timestamp_2 = function(packet, parent, length)
   return ""
 end
 
@@ -1209,15 +1219,20 @@ end
 
 -- Dissect: Timestamp 2
 siac_cts_output_cta_v2_9_dissect.timestamp_2 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.timestamp_2 then
-    local length = siac_cts_output_cta_v2_9_size_of.timestamp_2(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.timestamp_2(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.timestamp_2, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.timestamp_2, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.timestamp_2_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.timestamp_2(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.timestamp_2_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.timestamp_2_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Original Participant Reference Number
@@ -1580,7 +1595,7 @@ siac_cts_output_cta_v2_9_size_of.sale_conditions = function(buffer, offset)
 end
 
 -- Display: Sale Conditions
-siac_cts_output_cta_v2_9_display.sale_conditions = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.sale_conditions = function(packet, parent, length)
   return ""
 end
 
@@ -1605,15 +1620,20 @@ end
 
 -- Dissect: Sale Conditions
 siac_cts_output_cta_v2_9_dissect.sale_conditions = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sale_conditions then
-    local length = siac_cts_output_cta_v2_9_size_of.sale_conditions(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.sale_conditions(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.sale_conditions, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.sale_conditions, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.sale_conditions_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.sale_conditions(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.sale_conditions_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.sale_conditions_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Instrument Type
@@ -1741,7 +1761,7 @@ siac_cts_output_cta_v2_9_size_of.timestamp_1 = function(buffer, offset)
 end
 
 -- Display: Timestamp 1
-siac_cts_output_cta_v2_9_display.timestamp_1 = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.timestamp_1 = function(packet, parent, length)
   return ""
 end
 
@@ -1760,15 +1780,20 @@ end
 
 -- Dissect: Timestamp 1
 siac_cts_output_cta_v2_9_dissect.timestamp_1 = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.timestamp_1 then
-    local length = siac_cts_output_cta_v2_9_size_of.timestamp_1(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.timestamp_1(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.timestamp_1, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.timestamp_1, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.timestamp_1_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.timestamp_1(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.timestamp_1_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.timestamp_1_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Participant Id
@@ -1863,7 +1888,7 @@ siac_cts_output_cta_v2_9_size_of.trade_cancel_error_message = function(buffer, o
 end
 
 -- Display: Trade Cancel Error Message
-siac_cts_output_cta_v2_9_display.trade_cancel_error_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.trade_cancel_error_message = function(packet, parent, length)
   return ""
 end
 
@@ -2286,7 +2311,7 @@ siac_cts_output_cta_v2_9_size_of.short_trade_message = function(buffer, offset)
 end
 
 -- Display: Short Trade Message
-siac_cts_output_cta_v2_9_display.short_trade_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.short_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -2642,7 +2667,7 @@ siac_cts_output_cta_v2_9_size_of.trading_status_message = function(buffer, offse
 end
 
 -- Display: Trading Status Message
-siac_cts_output_cta_v2_9_display.trading_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.trading_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -2768,7 +2793,7 @@ siac_cts_output_cta_v2_9_size_of.long_trade_message = function(buffer, offset)
 end
 
 -- Display: Long Trade Message
-siac_cts_output_cta_v2_9_display.long_trade_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.long_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -2871,7 +2896,7 @@ siac_cts_output_cta_v2_9_size_of.prior_day_trade_date_and_time = function(buffer
 end
 
 -- Display: Prior Day Trade Date And Time
-siac_cts_output_cta_v2_9_display.prior_day_trade_date_and_time = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.prior_day_trade_date_and_time = function(packet, parent, length)
   return ""
 end
 
@@ -2890,15 +2915,20 @@ end
 
 -- Dissect: Prior Day Trade Date And Time
 siac_cts_output_cta_v2_9_dissect.prior_day_trade_date_and_time = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.prior_day_trade_date_and_time then
-    local length = siac_cts_output_cta_v2_9_size_of.prior_day_trade_date_and_time(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.prior_day_trade_date_and_time(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.prior_day_trade_date_and_time, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.prior_day_trade_date_and_time, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.prior_day_trade_date_and_time(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Original Trade
@@ -2925,7 +2955,7 @@ siac_cts_output_cta_v2_9_size_of.original_trade = function(buffer, offset)
 end
 
 -- Display: Original Trade
-siac_cts_output_cta_v2_9_display.original_trade = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.original_trade = function(packet, parent, length)
   return ""
 end
 
@@ -2962,15 +2992,20 @@ end
 
 -- Dissect: Original Trade
 siac_cts_output_cta_v2_9_dissect.original_trade = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.original_trade then
-    local length = siac_cts_output_cta_v2_9_size_of.original_trade(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.original_trade(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.original_trade, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.original_trade, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.original_trade_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.original_trade(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.original_trade_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.original_trade_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Corrected Trade
@@ -2997,7 +3032,7 @@ siac_cts_output_cta_v2_9_size_of.corrected_trade = function(buffer, offset)
 end
 
 -- Display: Corrected Trade
-siac_cts_output_cta_v2_9_display.corrected_trade = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.corrected_trade = function(packet, parent, length)
   return ""
 end
 
@@ -3034,15 +3069,20 @@ end
 
 -- Dissect: Corrected Trade
 siac_cts_output_cta_v2_9_dissect.corrected_trade = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.corrected_trade then
-    local length = siac_cts_output_cta_v2_9_size_of.corrected_trade(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.corrected_trade(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.corrected_trade, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.corrected_trade, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.corrected_trade_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.corrected_trade(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.corrected_trade_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.corrected_trade_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Trade Correction Message
@@ -3056,7 +3096,7 @@ siac_cts_output_cta_v2_9_size_of.trade_correction_message = function(buffer, off
 end
 
 -- Display: Trade Correction Message
-siac_cts_output_cta_v2_9_display.trade_correction_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.trade_correction_message = function(packet, parent, length)
   return ""
 end
 
@@ -3261,7 +3301,7 @@ siac_cts_output_cta_v2_9_size_of.auction_status_message = function(buffer, offse
 end
 
 -- Display: Auction Status Message
-siac_cts_output_cta_v2_9_display.auction_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.auction_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -3469,7 +3509,7 @@ siac_cts_output_cta_v2_9_size_of.trade = function(buffer, offset)
 end
 
 -- Display: Trade
-siac_cts_output_cta_v2_9_display.trade = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.trade = function(packet, parent, length)
   return ""
 end
 
@@ -3615,7 +3655,7 @@ siac_cts_output_cta_v2_9_size_of.participant_end_of_day_summary_message = functi
 end
 
 -- Display: Participant End Of Day Summary Message
-siac_cts_output_cta_v2_9_display.participant_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.participant_end_of_day_summary_message = function(packet, parent, length)
   return ""
 end
 
@@ -3719,7 +3759,7 @@ siac_cts_output_cta_v2_9_size_of.consolidated_end_of_day_summary_message = funct
 end
 
 -- Display: Consolidated End Of Day Summary Message
-siac_cts_output_cta_v2_9_display.consolidated_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.consolidated_end_of_day_summary_message = function(packet, parent, length)
   return ""
 end
 
@@ -3835,7 +3875,7 @@ siac_cts_output_cta_v2_9_size_of.participant_start_of_day_summary_message = func
 end
 
 -- Display: Participant Start Of Day Summary Message
-siac_cts_output_cta_v2_9_display.participant_start_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.participant_start_of_day_summary_message = function(packet, parent, length)
   return ""
 end
 
@@ -3904,7 +3944,7 @@ siac_cts_output_cta_v2_9_size_of.consolidated_start_of_day_summary_message = fun
 end
 
 -- Display: Consolidated Start Of Day Summary Message
-siac_cts_output_cta_v2_9_display.consolidated_start_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.consolidated_start_of_day_summary_message = function(packet, parent, length)
   return ""
 end
 
@@ -4087,7 +4127,7 @@ siac_cts_output_cta_v2_9_size_of.summary = function(buffer, offset)
 end
 
 -- Display: Summary
-siac_cts_output_cta_v2_9_display.summary = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.summary = function(packet, parent, length)
   return ""
 end
 
@@ -4132,7 +4172,7 @@ siac_cts_output_cta_v2_9_size_of.prior_day_trade_message = function(buffer, offs
 end
 
 -- Display: Prior Day Trade Message
-siac_cts_output_cta_v2_9_display.prior_day_trade_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.prior_day_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -4219,7 +4259,7 @@ siac_cts_output_cta_v2_9_size_of.prior_day_trade_correction_message = function(b
 end
 
 -- Display: Prior Day Trade Correction Message
-siac_cts_output_cta_v2_9_display.prior_day_trade_correction_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.prior_day_trade_correction_message = function(packet, parent, length)
   return ""
 end
 
@@ -4379,7 +4419,7 @@ siac_cts_output_cta_v2_9_size_of.prior_day = function(buffer, offset)
 end
 
 -- Display: Prior Day
-siac_cts_output_cta_v2_9_display.prior_day = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.prior_day = function(packet, parent, length)
   return ""
 end
 
@@ -4484,7 +4524,7 @@ siac_cts_output_cta_v2_9_size_of.crossing_session_summary_message = function(buf
 end
 
 -- Display: Crossing Session Summary Message
-siac_cts_output_cta_v2_9_display.crossing_session_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.crossing_session_summary_message = function(packet, parent, length)
   return ""
 end
 
@@ -4587,7 +4627,7 @@ siac_cts_output_cta_v2_9_size_of.approximate_trades_and_total_dollar_value_messa
 end
 
 -- Display: Approximate Trades And Total Dollar Value Message
-siac_cts_output_cta_v2_9_display.approximate_trades_and_total_dollar_value_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.approximate_trades_and_total_dollar_value_message = function(packet, parent, length)
   return ""
 end
 
@@ -4668,7 +4708,7 @@ siac_cts_output_cta_v2_9_size_of.participants = function(buffer, offset)
 end
 
 -- Display: Participants
-siac_cts_output_cta_v2_9_display.participants = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.participants = function(packet, parent, length)
   return ""
 end
 
@@ -4687,15 +4727,20 @@ end
 
 -- Dissect: Participants
 siac_cts_output_cta_v2_9_dissect.participants = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.participants then
-    local length = siac_cts_output_cta_v2_9_size_of.participants(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.participants(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.participants, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.participants, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.participants_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.participants(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.participants_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.participants_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Approximate Adjusted Volume Market Center Message
@@ -4709,7 +4754,7 @@ siac_cts_output_cta_v2_9_size_of.approximate_adjusted_volume_market_center_messa
 end
 
 -- Display: Approximate Adjusted Volume Market Center Message
-siac_cts_output_cta_v2_9_display.approximate_adjusted_volume_market_center_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.approximate_adjusted_volume_market_center_message = function(packet, parent, length)
   return ""
 end
 
@@ -4824,7 +4869,7 @@ siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_status_message = fu
 end
 
 -- Display: Market Wide Circuit Breaker Status Message
-siac_cts_output_cta_v2_9_display.market_wide_circuit_breaker_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.market_wide_circuit_breaker_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -4944,7 +4989,7 @@ siac_cts_output_cta_v2_9_size_of.market_wide_circuit_breaker_decline_level_statu
 end
 
 -- Display: Market Wide Circuit Breaker Decline Level Status Message
-siac_cts_output_cta_v2_9_display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.market_wide_circuit_breaker_decline_level_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -5123,7 +5168,7 @@ siac_cts_output_cta_v2_9_size_of.market_status = function(buffer, offset)
 end
 
 -- Display: Market Status
-siac_cts_output_cta_v2_9_display.market_status = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.market_status = function(packet, parent, length)
   return ""
 end
 
@@ -5228,7 +5273,7 @@ siac_cts_output_cta_v2_9_size_of.bid_and_offer_index_message = function(buffer, 
 end
 
 -- Display: Bid And Offer Index Message
-siac_cts_output_cta_v2_9_display.bid_and_offer_index_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.bid_and_offer_index_message = function(packet, parent, length)
   return ""
 end
 
@@ -5311,7 +5356,7 @@ siac_cts_output_cta_v2_9_size_of.index_message = function(buffer, offset)
 end
 
 -- Display: Index Message
-siac_cts_output_cta_v2_9_display.index_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.index_message = function(packet, parent, length)
   return ""
 end
 
@@ -5451,7 +5496,7 @@ siac_cts_output_cta_v2_9_size_of.index = function(buffer, offset)
 end
 
 -- Display: Index
-siac_cts_output_cta_v2_9_display.index = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.index = function(packet, parent, length)
   return ""
 end
 
@@ -5496,7 +5541,7 @@ siac_cts_output_cta_v2_9_size_of.end_of_day_message = function(buffer, offset)
 end
 
 -- Display: End Of Day Message
-siac_cts_output_cta_v2_9_display.end_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.end_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -5550,7 +5595,7 @@ siac_cts_output_cta_v2_9_size_of.line_integrity_message = function(buffer, offse
 end
 
 -- Display: Line Integrity Message
-siac_cts_output_cta_v2_9_display.line_integrity_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.line_integrity_message = function(packet, parent, length)
   return ""
 end
 
@@ -5604,7 +5649,7 @@ siac_cts_output_cta_v2_9_size_of.disaster_recovery_data_center_activation_messag
 end
 
 -- Display: Disaster Recovery Data Center Activation Message
-siac_cts_output_cta_v2_9_display.disaster_recovery_data_center_activation_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.disaster_recovery_data_center_activation_message = function(packet, parent, length)
   return ""
 end
 
@@ -5658,7 +5703,7 @@ siac_cts_output_cta_v2_9_size_of.reset_block_sequence_number_message = function(
 end
 
 -- Display: Reset Block Sequence Number Message
-siac_cts_output_cta_v2_9_display.reset_block_sequence_number_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.reset_block_sequence_number_message = function(packet, parent, length)
   return ""
 end
 
@@ -5712,7 +5757,7 @@ siac_cts_output_cta_v2_9_size_of.start_of_day_message = function(buffer, offset)
 end
 
 -- Display: Start Of Day Message
-siac_cts_output_cta_v2_9_display.start_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.start_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -5879,7 +5924,7 @@ siac_cts_output_cta_v2_9_size_of.control = function(buffer, offset)
 end
 
 -- Display: Control
-siac_cts_output_cta_v2_9_display.control = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.control = function(packet, parent, length)
   return ""
 end
 
@@ -5924,7 +5969,7 @@ siac_cts_output_cta_v2_9_size_of.end_of_start_of_day_message = function(buffer, 
 end
 
 -- Display: End Of Start Of Day Message
-siac_cts_output_cta_v2_9_display.end_of_start_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.end_of_start_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -5978,7 +6023,7 @@ siac_cts_output_cta_v2_9_size_of.start_of_start_of_day_message = function(buffer
 end
 
 -- Display: Start Of Start Of Day Message
-siac_cts_output_cta_v2_9_display.start_of_start_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.start_of_start_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -6032,7 +6077,7 @@ siac_cts_output_cta_v2_9_size_of.end_of_end_of_day_message = function(buffer, of
 end
 
 -- Display: End Of End Of Day Message
-siac_cts_output_cta_v2_9_display.end_of_end_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.end_of_end_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -6086,7 +6131,7 @@ siac_cts_output_cta_v2_9_size_of.start_of_end_of_day_message = function(buffer, 
 end
 
 -- Display: Start Of End Of Day Message
-siac_cts_output_cta_v2_9_display.start_of_end_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.start_of_end_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -6242,7 +6287,7 @@ siac_cts_output_cta_v2_9_size_of.administrative = function(buffer, offset)
 end
 
 -- Display: Administrative
-siac_cts_output_cta_v2_9_display.administrative = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.administrative = function(packet, parent, length)
   return ""
 end
 
@@ -6443,7 +6488,7 @@ siac_cts_output_cta_v2_9_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-siac_cts_output_cta_v2_9_display.message_header = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -6462,19 +6507,24 @@ end
 
 -- Dissect: Message Header
 siac_cts_output_cta_v2_9_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = siac_cts_output_cta_v2_9_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.message_header(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.message_header, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-siac_cts_output_cta_v2_9_display.message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -6540,7 +6590,7 @@ siac_cts_output_cta_v2_9_size_of.sip_block_timestamp = function(buffer, offset)
 end
 
 -- Display: Sip Block Timestamp
-siac_cts_output_cta_v2_9_display.sip_block_timestamp = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.sip_block_timestamp = function(packet, parent, length)
   return ""
 end
 
@@ -6559,15 +6609,20 @@ end
 
 -- Dissect: Sip Block Timestamp
 siac_cts_output_cta_v2_9_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sip_block_timestamp then
-    local length = siac_cts_output_cta_v2_9_size_of.sip_block_timestamp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.sip_block_timestamp(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.sip_block_timestamp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.sip_block_timestamp, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.sip_block_timestamp(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Messages In Block
@@ -6721,7 +6776,7 @@ siac_cts_output_cta_v2_9_size_of.block_header = function(buffer, offset)
 end
 
 -- Display: Block Header
-siac_cts_output_cta_v2_9_display.block_header = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v2_9_display.block_header = function(packet, parent, length)
   return ""
 end
 
@@ -6758,15 +6813,20 @@ end
 
 -- Dissect: Block Header
 siac_cts_output_cta_v2_9_dissect.block_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.block_header then
-    local length = siac_cts_output_cta_v2_9_size_of.block_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cts_output_cta_v2_9_display.block_header(buffer, packet, parent)
-    parent = parent:add(siac_cts_output_cta_v2_9.fields.block_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.block_header, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9_dissect.block_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9_display.block_header(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cts_output_cta_v2_9_dissect.block_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9_dissect.block_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

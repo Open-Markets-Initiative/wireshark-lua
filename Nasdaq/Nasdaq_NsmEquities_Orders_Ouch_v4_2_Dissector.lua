@@ -358,7 +358,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.trade_now_message = function(buffer,
 end
 
 -- Display: Trade Now Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.trade_now_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.trade_now_message = function(packet, parent, length)
   return ""
 end
 
@@ -374,15 +374,20 @@ end
 
 -- Dissect: Trade Now Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_now_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_now_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.trade_now_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.trade_now_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_now_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.trade_now_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_now_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_now_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Shares
@@ -452,7 +457,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.modify_order_message = function(buff
 end
 
 -- Display: Modify Order Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.modify_order_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.modify_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -474,15 +479,20 @@ end
 
 -- Dissect: Modify Order Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.modify_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.modify_order_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.modify_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.modify_order_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.modify_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.modify_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.modify_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cancel Order Message
@@ -497,7 +507,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.cancel_order_message = function(buff
 end
 
 -- Display: Cancel Order Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_order_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -516,15 +526,20 @@ end
 
 -- Dissect: Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.cancel_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_order_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Minimum Quantity
@@ -747,7 +762,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.replace_order_message = function(buf
 end
 
 -- Display: Replace Order Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.replace_order_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.replace_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -784,15 +799,20 @@ end
 
 -- Dissect: Replace Order Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.replace_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replace_order_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.replace_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.replace_order_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replace_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replace_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.replace_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Customer Type
@@ -974,7 +994,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.enter_order_message = function(buffe
 end
 
 -- Display: Enter Order Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.enter_order_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.enter_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -1026,15 +1046,20 @@ end
 
 -- Dissect: Enter Order Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.enter_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.enter_order_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.enter_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.enter_order_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.enter_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.enter_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.enter_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Unsequenced Message
@@ -1161,7 +1186,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.unsequenced_data_packet = function(b
 end
 
 -- Display: Unsequenced Data Packet
-nasdaq_nsmequities_orders_ouch_v4_2_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.unsequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1291,7 +1316,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.login_request_packet = function(buff
 end
 
 -- Display: Login Request Packet
-nasdaq_nsmequities_orders_ouch_v4_2_display.login_request_packet = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.login_request_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1316,15 +1341,20 @@ end
 
 -- Dissect: Login Request Packet
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_request_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_packet then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.login_request_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.login_request_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.login_request_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Timestamp
@@ -1363,7 +1393,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.order_modified_message = function(bu
 end
 
 -- Display: Order Modified Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.order_modified_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.order_modified_message = function(packet, parent, length)
   return ""
 end
 
@@ -1388,15 +1418,20 @@ end
 
 -- Dissect: Order Modified Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_modified_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_modified_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.order_modified_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.order_modified_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_modified_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_modified_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.order_modified_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Reference Number
@@ -1437,7 +1472,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.order_priority_update_message = func
 end
 
 -- Display: Order Priority Update Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.order_priority_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.order_priority_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -1465,15 +1500,20 @@ end
 
 -- Dissect: Order Priority Update Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_priority_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_priority_update_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.order_priority_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.order_priority_update_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_priority_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.order_priority_update_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_priority_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.order_priority_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_priority_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.order_priority_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cancel Reject Message
@@ -1488,7 +1528,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.cancel_reject_message = function(buf
 end
 
 -- Display: Cancel Reject Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_reject_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -1507,15 +1547,20 @@ end
 
 -- Dissect: Cancel Reject Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_reject_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.cancel_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_reject_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_reject_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cancel Pending Message
@@ -1530,7 +1575,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.cancel_pending_message = function(bu
 end
 
 -- Display: Cancel Pending Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_pending_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_pending_message = function(packet, parent, length)
   return ""
 end
 
@@ -1549,15 +1594,20 @@ end
 
 -- Dissect: Cancel Pending Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_pending_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_pending_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.cancel_pending_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_pending_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_pending_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_pending_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_pending_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.cancel_pending_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_pending_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.cancel_pending_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Rejected Order Reason
@@ -1594,7 +1644,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.rejected_order_message = function(bu
 end
 
 -- Display: Rejected Order Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.rejected_order_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.rejected_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -1616,15 +1666,20 @@ end
 
 -- Dissect: Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.rejected_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.rejected_order_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.rejected_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.rejected_order_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.rejected_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.rejected_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.rejected_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.rejected_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason
@@ -1828,7 +1883,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.trade_correction_message = function(
 end
 
 -- Display: Trade Correction Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.trade_correction_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.trade_correction_message = function(packet, parent, length)
   return ""
 end
 
@@ -1862,15 +1917,20 @@ end
 
 -- Dissect: Trade Correction Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_correction_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_correction_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.trade_correction_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.trade_correction_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.trade_correction_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reference Price Type
@@ -1943,7 +2003,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.executed_with_reference_price_messag
 end
 
 -- Display: Executed With Reference Price Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.executed_with_reference_price_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.executed_with_reference_price_message = function(packet, parent, length)
   return ""
 end
 
@@ -1980,15 +2040,20 @@ end
 
 -- Dissect: Executed With Reference Price Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_with_reference_price_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.executed_with_reference_price_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.executed_with_reference_price_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.executed_with_reference_price_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_with_reference_price_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_with_reference_price_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_with_reference_price_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.executed_with_reference_price_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_with_reference_price_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_with_reference_price_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Broken Trade Reason
@@ -2027,7 +2092,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.broken_trade_message = function(buff
 end
 
 -- Display: Broken Trade Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.broken_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.broken_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -2052,15 +2117,20 @@ end
 
 -- Dissect: Broken Trade Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.broken_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.broken_trade_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.broken_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.broken_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.broken_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Executed Message
@@ -2083,7 +2153,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.executed_message = function(buffer, 
 end
 
 -- Display: Executed Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.executed_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -2114,15 +2184,20 @@ end
 
 -- Dissect: Executed Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.executed_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.executed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity Prevented From Trading
@@ -2250,7 +2325,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.aiq_cancelled_message = function(buf
 end
 
 -- Display: Aiq Cancelled Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.aiq_cancelled_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.aiq_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -2284,15 +2359,20 @@ end
 
 -- Dissect: Aiq Cancelled Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.aiq_cancelled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.aiq_cancelled_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.aiq_cancelled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.aiq_cancelled_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.aiq_cancelled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.aiq_cancelled_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.aiq_cancelled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.aiq_cancelled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.aiq_cancelled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.aiq_cancelled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Canceled Message
@@ -2311,7 +2391,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.canceled_message = function(buffer, 
 end
 
 -- Display: Canceled Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.canceled_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.canceled_message = function(packet, parent, length)
   return ""
 end
 
@@ -2336,15 +2416,20 @@ end
 
 -- Dissect: Canceled Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.canceled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.canceled_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.canceled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.canceled_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.canceled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.canceled_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.canceled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.canceled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.canceled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.canceled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Bbo Weight Indicator
@@ -2495,7 +2580,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.replaced_message = function(buffer, 
 end
 
 -- Display: Replaced Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.replaced_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.replaced_message = function(packet, parent, length)
   return ""
 end
 
@@ -2559,15 +2644,20 @@ end
 
 -- Dissect: Replaced Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.replaced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replaced_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.replaced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.replaced_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.replaced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.replaced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.replaced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.replaced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Accepted Message
@@ -2610,7 +2700,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.accepted_message = function(buffer, 
 end
 
 -- Display: Accepted Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.accepted_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.accepted_message = function(packet, parent, length)
   return ""
 end
 
@@ -2671,15 +2761,20 @@ end
 
 -- Dissect: Accepted Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.accepted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.accepted_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.accepted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.accepted_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.accepted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.accepted_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.accepted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.accepted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.accepted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.accepted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -2721,7 +2816,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.system_event_message = function(buff
 end
 
 -- Display: System Event Message
-nasdaq_nsmequities_orders_ouch_v4_2_display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -2740,15 +2835,20 @@ end
 
 -- Dissect: System Event Message
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Sequenced Message
@@ -2985,7 +3085,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.sequenced_data_packet = function(buf
 end
 
 -- Display: Sequenced Data Packet
-nasdaq_nsmequities_orders_ouch_v4_2_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.sequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -3049,7 +3149,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.login_rejected_packet = function(buf
 end
 
 -- Display: Login Rejected Packet
-nasdaq_nsmequities_orders_ouch_v4_2_display.login_rejected_packet = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.login_rejected_packet = function(packet, parent, length)
   return ""
 end
 
@@ -3065,15 +3165,20 @@ end
 
 -- Dissect: Login Rejected Packet
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_packet then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.login_rejected_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.login_rejected_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_rejected_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.login_rejected_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sequence Number
@@ -3128,7 +3233,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.login_accepted_packet = function(buf
 end
 
 -- Display: Login Accepted Packet
-nasdaq_nsmequities_orders_ouch_v4_2_display.login_accepted_packet = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.login_accepted_packet = function(packet, parent, length)
   return ""
 end
 
@@ -3147,15 +3252,20 @@ end
 
 -- Dissect: Login Accepted Packet
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_packet then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.login_accepted_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.login_accepted_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.login_accepted_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.login_accepted_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -3188,7 +3298,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.debug_packet = function(buffer, offs
 end
 
 -- Display: Debug Packet
-nasdaq_nsmequities_orders_ouch_v4_2_display.debug_packet = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.debug_packet = function(packet, parent, length)
   return ""
 end
 
@@ -3204,15 +3314,20 @@ end
 
 -- Dissect: Debug Packet
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.debug_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.debug_packet then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.debug_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.debug_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.debug_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.debug_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -3383,7 +3498,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_size_of.packet_header = function(buffer, off
 end
 
 -- Display: Packet Header
-nasdaq_nsmequities_orders_ouch_v4_2_display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -3402,19 +3517,24 @@ end
 
 -- Dissect: Packet Header
 nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nasdaq_nsmequities_orders_ouch_v4_2_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Soup Bin Tcp Packet
-nasdaq_nsmequities_orders_ouch_v4_2_display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_orders_ouch_v4_2_display.soup_bin_tcp_packet = function(packet, parent, length)
   return ""
 end
 

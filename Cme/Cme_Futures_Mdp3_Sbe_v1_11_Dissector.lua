@@ -1038,7 +1038,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.collateral_market_value_group = function(buff
 end
 
 -- Display: Collateral Market Value Group
-cme_futures_mdp3_sbe_v1_11_display.collateral_market_value_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.collateral_market_value_group = function(packet, parent, length)
   return ""
 end
 
@@ -1072,15 +1072,20 @@ end
 
 -- Dissect: Collateral Market Value Group
 cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.collateral_market_value_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.collateral_market_value_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.collateral_market_value_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.collateral_market_value_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.collateral_market_value_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.collateral_market_value_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Num In Group
@@ -1135,7 +1140,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.group_size = function(buffer, offset)
 end
 
 -- Display: Group Size
-cme_futures_mdp3_sbe_v1_11_display.group_size = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.group_size = function(packet, parent, length)
   return ""
 end
 
@@ -1154,15 +1159,20 @@ end
 
 -- Dissect: Group Size
 cme_futures_mdp3_sbe_v1_11_dissect.group_size = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.group_size then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.group_size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.group_size(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.group_size_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.group_size(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.group_size_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.group_size_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Collateral Market Value Groups
@@ -1179,7 +1189,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.collateral_market_value_groups = function(buf
 end
 
 -- Display: Collateral Market Value Groups
-cme_futures_mdp3_sbe_v1_11_display.collateral_market_value_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.collateral_market_value_groups = function(packet, parent, length)
   return ""
 end
 
@@ -1335,7 +1345,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.collateral_market_value = function(buffer, of
 end
 
 -- Display: Collateral Market Value
-cme_futures_mdp3_sbe_v1_11_display.collateral_market_value = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.collateral_market_value = function(packet, parent, length)
   return ""
 end
 
@@ -1755,7 +1765,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_tcp_group = function(bu
 end
 
 -- Display: Snapshot Full Refresh Tcp Group
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp_group = function(packet, parent, length)
   return ""
 end
 
@@ -1795,15 +1805,20 @@ end
 
 -- Dissect: Snapshot Full Refresh Tcp Group
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.snapshot_full_refresh_tcp_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_tcp_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Snapshot Full Refresh Tcp Groups
@@ -1820,7 +1835,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_tcp_groups = function(b
 end
 
 -- Display: Snapshot Full Refresh Tcp Groups
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp_groups = function(packet, parent, length)
   return ""
 end
 
@@ -2005,7 +2020,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_tcp = function(buffer, 
 end
 
 -- Display: Snapshot Full Refresh Tcp
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp = function(packet, parent, length)
   return ""
 end
 
@@ -2141,7 +2156,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.security_status_workup_order_group = function
 end
 
 -- Display: Security Status Workup Order Group
-cme_futures_mdp3_sbe_v1_11_display.security_status_workup_order_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.security_status_workup_order_group = function(packet, parent, length)
   return ""
 end
 
@@ -2163,15 +2178,20 @@ end
 
 -- Dissect: Security Status Workup Order Group
 cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_status_workup_order_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.security_status_workup_order_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.security_status_workup_order_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status_workup_order_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status_workup_order_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.security_status_workup_order_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Security Status Workup Order Groups
@@ -2188,7 +2208,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.security_status_workup_order_groups = functio
 end
 
 -- Display: Security Status Workup Order Groups
-cme_futures_mdp3_sbe_v1_11_display.security_status_workup_order_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.security_status_workup_order_groups = function(packet, parent, length)
   return ""
 end
 
@@ -2410,7 +2430,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.security_status_workup = function(buffer, off
 end
 
 -- Display: Security Status Workup
-cme_futures_mdp3_sbe_v1_11_display.security_status_workup = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.security_status_workup = function(packet, parent, length)
   return ""
 end
 
@@ -2597,7 +2617,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_refresh_top_orders_group = function(
 end
 
 -- Display: Snapshot Refresh Top Orders Group
-cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders_group = function(packet, parent, length)
   return ""
 end
 
@@ -2625,15 +2645,20 @@ end
 
 -- Dissect: Snapshot Refresh Top Orders Group
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.snapshot_refresh_top_orders_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.snapshot_refresh_top_orders_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Snapshot Refresh Top Orders Groups
@@ -2650,7 +2675,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_refresh_top_orders_groups = function
 end
 
 -- Display: Snapshot Refresh Top Orders Groups
-cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders_groups = function(packet, parent, length)
   return ""
 end
 
@@ -2701,7 +2726,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_refresh_top_orders = function(buffer
 end
 
 -- Display: Snapshot Refresh Top Orders
-cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders = function(packet, parent, length)
   return ""
 end
 
@@ -2805,7 +2830,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.related_instruments_group = function(buffer, 
 end
 
 -- Display: Related Instruments Group
-cme_futures_mdp3_sbe_v1_11_display.related_instruments_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.related_instruments_group = function(packet, parent, length)
   return ""
 end
 
@@ -2824,15 +2849,20 @@ end
 
 -- Dissect: Related Instruments Group
 cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.related_instruments_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.related_instruments_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.related_instruments_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_instruments_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_instruments_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.related_instruments_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Related Instruments Groups
@@ -2849,7 +2879,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.related_instruments_groups = function(buffer,
 end
 
 -- Display: Related Instruments Groups
-cme_futures_mdp3_sbe_v1_11_display.related_instruments_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.related_instruments_groups = function(packet, parent, length)
   return ""
 end
 
@@ -2952,7 +2982,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.underlyings_group = function(buffer, offset)
 end
 
 -- Display: Underlyings Group
-cme_futures_mdp3_sbe_v1_11_display.underlyings_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.underlyings_group = function(packet, parent, length)
   return ""
 end
 
@@ -2971,15 +3001,20 @@ end
 
 -- Dissect: Underlyings Group
 cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.underlyings_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.underlyings_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.underlyings_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.underlyings_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.underlyings_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.underlyings_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Underlyings Groups
@@ -2996,7 +3031,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.underlyings_groups = function(buffer, offset)
 end
 
 -- Display: Underlyings Groups
-cme_futures_mdp3_sbe_v1_11_display.underlyings_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.underlyings_groups = function(packet, parent, length)
   return ""
 end
 
@@ -3099,7 +3134,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.lot_type_rules_group = function(buffer, offse
 end
 
 -- Display: Lot Type Rules Group
-cme_futures_mdp3_sbe_v1_11_display.lot_type_rules_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.lot_type_rules_group = function(packet, parent, length)
   return ""
 end
 
@@ -3118,15 +3153,20 @@ end
 
 -- Dissect: Lot Type Rules Group
 cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.lot_type_rules_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.lot_type_rules_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.lot_type_rules_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.lot_type_rules_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.lot_type_rules_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.lot_type_rules_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Lot Type Rules Groups
@@ -3143,7 +3183,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.lot_type_rules_groups = function(buffer, offs
 end
 
 -- Display: Lot Type Rules Groups
-cme_futures_mdp3_sbe_v1_11_display.lot_type_rules_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.lot_type_rules_groups = function(packet, parent, length)
   return ""
 end
 
@@ -3388,7 +3428,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.inst_attrib_group = function(buffer, offset)
 end
 
 -- Display: Inst Attrib Group
-cme_futures_mdp3_sbe_v1_11_display.inst_attrib_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.inst_attrib_group = function(packet, parent, length)
   return ""
 end
 
@@ -3404,15 +3444,20 @@ end
 
 -- Dissect: Inst Attrib Group
 cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.inst_attrib_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.inst_attrib_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.inst_attrib_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.inst_attrib_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.inst_attrib_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.inst_attrib_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Inst Attrib Groups
@@ -3429,7 +3474,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.inst_attrib_groups = function(buffer, offset)
 end
 
 -- Display: Inst Attrib Groups
-cme_futures_mdp3_sbe_v1_11_display.inst_attrib_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.inst_attrib_groups = function(packet, parent, length)
   return ""
 end
 
@@ -3532,7 +3577,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_feed_types_group = function(buffer, offse
 end
 
 -- Display: M D Feed Types Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_feed_types_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_feed_types_group = function(packet, parent, length)
   return ""
 end
 
@@ -3551,15 +3596,20 @@ end
 
 -- Dissect: M D Feed Types Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_feed_types_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_feed_types_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_feed_types_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_feed_types_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_feed_types_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_feed_types_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Feed Types Groups
@@ -3576,7 +3626,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_feed_types_groups = function(buffer, offs
 end
 
 -- Display: M D Feed Types Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_feed_types_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_feed_types_groups = function(packet, parent, length)
   return ""
 end
 
@@ -3670,7 +3720,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.events_group = function(buffer, offset)
 end
 
 -- Display: Events Group
-cme_futures_mdp3_sbe_v1_11_display.events_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.events_group = function(packet, parent, length)
   return ""
 end
 
@@ -3689,15 +3739,20 @@ end
 
 -- Dissect: Events Group
 cme_futures_mdp3_sbe_v1_11_dissect.events_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.events_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.events_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.events_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.events_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.events_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.events_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.events_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.events_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.events_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Events Groups
@@ -3714,7 +3769,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.events_groups = function(buffer, offset)
 end
 
 -- Display: Events Groups
-cme_futures_mdp3_sbe_v1_11_display.events_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.events_groups = function(packet, parent, length)
   return ""
 end
 
@@ -5027,7 +5082,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_instrument_definition_repo = function(buff
 end
 
 -- Display: Md Instrument Definition Repo
-cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_repo = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_repo = function(packet, parent, length)
   return ""
 end
 
@@ -5847,7 +5902,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_instrument_definition_fixed_income = funct
 end
 
 -- Display: Md Instrument Definition Fixed Income
-cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_fixed_income = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_fixed_income = function(packet, parent, length)
   return ""
 end
 
@@ -6196,7 +6251,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_instrument_definition_spread_leg_group = 
 end
 
 -- Display: M D Instrument Definition Spread Leg Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_instrument_definition_spread_leg_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_instrument_definition_spread_leg_group = function(packet, parent, length)
   return ""
 end
 
@@ -6224,15 +6279,20 @@ end
 
 -- Dissect: M D Instrument Definition Spread Leg Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_instrument_definition_spread_leg_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_instrument_definition_spread_leg_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_instrument_definition_spread_leg_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_instrument_definition_spread_leg_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_instrument_definition_spread_leg_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_instrument_definition_spread_leg_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Instrument Definition Spread Leg Groups
@@ -6249,7 +6309,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_instrument_definition_spread_leg_groups =
 end
 
 -- Display: M D Instrument Definition Spread Leg Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_instrument_definition_spread_leg_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_instrument_definition_spread_leg_groups = function(packet, parent, length)
   return ""
 end
 
@@ -6547,7 +6607,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.maturity_month_year = function(buffer, offset
 end
 
 -- Display: Maturity Month Year
-cme_futures_mdp3_sbe_v1_11_display.maturity_month_year = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.maturity_month_year = function(packet, parent, length)
   return ""
 end
 
@@ -6572,15 +6632,20 @@ end
 
 -- Dissect: Maturity Month Year
 cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.maturity_month_year then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.maturity_month_year(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.maturity_month_year(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.maturity_month_year, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.maturity_month_year, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.maturity_month_year(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Underlying Product Optional
@@ -6712,7 +6777,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_instrument_definition_spread = function(bu
 end
 
 -- Display: Md Instrument Definition Spread
-cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_spread = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_spread = function(packet, parent, length)
   return ""
 end
 
@@ -7121,7 +7186,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_instrument_definition_option = function(bu
 end
 
 -- Display: Md Instrument Definition Option
-cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_option = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_option = function(packet, parent, length)
   return ""
 end
 
@@ -7548,7 +7613,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_instrument_definition_future = function(bu
 end
 
 -- Display: Md Instrument Definition Future
-cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_future = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_instrument_definition_future = function(packet, parent, length)
   return ""
 end
 
@@ -7762,7 +7827,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_order_book_group = func
 end
 
 -- Display: Snapshot Full Refresh Order Book Group
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book_group = function(packet, parent, length)
   return ""
 end
 
@@ -7790,15 +7855,20 @@ end
 
 -- Dissect: Snapshot Full Refresh Order Book Group
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.snapshot_full_refresh_order_book_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_order_book_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Snapshot Full Refresh Order Book Groups
@@ -7815,7 +7885,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_order_book_groups = fun
 end
 
 -- Display: Snapshot Full Refresh Order Book Groups
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book_groups = function(packet, parent, length)
   return ""
 end
 
@@ -7952,7 +8022,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_order_book = function(b
 end
 
 -- Display: Snapshot Full Refresh Order Book
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book = function(packet, parent, length)
   return ""
 end
 
@@ -8021,7 +8091,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_group = function(buffer
 end
 
 -- Display: Snapshot Full Refresh Group
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_group = function(packet, parent, length)
   return ""
 end
 
@@ -8058,15 +8128,20 @@ end
 
 -- Dissect: Snapshot Full Refresh Group
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.snapshot_full_refresh_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Snapshot Full Refresh Groups
@@ -8083,7 +8158,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh_groups = function(buffe
 end
 
 -- Display: Snapshot Full Refresh Groups
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_groups = function(packet, parent, length)
   return ""
 end
 
@@ -8170,7 +8245,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.snapshot_full_refresh = function(buffer, offs
 end
 
 -- Display: Snapshot Full Refresh
-cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh = function(packet, parent, length)
   return ""
 end
 
@@ -8365,7 +8440,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_session_statistics_gr
 end
 
 -- Display: M D Incremental Refresh Session Statistics Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_session_statistics_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_session_statistics_group = function(packet, parent, length)
   return ""
 end
 
@@ -8402,15 +8477,20 @@ end
 
 -- Dissect: M D Incremental Refresh Session Statistics Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_session_statistics_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_session_statistics_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_session_statistics_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_session_statistics_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_session_statistics_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_session_statistics_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Session Statistics Groups
@@ -8427,7 +8507,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_session_statistics_gr
 end
 
 -- Display: M D Incremental Refresh Session Statistics Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_session_statistics_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_session_statistics_groups = function(packet, parent, length)
   return ""
 end
 
@@ -8478,7 +8558,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_incremental_refresh_session_statistics = f
 end
 
 -- Display: Md Incremental Refresh Session Statistics
-cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_session_statistics = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_session_statistics = function(packet, parent, length)
   return ""
 end
 
@@ -8532,7 +8612,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_limits_banding_group 
 end
 
 -- Display: M D Incremental Refresh Limits Banding Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_limits_banding_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_limits_banding_group = function(packet, parent, length)
   return ""
 end
 
@@ -8560,15 +8640,20 @@ end
 
 -- Dissect: M D Incremental Refresh Limits Banding Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_limits_banding_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_limits_banding_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_limits_banding_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_limits_banding_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_limits_banding_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_limits_banding_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Limits Banding Groups
@@ -8585,7 +8670,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_limits_banding_groups
 end
 
 -- Display: M D Incremental Refresh Limits Banding Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_limits_banding_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_limits_banding_groups = function(packet, parent, length)
   return ""
 end
 
@@ -8636,7 +8721,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_incremental_refresh_limits_banding = funct
 end
 
 -- Display: Md Incremental Refresh Limits Banding
-cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_limits_banding = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_limits_banding = function(packet, parent, length)
   return ""
 end
 
@@ -8764,7 +8849,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_daily_statistics_grou
 end
 
 -- Display: M D Incremental Refresh Daily Statistics Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_daily_statistics_group = function(packet, parent, length)
   return ""
 end
 
@@ -8804,15 +8889,20 @@ end
 
 -- Dissect: M D Incremental Refresh Daily Statistics Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_daily_statistics_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_daily_statistics_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_daily_statistics_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_daily_statistics_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_daily_statistics_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_daily_statistics_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Daily Statistics Groups
@@ -8829,7 +8919,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_daily_statistics_grou
 end
 
 -- Display: M D Incremental Refresh Daily Statistics Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_daily_statistics_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_daily_statistics_groups = function(packet, parent, length)
   return ""
 end
 
@@ -8880,7 +8970,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_incremental_refresh_daily_statistics = fun
 end
 
 -- Display: Md Incremental Refresh Daily Statistics
-cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_daily_statistics = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_daily_statistics = function(packet, parent, length)
   return ""
 end
 
@@ -8970,7 +9060,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_trade_summary_order_g
 end
 
 -- Display: M D Incremental Refresh Trade Summary Order Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_order_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_order_group = function(packet, parent, length)
   return ""
 end
 
@@ -8992,15 +9082,20 @@ end
 
 -- Dissect: M D Incremental Refresh Trade Summary Order Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_trade_summary_order_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_trade_summary_order_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_order_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_order_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_order_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_order_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Padding 5
@@ -9037,7 +9132,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.group_size_8_byte = function(buffer, offset)
 end
 
 -- Display: Group Size 8 Byte
-cme_futures_mdp3_sbe_v1_11_display.group_size_8_byte = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.group_size_8_byte = function(packet, parent, length)
   return ""
 end
 
@@ -9059,15 +9154,20 @@ end
 
 -- Dissect: Group Size 8 Byte
 cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.group_size_8_byte then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.group_size_8_byte(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.group_size_8_byte(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size_8_byte, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size_8_byte, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.group_size_8_byte(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Trade Summary Order Groups
@@ -9084,7 +9184,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_trade_summary_order_g
 end
 
 -- Display: M D Incremental Refresh Trade Summary Order Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_order_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_order_groups = function(packet, parent, length)
   return ""
 end
 
@@ -9243,7 +9343,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_trade_summary_group =
 end
 
 -- Display: M D Incremental Refresh Trade Summary Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_group = function(packet, parent, length)
   return ""
 end
 
@@ -9283,15 +9383,20 @@ end
 
 -- Dissect: M D Incremental Refresh Trade Summary Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_trade_summary_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_trade_summary_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Trade Summary Groups
@@ -9308,7 +9413,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_trade_summary_groups 
 end
 
 -- Display: M D Incremental Refresh Trade Summary Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_groups = function(packet, parent, length)
   return ""
 end
 
@@ -9361,7 +9466,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_incremental_refresh_trade_summary = functi
 end
 
 -- Display: Md Incremental Refresh Trade Summary
-cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_trade_summary = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_trade_summary = function(packet, parent, length)
   return ""
 end
 
@@ -9494,7 +9599,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_order_book_group = fu
 end
 
 -- Display: M D Incremental Refresh Order Book Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_order_book_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_order_book_group = function(packet, parent, length)
   return ""
 end
 
@@ -9531,15 +9636,20 @@ end
 
 -- Dissect: M D Incremental Refresh Order Book Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_order_book_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_order_book_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_order_book_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_order_book_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_order_book_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_order_book_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Order Book Groups
@@ -9556,7 +9666,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_order_book_groups = f
 end
 
 -- Display: M D Incremental Refresh Order Book Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_order_book_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_order_book_groups = function(packet, parent, length)
   return ""
 end
 
@@ -9607,7 +9717,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_incremental_refresh_order_book = function(
 end
 
 -- Display: Md Incremental Refresh Order Book
-cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_order_book = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_order_book = function(packet, parent, length)
   return ""
 end
 
@@ -9718,7 +9828,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_book_order_group = fu
 end
 
 -- Display: M D Incremental Refresh Book Order Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_order_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_order_group = function(packet, parent, length)
   return ""
 end
 
@@ -9749,15 +9859,20 @@ end
 
 -- Dissect: M D Incremental Refresh Book Order Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_book_order_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_book_order_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_order_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_order_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_order_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_order_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Book Order Groups
@@ -9774,7 +9889,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_book_order_groups = f
 end
 
 -- Display: M D Incremental Refresh Book Order Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_order_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_order_groups = function(packet, parent, length)
   return ""
 end
 
@@ -9857,7 +9972,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_book_group = function
 end
 
 -- Display: M D Incremental Refresh Book Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_group = function(packet, parent, length)
   return ""
 end
 
@@ -9900,15 +10015,20 @@ end
 
 -- Dissect: M D Incremental Refresh Book Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_book_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_book_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Book Groups
@@ -9925,7 +10045,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_book_groups = functio
 end
 
 -- Display: M D Incremental Refresh Book Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_groups = function(packet, parent, length)
   return ""
 end
 
@@ -9978,7 +10098,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_incremental_refresh_book = function(buffer
 end
 
 -- Display: Md Incremental Refresh Book
-cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_book = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_book = function(packet, parent, length)
   return ""
 end
 
@@ -10107,7 +10227,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.related_sym_group = function(buffer, offset)
 end
 
 -- Display: Related Sym Group
-cme_futures_mdp3_sbe_v1_11_display.related_sym_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.related_sym_group = function(packet, parent, length)
   return ""
 end
 
@@ -10138,15 +10258,20 @@ end
 
 -- Dissect: Related Sym Group
 cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.related_sym_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.related_sym_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.related_sym_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_sym_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_sym_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.related_sym_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Related Sym Groups
@@ -10163,7 +10288,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.related_sym_groups = function(buffer, offset)
 end
 
 -- Display: Related Sym Groups
-cme_futures_mdp3_sbe_v1_11_display.related_sym_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.related_sym_groups = function(packet, parent, length)
   return ""
 end
 
@@ -10272,7 +10397,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.quote_request = function(buffer, offset)
 end
 
 -- Display: Quote Request
-cme_futures_mdp3_sbe_v1_11_display.quote_request = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.quote_request = function(packet, parent, length)
   return ""
 end
 
@@ -10329,7 +10454,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_volume_group = functi
 end
 
 -- Display: M D Incremental Refresh Volume Group
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_volume_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_volume_group = function(packet, parent, length)
   return ""
 end
 
@@ -10357,15 +10482,20 @@ end
 
 -- Dissect: M D Incremental Refresh Volume Group
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_volume_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_volume_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_volume_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_volume_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_volume_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_volume_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Volume Groups
@@ -10382,7 +10512,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.m_d_incremental_refresh_volume_groups = funct
 end
 
 -- Display: M D Incremental Refresh Volume Groups
-cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_volume_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_volume_groups = function(packet, parent, length)
   return ""
 end
 
@@ -10433,7 +10563,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_incremental_refresh_volume = function(buff
 end
 
 -- Display: Md Incremental Refresh Volume
-cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_volume = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.md_incremental_refresh_volume = function(packet, parent, length)
   return ""
 end
 
@@ -10583,7 +10713,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.security_status = function(buffer, offset)
 end
 
 -- Display: Security Status
-cme_futures_mdp3_sbe_v1_11_display.security_status = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.security_status = function(packet, parent, length)
   return ""
 end
 
@@ -10623,15 +10753,20 @@ end
 
 -- Dissect: Security Status
 cme_futures_mdp3_sbe_v1_11_dissect.security_status = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_status then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.security_status(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.security_status(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.security_status_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.security_status(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.security_status_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.security_status_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -10680,7 +10815,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.admin_logout = function(buffer, offset)
 end
 
 -- Display: Admin Logout
-cme_futures_mdp3_sbe_v1_11_display.admin_logout = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.admin_logout = function(packet, parent, length)
   return ""
 end
 
@@ -10696,15 +10831,20 @@ end
 
 -- Dissect: Admin Logout
 cme_futures_mdp3_sbe_v1_11_dissect.admin_logout = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.admin_logout then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.admin_logout(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.admin_logout(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_logout, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_logout, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.admin_logout_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.admin_logout(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.admin_logout_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.admin_logout_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Heart Bt Int
@@ -10737,7 +10877,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.admin_login = function(buffer, offset)
 end
 
 -- Display: Admin Login
-cme_futures_mdp3_sbe_v1_11_display.admin_login = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.admin_login = function(packet, parent, length)
   return ""
 end
 
@@ -10753,15 +10893,20 @@ end
 
 -- Dissect: Admin Login
 cme_futures_mdp3_sbe_v1_11_dissect.admin_login = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.admin_login then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.admin_login(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.admin_login(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_login, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_login, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.admin_login_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.admin_login(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.admin_login_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.admin_login_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Channel Reset Group
@@ -10774,7 +10919,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.channel_reset_group = function(buffer, offset
 end
 
 -- Display: Channel Reset Group
-cme_futures_mdp3_sbe_v1_11_display.channel_reset_group = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.channel_reset_group = function(packet, parent, length)
   return ""
 end
 
@@ -10790,15 +10935,20 @@ end
 
 -- Dissect: Channel Reset Group
 cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.channel_reset_group then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.channel_reset_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.channel_reset_group(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.channel_reset_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.channel_reset_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.channel_reset_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Channel Reset Groups
@@ -10815,7 +10965,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.channel_reset_groups = function(buffer, offse
 end
 
 -- Display: Channel Reset Groups
-cme_futures_mdp3_sbe_v1_11_display.channel_reset_groups = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.channel_reset_groups = function(packet, parent, length)
   return ""
 end
 
@@ -10864,7 +11014,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.channel_reset = function(buffer, offset)
 end
 
 -- Display: Channel Reset
-cme_futures_mdp3_sbe_v1_11_display.channel_reset = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.channel_reset = function(packet, parent, length)
   return ""
 end
 
@@ -11274,7 +11424,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-cme_futures_mdp3_sbe_v1_11_display.message_header = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -11299,15 +11449,20 @@ end
 
 -- Dissect: Message Header
 cme_futures_mdp3_sbe_v1_11_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.message_header(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.message_header, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Message Size
@@ -11347,7 +11502,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-cme_futures_mdp3_sbe_v1_11_display.message = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -11435,7 +11590,7 @@ cme_futures_mdp3_sbe_v1_11_size_of.binary_packet_header = function(buffer, offse
 end
 
 -- Display: Binary Packet Header
-cme_futures_mdp3_sbe_v1_11_display.binary_packet_header = function(buffer, offset, size, packet, parent)
+cme_futures_mdp3_sbe_v1_11_display.binary_packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -11454,15 +11609,20 @@ end
 
 -- Dissect: Binary Packet Header
 cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.binary_packet_header then
-    local length = cme_futures_mdp3_sbe_v1_11_size_of.binary_packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_futures_mdp3_sbe_v1_11_display.binary_packet_header(buffer, packet, parent)
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.binary_packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.binary_packet_header, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_futures_mdp3_sbe_v1_11_display.binary_packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

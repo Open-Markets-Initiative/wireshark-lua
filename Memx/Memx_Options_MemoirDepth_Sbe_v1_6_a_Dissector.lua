@@ -313,7 +313,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.clear_book_message = function(buffer
 end
 
 -- Display: Clear Book Message
-memx_options_memoirdepth_sbe_v1_6_a_display.clear_book_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.clear_book_message = function(packet, parent, length)
   return ""
 end
 
@@ -332,15 +332,20 @@ end
 
 -- Dissect: Clear Book Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.clear_book_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.clear_book_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.clear_book_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.clear_book_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.clear_book_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.clear_book_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.clear_book_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price
@@ -532,7 +537,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.order_executed_message = function(bu
 end
 
 -- Display: Order Executed Message
-memx_options_memoirdepth_sbe_v1_6_a_display.order_executed_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.order_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -569,15 +574,20 @@ end
 
 -- Dissect: Order Executed Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.order_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.order_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_executed_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity Reduced
@@ -664,7 +674,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.order_reduced_message = function(buf
 end
 
 -- Display: Order Reduced Message
-memx_options_memoirdepth_sbe_v1_6_a_display.order_reduced_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.order_reduced_message = function(packet, parent, length)
   return ""
 end
 
@@ -701,15 +711,20 @@ end
 
 -- Dissect: Order Reduced Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.order_reduced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_reduced_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.order_reduced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_reduced_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_reduced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_reduced_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_reduced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Deleted Message
@@ -728,7 +743,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.order_deleted_message = function(buf
 end
 
 -- Display: Order Deleted Message
-memx_options_memoirdepth_sbe_v1_6_a_display.order_deleted_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.order_deleted_message = function(packet, parent, length)
   return ""
 end
 
@@ -753,15 +768,20 @@ end
 
 -- Dissect: Order Deleted Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.order_deleted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_deleted_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.order_deleted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_deleted_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_deleted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_deleted_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_deleted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Added Extended Message
@@ -786,7 +806,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.order_added_extended_message = funct
 end
 
 -- Display: Order Added Extended Message
-memx_options_memoirdepth_sbe_v1_6_a_display.order_added_extended_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.order_added_extended_message = function(packet, parent, length)
   return ""
 end
 
@@ -820,15 +840,20 @@ end
 
 -- Dissect: Order Added Extended Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_extended_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_added_extended_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.order_added_extended_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_added_extended_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_added_extended_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_added_extended_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_extended_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_added_extended_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_extended_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_extended_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Added Long Message
@@ -851,7 +876,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.order_added_long_message = function(
 end
 
 -- Display: Order Added Long Message
-memx_options_memoirdepth_sbe_v1_6_a_display.order_added_long_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.order_added_long_message = function(packet, parent, length)
   return ""
 end
 
@@ -882,15 +907,20 @@ end
 
 -- Dissect: Order Added Long Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_long_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_added_long_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.order_added_long_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_added_long_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_added_long_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_added_long_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_long_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_added_long_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_long_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_long_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price Short
@@ -959,7 +989,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.order_added_short_message = function
 end
 
 -- Display: Order Added Short Message
-memx_options_memoirdepth_sbe_v1_6_a_display.order_added_short_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.order_added_short_message = function(packet, parent, length)
   return ""
 end
 
@@ -990,15 +1020,20 @@ end
 
 -- Dissect: Order Added Short Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_short_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_added_short_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.order_added_short_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_added_short_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_added_short_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.order_added_short_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_short_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.order_added_short_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_short_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.order_added_short_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: As Of Sequence Number
@@ -1033,7 +1068,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.snapshot_complete_message = function
 end
 
 -- Display: Snapshot Complete Message
-memx_options_memoirdepth_sbe_v1_6_a_display.snapshot_complete_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.snapshot_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -1052,15 +1087,20 @@ end
 
 -- Dissect: Snapshot Complete Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.snapshot_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.snapshot_complete_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.snapshot_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.snapshot_complete_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.snapshot_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.snapshot_complete_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.snapshot_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Corrected Price
@@ -1177,7 +1217,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.corrected_trade_message = function(b
 end
 
 -- Display: Corrected Trade Message
-memx_options_memoirdepth_sbe_v1_6_a_display.corrected_trade_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.corrected_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -1211,15 +1251,20 @@ end
 
 -- Dissect: Corrected Trade Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.corrected_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.corrected_trade_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.corrected_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.corrected_trade_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.corrected_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.corrected_trade_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.corrected_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Broken Trade Message
@@ -1240,7 +1285,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.broken_trade_message = function(buff
 end
 
 -- Display: Broken Trade Message
-memx_options_memoirdepth_sbe_v1_6_a_display.broken_trade_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.broken_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -1268,15 +1313,20 @@ end
 
 -- Dissect: Broken Trade Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.broken_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.broken_trade_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.broken_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.broken_trade_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.broken_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.broken_trade_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.broken_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Underlier
@@ -1369,7 +1419,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.underlier_instrument_status_message 
 end
 
 -- Display: Underlier Instrument Status Message
-memx_options_memoirdepth_sbe_v1_6_a_display.underlier_instrument_status_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.underlier_instrument_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1391,15 +1441,20 @@ end
 
 -- Dissect: Underlier Instrument Status Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.underlier_instrument_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.underlier_instrument_status_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.underlier_instrument_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.underlier_instrument_status_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.underlier_instrument_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.underlier_instrument_status_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.underlier_instrument_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.underlier_instrument_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.underlier_instrument_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.underlier_instrument_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Instrument Trading Status Reason
@@ -1500,7 +1555,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.options_instrument_status_message = 
 end
 
 -- Display: Options Instrument Status Message
-memx_options_memoirdepth_sbe_v1_6_a_display.options_instrument_status_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.options_instrument_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1528,15 +1583,20 @@ end
 
 -- Dissect: Options Instrument Status Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.options_instrument_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.options_instrument_status_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.options_instrument_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.options_instrument_status_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.options_instrument_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.options_instrument_status_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.options_instrument_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.options_instrument_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.options_instrument_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.options_instrument_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Is Test Symbol
@@ -1795,7 +1855,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.instrument_directory_message = funct
 end
 
 -- Display: Instrument Directory Message
-memx_options_memoirdepth_sbe_v1_6_a_display.instrument_directory_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.instrument_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -1841,15 +1901,20 @@ end
 
 -- Dissect: Instrument Directory Message
 memx_options_memoirdepth_sbe_v1_6_a_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_directory_message then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.instrument_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.instrument_directory_message(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.instrument_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.instrument_directory_message, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.instrument_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -2129,7 +2194,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.sbe_header = function(buffer, offset
 end
 
 -- Display: Sbe Header
-memx_options_memoirdepth_sbe_v1_6_a_display.sbe_header = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.sbe_header = function(packet, parent, length)
   return ""
 end
 
@@ -2154,15 +2219,20 @@ end
 
 -- Dissect: Sbe Header
 memx_options_memoirdepth_sbe_v1_6_a_dissect.sbe_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sbe_header then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.sbe_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.sbe_header(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.sbe_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.sbe_header(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Sbe Message
@@ -2180,7 +2250,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.sbe_message = function(buffer, offse
 end
 
 -- Display: Sbe Message
-memx_options_memoirdepth_sbe_v1_6_a_display.sbe_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.sbe_message = function(packet, parent, length)
   return ""
 end
 
@@ -2245,7 +2315,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-memx_options_memoirdepth_sbe_v1_6_a_display.message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -2303,7 +2373,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.sequenced_message = function(buffer,
 end
 
 -- Display: Sequenced Message
-memx_options_memoirdepth_sbe_v1_6_a_display.sequenced_message = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.sequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -2489,7 +2559,7 @@ memx_options_memoirdepth_sbe_v1_6_a_size_of.common_header = function(buffer, off
 end
 
 -- Display: Common Header
-memx_options_memoirdepth_sbe_v1_6_a_display.common_header = function(buffer, offset, size, packet, parent)
+memx_options_memoirdepth_sbe_v1_6_a_display.common_header = function(packet, parent, length)
   return ""
 end
 
@@ -2514,15 +2584,20 @@ end
 
 -- Dissect: Common Header
 memx_options_memoirdepth_sbe_v1_6_a_dissect.common_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.common_header then
-    local length = memx_options_memoirdepth_sbe_v1_6_a_size_of.common_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_memoirdepth_sbe_v1_6_a_display.common_header(buffer, packet, parent)
-    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.common_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_memoirdepth_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
+    local index = memx_options_memoirdepth_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirdepth_sbe_v1_6_a_display.common_header(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_memoirdepth_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirdepth_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

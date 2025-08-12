@@ -345,7 +345,7 @@ asx_securities_trade_ouch_v2_0_size_of.cancel_by_order_id_message = function(buf
 end
 
 -- Display: Cancel By Order Id Message
-asx_securities_trade_ouch_v2_0_display.cancel_by_order_id_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.cancel_by_order_id_message = function(packet, parent, length)
   return ""
 end
 
@@ -367,15 +367,20 @@ end
 
 -- Dissect: Cancel By Order Id Message
 asx_securities_trade_ouch_v2_0_dissect.cancel_by_order_id_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_by_order_id_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.cancel_by_order_id_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.cancel_by_order_id_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.cancel_by_order_id_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.cancel_by_order_id_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.cancel_by_order_id_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.cancel_by_order_id_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.cancel_by_order_id_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.cancel_by_order_id_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Token
@@ -408,7 +413,7 @@ asx_securities_trade_ouch_v2_0_size_of.cancel_order_message = function(buffer, o
 end
 
 -- Display: Cancel Order Message
-asx_securities_trade_ouch_v2_0_display.cancel_order_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -424,15 +429,20 @@ end
 
 -- Dissect: Cancel Order Message
 asx_securities_trade_ouch_v2_0_dissect.cancel_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.cancel_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.cancel_order_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.cancel_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.cancel_order_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.cancel_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Minimum Acceptable Quantity
@@ -818,7 +828,7 @@ asx_securities_trade_ouch_v2_0_size_of.replace_order_message = function(buffer, 
 end
 
 -- Display: Replace Order Message
-asx_securities_trade_ouch_v2_0_display.replace_order_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.replace_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -879,15 +889,20 @@ end
 
 -- Dissect: Replace Order Message
 asx_securities_trade_ouch_v2_0_dissect.replace_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replace_order_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.replace_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.replace_order_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.replace_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.replace_order_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.replace_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ouch Order Type
@@ -1061,7 +1076,7 @@ asx_securities_trade_ouch_v2_0_size_of.enter_order_message = function(buffer, of
 end
 
 -- Display: Enter Order Message
-asx_securities_trade_ouch_v2_0_display.enter_order_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.enter_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -1137,15 +1152,20 @@ end
 
 -- Dissect: Enter Order Message
 asx_securities_trade_ouch_v2_0_dissect.enter_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.enter_order_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.enter_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.enter_order_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.enter_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.enter_order_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.enter_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Unsequenced Message
@@ -1261,7 +1281,7 @@ asx_securities_trade_ouch_v2_0_size_of.unsequenced_data_packet = function(buffer
 end
 
 -- Display: Unsequenced Data Packet
-asx_securities_trade_ouch_v2_0_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.unsequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1391,7 +1411,7 @@ asx_securities_trade_ouch_v2_0_size_of.login_request_packet = function(buffer, o
 end
 
 -- Display: Login Request Packet
-asx_securities_trade_ouch_v2_0_display.login_request_packet = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.login_request_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1416,15 +1436,20 @@ end
 
 -- Dissect: Login Request Packet
 asx_securities_trade_ouch_v2_0_dissect.login_request_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_packet then
-    local length = asx_securities_trade_ouch_v2_0_size_of.login_request_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.login_request_packet(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.login_request_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.login_request_packet, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.login_request_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Attributes
@@ -1577,7 +1602,7 @@ asx_securities_trade_ouch_v2_0_size_of.order_executed_message = function(buffer,
 end
 
 -- Display: Order Executed Message
-asx_securities_trade_ouch_v2_0_display.order_executed_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.order_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -1614,15 +1639,20 @@ end
 
 -- Dissect: Order Executed Message
 asx_securities_trade_ouch_v2_0_dissect.order_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.order_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_executed_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.order_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason
@@ -1687,7 +1717,7 @@ asx_securities_trade_ouch_v2_0_size_of.order_cancelled_message = function(buffer
 end
 
 -- Display: Order Cancelled Message
-asx_securities_trade_ouch_v2_0_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.order_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -1718,15 +1748,20 @@ end
 
 -- Dissect: Order Cancelled Message
 asx_securities_trade_ouch_v2_0_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancelled_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.order_cancelled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.order_cancelled_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_cancelled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_cancelled_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.order_cancelled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order State
@@ -1837,7 +1872,7 @@ asx_securities_trade_ouch_v2_0_size_of.order_replaced_message = function(buffer,
 end
 
 -- Display: Order Replaced Message
-asx_securities_trade_ouch_v2_0_display.order_replaced_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.order_replaced_message = function(packet, parent, length)
   return ""
 end
 
@@ -1925,15 +1960,20 @@ end
 
 -- Dissect: Order Replaced Message
 asx_securities_trade_ouch_v2_0_dissect.order_replaced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replaced_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.order_replaced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.order_replaced_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_replaced_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.order_replaced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reject Code
@@ -1970,7 +2010,7 @@ asx_securities_trade_ouch_v2_0_size_of.order_rejected_message = function(buffer,
 end
 
 -- Display: Order Rejected Message
-asx_securities_trade_ouch_v2_0_display.order_rejected_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.order_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -1992,15 +2032,20 @@ end
 
 -- Dissect: Order Rejected Message
 asx_securities_trade_ouch_v2_0_dissect.order_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_rejected_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.order_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.order_rejected_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_rejected_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.order_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Accepted Message
@@ -2059,7 +2104,7 @@ asx_securities_trade_ouch_v2_0_size_of.order_accepted_message = function(buffer,
 end
 
 -- Display: Order Accepted Message
-asx_securities_trade_ouch_v2_0_display.order_accepted_message = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.order_accepted_message = function(packet, parent, length)
   return ""
 end
 
@@ -2144,15 +2189,20 @@ end
 
 -- Dissect: Order Accepted Message
 asx_securities_trade_ouch_v2_0_dissect.order_accepted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_accepted_message then
-    local length = asx_securities_trade_ouch_v2_0_size_of.order_accepted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.order_accepted_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_accepted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.order_accepted_message, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.order_accepted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Sequenced Message
@@ -2279,7 +2329,7 @@ asx_securities_trade_ouch_v2_0_size_of.sequenced_data_packet = function(buffer, 
 end
 
 -- Display: Sequenced Data Packet
-asx_securities_trade_ouch_v2_0_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.sequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2343,7 +2393,7 @@ asx_securities_trade_ouch_v2_0_size_of.login_rejected_packet = function(buffer, 
 end
 
 -- Display: Login Rejected Packet
-asx_securities_trade_ouch_v2_0_display.login_rejected_packet = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.login_rejected_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2359,15 +2409,20 @@ end
 
 -- Dissect: Login Rejected Packet
 asx_securities_trade_ouch_v2_0_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_packet then
-    local length = asx_securities_trade_ouch_v2_0_size_of.login_rejected_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.login_rejected_packet(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.login_rejected_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.login_rejected_packet, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.login_rejected_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sequence Number
@@ -2422,7 +2477,7 @@ asx_securities_trade_ouch_v2_0_size_of.login_accepted_packet = function(buffer, 
 end
 
 -- Display: Login Accepted Packet
-asx_securities_trade_ouch_v2_0_display.login_accepted_packet = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.login_accepted_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2441,15 +2496,20 @@ end
 
 -- Dissect: Login Accepted Packet
 asx_securities_trade_ouch_v2_0_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_packet then
-    local length = asx_securities_trade_ouch_v2_0_size_of.login_accepted_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.login_accepted_packet(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.login_accepted_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.login_accepted_packet, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.login_accepted_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -2482,7 +2542,7 @@ asx_securities_trade_ouch_v2_0_size_of.debug_packet = function(buffer, offset)
 end
 
 -- Display: Debug Packet
-asx_securities_trade_ouch_v2_0_display.debug_packet = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.debug_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2498,15 +2558,20 @@ end
 
 -- Dissect: Debug Packet
 asx_securities_trade_ouch_v2_0_dissect.debug_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.debug_packet then
-    local length = asx_securities_trade_ouch_v2_0_size_of.debug_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.debug_packet(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.debug_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.debug_packet, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.debug_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -2677,7 +2742,7 @@ asx_securities_trade_ouch_v2_0_size_of.packet_header = function(buffer, offset)
 end
 
 -- Display: Packet Header
-asx_securities_trade_ouch_v2_0_display.packet_header = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -2696,19 +2761,24 @@ end
 
 -- Dissect: Packet Header
 asx_securities_trade_ouch_v2_0_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = asx_securities_trade_ouch_v2_0_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_trade_ouch_v2_0_display.packet_header(buffer, packet, parent)
-    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.packet_header, buffer(offset, 0))
+    local index = asx_securities_trade_ouch_v2_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_trade_ouch_v2_0_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_trade_ouch_v2_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_trade_ouch_v2_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Soup Bin Tcp Packet
-asx_securities_trade_ouch_v2_0_display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
+asx_securities_trade_ouch_v2_0_display.soup_bin_tcp_packet = function(packet, parent, length)
   return ""
 end
 

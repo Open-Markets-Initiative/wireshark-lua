@@ -569,7 +569,7 @@ otc_markets_multicast_ats_v4_5_size_of.trade_message = function(buffer, offset)
 end
 
 -- Display: Trade Message
-otc_markets_multicast_ats_v4_5_display.trade_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -612,15 +612,20 @@ end
 
 -- Dissect: Trade Message
 otc_markets_multicast_ats_v4_5_dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.trade_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Issuer Name
@@ -1351,7 +1356,7 @@ otc_markets_multicast_ats_v4_5_size_of.extended_security_no_cusip_message = func
 end
 
 -- Display: Extended Security No Cusip Message
-otc_markets_multicast_ats_v4_5_display.extended_security_no_cusip_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.extended_security_no_cusip_message = function(packet, parent, length)
   return ""
 end
 
@@ -1646,7 +1651,7 @@ otc_markets_multicast_ats_v4_5_size_of.extended_security_message = function(buff
 end
 
 -- Display: Extended Security Message
-otc_markets_multicast_ats_v4_5_display.extended_security_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.extended_security_message = function(packet, parent, length)
   return ""
 end
 
@@ -1936,7 +1941,7 @@ otc_markets_multicast_ats_v4_5_size_of.reference_price_update_message = function
 end
 
 -- Display: Reference Price Update Message
-otc_markets_multicast_ats_v4_5_display.reference_price_update_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.reference_price_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -1967,15 +1972,20 @@ end
 
 -- Dissect: Reference Price Update Message
 otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reference_price_update_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.reference_price_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.reference_price_update_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.reference_price_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Bid Time Milli
@@ -2158,7 +2168,7 @@ otc_markets_multicast_ats_v4_5_size_of.reference_price_message = function(buffer
 end
 
 -- Display: Reference Price Message
-otc_markets_multicast_ats_v4_5_display.reference_price_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.reference_price_message = function(packet, parent, length)
   return ""
 end
 
@@ -2204,15 +2214,20 @@ end
 
 -- Dissect: Reference Price Message
 otc_markets_multicast_ats_v4_5_dissect.reference_price_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reference_price_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.reference_price_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.reference_price_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.reference_price_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Num Priced Mp
@@ -2297,7 +2312,7 @@ otc_markets_multicast_ats_v4_5_size_of.inside_update_message = function(buffer, 
 end
 
 -- Display: Inside Update Message
-otc_markets_multicast_ats_v4_5_display.inside_update_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.inside_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -2331,15 +2346,20 @@ end
 
 -- Dissect: Inside Update Message
 otc_markets_multicast_ats_v4_5_dissect.inside_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.inside_update_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.inside_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.inside_update_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.inside_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.inside_update_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.inside_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Close
@@ -2396,7 +2416,7 @@ otc_markets_multicast_ats_v4_5_size_of.market_open_message = function(buffer, of
 end
 
 -- Display: Market Open Message
-otc_markets_multicast_ats_v4_5_display.market_open_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.market_open_message = function(packet, parent, length)
   return ""
 end
 
@@ -2418,15 +2438,20 @@ end
 
 -- Dissect: Market Open Message
 otc_markets_multicast_ats_v4_5_dissect.market_open_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_open_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.market_open_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.market_open_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_open_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_open_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.market_open_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Extended Quote Flags
@@ -2595,7 +2620,7 @@ otc_markets_multicast_ats_v4_5_size_of.quote_update_message = function(buffer, o
 end
 
 -- Display: Quote Update Message
-otc_markets_multicast_ats_v4_5_display.quote_update_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.quote_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -2635,15 +2660,20 @@ end
 
 -- Dissect: Quote Update Message
 otc_markets_multicast_ats_v4_5_dissect.quote_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_update_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.quote_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.quote_update_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_update_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.quote_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Bid Qap
@@ -2766,7 +2796,7 @@ otc_markets_multicast_ats_v4_5_size_of.quote_message = function(buffer, offset)
 end
 
 -- Display: Quote Message
-otc_markets_multicast_ats_v4_5_display.quote_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.quote_message = function(packet, parent, length)
   return ""
 end
 
@@ -2827,15 +2857,20 @@ end
 
 -- Dissect: Quote Message
 otc_markets_multicast_ats_v4_5_dissect.quote_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.quote_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.quote_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.quote_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Security Message
@@ -2866,7 +2901,7 @@ otc_markets_multicast_ats_v4_5_size_of.security_message = function(buffer, offse
 end
 
 -- Display: Security Message
-otc_markets_multicast_ats_v4_5_display.security_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.security_message = function(packet, parent, length)
   return ""
 end
 
@@ -2909,15 +2944,20 @@ end
 
 -- Dissect: Security Message
 otc_markets_multicast_ats_v4_5_dissect.security_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.security_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.security_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.security_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.security_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.security_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Msg Ct
@@ -2974,7 +3014,7 @@ otc_markets_multicast_ats_v4_5_size_of.market_close_message = function(buffer, o
 end
 
 -- Display: Market Close Message
-otc_markets_multicast_ats_v4_5_display.market_close_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.market_close_message = function(packet, parent, length)
   return ""
 end
 
@@ -2996,15 +3036,20 @@ end
 
 -- Dissect: Market Close Message
 otc_markets_multicast_ats_v4_5_dissect.market_close_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_close_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.market_close_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.market_close_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.market_close_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Spin Last Seq Num
@@ -3115,7 +3160,7 @@ otc_markets_multicast_ats_v4_5_size_of.end_of_spin_message = function(buffer, of
 end
 
 -- Display: End Of Spin Message
-otc_markets_multicast_ats_v4_5_display.end_of_spin_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.end_of_spin_message = function(packet, parent, length)
   return ""
 end
 
@@ -3143,15 +3188,20 @@ end
 
 -- Dissect: End Of Spin Message
 otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.end_of_spin_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.end_of_spin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.end_of_spin_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.end_of_spin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Spin Start Time Milli
@@ -3190,7 +3240,7 @@ otc_markets_multicast_ats_v4_5_size_of.start_of_spin_message = function(buffer, 
 end
 
 -- Display: Start Of Spin Message
-otc_markets_multicast_ats_v4_5_display.start_of_spin_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.start_of_spin_message = function(packet, parent, length)
   return ""
 end
 
@@ -3215,15 +3265,20 @@ end
 
 -- Dissect: Start Of Spin Message
 otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.start_of_spin_message then
-    local length = otc_markets_multicast_ats_v4_5_size_of.start_of_spin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.start_of_spin_message(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.start_of_spin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -3427,7 +3482,7 @@ otc_markets_multicast_ats_v4_5_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-otc_markets_multicast_ats_v4_5_display.message_header = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -3446,19 +3501,24 @@ end
 
 -- Dissect: Message Header
 otc_markets_multicast_ats_v4_5_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = otc_markets_multicast_ats_v4_5_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.message_header(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.message_header, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-otc_markets_multicast_ats_v4_5_display.message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -3650,7 +3710,7 @@ otc_markets_multicast_ats_v4_5_size_of.packet_header = function(buffer, offset)
 end
 
 -- Display: Packet Header
-otc_markets_multicast_ats_v4_5_display.packet_header = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -3678,15 +3738,20 @@ end
 
 -- Dissect: Packet Header
 otc_markets_multicast_ats_v4_5_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = otc_markets_multicast_ats_v4_5_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = otc_markets_multicast_ats_v4_5_display.packet_header(buffer, packet, parent)
-    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_header, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otc_markets_multicast_ats_v4_5_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

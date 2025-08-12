@@ -588,7 +588,7 @@ asx_securities_t24_itch_v1_13_size_of.volume_and_open_interest = function(buffer
 end
 
 -- Display: Volume And Open Interest
-asx_securities_t24_itch_v1_13_display.volume_and_open_interest = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.volume_and_open_interest = function(packet, parent, length)
   return ""
 end
 
@@ -619,15 +619,20 @@ end
 
 -- Dissect: Volume And Open Interest
 asx_securities_t24_itch_v1_13_dissect.volume_and_open_interest = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.volume_and_open_interest then
-    local length = asx_securities_t24_itch_v1_13_size_of.volume_and_open_interest(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.volume_and_open_interest(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.volume_and_open_interest, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.volume_and_open_interest, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.volume_and_open_interest(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.volume_and_open_interest_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Etr Lower Price
@@ -776,7 +781,7 @@ asx_securities_t24_itch_v1_13_size_of.anomalous_order_threshold_publish = functi
 end
 
 -- Display: Anomalous Order Threshold Publish
-asx_securities_t24_itch_v1_13_display.anomalous_order_threshold_publish = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.anomalous_order_threshold_publish = function(packet, parent, length)
   return ""
 end
 
@@ -816,15 +821,20 @@ end
 
 -- Dissect: Anomalous Order Threshold Publish
 asx_securities_t24_itch_v1_13_dissect.anomalous_order_threshold_publish = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.anomalous_order_threshold_publish then
-    local length = asx_securities_t24_itch_v1_13_size_of.anomalous_order_threshold_publish(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.anomalous_order_threshold_publish(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.anomalous_order_threshold_publish, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.anomalous_order_threshold_publish(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.anomalous_order_threshold_publish_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity
@@ -885,7 +895,7 @@ asx_securities_t24_itch_v1_13_size_of.request_for_quote = function(buffer, offse
 end
 
 -- Display: Request For Quote
-asx_securities_t24_itch_v1_13_display.request_for_quote = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.request_for_quote = function(packet, parent, length)
   return ""
 end
 
@@ -913,15 +923,20 @@ end
 
 -- Dissect: Request For Quote
 asx_securities_t24_itch_v1_13_dissect.request_for_quote = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.request_for_quote then
-    local length = asx_securities_t24_itch_v1_13_size_of.request_for_quote(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.request_for_quote(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.request_for_quote, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.request_for_quote, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.request_for_quote_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.request_for_quote(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.request_for_quote_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.request_for_quote_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text Message
@@ -980,7 +995,7 @@ asx_securities_t24_itch_v1_13_size_of.ad_hoc_text = function(buffer, offset)
 end
 
 -- Display: Ad Hoc Text
-asx_securities_t24_itch_v1_13_display.ad_hoc_text = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.ad_hoc_text = function(packet, parent, length)
   return ""
 end
 
@@ -1005,15 +1020,20 @@ end
 
 -- Dissect: Ad Hoc Text
 asx_securities_t24_itch_v1_13_dissect.ad_hoc_text = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.ad_hoc_text then
-    local length = asx_securities_t24_itch_v1_13_size_of.ad_hoc_text(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.ad_hoc_text(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.ad_hoc_text, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.ad_hoc_text, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.ad_hoc_text_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.ad_hoc_text(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.ad_hoc_text_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.ad_hoc_text_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Settlement Type
@@ -1096,7 +1116,7 @@ asx_securities_t24_itch_v1_13_size_of.market_settlement = function(buffer, offse
 end
 
 -- Display: Market Settlement
-asx_securities_t24_itch_v1_13_display.market_settlement = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.market_settlement = function(packet, parent, length)
   return ""
 end
 
@@ -1127,15 +1147,20 @@ end
 
 -- Dissect: Market Settlement
 asx_securities_t24_itch_v1_13_dissect.market_settlement = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_settlement then
-    local length = asx_securities_t24_itch_v1_13_size_of.market_settlement(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.market_settlement(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.market_settlement, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.market_settlement, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.market_settlement_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.market_settlement(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.market_settlement_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.market_settlement_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Updates
@@ -1382,7 +1407,7 @@ asx_securities_t24_itch_v1_13_size_of.open_high_low_last_trade_adjustment = func
 end
 
 -- Display: Open High Low Last Trade Adjustment
-asx_securities_t24_itch_v1_13_display.open_high_low_last_trade_adjustment = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.open_high_low_last_trade_adjustment = function(packet, parent, length)
   return ""
 end
 
@@ -1428,15 +1453,20 @@ end
 
 -- Dissect: Open High Low Last Trade Adjustment
 asx_securities_t24_itch_v1_13_dissect.open_high_low_last_trade_adjustment = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.open_high_low_last_trade_adjustment then
-    local length = asx_securities_t24_itch_v1_13_size_of.open_high_low_last_trade_adjustment(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.open_high_low_last_trade_adjustment(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.open_high_low_last_trade_adjustment, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.open_high_low_last_trade_adjustment_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.open_high_low_last_trade_adjustment(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.open_high_low_last_trade_adjustment_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.open_high_low_last_trade_adjustment_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Best Ask Quantity
@@ -1563,7 +1593,7 @@ asx_securities_t24_itch_v1_13_size_of.equilibrium_price_auction_info = function(
 end
 
 -- Display: Equilibrium Price Auction Info
-asx_securities_t24_itch_v1_13_display.equilibrium_price_auction_info = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.equilibrium_price_auction_info = function(packet, parent, length)
   return ""
 end
 
@@ -1600,15 +1630,20 @@ end
 
 -- Dissect: Equilibrium Price Auction Info
 asx_securities_t24_itch_v1_13_dissect.equilibrium_price_auction_info = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.equilibrium_price_auction_info then
-    local length = asx_securities_t24_itch_v1_13_size_of.equilibrium_price_auction_info(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.equilibrium_price_auction_info(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.equilibrium_price_auction_info, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.equilibrium_price_auction_info(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.equilibrium_price_auction_info_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Number
@@ -1645,7 +1680,7 @@ asx_securities_t24_itch_v1_13_size_of.trade_cancellation = function(buffer, offs
 end
 
 -- Display: Trade Cancellation
-asx_securities_t24_itch_v1_13_display.trade_cancellation = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.trade_cancellation = function(packet, parent, length)
   return ""
 end
 
@@ -1667,15 +1702,20 @@ end
 
 -- Dissect: Trade Cancellation
 asx_securities_t24_itch_v1_13_dissect.trade_cancellation = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancellation then
-    local length = asx_securities_t24_itch_v1_13_size_of.trade_cancellation(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.trade_cancellation(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.trade_cancellation, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.trade_cancellation, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.trade_cancellation_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.trade_cancellation(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.trade_cancellation_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.trade_cancellation_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Printable
@@ -1993,7 +2033,7 @@ asx_securities_t24_itch_v1_13_size_of.custom_market_trade = function(buffer, off
 end
 
 -- Display: Custom Market Trade
-asx_securities_t24_itch_v1_13_display.custom_market_trade = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.custom_market_trade = function(packet, parent, length)
   return ""
 end
 
@@ -2051,15 +2091,20 @@ end
 
 -- Dissect: Custom Market Trade
 asx_securities_t24_itch_v1_13_dissect.custom_market_trade = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.custom_market_trade then
-    local length = asx_securities_t24_itch_v1_13_size_of.custom_market_trade(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.custom_market_trade(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_trade, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_trade, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.custom_market_trade_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.custom_market_trade(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.custom_market_trade_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.custom_market_trade_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Side Of Leg
@@ -2112,7 +2157,7 @@ asx_securities_t24_itch_v1_13_size_of.custom_market_executed = function(buffer, 
 end
 
 -- Display: Custom Market Executed
-asx_securities_t24_itch_v1_13_display.custom_market_executed = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.custom_market_executed = function(packet, parent, length)
   return ""
 end
 
@@ -2158,15 +2203,20 @@ end
 
 -- Dissect: Custom Market Executed
 asx_securities_t24_itch_v1_13_dissect.custom_market_executed = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.custom_market_executed then
-    local length = asx_securities_t24_itch_v1_13_size_of.custom_market_executed(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.custom_market_executed(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_executed, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_executed, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.custom_market_executed_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.custom_market_executed(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.custom_market_executed_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.custom_market_executed_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Spread Trade Price
@@ -2391,7 +2441,7 @@ asx_securities_t24_itch_v1_13_size_of.trade_spread_execution_chain = function(bu
 end
 
 -- Display: Trade Spread Execution Chain
-asx_securities_t24_itch_v1_13_display.trade_spread_execution_chain = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.trade_spread_execution_chain = function(packet, parent, length)
   return ""
 end
 
@@ -2455,15 +2505,20 @@ end
 
 -- Dissect: Trade Spread Execution Chain
 asx_securities_t24_itch_v1_13_dissect.trade_spread_execution_chain = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_spread_execution_chain then
-    local length = asx_securities_t24_itch_v1_13_size_of.trade_spread_execution_chain(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.trade_spread_execution_chain(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.trade_spread_execution_chain, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.trade_spread_execution_chain_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.trade_spread_execution_chain(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.trade_spread_execution_chain_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.trade_spread_execution_chain_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Spread Executed
@@ -2502,7 +2557,7 @@ asx_securities_t24_itch_v1_13_size_of.spread_executed = function(buffer, offset)
 end
 
 -- Display: Spread Executed
-asx_securities_t24_itch_v1_13_display.spread_executed = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.spread_executed = function(packet, parent, length)
   return ""
 end
 
@@ -2557,15 +2612,20 @@ end
 
 -- Dissect: Spread Executed
 asx_securities_t24_itch_v1_13_dissect.spread_executed = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.spread_executed then
-    local length = asx_securities_t24_itch_v1_13_size_of.spread_executed(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.spread_executed(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.spread_executed, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.spread_executed, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.spread_executed_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.spread_executed(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.spread_executed_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.spread_executed_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Buying Order Number
@@ -2618,7 +2678,7 @@ asx_securities_t24_itch_v1_13_size_of.order_executed_with_price = function(buffe
 end
 
 -- Display: Order Executed With Price
-asx_securities_t24_itch_v1_13_display.order_executed_with_price = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.order_executed_with_price = function(packet, parent, length)
   return ""
 end
 
@@ -2664,15 +2724,20 @@ end
 
 -- Dissect: Order Executed With Price
 asx_securities_t24_itch_v1_13_dissect.order_executed_with_price = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_with_price then
-    local length = asx_securities_t24_itch_v1_13_size_of.order_executed_with_price(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.order_executed_with_price(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_executed_with_price, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_executed_with_price, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.order_executed_with_price_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.order_executed_with_price(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.order_executed_with_price_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.order_executed_with_price_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Executed
@@ -2703,7 +2768,7 @@ asx_securities_t24_itch_v1_13_size_of.order_executed = function(buffer, offset)
 end
 
 -- Display: Order Executed
-asx_securities_t24_itch_v1_13_display.order_executed = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.order_executed = function(packet, parent, length)
   return ""
 end
 
@@ -2746,15 +2811,20 @@ end
 
 -- Dissect: Order Executed
 asx_securities_t24_itch_v1_13_dissect.order_executed = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed then
-    local length = asx_securities_t24_itch_v1_13_size_of.order_executed(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.order_executed(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_executed, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_executed, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.order_executed_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.order_executed(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.order_executed_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.order_executed_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Custom Market Order Deleted
@@ -2771,7 +2841,7 @@ asx_securities_t24_itch_v1_13_size_of.custom_market_order_deleted = function(buf
 end
 
 -- Display: Custom Market Order Deleted
-asx_securities_t24_itch_v1_13_display.custom_market_order_deleted = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.custom_market_order_deleted = function(packet, parent, length)
   return ""
 end
 
@@ -2793,15 +2863,20 @@ end
 
 -- Dissect: Custom Market Order Deleted
 asx_securities_t24_itch_v1_13_dissect.custom_market_order_deleted = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.custom_market_order_deleted then
-    local length = asx_securities_t24_itch_v1_13_size_of.custom_market_order_deleted(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.custom_market_order_deleted(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_deleted, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.custom_market_order_deleted_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.custom_market_order_deleted(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.custom_market_order_deleted_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.custom_market_order_deleted_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Book Priority
@@ -2842,7 +2917,7 @@ asx_securities_t24_itch_v1_13_size_of.custom_market_order_replaced = function(bu
 end
 
 -- Display: Custom Market Order Replaced
-asx_securities_t24_itch_v1_13_display.custom_market_order_replaced = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.custom_market_order_replaced = function(packet, parent, length)
   return ""
 end
 
@@ -2870,15 +2945,20 @@ end
 
 -- Dissect: Custom Market Order Replaced
 asx_securities_t24_itch_v1_13_dissect.custom_market_order_replaced = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.custom_market_order_replaced then
-    local length = asx_securities_t24_itch_v1_13_size_of.custom_market_order_replaced(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.custom_market_order_replaced(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_replaced, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.custom_market_order_replaced(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.custom_market_order_replaced_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price Leg 6
@@ -3449,7 +3529,7 @@ asx_securities_t24_itch_v1_13_size_of.custom_market_order_added = function(buffe
 end
 
 -- Display: Custom Market Order Added
-asx_securities_t24_itch_v1_13_display.custom_market_order_added = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.custom_market_order_added = function(packet, parent, length)
   return ""
 end
 
@@ -3552,15 +3632,20 @@ end
 
 -- Dissect: Custom Market Order Added
 asx_securities_t24_itch_v1_13_dissect.custom_market_order_added = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.custom_market_order_added then
-    local length = asx_securities_t24_itch_v1_13_size_of.custom_market_order_added(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.custom_market_order_added(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_added, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.custom_market_order_added, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.custom_market_order_added_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.custom_market_order_added(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.custom_market_order_added_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.custom_market_order_added_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Implied Order Deleted
@@ -3581,7 +3666,7 @@ asx_securities_t24_itch_v1_13_size_of.implied_order_deleted = function(buffer, o
 end
 
 -- Display: Implied Order Deleted
-asx_securities_t24_itch_v1_13_display.implied_order_deleted = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.implied_order_deleted = function(packet, parent, length)
   return ""
 end
 
@@ -3609,15 +3694,20 @@ end
 
 -- Dissect: Implied Order Deleted
 asx_securities_t24_itch_v1_13_dissect.implied_order_deleted = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.implied_order_deleted then
-    local length = asx_securities_t24_itch_v1_13_size_of.implied_order_deleted(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.implied_order_deleted(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_deleted, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_deleted, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.implied_order_deleted_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.implied_order_deleted(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.implied_order_deleted_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.implied_order_deleted_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Implied Order Replaced
@@ -3644,7 +3734,7 @@ asx_securities_t24_itch_v1_13_size_of.implied_order_replaced = function(buffer, 
 end
 
 -- Display: Implied Order Replaced
-asx_securities_t24_itch_v1_13_display.implied_order_replaced = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.implied_order_replaced = function(packet, parent, length)
   return ""
 end
 
@@ -3681,15 +3771,20 @@ end
 
 -- Dissect: Implied Order Replaced
 asx_securities_t24_itch_v1_13_dissect.implied_order_replaced = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.implied_order_replaced then
-    local length = asx_securities_t24_itch_v1_13_size_of.implied_order_replaced(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.implied_order_replaced(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_replaced, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_replaced, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.implied_order_replaced_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.implied_order_replaced(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.implied_order_replaced_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.implied_order_replaced_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Implied Order Added
@@ -3716,7 +3811,7 @@ asx_securities_t24_itch_v1_13_size_of.implied_order_added = function(buffer, off
 end
 
 -- Display: Implied Order Added
-asx_securities_t24_itch_v1_13_display.implied_order_added = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.implied_order_added = function(packet, parent, length)
   return ""
 end
 
@@ -3753,15 +3848,20 @@ end
 
 -- Dissect: Implied Order Added
 asx_securities_t24_itch_v1_13_dissect.implied_order_added = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.implied_order_added then
-    local length = asx_securities_t24_itch_v1_13_size_of.implied_order_added(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.implied_order_added(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_added, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.implied_order_added, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.implied_order_added_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.implied_order_added(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.implied_order_added_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.implied_order_added_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Deleted
@@ -3782,7 +3882,7 @@ asx_securities_t24_itch_v1_13_size_of.order_deleted = function(buffer, offset)
 end
 
 -- Display: Order Deleted
-asx_securities_t24_itch_v1_13_display.order_deleted = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.order_deleted = function(packet, parent, length)
   return ""
 end
 
@@ -3810,15 +3910,20 @@ end
 
 -- Dissect: Order Deleted
 asx_securities_t24_itch_v1_13_dissect.order_deleted = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_deleted then
-    local length = asx_securities_t24_itch_v1_13_size_of.order_deleted(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.order_deleted(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_deleted, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_deleted, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.order_deleted_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.order_deleted(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.order_deleted_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.order_deleted_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Volume Cancelled
@@ -3841,7 +3946,7 @@ asx_securities_t24_itch_v1_13_size_of.order_volume_cancelled = function(buffer, 
 end
 
 -- Display: Order Volume Cancelled
-asx_securities_t24_itch_v1_13_display.order_volume_cancelled = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.order_volume_cancelled = function(packet, parent, length)
   return ""
 end
 
@@ -3872,15 +3977,20 @@ end
 
 -- Dissect: Order Volume Cancelled
 asx_securities_t24_itch_v1_13_dissect.order_volume_cancelled = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_volume_cancelled then
-    local length = asx_securities_t24_itch_v1_13_size_of.order_volume_cancelled(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.order_volume_cancelled(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_volume_cancelled, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_volume_cancelled, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.order_volume_cancelled_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.order_volume_cancelled(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.order_volume_cancelled_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.order_volume_cancelled_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Replaced
@@ -3907,7 +4017,7 @@ asx_securities_t24_itch_v1_13_size_of.order_replaced = function(buffer, offset)
 end
 
 -- Display: Order Replaced
-asx_securities_t24_itch_v1_13_display.order_replaced = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.order_replaced = function(packet, parent, length)
   return ""
 end
 
@@ -3944,15 +4054,20 @@ end
 
 -- Dissect: Order Replaced
 asx_securities_t24_itch_v1_13_dissect.order_replaced = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replaced then
-    local length = asx_securities_t24_itch_v1_13_size_of.order_replaced(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.order_replaced(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_replaced, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_replaced, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.order_replaced_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.order_replaced(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.order_replaced_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.order_replaced_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Added
@@ -3979,7 +4094,7 @@ asx_securities_t24_itch_v1_13_size_of.order_added = function(buffer, offset)
 end
 
 -- Display: Order Added
-asx_securities_t24_itch_v1_13_display.order_added = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.order_added = function(packet, parent, length)
   return ""
 end
 
@@ -4016,15 +4131,20 @@ end
 
 -- Dissect: Order Added
 asx_securities_t24_itch_v1_13_dissect.order_added = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_added then
-    local length = asx_securities_t24_itch_v1_13_size_of.order_added(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.order_added(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_added, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_added, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.order_added_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.order_added(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.order_added_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.order_added_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trading Status
@@ -4103,7 +4223,7 @@ asx_securities_t24_itch_v1_13_size_of.order_book_state = function(buffer, offset
 end
 
 -- Display: Order Book State
-asx_securities_t24_itch_v1_13_display.order_book_state = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.order_book_state = function(packet, parent, length)
   return ""
 end
 
@@ -4128,15 +4248,20 @@ end
 
 -- Dissect: Order Book State
 asx_securities_t24_itch_v1_13_dissect.order_book_state = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_book_state then
-    local length = asx_securities_t24_itch_v1_13_size_of.order_book_state(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.order_book_state(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_book_state, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.order_book_state, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.order_book_state_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.order_book_state(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.order_book_state_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.order_book_state_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Activated
@@ -4713,7 +4838,7 @@ asx_securities_t24_itch_v1_13_size_of.option_symbol_directory = function(buffer,
 end
 
 -- Display: Option Symbol Directory
-asx_securities_t24_itch_v1_13_display.option_symbol_directory = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.option_symbol_directory = function(packet, parent, length)
   return ""
 end
 
@@ -4807,15 +4932,20 @@ end
 
 -- Dissect: Option Symbol Directory
 asx_securities_t24_itch_v1_13_dissect.option_symbol_directory = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.option_symbol_directory then
-    local length = asx_securities_t24_itch_v1_13_size_of.option_symbol_directory(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.option_symbol_directory(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.option_symbol_directory, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.option_symbol_directory, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.option_symbol_directory_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.option_symbol_directory(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.option_symbol_directory_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.option_symbol_directory_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Secondary Ratio
@@ -4930,7 +5060,7 @@ asx_securities_t24_itch_v1_13_size_of.spread_symbol_directory = function(buffer,
 end
 
 -- Display: Spread Symbol Directory
-asx_securities_t24_itch_v1_13_display.spread_symbol_directory = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.spread_symbol_directory = function(packet, parent, length)
   return ""
 end
 
@@ -4979,15 +5109,20 @@ end
 
 -- Dissect: Spread Symbol Directory
 asx_securities_t24_itch_v1_13_dissect.spread_symbol_directory = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.spread_symbol_directory then
-    local length = asx_securities_t24_itch_v1_13_size_of.spread_symbol_directory(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.spread_symbol_directory(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.spread_symbol_directory, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.spread_symbol_directory, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.spread_symbol_directory_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.spread_symbol_directory(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.spread_symbol_directory_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.spread_symbol_directory_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Future Symbol Directory
@@ -5036,7 +5171,7 @@ asx_securities_t24_itch_v1_13_size_of.future_symbol_directory = function(buffer,
 end
 
 -- Display: Future Symbol Directory
-asx_securities_t24_itch_v1_13_display.future_symbol_directory = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.future_symbol_directory = function(packet, parent, length)
   return ""
 end
 
@@ -5106,15 +5241,20 @@ end
 
 -- Dissect: Future Symbol Directory
 asx_securities_t24_itch_v1_13_dissect.future_symbol_directory = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.future_symbol_directory then
-    local length = asx_securities_t24_itch_v1_13_size_of.future_symbol_directory(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.future_symbol_directory(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.future_symbol_directory, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.future_symbol_directory, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.future_symbol_directory_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.future_symbol_directory(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.future_symbol_directory_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.future_symbol_directory_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -5167,7 +5307,7 @@ asx_securities_t24_itch_v1_13_size_of.system_event = function(buffer, offset)
 end
 
 -- Display: System Event
-asx_securities_t24_itch_v1_13_display.system_event = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.system_event = function(packet, parent, length)
   return ""
 end
 
@@ -5189,15 +5329,20 @@ end
 
 -- Dissect: System Event
 asx_securities_t24_itch_v1_13_dissect.system_event = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event then
-    local length = asx_securities_t24_itch_v1_13_size_of.system_event(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.system_event(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.system_event, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.system_event, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.system_event_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.system_event(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.system_event_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.system_event_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Second
@@ -5230,7 +5375,7 @@ asx_securities_t24_itch_v1_13_size_of.time_message = function(buffer, offset)
 end
 
 -- Display: Time Message
-asx_securities_t24_itch_v1_13_display.time_message = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.time_message = function(packet, parent, length)
   return ""
 end
 
@@ -5246,15 +5391,20 @@ end
 
 -- Dissect: Time Message
 asx_securities_t24_itch_v1_13_dissect.time_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.time_message then
-    local length = asx_securities_t24_itch_v1_13_size_of.time_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.time_message(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.time_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.time_message, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.time_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.time_message(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.time_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.time_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -5677,7 +5827,7 @@ asx_securities_t24_itch_v1_13_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-asx_securities_t24_itch_v1_13_display.message_header = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -5696,19 +5846,24 @@ end
 
 -- Dissect: Message Header
 asx_securities_t24_itch_v1_13_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = asx_securities_t24_itch_v1_13_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.message_header(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.message_header, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-asx_securities_t24_itch_v1_13_display.message = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -5929,7 +6084,7 @@ asx_securities_t24_itch_v1_13_size_of.packet_header = function(buffer, offset)
 end
 
 -- Display: Packet Header
-asx_securities_t24_itch_v1_13_display.packet_header = function(buffer, offset, size, packet, parent)
+asx_securities_t24_itch_v1_13_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -5951,15 +6106,20 @@ end
 
 -- Dissect: Packet Header
 asx_securities_t24_itch_v1_13_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = asx_securities_t24_itch_v1_13_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = asx_securities_t24_itch_v1_13_display.packet_header(buffer, packet, parent)
-    parent = parent:add(asx_securities_t24_itch_v1_13.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(asx_securities_t24_itch_v1_13.fields.packet_header, buffer(offset, 0))
+    local index = asx_securities_t24_itch_v1_13_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = asx_securities_t24_itch_v1_13_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return asx_securities_t24_itch_v1_13_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return asx_securities_t24_itch_v1_13_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

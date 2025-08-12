@@ -227,7 +227,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.unsequenced_data_packet = function(buffer,
 end
 
 -- Display: Unsequenced Data Packet
-cboe_europe_lastsale_apf_v1_7_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.unsequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -243,15 +243,20 @@ end
 
 -- Dissect: Unsequenced Data Packet
 cboe_europe_lastsale_apf_v1_7_dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unsequenced_data_packet then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.unsequenced_data_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.unsequenced_data_packet(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.unsequenced_data_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.unsequenced_data_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.unsequenced_data_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Requested Sequence Number
@@ -350,7 +355,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.login_request_packet = function(buffer, of
 end
 
 -- Display: Login Request Packet
-cboe_europe_lastsale_apf_v1_7_display.login_request_packet = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.login_request_packet = function(packet, parent, length)
   return ""
 end
 
@@ -375,15 +380,20 @@ end
 
 -- Dissect: Login Request Packet
 cboe_europe_lastsale_apf_v1_7_dissect.login_request_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_packet then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.login_request_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.login_request_packet(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.login_request_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.login_request_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.login_request_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Jurisdiction
@@ -1417,7 +1427,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.last_sale_europe_message_new = function(bu
 end
 
 -- Display: Last Sale Europe Message New
-cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message_new = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message_new = function(packet, parent, length)
   return ""
 end
 
@@ -1535,15 +1545,20 @@ end
 
 -- Dissect: Last Sale Europe Message New
 cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_new = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.last_sale_europe_message_new then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.last_sale_europe_message_new(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message_new(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message_new, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message_new, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_new_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message_new(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_new_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_new_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Duplicative Indicator
@@ -1643,7 +1658,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.last_sale_europe_message = function(buffer
 end
 
 -- Display: Last Sale Europe Message
-cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message = function(packet, parent, length)
   return ""
 end
 
@@ -1713,15 +1728,20 @@ end
 
 -- Dissect: Last Sale Europe Message
 cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.last_sale_europe_message then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.last_sale_europe_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.last_sale_europe_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.last_sale_europe_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Sequenced Message
@@ -1841,7 +1861,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.sequenced_message_header = function(buffer
 end
 
 -- Display: Sequenced Message Header
-cboe_europe_lastsale_apf_v1_7_display.sequenced_message_header = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.sequenced_message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1860,15 +1880,20 @@ end
 
 -- Dissect: Sequenced Message Header
 cboe_europe_lastsale_apf_v1_7_dissect.sequenced_message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sequenced_message_header then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.sequenced_message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.sequenced_message_header(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.sequenced_message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.sequenced_message_header, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.sequenced_message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.sequenced_message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.sequenced_message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.sequenced_message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Sequenced Data Packet
@@ -1886,7 +1911,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.sequenced_data_packet = function(buffer, o
 end
 
 -- Display: Sequenced Data Packet
-cboe_europe_lastsale_apf_v1_7_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.sequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1949,7 +1974,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.login_rejected_packet = function(buffer, o
 end
 
 -- Display: Login Rejected Packet
-cboe_europe_lastsale_apf_v1_7_display.login_rejected_packet = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.login_rejected_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1965,15 +1990,20 @@ end
 
 -- Dissect: Login Rejected Packet
 cboe_europe_lastsale_apf_v1_7_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_packet then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.login_rejected_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.login_rejected_packet(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.login_rejected_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.login_rejected_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.login_rejected_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sequence Number
@@ -2028,7 +2058,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.login_accepted_packet = function(buffer, o
 end
 
 -- Display: Login Accepted Packet
-cboe_europe_lastsale_apf_v1_7_display.login_accepted_packet = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.login_accepted_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2047,15 +2077,20 @@ end
 
 -- Dissect: Login Accepted Packet
 cboe_europe_lastsale_apf_v1_7_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_packet then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.login_accepted_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.login_accepted_packet(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.login_accepted_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.login_accepted_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.login_accepted_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -2088,7 +2123,7 @@ cboe_europe_lastsale_apf_v1_7_size_of.debug_packet = function(buffer, offset)
 end
 
 -- Display: Debug Packet
-cboe_europe_lastsale_apf_v1_7_display.debug_packet = function(buffer, offset, size, packet, parent)
+cboe_europe_lastsale_apf_v1_7_display.debug_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2104,15 +2139,20 @@ end
 
 -- Dissect: Debug Packet
 cboe_europe_lastsale_apf_v1_7_dissect.debug_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.debug_packet then
-    local length = cboe_europe_lastsale_apf_v1_7_size_of.debug_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_europe_lastsale_apf_v1_7_display.debug_packet(buffer, packet, parent)
-    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.debug_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_europe_lastsale_apf_v1_7.fields.debug_packet, buffer(offset, 0))
+    local index = cboe_europe_lastsale_apf_v1_7_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_europe_lastsale_apf_v1_7_display.debug_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_europe_lastsale_apf_v1_7_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_europe_lastsale_apf_v1_7_dissect.debug_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload

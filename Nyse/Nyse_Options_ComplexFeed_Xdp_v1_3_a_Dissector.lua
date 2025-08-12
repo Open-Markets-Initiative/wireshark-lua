@@ -295,7 +295,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number_reset_message = func
 end
 
 -- Display: Sequence Number Reset Message
-nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number_reset_message = function(packet, parent, length)
   return ""
 end
 
@@ -320,15 +320,20 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number_reset_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number_reset_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number_reset_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 2
@@ -383,7 +388,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id_message = function(buffer,
 end
 
 -- Display: Stream Id Message
-nyse_options_complexfeed_xdp_v1_3_a_display.stream_id_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.stream_id_message = function(packet, parent, length)
   return ""
 end
 
@@ -402,15 +407,20 @@ end
 
 -- Dissect: Stream Id Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_id_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.stream_id_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.stream_id_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Leg Security Type
@@ -523,7 +533,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_definition = function(buffer, of
 end
 
 -- Display: Leg Definition
-nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition = function(packet, parent, length)
   return ""
 end
 
@@ -548,15 +558,20 @@ end
 
 -- Dissect: Leg Definition
 nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.leg_definition then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_definition(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Of Legs
@@ -737,7 +752,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol_definition_message = 
 end
 
 -- Display: Complex Symbol Definition Message
-nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol_definition_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol_definition_message = function(packet, parent, length)
   return ""
 end
 
@@ -961,7 +976,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_trade_message = func
 end
 
 -- Display: Refresh Complex Trade Message
-nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_trade_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -1004,15 +1019,20 @@ end
 
 -- Dissect: Refresh Complex Trade Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.refresh_complex_trade_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quote Condition
@@ -1205,7 +1225,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_quote_message = func
 end
 
 -- Display: Refresh Complex Quote Message
-nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_quote_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_quote_message = function(packet, parent, length)
   return ""
 end
 
@@ -1257,15 +1277,20 @@ end
 
 -- Dissect: Refresh Complex Quote Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.refresh_complex_quote_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_quote_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_quote_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_quote_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Halt Condition
@@ -1355,7 +1380,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_status_message = function(bu
 end
 
 -- Display: Complex Status Message
-nyse_options_complexfeed_xdp_v1_3_a_display.complex_status_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1389,15 +1414,20 @@ end
 
 -- Dissect: Complex Status Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.complex_status_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Volume 2
@@ -1464,7 +1494,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_cube_rfq_message = function(
 end
 
 -- Display: Complex Cube Rfq Message
-nyse_options_complexfeed_xdp_v1_3_a_display.complex_cube_rfq_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_cube_rfq_message = function(packet, parent, length)
   return ""
 end
 
@@ -1501,15 +1531,20 @@ end
 
 -- Dissect: Complex Cube Rfq Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.complex_cube_rfq_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_cube_rfq_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_cube_rfq_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_cube_rfq_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Complex Crossing Rfq Message
@@ -1536,7 +1571,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_crossing_rfq_message = funct
 end
 
 -- Display: Complex Crossing Rfq Message
-nyse_options_complexfeed_xdp_v1_3_a_display.complex_crossing_rfq_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_crossing_rfq_message = function(packet, parent, length)
   return ""
 end
 
@@ -1573,15 +1608,20 @@ end
 
 -- Dissect: Complex Crossing Rfq Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.complex_crossing_rfq_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_crossing_rfq_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_crossing_rfq_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_crossing_rfq_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Complex Trade Message
@@ -1612,7 +1652,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_trade_message = function(buf
 end
 
 -- Display: Complex Trade Message
-nyse_options_complexfeed_xdp_v1_3_a_display.complex_trade_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -1655,15 +1695,20 @@ end
 
 -- Dissect: Complex Trade Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.complex_trade_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Complex Quote Message
@@ -1700,7 +1745,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_quote_message = function(buf
 end
 
 -- Display: Complex Quote Message
-nyse_options_complexfeed_xdp_v1_3_a_display.complex_quote_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_quote_message = function(packet, parent, length)
   return ""
 end
 
@@ -1752,15 +1797,20 @@ end
 
 -- Dissect: Complex Quote Message
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.complex_quote_message then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_quote_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_quote_message(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_quote_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1963,7 +2013,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.message_header = function(buffer, of
 end
 
 -- Display: Message Header
-nyse_options_complexfeed_xdp_v1_3_a_display.message_header = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1982,15 +2032,20 @@ end
 
 -- Dissect: Message Header
 nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_header(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Message
@@ -2008,7 +2063,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-nyse_options_complexfeed_xdp_v1_3_a_display.message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -2215,7 +2270,7 @@ nyse_options_complexfeed_xdp_v1_3_a_size_of.packet_header = function(buffer, off
 end
 
 -- Display: Packet Header
-nyse_options_complexfeed_xdp_v1_3_a_display.packet_header = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -2246,15 +2301,20 @@ end
 
 -- Dissect: Packet Header
 nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_complexfeed_xdp_v1_3_a_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

@@ -1982,7 +1982,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.mifid_ii_trade_report = function(buffer, 
 end
 
 -- Display: Mifid Ii Trade Report
-lseg_tradeecho_mifid_gtp_v24_4_display.mifid_ii_trade_report = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.mifid_ii_trade_report = function(packet, parent, length)
   return ""
 end
 
@@ -2217,15 +2217,20 @@ end
 
 -- Dissect: Mifid Ii Trade Report
 lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mifid_ii_trade_report then
-    local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.mifid_ii_trade_report(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_tradeecho_mifid_gtp_v24_4_display.mifid_ii_trade_report(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_mifid_gtp_v24_4_display.mifid_ii_trade_report(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Turnover Onbook Only
@@ -2454,7 +2459,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.statistics = function(buffer, offset)
 end
 
 -- Display: Statistics
-lseg_tradeecho_mifid_gtp_v24_4_display.statistics = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.statistics = function(packet, parent, length)
   return ""
 end
 
@@ -2500,15 +2505,20 @@ end
 
 -- Dissect: Statistics
 lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.statistics then
-    local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.statistics(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_tradeecho_mifid_gtp_v24_4_display.statistics(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.statistics, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.statistics, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_mifid_gtp_v24_4_display.statistics(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Book Type
@@ -2637,7 +2647,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.instrument_status = function(buffer, offs
 end
 
 -- Display: Instrument Status
-lseg_tradeecho_mifid_gtp_v24_4_display.instrument_status = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.instrument_status = function(packet, parent, length)
   return ""
 end
 
@@ -2671,15 +2681,20 @@ end
 
 -- Dissect: Instrument Status
 lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_status then
-    local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.instrument_status(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_status(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_status(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 25
@@ -3032,7 +3047,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.instrument_directory = function(buffer, o
 end
 
 -- Display: Instrument Directory
-lseg_tradeecho_mifid_gtp_v24_4_display.instrument_directory = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.instrument_directory = function(packet, parent, length)
   return ""
 end
 
@@ -3093,15 +3108,20 @@ end
 
 -- Dissect: Instrument Directory
 lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_directory then
-    local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.instrument_directory(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_directory(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_directory(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -3148,7 +3168,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.system_event = function(buffer, offset)
 end
 
 -- Display: System Event
-lseg_tradeecho_mifid_gtp_v24_4_display.system_event = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.system_event = function(packet, parent, length)
   return ""
 end
 
@@ -3170,15 +3190,20 @@ end
 
 -- Dissect: System Event
 lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event then
-    local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.system_event(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_tradeecho_mifid_gtp_v24_4_display.system_event(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.system_event, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.system_event, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_mifid_gtp_v24_4_display.system_event(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -3326,7 +3351,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-lseg_tradeecho_mifid_gtp_v24_4_display.message_header = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -3345,15 +3370,20 @@ end
 
 -- Dissect: Message Header
 lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_tradeecho_mifid_gtp_v24_4_display.message_header(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_mifid_gtp_v24_4_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Message
@@ -3371,7 +3401,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-lseg_tradeecho_mifid_gtp_v24_4_display.message = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -3500,7 +3530,7 @@ lseg_tradeecho_mifid_gtp_v24_4_size_of.unit_header = function(buffer, offset)
 end
 
 -- Display: Unit Header
-lseg_tradeecho_mifid_gtp_v24_4_display.unit_header = function(buffer, offset, size, packet, parent)
+lseg_tradeecho_mifid_gtp_v24_4_display.unit_header = function(packet, parent, length)
   return ""
 end
 
@@ -3525,15 +3555,20 @@ end
 
 -- Dissect: Unit Header
 lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unit_header then
-    local length = lseg_tradeecho_mifid_gtp_v24_4_size_of.unit_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = lseg_tradeecho_mifid_gtp_v24_4_display.unit_header(buffer, packet, parent)
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_mifid_gtp_v24_4_display.unit_header(packet, parent, length)
+    parent:append_text(display)
 
-  return lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

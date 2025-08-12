@@ -337,7 +337,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.gap_fill = function(buffer, offset
 end
 
 -- Display: Gap Fill
-currenex_forex_orderservice_cbp_v26_0_display.gap_fill = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.gap_fill = function(packet, parent, length)
   return ""
 end
 
@@ -356,15 +356,20 @@ end
 
 -- Dissect: Gap Fill
 currenex_forex_orderservice_cbp_v26_0_dissect.gap_fill = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.gap_fill then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.gap_fill(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.gap_fill(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.gap_fill, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.gap_fill, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.gap_fill_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.gap_fill(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.gap_fill_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.gap_fill_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Begin Seq No
@@ -397,7 +402,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.resend_request = function(buffer, 
 end
 
 -- Display: Resend Request
-currenex_forex_orderservice_cbp_v26_0_display.resend_request = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.resend_request = function(packet, parent, length)
   return ""
 end
 
@@ -413,15 +418,20 @@ end
 
 -- Dissect: Resend Request
 currenex_forex_orderservice_cbp_v26_0_dissect.resend_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.resend_request then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.resend_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.resend_request(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.resend_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.resend_request, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.resend_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.resend_request(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.resend_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.resend_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Aggressor Flag
@@ -590,7 +600,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.trade_pending = function(buffer, o
 end
 
 -- Display: Trade Pending
-currenex_forex_orderservice_cbp_v26_0_display.trade_pending = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.trade_pending = function(packet, parent, length)
   return ""
 end
 
@@ -621,15 +631,20 @@ end
 
 -- Dissect: Trade Pending
 currenex_forex_orderservice_cbp_v26_0_dissect.trade_pending = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_pending then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.trade_pending(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.trade_pending(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.trade_pending, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.trade_pending, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.trade_pending_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.trade_pending(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.trade_pending_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.trade_pending_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Link Id
@@ -706,7 +721,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.pending_fill_cancel = function(buf
 end
 
 -- Display: Pending Fill Cancel
-currenex_forex_orderservice_cbp_v26_0_display.pending_fill_cancel = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.pending_fill_cancel = function(packet, parent, length)
   return ""
 end
 
@@ -728,15 +743,20 @@ end
 
 -- Dissect: Pending Fill Cancel
 currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_cancel = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.pending_fill_cancel then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.pending_fill_cancel(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.pending_fill_cancel(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.pending_fill_cancel, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.pending_fill_cancel, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_cancel_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.pending_fill_cancel(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_cancel_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_cancel_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Exec Broker
@@ -821,7 +841,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.pending_fill = function(buffer, of
 end
 
 -- Display: Pending Fill
-currenex_forex_orderservice_cbp_v26_0_display.pending_fill = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.pending_fill = function(packet, parent, length)
   return ""
 end
 
@@ -855,15 +875,20 @@ end
 
 -- Dissect: Pending Fill
 currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.pending_fill then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.pending_fill(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.pending_fill(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.pending_fill, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.pending_fill, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.pending_fill(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.pending_fill_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Execution Id
@@ -975,7 +1000,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.trade = function(buffer, offset)
 end
 
 -- Display: Trade
-currenex_forex_orderservice_cbp_v26_0_display.trade = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.trade = function(packet, parent, length)
   return ""
 end
 
@@ -1030,15 +1055,20 @@ end
 
 -- Dissect: Trade
 currenex_forex_orderservice_cbp_v26_0_dissect.trade = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.trade(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.trade(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.trade, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.trade, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.trade_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.trade(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.trade_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.trade_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Type
@@ -1110,7 +1140,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.order_canceled_or_expired = functi
 end
 
 -- Display: Order Canceled Or Expired
-currenex_forex_orderservice_cbp_v26_0_display.order_canceled_or_expired = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.order_canceled_or_expired = function(packet, parent, length)
   return ""
 end
 
@@ -1135,15 +1165,20 @@ end
 
 -- Dissect: Order Canceled Or Expired
 currenex_forex_orderservice_cbp_v26_0_dissect.order_canceled_or_expired = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_canceled_or_expired then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.order_canceled_or_expired(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.order_canceled_or_expired(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_canceled_or_expired, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_canceled_or_expired, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.order_canceled_or_expired_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.order_canceled_or_expired(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.order_canceled_or_expired_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.order_canceled_or_expired_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Error Code
@@ -1222,7 +1257,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.order_replace_or_cancel_ack = func
 end
 
 -- Display: Order Replace Or Cancel Ack
-currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_ack = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_ack = function(packet, parent, length)
   return ""
 end
 
@@ -1247,15 +1282,20 @@ end
 
 -- Dissect: Order Replace Or Cancel Ack
 currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_ack = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replace_or_cancel_ack then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.order_replace_or_cancel_ack(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_ack(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_replace_or_cancel_ack, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_replace_or_cancel_ack, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_ack_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_ack(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_ack_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_ack_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price
@@ -1336,7 +1376,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.order_replace_or_cancel_request = 
 end
 
 -- Display: Order Replace Or Cancel Request
-currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_request = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_request = function(packet, parent, length)
   return ""
 end
 
@@ -1364,15 +1404,20 @@ end
 
 -- Dissect: Order Replace Or Cancel Request
 currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replace_or_cancel_request then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.order_replace_or_cancel_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_request(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_replace_or_cancel_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_replace_or_cancel_request, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.order_replace_or_cancel_request(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.order_replace_or_cancel_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Cancel Reject
@@ -1389,7 +1434,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.order_cancel_reject = function(buf
 end
 
 -- Display: Order Cancel Reject
-currenex_forex_orderservice_cbp_v26_0_display.order_cancel_reject = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.order_cancel_reject = function(packet, parent, length)
   return ""
 end
 
@@ -1411,15 +1456,20 @@ end
 
 -- Dissect: Order Cancel Reject
 currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_reject = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_reject then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.order_cancel_reject(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.order_cancel_reject(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_cancel_reject, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_cancel_reject, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_reject_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.order_cancel_reject(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_reject_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_reject_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Cancel Request
@@ -1436,7 +1486,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.order_cancel_request = function(bu
 end
 
 -- Display: Order Cancel Request
-currenex_forex_orderservice_cbp_v26_0_display.order_cancel_request = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.order_cancel_request = function(packet, parent, length)
   return ""
 end
 
@@ -1458,15 +1508,20 @@ end
 
 -- Dissect: Order Cancel Request
 currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_request then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.order_cancel_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.order_cancel_request(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_cancel_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.order_cancel_request, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.order_cancel_request(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.order_cancel_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: New Order Ack
@@ -1485,7 +1540,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.new_order_ack = function(buffer, o
 end
 
 -- Display: New Order Ack
-currenex_forex_orderservice_cbp_v26_0_display.new_order_ack = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.new_order_ack = function(packet, parent, length)
   return ""
 end
 
@@ -1510,15 +1565,20 @@ end
 
 -- Dissect: New Order Ack
 currenex_forex_orderservice_cbp_v26_0_dissect.new_order_ack = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_ack then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.new_order_ack(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.new_order_ack(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.new_order_ack, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.new_order_ack, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.new_order_ack_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.new_order_ack(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.new_order_ack_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.new_order_ack_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Expire Type
@@ -1660,7 +1720,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.new_order_request = function(buffe
 end
 
 -- Display: New Order Request
-currenex_forex_orderservice_cbp_v26_0_display.new_order_request = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.new_order_request = function(packet, parent, length)
   return ""
 end
 
@@ -1700,15 +1760,20 @@ end
 
 -- Dissect: New Order Request
 currenex_forex_orderservice_cbp_v26_0_dissect.new_order_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_request then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.new_order_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.new_order_request(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.new_order_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.new_order_request, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.new_order_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.new_order_request(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.new_order_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.new_order_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Settlement Date
@@ -1822,7 +1887,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.instrument_info = function(buffer,
 end
 
 -- Display: Instrument Info
-currenex_forex_orderservice_cbp_v26_0_display.instrument_info = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.instrument_info = function(packet, parent, length)
   return ""
 end
 
@@ -1850,15 +1915,20 @@ end
 
 -- Dissect: Instrument Info
 currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_info then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.instrument_info(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.instrument_info(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.instrument_info, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.instrument_info, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.instrument_info(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Instrument Info Request
@@ -1871,7 +1941,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.instrument_info_request = function
 end
 
 -- Display: Instrument Info Request
-currenex_forex_orderservice_cbp_v26_0_display.instrument_info_request = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.instrument_info_request = function(packet, parent, length)
   return ""
 end
 
@@ -1887,15 +1957,20 @@ end
 
 -- Dissect: Instrument Info Request
 currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_info_request then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.instrument_info_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.instrument_info_request(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.instrument_info_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.instrument_info_request, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.instrument_info_request(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.instrument_info_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Heartbeat
@@ -1908,7 +1983,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.heartbeat = function(buffer, offse
 end
 
 -- Display: Heartbeat
-currenex_forex_orderservice_cbp_v26_0_display.heartbeat = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.heartbeat = function(packet, parent, length)
   return ""
 end
 
@@ -1924,15 +1999,20 @@ end
 
 -- Dissect: Heartbeat
 currenex_forex_orderservice_cbp_v26_0_dissect.heartbeat = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.heartbeat then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.heartbeat(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.heartbeat(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.heartbeat, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.heartbeat, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.heartbeat_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.heartbeat(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.heartbeat_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.heartbeat_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason
@@ -1989,7 +2069,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.logout = function(buffer, offset)
 end
 
 -- Display: Logout
-currenex_forex_orderservice_cbp_v26_0_display.logout = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.logout = function(packet, parent, length)
   return ""
 end
 
@@ -2011,15 +2091,20 @@ end
 
 -- Dissect: Logout
 currenex_forex_orderservice_cbp_v26_0_dissect.logout = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logout then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.logout(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.logout(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.logout, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.logout, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.logout_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.logout(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.logout_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.logout_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Password
@@ -2056,7 +2141,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.logon = function(buffer, offset)
 end
 
 -- Display: Logon
-currenex_forex_orderservice_cbp_v26_0_display.logon = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.logon = function(packet, parent, length)
   return ""
 end
 
@@ -2078,15 +2163,20 @@ end
 
 -- Dissect: Logon
 currenex_forex_orderservice_cbp_v26_0_dissect.logon = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logon then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.logon(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.logon(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.logon, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.logon, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.logon_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.logon(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.logon_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.logon_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Message Body
@@ -2379,7 +2469,7 @@ currenex_forex_orderservice_cbp_v26_0_size_of.message_header = function(buffer, 
 end
 
 -- Display: Message Header
-currenex_forex_orderservice_cbp_v26_0_display.message_header = function(buffer, offset, size, packet, parent)
+currenex_forex_orderservice_cbp_v26_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -2401,15 +2491,20 @@ end
 
 -- Dissect: Message Header
 currenex_forex_orderservice_cbp_v26_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = currenex_forex_orderservice_cbp_v26_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_orderservice_cbp_v26_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_orderservice_cbp_v26_0.fields.message_header, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_orderservice_cbp_v26_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Itch Soh

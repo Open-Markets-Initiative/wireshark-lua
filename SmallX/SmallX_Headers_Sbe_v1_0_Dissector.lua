@@ -122,7 +122,7 @@ smallx_headers_sbe_v1_0_dissect.frame_length = function(buffer, offset, packet, 
 end
 
 -- Display: Sbe Frame
-smallx_headers_sbe_v1_0_display.sbe_frame = function(buffer, offset, size, packet, parent)
+smallx_headers_sbe_v1_0_display.sbe_frame = function(packet, parent, length)
   return ""
 end
 
@@ -332,7 +332,7 @@ smallx_headers_sbe_v1_0_size_of.packet_header = function(buffer, offset)
 end
 
 -- Display: Packet Header
-smallx_headers_sbe_v1_0_display.packet_header = function(buffer, offset, size, packet, parent)
+smallx_headers_sbe_v1_0_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -363,15 +363,20 @@ end
 
 -- Dissect: Packet Header
 smallx_headers_sbe_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = smallx_headers_sbe_v1_0_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = smallx_headers_sbe_v1_0_display.packet_header(buffer, packet, parent)
-    parent = parent:add(smallx_headers_sbe_v1_0.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(smallx_headers_sbe_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = smallx_headers_sbe_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = smallx_headers_sbe_v1_0_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return smallx_headers_sbe_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return smallx_headers_sbe_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

@@ -373,7 +373,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.quote_message = function(buffer, 
 end
 
 -- Display: Quote Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.quote_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.quote_message = function(packet, parent, length)
   return ""
 end
 
@@ -404,15 +404,20 @@ end
 
 -- Dissect: Quote Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.quote_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_message then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.quote_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.quote_message(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.quote_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.quote_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.quote_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.quote_message(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.quote_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.quote_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Product Type
@@ -633,7 +638,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.stock_status_message = function(b
 end
 
 -- Display: Stock Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.stock_status_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.stock_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -673,15 +678,20 @@ end
 
 -- Dissect: Stock Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.stock_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stock_status_message then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.stock_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.stock_status_message(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_status_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.stock_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.stock_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.stock_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.stock_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price Variation
@@ -938,7 +948,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.moc_imbalance_message = function(
 end
 
 -- Display: Moc Imbalance Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.moc_imbalance_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.moc_imbalance_message = function(packet, parent, length)
   return ""
 end
 
@@ -984,15 +994,20 @@ end
 
 -- Dissect: Moc Imbalance Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.moc_imbalance_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.moc_imbalance_message then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.moc_imbalance_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.moc_imbalance_message(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_imbalance_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_imbalance_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.moc_imbalance_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.moc_imbalance_message(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.moc_imbalance_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.moc_imbalance_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Date
@@ -1173,7 +1188,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.trade_cancelled_message = functio
 end
 
 -- Display: Trade Cancelled Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_cancelled_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -1222,15 +1237,20 @@ end
 
 -- Dissect: Trade Cancelled Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_cancelled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancelled_message then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.trade_cancelled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_cancelled_message(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_cancelled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_cancelled_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_cancelled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_cancelled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_cancelled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_cancelled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Is Conditional
@@ -1498,7 +1518,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.trade_report_message = function(b
 end
 
 -- Display: Trade Report Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_report_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_report_message = function(packet, parent, length)
   return ""
 end
 
@@ -1568,15 +1588,20 @@ end
 
 -- Dissect: Trade Report Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_report_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_report_message then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.trade_report_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_report_message(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_report_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_report_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.trade_report_message(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Moc Eligible
@@ -1892,7 +1917,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.symbol_status_message = function(
 end
 
 -- Display: Symbol Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.symbol_status_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.symbol_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1953,15 +1978,20 @@ end
 
 -- Dissect: Symbol Status Message
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.symbol_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_status_message then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.symbol_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.symbol_status_message(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.symbol_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.symbol_status_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.symbol_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Business Message
@@ -2167,7 +2197,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.business_header = function(buffer
 end
 
 -- Display: Business Header
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.business_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.business_header = function(packet, parent, length)
   return ""
 end
 
@@ -2195,19 +2225,24 @@ end
 
 -- Dissect: Business Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.business_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.business_header then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.business_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.business_header(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.business_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.business_header, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.business_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.business_header(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.business_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.business_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Body Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body_message = function(packet, parent, length)
   return ""
 end
 
@@ -2312,7 +2347,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.body_header = function(buffer, of
 end
 
 -- Display: Body Header
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body_header = function(packet, parent, length)
   return ""
 end
 
@@ -2331,19 +2366,24 @@ end
 
 -- Dissect: Body Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.body_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.body_header then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.body_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body_header(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.body_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.body_header, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.body_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body_header(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.body_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.body_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Body
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.body = function(packet, parent, length)
   return ""
 end
 
@@ -2561,7 +2601,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.frame_header = function(buffer, o
 end
 
 -- Display: Frame Header
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.frame_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.frame_header = function(packet, parent, length)
   return ""
 end
 
@@ -2595,15 +2635,20 @@ end
 
 -- Dissect: Frame Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.frame_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.frame_header then
-    local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_size_of.frame_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.frame_header(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.frame_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.frame_header, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.frame_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_display.frame_header(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.frame_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8_dissect.frame_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

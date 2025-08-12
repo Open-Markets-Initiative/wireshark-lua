@@ -237,7 +237,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_size_of.business_header = function(buffer, of
 end
 
 -- Display: Business Header
-tmx_quantumfeed_xmtheader_udp_v1_1_display.business_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_xmtheader_udp_v1_1_display.business_header = function(packet, parent, length)
   return ""
 end
 
@@ -265,19 +265,24 @@ end
 
 -- Dissect: Business Header
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.business_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.business_header then
-    local length = tmx_quantumfeed_xmtheader_udp_v1_1_size_of.business_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.business_header(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_header, buffer(offset, 0))
+    local index = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.business_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.business_header(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_xmtheader_udp_v1_1_dissect.business_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_xmtheader_udp_v1_1_dissect.business_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Body Message
-tmx_quantumfeed_xmtheader_udp_v1_1_display.body_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_xmtheader_udp_v1_1_display.body_message = function(packet, parent, length)
   return ""
 end
 
@@ -366,7 +371,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_size_of.body_header = function(buffer, offset
 end
 
 -- Display: Body Header
-tmx_quantumfeed_xmtheader_udp_v1_1_display.body_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_xmtheader_udp_v1_1_display.body_header = function(packet, parent, length)
   return ""
 end
 
@@ -385,19 +390,24 @@ end
 
 -- Dissect: Body Header
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.body_header then
-    local length = tmx_quantumfeed_xmtheader_udp_v1_1_size_of.body_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body_header(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_header, buffer(offset, 0))
+    local index = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body_header(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Body
-tmx_quantumfeed_xmtheader_udp_v1_1_display.body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_xmtheader_udp_v1_1_display.body = function(packet, parent, length)
   return ""
 end
 
@@ -615,7 +625,7 @@ tmx_quantumfeed_xmtheader_udp_v1_1_size_of.frame_header = function(buffer, offse
 end
 
 -- Display: Frame Header
-tmx_quantumfeed_xmtheader_udp_v1_1_display.frame_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_xmtheader_udp_v1_1_display.frame_header = function(packet, parent, length)
   return ""
 end
 
@@ -649,15 +659,20 @@ end
 
 -- Dissect: Frame Header
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.frame_header then
-    local length = tmx_quantumfeed_xmtheader_udp_v1_1_size_of.frame_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.frame_header(buffer, packet, parent)
-    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.frame_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.frame_header, buffer(offset, 0))
+    local index = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.frame_header(packet, parent, length)
+    parent:append_text(display)
 
-  return tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_xmtheader_udp_v1_1_dissect.frame_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

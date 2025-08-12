@@ -565,7 +565,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.event_resend_reject_message = fu
 end
 
 -- Display: Event Resend Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_reject_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -587,15 +587,20 @@ end
 
 -- Dissect: Event Resend Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.event_resend_reject_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.event_resend_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_reject_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.event_resend_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.event_resend_reject_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Resent Event Count
@@ -630,7 +635,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.event_resend_complete_message = 
 end
 
 -- Display: Event Resend Complete Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_complete_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -649,15 +654,20 @@ end
 
 -- Dissect: Event Resend Complete Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.event_resend_complete_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.event_resend_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_complete_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.event_resend_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.event_resend_complete_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: End Exec Id
@@ -714,7 +724,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.event_resend_request_message = f
 end
 
 -- Display: Event Resend Request Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_request_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -736,15 +746,20 @@ end
 
 -- Dissect: Event Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.event_resend_request_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.event_resend_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_request_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.event_resend_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.event_resend_request_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.event_resend_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.event_resend_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Last Exec Id
@@ -801,7 +816,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.last_exec_id_message = function(
 end
 
 -- Display: Last Exec Id Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_message = function(packet, parent, length)
   return ""
 end
 
@@ -823,15 +838,20 @@ end
 
 -- Dissect: Last Exec Id Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.last_exec_id_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.last_exec_id_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.last_exec_id_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.last_exec_id_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Last Exec Id Request Message
@@ -844,7 +864,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.last_exec_id_request_message = f
 end
 
 -- Display: Last Exec Id Request Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_request_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -860,15 +880,20 @@ end
 
 -- Dissect: Last Exec Id Request Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.last_exec_id_request_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.last_exec_id_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_request_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.last_exec_id_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.last_exec_id_request_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.last_exec_id_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.last_exec_id_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Is Aggressor
@@ -1200,7 +1225,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.spread_order_filled_message = fu
 end
 
 -- Display: Spread Order Filled Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.spread_order_filled_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.spread_order_filled_message = function(packet, parent, length)
   return ""
 end
 
@@ -1258,15 +1283,20 @@ end
 
 -- Dissect: Spread Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.spread_order_filled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.spread_order_filled_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.spread_order_filled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.spread_order_filled_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.spread_order_filled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.spread_order_filled_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.spread_order_filled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.spread_order_filled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.spread_order_filled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.spread_order_filled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Filled Message
@@ -1303,7 +1333,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_filled_message = function(
 end
 
 -- Display: Order Filled Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.order_filled_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.order_filled_message = function(packet, parent, length)
   return ""
 end
 
@@ -1355,15 +1385,20 @@ end
 
 -- Dissect: Order Filled Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_filled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_filled_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_filled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_filled_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_filled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_filled_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_filled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_filled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_filled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_filled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Error Message
@@ -1416,7 +1451,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.unlock_trading_reject_message = 
 end
 
 -- Display: Unlock Trading Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_reject_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -1438,15 +1473,20 @@ end
 
 -- Dissect: Unlock Trading Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unlock_trading_reject_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.unlock_trading_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_reject_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.unlock_trading_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.unlock_trading_reject_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Num Users Affected
@@ -1483,7 +1523,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.unlock_trading_ack_message = fun
 end
 
 -- Display: Unlock Trading Ack Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_ack_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_ack_message = function(packet, parent, length)
   return ""
 end
 
@@ -1505,15 +1545,20 @@ end
 
 -- Dissect: Unlock Trading Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_ack_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unlock_trading_ack_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.unlock_trading_ack_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_ack_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.unlock_trading_ack_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.unlock_trading_ack_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_ack_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_ack_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_ack_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_ack_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Current Session Only
@@ -1555,7 +1600,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.unlock_trading_message = functio
 end
 
 -- Display: Unlock Trading Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_message = function(packet, parent, length)
   return ""
 end
 
@@ -1574,15 +1619,20 @@ end
 
 -- Dissect: Unlock Trading Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unlock_trading_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.unlock_trading_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.unlock_trading_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.unlock_trading_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.unlock_trading_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.unlock_trading_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Mass Cancel Order Reject Message
@@ -1599,7 +1649,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.mass_cancel_order_reject_message
 end
 
 -- Display: Mass Cancel Order Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_reject_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -1621,15 +1671,20 @@ end
 
 -- Dissect: Mass Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_order_reject_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.mass_cancel_order_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_reject_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.mass_cancel_order_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.mass_cancel_order_reject_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trading Lock Applied
@@ -1726,7 +1781,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.mass_cancel_order_ack_message = 
 end
 
 -- Display: Mass Cancel Order Ack Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_ack_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_ack_message = function(packet, parent, length)
   return ""
 end
 
@@ -1757,15 +1812,20 @@ end
 
 -- Dissect: Mass Cancel Order Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_ack_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_order_ack_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.mass_cancel_order_ack_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_ack_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.mass_cancel_order_ack_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.mass_cancel_order_ack_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_ack_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_ack_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_ack_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_ack_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Request Trading Lock
@@ -1868,7 +1928,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.mass_cancel_order_message = func
 end
 
 -- Display: Mass Cancel Order Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -1899,15 +1959,20 @@ end
 
 -- Dissect: Mass Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_order_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.mass_cancel_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.mass_cancel_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.mass_cancel_order_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.mass_cancel_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Order Reject Details
@@ -2021,7 +2086,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.cancel_order_reject_message = fu
 end
 
 -- Display: Cancel Order Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_reject_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -2052,15 +2117,20 @@ end
 
 -- Dissect: Cancel Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_reject_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.cancel_order_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_reject_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.cancel_order_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.cancel_order_reject_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Reason
@@ -2161,7 +2231,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_canceled_message = functio
 end
 
 -- Display: Order Canceled Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.order_canceled_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.order_canceled_message = function(packet, parent, length)
   return ""
 end
 
@@ -2201,15 +2271,20 @@ end
 
 -- Dissect: Order Canceled Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_canceled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_canceled_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_canceled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_canceled_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_canceled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_canceled_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_canceled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cancel Order Message
@@ -2226,7 +2301,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.cancel_order_message = function(
 end
 
 -- Display: Cancel Order Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2248,15 +2323,20 @@ end
 
 -- Dissect: Cancel Order Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.cancel_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.cancel_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.cancel_order_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.cancel_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Replaced Message
@@ -2285,7 +2365,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_replaced_message = functio
 end
 
 -- Display: Order Replaced Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.order_replaced_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.order_replaced_message = function(packet, parent, length)
   return ""
 end
 
@@ -2325,15 +2405,20 @@ end
 
 -- Dissect: Order Replaced Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_replaced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replaced_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_replaced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_replaced_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_replaced_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_replaced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Reject Details
@@ -2428,7 +2513,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_reject_message = function(
 end
 
 -- Display: Order Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.order_reject_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.order_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -2459,15 +2544,20 @@ end
 
 -- Dissect: Order Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_reject_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_reject_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_reject_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity
@@ -2537,7 +2627,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.obsolete_stream_order_message = 
 end
 
 -- Display: Obsolete Stream Order Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.obsolete_stream_order_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.obsolete_stream_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2571,15 +2661,20 @@ end
 
 -- Dissect: Obsolete Stream Order Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.obsolete_stream_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.obsolete_stream_order_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.obsolete_stream_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.obsolete_stream_order_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.obsolete_stream_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.obsolete_stream_order_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.obsolete_stream_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.obsolete_stream_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.obsolete_stream_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.obsolete_stream_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Time In Force
@@ -2720,7 +2815,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.replace_order_message = function
 end
 
 -- Display: Replace Order Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.replace_order_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.replace_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2754,15 +2849,20 @@ end
 
 -- Dissect: Replace Order Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.replace_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replace_order_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.replace_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.replace_order_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.replace_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.replace_order_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.replace_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Entered Message
@@ -2785,7 +2885,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_entered_message = function
 end
 
 -- Display: Order Entered Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.order_entered_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.order_entered_message = function(packet, parent, length)
   return ""
 end
 
@@ -2816,15 +2916,20 @@ end
 
 -- Dissect: Order Entered Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_entered_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_entered_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.order_entered_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_entered_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_entered_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.order_entered_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_entered_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.order_entered_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_entered_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.order_entered_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Min Qty
@@ -2874,7 +2979,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.new_ioc_order_message = function
 end
 
 -- Display: New Ioc Order Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.new_ioc_order_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.new_ioc_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2908,15 +3013,20 @@ end
 
 -- Dissect: New Ioc Order Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_ioc_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_ioc_order_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.new_ioc_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.new_ioc_order_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.new_ioc_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.new_ioc_order_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_ioc_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.new_ioc_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_ioc_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_ioc_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Flags
@@ -2982,7 +3092,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.new_order_message = function(buf
 end
 
 -- Display: New Order Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.new_order_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.new_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -3019,15 +3129,20 @@ end
 
 -- Dissect: New Order Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.new_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.new_order_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.new_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.new_order_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.new_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.new_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Set Ack Message
@@ -3040,7 +3155,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.set_ack_message = function(buffe
 end
 
 -- Display: Set Ack Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.set_ack_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.set_ack_message = function(packet, parent, length)
   return ""
 end
 
@@ -3056,15 +3171,20 @@ end
 
 -- Dissect: Set Ack Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_ack_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.set_ack_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.set_ack_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.set_ack_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.set_ack_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.set_ack_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_ack_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.set_ack_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_ack_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_ack_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trader
@@ -3115,7 +3235,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.set_trader_message = function(bu
 end
 
 -- Display: Set Trader Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.set_trader_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.set_trader_message = function(packet, parent, length)
   return ""
 end
 
@@ -3134,15 +3254,20 @@ end
 
 -- Dissect: Set Trader Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_trader_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.set_trader_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.set_trader_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.set_trader_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.set_trader_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.set_trader_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_trader_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.set_trader_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_trader_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_trader_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Account
@@ -3193,7 +3318,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.set_account_message = function(b
 end
 
 -- Display: Set Account Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.set_account_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.set_account_message = function(packet, parent, length)
   return ""
 end
 
@@ -3212,15 +3337,20 @@ end
 
 -- Dissect: Set Account Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_account_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.set_account_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.set_account_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.set_account_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.set_account_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.set_account_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_account_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.set_account_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_account_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.set_account_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Symbol
@@ -3394,7 +3524,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.instrument_info_message = functi
 end
 
 -- Display: Instrument Info Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_message = function(packet, parent, length)
   return ""
 end
 
@@ -3428,15 +3558,20 @@ end
 
 -- Dissect: Instrument Info Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_info_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.instrument_info_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.instrument_info_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.instrument_info_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Instrument Info Request Message
@@ -3449,7 +3584,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.instrument_info_request_message 
 end
 
 -- Display: Instrument Info Request Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_request_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -3465,15 +3600,20 @@ end
 
 -- Dissect: Instrument Info Request Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_info_request_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.instrument_info_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_request_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.instrument_info_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.instrument_info_request_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.instrument_info_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Data Value
@@ -3525,7 +3665,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.data = function(buffer, offset)
 end
 
 -- Display: Data
-coinbase_derivatives_ordersapi_sbe_v1_6_display.data = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.data = function(packet, parent, length)
   return ""
 end
 
@@ -3651,7 +3791,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.pong_message = function(buffer, 
 end
 
 -- Display: Pong Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.pong_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.pong_message = function(packet, parent, length)
   return ""
 end
 
@@ -3704,7 +3844,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.ping_message = function(buffer, 
 end
 
 -- Display: Ping Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.ping_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.ping_message = function(packet, parent, length)
   return ""
 end
 
@@ -3840,7 +3980,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.reject_message = function(buffer
 end
 
 -- Display: Reject Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.reject_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -3862,15 +4002,20 @@ end
 
 -- Dissect: Reject Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reject_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.reject_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.reject_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Gap Fill Padding
@@ -3925,7 +4070,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.gap_fill_message = function(buff
 end
 
 -- Display: Gap Fill Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.gap_fill_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.gap_fill_message = function(packet, parent, length)
   return ""
 end
 
@@ -3944,15 +4089,20 @@ end
 
 -- Dissect: Gap Fill Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.gap_fill_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.gap_fill_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.gap_fill_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.gap_fill_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.gap_fill_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.gap_fill_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.gap_fill_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.gap_fill_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.gap_fill_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.gap_fill_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: To Sequence Number
@@ -4007,7 +4157,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.resend_request_message = functio
 end
 
 -- Display: Resend Request Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.resend_request_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.resend_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4026,15 +4176,20 @@ end
 
 -- Dissect: Resend Request Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.resend_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.resend_request_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.resend_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.resend_request_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.resend_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.resend_request_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.resend_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.resend_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.resend_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.resend_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Test Request Message
@@ -4047,7 +4202,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.test_request_message = function(
 end
 
 -- Display: Test Request Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.test_request_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.test_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4063,15 +4218,20 @@ end
 
 -- Dissect: Test Request Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.test_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.test_request_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.test_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.test_request_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.test_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.test_request_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.test_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.test_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.test_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.test_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Heartbeat Message
@@ -4084,7 +4244,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.heartbeat_message = function(buf
 end
 
 -- Display: Heartbeat Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.heartbeat_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.heartbeat_message = function(packet, parent, length)
   return ""
 end
 
@@ -4100,15 +4260,20 @@ end
 
 -- Dissect: Heartbeat Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.heartbeat_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.heartbeat_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.heartbeat_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.heartbeat_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.heartbeat_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.heartbeat_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.heartbeat_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.heartbeat_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.heartbeat_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.heartbeat_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason String 64
@@ -4157,7 +4322,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logged_out_message = function(bu
 end
 
 -- Display: Logged Out Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.logged_out_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.logged_out_message = function(packet, parent, length)
   return ""
 end
 
@@ -4173,15 +4338,20 @@ end
 
 -- Dissect: Logged Out Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logged_out_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logged_out_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logged_out_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logged_out_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logged_out_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logged_out_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logged_out_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logged_out_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logged_out_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logged_out_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Logout Message
@@ -4194,7 +4364,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logout_message = function(buffer
 end
 
 -- Display: Logout Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.logout_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.logout_message = function(packet, parent, length)
   return ""
 end
 
@@ -4210,15 +4380,20 @@ end
 
 -- Dissect: Logout Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logout_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logout_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logout_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logout_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logout_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logout_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logout_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logout_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logout_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logout_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Heartbeat Interval Seconds
@@ -4251,7 +4426,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logon_conf_message = function(bu
 end
 
 -- Display: Logon Conf Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_conf_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_conf_message = function(packet, parent, length)
   return ""
 end
 
@@ -4267,15 +4442,20 @@ end
 
 -- Dissect: Logon Conf Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_conf_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logon_conf_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logon_conf_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_conf_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logon_conf_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logon_conf_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_conf_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_conf_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_conf_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_conf_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reset Seq Num
@@ -4391,7 +4571,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logon_message = function(buffer,
 end
 
 -- Display: Logon Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_message = function(packet, parent, length)
   return ""
 end
 
@@ -4413,15 +4593,20 @@ end
 
 -- Dissect: Logon Message
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logon_message then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.logon_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_message(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logon_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.logon_message, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.logon_message(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.logon_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -5125,7 +5310,7 @@ coinbase_derivatives_ordersapi_sbe_v1_6_size_of.message_header = function(buffer
 end
 
 -- Display: Message Header
-coinbase_derivatives_ordersapi_sbe_v1_6_display.message_header = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -5171,19 +5356,24 @@ end
 
 -- Dissect: Message Header
 coinbase_derivatives_ordersapi_sbe_v1_6_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = coinbase_derivatives_ordersapi_sbe_v1_6_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.message_header(buffer, packet, parent)
-    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_6.fields.message_header, buffer(offset, 0))
+    local index = coinbase_derivatives_ordersapi_sbe_v1_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_6_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return coinbase_derivatives_ordersapi_sbe_v1_6_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Sbe Message
-coinbase_derivatives_ordersapi_sbe_v1_6_display.sbe_message = function(buffer, offset, size, packet, parent)
+coinbase_derivatives_ordersapi_sbe_v1_6_display.sbe_message = function(packet, parent, length)
   return ""
 end
 

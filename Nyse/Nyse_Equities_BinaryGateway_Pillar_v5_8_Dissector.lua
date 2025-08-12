@@ -1478,7 +1478,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.seq_msg_header = function(buffer
 end
 
 -- Display: Seq Msg Header
-nyse_equities_binarygateway_pillar_v5_8_display.seq_msg_header = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.seq_msg_header = function(packet, parent, length)
   return ""
 end
 
@@ -1497,15 +1497,20 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.seq_msg_header then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.seq_msg_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.seq_msg_header(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.seq_msg_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Risk Control Alert
@@ -1572,7 +1577,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.risk_control_alert = function(bu
 end
 
 -- Display: Risk Control Alert
-nyse_equities_binarygateway_pillar_v5_8_display.risk_control_alert = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.risk_control_alert = function(packet, parent, length)
   return ""
 end
 
@@ -1669,15 +1674,20 @@ end
 
 -- Dissect: Risk Control Alert
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_control_alert then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.risk_control_alert(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_alert(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_alert(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 190
@@ -1931,7 +1941,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.risk_control_acknowledgement = f
 end
 
 -- Display: Risk Control Acknowledgement
-nyse_equities_binarygateway_pillar_v5_8_display.risk_control_acknowledgement = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.risk_control_acknowledgement = function(packet, parent, length)
   return ""
 end
 
@@ -2043,15 +2053,20 @@ end
 
 -- Dissect: Risk Control Acknowledgement
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_control_acknowledgement then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.risk_control_acknowledgement(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_acknowledgement(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_acknowledgement(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Manual Action Type
@@ -2415,7 +2430,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.manual_action_id = function(buff
 end
 
 -- Display: Manual Action Id
-nyse_equities_binarygateway_pillar_v5_8_display.manual_action_id = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.manual_action_id = function(packet, parent, length)
   return ""
 end
 
@@ -2434,15 +2449,20 @@ end
 
 -- Dissect: Manual Action Id
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.manual_action_id then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.manual_action_id(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_id(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_id(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mmid
@@ -2565,7 +2585,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.manual_action_request = function
 end
 
 -- Display: Manual Action Request
-nyse_equities_binarygateway_pillar_v5_8_display.manual_action_request = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.manual_action_request = function(packet, parent, length)
   return ""
 end
 
@@ -2626,15 +2646,20 @@ end
 
 -- Dissect: Manual Action Request
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.manual_action_request then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.manual_action_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_request(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_request(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Auction Type
@@ -2685,7 +2710,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.auction_request = function(buffe
 end
 
 -- Display: Auction Request
-nyse_equities_binarygateway_pillar_v5_8_display.auction_request = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.auction_request = function(packet, parent, length)
   return ""
 end
 
@@ -2713,15 +2738,20 @@ end
 
 -- Dissect: Auction Request
 nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_request then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.auction_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.auction_request(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_request, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.auction_request(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sell Dmm Available Qty
@@ -2914,7 +2944,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.auction_price_data = function(bu
 end
 
 -- Display: Auction Price Data
-nyse_equities_binarygateway_pillar_v5_8_display.auction_price_data = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.auction_price_data = function(packet, parent, length)
   return ""
 end
 
@@ -2960,15 +2990,20 @@ end
 
 -- Dissect: Auction Price Data
 nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_price_data then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.auction_price_data(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.auction_price_data(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.auction_price_data(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Gt End
@@ -2983,7 +3018,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.gt_end = function(buffer, offset
 end
 
 -- Display: Gt End
-nyse_equities_binarygateway_pillar_v5_8_display.gt_end = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.gt_end = function(packet, parent, length)
   return ""
 end
 
@@ -3002,15 +3037,20 @@ end
 
 -- Dissect: Gt End
 nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.gt_end then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.gt_end(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.gt_end(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_end, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_end, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.gt_end(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Gt Begin
@@ -3025,7 +3065,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.gt_begin = function(buffer, offs
 end
 
 -- Display: Gt Begin
-nyse_equities_binarygateway_pillar_v5_8_display.gt_begin = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.gt_begin = function(packet, parent, length)
   return ""
 end
 
@@ -3044,15 +3084,20 @@ end
 
 -- Dissect: Gt Begin
 nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.gt_begin then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.gt_begin(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.gt_begin(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.gt_begin(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Subscription Status
@@ -3120,7 +3165,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.symbol_subscription_acknowledgem
 end
 
 -- Display: Symbol Subscription Acknowledgement
-nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_acknowledgement = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_acknowledgement = function(packet, parent, length)
   return ""
 end
 
@@ -3148,15 +3193,20 @@ end
 
 -- Dissect: Symbol Subscription Acknowledgement
 nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_subscription_acknowledgement then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.symbol_subscription_acknowledgement(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_acknowledgement(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_acknowledgement(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: User Data
@@ -4286,7 +4336,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.application_layer_reject = funct
 end
 
 -- Display: Application Layer Reject
-nyse_equities_binarygateway_pillar_v5_8_display.application_layer_reject = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.application_layer_reject = function(packet, parent, length)
   return ""
 end
 
@@ -4326,15 +4376,20 @@ end
 
 -- Dissect: Application Layer Reject
 nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.application_layer_reject then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.application_layer_reject(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.application_layer_reject(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.application_layer_reject(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Last Qty
@@ -4415,7 +4470,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.ref_seq_msg_id = function(buffer
 end
 
 -- Display: Ref Seq Msg Id
-nyse_equities_binarygateway_pillar_v5_8_display.ref_seq_msg_id = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.ref_seq_msg_id = function(packet, parent, length)
   return ""
 end
 
@@ -4434,15 +4489,20 @@ end
 
 -- Dissect: Ref Seq Msg Id
 nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.ref_seq_msg_id then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.ref_seq_msg_id(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.ref_seq_msg_id(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.ref_seq_msg_id(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Id
@@ -4497,7 +4557,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.trade_bust_correct = function(bu
 end
 
 -- Display: Trade Bust Correct
-nyse_equities_binarygateway_pillar_v5_8_display.trade_bust_correct = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.trade_bust_correct = function(packet, parent, length)
   return ""
 end
 
@@ -4546,15 +4606,20 @@ end
 
 -- Dissect: Trade Bust Correct
 nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_bust_correct then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.trade_bust_correct(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.trade_bust_correct(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.trade_bust_correct(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Settlement Type
@@ -4612,7 +4677,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.sub_msg_header = function(buffer
 end
 
 -- Display: Sub Msg Header
-nyse_equities_binarygateway_pillar_v5_8_display.sub_msg_header = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.sub_msg_header = function(packet, parent, length)
   return ""
 end
 
@@ -4631,15 +4696,20 @@ end
 
 -- Dissect: Sub Msg Header
 nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sub_msg_header then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.sub_msg_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.sub_msg_header(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.sub_msg_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Optional Settlement Type Add On
@@ -4654,7 +4724,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.optional_settlement_type_add_on 
 end
 
 -- Display: Optional Settlement Type Add On
-nyse_equities_binarygateway_pillar_v5_8_display.optional_settlement_type_add_on = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.optional_settlement_type_add_on = function(packet, parent, length)
   return ""
 end
 
@@ -4673,15 +4743,20 @@ end
 
 -- Dissect: Optional Settlement Type Add On
 nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.optional_settlement_type_add_on then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.optional_settlement_type_add_on(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.optional_settlement_type_add_on(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.optional_settlement_type_add_on(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Participant Type
@@ -4900,7 +4975,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.execution_report = function(buff
 end
 
 -- Display: Execution Report
-nyse_equities_binarygateway_pillar_v5_8_display.execution_report = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.execution_report = function(packet, parent, length)
   return ""
 end
 
@@ -4967,15 +5042,20 @@ end
 
 -- Dissect: Execution Report
 nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.execution_report(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.execution_report(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.execution_report, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.execution_report, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.execution_report(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ack Type
@@ -5190,7 +5270,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.order_priority_update_acknowledg
 end
 
 -- Display: Order Priority Update Acknowledgment
-nyse_equities_binarygateway_pillar_v5_8_display.order_priority_update_acknowledgment = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.order_priority_update_acknowledgment = function(packet, parent, length)
   return ""
 end
 
@@ -5239,15 +5319,20 @@ end
 
 -- Dissect: Order Priority Update Acknowledgment
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_priority_update_acknowledgment then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.order_priority_update_acknowledgment(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_priority_update_acknowledgment(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_priority_update_acknowledgment(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 7
@@ -5389,7 +5474,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.order_modify_cancel_request_ackn
 end
 
 -- Display: Order Modify Cancel Request Acknowledgment And Urout
-nyse_equities_binarygateway_pillar_v5_8_display.order_modify_cancel_request_acknowledgment_and_urout = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.order_modify_cancel_request_acknowledgment_and_urout = function(packet, parent, length)
   return ""
 end
 
@@ -5450,15 +5535,20 @@ end
 
 -- Dissect: Order Modify Cancel Request Acknowledgment And Urout
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_modify_cancel_request_acknowledgment_and_urout then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.order_modify_cancel_request_acknowledgment_and_urout(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_modify_cancel_request_acknowledgment_and_urout(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_modify_cancel_request_acknowledgment_and_urout(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Clearing Account
@@ -5673,7 +5763,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.optional_order_add_on = function
 end
 
 -- Display: Optional Order Add On
-nyse_equities_binarygateway_pillar_v5_8_display.optional_order_add_on = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.optional_order_add_on = function(packet, parent, length)
   return ""
 end
 
@@ -5707,15 +5797,20 @@ end
 
 -- Dissect: Optional Order Add On
 nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.optional_order_add_on then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.optional_order_add_on(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.optional_order_add_on(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.optional_order_add_on(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Min Qty
@@ -5815,7 +5910,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.order_and_cancel_replace_acknowl
 end
 
 -- Display: Order And Cancel Replace Acknowledgement Message
-nyse_equities_binarygateway_pillar_v5_8_display.order_and_cancel_replace_acknowledgement_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.order_and_cancel_replace_acknowledgement_message = function(packet, parent, length)
   return ""
 end
 
@@ -6309,7 +6404,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.session_configuration_acknowledg
 end
 
 -- Display: Session Configuration Acknowledgement Message
-nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_acknowledgement_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_acknowledgement_message = function(packet, parent, length)
   return ""
 end
 
@@ -6373,15 +6468,20 @@ end
 
 -- Dissect: Session Configuration Acknowledgement Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.session_configuration_acknowledgement_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.session_configuration_acknowledgement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_acknowledgement_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_acknowledgement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 100
@@ -6424,7 +6524,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.mmid_configuration_message = fun
 end
 
 -- Display: Mmid Configuration Message
-nyse_equities_binarygateway_pillar_v5_8_display.mmid_configuration_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.mmid_configuration_message = function(packet, parent, length)
   return ""
 end
 
@@ -6455,15 +6555,20 @@ end
 
 -- Dissect: Mmid Configuration Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mmid_configuration_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.mmid_configuration_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.mmid_configuration_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.mmid_configuration_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 50
@@ -6536,7 +6641,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.mpid_configuration_message = fun
 end
 
 -- Display: Mpid Configuration Message
-nyse_equities_binarygateway_pillar_v5_8_display.mpid_configuration_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.mpid_configuration_message = function(packet, parent, length)
   return ""
 end
 
@@ -6567,15 +6672,20 @@ end
 
 -- Dissect: Mpid Configuration Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mpid_configuration_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.mpid_configuration_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.mpid_configuration_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.mpid_configuration_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mpv Class Id
@@ -6688,7 +6798,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.mpv_level_definition = function(
 end
 
 -- Display: Mpv Level Definition
-nyse_equities_binarygateway_pillar_v5_8_display.mpv_level_definition = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.mpv_level_definition = function(packet, parent, length)
   return ""
 end
 
@@ -6716,15 +6826,20 @@ end
 
 -- Dissect: Mpv Level Definition
 nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mpv_level_definition then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.mpv_level_definition(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.mpv_level_definition(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.mpv_level_definition(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size Of: Minimum Price Variant Level Reference Data Message
@@ -6735,7 +6850,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.minimum_price_variant_level_refe
 end
 
 -- Display: Minimum Price Variant Level Reference Data Message
-nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_level_reference_data_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_level_reference_data_message = function(packet, parent, length)
   return ""
 end
 
@@ -6865,7 +6980,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.minimum_price_variant_class_refe
 end
 
 -- Display: Minimum Price Variant Class Reference Data Message
-nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_class_reference_data_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_class_reference_data_message = function(packet, parent, length)
   return ""
 end
 
@@ -6896,15 +7011,20 @@ end
 
 -- Dissect: Minimum Price Variant Class Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.minimum_price_variant_class_reference_data_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.minimum_price_variant_class_reference_data_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_class_reference_data_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_class_reference_data_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Lmocp
@@ -7239,7 +7359,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.dmm_symbol_reference_data_messag
 end
 
 -- Display: Dmm Symbol Reference Data Message
-nyse_equities_binarygateway_pillar_v5_8_display.dmm_symbol_reference_data_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.dmm_symbol_reference_data_message = function(packet, parent, length)
   return ""
 end
 
@@ -7303,15 +7423,20 @@ end
 
 -- Dissect: Dmm Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.dmm_symbol_reference_data_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.dmm_symbol_reference_data_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_symbol_reference_data_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_symbol_reference_data_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Test Symbol Indicator
@@ -7442,7 +7567,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.equities_symbol_reference_data_m
 end
 
 -- Display: Equities Symbol Reference Data Message
-nyse_equities_binarygateway_pillar_v5_8_display.equities_symbol_reference_data_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.equities_symbol_reference_data_message = function(packet, parent, length)
   return ""
 end
 
@@ -7485,15 +7610,20 @@ end
 
 -- Dissect: Equities Symbol Reference Data Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.equities_symbol_reference_data_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.equities_symbol_reference_data_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.equities_symbol_reference_data_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.equities_symbol_reference_data_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 199
@@ -7552,7 +7682,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.risk_action_request_message = fu
 end
 
 -- Display: Risk Action Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.risk_action_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.risk_action_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -7607,15 +7737,20 @@ end
 
 -- Dissect: Risk Action Request Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_action_request_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.risk_action_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_action_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_action_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Breach Action Request
@@ -7705,7 +7840,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.risk_limit_update_request_messag
 end
 
 -- Display: Risk Limit Update Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.risk_limit_update_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.risk_limit_update_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -7787,15 +7922,20 @@ end
 
 -- Dissect: Risk Limit Update Request Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_limit_update_request_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.risk_limit_update_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_limit_update_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_limit_update_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Dmm Reject Reason
@@ -7956,7 +8096,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.manual_action_response_message =
 end
 
 -- Display: Manual Action Response Message
-nyse_equities_binarygateway_pillar_v5_8_display.manual_action_response_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.manual_action_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -8005,15 +8145,20 @@ end
 
 -- Dissect: Manual Action Response Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.manual_action_response_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.manual_action_response_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_response_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_response_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Tg End Message
@@ -8026,7 +8171,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.tg_end_message = function(buffer
 end
 
 -- Display: Tg End Message
-nyse_equities_binarygateway_pillar_v5_8_display.tg_end_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.tg_end_message = function(packet, parent, length)
   return ""
 end
 
@@ -8042,15 +8187,20 @@ end
 
 -- Dissect: Tg End Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.tg_end_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.tg_end_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.tg_end_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.tg_end_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Tg Begin Message
@@ -8063,7 +8213,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.tg_begin_message = function(buff
 end
 
 -- Display: Tg Begin Message
-nyse_equities_binarygateway_pillar_v5_8_display.tg_begin_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.tg_begin_message = function(packet, parent, length)
   return ""
 end
 
@@ -8079,15 +8229,20 @@ end
 
 -- Dissect: Tg Begin Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.tg_begin_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.tg_begin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.tg_begin_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.tg_begin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Symbol Subscription Request Message
@@ -8104,7 +8259,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.symbol_subscription_request_mess
 end
 
 -- Display: Symbol Subscription Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -8126,15 +8281,20 @@ end
 
 -- Dissect: Symbol Subscription Request Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_subscription_request_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.symbol_subscription_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Bulk Cancel Type
@@ -8221,7 +8381,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.bulk_cancel_request_message = fu
 end
 
 -- Display: Bulk Cancel Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.bulk_cancel_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.bulk_cancel_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -8258,15 +8418,20 @@ end
 
 -- Dissect: Bulk Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.bulk_cancel_request_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.bulk_cancel_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.bulk_cancel_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.bulk_cancel_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Modify Request Message
@@ -8293,7 +8458,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.order_modify_request_message = f
 end
 
 -- Display: Order Modify Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.order_modify_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.order_modify_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -8330,15 +8495,20 @@ end
 
 -- Dissect: Order Modify Request Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_modify_request_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.order_modify_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_modify_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_modify_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Cancel Request Message
@@ -8359,7 +8529,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.order_cancel_request_message = f
 end
 
 -- Display: Order Cancel Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.order_cancel_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.order_cancel_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -8387,15 +8557,20 @@ end
 
 -- Dissect: Order Cancel Request Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_request_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.order_cancel_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_cancel_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.order_cancel_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: New Order Single And Cancel Replace Request Message
@@ -8437,7 +8612,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.new_order_single_and_cancel_repl
 end
 
 -- Display: New Order Single And Cancel Replace Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.new_order_single_and_cancel_replace_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.new_order_single_and_cancel_replace_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -8518,7 +8693,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.sequenced_filler_message = funct
 end
 
 -- Display: Sequenced Filler Message
-nyse_equities_binarygateway_pillar_v5_8_display.sequenced_filler_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.sequenced_filler_message = function(packet, parent, length)
   return ""
 end
 
@@ -8534,15 +8709,20 @@ end
 
 -- Dissect: Sequenced Filler Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sequenced_filler_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.sequenced_filler_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.sequenced_filler_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.sequenced_filler_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Session Configuration Request Message
@@ -8569,7 +8749,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.session_configuration_request_me
 end
 
 -- Display: Session Configuration Request Message
-nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -8606,15 +8786,20 @@ end
 
 -- Dissect: Session Configuration Request Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.session_configuration_request_message then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.session_configuration_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Sequenced Message
@@ -8950,7 +9135,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.seqmsgid = function(buffer, offs
 end
 
 -- Display: Seqmsgid
-nyse_equities_binarygateway_pillar_v5_8_display.seqmsgid = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.seqmsgid = function(packet, parent, length)
   return ""
 end
 
@@ -8969,15 +9154,20 @@ end
 
 -- Dissect: Seqmsgid
 nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.seqmsgid then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.seqmsgid(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.seqmsgid(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.seqmsgid(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Msg Length
@@ -9060,7 +9250,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.msg_header = function(buffer, of
 end
 
 -- Display: Msg Header
-nyse_equities_binarygateway_pillar_v5_8_display.msg_header = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.msg_header = function(packet, parent, length)
   return ""
 end
 
@@ -9079,15 +9269,20 @@ end
 
 -- Dissect: Msg Header
 nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.msg_header then
-    local length = nyse_equities_binarygateway_pillar_v5_8_size_of.msg_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_binarygateway_pillar_v5_8_display.msg_header(buffer, packet, parent)
-    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.msg_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.msg_header, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_binarygateway_pillar_v5_8_display.msg_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Seq Msg
@@ -9101,7 +9296,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.seq_msg = function(buffer, offse
 end
 
 -- Display: Seq Msg
-nyse_equities_binarygateway_pillar_v5_8_display.seq_msg = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.seq_msg = function(packet, parent, length)
   return ""
 end
 
@@ -9185,7 +9380,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.close_response = function(buffer
 end
 
 -- Display: Close Response
-nyse_equities_binarygateway_pillar_v5_8_display.close_response = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.close_response = function(packet, parent, length)
   return ""
 end
 
@@ -9233,7 +9428,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.close = function(buffer, offset)
 end
 
 -- Display: Close
-nyse_equities_binarygateway_pillar_v5_8_display.close = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.close = function(packet, parent, length)
   return ""
 end
 
@@ -9298,7 +9493,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.open_response = function(buffer,
 end
 
 -- Display: Open Response
-nyse_equities_binarygateway_pillar_v5_8_display.open_response = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.open_response = function(packet, parent, length)
   return ""
 end
 
@@ -9409,7 +9604,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.open = function(buffer, offset)
 end
 
 -- Display: Open
-nyse_equities_binarygateway_pillar_v5_8_display.open = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.open = function(packet, parent, length)
   return ""
 end
 
@@ -9466,7 +9661,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.heartbeat = function(buffer, off
 end
 
 -- Display: Heartbeat
-nyse_equities_binarygateway_pillar_v5_8_display.heartbeat = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.heartbeat = function(packet, parent, length)
   return ""
 end
 
@@ -9528,7 +9723,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.stream_avail = function(buffer, 
 end
 
 -- Display: Stream Avail
-nyse_equities_binarygateway_pillar_v5_8_display.stream_avail = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.stream_avail = function(packet, parent, length)
   return ""
 end
 
@@ -9579,7 +9774,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.login_response = function(buffer
 end
 
 -- Display: Login Response
-nyse_equities_binarygateway_pillar_v5_8_display.login_response = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.login_response = function(packet, parent, length)
   return ""
 end
 
@@ -9699,7 +9894,7 @@ nyse_equities_binarygateway_pillar_v5_8_size_of.login_message = function(buffer,
 end
 
 -- Display: Login Message
-nyse_equities_binarygateway_pillar_v5_8_display.login_message = function(buffer, offset, size, packet, parent)
+nyse_equities_binarygateway_pillar_v5_8_display.login_message = function(packet, parent, length)
   return ""
 end
 

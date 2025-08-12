@@ -45,8 +45,7 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4 = ProtoF
 boats_equities_memoirlastsale_sbe_v1_3.fields.original_trade_price = ProtoField.new("Original Trade Price", "boats.equities.memoirlastsale.sbe.v1.3.originaltradeprice", ftypes.DOUBLE)
 boats_equities_memoirlastsale_sbe_v1_3.fields.original_trade_qty = ProtoField.new("Original Trade Qty", "boats.equities.memoirlastsale.sbe.v1.3.originaltradeqty", ftypes.UINT32)
 boats_equities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "boats.equities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
-boats_equities_memoirlastsale_sbe_v1_3.fields.padding_14 = ProtoField.new("Padding 14", "boats.equities.memoirlastsale.sbe.v1.3.padding14", ftypes.BYTES)
-boats_equities_memoirlastsale_sbe_v1_3.fields.padding_7 = ProtoField.new("Padding 7", "boats.equities.memoirlastsale.sbe.v1.3.padding7", ftypes.BYTES)
+boats_equities_memoirlastsale_sbe_v1_3.fields.padding_1 = ProtoField.new("Padding 1", "boats.equities.memoirlastsale.sbe.v1.3.padding1", ftypes.BYTES)
 boats_equities_memoirlastsale_sbe_v1_3.fields.payload = ProtoField.new("Payload", "boats.equities.memoirlastsale.sbe.v1.3.payload", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "boats.equities.memoirlastsale.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "boats.equities.memoirlastsale.sbe.v1.3.roundlot", ftypes.UINT32)
@@ -69,8 +68,7 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.short_sale_restriction = ProtoFiel
 boats_equities_memoirlastsale_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "boats.equities.memoirlastsale.sbe.v1.3.symbol", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "boats.equities.memoirlastsale.sbe.v1.3.symbolsfx", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "boats.equities.memoirlastsale.sbe.v1.3.templateid", ftypes.UINT8)
-boats_equities_memoirlastsale_sbe_v1_3.fields.time = ProtoField.new("Time", "boats.equities.memoirlastsale.sbe.v1.3.time", ftypes.UINT64)
-boats_equities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "boats.equities.memoirlastsale.sbe.v1.3.timestamp", ftypes.STRING)
+boats_equities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "boats.equities.memoirlastsale.sbe.v1.3.timestamp", ftypes.UINT64)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "boats.equities.memoirlastsale.sbe.v1.3.tradecancelmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "boats.equities.memoirlastsale.sbe.v1.3.tradecorrectmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "boats.equities.memoirlastsale.sbe.v1.3.tradeid", ftypes.UINT64)
@@ -79,7 +77,6 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new("Trade 
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "boats.equities.memoirlastsale.sbe.v1.3.tradereportmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "boats.equities.memoirlastsale.sbe.v1.3.tradingsession", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "boats.equities.memoirlastsale.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
-boats_equities_memoirlastsale_sbe_v1_3.fields.unit = ProtoField.new("Unit", "boats.equities.memoirlastsale.sbe.v1.3.unit", ftypes.UINT8)
 boats_equities_memoirlastsale_sbe_v1_3.fields.version = ProtoField.new("Version", "boats.equities.memoirlastsale.sbe.v1.3.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -96,7 +93,6 @@ show.sbe_header = true
 show.sbe_message = true
 show.security_trading_status_message = true
 show.sequenced_message = true
-show.timestamp = true
 show.trade_cancel_message = true
 show.trade_correct_message = true
 show.trade_report_message = true
@@ -114,7 +110,6 @@ boats_equities_memoirlastsale_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show S
 boats_equities_memoirlastsale_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 boats_equities_memoirlastsale_sbe_v1_3.prefs.show_security_trading_status_message = Pref.bool("Show Security Trading Status Message", show.security_trading_status_message, "Parse and add Security Trading Status Message to protocol tree")
 boats_equities_memoirlastsale_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-boats_equities_memoirlastsale_sbe_v1_3.prefs.show_timestamp = Pref.bool("Show Timestamp", show.timestamp, "Parse and add Timestamp to protocol tree")
 boats_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
 boats_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_correct_message = Pref.bool("Show Trade Correct Message", show.trade_correct_message, "Parse and add Trade Correct Message to protocol tree")
 boats_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_report_message = Pref.bool("Show Trade Report Message", show.trade_report_message, "Parse and add Trade Report Message to protocol tree")
@@ -163,10 +158,6 @@ function boats_equities_memoirlastsale_sbe_v1_3.prefs_changed()
     show.sequenced_message = boats_equities_memoirlastsale_sbe_v1_3.prefs.show_sequenced_message
     changed = true
   end
-  if show.timestamp ~= boats_equities_memoirlastsale_sbe_v1_3.prefs.show_timestamp then
-    show.timestamp = boats_equities_memoirlastsale_sbe_v1_3.prefs.show_timestamp
-    changed = true
-  end
   if show.trade_cancel_message ~= boats_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_cancel_message then
     show.trade_cancel_message = boats_equities_memoirlastsale_sbe_v1_3.prefs.show_trade_cancel_message
     changed = true
@@ -203,22 +194,22 @@ end
 -- Dissect Boats Equities MemoirLastSale Sbe 1.3
 -----------------------------------------------------------------------
 
--- Size: Padding 14
-boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_14 = 14
+-- Size: Padding 1
+boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1 = 1
 
--- Display: Padding 14
-boats_equities_memoirlastsale_sbe_v1_3_display.padding_14 = function(value)
-  return "Padding 14: "..value
+-- Display: Padding 1
+boats_equities_memoirlastsale_sbe_v1_3_display.padding_1 = function(value)
+  return "Padding 1: "..value
 end
 
--- Dissect: Padding 14
-boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_14 = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_14
+-- Dissect: Padding 1
+boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1 = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = boats_equities_memoirlastsale_sbe_v1_3_display.padding_14(value, buffer, offset, packet, parent)
+  local display = boats_equities_memoirlastsale_sbe_v1_3_display.padding_1(value, buffer, offset, packet, parent)
 
-  parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.padding_14, range, value, display)
+  parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.padding_1, range, value, display)
 
   return offset + length, value
 end
@@ -387,7 +378,7 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_1 = func
 end
 
 -- Size: Corrected Trade Price
-boats_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_price = 1
+boats_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_price = 8
 
 -- Display: Corrected Trade Price
 boats_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_price = function(value)
@@ -396,14 +387,14 @@ end
 
 -- Translate: Corrected Trade Price
 translate.corrected_trade_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Corrected Trade Price
 boats_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.corrected_trade_price(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_price(value, buffer, offset, packet, parent)
 
@@ -596,7 +587,7 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_1 = funct
 end
 
 -- Size: Original Trade Price
-boats_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_price = 1
+boats_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_price = 8
 
 -- Display: Original Trade Price
 boats_equities_memoirlastsale_sbe_v1_3_display.original_trade_price = function(value)
@@ -605,14 +596,14 @@ end
 
 -- Translate: Original Trade Price
 translate.original_trade_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Original Trade Price
 boats_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.original_trade_price(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3_display.original_trade_price(value, buffer, offset, packet, parent)
 
@@ -681,93 +672,31 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.security_id = function(buffer, of
   return offset + length, value
 end
 
--- Size: Unit
-boats_equities_memoirlastsale_sbe_v1_3_size_of.unit = 1
-
--- Display: Unit
-boats_equities_memoirlastsale_sbe_v1_3_display.unit = function(value)
-  return "Unit: "..value
-end
-
--- Dissect: Unit
-boats_equities_memoirlastsale_sbe_v1_3_dissect.unit = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.unit
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3_display.unit(value, buffer, offset, packet, parent)
-
-  parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Time
-boats_equities_memoirlastsale_sbe_v1_3_size_of.time = 8
-
--- Display: Time
-boats_equities_memoirlastsale_sbe_v1_3_display.time = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-boats_equities_memoirlastsale_sbe_v1_3_dissect.time = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.time
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memoirlastsale_sbe_v1_3_display.time(value, buffer, offset, packet, parent)
-
-  parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Timestamp
-boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.time
-
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.unit
-
-  return index
-end
+-- Size: Timestamp
+boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp = 8
 
 -- Display: Timestamp
-boats_equities_memoirlastsale_sbe_v1_3_display.timestamp = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Timestamp
-boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time: 8 Byte Unsigned Fixed Width Integer
-  index, time = boats_equities_memoirlastsale_sbe_v1_3_dissect.time(buffer, index, packet, parent)
-
-  -- Unit: 1 Byte Unsigned Fixed Width Integer
-  index, unit = boats_equities_memoirlastsale_sbe_v1_3_dissect.unit(buffer, index, packet, parent)
-
-  return index
+boats_equities_memoirlastsale_sbe_v1_3_display.timestamp = function(value)
+  return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
 boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.timestamp then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.timestamp(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.timestamp, range, display)
-  end
+  local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memoirlastsale_sbe_v1_3_display.timestamp(value, buffer, offset, packet, parent)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp_fields(buffer, offset, packet, parent)
+  parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.timestamp, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Trade Correct Message
 boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_correct_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.security_id
 
@@ -797,13 +726,13 @@ boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_correct_message = function(
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_4
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_14
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
 
   return index
 end
 
 -- Display: Trade Correct Message
-boats_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message = function(packet, parent, length)
   return ""
 end
 
@@ -811,7 +740,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -823,7 +752,7 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields = fu
   -- Original Trade Qty: 4 Byte Unsigned Fixed Width Integer
   index, original_trade_qty = boats_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_qty(buffer, index, packet, parent)
 
-  -- Original Trade Price: 1 Byte Signed Fixed Width Integer
+  -- Original Trade Price: 8 Byte Unsigned Fixed Width Integer
   index, original_trade_price = boats_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_price(buffer, index, packet, parent)
 
   -- Original Sale Condition 1: 1 Byte Ascii String Enum with 1 values
@@ -841,7 +770,7 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields = fu
   -- Corrected Trade Qty: 4 Byte Unsigned Fixed Width Integer
   index, corrected_trade_qty = boats_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_qty(buffer, index, packet, parent)
 
-  -- Corrected Trade Price: 1 Byte Signed Fixed Width Integer
+  -- Corrected Trade Price: 8 Byte Unsigned Fixed Width Integer
   index, corrected_trade_price = boats_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_price(buffer, index, packet, parent)
 
   -- Corrected Sale Condition 1: 1 Byte Ascii String Enum with 1 values
@@ -856,43 +785,28 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields = fu
   -- Corrected Sale Condition 4: 1 Byte Ascii String Enum with 4 values
   index, corrected_sale_condition_4 = boats_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_4(buffer, index, packet, parent)
 
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
+  -- Padding 1: 1 Byte
+  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correct Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_correct_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_correct_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message(packet, parent, length)
+    parent:append_text(display)
+
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
   end
-
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 7
-boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_7 = 7
-
--- Display: Padding 7
-boats_equities_memoirlastsale_sbe_v1_3_display.padding_7 = function(value)
-  return "Padding 7: "..value
-end
-
--- Dissect: Padding 7
-boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_7
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = boats_equities_memoirlastsale_sbe_v1_3_display.padding_7(value, buffer, offset, packet, parent)
-
-  parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.padding_7, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Sale Condition 4
@@ -1059,7 +973,7 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_1 = function(buffe
 end
 
 -- Size: Last Price
-boats_equities_memoirlastsale_sbe_v1_3_size_of.last_price = 1
+boats_equities_memoirlastsale_sbe_v1_3_size_of.last_price = 8
 
 -- Display: Last Price
 boats_equities_memoirlastsale_sbe_v1_3_display.last_price = function(value)
@@ -1068,14 +982,14 @@ end
 
 -- Translate: Last Price
 translate.last_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Price
 boats_equities_memoirlastsale_sbe_v1_3_dissect.last_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.last_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.last_price(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3_display.last_price(value, buffer, offset, packet, parent)
 
@@ -1108,7 +1022,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_cancel_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.security_id
 
@@ -1126,13 +1040,13 @@ boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_cancel_message = function(b
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_4
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_7
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
 
   return index
 end
 
 -- Display: Trade Cancel Message
-boats_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -1140,7 +1054,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1152,7 +1066,7 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields = fun
   -- Trade Qty: 4 Byte Unsigned Fixed Width Integer
   index, trade_qty = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_qty(buffer, index, packet, parent)
 
-  -- Last Price: 1 Byte Signed Fixed Width Integer
+  -- Last Price: 8 Byte Unsigned Fixed Width Integer
   index, last_price = boats_equities_memoirlastsale_sbe_v1_3_dissect.last_price(buffer, index, packet, parent)
 
   -- Sale Condition 1: 1 Byte Ascii String Enum with 1 values
@@ -1167,27 +1081,32 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields = fun
   -- Sale Condition 4: 1 Byte Ascii String Enum with 4 values
   index, sale_condition_4 = boats_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_4(buffer, index, packet, parent)
 
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
+  -- Padding 1: 1 Byte
+  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancel Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancel_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Price
-boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_price = 1
+boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_price = 8
 
 -- Display: Trade Price
 boats_equities_memoirlastsale_sbe_v1_3_display.trade_price = function(value)
@@ -1196,14 +1115,14 @@ end
 
 -- Translate: Trade Price
 translate.trade_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Trade Price
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.trade_price(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_price(value, buffer, offset, packet, parent)
 
@@ -1216,7 +1135,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_report_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.security_id
 
@@ -1234,13 +1153,13 @@ boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_report_message = function(b
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_4
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_7
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
 
   return index
 end
 
 -- Display: Trade Report Message
-boats_equities_memoirlastsale_sbe_v1_3_display.trade_report_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.trade_report_message = function(packet, parent, length)
   return ""
 end
 
@@ -1248,7 +1167,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1260,7 +1179,7 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields = fun
   -- Trade Qty: 4 Byte Unsigned Fixed Width Integer
   index, trade_qty = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_qty(buffer, index, packet, parent)
 
-  -- Trade Price: 1 Byte Signed Fixed Width Integer
+  -- Trade Price: 8 Byte Unsigned Fixed Width Integer
   index, trade_price = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_price(buffer, index, packet, parent)
 
   -- Sale Condition 1: 1 Byte Ascii String Enum with 1 values
@@ -1275,23 +1194,28 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields = fun
   -- Sale Condition 4: 1 Byte Ascii String Enum with 4 values
   index, sale_condition_4 = boats_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_4(buffer, index, packet, parent)
 
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
+  -- Padding 1: 1 Byte
+  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_report_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.trade_report_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_report_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_report_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trading Session
@@ -1344,15 +1268,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_size_of.trading_session_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.trading_session
+
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
 
   return index
 end
 
 -- Display: Trading Session Status Message
-boats_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1360,26 +1286,34 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Trading Session: 1 Byte Ascii String Enum with 4 values
   index, trading_session = boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session(buffer, index, packet, parent)
+
+  -- Padding 1: 1 Byte
+  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Session Status Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_session_status_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.trading_session_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Security Trading Status Reason
@@ -1475,7 +1409,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.security_id
 
@@ -1483,11 +1417,13 @@ boats_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_message =
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_reason
 
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
+
   return index
 end
 
 -- Display: Security Trading Status Message
-boats_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1495,7 +1431,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1507,20 +1443,28 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_f
   -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
   index, security_trading_status_reason = boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_reason(buffer, index, packet, parent)
 
+  -- Padding 1: 1 Byte
+  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1(buffer, index, packet, parent)
+
   return index
 end
 
 -- Dissect: Security Trading Status Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_trading_status_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Short Sale Restriction
@@ -1554,17 +1498,19 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_size_of.reg_sho_restriction_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.security_id
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.short_sale_restriction
 
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
+
   return index
 end
 
 -- Display: Reg Sho Restriction Message
-boats_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message = function(packet, parent, length)
   return ""
 end
 
@@ -1572,7 +1518,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1581,24 +1527,32 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_field
   -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, short_sale_restriction = boats_equities_memoirlastsale_sbe_v1_3_dissect.short_sale_restriction(buffer, index, packet, parent)
 
+  -- Padding 1: 1 Byte
+  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1(buffer, index, packet, parent)
+
   return index
 end
 
 -- Dissect: Reg Sho Restriction Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reg_sho_restriction_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.reg_sho_restriction_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mpv
-boats_equities_memoirlastsale_sbe_v1_3_size_of.mpv = 1
+boats_equities_memoirlastsale_sbe_v1_3_size_of.mpv = 8
 
 -- Display: Mpv
 boats_equities_memoirlastsale_sbe_v1_3_display.mpv = function(value)
@@ -1607,14 +1561,14 @@ end
 
 -- Translate: Mpv
 translate.mpv = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Mpv
 boats_equities_memoirlastsale_sbe_v1_3_dissect.mpv = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.mpv
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.mpv(raw)
   local display = boats_equities_memoirlastsale_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
@@ -1746,7 +1700,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_size_of.instrument_directory_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp(buffer, offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.security_id
 
@@ -1760,13 +1714,13 @@ boats_equities_memoirlastsale_sbe_v1_3_size_of.instrument_directory_message = fu
 
   index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.mpv
 
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_7
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.padding_1
 
   return index
 end
 
 -- Display: Instrument Directory Message
-boats_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -1774,7 +1728,7 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: Struct of 2 fields
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = boats_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
@@ -1792,26 +1746,31 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fiel
   -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, is_test_symbol = boats_equities_memoirlastsale_sbe_v1_3_dissect.is_test_symbol(buffer, index, packet, parent)
 
-  -- Mpv: 1 Byte Signed Fixed Width Integer
+  -- Mpv: 8 Byte Unsigned Fixed Width Integer
   index, mpv = boats_equities_memoirlastsale_sbe_v1_3_dissect.mpv(buffer, index, packet, parent)
 
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
+  -- Padding 1: 1 Byte
+  index, padding_1 = boats_equities_memoirlastsale_sbe_v1_3_dissect.padding_1(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Directory Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_directory_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.instrument_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -2025,7 +1984,7 @@ boats_equities_memoirlastsale_sbe_v1_3_size_of.sbe_header = function(buffer, off
 end
 
 -- Display: Sbe Header
-boats_equities_memoirlastsale_sbe_v1_3_display.sbe_header = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.sbe_header = function(packet, parent, length)
   return ""
 end
 
@@ -2050,38 +2009,29 @@ end
 
 -- Dissect: Sbe Header
 boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sbe_header then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.sbe_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.sbe_header(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_header, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.sbe_header(packet, parent, length)
+    parent:append_text(display)
+
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
   end
-
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Sbe Message
-boats_equities_memoirlastsale_sbe_v1_3_size_of.sbe_message = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.sbe_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
 end
 
 -- Display: Sbe Message
-boats_equities_memoirlastsale_sbe_v1_3_display.sbe_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.sbe_message = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sbe Message
-boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields = function(buffer, offset, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -2097,16 +2047,17 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields = function(buf
 end
 
 -- Dissect: Sbe Message
-boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
+  -- Optionally add struct element to protocol tree
   if show.sbe_message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.sbe_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_sbe_message)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.sbe_message(buffer, packet, parent)
     parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_message, range, display)
   end
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent)
+  boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+
+  return offset + size_of_sbe_message
 end
 
 -- Size: Message Length
@@ -2129,46 +2080,42 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.message_length = function(buffer,
   return offset + length, value
 end
 
--- Calculate size of: Message
-boats_equities_memoirlastsale_sbe_v1_3_size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.message_length
-
-  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.sbe_message(buffer, offset + index)
-
-  return index
-end
-
 -- Display: Message
-boats_equities_memoirlastsale_sbe_v1_3_display.message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.message = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = boats_equities_memoirlastsale_sbe_v1_3_dissect.message_length(buffer, index, packet, parent)
 
+  -- Dependency element: Block Length
+  local block_length = buffer(index, 2):uint()
+
+  -- Runtime Size Of: Sbe Message
+  local size_of_sbe_message = block_length + 6
+
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent)
+  index = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
 
 -- Dissect: Message
-boats_equities_memoirlastsale_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+boats_equities_memoirlastsale_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.message(buffer, packet, parent)
     parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.message, range, display)
   end
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent)
+  boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
 end
 
 -- Size: Message Count
@@ -2191,15 +2138,20 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.message_count = function(buffer, 
   return offset + length, value
 end
 
--- Size Of: Sequenced Message
+-- Calculate size of: Sequenced Message
 boats_equities_memoirlastsale_sbe_v1_3_size_of.sequenced_message = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index)
+  index = index + boats_equities_memoirlastsale_sbe_v1_3_size_of.message_count
+
+  -- Parse runtime size of: Message
+  index = index + buffer(offset + index - 0, 2):uint()
+
+  return index
 end
 
 -- Display: Sequenced Message
-boats_equities_memoirlastsale_sbe_v1_3_display.sequenced_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.sequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -2210,12 +2162,17 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message_fields = functi
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = boats_equities_memoirlastsale_sbe_v1_3_dissect.message_count(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
   -- Message: Struct of 2 fields
-  while index < end_of_payload do
-    index = boats_equities_memoirlastsale_sbe_v1_3_dissect.message(buffer, index, packet, parent)
+  for i = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    index = boats_equities_memoirlastsale_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
   end
 
   return index
@@ -2385,7 +2342,7 @@ boats_equities_memoirlastsale_sbe_v1_3_size_of.common_header = function(buffer, 
 end
 
 -- Display: Common Header
-boats_equities_memoirlastsale_sbe_v1_3_display.common_header = function(buffer, offset, size, packet, parent)
+boats_equities_memoirlastsale_sbe_v1_3_display.common_header = function(packet, parent, length)
   return ""
 end
 
@@ -2410,15 +2367,20 @@ end
 
 -- Dissect: Common Header
 boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.common_header then
-    local length = boats_equities_memoirlastsale_sbe_v1_3_size_of.common_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.common_header(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.common_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.common_header(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

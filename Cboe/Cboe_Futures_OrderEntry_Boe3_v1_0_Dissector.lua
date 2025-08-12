@@ -529,7 +529,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_acknowledgement_message = f
 end
 
 -- Display: Reset Risk Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0_display.reset_risk_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.reset_risk_acknowledgement_message = function(packet, parent, length)
   return ""
 end
 
@@ -551,15 +551,20 @@ end
 
 -- Dissect: Reset Risk Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reset_risk_acknowledgement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_acknowledgement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.reset_risk_acknowledgement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_acknowledgement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.reset_risk_acknowledgement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Clearing Size
@@ -730,7 +735,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.variance_quote_restatement_message = f
 end
 
 -- Display: Variance Quote Restatement Message
-cboe_futures_orderentry_boe3_v1_0_display.variance_quote_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.variance_quote_restatement_message = function(packet, parent, length)
   return ""
 end
 
@@ -764,15 +769,20 @@ end
 
 -- Dissect: Variance Quote Restatement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.variance_quote_restatement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.variance_quote_restatement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.variance_quote_restatement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.variance_quote_restatement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.variance_quote_restatement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.variance_quote_restatement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Tas Quote Restatement Message
@@ -795,7 +805,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.tas_quote_restatement_message = functi
 end
 
 -- Display: Tas Quote Restatement Message
-cboe_futures_orderentry_boe3_v1_0_display.tas_quote_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.tas_quote_restatement_message = function(packet, parent, length)
   return ""
 end
 
@@ -826,15 +836,20 @@ end
 
 -- Dissect: Tas Quote Restatement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.tas_quote_restatement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.tas_quote_restatement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.tas_quote_restatement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.tas_quote_restatement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.tas_quote_restatement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.tas_quote_restatement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Reason
@@ -997,7 +1012,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_cancelled_message = function(buf
 end
 
 -- Display: Quote Cancelled Message
-cboe_futures_orderentry_boe3_v1_0_display.quote_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -1028,15 +1043,20 @@ end
 
 -- Dissect: Quote Cancelled Message
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_cancelled_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_cancelled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_cancelled_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_cancelled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_cancelled_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_cancelled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Fee Code
@@ -1239,7 +1259,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_execution_message = function(buf
 end
 
 -- Display: Quote Execution Message
-cboe_futures_orderentry_boe3_v1_0_display.quote_execution_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_execution_message = function(packet, parent, length)
   return ""
 end
 
@@ -1291,15 +1311,20 @@ end
 
 -- Dissect: Quote Execution Message
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_execution_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_execution_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_execution_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_execution_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_execution_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_execution_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Restatement Reason
@@ -1379,7 +1404,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_restated_message = function(buff
 end
 
 -- Display: Quote Restated Message
-cboe_futures_orderentry_boe3_v1_0_display.quote_restated_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_restated_message = function(packet, parent, length)
   return ""
 end
 
@@ -1416,15 +1441,20 @@ end
 
 -- Dissect: Quote Restated Message
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_restated_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_restated_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_restated_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_restated_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_restated_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_restated_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quote Reject Reason
@@ -1543,7 +1573,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_rejected_message = functi
 end
 
 -- Display: Quote Update Rejected Message
-cboe_futures_orderentry_boe3_v1_0_display.quote_update_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -1565,15 +1595,20 @@ end
 
 -- Dissect: Quote Update Rejected Message
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_update_rejected_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_rejected_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_rejected_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quote Result
@@ -1659,7 +1694,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_acknowledgement_group = f
 end
 
 -- Display: Quote Update Acknowledgement Group
-cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgement_group = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgement_group = function(packet, parent, length)
   return ""
 end
 
@@ -1681,15 +1716,20 @@ end
 
 -- Dissect: Quote Update Acknowledgement Group
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgement_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_update_acknowledgement_group then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_acknowledgement_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgement_group(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_group, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgement_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgement_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgement_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgement_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quote Cnt
@@ -1732,7 +1772,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_acknowledgement_message =
 end
 
 -- Display: Quote Update Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgement_message = function(packet, parent, length)
   return ""
 end
 
@@ -1971,7 +2011,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.variance_restatement_message = functio
 end
 
 -- Display: Variance Restatement Message
-cboe_futures_orderentry_boe3_v1_0_display.variance_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.variance_restatement_message = function(packet, parent, length)
   return ""
 end
 
@@ -2035,15 +2075,20 @@ end
 
 -- Dissect: Variance Restatement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.variance_restatement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.variance_restatement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.variance_restatement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.variance_restatement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.variance_restatement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.variance_restatement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Tas Restatement Message
@@ -2086,7 +2131,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.tas_restatement_message = function(buf
 end
 
 -- Display: Tas Restatement Message
-cboe_futures_orderentry_boe3_v1_0_display.tas_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.tas_restatement_message = function(packet, parent, length)
   return ""
 end
 
@@ -2147,15 +2192,20 @@ end
 
 -- Dissect: Tas Restatement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.tas_restatement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.tas_restatement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.tas_restatement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.tas_restatement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.tas_restatement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.tas_restatement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cmta Number
@@ -2364,7 +2414,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.trade_cancel_or_correct_message = func
 end
 
 -- Display: Trade Cancel Or Correct Message
-cboe_futures_orderentry_boe3_v1_0_display.trade_cancel_or_correct_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.trade_cancel_or_correct_message = function(packet, parent, length)
   return ""
 end
 
@@ -2425,15 +2475,20 @@ end
 
 -- Dissect: Trade Cancel Or Correct Message
 cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancel_or_correct_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.trade_cancel_or_correct_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.trade_cancel_or_correct_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.trade_cancel_or_correct_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.trade_cancel_or_correct_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.trade_cancel_or_correct_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -2585,7 +2640,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.purge_rejected_message = function(buff
 end
 
 -- Display: Purge Rejected Message
-cboe_futures_orderentry_boe3_v1_0_display.purge_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.purge_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -2610,15 +2665,20 @@ end
 
 -- Dissect: Purge Rejected Message
 cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.purge_rejected_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.purge_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.purge_rejected_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_rejected_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.purge_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancelled Order Count
@@ -2657,7 +2717,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.purge_acknowledgement_message = functi
 end
 
 -- Display: Purge Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0_display.purge_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.purge_acknowledgement_message = function(packet, parent, length)
   return ""
 end
 
@@ -2682,15 +2742,20 @@ end
 
 -- Dissect: Purge Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.purge_acknowledgement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.purge_acknowledgement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.purge_acknowledgement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_acknowledgement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.purge_acknowledgement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mass Cancel Reject Reason
@@ -2802,7 +2867,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_rejected_message = functio
 end
 
 -- Display: Mass Cancel Rejected Message
-cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -2827,15 +2892,20 @@ end
 
 -- Dissect: Mass Cancel Rejected Message
 cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_rejected_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_rejected_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_rejected_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Mass Cancel Acknowledgement Message
@@ -2854,7 +2924,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_acknowledgement_message = 
 end
 
 -- Display: Mass Cancel Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_acknowledgement_message = function(packet, parent, length)
   return ""
 end
 
@@ -2879,15 +2949,20 @@ end
 
 -- Dissect: Mass Cancel Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_acknowledgement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_acknowledgement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_acknowledgement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_acknowledgement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_acknowledgement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Reject Reason
@@ -3001,7 +3076,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.cancel_rejected_message = function(buf
 end
 
 -- Display: Cancel Rejected Message
-cboe_futures_orderentry_boe3_v1_0_display.cancel_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.cancel_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -3029,15 +3104,20 @@ end
 
 -- Dissect: Cancel Rejected Message
 cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_rejected_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancel_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_rejected_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_rejected_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Cancelled Message
@@ -3058,7 +3138,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.order_cancelled_message = function(buf
 end
 
 -- Display: Order Cancelled Message
-cboe_futures_orderentry_boe3_v1_0_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_cancelled_message = function(packet, parent, length)
   return ""
 end
 
@@ -3086,15 +3166,20 @@ end
 
 -- Dissect: Order Cancelled Message
 cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancelled_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_cancelled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.order_cancelled_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_cancelled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_cancelled_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_cancelled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Pending Status
@@ -3168,7 +3253,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.order_execution_message = function(buf
 end
 
 -- Display: Order Execution Message
-cboe_futures_orderentry_boe3_v1_0_display.order_execution_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_execution_message = function(packet, parent, length)
   return ""
 end
 
@@ -3235,15 +3320,20 @@ end
 
 -- Dissect: Order Execution Message
 cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_execution_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_execution_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.order_execution_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_execution_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_execution_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_execution_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Modify Reject Reason
@@ -3379,7 +3469,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.modify_rejected_message = function(buf
 end
 
 -- Display: Modify Rejected Message
-cboe_futures_orderentry_boe3_v1_0_display.modify_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.modify_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -3410,15 +3500,20 @@ end
 
 -- Dissect: Modify Rejected Message
 cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.modify_rejected_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.modify_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.modify_rejected_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.modify_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.modify_rejected_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.modify_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cust Order Handling Inst
@@ -3595,7 +3690,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.order_modified_message = function(buff
 end
 
 -- Display: Order Modified Message
-cboe_futures_orderentry_boe3_v1_0_display.order_modified_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_modified_message = function(packet, parent, length)
   return ""
 end
 
@@ -3650,15 +3745,20 @@ end
 
 -- Dissect: Order Modified Message
 cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_modified_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_modified_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.order_modified_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_modified_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_modified_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_modified_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Reject Reason
@@ -3772,7 +3872,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.order_rejected_message = function(buff
 end
 
 -- Display: Order Rejected Message
-cboe_futures_orderentry_boe3_v1_0_display.order_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -3800,15 +3900,20 @@ end
 
 -- Dissect: Order Rejected Message
 cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_rejected_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.order_rejected_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_rejected_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cum Qty
@@ -4203,7 +4308,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.order_acknowledgement_message = functi
 end
 
 -- Display: Order Acknowledgement Message
-cboe_futures_orderentry_boe3_v1_0_display.order_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_acknowledgement_message = function(packet, parent, length)
   return ""
 end
 
@@ -4306,15 +4411,20 @@ end
 
 -- Dissect: Order Acknowledgement Message
 cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_acknowledgement_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_acknowledgement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.order_acknowledgement_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_acknowledgement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_acknowledgement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Custom Group Id
@@ -4414,7 +4524,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_message = function(buffer, 
 end
 
 -- Display: Reset Risk Message
-cboe_futures_orderentry_boe3_v1_0_display.reset_risk_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.reset_risk_message = function(packet, parent, length)
   return ""
 end
 
@@ -4442,15 +4552,20 @@ end
 
 -- Dissect: Reset Risk Message
 cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reset_risk_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.reset_risk_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.reset_risk_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Quote Update Group
@@ -4471,7 +4586,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_group = function(buffer, 
 end
 
 -- Display: Quote Update Group
-cboe_futures_orderentry_boe3_v1_0_display.quote_update_group = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_group = function(packet, parent, length)
   return ""
 end
 
@@ -4499,15 +4614,20 @@ end
 
 -- Dissect: Quote Update Group
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_update_group then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_group(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_group, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Size Modifier
@@ -4573,7 +4693,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_message = function(buffer
 end
 
 -- Display: Quote Update Message
-cboe_futures_orderentry_boe3_v1_0_display.quote_update_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -4908,7 +5028,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.purge_orders_message = function(buffer
 end
 
 -- Display: Purge Orders Message
-cboe_futures_orderentry_boe3_v1_0_display.purge_orders_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.purge_orders_message = function(packet, parent, length)
   return ""
 end
 
@@ -4978,7 +5098,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_order_message = function(b
 end
 
 -- Display: Mass Cancel Order Message
-cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -5009,15 +5129,20 @@ end
 
 -- Dissect: Mass Cancel Order Message
 cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_order_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_order_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_order_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cancel Order Message
@@ -5036,7 +5161,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.cancel_order_message = function(buffer
 end
 
 -- Display: Cancel Order Message
-cboe_futures_orderentry_boe3_v1_0_display.cancel_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -5061,15 +5186,20 @@ end
 
 -- Dissect: Cancel Order Message
 cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancel_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_order_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_order_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Orig On Reject
@@ -5131,7 +5261,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.modify_order_message = function(buffer
 end
 
 -- Display: Modify Order Message
-cboe_futures_orderentry_boe3_v1_0_display.modify_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.modify_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -5180,15 +5310,20 @@ end
 
 -- Dissect: Modify Order Message
 cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.modify_order_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.modify_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.modify_order_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.modify_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.modify_order_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.modify_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: New Order Message
@@ -5247,7 +5382,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.new_order_message = function(buffer, o
 end
 
 -- Display: New Order Message
-cboe_futures_orderentry_boe3_v1_0_display.new_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.new_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -5332,15 +5467,20 @@ end
 
 -- Dissect: New Order Message
 cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.new_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.new_order_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.new_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.new_order_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.new_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Logout Reason Text
@@ -5405,7 +5545,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.logout_response_message = function(buf
 end
 
 -- Display: Logout Response Message
-cboe_futures_orderentry_boe3_v1_0_display.logout_response_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.logout_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -5424,15 +5564,20 @@ end
 
 -- Dissect: Logout Response Message
 cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logout_response_message then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.logout_response_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.logout_response_message(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.logout_response_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.logout_response_message, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.logout_response_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sequence Number
@@ -5487,7 +5632,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.unit_sequence = function(buffer, offse
 end
 
 -- Display: Unit Sequence
-cboe_futures_orderentry_boe3_v1_0_display.unit_sequence = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.unit_sequence = function(packet, parent, length)
   return ""
 end
 
@@ -5506,15 +5651,20 @@ end
 
 -- Dissect: Unit Sequence
 cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unit_sequence then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.unit_sequence(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.unit_sequence(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.unit_sequence, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.unit_sequence(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Units
@@ -5642,7 +5792,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.login_response_message = function(buff
 end
 
 -- Display: Login Response Message
-cboe_futures_orderentry_boe3_v1_0_display.login_response_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.login_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -5795,7 +5945,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.login_request_message = function(buffe
 end
 
 -- Display: Login Request Message
-cboe_futures_orderentry_boe3_v1_0_display.login_request_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.login_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6389,7 +6539,7 @@ cboe_futures_orderentry_boe3_v1_0_size_of.message_header = function(buffer, offs
 end
 
 -- Display: Message Header
-cboe_futures_orderentry_boe3_v1_0_display.message_header = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -6420,15 +6570,20 @@ end
 
 -- Dissect: Message Header
 cboe_futures_orderentry_boe3_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = cboe_futures_orderentry_boe3_v1_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_futures_orderentry_boe3_v1_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.message_header, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe3_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_futures_orderentry_boe3_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_futures_orderentry_boe3_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

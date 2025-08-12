@@ -331,7 +331,7 @@ jnx_equities_pts_itch_v1_7_size_of.order_replaced_message = function(buffer, off
 end
 
 -- Display: Order Replaced Message
-jnx_equities_pts_itch_v1_7_display.order_replaced_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.order_replaced_message = function(packet, parent, length)
   return ""
 end
 
@@ -359,15 +359,20 @@ end
 
 -- Dissect: Order Replaced Message
 jnx_equities_pts_itch_v1_7_dissect.order_replaced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replaced_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.order_replaced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.order_replaced_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_replaced_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.order_replaced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Number
@@ -402,7 +407,7 @@ jnx_equities_pts_itch_v1_7_size_of.order_deleted_message = function(buffer, offs
 end
 
 -- Display: Order Deleted Message
-jnx_equities_pts_itch_v1_7_display.order_deleted_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.order_deleted_message = function(packet, parent, length)
   return ""
 end
 
@@ -421,15 +426,20 @@ end
 
 -- Dissect: Order Deleted Message
 jnx_equities_pts_itch_v1_7_dissect.order_deleted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_deleted_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.order_deleted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.order_deleted_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_deleted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_deleted_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.order_deleted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Number
@@ -488,7 +498,7 @@ jnx_equities_pts_itch_v1_7_size_of.order_executed_message = function(buffer, off
 end
 
 -- Display: Order Executed Message
-jnx_equities_pts_itch_v1_7_display.order_executed_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.order_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -513,15 +523,20 @@ end
 
 -- Dissect: Order Executed Message
 jnx_equities_pts_itch_v1_7_dissect.order_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.order_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_executed_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.order_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Type
@@ -674,7 +689,7 @@ jnx_equities_pts_itch_v1_7_size_of.order_added_with_attributes_message = functio
 end
 
 -- Display: Order Added With Attributes Message
-jnx_equities_pts_itch_v1_7_display.order_added_with_attributes_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.order_added_with_attributes_message = function(packet, parent, length)
   return ""
 end
 
@@ -714,15 +729,20 @@ end
 
 -- Dissect: Order Added With Attributes Message
 jnx_equities_pts_itch_v1_7_dissect.order_added_with_attributes_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_added_with_attributes_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.order_added_with_attributes_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.order_added_with_attributes_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_added_with_attributes_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_added_with_attributes_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.order_added_with_attributes_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.order_added_with_attributes_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.order_added_with_attributes_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.order_added_with_attributes_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Added Without Attributes Message
@@ -747,7 +767,7 @@ jnx_equities_pts_itch_v1_7_size_of.order_added_without_attributes_message = func
 end
 
 -- Display: Order Added Without Attributes Message
-jnx_equities_pts_itch_v1_7_display.order_added_without_attributes_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.order_added_without_attributes_message = function(packet, parent, length)
   return ""
 end
 
@@ -781,15 +801,20 @@ end
 
 -- Dissect: Order Added Without Attributes Message
 jnx_equities_pts_itch_v1_7_dissect.order_added_without_attributes_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_added_without_attributes_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.order_added_without_attributes_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.order_added_without_attributes_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_added_without_attributes_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.order_added_without_attributes_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.order_added_without_attributes_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.order_added_without_attributes_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.order_added_without_attributes_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.order_added_without_attributes_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Short Selling State
@@ -835,7 +860,7 @@ jnx_equities_pts_itch_v1_7_size_of.short_selling_price_restriction_state_message
 end
 
 -- Display: Short Selling Price Restriction State Message
-jnx_equities_pts_itch_v1_7_display.short_selling_price_restriction_state_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.short_selling_price_restriction_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -860,15 +885,20 @@ end
 
 -- Dissect: Short Selling Price Restriction State Message
 jnx_equities_pts_itch_v1_7_dissect.short_selling_price_restriction_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.short_selling_price_restriction_state_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.short_selling_price_restriction_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.short_selling_price_restriction_state_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.short_selling_price_restriction_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.short_selling_price_restriction_state_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.short_selling_price_restriction_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.short_selling_price_restriction_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.short_selling_price_restriction_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.short_selling_price_restriction_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trading State
@@ -914,7 +944,7 @@ jnx_equities_pts_itch_v1_7_size_of.trading_state_message = function(buffer, offs
 end
 
 -- Display: Trading State Message
-jnx_equities_pts_itch_v1_7_display.trading_state_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.trading_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -939,15 +969,20 @@ end
 
 -- Dissect: Trading State Message
 jnx_equities_pts_itch_v1_7_dissect.trading_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_state_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.trading_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.trading_state_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.trading_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.trading_state_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.trading_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.trading_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.trading_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.trading_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Lower Price Limit
@@ -1120,7 +1155,7 @@ jnx_equities_pts_itch_v1_7_size_of.orderbook_directory_message = function(buffer
 end
 
 -- Display: Orderbook Directory Message
-jnx_equities_pts_itch_v1_7_display.orderbook_directory_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.orderbook_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -1160,15 +1195,20 @@ end
 
 -- Dissect: Orderbook Directory Message
 jnx_equities_pts_itch_v1_7_dissect.orderbook_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.orderbook_directory_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.orderbook_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.orderbook_directory_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.orderbook_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.orderbook_directory_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.orderbook_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.orderbook_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.orderbook_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.orderbook_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price Start
@@ -1239,7 +1279,7 @@ jnx_equities_pts_itch_v1_7_size_of.price_tick_size_message = function(buffer, of
 end
 
 -- Display: Price Tick Size Message
-jnx_equities_pts_itch_v1_7_display.price_tick_size_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.price_tick_size_message = function(packet, parent, length)
   return ""
 end
 
@@ -1264,15 +1304,20 @@ end
 
 -- Dissect: Price Tick Size Message
 jnx_equities_pts_itch_v1_7_dissect.price_tick_size_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.price_tick_size_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.price_tick_size_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.price_tick_size_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.price_tick_size_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.price_tick_size_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.price_tick_size_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.price_tick_size_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.price_tick_size_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.price_tick_size_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: System Event
@@ -1309,7 +1354,7 @@ jnx_equities_pts_itch_v1_7_size_of.system_event_message = function(buffer, offse
 end
 
 -- Display: System Event Message
-jnx_equities_pts_itch_v1_7_display.system_event_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -1331,15 +1376,20 @@ end
 
 -- Dissect: System Event Message
 jnx_equities_pts_itch_v1_7_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.system_event_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Timestamp Seconds
@@ -1372,7 +1422,7 @@ jnx_equities_pts_itch_v1_7_size_of.timestamp_seconds_message = function(buffer, 
 end
 
 -- Display: Timestamp Seconds Message
-jnx_equities_pts_itch_v1_7_display.timestamp_seconds_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.timestamp_seconds_message = function(packet, parent, length)
   return ""
 end
 
@@ -1388,15 +1438,20 @@ end
 
 -- Dissect: Timestamp Seconds Message
 jnx_equities_pts_itch_v1_7_dissect.timestamp_seconds_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.timestamp_seconds_message then
-    local length = jnx_equities_pts_itch_v1_7_size_of.timestamp_seconds_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.timestamp_seconds_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.timestamp_seconds_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.timestamp_seconds_message, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.timestamp_seconds_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.timestamp_seconds_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.timestamp_seconds_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.timestamp_seconds_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1610,7 +1665,7 @@ jnx_equities_pts_itch_v1_7_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-jnx_equities_pts_itch_v1_7_display.message_header = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1629,19 +1684,24 @@ end
 
 -- Dissect: Message Header
 jnx_equities_pts_itch_v1_7_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = jnx_equities_pts_itch_v1_7_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.message_header(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.message_header, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-jnx_equities_pts_itch_v1_7_display.message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -1765,7 +1825,7 @@ jnx_equities_pts_itch_v1_7_size_of.packet_header = function(buffer, offset)
 end
 
 -- Display: Packet Header
-jnx_equities_pts_itch_v1_7_display.packet_header = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_itch_v1_7_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -1787,15 +1847,20 @@ end
 
 -- Dissect: Packet Header
 jnx_equities_pts_itch_v1_7_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = jnx_equities_pts_itch_v1_7_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_itch_v1_7_display.packet_header(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_itch_v1_7.fields.packet_header, buffer(offset, 0))
+    local index = jnx_equities_pts_itch_v1_7_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_itch_v1_7_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_itch_v1_7_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_itch_v1_7_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

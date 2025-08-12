@@ -341,7 +341,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.ipo_quoting_period_update_message = fun
 end
 
 -- Display: Ipo Quoting Period Update Message
-nasdaq_nsmequities_noi_itch_v3_0_display.ipo_quoting_period_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.ipo_quoting_period_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -372,15 +372,20 @@ end
 
 -- Dissect: Ipo Quoting Period Update Message
 nasdaq_nsmequities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.ipo_quoting_period_update_message then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.ipo_quoting_period_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.ipo_quoting_period_update_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_quoting_period_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_quoting_period_update_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.ipo_quoting_period_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cross Type
@@ -501,7 +506,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.cross_trade_message = function(buffer, 
 end
 
 -- Display: Cross Trade Message
-nasdaq_nsmequities_noi_itch_v3_0_display.cross_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.cross_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -535,15 +540,20 @@ end
 
 -- Dissect: Cross Trade Message
 nasdaq_nsmequities_noi_itch_v3_0_dissect.cross_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cross_trade_message then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.cross_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.cross_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.cross_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.cross_trade_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.cross_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price Variation Indicator
@@ -787,7 +797,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.noii_message = function(buffer, offset)
 end
 
 -- Display: Noii Message
-nasdaq_nsmequities_noi_itch_v3_0_display.noii_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.noii_message = function(packet, parent, length)
   return ""
 end
 
@@ -833,15 +843,20 @@ end
 
 -- Dissect: Noii Message
 nasdaq_nsmequities_noi_itch_v3_0_dissect.noii_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.noii_message then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.noii_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.noii_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.noii_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.noii_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.noii_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.noii_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.noii_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.noii_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reg Sho Action
@@ -890,7 +905,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.reg_sho_restriction_message = function(
 end
 
 -- Display: Reg Sho Restriction Message
-nasdaq_nsmequities_noi_itch_v3_0_display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.reg_sho_restriction_message = function(packet, parent, length)
   return ""
 end
 
@@ -915,15 +930,20 @@ end
 
 -- Dissect: Reg Sho Restriction Message
 nasdaq_nsmequities_noi_itch_v3_0_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reg_sho_restriction_message then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.reg_sho_restriction_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.reg_sho_restriction_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.reg_sho_restriction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.reg_sho_restriction_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.reg_sho_restriction_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason
@@ -994,7 +1014,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.stock_trading_action_message = function
 end
 
 -- Display: Stock Trading Action Message
-nasdaq_nsmequities_noi_itch_v3_0_display.stock_trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.stock_trading_action_message = function(packet, parent, length)
   return ""
 end
 
@@ -1022,15 +1042,20 @@ end
 
 -- Dissect: Stock Trading Action Message
 nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stock_trading_action_message then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.stock_trading_action_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.stock_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.stock_trading_action_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.stock_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.stock_trading_action_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Inverse Indicator
@@ -1456,7 +1481,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.stock_directory_message = function(buff
 end
 
 -- Display: Stock Directory Message
-nasdaq_nsmequities_noi_itch_v3_0_display.stock_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.stock_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -1517,15 +1542,20 @@ end
 
 -- Dissect: Stock Directory Message
 nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stock_directory_message then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.stock_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.stock_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.stock_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.stock_directory_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.stock_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -1584,7 +1614,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.system_event_message = function(buffer,
 end
 
 -- Display: System Event Message
-nasdaq_nsmequities_noi_itch_v3_0_display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -1606,15 +1636,20 @@ end
 
 -- Dissect: System Event Message
 nasdaq_nsmequities_noi_itch_v3_0_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1784,7 +1819,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.message_header = function(buffer, offse
 end
 
 -- Display: Message Header
-nasdaq_nsmequities_noi_itch_v3_0_display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1803,19 +1838,24 @@ end
 
 -- Dissect: Message Header
 nasdaq_nsmequities_noi_itch_v3_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-nasdaq_nsmequities_noi_itch_v3_0_display.message = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -1939,7 +1979,7 @@ nasdaq_nsmequities_noi_itch_v3_0_size_of.packet_header = function(buffer, offset
 end
 
 -- Display: Packet Header
-nasdaq_nsmequities_noi_itch_v3_0_display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_nsmequities_noi_itch_v3_0_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -1961,15 +2001,20 @@ end
 
 -- Dissect: Packet Header
 nasdaq_nsmequities_noi_itch_v3_0_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nasdaq_nsmequities_noi_itch_v3_0_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_nsmequities_noi_itch_v3_0.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_nsmequities_noi_itch_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

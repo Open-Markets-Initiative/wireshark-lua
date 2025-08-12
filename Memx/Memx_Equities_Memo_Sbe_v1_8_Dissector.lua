@@ -765,7 +765,7 @@ memx_equities_memo_sbe_v1_8_size_of.mass_cancel_reject_message = function(buffer
 end
 
 -- Display: Mass Cancel Reject Message
-memx_equities_memo_sbe_v1_8_display.mass_cancel_reject_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.mass_cancel_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -805,15 +805,20 @@ end
 
 -- Dissect: Mass Cancel Reject Message
 memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_reject_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.mass_cancel_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_reject_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_reject_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cxl Rej Reason
@@ -991,7 +996,7 @@ memx_equities_memo_sbe_v1_8_size_of.order_cancel_reject_message = function(buffe
 end
 
 -- Display: Order Cancel Reject Message
-memx_equities_memo_sbe_v1_8_display.order_cancel_reject_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.order_cancel_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -1016,15 +1021,20 @@ end
 
 -- Dissect: Order Cancel Reject Message
 memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_reject_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.order_cancel_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.order_cancel_reject_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_reject_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.order_cancel_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Transact Time
@@ -1299,7 +1309,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_restatement_message = funct
 end
 
 -- Display: Execution Report Restatement Message
-memx_equities_memo_sbe_v1_8_display.execution_report_restatement_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_restatement_message = function(packet, parent, length)
   return ""
 end
 
@@ -1345,15 +1355,20 @@ end
 
 -- Dissect: Execution Report Restatement Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_restatement_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_restatement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_restatement_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_restatement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_restatement_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_restatement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trd Match Id
@@ -1422,7 +1437,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_trade_break_message = funct
 end
 
 -- Display: Execution Report Trade Break Message
-memx_equities_memo_sbe_v1_8_display.execution_report_trade_break_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_trade_break_message = function(packet, parent, length)
   return ""
 end
 
@@ -1462,15 +1477,20 @@ end
 
 -- Dissect: Execution Report Trade Break Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_trade_break_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_trade_break_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_break_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_break_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_break_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_break_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Last Qty Optional
@@ -1554,7 +1574,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_trade_correction_message = 
 end
 
 -- Display: Execution Report Trade Correction Message
-memx_equities_memo_sbe_v1_8_display.execution_report_trade_correction_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_trade_correction_message = function(packet, parent, length)
   return ""
 end
 
@@ -1600,15 +1620,20 @@ end
 
 -- Dissect: Execution Report Trade Correction Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_trade_correction_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_trade_correction_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_correction_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_correction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_correction_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_correction_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Locate Reqd
@@ -1872,7 +1897,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_replaced_message = function
 end
 
 -- Display: Execution Report Replaced Message
-memx_equities_memo_sbe_v1_8_display.execution_report_replaced_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_replaced_message = function(packet, parent, length)
   return ""
 end
 
@@ -1936,15 +1961,20 @@ end
 
 -- Dissect: Execution Report Replaced Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_replaced_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_replaced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_replaced_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_replaced_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_replaced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Execution Report Pending Replace Message
@@ -1987,7 +2017,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_pending_replace_message = f
 end
 
 -- Display: Execution Report Pending Replace Message
-memx_equities_memo_sbe_v1_8_display.execution_report_pending_replace_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_pending_replace_message = function(packet, parent, length)
   return ""
 end
 
@@ -2048,15 +2078,20 @@ end
 
 -- Dissect: Execution Report Pending Replace Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_pending_replace_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_pending_replace_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_replace_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_replace_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_replace_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_replace_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Mass Cancel Done Message
@@ -2071,7 +2106,7 @@ memx_equities_memo_sbe_v1_8_size_of.mass_cancel_done_message = function(buffer, 
 end
 
 -- Display: Mass Cancel Done Message
-memx_equities_memo_sbe_v1_8_display.mass_cancel_done_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.mass_cancel_done_message = function(packet, parent, length)
   return ""
 end
 
@@ -2090,15 +2125,20 @@ end
 
 -- Dissect: Mass Cancel Done Message
 memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_done_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.mass_cancel_done_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_done_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_done_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_done_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_done_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Reason
@@ -2213,7 +2253,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_canceled_message = function
 end
 
 -- Display: Execution Report Canceled Message
-memx_equities_memo_sbe_v1_8_display.execution_report_canceled_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_canceled_message = function(packet, parent, length)
   return ""
 end
 
@@ -2256,15 +2296,20 @@ end
 
 -- Dissect: Execution Report Canceled Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_canceled_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_canceled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_canceled_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_canceled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_canceled_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_canceled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Pending Mass Cancel Message
@@ -2291,7 +2336,7 @@ memx_equities_memo_sbe_v1_8_size_of.pending_mass_cancel_message = function(buffe
 end
 
 -- Display: Pending Mass Cancel Message
-memx_equities_memo_sbe_v1_8_display.pending_mass_cancel_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.pending_mass_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -2328,15 +2373,20 @@ end
 
 -- Dissect: Pending Mass Cancel Message
 memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.pending_mass_cancel_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.pending_mass_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.pending_mass_cancel_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.pending_mass_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.pending_mass_cancel_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.pending_mass_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Execution Report Pending Cancel Message
@@ -2367,7 +2417,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_pending_cancel_message = fu
 end
 
 -- Display: Execution Report Pending Cancel Message
-memx_equities_memo_sbe_v1_8_display.execution_report_pending_cancel_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_pending_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -2410,15 +2460,20 @@ end
 
 -- Dissect: Execution Report Pending Cancel Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_pending_cancel_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_pending_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_cancel_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_cancel_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trd Matching Id
@@ -2673,7 +2728,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_trade_message = function(bu
 end
 
 -- Display: Execution Report Trade Message
-memx_equities_memo_sbe_v1_8_display.execution_report_trade_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -2725,15 +2780,20 @@ end
 
 -- Dissect: Execution Report Trade Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_trade_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Reject Reason
@@ -3059,7 +3119,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_rejected_message = function
 end
 
 -- Display: Execution Report Rejected Message
-memx_equities_memo_sbe_v1_8_display.execution_report_rejected_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -3099,15 +3159,20 @@ end
 
 -- Dissect: Execution Report Rejected Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_rejected_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_rejected_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Risk Group Id
@@ -3751,7 +3816,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_new_message = function(buff
 end
 
 -- Display: Execution Report New Message
-memx_equities_memo_sbe_v1_8_display.execution_report_new_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_new_message = function(packet, parent, length)
   return ""
 end
 
@@ -3866,15 +3931,20 @@ end
 
 -- Dissect: Execution Report New Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_new_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_new_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_new_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_new_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_new_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_new_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Execution Report Pending New Message
@@ -3951,7 +4021,7 @@ memx_equities_memo_sbe_v1_8_size_of.execution_report_pending_new_message = funct
 end
 
 -- Display: Execution Report Pending New Message
-memx_equities_memo_sbe_v1_8_display.execution_report_pending_new_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.execution_report_pending_new_message = function(packet, parent, length)
   return ""
 end
 
@@ -4063,15 +4133,20 @@ end
 
 -- Dissect: Execution Report Pending New Message
 memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_report_pending_new_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.execution_report_pending_new_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_new_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_new_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_new_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_new_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Mass Cancel Request Message
@@ -4096,7 +4171,7 @@ memx_equities_memo_sbe_v1_8_size_of.mass_cancel_request_message = function(buffe
 end
 
 -- Display: Mass Cancel Request Message
-memx_equities_memo_sbe_v1_8_display.mass_cancel_request_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.mass_cancel_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4130,15 +4205,20 @@ end
 
 -- Dissect: Mass Cancel Request Message
 memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_request_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.mass_cancel_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_request_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Id Optional
@@ -4184,7 +4264,7 @@ memx_equities_memo_sbe_v1_8_size_of.order_cancel_request_message = function(buff
 end
 
 -- Display: Order Cancel Request Message
-memx_equities_memo_sbe_v1_8_display.order_cancel_request_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.order_cancel_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4212,15 +4292,20 @@ end
 
 -- Dissect: Order Cancel Request Message
 memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_request_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.order_cancel_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.order_cancel_request_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.order_cancel_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: OrigClOrdId
@@ -4287,7 +4372,7 @@ memx_equities_memo_sbe_v1_8_size_of.order_cancel_replace_request_message = funct
 end
 
 -- Display: Order Cancel Replace Request Message
-memx_equities_memo_sbe_v1_8_display.order_cancel_replace_request_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.order_cancel_replace_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4330,15 +4415,20 @@ end
 
 -- Dissect: Order Cancel Replace Request Message
 memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_replace_request_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.order_cancel_replace_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.order_cancel_replace_request_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_replace_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.order_cancel_replace_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: New Order Single Message
@@ -4403,7 +4493,7 @@ memx_equities_memo_sbe_v1_8_size_of.new_order_single_message = function(buffer, 
 end
 
 -- Display: New Order Single Message
-memx_equities_memo_sbe_v1_8_display.new_order_single_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.new_order_single_message = function(packet, parent, length)
   return ""
 end
 
@@ -4497,15 +4587,20 @@ end
 
 -- Dissect: New Order Single Message
 memx_equities_memo_sbe_v1_8_dissect.new_order_single_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_single_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.new_order_single_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.new_order_single_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.new_order_single_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.new_order_single_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.new_order_single_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -4851,7 +4946,7 @@ memx_equities_memo_sbe_v1_8_size_of.sbe_header = function(buffer, offset)
 end
 
 -- Display: Sbe Header
-memx_equities_memo_sbe_v1_8_display.sbe_header = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.sbe_header = function(packet, parent, length)
   return ""
 end
 
@@ -4876,15 +4971,20 @@ end
 
 -- Dissect: Sbe Header
 memx_equities_memo_sbe_v1_8_dissect.sbe_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sbe_header then
-    local length = memx_equities_memo_sbe_v1_8_size_of.sbe_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.sbe_header(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.sbe_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.sbe_header, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.sbe_header(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.sbe_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Sbe Message
@@ -4902,7 +5002,7 @@ memx_equities_memo_sbe_v1_8_size_of.sbe_message = function(buffer, offset)
 end
 
 -- Display: Sbe Message
-memx_equities_memo_sbe_v1_8_display.sbe_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.sbe_message = function(packet, parent, length)
   return ""
 end
 
@@ -4945,7 +5045,7 @@ memx_equities_memo_sbe_v1_8_size_of.sequenced_message = function(buffer, offset)
 end
 
 -- Display: Sequenced Message
-memx_equities_memo_sbe_v1_8_display.sequenced_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.sequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -5002,7 +5102,7 @@ memx_equities_memo_sbe_v1_8_size_of.stream_complete_message = function(buffer, o
 end
 
 -- Display: Stream Complete Message
-memx_equities_memo_sbe_v1_8_display.stream_complete_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.stream_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -5018,15 +5118,20 @@ end
 
 -- Dissect: Stream Complete Message
 memx_equities_memo_sbe_v1_8_dissect.stream_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_complete_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.stream_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.stream_complete_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_complete_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.stream_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Stream Reject Code
@@ -5069,7 +5174,7 @@ memx_equities_memo_sbe_v1_8_size_of.stream_rejected_message = function(buffer, o
 end
 
 -- Display: Stream Rejected Message
-memx_equities_memo_sbe_v1_8_display.stream_rejected_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.stream_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -5085,15 +5190,20 @@ end
 
 -- Dissect: Stream Rejected Message
 memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_rejected_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.stream_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.stream_rejected_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.stream_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Next Sequence Number
@@ -5128,7 +5238,7 @@ memx_equities_memo_sbe_v1_8_size_of.stream_begin_message = function(buffer, offs
 end
 
 -- Display: Stream Begin Message
-memx_equities_memo_sbe_v1_8_display.stream_begin_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.stream_begin_message = function(packet, parent, length)
   return ""
 end
 
@@ -5147,15 +5257,20 @@ end
 
 -- Dissect: Stream Begin Message
 memx_equities_memo_sbe_v1_8_dissect.stream_begin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_begin_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.stream_begin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.stream_begin_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_begin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_begin_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.stream_begin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Message Count
@@ -5188,7 +5303,7 @@ memx_equities_memo_sbe_v1_8_size_of.replay_complete_message = function(buffer, o
 end
 
 -- Display: Replay Complete Message
-memx_equities_memo_sbe_v1_8_display.replay_complete_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.replay_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -5204,15 +5319,20 @@ end
 
 -- Dissect: Replay Complete Message
 memx_equities_memo_sbe_v1_8_dissect.replay_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_complete_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.replay_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.replay_complete_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_complete_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.replay_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Replay Reject Code
@@ -5258,7 +5378,7 @@ memx_equities_memo_sbe_v1_8_size_of.replay_rejected_message = function(buffer, o
 end
 
 -- Display: Replay Rejected Message
-memx_equities_memo_sbe_v1_8_display.replay_rejected_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.replay_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -5274,15 +5394,20 @@ end
 
 -- Dissect: Replay Rejected Message
 memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_rejected_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.replay_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.replay_rejected_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.replay_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Pending Message Count
@@ -5317,7 +5442,7 @@ memx_equities_memo_sbe_v1_8_size_of.replay_begin_message = function(buffer, offs
 end
 
 -- Display: Replay Begin Message
-memx_equities_memo_sbe_v1_8_display.replay_begin_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.replay_begin_message = function(packet, parent, length)
   return ""
 end
 
@@ -5336,15 +5461,20 @@ end
 
 -- Dissect: Replay Begin Message
 memx_equities_memo_sbe_v1_8_dissect.replay_begin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_begin_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.replay_begin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.replay_begin_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_begin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_begin_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.replay_begin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Session Id
@@ -5377,7 +5507,7 @@ memx_equities_memo_sbe_v1_8_size_of.start_of_session_message = function(buffer, 
 end
 
 -- Display: Start Of Session Message
-memx_equities_memo_sbe_v1_8_display.start_of_session_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.start_of_session_message = function(packet, parent, length)
   return ""
 end
 
@@ -5393,15 +5523,20 @@ end
 
 -- Dissect: Start Of Session Message
 memx_equities_memo_sbe_v1_8_dissect.start_of_session_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.start_of_session_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.start_of_session_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.start_of_session_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.start_of_session_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.start_of_session_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.start_of_session_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Login Reject Code
@@ -5447,7 +5582,7 @@ memx_equities_memo_sbe_v1_8_size_of.login_rejected_message = function(buffer, of
 end
 
 -- Display: Login Rejected Message
-memx_equities_memo_sbe_v1_8_display.login_rejected_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.login_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -5463,15 +5598,20 @@ end
 
 -- Dissect: Login Rejected Message
 memx_equities_memo_sbe_v1_8_dissect.login_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.login_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.login_rejected_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.login_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Supported Request Mode
@@ -5514,7 +5654,7 @@ memx_equities_memo_sbe_v1_8_size_of.login_accepted_message = function(buffer, of
 end
 
 -- Display: Login Accepted Message
-memx_equities_memo_sbe_v1_8_display.login_accepted_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.login_accepted_message = function(packet, parent, length)
   return ""
 end
 
@@ -5530,15 +5670,20 @@ end
 
 -- Dissect: Login Accepted Message
 memx_equities_memo_sbe_v1_8_dissect.login_accepted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.login_accepted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.login_accepted_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_accepted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_accepted_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.login_accepted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Unsequenced Message
@@ -5551,7 +5696,7 @@ memx_equities_memo_sbe_v1_8_size_of.unsequenced_message = function(buffer, offse
 end
 
 -- Display: Unsequenced Message
-memx_equities_memo_sbe_v1_8_display.unsequenced_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.unsequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -5590,7 +5735,7 @@ memx_equities_memo_sbe_v1_8_size_of.stream_request_message = function(buffer, of
 end
 
 -- Display: Stream Request Message
-memx_equities_memo_sbe_v1_8_display.stream_request_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.stream_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -5609,15 +5754,20 @@ end
 
 -- Dissect: Stream Request Message
 memx_equities_memo_sbe_v1_8_dissect.stream_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_request_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.stream_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.stream_request_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.stream_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Replay All Request Message
@@ -5630,7 +5780,7 @@ memx_equities_memo_sbe_v1_8_size_of.replay_all_request_message = function(buffer
 end
 
 -- Display: Replay All Request Message
-memx_equities_memo_sbe_v1_8_display.replay_all_request_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.replay_all_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -5646,15 +5796,20 @@ end
 
 -- Dissect: Replay All Request Message
 memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_all_request_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.replay_all_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.replay_all_request_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_all_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_all_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.replay_all_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Count
@@ -5691,7 +5846,7 @@ memx_equities_memo_sbe_v1_8_size_of.replay_request_message = function(buffer, of
 end
 
 -- Display: Replay Request Message
-memx_equities_memo_sbe_v1_8_display.replay_request_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.replay_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -5713,15 +5868,20 @@ end
 
 -- Dissect: Replay Request Message
 memx_equities_memo_sbe_v1_8_dissect.replay_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_request_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.replay_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.replay_request_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.replay_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Token
@@ -5776,7 +5936,7 @@ memx_equities_memo_sbe_v1_8_size_of.login_request_message = function(buffer, off
 end
 
 -- Display: Login Request Message
-memx_equities_memo_sbe_v1_8_display.login_request_message = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.login_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -5795,15 +5955,20 @@ end
 
 -- Dissect: Login Request Message
 memx_equities_memo_sbe_v1_8_dissect.login_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_message then
-    local length = memx_equities_memo_sbe_v1_8_size_of.login_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.login_request_message(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.login_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.login_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Data
@@ -6064,7 +6229,7 @@ memx_equities_memo_sbe_v1_8_size_of.common_header = function(buffer, offset)
 end
 
 -- Display: Common Header
-memx_equities_memo_sbe_v1_8_display.common_header = function(buffer, offset, size, packet, parent)
+memx_equities_memo_sbe_v1_8_display.common_header = function(packet, parent, length)
   return ""
 end
 
@@ -6083,15 +6248,20 @@ end
 
 -- Dissect: Common Header
 memx_equities_memo_sbe_v1_8_dissect.common_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.common_header then
-    local length = memx_equities_memo_sbe_v1_8_size_of.common_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_equities_memo_sbe_v1_8_display.common_header(buffer, packet, parent)
-    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.common_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.common_header, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.common_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memo_sbe_v1_8_display.common_header(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_equities_memo_sbe_v1_8_dissect.common_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memo_sbe_v1_8_dissect.common_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

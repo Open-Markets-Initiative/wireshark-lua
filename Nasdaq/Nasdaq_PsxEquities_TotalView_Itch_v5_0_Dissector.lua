@@ -663,7 +663,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.net_order_imbalance_indicator_mes
 end
 
 -- Display: Net Order Imbalance Indicator Message
-nasdaq_psxequities_totalview_itch_v5_0_display.net_order_imbalance_indicator_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.net_order_imbalance_indicator_message = function(packet, parent, length)
   return ""
 end
 
@@ -712,15 +712,20 @@ end
 
 -- Dissect: Net Order Imbalance Indicator Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.net_order_imbalance_indicator_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.net_order_imbalance_indicator_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.net_order_imbalance_indicator_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.net_order_imbalance_indicator_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Number
@@ -759,7 +764,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.broken_trade_message = function(b
 end
 
 -- Display: Broken Trade Message
-nasdaq_psxequities_totalview_itch_v5_0_display.broken_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.broken_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -784,15 +789,20 @@ end
 
 -- Dissect: Broken Trade Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.broken_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.broken_trade_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.broken_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.broken_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.broken_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.broken_trade_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.broken_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cross Price
@@ -865,7 +875,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.cross_trade_message = function(bu
 end
 
 -- Display: Cross Trade Message
-nasdaq_psxequities_totalview_itch_v5_0_display.cross_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.cross_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -902,15 +912,20 @@ end
 
 -- Dissect: Cross Trade Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.cross_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cross_trade_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.cross_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.cross_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.cross_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.cross_trade_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.cross_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price
@@ -1032,7 +1047,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.trade_message_non_cross = functio
 end
 
 -- Display: Trade Message Non Cross
-nasdaq_psxequities_totalview_itch_v5_0_display.trade_message_non_cross = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.trade_message_non_cross = function(packet, parent, length)
   return ""
 end
 
@@ -1072,15 +1087,20 @@ end
 
 -- Dissect: Trade Message Non Cross
 nasdaq_psxequities_totalview_itch_v5_0_dissect.trade_message_non_cross = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_message_non_cross then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.trade_message_non_cross(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.trade_message_non_cross(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.trade_message_non_cross, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.trade_message_non_cross, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.trade_message_non_cross_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.trade_message_non_cross(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.trade_message_non_cross_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.trade_message_non_cross_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: New Order Reference Number
@@ -1145,7 +1165,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.order_replace_message = function(
 end
 
 -- Display: Order Replace Message
-nasdaq_psxequities_totalview_itch_v5_0_display.order_replace_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.order_replace_message = function(packet, parent, length)
   return ""
 end
 
@@ -1179,15 +1199,20 @@ end
 
 -- Dissect: Order Replace Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.order_replace_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replace_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.order_replace_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_replace_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_replace_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_replace_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.order_replace_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_replace_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_replace_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_replace_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Delete Message
@@ -1206,7 +1231,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.order_delete_message = function(b
 end
 
 -- Display: Order Delete Message
-nasdaq_psxequities_totalview_itch_v5_0_display.order_delete_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.order_delete_message = function(packet, parent, length)
   return ""
 end
 
@@ -1231,15 +1256,20 @@ end
 
 -- Dissect: Order Delete Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.order_delete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_delete_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.order_delete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_delete_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_delete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_delete_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_delete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Canceled Shares
@@ -1280,7 +1310,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.order_cancel_message = function(b
 end
 
 -- Display: Order Cancel Message
-nasdaq_psxequities_totalview_itch_v5_0_display.order_cancel_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.order_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -1308,15 +1338,20 @@ end
 
 -- Dissect: Order Cancel Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.order_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.order_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_cancel_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_cancel_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Execution Price
@@ -1416,7 +1451,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.order_executed_with_price_message
 end
 
 -- Display: Order Executed With Price Message
-nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_with_price_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_with_price_message = function(packet, parent, length)
   return ""
 end
 
@@ -1453,15 +1488,20 @@ end
 
 -- Dissect: Order Executed With Price Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_with_price_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_with_price_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.order_executed_with_price_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_with_price_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_executed_with_price_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_executed_with_price_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_with_price_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Executed Message
@@ -1484,7 +1524,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.order_executed_message = function
 end
 
 -- Display: Order Executed Message
-nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -1515,15 +1555,20 @@ end
 
 -- Dissect: Order Executed Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.order_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.order_executed_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.order_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Attribution
@@ -1572,7 +1617,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.add_order_with_mpid_attribution_m
 end
 
 -- Display: Add Order With Mpid Attribution Message
-nasdaq_psxequities_totalview_itch_v5_0_display.add_order_with_mpid_attribution_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.add_order_with_mpid_attribution_message = function(packet, parent, length)
   return ""
 end
 
@@ -1612,15 +1657,20 @@ end
 
 -- Dissect: Add Order With Mpid Attribution Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_with_mpid_attribution_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_with_mpid_attribution_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.add_order_with_mpid_attribution_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.add_order_with_mpid_attribution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_with_mpid_attribution_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.add_order_with_mpid_attribution_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_with_mpid_attribution_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_with_mpid_attribution_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Add Order No Mpid Attribution Message
@@ -1647,7 +1697,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_mes
 end
 
 -- Display: Add Order No Mpid Attribution Message
-nasdaq_psxequities_totalview_itch_v5_0_display.add_order_no_mpid_attribution_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.add_order_no_mpid_attribution_message = function(packet, parent, length)
   return ""
 end
 
@@ -1684,15 +1734,20 @@ end
 
 -- Dissect: Add Order No Mpid Attribution Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_no_mpid_attribution_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.add_order_no_mpid_attribution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.add_order_no_mpid_attribution_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Operational Halt Action
@@ -1772,7 +1827,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.operational_halt_message = functi
 end
 
 -- Display: Operational Halt Message
-nasdaq_psxequities_totalview_itch_v5_0_display.operational_halt_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.operational_halt_message = function(packet, parent, length)
   return ""
 end
 
@@ -1803,15 +1858,20 @@ end
 
 -- Dissect: Operational Halt Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.operational_halt_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.operational_halt_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.operational_halt_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.operational_halt_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.operational_halt_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.operational_halt_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.operational_halt_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.operational_halt_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.operational_halt_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.operational_halt_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Auction Collar Extension
@@ -1936,7 +1996,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.luld_auction_collar_message = fun
 end
 
 -- Display: Luld Auction Collar Message
-nasdaq_psxequities_totalview_itch_v5_0_display.luld_auction_collar_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.luld_auction_collar_message = function(packet, parent, length)
   return ""
 end
 
@@ -1973,15 +2033,20 @@ end
 
 -- Dissect: Luld Auction Collar Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.luld_auction_collar_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.luld_auction_collar_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.luld_auction_collar_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.luld_auction_collar_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.luld_auction_collar_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.luld_auction_collar_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.luld_auction_collar_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.luld_auction_collar_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.luld_auction_collar_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.luld_auction_collar_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Breached Level
@@ -2030,7 +2095,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.mwcb_status_level_message = funct
 end
 
 -- Display: Mwcb Status Level Message
-nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_status_level_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_status_level_message = function(packet, parent, length)
   return ""
 end
 
@@ -2055,15 +2120,20 @@ end
 
 -- Dissect: Mwcb Status Level Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_status_level_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mwcb_status_level_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.mwcb_status_level_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_status_level_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.mwcb_status_level_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.mwcb_status_level_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_status_level_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_status_level_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_status_level_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_status_level_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Level 3
@@ -2164,7 +2234,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.mwcb_decline_level_message = func
 end
 
 -- Display: Mwcb Decline Level Message
-nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_decline_level_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_decline_level_message = function(packet, parent, length)
   return ""
 end
 
@@ -2195,15 +2265,20 @@ end
 
 -- Dissect: Mwcb Decline Level Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mwcb_decline_level_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.mwcb_decline_level_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_decline_level_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.mwcb_decline_level_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.mwcb_decline_level_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.mwcb_decline_level_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Participant State
@@ -2349,7 +2424,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.market_participant_position_messa
 end
 
 -- Display: Market Participant Position Message
-nasdaq_psxequities_totalview_itch_v5_0_display.market_participant_position_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.market_participant_position_message = function(packet, parent, length)
   return ""
 end
 
@@ -2386,15 +2461,20 @@ end
 
 -- Dissect: Market Participant Position Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.market_participant_position_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_participant_position_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.market_participant_position_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.market_participant_position_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.market_participant_position_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.market_participant_position_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.market_participant_position_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reg Sho Action
@@ -2465,7 +2545,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.reg_sho_short_sale_price_test_res
 end
 
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_psxequities_totalview_itch_v5_0_display.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.reg_sho_short_sale_price_test_restricted_indicator_message = function(packet, parent, length)
   return ""
 end
 
@@ -2493,15 +2573,20 @@ end
 
 -- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.reg_sho_short_sale_price_test_restricted_indicator_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason
@@ -2599,7 +2684,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.stock_trading_action_message = fu
 end
 
 -- Display: Stock Trading Action Message
-nasdaq_psxequities_totalview_itch_v5_0_display.stock_trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.stock_trading_action_message = function(packet, parent, length)
   return ""
 end
 
@@ -2633,15 +2718,20 @@ end
 
 -- Dissect: Stock Trading Action Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stock_trading_action_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.stock_trading_action_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.stock_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.stock_trading_action_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.stock_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.stock_trading_action_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Inverse Indicator
@@ -3069,7 +3159,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.stock_directory_message = functio
 end
 
 -- Display: Stock Directory Message
-nasdaq_psxequities_totalview_itch_v5_0_display.stock_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.stock_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -3133,15 +3223,20 @@ end
 
 -- Dissect: Stock Directory Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stock_directory_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.stock_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.stock_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.stock_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.stock_directory_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.stock_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -3199,7 +3294,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.system_event_message = function(b
 end
 
 -- Display: System Event Message
-nasdaq_psxequities_totalview_itch_v5_0_display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -3224,15 +3319,20 @@ end
 
 -- Dissect: System Event Message
 nasdaq_psxequities_totalview_itch_v5_0_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -3545,7 +3645,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.message_header = function(buffer,
 end
 
 -- Display: Message Header
-nasdaq_psxequities_totalview_itch_v5_0_display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -3564,19 +3664,24 @@ end
 
 -- Dissect: Message Header
 nasdaq_psxequities_totalview_itch_v5_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-nasdaq_psxequities_totalview_itch_v5_0_display.message = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -3700,7 +3805,7 @@ nasdaq_psxequities_totalview_itch_v5_0_size_of.packet_header = function(buffer, 
 end
 
 -- Display: Packet Header
-nasdaq_psxequities_totalview_itch_v5_0_display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_psxequities_totalview_itch_v5_0_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -3722,15 +3827,20 @@ end
 
 -- Dissect: Packet Header
 nasdaq_psxequities_totalview_itch_v5_0_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nasdaq_psxequities_totalview_itch_v5_0_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_psxequities_totalview_itch_v5_0_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_psxequities_totalview_itch_v5_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_psxequities_totalview_itch_v5_0_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_psxequities_totalview_itch_v5_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_psxequities_totalview_itch_v5_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

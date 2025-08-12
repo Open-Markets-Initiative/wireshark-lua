@@ -331,7 +331,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.trade_cancel_message = functi
 end
 
 -- Display: Trade Cancel Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.trade_cancel_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.trade_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -362,15 +362,20 @@ end
 
 -- Dissect: Trade Cancel Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancel_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.trade_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_cancel_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.trade_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Flags
@@ -415,7 +420,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.last_sale_message = function(
 end
 
 -- Display: Last Sale Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.last_sale_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.last_sale_message = function(packet, parent, length)
   return ""
 end
 
@@ -449,15 +454,20 @@ end
 
 -- Dissect: Last Sale Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.last_sale_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.last_sale_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.last_sale_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.last_sale_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.last_sale_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.last_sale_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.last_sale_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.last_sale_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.last_sale_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.last_sale_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Offer Size
@@ -572,7 +582,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.wide_top_of_market_best_bid_a
 end
 
 -- Display: Wide Top Of Market Best Bid And Offer Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.wide_top_of_market_best_bid_and_offer_message = function(packet, parent, length)
   return ""
 end
 
@@ -603,15 +613,20 @@ end
 
 -- Dissect: Wide Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_best_bid_and_offer_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.wide_top_of_market_best_bid_and_offer_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.wide_top_of_market_best_bid_and_offer_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bid_and_offer_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bid_and_offer_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.wide_top_of_market_best_bid_and_offer_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Compact Top Of Market Best Bid And Offer Message
@@ -634,7 +649,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.compact_top_of_market_best_bi
 end
 
 -- Display: Compact Top Of Market Best Bid And Offer Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.compact_top_of_market_best_bid_and_offer_message = function(packet, parent, length)
   return ""
 end
 
@@ -665,15 +680,20 @@ end
 
 -- Dissect: Compact Top Of Market Best Bid And Offer Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.compact_top_of_market_best_bid_and_offer_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.compact_top_of_market_best_bid_and_offer_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.compact_top_of_market_best_bid_and_offer_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.compact_top_of_market_best_bid_and_offer_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.compact_top_of_market_best_bid_and_offer_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.compact_top_of_market_best_bid_and_offer_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Short Sale Restriction
@@ -790,7 +810,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.security_trading_status_notif
 end
 
 -- Display: Security Trading Status Notification Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.security_trading_status_notification_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.security_trading_status_notification_message = function(packet, parent, length)
   return ""
 end
 
@@ -818,15 +838,20 @@ end
 
 -- Dissect: Security Trading Status Notification Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_trading_status_notification_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.security_trading_status_notification_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.security_trading_status_notification_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.security_trading_status_notification_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.security_trading_status_notification_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.security_trading_status_notification_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: System Status
@@ -918,7 +943,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.system_state_message = functi
 end
 
 -- Display: System State Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.system_state_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.system_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -943,15 +968,20 @@ end
 
 -- Dissect: System State Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_state_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.system_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.system_state_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_state_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.system_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Primary Market Code
@@ -1184,7 +1214,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.symbol_update_message = funct
 end
 
 -- Display: Symbol Update Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.symbol_update_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.symbol_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -1227,15 +1257,20 @@ end
 
 -- Dissect: Symbol Update Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.symbol_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_update_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.symbol_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.symbol_update_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.symbol_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.symbol_update_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.symbol_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.symbol_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.symbol_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.symbol_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: System Time Message
@@ -1248,7 +1283,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.system_time_message = functio
 end
 
 -- Display: System Time Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.system_time_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.system_time_message = function(packet, parent, length)
   return ""
 end
 
@@ -1264,15 +1299,20 @@ end
 
 -- Dissect: System Time Message
 miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_time_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_time_message then
-    local length = miax_pearlequities_topofmarket_mach_v1_1_a_size_of.system_time_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.system_time_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_time_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_time_message, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_time_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_a_display.system_time_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_time_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_a_dissect.system_time_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Data
@@ -1432,7 +1472,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.application_message = functio
 end
 
 -- Display: Application Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.application_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.application_message = function(packet, parent, length)
   return ""
 end
 
@@ -1625,7 +1665,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a_size_of.message = function(buffer, of
 end
 
 -- Display: Message
-miax_pearlequities_topofmarket_mach_v1_1_a_display.message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_a_display.message = function(packet, parent, length)
   return ""
 end
 

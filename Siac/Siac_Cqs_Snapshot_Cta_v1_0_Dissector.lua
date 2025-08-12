@@ -757,7 +757,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.finra_snapshot_message = function(buffer, off
 end
 
 -- Display: Finra Snapshot Message
-siac_cqs_snapshot_cta_v1_0_display.finra_snapshot_message = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.finra_snapshot_message = function(packet, parent, length)
   return ""
 end
 
@@ -1096,7 +1096,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.participant_snapshot_message = function(buffe
 end
 
 -- Display: Participant Snapshot Message
-siac_cqs_snapshot_cta_v1_0_display.participant_snapshot_message = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.participant_snapshot_message = function(packet, parent, length)
   return ""
 end
 
@@ -1982,7 +1982,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.consolidated_snapshot_message = function(buff
 end
 
 -- Display: Consolidated Snapshot Message
-siac_cqs_snapshot_cta_v1_0_display.consolidated_snapshot_message = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.consolidated_snapshot_message = function(packet, parent, length)
   return ""
 end
 
@@ -2156,7 +2156,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.market_wide_circuit_breaker_decline_level_sta
 end
 
 -- Display: Market Wide Circuit Breaker Decline Level Status Snapshot Message
-siac_cqs_snapshot_cta_v1_0_display.market_wide_circuit_breaker_decline_level_status_snapshot_message = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.market_wide_circuit_breaker_decline_level_status_snapshot_message = function(packet, parent, length)
   return ""
 end
 
@@ -2210,7 +2210,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.line_integrity_message = function(buffer, off
 end
 
 -- Display: Line Integrity Message
-siac_cqs_snapshot_cta_v1_0_display.line_integrity_message = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.line_integrity_message = function(packet, parent, length)
   return ""
 end
 
@@ -2365,7 +2365,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.snapshot = function(buffer, offset)
 end
 
 -- Display: Snapshot
-siac_cqs_snapshot_cta_v1_0_display.snapshot = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.snapshot = function(packet, parent, length)
   return ""
 end
 
@@ -2500,7 +2500,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-siac_cqs_snapshot_cta_v1_0_display.message_header = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -2519,19 +2519,24 @@ end
 
 -- Dissect: Message Header
 siac_cqs_snapshot_cta_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = siac_cqs_snapshot_cta_v1_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cqs_snapshot_cta_v1_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_header, buffer(offset, 0))
+    local index = siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_snapshot_cta_v1_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-siac_cqs_snapshot_cta_v1_0_display.message = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -2637,7 +2642,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.sip_block_timestamp = function(buffer, offset
 end
 
 -- Display: Sip Block Timestamp
-siac_cqs_snapshot_cta_v1_0_display.sip_block_timestamp = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.sip_block_timestamp = function(packet, parent, length)
   return ""
 end
 
@@ -2656,15 +2661,20 @@ end
 
 -- Dissect: Sip Block Timestamp
 siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sip_block_timestamp then
-    local length = siac_cqs_snapshot_cta_v1_0_size_of.sip_block_timestamp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cqs_snapshot_cta_v1_0_display.sip_block_timestamp(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp, buffer(offset, 0))
+    local index = siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_snapshot_cta_v1_0_display.sip_block_timestamp(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Tot Pub Seq Rollover
@@ -2846,7 +2856,7 @@ siac_cqs_snapshot_cta_v1_0_size_of.block_header = function(buffer, offset)
 end
 
 -- Display: Block Header
-siac_cqs_snapshot_cta_v1_0_display.block_header = function(buffer, offset, size, packet, parent)
+siac_cqs_snapshot_cta_v1_0_display.block_header = function(packet, parent, length)
   return ""
 end
 
@@ -2886,15 +2896,20 @@ end
 
 -- Dissect: Block Header
 siac_cqs_snapshot_cta_v1_0_dissect.block_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.block_header then
-    local length = siac_cqs_snapshot_cta_v1_0_size_of.block_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = siac_cqs_snapshot_cta_v1_0_display.block_header(buffer, packet, parent)
-    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_header, buffer(offset, 0))
+    local index = siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_snapshot_cta_v1_0_display.block_header(packet, parent, length)
+    parent:append_text(display)
 
-  return siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

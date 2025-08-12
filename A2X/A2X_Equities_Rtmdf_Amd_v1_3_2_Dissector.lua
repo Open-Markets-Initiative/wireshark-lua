@@ -311,7 +311,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.market_at_close = function(buffer, offset)
 end
 
 -- Display: Market At Close
-a2x_equities_rtmdf_amd_v1_3_2_display.market_at_close = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.market_at_close = function(packet, parent, length)
   return ""
 end
 
@@ -339,15 +339,20 @@ end
 
 -- Dissect: Market At Close
 a2x_equities_rtmdf_amd_v1_3_2_dissect.market_at_close = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_at_close then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.market_at_close(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.market_at_close(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.market_at_close, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.market_at_close_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.market_at_close(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.market_at_close_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.market_at_close_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Vol
@@ -386,7 +391,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.auction_on_demand_message = function(buffe
 end
 
 -- Display: Auction On Demand Message
-a2x_equities_rtmdf_amd_v1_3_2_display.auction_on_demand_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.auction_on_demand_message = function(packet, parent, length)
   return ""
 end
 
@@ -411,15 +416,20 @@ end
 
 -- Dissect: Auction On Demand Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.auction_on_demand_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_on_demand_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.auction_on_demand_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.auction_on_demand_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.auction_on_demand_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.auction_on_demand_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.auction_on_demand_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.auction_on_demand_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Flags
@@ -527,7 +537,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.security_status_message = function(buffer,
 end
 
 -- Display: Security Status Message
-a2x_equities_rtmdf_amd_v1_3_2_display.security_status_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.security_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -552,15 +562,20 @@ end
 
 -- Dissect: Security Status Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.security_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_status_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.security_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.security_status_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_status_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.security_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.security_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Security Flags
@@ -812,7 +827,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.security_definition_message = function(buf
 end
 
 -- Display: Security Definition Message
-a2x_equities_rtmdf_amd_v1_3_2_display.security_definition_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.security_definition_message = function(packet, parent, length)
   return ""
 end
 
@@ -846,15 +861,20 @@ end
 
 -- Dissect: Security Definition Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.security_definition_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_definition_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.security_definition_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.security_definition_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_definition_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.security_definition_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.security_definition_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.security_definition_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.security_definition_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.security_definition_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Tick Size
@@ -949,7 +969,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.tick_table_data_message = function(buffer,
 end
 
 -- Display: Tick Table Data Message
-a2x_equities_rtmdf_amd_v1_3_2_display.tick_table_data_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.tick_table_data_message = function(packet, parent, length)
   return ""
 end
 
@@ -974,15 +994,20 @@ end
 
 -- Dissect: Tick Table Data Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_data_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.tick_table_data_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.tick_table_data_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.tick_table_data_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_data_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.tick_table_data_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_data_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.tick_table_data_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_data_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.tick_table_data_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Ref
@@ -1063,7 +1088,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.trade_bust_message = function(buffer, offs
 end
 
 -- Display: Trade Bust Message
-a2x_equities_rtmdf_amd_v1_3_2_display.trade_bust_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.trade_bust_message = function(packet, parent, length)
   return ""
 end
 
@@ -1091,15 +1116,20 @@ end
 
 -- Dissect: Trade Bust Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_bust_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_bust_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.trade_bust_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.trade_bust_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_bust_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_bust_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_bust_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.trade_bust_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_bust_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_bust_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Ref
@@ -1183,7 +1213,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.trade_message = function(buffer, offset)
 end
 
 -- Display: Trade Message
-a2x_equities_rtmdf_amd_v1_3_2_display.trade_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -1217,15 +1247,20 @@ end
 
 -- Dissect: Trade Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.trade_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.trade_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Modify Message
@@ -1246,7 +1281,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.order_modify_message = function(buffer, of
 end
 
 -- Display: Order Modify Message
-a2x_equities_rtmdf_amd_v1_3_2_display.order_modify_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.order_modify_message = function(packet, parent, length)
   return ""
 end
 
@@ -1274,15 +1309,20 @@ end
 
 -- Dissect: Order Modify Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_modify_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_modify_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.order_modify_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.order_modify_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_modify_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_modify_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_modify_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.order_modify_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.order_modify_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.order_modify_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Cancel Message
@@ -1299,7 +1339,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.order_cancel_message = function(buffer, of
 end
 
 -- Display: Order Cancel Message
-a2x_equities_rtmdf_amd_v1_3_2_display.order_cancel_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.order_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -1321,15 +1361,20 @@ end
 
 -- Dissect: Order Cancel Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.order_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.order_cancel_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_cancel_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.order_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Side
@@ -1379,7 +1424,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.order_add_message = function(buffer, offse
 end
 
 -- Display: Order Add Message
-a2x_equities_rtmdf_amd_v1_3_2_display.order_add_message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.order_add_message = function(packet, parent, length)
   return ""
 end
 
@@ -1410,15 +1455,20 @@ end
 
 -- Dissect: Order Add Message
 a2x_equities_rtmdf_amd_v1_3_2_dissect.order_add_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_add_message then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.order_add_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.order_add_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.order_add_message, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.order_add_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.order_add_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.order_add_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.order_add_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1653,7 +1703,7 @@ a2x_equities_rtmdf_amd_v1_3_2_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-a2x_equities_rtmdf_amd_v1_3_2_display.message_header = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1675,19 +1725,24 @@ end
 
 -- Dissect: Message Header
 a2x_equities_rtmdf_amd_v1_3_2_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = a2x_equities_rtmdf_amd_v1_3_2_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.message_header(buffer, packet, parent)
-    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message_header, buffer(offset, 0))
+    local index = a2x_equities_rtmdf_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_rtmdf_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_rtmdf_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-a2x_equities_rtmdf_amd_v1_3_2_display.message = function(buffer, offset, size, packet, parent)
+a2x_equities_rtmdf_amd_v1_3_2_display.message = function(packet, parent, length)
   return ""
 end
 

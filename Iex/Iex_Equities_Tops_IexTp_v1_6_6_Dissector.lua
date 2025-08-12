@@ -639,7 +639,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.auction_information_message = function(bu
 end
 
 -- Display: Auction Information Message
-iex_equities_tops_iextp_v1_6_6_display.auction_information_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.auction_information_message = function(packet, parent, length)
   return ""
 end
 
@@ -694,15 +694,20 @@ end
 
 -- Dissect: Auction Information Message
 iex_equities_tops_iextp_v1_6_6_dissect.auction_information_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_information_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.auction_information_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.auction_information_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.auction_information_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.auction_information_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.auction_information_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.auction_information_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.auction_information_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.auction_information_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Id
@@ -858,7 +863,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.trade_break_message = function(buffer, of
 end
 
 -- Display: Trade Break Message
-iex_equities_tops_iextp_v1_6_6_display.trade_break_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.trade_break_message = function(packet, parent, length)
   return ""
 end
 
@@ -889,15 +894,20 @@ end
 
 -- Dissect: Trade Break Message
 iex_equities_tops_iextp_v1_6_6_dissect.trade_break_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_break_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.trade_break_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.trade_break_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.trade_break_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.trade_break_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.trade_break_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Official Price
@@ -969,7 +979,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.official_price_message = function(buffer,
 end
 
 -- Display: Official Price Message
-iex_equities_tops_iextp_v1_6_6_display.official_price_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.official_price_message = function(packet, parent, length)
   return ""
 end
 
@@ -994,15 +1004,20 @@ end
 
 -- Dissect: Official Price Message
 iex_equities_tops_iextp_v1_6_6_dissect.official_price_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.official_price_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.official_price_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.official_price_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.official_price_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.official_price_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.official_price_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.official_price_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.official_price_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.official_price_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Trade Report Message
@@ -1025,7 +1040,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.trade_report_message = function(buffer, o
 end
 
 -- Display: Trade Report Message
-iex_equities_tops_iextp_v1_6_6_display.trade_report_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.trade_report_message = function(packet, parent, length)
   return ""
 end
 
@@ -1056,15 +1071,20 @@ end
 
 -- Dissect: Trade Report Message
 iex_equities_tops_iextp_v1_6_6_dissect.trade_report_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_report_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.trade_report_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.trade_report_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.trade_report_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.trade_report_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.trade_report_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ask Size
@@ -1227,7 +1247,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.quote_update_message = function(buffer, o
 end
 
 -- Display: Quote Update Message
-iex_equities_tops_iextp_v1_6_6_display.quote_update_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.quote_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -1261,15 +1281,20 @@ end
 
 -- Dissect: Quote Update Message
 iex_equities_tops_iextp_v1_6_6_dissect.quote_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_update_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.quote_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.quote_update_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.quote_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.quote_update_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.quote_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.quote_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.quote_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.quote_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Detail
@@ -1351,7 +1376,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.short_sale_price_test_status_message = fu
 end
 
 -- Display: Short Sale Price Test Status Message
-iex_equities_tops_iextp_v1_6_6_display.short_sale_price_test_status_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.short_sale_price_test_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1376,15 +1401,20 @@ end
 
 -- Dissect: Short Sale Price Test Status Message
 iex_equities_tops_iextp_v1_6_6_dissect.short_sale_price_test_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.short_sale_price_test_status_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.short_sale_price_test_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.short_sale_price_test_status_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.short_sale_price_test_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.short_sale_price_test_status_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.short_sale_price_test_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.short_sale_price_test_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.short_sale_price_test_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.short_sale_price_test_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Operational Halt Status
@@ -1428,7 +1458,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.operational_halt_status_message = functio
 end
 
 -- Display: Operational Halt Status Message
-iex_equities_tops_iextp_v1_6_6_display.operational_halt_status_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.operational_halt_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1450,15 +1480,20 @@ end
 
 -- Dissect: Operational Halt Status Message
 iex_equities_tops_iextp_v1_6_6_dissect.operational_halt_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.operational_halt_status_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.operational_halt_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.operational_halt_status_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.operational_halt_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.operational_halt_status_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.operational_halt_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.operational_halt_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.operational_halt_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.operational_halt_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Retail Liquidity Indicator
@@ -1508,7 +1543,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.retail_liquidity_indicator_message = func
 end
 
 -- Display: Retail Liquidity Indicator Message
-iex_equities_tops_iextp_v1_6_6_display.retail_liquidity_indicator_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.retail_liquidity_indicator_message = function(packet, parent, length)
   return ""
 end
 
@@ -1530,15 +1565,20 @@ end
 
 -- Dissect: Retail Liquidity Indicator Message
 iex_equities_tops_iextp_v1_6_6_dissect.retail_liquidity_indicator_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.retail_liquidity_indicator_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.retail_liquidity_indicator_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.retail_liquidity_indicator_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.retail_liquidity_indicator_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.retail_liquidity_indicator_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.retail_liquidity_indicator_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.retail_liquidity_indicator_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.retail_liquidity_indicator_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.retail_liquidity_indicator_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason
@@ -1610,7 +1650,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.trading_status_message = function(buffer,
 end
 
 -- Display: Trading Status Message
-iex_equities_tops_iextp_v1_6_6_display.trading_status_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.trading_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1635,15 +1675,20 @@ end
 
 -- Dissect: Trading Status Message
 iex_equities_tops_iextp_v1_6_6_dissect.trading_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_status_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.trading_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.trading_status_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.trading_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.trading_status_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.trading_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Luld Tier
@@ -1795,7 +1840,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.security_directory_message = function(buf
 end
 
 -- Display: Security Directory Message
-iex_equities_tops_iextp_v1_6_6_display.security_directory_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.security_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -1826,15 +1871,20 @@ end
 
 -- Dissect: Security Directory Message
 iex_equities_tops_iextp_v1_6_6_dissect.security_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_directory_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.security_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.security_directory_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.security_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.security_directory_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.security_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.security_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.security_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.security_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: System Event
@@ -1888,7 +1938,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.system_event_message = function(buffer, o
 end
 
 -- Display: System Event Message
-iex_equities_tops_iextp_v1_6_6_display.system_event_message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -1907,15 +1957,20 @@ end
 
 -- Dissect: System Event Message
 iex_equities_tops_iextp_v1_6_6_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.system_event_message, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Message Data
@@ -2129,7 +2184,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-iex_equities_tops_iextp_v1_6_6_display.message_header = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -2148,19 +2203,24 @@ end
 
 -- Dissect: Message Header
 iex_equities_tops_iextp_v1_6_6_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.message_header(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.message_header, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-iex_equities_tops_iextp_v1_6_6_display.message = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -2426,7 +2486,7 @@ iex_equities_tops_iextp_v1_6_6_size_of.iex_tp_header = function(buffer, offset)
 end
 
 -- Display: Iex Tp Header
-iex_equities_tops_iextp_v1_6_6_display.iex_tp_header = function(buffer, offset, size, packet, parent)
+iex_equities_tops_iextp_v1_6_6_display.iex_tp_header = function(packet, parent, length)
   return ""
 end
 
@@ -2469,15 +2529,20 @@ end
 
 -- Dissect: Iex Tp Header
 iex_equities_tops_iextp_v1_6_6_dissect.iex_tp_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.iex_tp_header then
-    local length = iex_equities_tops_iextp_v1_6_6_size_of.iex_tp_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_tops_iextp_v1_6_6_display.iex_tp_header(buffer, packet, parent)
-    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.iex_tp_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_tops_iextp_v1_6_6.fields.iex_tp_header, buffer(offset, 0))
+    local index = iex_equities_tops_iextp_v1_6_6_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_tops_iextp_v1_6_6_display.iex_tp_header(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_tops_iextp_v1_6_6_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_tops_iextp_v1_6_6_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

@@ -239,7 +239,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.seq_msg_header = function(buffer
 end
 
 -- Display: Seq Msg Header
-nyse_options_streamprotocol_pillar_v1_6_display.seq_msg_header = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.seq_msg_header = function(packet, parent, length)
   return ""
 end
 
@@ -258,19 +258,24 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.seq_msg_header then
-    local length = nyse_options_streamprotocol_pillar_v1_6_size_of.seq_msg_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_streamprotocol_pillar_v1_6_display.seq_msg_header(buffer, packet, parent)
-    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_header, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_streamprotocol_pillar_v1_6_display.seq_msg_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Sequenced Message
-nyse_options_streamprotocol_pillar_v1_6_display.sequenced_message = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.sequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -419,7 +424,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.stream_id = function(buffer, off
 end
 
 -- Display: Stream Id
-nyse_options_streamprotocol_pillar_v1_6_display.stream_id = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.stream_id = function(packet, parent, length)
   return ""
 end
 
@@ -438,15 +443,20 @@ end
 
 -- Dissect: Stream Id
 nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_id then
-    local length = nyse_options_streamprotocol_pillar_v1_6_size_of.stream_id(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_streamprotocol_pillar_v1_6_display.stream_id(buffer, packet, parent)
-    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.stream_id, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.stream_id, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_streamprotocol_pillar_v1_6_display.stream_id(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Seqmsgid
@@ -461,7 +471,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.seqmsgid = function(buffer, offs
 end
 
 -- Display: Seqmsgid
-nyse_options_streamprotocol_pillar_v1_6_display.seqmsgid = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.seqmsgid = function(packet, parent, length)
   return ""
 end
 
@@ -480,15 +490,20 @@ end
 
 -- Dissect: Seqmsgid
 nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.seqmsgid then
-    local length = nyse_options_streamprotocol_pillar_v1_6_size_of.seqmsgid(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_streamprotocol_pillar_v1_6_display.seqmsgid(buffer, packet, parent)
-    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seqmsgid, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seqmsgid, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_streamprotocol_pillar_v1_6_display.seqmsgid(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Msg Length
@@ -571,7 +586,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.msg_header = function(buffer, of
 end
 
 -- Display: Msg Header
-nyse_options_streamprotocol_pillar_v1_6_display.msg_header = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.msg_header = function(packet, parent, length)
   return ""
 end
 
@@ -590,15 +605,20 @@ end
 
 -- Dissect: Msg Header
 nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.msg_header then
-    local length = nyse_options_streamprotocol_pillar_v1_6_size_of.msg_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_options_streamprotocol_pillar_v1_6_display.msg_header(buffer, packet, parent)
-    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.msg_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.msg_header, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_streamprotocol_pillar_v1_6_display.msg_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Seq Msg
@@ -612,7 +632,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.seq_msg = function(buffer, offse
 end
 
 -- Display: Seq Msg
-nyse_options_streamprotocol_pillar_v1_6_display.seq_msg = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.seq_msg = function(packet, parent, length)
   return ""
 end
 
@@ -699,7 +719,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.close_response = function(buffer
 end
 
 -- Display: Close Response
-nyse_options_streamprotocol_pillar_v1_6_display.close_response = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.close_response = function(packet, parent, length)
   return ""
 end
 
@@ -747,7 +767,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.close = function(buffer, offset)
 end
 
 -- Display: Close
-nyse_options_streamprotocol_pillar_v1_6_display.close = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.close = function(packet, parent, length)
   return ""
 end
 
@@ -812,7 +832,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.open_response = function(buffer,
 end
 
 -- Display: Open Response
-nyse_options_streamprotocol_pillar_v1_6_display.open_response = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.open_response = function(packet, parent, length)
   return ""
 end
 
@@ -923,7 +943,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.open = function(buffer, offset)
 end
 
 -- Display: Open
-nyse_options_streamprotocol_pillar_v1_6_display.open = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.open = function(packet, parent, length)
   return ""
 end
 
@@ -980,7 +1000,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.heartbeat = function(buffer, off
 end
 
 -- Display: Heartbeat
-nyse_options_streamprotocol_pillar_v1_6_display.heartbeat = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.heartbeat = function(packet, parent, length)
   return ""
 end
 
@@ -1042,7 +1062,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.stream_avail = function(buffer, 
 end
 
 -- Display: Stream Avail
-nyse_options_streamprotocol_pillar_v1_6_display.stream_avail = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.stream_avail = function(packet, parent, length)
   return ""
 end
 
@@ -1129,7 +1149,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.login_response = function(buffer
 end
 
 -- Display: Login Response
-nyse_options_streamprotocol_pillar_v1_6_display.login_response = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.login_response = function(packet, parent, length)
   return ""
 end
 
@@ -1285,7 +1305,7 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.login_message = function(buffer,
 end
 
 -- Display: Login Message
-nyse_options_streamprotocol_pillar_v1_6_display.login_message = function(buffer, offset, size, packet, parent)
+nyse_options_streamprotocol_pillar_v1_6_display.login_message = function(packet, parent, length)
   return ""
 end
 

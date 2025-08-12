@@ -312,7 +312,7 @@ jnx_equities_pts_ouch_v1_11_size_of.cancel_order_message = function(buffer, offs
 end
 
 -- Display: Cancel Order Message
-jnx_equities_pts_ouch_v1_11_display.cancel_order_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.cancel_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -331,15 +331,20 @@ end
 
 -- Dissect: Cancel Order Message
 jnx_equities_pts_ouch_v1_11_dissect.cancel_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.cancel_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.cancel_order_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.cancel_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.cancel_order_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.cancel_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Minimum Quantity
@@ -504,7 +509,7 @@ jnx_equities_pts_ouch_v1_11_size_of.replace_order_message = function(buffer, off
 end
 
 -- Display: Replace Order Message
-jnx_equities_pts_ouch_v1_11_display.replace_order_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.replace_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -538,15 +543,20 @@ end
 
 -- Dissect: Replace Order Message
 jnx_equities_pts_ouch_v1_11_dissect.replace_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replace_order_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.replace_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.replace_order_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.replace_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.replace_order_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.replace_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cash Margin Type
@@ -810,7 +820,7 @@ jnx_equities_pts_ouch_v1_11_size_of.enter_order_message = function(buffer, offse
 end
 
 -- Display: Enter Order Message
-jnx_equities_pts_ouch_v1_11_display.enter_order_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.enter_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -865,15 +875,20 @@ end
 
 -- Dissect: Enter Order Message
 jnx_equities_pts_ouch_v1_11_dissect.enter_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.enter_order_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.enter_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.enter_order_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.enter_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.enter_order_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.enter_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.enter_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Unsequenced Message
@@ -978,7 +993,7 @@ jnx_equities_pts_ouch_v1_11_size_of.unsequenced_data_packet = function(buffer, o
 end
 
 -- Display: Unsequenced Data Packet
-jnx_equities_pts_ouch_v1_11_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.unsequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1108,7 +1123,7 @@ jnx_equities_pts_ouch_v1_11_size_of.login_request_packet = function(buffer, offs
 end
 
 -- Display: Login Request Packet
-jnx_equities_pts_ouch_v1_11_display.login_request_packet = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.login_request_packet = function(packet, parent, length)
   return ""
 end
 
@@ -1133,15 +1148,20 @@ end
 
 -- Dissect: Login Request Packet
 jnx_equities_pts_ouch_v1_11_dissect.login_request_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_packet then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.login_request_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.login_request_packet(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_request_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_request_packet, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.login_request_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Rejected Reason
@@ -1244,7 +1264,7 @@ jnx_equities_pts_ouch_v1_11_size_of.order_rejected_message = function(buffer, of
 end
 
 -- Display: Order Rejected Message
-jnx_equities_pts_ouch_v1_11_display.order_rejected_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.order_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -1266,15 +1286,20 @@ end
 
 -- Dissect: Order Rejected Message
 jnx_equities_pts_ouch_v1_11_dissect.order_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_rejected_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.order_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.order_rejected_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_rejected_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.order_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Number
@@ -1390,7 +1415,7 @@ jnx_equities_pts_ouch_v1_11_size_of.order_executed_message = function(buffer, of
 end
 
 -- Display: Order Executed Message
-jnx_equities_pts_ouch_v1_11_display.order_executed_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.order_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -1421,15 +1446,20 @@ end
 
 -- Dissect: Order Executed Message
 jnx_equities_pts_ouch_v1_11_dissect.order_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.order_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_executed_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.order_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity Prevented From Trading
@@ -1563,7 +1593,7 @@ jnx_equities_pts_ouch_v1_11_size_of.order_aiq_canceled_message = function(buffer
 end
 
 -- Display: Order Aiq Canceled Message
-jnx_equities_pts_ouch_v1_11_display.order_aiq_canceled_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.order_aiq_canceled_message = function(packet, parent, length)
   return ""
 end
 
@@ -1597,15 +1627,20 @@ end
 
 -- Dissect: Order Aiq Canceled Message
 jnx_equities_pts_ouch_v1_11_dissect.order_aiq_canceled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_aiq_canceled_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.order_aiq_canceled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.order_aiq_canceled_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_aiq_canceled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_aiq_canceled_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.order_aiq_canceled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.order_aiq_canceled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.order_aiq_canceled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.order_aiq_canceled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Canceled Message
@@ -1624,7 +1659,7 @@ jnx_equities_pts_ouch_v1_11_size_of.order_canceled_message = function(buffer, of
 end
 
 -- Display: Order Canceled Message
-jnx_equities_pts_ouch_v1_11_display.order_canceled_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.order_canceled_message = function(packet, parent, length)
   return ""
 end
 
@@ -1649,15 +1684,20 @@ end
 
 -- Dissect: Order Canceled Message
 jnx_equities_pts_ouch_v1_11_dissect.order_canceled_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_canceled_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.order_canceled_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.order_canceled_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_canceled_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_canceled_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.order_canceled_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.order_canceled_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Previous Order Token
@@ -1761,7 +1801,7 @@ jnx_equities_pts_ouch_v1_11_size_of.order_replaced_message = function(buffer, of
 end
 
 -- Display: Order Replaced Message
-jnx_equities_pts_ouch_v1_11_display.order_replaced_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.order_replaced_message = function(packet, parent, length)
   return ""
 end
 
@@ -1813,15 +1853,20 @@ end
 
 -- Dissect: Order Replaced Message
 jnx_equities_pts_ouch_v1_11_dissect.order_replaced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replaced_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.order_replaced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.order_replaced_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_replaced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_replaced_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.order_replaced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Accepted Message
@@ -1866,7 +1911,7 @@ jnx_equities_pts_ouch_v1_11_size_of.order_accepted_message = function(buffer, of
 end
 
 -- Display: Order Accepted Message
-jnx_equities_pts_ouch_v1_11_display.order_accepted_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.order_accepted_message = function(packet, parent, length)
   return ""
 end
 
@@ -1930,15 +1975,20 @@ end
 
 -- Dissect: Order Accepted Message
 jnx_equities_pts_ouch_v1_11_dissect.order_accepted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_accepted_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.order_accepted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.order_accepted_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_accepted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.order_accepted_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.order_accepted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: System Event
@@ -1980,7 +2030,7 @@ jnx_equities_pts_ouch_v1_11_size_of.system_event_message = function(buffer, offs
 end
 
 -- Display: System Event Message
-jnx_equities_pts_ouch_v1_11_display.system_event_message = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -1999,15 +2049,20 @@ end
 
 -- Dissect: System Event Message
 jnx_equities_pts_ouch_v1_11_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.system_event_message, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Sequenced Message
@@ -2156,7 +2211,7 @@ jnx_equities_pts_ouch_v1_11_size_of.sequenced_data_packet = function(buffer, off
 end
 
 -- Display: Sequenced Data Packet
-jnx_equities_pts_ouch_v1_11_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.sequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2220,7 +2275,7 @@ jnx_equities_pts_ouch_v1_11_size_of.login_rejected_packet = function(buffer, off
 end
 
 -- Display: Login Rejected Packet
-jnx_equities_pts_ouch_v1_11_display.login_rejected_packet = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.login_rejected_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2236,15 +2291,20 @@ end
 
 -- Dissect: Login Rejected Packet
 jnx_equities_pts_ouch_v1_11_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_packet then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.login_rejected_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.login_rejected_packet(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_rejected_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_rejected_packet, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.login_rejected_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sequence Number
@@ -2299,7 +2359,7 @@ jnx_equities_pts_ouch_v1_11_size_of.login_accepted_packet = function(buffer, off
 end
 
 -- Display: Login Accepted Packet
-jnx_equities_pts_ouch_v1_11_display.login_accepted_packet = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.login_accepted_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2318,15 +2378,20 @@ end
 
 -- Dissect: Login Accepted Packet
 jnx_equities_pts_ouch_v1_11_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_packet then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.login_accepted_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.login_accepted_packet(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_accepted_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.login_accepted_packet, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.login_accepted_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -2359,7 +2424,7 @@ jnx_equities_pts_ouch_v1_11_size_of.debug_packet = function(buffer, offset)
 end
 
 -- Display: Debug Packet
-jnx_equities_pts_ouch_v1_11_display.debug_packet = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.debug_packet = function(packet, parent, length)
   return ""
 end
 
@@ -2375,15 +2440,20 @@ end
 
 -- Dissect: Debug Packet
 jnx_equities_pts_ouch_v1_11_dissect.debug_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.debug_packet then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.debug_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.debug_packet(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.debug_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.debug_packet, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.debug_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.debug_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -2554,7 +2624,7 @@ jnx_equities_pts_ouch_v1_11_size_of.packet_header = function(buffer, offset)
 end
 
 -- Display: Packet Header
-jnx_equities_pts_ouch_v1_11_display.packet_header = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -2573,19 +2643,24 @@ end
 
 -- Dissect: Packet Header
 jnx_equities_pts_ouch_v1_11_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = jnx_equities_pts_ouch_v1_11_display.packet_header(buffer, packet, parent)
-    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.packet_header, buffer(offset, 0))
+    local index = jnx_equities_pts_ouch_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_equities_pts_ouch_v1_11_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return jnx_equities_pts_ouch_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return jnx_equities_pts_ouch_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Soup Bin Tcp Packet
-jnx_equities_pts_ouch_v1_11_display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
+jnx_equities_pts_ouch_v1_11_display.soup_bin_tcp_packet = function(packet, parent, length)
   return ""
 end
 

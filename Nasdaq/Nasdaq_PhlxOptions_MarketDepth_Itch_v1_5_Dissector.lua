@@ -619,7 +619,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_notification_message = 
 end
 
 -- Display: Auction Notification Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_notification_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_notification_message = function(packet, parent, length)
   return ""
 end
 
@@ -662,15 +662,20 @@ end
 
 -- Dissect: Auction Notification Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_notification_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_notification_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_notification_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.auction_notification_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.auction_notification_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_notification_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Match Number
@@ -727,7 +732,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.broken_trade_order_execution_me
 end
 
 -- Display: Broken Trade Order Execution Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.broken_trade_order_execution_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.broken_trade_order_execution_message = function(packet, parent, length)
   return ""
 end
 
@@ -749,15 +754,20 @@ end
 
 -- Dissect: Broken Trade Order Execution Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.broken_trade_order_execution_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.broken_trade_order_execution_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.broken_trade_order_execution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.broken_trade_order_execution_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.broken_trade_order_execution_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.broken_trade_order_execution_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Volume
@@ -852,7 +862,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.options_cross_trade_message = f
 end
 
 -- Display: Options Cross Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_cross_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_cross_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -886,15 +896,20 @@ end
 
 -- Dissect: Options Cross Trade Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.options_cross_trade_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.options_cross_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_cross_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.options_cross_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.options_cross_trade_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_cross_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Indicator
@@ -949,7 +964,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.non_auction_options_trade_messa
 end
 
 -- Display: Non Auction Options Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.non_auction_options_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.non_auction_options_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -983,15 +998,20 @@ end
 
 -- Dissect: Non Auction Options Trade Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.non_auction_options_trade_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.non_auction_options_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.non_auction_options_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.non_auction_options_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.non_auction_options_trade_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.non_auction_options_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancelled Reference Number Delta
@@ -1050,7 +1070,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.block_delete_message = function
 end
 
 -- Display: Block Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.block_delete_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.block_delete_message = function(packet, parent, length)
   return ""
 end
 
@@ -1139,7 +1159,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_delete_message = function
 end
 
 -- Display: Quote Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_delete_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_delete_message = function(packet, parent, length)
   return ""
 end
 
@@ -1161,15 +1181,20 @@ end
 
 -- Dissect: Quote Delete Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_delete_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_delete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_delete_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_delete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_delete_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_delete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Ask Size
@@ -1318,7 +1343,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_long_form_message
 end
 
 -- Display: Quote Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_long_form_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_long_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -1358,15 +1383,20 @@ end
 
 -- Dissect: Quote Replace Long Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_replace_long_form_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_long_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_long_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_replace_long_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_replace_long_form_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_long_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Short Ask Size
@@ -1487,7 +1517,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_short_form_messag
 end
 
 -- Display: Quote Replace Short Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_short_form_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_short_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -1527,15 +1557,20 @@ end
 
 -- Dissect: Quote Replace Short Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_replace_short_form_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_short_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_short_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_replace_short_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_replace_short_form_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_short_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Change Reason
@@ -1609,7 +1644,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_update_message = fu
 end
 
 -- Display: Single Side Update Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_update_message = function(packet, parent, length)
   return ""
 end
 
@@ -1637,15 +1672,20 @@ end
 
 -- Dissect: Single Side Update Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_update_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_update_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_update_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_update_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_update_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_update_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Side Delete Message
@@ -1660,7 +1700,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_delete_message = fu
 end
 
 -- Display: Single Side Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_delete_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_delete_message = function(packet, parent, length)
   return ""
 end
 
@@ -1679,15 +1719,20 @@ end
 
 -- Dissect: Single Side Delete Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_delete_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_delete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_delete_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_delete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_delete_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_delete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Id
@@ -1770,7 +1815,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_long_form_m
 end
 
 -- Display: Single Side Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_long_form_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_long_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -1801,15 +1846,20 @@ end
 
 -- Dissect: Single Side Replace Long Form Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_replace_long_form_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_long_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_long_form_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_long_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_long_form_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_long_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Short Volume
@@ -1878,7 +1928,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_replace_message_short_for
 end
 
 -- Display: Order Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_replace_message_short_form = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_replace_message_short_form = function(packet, parent, length)
   return ""
 end
 
@@ -1909,15 +1959,20 @@ end
 
 -- Dissect: Order Replace Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_replace_message_short_form then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_replace_message_short_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_replace_message_short_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.order_replace_message_short_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.order_replace_message_short_form, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_replace_message_short_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Side Replace Message Long Form
@@ -1938,7 +1993,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_lon
 end
 
 -- Display: Single Side Replace Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_long_form = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_long_form = function(packet, parent, length)
   return ""
 end
 
@@ -1966,15 +2021,20 @@ end
 
 -- Dissect: Single Side Replace Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_replace_message_long_form then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_long_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_long_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_message_long_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_message_long_form, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_long_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Side Replace Message Short Form
@@ -1995,7 +2055,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_sho
 end
 
 -- Display: Single Side Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_short_form = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_short_form = function(packet, parent, length)
   return ""
 end
 
@@ -2023,15 +2083,20 @@ end
 
 -- Dissect: Single Side Replace Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_replace_message_short_form then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_short_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_short_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_message_short_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_message_short_form, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_short_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancelled Contracts
@@ -2068,7 +2133,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_cancel_message = fu
 end
 
 -- Display: Single Side Cancel Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_cancel_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -2090,15 +2155,20 @@ end
 
 -- Dissect: Single Side Cancel Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_cancel_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_cancel_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_cancel_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Printable
@@ -2150,7 +2220,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_with_price
 end
 
 -- Display: Single Side Executed With Price Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_with_price_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_with_price_message = function(packet, parent, length)
   return ""
 end
 
@@ -2184,15 +2254,20 @@ end
 
 -- Dissect: Single Side Executed With Price Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_executed_with_price_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_with_price_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_with_price_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_with_price_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Executed Contracts
@@ -2233,7 +2308,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_message = 
 end
 
 -- Display: Single Side Executed Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -2261,15 +2336,20 @@ end
 
 -- Dissect: Single Side Executed Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_side_executed_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_executed_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Add Quote Message Long Form
@@ -2296,7 +2376,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_long_form = f
 end
 
 -- Display: Add Quote Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_long_form = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_long_form = function(packet, parent, length)
   return ""
 end
 
@@ -2333,15 +2413,20 @@ end
 
 -- Dissect: Add Quote Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_quote_message_long_form then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_long_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_long_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_quote_message_long_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_quote_message_long_form, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_long_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Add Quote Message Short Form
@@ -2368,7 +2453,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_short_form = 
 end
 
 -- Display: Add Quote Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_short_form = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_short_form = function(packet, parent, length)
   return ""
 end
 
@@ -2405,15 +2490,20 @@ end
 
 -- Dissect: Add Quote Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_quote_message_short_form then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_short_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_short_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_quote_message_short_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_quote_message_short_form, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_short_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Side
@@ -2497,7 +2587,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_long_form = f
 end
 
 -- Display: Add Order Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_long_form = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_long_form = function(packet, parent, length)
   return ""
 end
 
@@ -2531,15 +2621,20 @@ end
 
 -- Dissect: Add Order Message Long Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_message_long_form then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_long_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_long_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_order_message_long_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_order_message_long_form, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_long_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Add Order Message Short Form
@@ -2564,7 +2659,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_short_form = 
 end
 
 -- Display: Add Order Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_short_form = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_short_form = function(packet, parent, length)
   return ""
 end
 
@@ -2598,15 +2693,20 @@ end
 
 -- Dissect: Add Order Message Short Form
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_message_short_form then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_short_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_short_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_order_message_short_form, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_order_message_short_form, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_short_form(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Open State
@@ -2650,7 +2750,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.security_open_message = functio
 end
 
 -- Display: Security Open Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_open_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_open_message = function(packet, parent, length)
   return ""
 end
 
@@ -2672,15 +2772,20 @@ end
 
 -- Dissect: Security Open Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_open_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.security_open_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_open_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.security_open_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.security_open_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_open_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Current Trading State
@@ -2730,7 +2835,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.trading_action_message = functi
 end
 
 -- Display: Trading Action Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trading_action_message = function(packet, parent, length)
   return ""
 end
 
@@ -2752,15 +2857,20 @@ end
 
 -- Dissect: Trading Action Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.trading_action_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.trading_action_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.trading_action_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trading_action_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mpv
@@ -3057,7 +3167,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_directory_message = func
 end
 
 -- Display: Option Directory Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -3109,15 +3219,20 @@ end
 
 -- Dissect: Option Directory Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.option_directory_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.option_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.option_directory_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Base Reference Number
@@ -3152,7 +3267,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.base_reference_message = functi
 end
 
 -- Display: Base Reference Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_message = function(packet, parent, length)
   return ""
 end
 
@@ -3171,15 +3286,20 @@ end
 
 -- Dissect: Base Reference Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.base_reference_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.base_reference_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.base_reference_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.base_reference_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Event Code
@@ -3214,7 +3334,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.system_event_message = function
 end
 
 -- Display: System Event Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.system_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -3233,15 +3353,20 @@ end
 
 -- Dissect: System Event Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.system_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.system_event_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.system_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.system_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Second
@@ -3274,7 +3399,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.seconds_message = function(buff
 end
 
 -- Display: Seconds Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.seconds_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.seconds_message = function(packet, parent, length)
   return ""
 end
 
@@ -3290,15 +3415,20 @@ end
 
 -- Dissect: Seconds Message
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.seconds_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.seconds_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.seconds_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.seconds_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.seconds_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.seconds_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -3688,7 +3818,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_header = function(buffe
 end
 
 -- Display: Message Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -3707,19 +3837,24 @@ end
 
 -- Dissect: Message Header
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -3843,7 +3978,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.packet_header = function(buffer
 end
 
 -- Display: Packet Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -3865,15 +4000,20 @@ end
 
 -- Dissect: Packet Header
 nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

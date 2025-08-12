@@ -1541,7 +1541,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_target_parties_comp = function(buf
 end
 
 -- Display: Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_target_parties_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_target_parties_comp = function(packet, parent, length)
   return ""
 end
 
@@ -1566,15 +1566,20 @@ end
 
 -- Dissect: Xetra En Light Target Parties Comp
 eurex_cash_eti_t7_v8_0_dissect.xetra_en_light_target_parties_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.xetra_en_light_target_parties_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_target_parties_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.xetra_en_light_target_parties_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.xetra_en_light_target_parties_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.xetra_en_light_target_parties_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.xetra_en_light_target_parties_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.xetra_en_light_target_parties_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.xetra_en_light_target_parties_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.xetra_en_light_target_parties_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Free Text 5
@@ -2009,7 +2014,7 @@ eurex_cash_eti_t7_v8_0_size_of.request_header_comp = function(buffer, offset)
 end
 
 -- Display: Request Header Comp
-eurex_cash_eti_t7_v8_0_display.request_header_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.request_header_comp = function(packet, parent, length)
   return ""
 end
 
@@ -2028,15 +2033,20 @@ end
 
 -- Dissect: Request Header Comp
 eurex_cash_eti_t7_v8_0_dissect.request_header_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.request_header_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.request_header_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.request_header_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.request_header_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.request_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.request_header_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Pad 2
@@ -2095,7 +2105,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_update_negotiation_request = funct
 end
 
 -- Display: Xetra En Light Update Negotiation Request
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_update_negotiation_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_update_negotiation_request = function(packet, parent, length)
   return ""
 end
 
@@ -2527,7 +2537,7 @@ eurex_cash_eti_t7_v8_0_size_of.rbc_header_comp = function(buffer, offset)
 end
 
 -- Display: Rbc Header Comp
-eurex_cash_eti_t7_v8_0_display.rbc_header_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.rbc_header_comp = function(packet, parent, length)
   return ""
 end
 
@@ -2564,15 +2574,20 @@ end
 
 -- Dissect: Rbc Header Comp
 eurex_cash_eti_t7_v8_0_dissect.rbc_header_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.rbc_header_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.rbc_header_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.rbc_header_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.rbc_header_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.rbc_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.rbc_header_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Xetra En Light Status Broadcast
@@ -2586,7 +2601,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_status_broadcast = function(buffer
 end
 
 -- Display: Xetra En Light Status Broadcast
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_status_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_status_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -2696,7 +2711,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_quoting_status_request = function(
 end
 
 -- Display: Xetra En Light Quoting Status Request
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_quoting_status_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_quoting_status_request = function(packet, parent, length)
   return ""
 end
 
@@ -2845,7 +2860,7 @@ eurex_cash_eti_t7_v8_0_size_of.response_header_comp = function(buffer, offset)
 end
 
 -- Display: Response Header Comp
-eurex_cash_eti_t7_v8_0_display.response_header_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.response_header_comp = function(packet, parent, length)
   return ""
 end
 
@@ -2870,15 +2885,20 @@ end
 
 -- Dissect: Response Header Comp
 eurex_cash_eti_t7_v8_0_dissect.response_header_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.response_header_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.response_header_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.response_header_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.response_header_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.response_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.response_header_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Xetra En Light Quote Response
@@ -2892,7 +2912,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_quote_response = function(buffer, 
 end
 
 -- Display: Xetra En Light Quote Response
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_quote_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_quote_response = function(packet, parent, length)
   return ""
 end
 
@@ -3144,7 +3164,7 @@ eurex_cash_eti_t7_v8_0_size_of.srqs_quote_entry_grp_comp = function(buffer, offs
 end
 
 -- Display: Srqs Quote Entry Grp Comp
-eurex_cash_eti_t7_v8_0_display.srqs_quote_entry_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.srqs_quote_entry_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -3196,15 +3216,20 @@ end
 
 -- Dissect: Srqs Quote Entry Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.srqs_quote_entry_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.srqs_quote_entry_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.srqs_quote_entry_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.srqs_quote_entry_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.srqs_quote_entry_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.srqs_quote_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.srqs_quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.srqs_quote_entry_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.srqs_quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.srqs_quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Quote Entries
@@ -3268,7 +3293,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_quote_requester_notification = fun
 end
 
 -- Display: Xetra En Light Quote Requester Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_quote_requester_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_quote_requester_notification = function(packet, parent, length)
   return ""
 end
 
@@ -3498,7 +3523,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_quote_notification = function(buff
 end
 
 -- Display: Xetra En Light Quote Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_quote_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_quote_notification = function(packet, parent, length)
   return ""
 end
 
@@ -3841,7 +3866,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_open_negotiation_requester_notific
 end
 
 -- Display: Xetra En Light Open Negotiation Requester Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_open_negotiation_requester_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_open_negotiation_requester_notification = function(packet, parent, length)
   return ""
 end
 
@@ -4048,7 +4073,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_open_negotiation_request = functio
 end
 
 -- Display: Xetra En Light Open Negotiation Request
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_open_negotiation_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_open_negotiation_request = function(packet, parent, length)
   return ""
 end
 
@@ -4219,7 +4244,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_open_negotiation_notification = fu
 end
 
 -- Display: Xetra En Light Open Negotiation Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_open_negotiation_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_open_negotiation_notification = function(packet, parent, length)
   return ""
 end
 
@@ -4330,7 +4355,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_negotiation_status_notification = 
 end
 
 -- Display: Xetra En Light Negotiation Status Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_negotiation_status_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_negotiation_status_notification = function(packet, parent, length)
   return ""
 end
 
@@ -4418,7 +4443,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_negotiation_requester_notification
 end
 
 -- Display: Xetra En Light Negotiation Requester Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_negotiation_requester_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_negotiation_requester_notification = function(packet, parent, length)
   return ""
 end
 
@@ -4551,7 +4576,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_negotiation_notification = functio
 end
 
 -- Display: Xetra En Light Negotiation Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_negotiation_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_negotiation_notification = function(packet, parent, length)
   return ""
 end
 
@@ -4903,7 +4928,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_hit_quote_request = function(buffe
 end
 
 -- Display: Xetra En Light Hit Quote Request
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_hit_quote_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_hit_quote_request = function(packet, parent, length)
   return ""
 end
 
@@ -5020,7 +5045,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_enter_quote_request = function(buf
 end
 
 -- Display: Xetra En Light Enter Quote Request
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_enter_quote_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_enter_quote_request = function(packet, parent, length)
   return ""
 end
 
@@ -5156,7 +5181,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_deal_response = function(buffer, o
 end
 
 -- Display: Xetra En Light Deal Response
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_deal_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_deal_response = function(packet, parent, length)
   return ""
 end
 
@@ -5437,7 +5462,7 @@ eurex_cash_eti_t7_v8_0_size_of.order_book_item_grp_comp = function(buffer, offse
 end
 
 -- Display: Order Book Item Grp Comp
-eurex_cash_eti_t7_v8_0_display.order_book_item_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.order_book_item_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -5471,15 +5496,20 @@ end
 
 -- Dissect: Order Book Item Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.order_book_item_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_book_item_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.order_book_item_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.order_book_item_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.order_book_item_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.order_book_item_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.order_book_item_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Root Party Entering Trader
@@ -5681,7 +5711,7 @@ eurex_cash_eti_t7_v8_0_size_of.xetra_en_light_create_deal_notification = functio
 end
 
 -- Display: Xetra En Light Create Deal Notification
-eurex_cash_eti_t7_v8_0_display.xetra_en_light_create_deal_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.xetra_en_light_create_deal_notification = function(packet, parent, length)
   return ""
 end
 
@@ -5824,7 +5854,7 @@ eurex_cash_eti_t7_v8_0_size_of.user_logout_response = function(buffer, offset)
 end
 
 -- Display: User Logout Response
-eurex_cash_eti_t7_v8_0_display.user_logout_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.user_logout_response = function(packet, parent, length)
   return ""
 end
 
@@ -5894,7 +5924,7 @@ eurex_cash_eti_t7_v8_0_size_of.user_logout_request = function(buffer, offset)
 end
 
 -- Display: User Logout Request
-eurex_cash_eti_t7_v8_0_display.user_logout_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.user_logout_request = function(packet, parent, length)
   return ""
 end
 
@@ -5948,7 +5978,7 @@ eurex_cash_eti_t7_v8_0_size_of.user_login_response = function(buffer, offset)
 end
 
 -- Display: User Login Response
-eurex_cash_eti_t7_v8_0_display.user_login_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.user_login_response = function(packet, parent, length)
   return ""
 end
 
@@ -6029,7 +6059,7 @@ eurex_cash_eti_t7_v8_0_size_of.user_login_request = function(buffer, offset)
 end
 
 -- Display: User Login Request
-eurex_cash_eti_t7_v8_0_display.user_login_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.user_login_request = function(packet, parent, length)
   return ""
 end
 
@@ -6086,7 +6116,7 @@ eurex_cash_eti_t7_v8_0_size_of.unsubscribe_response = function(buffer, offset)
 end
 
 -- Display: Unsubscribe Response
-eurex_cash_eti_t7_v8_0_display.unsubscribe_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.unsubscribe_response = function(packet, parent, length)
   return ""
 end
 
@@ -6156,7 +6186,7 @@ eurex_cash_eti_t7_v8_0_size_of.unsubscribe_request = function(buffer, offset)
 end
 
 -- Display: Unsubscribe Request
-eurex_cash_eti_t7_v8_0_display.unsubscribe_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.unsubscribe_request = function(packet, parent, length)
   return ""
 end
 
@@ -6788,7 +6818,7 @@ eurex_cash_eti_t7_v8_0_size_of.rbc_header_me_comp = function(buffer, offset)
 end
 
 -- Display: Rbc Header Me Comp
-eurex_cash_eti_t7_v8_0_display.rbc_header_me_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.rbc_header_me_comp = function(packet, parent, length)
   return ""
 end
 
@@ -6831,15 +6861,20 @@ end
 
 -- Dissect: Rbc Header Me Comp
 eurex_cash_eti_t7_v8_0_dissect.rbc_header_me_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.rbc_header_me_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.rbc_header_me_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.rbc_header_me_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.rbc_header_me_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.rbc_header_me_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.rbc_header_me_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Trailing Stop Update Notification
@@ -6853,7 +6888,7 @@ eurex_cash_eti_t7_v8_0_size_of.trailing_stop_update_notification = function(buff
 end
 
 -- Display: Trailing Stop Update Notification
-eurex_cash_eti_t7_v8_0_display.trailing_stop_update_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.trailing_stop_update_notification = function(packet, parent, length)
   return ""
 end
 
@@ -6963,7 +6998,7 @@ eurex_cash_eti_t7_v8_0_size_of.trading_session_status_broadcast = function(buffe
 end
 
 -- Display: Trading Session Status Broadcast
-eurex_cash_eti_t7_v8_0_display.trading_session_status_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.trading_session_status_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -8712,7 +8747,7 @@ eurex_cash_eti_t7_v8_0_size_of.trade_broadcast = function(buffer, offset)
 end
 
 -- Display: Trade Broadcast
-eurex_cash_eti_t7_v8_0_display.trade_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.trade_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -9062,7 +9097,7 @@ eurex_cash_eti_t7_v8_0_size_of.notif_header_comp = function(buffer, offset)
 end
 
 -- Display: Notif Header Comp
-eurex_cash_eti_t7_v8_0_display.notif_header_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.notif_header_comp = function(packet, parent, length)
   return ""
 end
 
@@ -9078,15 +9113,20 @@ end
 
 -- Dissect: Notif Header Comp
 eurex_cash_eti_t7_v8_0_dissect.notif_header_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.notif_header_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.notif_header_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.notif_header_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.notif_header_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.notif_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.notif_header_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Throttle Update Notification
@@ -9100,7 +9140,7 @@ eurex_cash_eti_t7_v8_0_size_of.throttle_update_notification = function(buffer, o
 end
 
 -- Display: Throttle Update Notification
-eurex_cash_eti_t7_v8_0_display.throttle_update_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.throttle_update_notification = function(packet, parent, length)
   return ""
 end
 
@@ -9154,7 +9194,7 @@ eurex_cash_eti_t7_v8_0_size_of.tm_trading_session_status_broadcast = function(bu
 end
 
 -- Display: Tm Trading Session Status Broadcast
-eurex_cash_eti_t7_v8_0_display.tm_trading_session_status_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tm_trading_session_status_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -9205,7 +9245,7 @@ eurex_cash_eti_t7_v8_0_size_of.tes_trading_session_status_broadcast = function(b
 end
 
 -- Display: Tes Trading Session Status Broadcast
-eurex_cash_eti_t7_v8_0_display.tes_trading_session_status_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tes_trading_session_status_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -9372,7 +9412,7 @@ eurex_cash_eti_t7_v8_0_size_of.tes_trade_broadcast = function(buffer, offset)
 end
 
 -- Display: Tes Trade Broadcast
-eurex_cash_eti_t7_v8_0_display.tes_trade_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tes_trade_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -9656,7 +9696,7 @@ eurex_cash_eti_t7_v8_0_size_of.tes_response = function(buffer, offset)
 end
 
 -- Display: Tes Response
-eurex_cash_eti_t7_v8_0_display.tes_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tes_response = function(packet, parent, length)
   return ""
 end
 
@@ -9732,7 +9772,7 @@ eurex_cash_eti_t7_v8_0_size_of.tes_execution_broadcast = function(buffer, offset
 end
 
 -- Display: Tes Execution Broadcast
-eurex_cash_eti_t7_v8_0_display.tes_execution_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tes_execution_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -9846,7 +9886,7 @@ eurex_cash_eti_t7_v8_0_size_of.tes_delete_broadcast = function(buffer, offset)
 end
 
 -- Display: Tes Delete Broadcast
-eurex_cash_eti_t7_v8_0_display.tes_delete_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tes_delete_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -10032,7 +10072,7 @@ eurex_cash_eti_t7_v8_0_size_of.side_alloc_grp_bc_comp = function(buffer, offset)
 end
 
 -- Display: Side Alloc Grp Bc Comp
-eurex_cash_eti_t7_v8_0_display.side_alloc_grp_bc_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.side_alloc_grp_bc_comp = function(packet, parent, length)
   return ""
 end
 
@@ -10066,15 +10106,20 @@ end
 
 -- Dissect: Side Alloc Grp Bc Comp
 eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_bc_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.side_alloc_grp_bc_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.side_alloc_grp_bc_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.side_alloc_grp_bc_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.side_alloc_grp_bc_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.side_alloc_grp_bc_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.side_alloc_grp_bc_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Report Text
@@ -10166,7 +10211,7 @@ eurex_cash_eti_t7_v8_0_size_of.tes_broadcast = function(buffer, offset)
 end
 
 -- Display: Tes Broadcast
-eurex_cash_eti_t7_v8_0_display.tes_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tes_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -10297,7 +10342,7 @@ eurex_cash_eti_t7_v8_0_size_of.tes_approve_broadcast = function(buffer, offset)
 end
 
 -- Display: Tes Approve Broadcast
-eurex_cash_eti_t7_v8_0_display.tes_approve_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.tes_approve_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -10432,7 +10477,7 @@ eurex_cash_eti_t7_v8_0_size_of.subscribe_response = function(buffer, offset)
 end
 
 -- Display: Subscribe Response
-eurex_cash_eti_t7_v8_0_display.subscribe_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.subscribe_response = function(packet, parent, length)
   return ""
 end
 
@@ -10565,7 +10610,7 @@ eurex_cash_eti_t7_v8_0_size_of.subscribe_request = function(buffer, offset)
 end
 
 -- Display: Subscribe Request
-eurex_cash_eti_t7_v8_0_display.subscribe_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.subscribe_request = function(packet, parent, length)
   return ""
 end
 
@@ -10719,7 +10764,7 @@ eurex_cash_eti_t7_v8_0_size_of.nr_response_header_me_comp = function(buffer, off
 end
 
 -- Display: Nr Response Header Me Comp
-eurex_cash_eti_t7_v8_0_display.nr_response_header_me_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.nr_response_header_me_comp = function(packet, parent, length)
   return ""
 end
 
@@ -10756,15 +10801,20 @@ end
 
 -- Dissect: Nr Response Header Me Comp
 eurex_cash_eti_t7_v8_0_dissect.nr_response_header_me_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.nr_response_header_me_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.nr_response_header_me_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.nr_response_header_me_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.nr_response_header_me_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.nr_response_header_me_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.nr_response_header_me_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Specialist Security State Change Response
@@ -10778,7 +10828,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_security_state_change_response = funct
 end
 
 -- Display: Specialist Security State Change Response
-eurex_cash_eti_t7_v8_0_display.specialist_security_state_change_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_security_state_change_response = function(packet, parent, length)
   return ""
 end
 
@@ -10889,7 +10939,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_security_state_change_request = functi
 end
 
 -- Display: Specialist Security State Change Request
-eurex_cash_eti_t7_v8_0_display.specialist_security_state_change_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_security_state_change_request = function(packet, parent, length)
   return ""
 end
 
@@ -10949,7 +10999,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_rfq_reply_response = function(buffer, 
 end
 
 -- Display: Specialist Rfq Reply Response
-eurex_cash_eti_t7_v8_0_display.specialist_rfq_reply_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_rfq_reply_response = function(packet, parent, length)
   return ""
 end
 
@@ -10997,7 +11047,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_rfq_reply_request = function(buffer, o
 end
 
 -- Display: Specialist Rfq Reply Request
-eurex_cash_eti_t7_v8_0_display.specialist_rfq_reply_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_rfq_reply_request = function(packet, parent, length)
   return ""
 end
 
@@ -11072,7 +11122,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_rfq_reply_notification = function(buff
 end
 
 -- Display: Specialist Rfq Reply Notification
-eurex_cash_eti_t7_v8_0_display.specialist_rfq_reply_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_rfq_reply_notification = function(packet, parent, length)
   return ""
 end
 
@@ -11195,7 +11245,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_rfq_reject_request = function(buffer, 
 end
 
 -- Display: Specialist Rfq Reject Request
-eurex_cash_eti_t7_v8_0_display.specialist_rfq_reject_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_rfq_reject_request = function(packet, parent, length)
   return ""
 end
 
@@ -11434,7 +11484,7 @@ eurex_cash_eti_t7_v8_0_size_of.fills_grp_comp = function(buffer, offset)
 end
 
 -- Display: Fills Grp Comp
-eurex_cash_eti_t7_v8_0_display.fills_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.fills_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -11465,15 +11515,20 @@ end
 
 -- Dissect: Fills Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.fills_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.fills_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.fills_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.fills_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.fills_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.fills_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.fills_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Party Entering Firm
@@ -11939,7 +11994,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_order_book_notification = function(buf
 end
 
 -- Display: Specialist Order Book Notification
-eurex_cash_eti_t7_v8_0_display.specialist_order_book_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_order_book_notification = function(packet, parent, length)
   return ""
 end
 
@@ -12118,7 +12173,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_instrument_event_notification = functi
 end
 
 -- Display: Specialist Instrument Event Notification
-eurex_cash_eti_t7_v8_0_display.specialist_instrument_event_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_instrument_event_notification = function(packet, parent, length)
   return ""
 end
 
@@ -12229,7 +12284,7 @@ eurex_cash_eti_t7_v8_0_size_of.not_affected_orders_grp_comp = function(buffer, o
 end
 
 -- Display: Not Affected Orders Grp Comp
-eurex_cash_eti_t7_v8_0_display.not_affected_orders_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.not_affected_orders_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -12248,15 +12303,20 @@ end
 
 -- Dissect: Not Affected Orders Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.not_affected_orders_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.not_affected_orders_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.not_affected_orders_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.not_affected_orders_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.not_affected_orders_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.not_affected_orders_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.not_affected_orders_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Affected Orig Cl Ord Id
@@ -12321,7 +12381,7 @@ eurex_cash_eti_t7_v8_0_size_of.affected_ord_grp_comp = function(buffer, offset)
 end
 
 -- Display: Affected Ord Grp Comp
-eurex_cash_eti_t7_v8_0_display.affected_ord_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.affected_ord_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -12340,15 +12400,20 @@ end
 
 -- Dissect: Affected Ord Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.affected_ord_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.affected_ord_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.affected_ord_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.affected_ord_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.affected_ord_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.affected_ord_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.affected_ord_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mass Action Reason
@@ -12512,7 +12577,7 @@ eurex_cash_eti_t7_v8_0_size_of.specialist_delete_all_order_broadcast = function(
 end
 
 -- Display: Specialist Delete All Order Broadcast
-eurex_cash_eti_t7_v8_0_display.specialist_delete_all_order_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.specialist_delete_all_order_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -12712,7 +12777,7 @@ eurex_cash_eti_t7_v8_0_size_of.single_quote_request = function(buffer, offset)
 end
 
 -- Display: Single Quote Request
-eurex_cash_eti_t7_v8_0_display.single_quote_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.single_quote_request = function(packet, parent, length)
   return ""
 end
 
@@ -12894,7 +12959,7 @@ eurex_cash_eti_t7_v8_0_size_of.nrbc_header_comp = function(buffer, offset)
 end
 
 -- Display: Nrbc Header Comp
-eurex_cash_eti_t7_v8_0_display.nrbc_header_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.nrbc_header_comp = function(packet, parent, length)
   return ""
 end
 
@@ -12922,15 +12987,20 @@ end
 
 -- Dissect: Nrbc Header Comp
 eurex_cash_eti_t7_v8_0_dissect.nrbc_header_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.nrbc_header_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.nrbc_header_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.nrbc_header_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.nrbc_header_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.nrbc_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.nrbc_header_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Service Availability Market Broadcast
@@ -12944,7 +13014,7 @@ eurex_cash_eti_t7_v8_0_size_of.service_availability_market_broadcast = function(
 end
 
 -- Display: Service Availability Market Broadcast
-eurex_cash_eti_t7_v8_0_display.service_availability_market_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.service_availability_market_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -13293,7 +13363,7 @@ eurex_cash_eti_t7_v8_0_size_of.service_availability_broadcast = function(buffer,
 end
 
 -- Display: Service Availability Broadcast
-eurex_cash_eti_t7_v8_0_display.service_availability_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.service_availability_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -13449,7 +13519,7 @@ eurex_cash_eti_t7_v8_0_size_of.retransmit_response = function(buffer, offset)
 end
 
 -- Display: Retransmit Response
-eurex_cash_eti_t7_v8_0_display.retransmit_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.retransmit_response = function(packet, parent, length)
   return ""
 end
 
@@ -13531,7 +13601,7 @@ eurex_cash_eti_t7_v8_0_size_of.retransmit_request = function(buffer, offset)
 end
 
 -- Display: Retransmit Request
-eurex_cash_eti_t7_v8_0_display.retransmit_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.retransmit_request = function(packet, parent, length)
   return ""
 end
 
@@ -13614,7 +13684,7 @@ eurex_cash_eti_t7_v8_0_size_of.retransmit_me_message_response = function(buffer,
 end
 
 -- Display: Retransmit Me Message Response
-eurex_cash_eti_t7_v8_0_display.retransmit_me_message_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.retransmit_me_message_response = function(packet, parent, length)
   return ""
 end
 
@@ -13691,7 +13761,7 @@ eurex_cash_eti_t7_v8_0_size_of.retransmit_me_message_request = function(buffer, 
 end
 
 -- Display: Retransmit Me Message Request
-eurex_cash_eti_t7_v8_0_display.retransmit_me_message_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.retransmit_me_message_request = function(packet, parent, length)
   return ""
 end
 
@@ -13967,7 +14037,7 @@ eurex_cash_eti_t7_v8_0_size_of.reject = function(buffer, offset)
 end
 
 -- Display: Reject
-eurex_cash_eti_t7_v8_0_display.reject = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.reject = function(packet, parent, length)
   return ""
 end
 
@@ -14043,7 +14113,7 @@ eurex_cash_eti_t7_v8_0_size_of.rfq_specialist_broadcast = function(buffer, offse
 end
 
 -- Display: Rfq Specialist Broadcast
-eurex_cash_eti_t7_v8_0_display.rfq_specialist_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.rfq_specialist_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -14112,7 +14182,7 @@ eurex_cash_eti_t7_v8_0_size_of.rfq_response = function(buffer, offset)
 end
 
 -- Display: Rfq Response
-eurex_cash_eti_t7_v8_0_display.rfq_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.rfq_response = function(packet, parent, length)
   return ""
 end
 
@@ -14232,7 +14302,7 @@ eurex_cash_eti_t7_v8_0_size_of.rfq_request = function(buffer, offset)
 end
 
 -- Display: Rfq Request
-eurex_cash_eti_t7_v8_0_display.rfq_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.rfq_request = function(packet, parent, length)
   return ""
 end
 
@@ -14304,7 +14374,7 @@ eurex_cash_eti_t7_v8_0_size_of.rfq_reject_notification = function(buffer, offset
 end
 
 -- Display: Rfq Reject Notification
-eurex_cash_eti_t7_v8_0_display.rfq_reject_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.rfq_reject_notification = function(packet, parent, length)
   return ""
 end
 
@@ -14370,7 +14440,7 @@ eurex_cash_eti_t7_v8_0_size_of.rfq_broadcast = function(buffer, offset)
 end
 
 -- Display: Rfq Broadcast
-eurex_cash_eti_t7_v8_0_display.rfq_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.rfq_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -14701,7 +14771,7 @@ eurex_cash_eti_t7_v8_0_size_of.quote_event_grp_comp = function(buffer, offset)
 end
 
 -- Display: Quote Event Grp Comp
-eurex_cash_eti_t7_v8_0_display.quote_event_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.quote_event_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -14747,15 +14817,20 @@ end
 
 -- Dissect: Quote Event Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.quote_event_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_event_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.quote_event_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.quote_event_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.quote_event_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.quote_event_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.quote_event_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Quote Events
@@ -14794,7 +14869,7 @@ eurex_cash_eti_t7_v8_0_size_of.quote_execution_report = function(buffer, offset)
 end
 
 -- Display: Quote Execution Report
-eurex_cash_eti_t7_v8_0_display.quote_execution_report = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.quote_execution_report = function(packet, parent, length)
   return ""
 end
 
@@ -14880,7 +14955,7 @@ eurex_cash_eti_t7_v8_0_size_of.not_affected_securities_grp_comp = function(buffe
 end
 
 -- Display: Not Affected Securities Grp Comp
-eurex_cash_eti_t7_v8_0_display.not_affected_securities_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.not_affected_securities_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -14896,15 +14971,20 @@ end
 
 -- Dissect: Not Affected Securities Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.not_affected_securities_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.not_affected_securities_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.not_affected_securities_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.not_affected_securities_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.not_affected_securities_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.not_affected_securities_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.not_affected_securities_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Not Affected Securities
@@ -14943,7 +15023,7 @@ eurex_cash_eti_t7_v8_0_size_of.quote_activation_response = function(buffer, offs
 end
 
 -- Display: Quote Activation Response
-eurex_cash_eti_t7_v8_0_display.quote_activation_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.quote_activation_response = function(packet, parent, length)
   return ""
 end
 
@@ -15057,7 +15137,7 @@ eurex_cash_eti_t7_v8_0_size_of.quote_activation_request = function(buffer, offse
 end
 
 -- Display: Quote Activation Request
-eurex_cash_eti_t7_v8_0_display.quote_activation_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.quote_activation_request = function(packet, parent, length)
   return ""
 end
 
@@ -15129,7 +15209,7 @@ eurex_cash_eti_t7_v8_0_size_of.quote_activation_notification = function(buffer, 
 end
 
 -- Display: Quote Activation Notification
-eurex_cash_eti_t7_v8_0_display.quote_activation_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.quote_activation_notification = function(packet, parent, length)
   return ""
 end
 
@@ -15426,7 +15506,7 @@ eurex_cash_eti_t7_v8_0_size_of.party_entitlements_update_report = function(buffe
 end
 
 -- Display: Party Entitlements Update Report
-eurex_cash_eti_t7_v8_0_display.party_entitlements_update_report = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.party_entitlements_update_report = function(packet, parent, length)
   return ""
 end
 
@@ -15586,7 +15666,7 @@ eurex_cash_eti_t7_v8_0_size_of.party_action_report = function(buffer, offset)
 end
 
 -- Display: Party Action Report
-eurex_cash_eti_t7_v8_0_display.party_action_report = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.party_action_report = function(packet, parent, length)
   return ""
 end
 
@@ -15771,7 +15851,7 @@ eurex_cash_eti_t7_v8_0_size_of.response_header_me_comp = function(buffer, offset
 end
 
 -- Display: Response Header Me Comp
-eurex_cash_eti_t7_v8_0_display.response_header_me_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.response_header_me_comp = function(packet, parent, length)
   return ""
 end
 
@@ -15814,15 +15894,20 @@ end
 
 -- Dissect: Response Header Me Comp
 eurex_cash_eti_t7_v8_0_dissect.response_header_me_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.response_header_me_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.response_header_me_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.response_header_me_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.response_header_me_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.response_header_me_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.response_header_me_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Order Exec Response
@@ -15836,7 +15921,7 @@ eurex_cash_eti_t7_v8_0_size_of.order_exec_response = function(buffer, offset)
 end
 
 -- Display: Order Exec Response
-eurex_cash_eti_t7_v8_0_display.order_exec_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.order_exec_response = function(packet, parent, length)
   return ""
 end
 
@@ -16162,7 +16247,7 @@ eurex_cash_eti_t7_v8_0_size_of.order_exec_report_broadcast = function(buffer, of
 end
 
 -- Display: Order Exec Report Broadcast
-eurex_cash_eti_t7_v8_0_display.order_exec_report_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.order_exec_report_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -16374,7 +16459,7 @@ eurex_cash_eti_t7_v8_0_size_of.order_exec_notification = function(buffer, offset
 end
 
 -- Display: Order Exec Notification
-eurex_cash_eti_t7_v8_0_display.order_exec_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.order_exec_notification = function(packet, parent, length)
   return ""
 end
 
@@ -16543,7 +16628,7 @@ eurex_cash_eti_t7_v8_0_size_of.news_broadcast = function(buffer, offset)
 end
 
 -- Display: News Broadcast
-eurex_cash_eti_t7_v8_0_display.news_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.news_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -16644,7 +16729,7 @@ eurex_cash_eti_t7_v8_0_size_of.new_order_single_short_request = function(buffer,
 end
 
 -- Display: New Order Single Short Request
-eurex_cash_eti_t7_v8_0_display.new_order_single_short_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.new_order_single_short_request = function(packet, parent, length)
   return ""
 end
 
@@ -16761,7 +16846,7 @@ eurex_cash_eti_t7_v8_0_size_of.new_order_single_request = function(buffer, offse
 end
 
 -- Display: New Order Single Request
-eurex_cash_eti_t7_v8_0_display.new_order_single_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.new_order_single_request = function(packet, parent, length)
   return ""
 end
 
@@ -16932,7 +17017,7 @@ eurex_cash_eti_t7_v8_0_size_of.new_order_response = function(buffer, offset)
 end
 
 -- Display: New Order Response
-eurex_cash_eti_t7_v8_0_display.new_order_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.new_order_response = function(packet, parent, length)
   return ""
 end
 
@@ -17019,7 +17104,7 @@ eurex_cash_eti_t7_v8_0_size_of.new_order_nr_response = function(buffer, offset)
 end
 
 -- Display: New Order Nr Response
-eurex_cash_eti_t7_v8_0_display.new_order_nr_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.new_order_nr_response = function(packet, parent, length)
   return ""
 end
 
@@ -17107,7 +17192,7 @@ eurex_cash_eti_t7_v8_0_size_of.side_alloc_grp_comp = function(buffer, offset)
 end
 
 -- Display: Side Alloc Grp Comp
-eurex_cash_eti_t7_v8_0_display.side_alloc_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.side_alloc_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -17135,15 +17220,20 @@ end
 
 -- Dissect: Side Alloc Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.side_alloc_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.side_alloc_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.side_alloc_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.side_alloc_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.side_alloc_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.side_alloc_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Modify Tes Trade Request
@@ -17157,7 +17247,7 @@ eurex_cash_eti_t7_v8_0_size_of.modify_tes_trade_request = function(buffer, offse
 end
 
 -- Display: Modify Tes Trade Request
-eurex_cash_eti_t7_v8_0_display.modify_tes_trade_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.modify_tes_trade_request = function(packet, parent, length)
   return ""
 end
 
@@ -17246,7 +17336,7 @@ eurex_cash_eti_t7_v8_0_size_of.modify_order_single_short_request = function(buff
 end
 
 -- Display: Modify Order Single Short Request
-eurex_cash_eti_t7_v8_0_display.modify_order_single_short_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.modify_order_single_short_request = function(packet, parent, length)
   return ""
 end
 
@@ -17426,7 +17516,7 @@ eurex_cash_eti_t7_v8_0_size_of.modify_order_single_request = function(buffer, of
 end
 
 -- Display: Modify Order Single Request
-eurex_cash_eti_t7_v8_0_display.modify_order_single_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.modify_order_single_request = function(packet, parent, length)
   return ""
 end
 
@@ -17603,7 +17693,7 @@ eurex_cash_eti_t7_v8_0_size_of.modify_order_response = function(buffer, offset)
 end
 
 -- Display: Modify Order Response
-eurex_cash_eti_t7_v8_0_display.modify_order_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.modify_order_response = function(packet, parent, length)
   return ""
 end
 
@@ -17705,7 +17795,7 @@ eurex_cash_eti_t7_v8_0_size_of.modify_order_nr_response = function(buffer, offse
 end
 
 -- Display: Modify Order Nr Response
-eurex_cash_eti_t7_v8_0_display.modify_order_nr_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.modify_order_nr_response = function(packet, parent, length)
   return ""
 end
 
@@ -18041,7 +18131,7 @@ eurex_cash_eti_t7_v8_0_size_of.quote_entry_ack_grp_comp = function(buffer, offse
 end
 
 -- Display: Quote Entry Ack Grp Comp
-eurex_cash_eti_t7_v8_0_display.quote_entry_ack_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.quote_entry_ack_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -18072,15 +18162,20 @@ end
 
 -- Dissect: Quote Entry Ack Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.quote_entry_ack_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_entry_ack_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.quote_entry_ack_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.quote_entry_ack_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.quote_entry_ack_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.quote_entry_ack_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Quote Side Entries
@@ -18147,7 +18242,7 @@ eurex_cash_eti_t7_v8_0_size_of.mass_quote_response = function(buffer, offset)
 end
 
 -- Display: Mass Quote Response
-eurex_cash_eti_t7_v8_0_display.mass_quote_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.mass_quote_response = function(packet, parent, length)
   return ""
 end
 
@@ -18219,7 +18314,7 @@ eurex_cash_eti_t7_v8_0_size_of.quote_entry_grp_comp = function(buffer, offset)
 end
 
 -- Display: Quote Entry Grp Comp
-eurex_cash_eti_t7_v8_0_display.quote_entry_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.quote_entry_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -18247,15 +18342,20 @@ end
 
 -- Dissect: Quote Entry Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.quote_entry_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.quote_entry_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.quote_entry_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.quote_entry_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.quote_entry_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.quote_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.quote_entry_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Read runtime size of: Mass Quote Request
@@ -18269,7 +18369,7 @@ eurex_cash_eti_t7_v8_0_size_of.mass_quote_request = function(buffer, offset)
 end
 
 -- Display: Mass Quote Request
-eurex_cash_eti_t7_v8_0_display.mass_quote_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.mass_quote_request = function(packet, parent, length)
   return ""
 end
 
@@ -18373,7 +18473,7 @@ eurex_cash_eti_t7_v8_0_size_of.logout_response = function(buffer, offset)
 end
 
 -- Display: Logout Response
-eurex_cash_eti_t7_v8_0_display.logout_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.logout_response = function(packet, parent, length)
   return ""
 end
 
@@ -18418,7 +18518,7 @@ eurex_cash_eti_t7_v8_0_size_of.logout_request = function(buffer, offset)
 end
 
 -- Display: Logout Request
-eurex_cash_eti_t7_v8_0_display.logout_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.logout_request = function(packet, parent, length)
   return ""
 end
 
@@ -18615,7 +18715,7 @@ eurex_cash_eti_t7_v8_0_size_of.logon_response = function(buffer, offset)
 end
 
 -- Display: Logon Response
-eurex_cash_eti_t7_v8_0_display.logon_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.logon_response = function(packet, parent, length)
   return ""
 end
 
@@ -19038,7 +19138,7 @@ eurex_cash_eti_t7_v8_0_size_of.logon_request = function(buffer, offset)
 end
 
 -- Display: Logon Request
-eurex_cash_eti_t7_v8_0_display.logon_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.logon_request = function(packet, parent, length)
   return ""
 end
 
@@ -19161,7 +19261,7 @@ eurex_cash_eti_t7_v8_0_size_of.legal_notification_broadcast = function(buffer, o
 end
 
 -- Display: Legal Notification Broadcast
-eurex_cash_eti_t7_v8_0_display.legal_notification_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.legal_notification_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -19237,7 +19337,7 @@ eurex_cash_eti_t7_v8_0_size_of.issuer_security_state_change_response = function(
 end
 
 -- Display: Issuer Security State Change Response
-eurex_cash_eti_t7_v8_0_display.issuer_security_state_change_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.issuer_security_state_change_response = function(packet, parent, length)
   return ""
 end
 
@@ -19351,7 +19451,7 @@ eurex_cash_eti_t7_v8_0_size_of.security_status_event_grp_comp = function(buffer,
 end
 
 -- Display: Security Status Event Grp Comp
-eurex_cash_eti_t7_v8_0_display.security_status_event_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.security_status_event_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -19376,15 +19476,20 @@ end
 
 -- Dissect: Security Status Event Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.security_status_event_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_status_event_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.security_status_event_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.security_status_event_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.security_status_event_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.security_status_event_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.security_status_event_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.security_status_event_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.security_status_event_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.security_status_event_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sold Out Indicator
@@ -19486,7 +19591,7 @@ eurex_cash_eti_t7_v8_0_size_of.issuer_security_state_change_request = function(b
 end
 
 -- Display: Issuer Security State Change Request
-eurex_cash_eti_t7_v8_0_display.issuer_security_state_change_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.issuer_security_state_change_request = function(packet, parent, length)
   return ""
 end
 
@@ -19662,7 +19767,7 @@ eurex_cash_eti_t7_v8_0_size_of.issuer_notification = function(buffer, offset)
 end
 
 -- Display: Issuer Notification
-eurex_cash_eti_t7_v8_0_display.issuer_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.issuer_notification = function(packet, parent, length)
   return ""
 end
 
@@ -19854,7 +19959,7 @@ eurex_cash_eti_t7_v8_0_size_of.party_details_grp_comp = function(buffer, offset)
 end
 
 -- Display: Party Details Grp Comp
-eurex_cash_eti_t7_v8_0_display.party_details_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.party_details_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -19885,15 +19990,20 @@ end
 
 -- Dissect: Party Details Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.party_details_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.party_details_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.party_details_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.party_details_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.party_details_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.party_details_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.party_details_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.party_details_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.party_details_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.party_details_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Party Details
@@ -19952,7 +20062,7 @@ eurex_cash_eti_t7_v8_0_size_of.inquire_user_response = function(buffer, offset)
 end
 
 -- Display: Inquire User Response
-eurex_cash_eti_t7_v8_0_display.inquire_user_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.inquire_user_response = function(packet, parent, length)
   return ""
 end
 
@@ -20011,7 +20121,7 @@ eurex_cash_eti_t7_v8_0_size_of.inquire_user_request = function(buffer, offset)
 end
 
 -- Display: Inquire User Request
-eurex_cash_eti_t7_v8_0_display.inquire_user_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.inquire_user_request = function(packet, parent, length)
   return ""
 end
 
@@ -20133,7 +20243,7 @@ eurex_cash_eti_t7_v8_0_size_of.sessions_grp_comp = function(buffer, offset)
 end
 
 -- Display: Sessions Grp Comp
-eurex_cash_eti_t7_v8_0_display.sessions_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.sessions_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -20158,15 +20268,20 @@ end
 
 -- Dissect: Sessions Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.sessions_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sessions_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.sessions_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.sessions_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.sessions_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.sessions_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.sessions_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Sessions
@@ -20205,7 +20320,7 @@ eurex_cash_eti_t7_v8_0_size_of.inquire_session_list_response = function(buffer, 
 end
 
 -- Display: Inquire Session List Response
-eurex_cash_eti_t7_v8_0_display.inquire_session_list_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.inquire_session_list_response = function(packet, parent, length)
   return ""
 end
 
@@ -20261,7 +20376,7 @@ eurex_cash_eti_t7_v8_0_size_of.inquire_session_list_request = function(buffer, o
 end
 
 -- Display: Inquire Session List Request
-eurex_cash_eti_t7_v8_0_display.inquire_session_list_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.inquire_session_list_request = function(packet, parent, length)
   return ""
 end
 
@@ -20316,7 +20431,7 @@ eurex_cash_eti_t7_v8_0_size_of.enrichment_rules_grp_comp = function(buffer, offs
 end
 
 -- Display: Enrichment Rules Grp Comp
-eurex_cash_eti_t7_v8_0_display.enrichment_rules_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.enrichment_rules_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -20344,15 +20459,20 @@ end
 
 -- Dissect: Enrichment Rules Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.enrichment_rules_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.enrichment_rules_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.enrichment_rules_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.enrichment_rules_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.enrichment_rules_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.enrichment_rules_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.enrichment_rules_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Enrichment Rules
@@ -20391,7 +20511,7 @@ eurex_cash_eti_t7_v8_0_size_of.inquire_enrichment_rule_id_list_response = functi
 end
 
 -- Display: Inquire Enrichment Rule Id List Response
-eurex_cash_eti_t7_v8_0_display.inquire_enrichment_rule_id_list_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.inquire_enrichment_rule_id_list_response = function(packet, parent, length)
   return ""
 end
 
@@ -20450,7 +20570,7 @@ eurex_cash_eti_t7_v8_0_size_of.inquire_enrichment_rule_id_list_request = functio
 end
 
 -- Display: Inquire Enrichment Rule Id List Request
-eurex_cash_eti_t7_v8_0_display.inquire_enrichment_rule_id_list_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.inquire_enrichment_rule_id_list_request = function(packet, parent, length)
   return ""
 end
 
@@ -20501,7 +20621,7 @@ eurex_cash_eti_t7_v8_0_size_of.heartbeat_notification = function(buffer, offset)
 end
 
 -- Display: Heartbeat Notification
-eurex_cash_eti_t7_v8_0_display.heartbeat_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.heartbeat_notification = function(packet, parent, length)
   return ""
 end
 
@@ -20546,7 +20666,7 @@ eurex_cash_eti_t7_v8_0_size_of.heartbeat = function(buffer, offset)
 end
 
 -- Display: Heartbeat
-eurex_cash_eti_t7_v8_0_display.heartbeat = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.heartbeat = function(packet, parent, length)
   return ""
 end
 
@@ -20591,7 +20711,7 @@ eurex_cash_eti_t7_v8_0_size_of.forced_user_logout_notification = function(buffer
 end
 
 -- Display: Forced User Logout Notification
-eurex_cash_eti_t7_v8_0_display.forced_user_logout_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.forced_user_logout_notification = function(packet, parent, length)
   return ""
 end
 
@@ -20670,7 +20790,7 @@ eurex_cash_eti_t7_v8_0_size_of.forced_logout_notification = function(buffer, off
 end
 
 -- Display: Forced Logout Notification
-eurex_cash_eti_t7_v8_0_display.forced_logout_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.forced_logout_notification = function(packet, parent, length)
   return ""
 end
 
@@ -20740,7 +20860,7 @@ eurex_cash_eti_t7_v8_0_size_of.extended_deletion_report = function(buffer, offse
 end
 
 -- Display: Extended Deletion Report
-eurex_cash_eti_t7_v8_0_display.extended_deletion_report = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.extended_deletion_report = function(packet, parent, length)
   return ""
 end
 
@@ -20929,7 +21049,7 @@ eurex_cash_eti_t7_v8_0_size_of.enter_tes_trade_request = function(buffer, offset
 end
 
 -- Display: Enter Tes Trade Request
-eurex_cash_eti_t7_v8_0_display.enter_tes_trade_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.enter_tes_trade_request = function(packet, parent, length)
   return ""
 end
 
@@ -21162,7 +21282,7 @@ eurex_cash_eti_t7_v8_0_size_of.enter_best_quote_request = function(buffer, offse
 end
 
 -- Display: Enter Best Quote Request
-eurex_cash_eti_t7_v8_0_display.enter_best_quote_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.enter_best_quote_request = function(packet, parent, length)
   return ""
 end
 
@@ -21267,7 +21387,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_tes_trade_request = function(buffer, offse
 end
 
 -- Display: Delete Tes Trade Request
-eurex_cash_eti_t7_v8_0_display.delete_tes_trade_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_tes_trade_request = function(packet, parent, length)
   return ""
 end
 
@@ -21336,7 +21456,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_order_single_request = function(buffer, of
 end
 
 -- Display: Delete Order Single Request
-eurex_cash_eti_t7_v8_0_display.delete_order_single_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_order_single_request = function(packet, parent, length)
   return ""
 end
 
@@ -21429,7 +21549,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_order_response = function(buffer, offset)
 end
 
 -- Display: Delete Order Response
-eurex_cash_eti_t7_v8_0_display.delete_order_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_order_response = function(packet, parent, length)
   return ""
 end
 
@@ -21513,7 +21633,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_order_nr_response = function(buffer, offse
 end
 
 -- Display: Delete Order Nr Response
-eurex_cash_eti_t7_v8_0_display.delete_order_nr_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_order_nr_response = function(packet, parent, length)
   return ""
 end
 
@@ -21597,7 +21717,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_order_broadcast = function(buffer, offset)
 end
 
 -- Display: Delete Order Broadcast
-eurex_cash_eti_t7_v8_0_display.delete_order_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_order_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -21708,7 +21828,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_quote_response = function(buffer, offs
 end
 
 -- Display: Delete All Quote Response
-eurex_cash_eti_t7_v8_0_display.delete_all_quote_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_quote_response = function(packet, parent, length)
   return ""
 end
 
@@ -21767,7 +21887,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_quote_request = function(buffer, offse
 end
 
 -- Display: Delete All Quote Request
-eurex_cash_eti_t7_v8_0_display.delete_all_quote_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_quote_request = function(packet, parent, length)
   return ""
 end
 
@@ -21861,7 +21981,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_quote_broadcast = function(buffer, off
 end
 
 -- Display: Delete All Quote Broadcast
-eurex_cash_eti_t7_v8_0_display.delete_all_quote_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_quote_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -21970,7 +22090,7 @@ eurex_cash_eti_t7_v8_0_size_of.affected_order_requests_grp_comp = function(buffe
 end
 
 -- Display: Affected Order Requests Grp Comp
-eurex_cash_eti_t7_v8_0_display.affected_order_requests_grp_comp = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.affected_order_requests_grp_comp = function(packet, parent, length)
   return ""
 end
 
@@ -21989,15 +22109,20 @@ end
 
 -- Dissect: Affected Order Requests Grp Comp
 eurex_cash_eti_t7_v8_0_dissect.affected_order_requests_grp_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.affected_order_requests_grp_comp then
-    local length = eurex_cash_eti_t7_v8_0_size_of.affected_order_requests_grp_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.affected_order_requests_grp_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.affected_order_requests_grp_comp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.affected_order_requests_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.affected_order_requests_grp_comp(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: No Affected Order Requests
@@ -22036,7 +22161,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_order_response = function(buffer, offs
 end
 
 -- Display: Delete All Order Response
-eurex_cash_eti_t7_v8_0_display.delete_all_order_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_order_response = function(packet, parent, length)
   return ""
 end
 
@@ -22111,7 +22236,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_order_request = function(buffer, offse
 end
 
 -- Display: Delete All Order Request
-eurex_cash_eti_t7_v8_0_display.delete_all_order_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_order_request = function(packet, parent, length)
   return ""
 end
 
@@ -22192,7 +22317,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_order_quote_event_broadcast = function
 end
 
 -- Display: Delete All Order Quote Event Broadcast
-eurex_cash_eti_t7_v8_0_display.delete_all_order_quote_event_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_order_quote_event_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -22255,7 +22380,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_order_nr_response = function(buffer, o
 end
 
 -- Display: Delete All Order Nr Response
-eurex_cash_eti_t7_v8_0_display.delete_all_order_nr_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_order_nr_response = function(packet, parent, length)
   return ""
 end
 
@@ -22303,7 +22428,7 @@ eurex_cash_eti_t7_v8_0_size_of.delete_all_order_broadcast = function(buffer, off
 end
 
 -- Display: Delete All Order Broadcast
-eurex_cash_eti_t7_v8_0_display.delete_all_order_broadcast = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.delete_all_order_broadcast = function(packet, parent, length)
   return ""
 end
 
@@ -22408,7 +22533,7 @@ eurex_cash_eti_t7_v8_0_size_of.cross_request_response = function(buffer, offset)
 end
 
 -- Display: Cross Request Response
-eurex_cash_eti_t7_v8_0_display.cross_request_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.cross_request_response = function(packet, parent, length)
   return ""
 end
 
@@ -22456,7 +22581,7 @@ eurex_cash_eti_t7_v8_0_size_of.cross_request = function(buffer, offset)
 end
 
 -- Display: Cross Request
-eurex_cash_eti_t7_v8_0_display.cross_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.cross_request = function(packet, parent, length)
   return ""
 end
 
@@ -22543,7 +22668,7 @@ eurex_cash_eti_t7_v8_0_size_of.broadcast_error_notification = function(buffer, o
 end
 
 -- Display: Broadcast Error Notification
-eurex_cash_eti_t7_v8_0_display.broadcast_error_notification = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.broadcast_error_notification = function(packet, parent, length)
   return ""
 end
 
@@ -22697,7 +22822,7 @@ eurex_cash_eti_t7_v8_0_size_of.best_quote_response = function(buffer, offset)
 end
 
 -- Display: Best Quote Response
-eurex_cash_eti_t7_v8_0_display.best_quote_response = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.best_quote_response = function(packet, parent, length)
   return ""
 end
 
@@ -22799,7 +22924,7 @@ eurex_cash_eti_t7_v8_0_size_of.best_quote_execution_report = function(buffer, of
 end
 
 -- Display: Best Quote Execution Report
-eurex_cash_eti_t7_v8_0_display.best_quote_execution_report = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.best_quote_execution_report = function(packet, parent, length)
   return ""
 end
 
@@ -22880,7 +23005,7 @@ eurex_cash_eti_t7_v8_0_size_of.approve_tes_trade_request = function(buffer, offs
 end
 
 -- Display: Approve Tes Trade Request
-eurex_cash_eti_t7_v8_0_display.approve_tes_trade_request = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.approve_tes_trade_request = function(packet, parent, length)
   return ""
 end
 
@@ -24396,7 +24521,7 @@ eurex_cash_eti_t7_v8_0_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-eurex_cash_eti_t7_v8_0_display.message_header = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -24415,19 +24540,24 @@ end
 
 -- Dissect: Message Header
 eurex_cash_eti_t7_v8_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = eurex_cash_eti_t7_v8_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v8_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_cash_eti_t7_v8_0.fields.message_header, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v8_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v8_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_cash_eti_t7_v8_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v8_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-eurex_cash_eti_t7_v8_0_display.message = function(buffer, offset, size, packet, parent)
+eurex_cash_eti_t7_v8_0_display.message = function(packet, parent, length)
   return ""
 end
 

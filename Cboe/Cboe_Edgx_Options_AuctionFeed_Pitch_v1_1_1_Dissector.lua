@@ -183,7 +183,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.end_of_session_message = func
 end
 
 -- Display: End Of Session Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.end_of_session_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.end_of_session_message = function(packet, parent, length)
   return ""
 end
 
@@ -199,15 +199,20 @@ end
 
 -- Dissect: End Of Session Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.end_of_session_message then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.end_of_session_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.end_of_session_message(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.end_of_session_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Symbol Condition
@@ -284,7 +289,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.symbol_mapping_message = func
 end
 
 -- Display: Symbol Mapping Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.symbol_mapping_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.symbol_mapping_message = function(packet, parent, length)
   return ""
 end
 
@@ -306,15 +311,20 @@ end
 
 -- Dissect: Symbol Mapping Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_mapping_message then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.symbol_mapping_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.symbol_mapping_message(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.symbol_mapping_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Contracts
@@ -441,7 +451,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.auction_trade_message = funct
 end
 
 -- Display: Auction Trade Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_trade_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -469,15 +479,20 @@ end
 
 -- Dissect: Auction Trade Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_trade_message then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.auction_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_trade_message(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Auction Cancel Message
@@ -492,7 +507,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.auction_cancel_message = func
 end
 
 -- Display: Auction Cancel Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_cancel_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -511,15 +526,20 @@ end
 
 -- Dissect: Auction Cancel Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_cancel_message then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.auction_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_cancel_message(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Auction End Offset
@@ -691,7 +711,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.auction_notification_message 
 end
 
 -- Display: Auction Notification Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_notification_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_notification_message = function(packet, parent, length)
   return ""
 end
 
@@ -734,15 +754,20 @@ end
 
 -- Dissect: Auction Notification Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.auction_notification_message then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.auction_notification_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_notification_message(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_notification_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Unit Clear Message
@@ -755,7 +780,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.unit_clear_message = function
 end
 
 -- Display: Unit Clear Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.unit_clear_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.unit_clear_message = function(packet, parent, length)
   return ""
 end
 
@@ -771,15 +796,20 @@ end
 
 -- Dissect: Unit Clear Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.unit_clear_message then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.unit_clear_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.unit_clear_message(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.unit_clear_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Time
@@ -812,7 +842,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.time_message = function(buffe
 end
 
 -- Display: Time Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.time_message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.time_message = function(packet, parent, length)
   return ""
 end
 
@@ -828,15 +858,20 @@ end
 
 -- Dissect: Time Message
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.time_message then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.time_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.time_message(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.time_message(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1006,7 +1041,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.message_header = function(buf
 end
 
 -- Display: Message Header
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.message_header = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1025,19 +1060,24 @@ end
 
 -- Dissect: Message Header
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.message_header(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.message_header, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.message = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -1167,7 +1207,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.packet_header = function(buff
 end
 
 -- Display: Packet Header
-cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.packet_header = function(buffer, offset, size, packet, parent)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -1192,15 +1232,20 @@ end
 
 -- Dissect: Packet Header
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = cboe_edgx_options_auctionfeed_pitch_v1_1_1_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.packet_header(buffer, packet, parent)
-    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.packet_header, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

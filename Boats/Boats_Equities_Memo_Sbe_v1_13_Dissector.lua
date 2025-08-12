@@ -96,8 +96,6 @@ boats_equities_memo_sbe_v1_13.fields.order_reject_reason = ProtoField.new("Order
 boats_equities_memo_sbe_v1_13.fields.origclordid = ProtoField.new("OrigClOrdId", "boats.equities.memo.sbe.v1.13.origclordid", ftypes.STRING)
 boats_equities_memo_sbe_v1_13.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "boats.equities.memo.sbe.v1.13.origclordidoptional", ftypes.STRING)
 boats_equities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "boats.equities.memo.sbe.v1.13.packet", ftypes.STRING)
-boats_equities_memo_sbe_v1_13.fields.padding_14 = ProtoField.new("Padding 14", "boats.equities.memo.sbe.v1.13.padding14", ftypes.BYTES)
-boats_equities_memo_sbe_v1_13.fields.padding_7 = ProtoField.new("Padding 7", "boats.equities.memo.sbe.v1.13.padding7", ftypes.BYTES)
 boats_equities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "boats.equities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, 0x0001)
 boats_equities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "boats.equities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
 boats_equities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "boats.equities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)
@@ -442,26 +440,6 @@ end
 -- Dissect Boats Equities Memo Sbe 1.13
 -----------------------------------------------------------------------
 
--- Size: Padding 14
-boats_equities_memo_sbe_v1_13_size_of.padding_14 = 14
-
--- Display: Padding 14
-boats_equities_memo_sbe_v1_13_display.padding_14 = function(value)
-  return "Padding 14: "..value
-end
-
--- Dissect: Padding 14
-boats_equities_memo_sbe_v1_13_dissect.padding_14 = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13_size_of.padding_14
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = boats_equities_memo_sbe_v1_13_display.padding_14(value, buffer, offset, packet, parent)
-
-  parent:add(boats_equities_memo_sbe_v1_13.fields.padding_14, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Mass Cancel Reject Reason
 boats_equities_memo_sbe_v1_13_size_of.mass_cancel_reject_reason = 1
 
@@ -548,12 +526,12 @@ boats_equities_memo_sbe_v1_13_dissect.cancel_group_id = function(buffer, offset,
 end
 
 -- Size: Higher Than Price
-boats_equities_memo_sbe_v1_13_size_of.higher_than_price = 1
+boats_equities_memo_sbe_v1_13_size_of.higher_than_price = 8
 
 -- Display: Higher Than Price
 boats_equities_memo_sbe_v1_13_display.higher_than_price = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Higher Than Price: No Value"
   end
 
@@ -563,18 +541,18 @@ end
 -- Translate: Higher Than Price
 translate.higher_than_price = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Higher Than Price
 boats_equities_memo_sbe_v1_13_dissect.higher_than_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memo_sbe_v1_13_size_of.higher_than_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.higher_than_price(raw)
   local display = boats_equities_memo_sbe_v1_13_display.higher_than_price(raw, value, buffer, offset, packet, parent)
 
@@ -584,12 +562,12 @@ boats_equities_memo_sbe_v1_13_dissect.higher_than_price = function(buffer, offse
 end
 
 -- Size: Lower Than Price
-boats_equities_memo_sbe_v1_13_size_of.lower_than_price = 1
+boats_equities_memo_sbe_v1_13_size_of.lower_than_price = 8
 
 -- Display: Lower Than Price
 boats_equities_memo_sbe_v1_13_display.lower_than_price = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Lower Than Price: No Value"
   end
 
@@ -599,18 +577,18 @@ end
 -- Translate: Lower Than Price
 translate.lower_than_price = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Lower Than Price
 boats_equities_memo_sbe_v1_13_dissect.lower_than_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memo_sbe_v1_13_size_of.lower_than_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.lower_than_price(raw)
   local display = boats_equities_memo_sbe_v1_13_display.lower_than_price(raw, value, buffer, offset, packet, parent)
 
@@ -822,13 +800,11 @@ boats_equities_memo_sbe_v1_13_size_of.mass_cancel_reject_message = function(buff
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.mass_cancel_reject_reason
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_14
-
   return index
 end
 
 -- Display: Mass Cancel Reject Message
-boats_equities_memo_sbe_v1_13_display.mass_cancel_reject_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.mass_cancel_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -851,10 +827,10 @@ boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields = functi
   -- Side Optional: 1 Byte Ascii String Enum with 5 values
   index, side_optional = boats_equities_memo_sbe_v1_13_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Lower Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, lower_than_price = boats_equities_memo_sbe_v1_13_dissect.lower_than_price(buffer, index, packet, parent)
 
-  -- Higher Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, higher_than_price = boats_equities_memo_sbe_v1_13_dissect.higher_than_price(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -863,23 +839,25 @@ boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields = functi
   -- Mass Cancel Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, mass_cancel_reject_reason = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_reason(buffer, index, packet, parent)
 
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
-
   return index
 end
 
 -- Dissect: Mass Cancel Reject Message
 boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_reject_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.mass_cancel_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_reject_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Link Id Optional
@@ -1114,7 +1092,7 @@ boats_equities_memo_sbe_v1_13_size_of.order_cancel_reject_message = function(buf
 end
 
 -- Display: Order Cancel Reject Message
-boats_equities_memo_sbe_v1_13_display.order_cancel_reject_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.order_cancel_reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -1142,15 +1120,20 @@ end
 
 -- Dissect: Order Cancel Reject Message
 boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_reject_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.order_cancel_reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.order_cancel_reject_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_reject_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.order_cancel_reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Party Role
@@ -1260,7 +1243,7 @@ boats_equities_memo_sbe_v1_13_size_of.parties_group = function(buffer, offset)
 end
 
 -- Display: Parties Group
-boats_equities_memo_sbe_v1_13_display.parties_group = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.parties_group = function(packet, parent, length)
   return ""
 end
 
@@ -1282,15 +1265,20 @@ end
 
 -- Dissect: Parties Group
 boats_equities_memo_sbe_v1_13_dissect.parties_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.parties_group then
-    local length = boats_equities_memo_sbe_v1_13_size_of.parties_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.parties_group(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.parties_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.parties_group, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.parties_group(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Num In Group
@@ -1345,7 +1333,7 @@ boats_equities_memo_sbe_v1_13_size_of.repeating_group_dimensions = function(buff
 end
 
 -- Display: Repeating Group Dimensions
-boats_equities_memo_sbe_v1_13_display.repeating_group_dimensions = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.repeating_group_dimensions = function(packet, parent, length)
   return ""
 end
 
@@ -1364,15 +1352,20 @@ end
 
 -- Dissect: Repeating Group Dimensions
 boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.repeating_group_dimensions then
-    local length = boats_equities_memo_sbe_v1_13_size_of.repeating_group_dimensions(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.repeating_group_dimensions(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.repeating_group_dimensions, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.repeating_group_dimensions, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.repeating_group_dimensions(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Parties Groups
@@ -1389,7 +1382,7 @@ boats_equities_memo_sbe_v1_13_size_of.parties_groups = function(buffer, offset)
 end
 
 -- Display: Parties Groups
-boats_equities_memo_sbe_v1_13_display.parties_groups = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.parties_groups = function(packet, parent, length)
   return ""
 end
 
@@ -1422,26 +1415,6 @@ boats_equities_memo_sbe_v1_13_dissect.parties_groups = function(buffer, offset, 
   end
 
   return boats_equities_memo_sbe_v1_13_dissect.parties_groups_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 7
-boats_equities_memo_sbe_v1_13_size_of.padding_7 = 7
-
--- Display: Padding 7
-boats_equities_memo_sbe_v1_13_display.padding_7 = function(value)
-  return "Padding 7: "..value
-end
-
--- Dissect: Padding 7
-boats_equities_memo_sbe_v1_13_dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13_size_of.padding_7
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = boats_equities_memo_sbe_v1_13_display.padding_7(value, buffer, offset, packet, parent)
-
-  parent:add(boats_equities_memo_sbe_v1_13.fields.padding_7, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Extended Restatement Reason
@@ -1614,12 +1587,12 @@ boats_equities_memo_sbe_v1_13_dissect.leaves_qty = function(buffer, offset, pack
 end
 
 -- Size: Last Px Optional
-boats_equities_memo_sbe_v1_13_size_of.last_px_optional = 1
+boats_equities_memo_sbe_v1_13_size_of.last_px_optional = 8
 
 -- Display: Last Px Optional
 boats_equities_memo_sbe_v1_13_display.last_px_optional = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Px Optional: No Value"
   end
 
@@ -1629,18 +1602,18 @@ end
 -- Translate: Last Px Optional
 translate.last_px_optional = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Px Optional
 boats_equities_memo_sbe_v1_13_dissect.last_px_optional = function(buffer, offset, packet, parent)
   local length = boats_equities_memo_sbe_v1_13_size_of.last_px_optional
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.last_px_optional(raw)
   local display = boats_equities_memo_sbe_v1_13_display.last_px_optional(raw, value, buffer, offset, packet, parent)
 
@@ -1780,15 +1753,13 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_restatement_message = fun
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.link_id_optional
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Execution Report Restatement Message
-boats_equities_memo_sbe_v1_13_display.execution_report_restatement_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_restatement_message = function(packet, parent, length)
   return ""
 end
 
@@ -1811,7 +1782,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message_field
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
   index, ord_status = boats_equities_memo_sbe_v1_13_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Px Optional: 1 Byte Signed Fixed Width Integer Nullable
+  -- Last Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px_optional = boats_equities_memo_sbe_v1_13_dissect.last_px_optional(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1834,9 +1805,6 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_restatement_message_field
 
   -- Link Id Optional: 4 Byte Ascii String Nullable
   index, link_id_optional = boats_equities_memo_sbe_v1_13_dissect.link_id_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -1962,7 +1930,7 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_trade_break_message = fun
 end
 
 -- Display: Execution Report Trade Break Message
-boats_equities_memo_sbe_v1_13_display.execution_report_trade_break_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_trade_break_message = function(packet, parent, length)
   return ""
 end
 
@@ -2048,7 +2016,7 @@ boats_equities_memo_sbe_v1_13_dissect.last_qty_optional = function(buffer, offse
 end
 
 -- Size: Last Px
-boats_equities_memo_sbe_v1_13_size_of.last_px = 1
+boats_equities_memo_sbe_v1_13_size_of.last_px = 8
 
 -- Display: Last Px
 boats_equities_memo_sbe_v1_13_display.last_px = function(value)
@@ -2057,14 +2025,14 @@ end
 
 -- Translate: Last Px
 translate.last_px = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Px
 boats_equities_memo_sbe_v1_13_dissect.last_px = function(buffer, offset, packet, parent)
   local length = boats_equities_memo_sbe_v1_13_size_of.last_px
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.last_px(raw)
   local display = boats_equities_memo_sbe_v1_13_display.last_px(value, buffer, offset, packet, parent)
 
@@ -2103,15 +2071,13 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_trade_correction_message 
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.security_group
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Execution Report Trade Correction Message
-boats_equities_memo_sbe_v1_13_display.execution_report_trade_correction_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_trade_correction_message = function(packet, parent, length)
   return ""
 end
 
@@ -2140,7 +2106,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_trade_correction_message_
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
   index, ord_status = boats_equities_memo_sbe_v1_13_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = boats_equities_memo_sbe_v1_13_dissect.last_px(buffer, index, packet, parent)
 
   -- Last Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -2157,9 +2123,6 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_trade_correction_message_
 
   -- Security Group: 1 Byte Ascii String
   index, security_group = boats_equities_memo_sbe_v1_13_dissect.security_group(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -2275,12 +2238,12 @@ boats_equities_memo_sbe_v1_13_dissect.display_qty = function(buffer, offset, pac
 end
 
 -- Size: Price
-boats_equities_memo_sbe_v1_13_size_of.price = 1
+boats_equities_memo_sbe_v1_13_size_of.price = 8
 
 -- Display: Price
 boats_equities_memo_sbe_v1_13_display.price = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
   end
 
@@ -2290,18 +2253,18 @@ end
 -- Translate: Price
 translate.price = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Price
 boats_equities_memo_sbe_v1_13_dissect.price = function(buffer, offset, packet, parent)
   local length = boats_equities_memo_sbe_v1_13_size_of.price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.price(raw)
   local display = boats_equities_memo_sbe_v1_13_display.price(raw, value, buffer, offset, packet, parent)
 
@@ -2497,15 +2460,13 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_replaced_message = functi
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Execution Report Replaced Message
-boats_equities_memo_sbe_v1_13_display.execution_report_replaced_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_replaced_message = function(packet, parent, length)
   return ""
 end
 
@@ -2543,7 +2504,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message_fields =
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = boats_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = boats_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -2569,9 +2530,6 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_replaced_message_fields =
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = boats_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -2632,15 +2590,13 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_pending_replace_message =
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Execution Report Pending Replace Message
-boats_equities_memo_sbe_v1_13_display.execution_report_pending_replace_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_pending_replace_message = function(packet, parent, length)
   return ""
 end
 
@@ -2678,7 +2634,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_pending_replace_message_f
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = boats_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = boats_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -2701,9 +2657,6 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_pending_replace_message_f
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = boats_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -2736,7 +2689,7 @@ boats_equities_memo_sbe_v1_13_size_of.mass_cancel_done_message = function(buffer
 end
 
 -- Display: Mass Cancel Done Message
-boats_equities_memo_sbe_v1_13_display.mass_cancel_done_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.mass_cancel_done_message = function(packet, parent, length)
   return ""
 end
 
@@ -2755,15 +2708,20 @@ end
 
 -- Dissect: Mass Cancel Done Message
 boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_done_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.mass_cancel_done_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_done_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_done_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_done_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_done_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Reason
@@ -2882,7 +2840,7 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_canceled_message = functi
 end
 
 -- Display: Execution Report Canceled Message
-boats_equities_memo_sbe_v1_13_display.execution_report_canceled_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_canceled_message = function(packet, parent, length)
   return ""
 end
 
@@ -2962,13 +2920,11 @@ boats_equities_memo_sbe_v1_13_size_of.pending_mass_cancel_message = function(buf
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.cancel_group_id
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_14
-
   return index
 end
 
 -- Display: Pending Mass Cancel Message
-boats_equities_memo_sbe_v1_13_display.pending_mass_cancel_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.pending_mass_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -2991,32 +2947,34 @@ boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields = funct
   -- Side Optional: 1 Byte Ascii String Enum with 5 values
   index, side_optional = boats_equities_memo_sbe_v1_13_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Lower Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, lower_than_price = boats_equities_memo_sbe_v1_13_dissect.lower_than_price(buffer, index, packet, parent)
 
-  -- Higher Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, higher_than_price = boats_equities_memo_sbe_v1_13_dissect.higher_than_price(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = boats_equities_memo_sbe_v1_13_dissect.cancel_group_id(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Pending Mass Cancel Message
 boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.pending_mass_cancel_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.pending_mass_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.pending_mass_cancel_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.pending_mass_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Execution Report Pending Cancel Message
@@ -3051,7 +3009,7 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_pending_cancel_message = 
 end
 
 -- Display: Execution Report Pending Cancel Message
-boats_equities_memo_sbe_v1_13_display.execution_report_pending_cancel_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_pending_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -3314,15 +3272,13 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_trade_message = function(
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.security_group
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_7
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Execution Report Trade Message
-boats_equities_memo_sbe_v1_13_display.execution_report_trade_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -3348,7 +3304,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_trade_message_fields = fu
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = boats_equities_memo_sbe_v1_13_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 1 Byte Signed Fixed Width Integer
+  -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = boats_equities_memo_sbe_v1_13_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -3374,9 +3330,6 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_trade_message_fields = fu
 
   -- Security Group: 1 Byte Ascii String
   index, security_group = boats_equities_memo_sbe_v1_13_dissect.security_group(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -3733,7 +3686,7 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_rejected_message = functi
 end
 
 -- Display: Execution Report Rejected Message
-boats_equities_memo_sbe_v1_13_display.execution_report_rejected_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -4139,12 +4092,12 @@ boats_equities_memo_sbe_v1_13_dissect.peg_price_type = function(buffer, offset, 
 end
 
 -- Size: Peg Offset Value
-boats_equities_memo_sbe_v1_13_size_of.peg_offset_value = 1
+boats_equities_memo_sbe_v1_13_size_of.peg_offset_value = 8
 
 -- Display: Peg Offset Value
 boats_equities_memo_sbe_v1_13_display.peg_offset_value = function(raw, value)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value: No Value"
   end
 
@@ -4154,18 +4107,18 @@ end
 -- Translate: Peg Offset Value
 translate.peg_offset_value = function(raw)
   -- Check null sentinel value
-  if raw == 128 then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Peg Offset Value
 boats_equities_memo_sbe_v1_13_dissect.peg_offset_value = function(buffer, offset, packet, parent)
   local length = boats_equities_memo_sbe_v1_13_size_of.peg_offset_value
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:int64()
   local value = translate.peg_offset_value(raw)
   local display = boats_equities_memo_sbe_v1_13_display.peg_offset_value(raw, value, buffer, offset, packet, parent)
 
@@ -4423,15 +4376,13 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_new_message = function(bu
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_14
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Execution Report New Message
-boats_equities_memo_sbe_v1_13_display.execution_report_new_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_new_message = function(packet, parent, length)
   return ""
 end
 
@@ -4469,7 +4420,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = func
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = boats_equities_memo_sbe_v1_13_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = boats_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
@@ -4484,7 +4435,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = func
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = boats_equities_memo_sbe_v1_13_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value = boats_equities_memo_sbe_v1_13_dissect.peg_offset_value(buffer, index, packet, parent)
 
   -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -4543,9 +4494,6 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_new_message_fields = func
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = boats_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -4638,15 +4586,13 @@ boats_equities_memo_sbe_v1_13_size_of.execution_report_pending_new_message = fun
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_14
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Execution Report Pending New Message
-boats_equities_memo_sbe_v1_13_display.execution_report_pending_new_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.execution_report_pending_new_message = function(packet, parent, length)
   return ""
 end
 
@@ -4684,7 +4630,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_field
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = boats_equities_memo_sbe_v1_13_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = boats_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
@@ -4699,7 +4645,7 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_field
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = boats_equities_memo_sbe_v1_13_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value = boats_equities_memo_sbe_v1_13_dissect.peg_offset_value(buffer, index, packet, parent)
 
   -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -4756,9 +4702,6 @@ boats_equities_memo_sbe_v1_13_dissect.execution_report_pending_new_message_field
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = boats_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
 
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
-
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
 
@@ -4796,13 +4739,11 @@ boats_equities_memo_sbe_v1_13_size_of.mass_cancel_request_message = function(buf
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.cancel_group_id
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_14
-
   return index
 end
 
 -- Display: Mass Cancel Request Message
-boats_equities_memo_sbe_v1_13_display.mass_cancel_request_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.mass_cancel_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4822,32 +4763,34 @@ boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields = funct
   -- Side Optional: 1 Byte Ascii String Enum with 5 values
   index, side_optional = boats_equities_memo_sbe_v1_13_dissect.side_optional(buffer, index, packet, parent)
 
-  -- Lower Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Lower Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, lower_than_price = boats_equities_memo_sbe_v1_13_dissect.lower_than_price(buffer, index, packet, parent)
 
-  -- Higher Than Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Higher Than Price: 8 Byte Signed Fixed Width Integer Nullable
   index, higher_than_price = boats_equities_memo_sbe_v1_13_dissect.higher_than_price(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = boats_equities_memo_sbe_v1_13_dissect.cancel_group_id(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Mass Cancel Request Message
 boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_request_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.mass_cancel_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_request_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Id Optional
@@ -4893,7 +4836,7 @@ boats_equities_memo_sbe_v1_13_size_of.order_cancel_request_message = function(bu
 end
 
 -- Display: Order Cancel Request Message
-boats_equities_memo_sbe_v1_13_display.order_cancel_request_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.order_cancel_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4921,15 +4864,20 @@ end
 
 -- Dissect: Order Cancel Request Message
 boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_request_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.order_cancel_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.order_cancel_request_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.order_cancel_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: OrigClOrdId
@@ -4996,13 +4944,11 @@ boats_equities_memo_sbe_v1_13_size_of.order_cancel_replace_request_message = fun
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_7
-
   return index
 end
 
 -- Display: Order Cancel Replace Request Message
-boats_equities_memo_sbe_v1_13_display.order_cancel_replace_request_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.order_cancel_replace_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -5031,7 +4977,7 @@ boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_field
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = boats_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = boats_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -5046,23 +4992,25 @@ boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_field
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = boats_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
 
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memo_sbe_v1_13_dissect.padding_7(buffer, index, packet, parent)
-
   return index
 end
 
 -- Dissect: Order Cancel Replace Request Message
 boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_cancel_replace_request_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.order_cancel_replace_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.order_cancel_replace_request_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.order_cancel_replace_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: New Order Single Message
@@ -5125,15 +5073,13 @@ boats_equities_memo_sbe_v1_13_size_of.new_order_single_message = function(buffer
 
   index = index + boats_equities_memo_sbe_v1_13_size_of.locate_broker_optional
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.padding_14
-
   index = index + boats_equities_memo_sbe_v1_13_size_of.parties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: New Order Single Message
-boats_equities_memo_sbe_v1_13_display.new_order_single_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.new_order_single_message = function(packet, parent, length)
   return ""
 end
 
@@ -5159,7 +5105,7 @@ boats_equities_memo_sbe_v1_13_dissect.new_order_single_message_fields = function
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
   index, ord_type = boats_equities_memo_sbe_v1_13_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = boats_equities_memo_sbe_v1_13_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
@@ -5174,7 +5120,7 @@ boats_equities_memo_sbe_v1_13_dissect.new_order_single_message_fields = function
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = boats_equities_memo_sbe_v1_13_dissect.exec_inst(buffer, index, packet, parent)
 
-  -- Peg Offset Value: 1 Byte Signed Fixed Width Integer Nullable
+  -- Peg Offset Value: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value = boats_equities_memo_sbe_v1_13_dissect.peg_offset_value(buffer, index, packet, parent)
 
   -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -5224,9 +5170,6 @@ boats_equities_memo_sbe_v1_13_dissect.new_order_single_message_fields = function
 
   -- Locate Broker Optional: 4 Byte Ascii String Nullable
   index, locate_broker_optional = boats_equities_memo_sbe_v1_13_dissect.locate_broker_optional(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memo_sbe_v1_13_dissect.padding_14(buffer, index, packet, parent)
 
   -- Parties Groups: Struct of 2 fields
   index, parties_groups = boats_equities_memo_sbe_v1_13_dissect.parties_groups(buffer, index, packet, parent)
@@ -5590,7 +5533,7 @@ boats_equities_memo_sbe_v1_13_size_of.sbe_header = function(buffer, offset)
 end
 
 -- Display: Sbe Header
-boats_equities_memo_sbe_v1_13_display.sbe_header = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.sbe_header = function(packet, parent, length)
   return ""
 end
 
@@ -5615,38 +5558,29 @@ end
 
 -- Dissect: Sbe Header
 boats_equities_memo_sbe_v1_13_dissect.sbe_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sbe_header then
-    local length = boats_equities_memo_sbe_v1_13_size_of.sbe_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.sbe_header(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_header, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.sbe_header(packet, parent, length)
+    parent:append_text(display)
+
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, parent)
   end
-
-  return boats_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Sbe Message
-boats_equities_memo_sbe_v1_13_size_of.sbe_message = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memo_sbe_v1_13_size_of.sbe_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + boats_equities_memo_sbe_v1_13_size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
 end
 
 -- Display: Sbe Message
-boats_equities_memo_sbe_v1_13_display.sbe_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.sbe_message = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sbe Message
-boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields = function(buffer, offset, packet, parent)
+boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -5662,29 +5596,31 @@ boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields = function(buffer, offs
 end
 
 -- Dissect: Sbe Message
-boats_equities_memo_sbe_v1_13_dissect.sbe_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+boats_equities_memo_sbe_v1_13_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
+  -- Optionally add struct element to protocol tree
   if show.sbe_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.sbe_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_sbe_message)
     local display = boats_equities_memo_sbe_v1_13_display.sbe_message(buffer, packet, parent)
     parent = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_message, range, display)
   end
 
-  return boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent)
+  boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+
+  return offset + size_of_sbe_message
 end
 
 -- Calculate size of: Sequenced Message
 boats_equities_memo_sbe_v1_13_size_of.sequenced_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.sbe_message(buffer, offset + index)
+  -- Parse runtime size of: Sbe Message
+  index = index + buffer(offset + index - 0, 2):uint()
 
   return index
 end
 
 -- Display: Sequenced Message
-boats_equities_memo_sbe_v1_13_display.sequenced_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.sequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -5692,8 +5628,14 @@ end
 boats_equities_memo_sbe_v1_13_dissect.sequenced_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Dependency element: Block Length
+  local block_length = buffer(index, 2):uint()
+
+  -- Runtime Size Of: Sbe Message
+  local size_of_sbe_message = block_length + 6
+
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent)
+  index = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
@@ -5741,7 +5683,7 @@ boats_equities_memo_sbe_v1_13_size_of.stream_complete_message = function(buffer,
 end
 
 -- Display: Stream Complete Message
-boats_equities_memo_sbe_v1_13_display.stream_complete_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.stream_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -5757,15 +5699,20 @@ end
 
 -- Dissect: Stream Complete Message
 boats_equities_memo_sbe_v1_13_dissect.stream_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_complete_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.stream_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.stream_complete_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.stream_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Stream Reject Code
@@ -5808,7 +5755,7 @@ boats_equities_memo_sbe_v1_13_size_of.stream_rejected_message = function(buffer,
 end
 
 -- Display: Stream Rejected Message
-boats_equities_memo_sbe_v1_13_display.stream_rejected_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.stream_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -5824,15 +5771,20 @@ end
 
 -- Dissect: Stream Rejected Message
 boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_rejected_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.stream_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.stream_rejected_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.stream_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Next Sequence Number
@@ -5867,7 +5819,7 @@ boats_equities_memo_sbe_v1_13_size_of.stream_begin_message = function(buffer, of
 end
 
 -- Display: Stream Begin Message
-boats_equities_memo_sbe_v1_13_display.stream_begin_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.stream_begin_message = function(packet, parent, length)
   return ""
 end
 
@@ -5886,15 +5838,20 @@ end
 
 -- Dissect: Stream Begin Message
 boats_equities_memo_sbe_v1_13_dissect.stream_begin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_begin_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.stream_begin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.stream_begin_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_begin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.stream_begin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Message Count
@@ -5927,7 +5884,7 @@ boats_equities_memo_sbe_v1_13_size_of.replay_complete_message = function(buffer,
 end
 
 -- Display: Replay Complete Message
-boats_equities_memo_sbe_v1_13_display.replay_complete_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.replay_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -5943,15 +5900,20 @@ end
 
 -- Dissect: Replay Complete Message
 boats_equities_memo_sbe_v1_13_dissect.replay_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_complete_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.replay_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.replay_complete_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.replay_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Replay Reject Code
@@ -5997,7 +5959,7 @@ boats_equities_memo_sbe_v1_13_size_of.replay_rejected_message = function(buffer,
 end
 
 -- Display: Replay Rejected Message
-boats_equities_memo_sbe_v1_13_display.replay_rejected_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.replay_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -6013,15 +5975,20 @@ end
 
 -- Dissect: Replay Rejected Message
 boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_rejected_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.replay_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.replay_rejected_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.replay_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Pending Message Count
@@ -6056,7 +6023,7 @@ boats_equities_memo_sbe_v1_13_size_of.replay_begin_message = function(buffer, of
 end
 
 -- Display: Replay Begin Message
-boats_equities_memo_sbe_v1_13_display.replay_begin_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.replay_begin_message = function(packet, parent, length)
   return ""
 end
 
@@ -6075,15 +6042,20 @@ end
 
 -- Dissect: Replay Begin Message
 boats_equities_memo_sbe_v1_13_dissect.replay_begin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_begin_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.replay_begin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.replay_begin_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_begin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.replay_begin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Session Id
@@ -6116,7 +6088,7 @@ boats_equities_memo_sbe_v1_13_size_of.start_of_session_message = function(buffer
 end
 
 -- Display: Start Of Session Message
-boats_equities_memo_sbe_v1_13_display.start_of_session_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.start_of_session_message = function(packet, parent, length)
   return ""
 end
 
@@ -6132,15 +6104,20 @@ end
 
 -- Dissect: Start Of Session Message
 boats_equities_memo_sbe_v1_13_dissect.start_of_session_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.start_of_session_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.start_of_session_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.start_of_session_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.start_of_session_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.start_of_session_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Login Reject Code
@@ -6186,7 +6163,7 @@ boats_equities_memo_sbe_v1_13_size_of.login_rejected_message = function(buffer, 
 end
 
 -- Display: Login Rejected Message
-boats_equities_memo_sbe_v1_13_display.login_rejected_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.login_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -6202,15 +6179,20 @@ end
 
 -- Dissect: Login Rejected Message
 boats_equities_memo_sbe_v1_13_dissect.login_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.login_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.login_rejected_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.login_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Supported Request Mode
@@ -6253,7 +6235,7 @@ boats_equities_memo_sbe_v1_13_size_of.login_accepted_message = function(buffer, 
 end
 
 -- Display: Login Accepted Message
-boats_equities_memo_sbe_v1_13_display.login_accepted_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.login_accepted_message = function(packet, parent, length)
   return ""
 end
 
@@ -6269,28 +6251,34 @@ end
 
 -- Dissect: Login Accepted Message
 boats_equities_memo_sbe_v1_13_dissect.login_accepted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.login_accepted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.login_accepted_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_accepted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.login_accepted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Unsequenced Message
 boats_equities_memo_sbe_v1_13_size_of.unsequenced_message = function(buffer, offset)
   local index = 0
 
-  index = index + boats_equities_memo_sbe_v1_13_size_of.sbe_message(buffer, offset + index)
+  -- Parse runtime size of: Sbe Message
+  index = index + buffer(offset + index - 0, 2):uint()
 
   return index
 end
 
 -- Display: Unsequenced Message
-boats_equities_memo_sbe_v1_13_display.unsequenced_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.unsequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -6298,8 +6286,14 @@ end
 boats_equities_memo_sbe_v1_13_dissect.unsequenced_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Dependency element: Block Length
+  local block_length = buffer(index, 2):uint()
+
+  -- Runtime Size Of: Sbe Message
+  local size_of_sbe_message = block_length + 6
+
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent)
+  index = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
@@ -6329,7 +6323,7 @@ boats_equities_memo_sbe_v1_13_size_of.stream_request_message = function(buffer, 
 end
 
 -- Display: Stream Request Message
-boats_equities_memo_sbe_v1_13_display.stream_request_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.stream_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6348,15 +6342,20 @@ end
 
 -- Dissect: Stream Request Message
 boats_equities_memo_sbe_v1_13_dissect.stream_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_request_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.stream_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.stream_request_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.stream_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Replay All Request Message
@@ -6369,7 +6368,7 @@ boats_equities_memo_sbe_v1_13_size_of.replay_all_request_message = function(buff
 end
 
 -- Display: Replay All Request Message
-boats_equities_memo_sbe_v1_13_display.replay_all_request_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.replay_all_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6385,15 +6384,20 @@ end
 
 -- Dissect: Replay All Request Message
 boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_all_request_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.replay_all_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.replay_all_request_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_all_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.replay_all_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Count
@@ -6430,7 +6434,7 @@ boats_equities_memo_sbe_v1_13_size_of.replay_request_message = function(buffer, 
 end
 
 -- Display: Replay Request Message
-boats_equities_memo_sbe_v1_13_display.replay_request_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.replay_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6452,15 +6456,20 @@ end
 
 -- Dissect: Replay Request Message
 boats_equities_memo_sbe_v1_13_dissect.replay_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_request_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.replay_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.replay_request_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.replay_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Token
@@ -6515,7 +6524,7 @@ boats_equities_memo_sbe_v1_13_size_of.login_request_message = function(buffer, o
 end
 
 -- Display: Login Request Message
-boats_equities_memo_sbe_v1_13_display.login_request_message = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.login_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6534,15 +6543,20 @@ end
 
 -- Dissect: Login Request Message
 boats_equities_memo_sbe_v1_13_dissect.login_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_message then
-    local length = boats_equities_memo_sbe_v1_13_size_of.login_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.login_request_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.login_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Data
@@ -6803,7 +6817,7 @@ boats_equities_memo_sbe_v1_13_size_of.common_header = function(buffer, offset)
 end
 
 -- Display: Common Header
-boats_equities_memo_sbe_v1_13_display.common_header = function(buffer, offset, size, packet, parent)
+boats_equities_memo_sbe_v1_13_display.common_header = function(packet, parent, length)
   return ""
 end
 
@@ -6822,15 +6836,20 @@ end
 
 -- Dissect: Common Header
 boats_equities_memo_sbe_v1_13_dissect.common_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.common_header then
-    local length = boats_equities_memo_sbe_v1_13_size_of.common_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memo_sbe_v1_13_display.common_header(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.common_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13_display.common_header(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

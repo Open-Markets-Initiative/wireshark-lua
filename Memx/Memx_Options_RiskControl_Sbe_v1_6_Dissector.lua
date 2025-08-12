@@ -788,7 +788,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_order_rate_threshold_state_message 
 end
 
 -- Display: Cp Order Rate Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -819,15 +819,20 @@ end
 
 -- Dissect: Cp Order Rate Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_order_rate_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_order_rate_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Use Order Price In Dup Check
@@ -899,7 +904,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_duplicate_order_threshold_state_mes
 end
 
 -- Display: Cp Duplicate Order Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -933,15 +938,20 @@ end
 
 -- Dissect: Cp Duplicate Order Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_duplicate_order_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_duplicate_order_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price In Dollars
@@ -982,7 +992,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_net_notional_threshold
 end
 
 -- Display: Cp Market Order Net Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1010,15 +1020,20 @@ end
 
 -- Dissect: Cp Market Order Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_market_order_net_notional_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_net_notional_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Net Notional Threshold State Message
@@ -1039,7 +1054,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_net_notional_threshold_state_messag
 end
 
 -- Display: Cp Net Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1067,15 +1082,20 @@ end
 
 -- Dissect: Cp Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_net_notional_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_net_notional_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Market Order Gross Notional Threshold State Message
@@ -1096,7 +1116,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_gross_notional_thresho
 end
 
 -- Display: Cp Market Order Gross Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1124,15 +1144,20 @@ end
 
 -- Dissect: Cp Market Order Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_market_order_gross_notional_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_gross_notional_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Gross Notional Threshold State Message
@@ -1153,7 +1178,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_gross_notional_threshold_state_mess
 end
 
 -- Display: Cp Gross Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1181,15 +1206,20 @@ end
 
 -- Dissect: Cp Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_gross_notional_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_gross_notional_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Breach Id Optional
@@ -1229,7 +1259,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.breach_cleared_message = function(buff
 end
 
 -- Display: Breach Cleared Message
-memx_options_riskcontrol_sbe_v1_6_display.breach_cleared_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.breach_cleared_message = function(packet, parent, length)
   return ""
 end
 
@@ -1248,15 +1278,20 @@ end
 
 -- Dissect: Breach Cleared Message
 memx_options_riskcontrol_sbe_v1_6_dissect.breach_cleared_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.breach_cleared_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.breach_cleared_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.breach_cleared_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_cleared_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_cleared_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.breach_cleared_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.breach_cleared_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.breach_cleared_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.breach_cleared_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reject Reason
@@ -1480,7 +1515,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.breach_clear_rej_message = function(bu
 end
 
 -- Display: Breach Clear Rej Message
-memx_options_riskcontrol_sbe_v1_6_display.breach_clear_rej_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.breach_clear_rej_message = function(packet, parent, length)
   return ""
 end
 
@@ -1502,15 +1537,20 @@ end
 
 -- Dissect: Breach Clear Rej Message
 memx_options_riskcontrol_sbe_v1_6_dissect.breach_clear_rej_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.breach_clear_rej_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.breach_clear_rej_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.breach_clear_rej_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_clear_rej_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.breach_clear_rej_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.breach_clear_rej_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.breach_clear_rej_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.breach_clear_rej_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.breach_clear_rej_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Manual Cp Breach Trigger Rej Message
@@ -1531,7 +1571,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_rej_message =
 end
 
 -- Display: Manual Cp Breach Trigger Rej Message
-memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_rej_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_rej_message = function(packet, parent, length)
   return ""
 end
 
@@ -1559,15 +1599,20 @@ end
 
 -- Dissect: Manual Cp Breach Trigger Rej Message
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_rej_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.manual_cp_breach_trigger_rej_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_rej_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_rej_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_rej_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_rej_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_rej_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_rej_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_rej_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_rej_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Risk Settings Query Rej Message
@@ -1582,7 +1627,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.risk_settings_query_rej_message = func
 end
 
 -- Display: Risk Settings Query Rej Message
-memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_rej_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_rej_message = function(packet, parent, length)
   return ""
 end
 
@@ -1601,15 +1646,20 @@ end
 
 -- Dissect: Risk Settings Query Rej Message
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_rej_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_settings_query_rej_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.risk_settings_query_rej_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_rej_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_rej_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_rej_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_rej_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_rej_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_rej_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_rej_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Msgs Sent
@@ -1644,7 +1694,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.risk_settings_query_done_message = fun
 end
 
 -- Display: Risk Settings Query Done Message
-memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_done_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_done_message = function(packet, parent, length)
   return ""
 end
 
@@ -1663,15 +1713,20 @@ end
 
 -- Dissect: Risk Settings Query Done Message
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_done_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_settings_query_done_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.risk_settings_query_done_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_done_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_done_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_done_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_done_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_done_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_done_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_done_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Max Contracts
@@ -1712,7 +1767,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_contracts_threshold_s
 end
 
 -- Display: Single Order Max Contracts Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1740,15 +1795,20 @@ end
 
 -- Dissect: Single Order Max Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_max_contracts_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_contracts_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Max Notional In Dollars
@@ -1789,7 +1849,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_notional_threshold_st
 end
 
 -- Display: Single Order Max Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1817,15 +1877,20 @@ end
 
 -- Dissect: Single Order Max Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_max_notional_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_notional_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Allow Orders
@@ -1873,7 +1938,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_orders_in_crossed_m
 end
 
 -- Display: Single Order Allow Orders In Crossed Market State Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1901,15 +1966,20 @@ end
 
 -- Dissect: Single Order Allow Orders In Crossed Market State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_allow_orders_in_crossed_market_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_orders_in_crossed_market_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Allow Iso Orders
@@ -1957,7 +2027,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_iso_orders_state_me
 end
 
 -- Display: Single Order Allow Iso Orders State Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -1985,15 +2055,20 @@ end
 
 -- Dissect: Single Order Allow Iso Orders State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_allow_iso_orders_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_iso_orders_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Transact Time
@@ -2127,7 +2202,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.passive_risk_threshold_notification_me
 end
 
 -- Display: Passive Risk Threshold Notification Message
-memx_options_riskcontrol_sbe_v1_6_display.passive_risk_threshold_notification_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.passive_risk_threshold_notification_message = function(packet, parent, length)
   return ""
 end
 
@@ -2161,15 +2236,20 @@ end
 
 -- Dissect: Passive Risk Threshold Notification Message
 memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.passive_risk_threshold_notification_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.passive_risk_threshold_notification_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.passive_risk_threshold_notification_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.passive_risk_threshold_notification_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.passive_risk_threshold_notification_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.passive_risk_threshold_notification_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.passive_risk_threshold_notification_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Risk Type
@@ -2255,7 +2335,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.risk_threshold_update_rej_message = fu
 end
 
 -- Display: Risk Threshold Update Rej Message
-memx_options_riskcontrol_sbe_v1_6_display.risk_threshold_update_rej_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.risk_threshold_update_rej_message = function(packet, parent, length)
   return ""
 end
 
@@ -2277,15 +2357,20 @@ end
 
 -- Dissect: Risk Threshold Update Rej Message
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_threshold_update_rej_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_threshold_update_rej_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.risk_threshold_update_rej_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_threshold_update_rej_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_threshold_update_rej_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_threshold_update_rej_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_threshold_update_rej_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_threshold_update_rej_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.risk_threshold_update_rej_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.risk_threshold_update_rej_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Total Affected Orders
@@ -2348,7 +2433,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_done_message 
 end
 
 -- Display: Manual Cp Breach Trigger Done Message
-memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_done_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_done_message = function(packet, parent, length)
   return ""
 end
 
@@ -2379,15 +2464,20 @@ end
 
 -- Dissect: Manual Cp Breach Trigger Done Message
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_done_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.manual_cp_breach_trigger_done_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_done_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_done_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_done_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_done_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_done_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_done_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_done_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_done_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Manual Cp Breach Trigger Pending Message
@@ -2408,7 +2498,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_pending_messa
 end
 
 -- Display: Manual Cp Breach Trigger Pending Message
-memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_pending_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_pending_message = function(packet, parent, length)
   return ""
 end
 
@@ -2436,15 +2526,20 @@ end
 
 -- Dissect: Manual Cp Breach Trigger Pending Message
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_pending_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.manual_cp_breach_trigger_pending_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_pending_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_pending_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_pending_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_pending_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_pending_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_pending_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_pending_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_pending_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Count
@@ -2487,7 +2582,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_breach_count_threshold_state_messag
 end
 
 -- Display: Cp Breach Count Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -2518,15 +2613,20 @@ end
 
 -- Dissect: Cp Breach Count Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_breach_count_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_breach_count_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Percent
@@ -2567,7 +2667,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_percent_outstanding_contracts_thres
 end
 
 -- Display: Cp Percent Outstanding Contracts Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -2595,15 +2695,20 @@ end
 
 -- Dissect: Cp Percent Outstanding Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_percent_outstanding_contracts_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_percent_outstanding_contracts_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Total Executions
@@ -2646,7 +2751,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_total_executions_threshold_state_me
 end
 
 -- Display: Cp Total Executions Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -2677,15 +2782,20 @@ end
 
 -- Dissect: Cp Total Executions Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_total_executions_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_total_executions_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Executed Notional Threshold State Message
@@ -2708,7 +2818,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_executed_notional_threshold_state_m
 end
 
 -- Display: Cp Executed Notional Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -2739,15 +2849,20 @@ end
 
 -- Dissect: Cp Executed Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_executed_notional_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_executed_notional_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Volume
@@ -2790,7 +2905,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_volume_threshold_state_message = fu
 end
 
 -- Display: Cp Volume Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -2821,15 +2936,20 @@ end
 
 -- Dissect: Cp Volume Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_volume_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_volume_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Unacked Quantity
@@ -3136,7 +3256,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_quantity_update_notificati
 end
 
 -- Display: Active Risk Quantity Update Notification Message
-memx_options_riskcontrol_sbe_v1_6_display.active_risk_quantity_update_notification_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.active_risk_quantity_update_notification_message = function(packet, parent, length)
   return ""
 end
 
@@ -3182,15 +3302,20 @@ end
 
 -- Dissect: Active Risk Quantity Update Notification Message
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notification_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.active_risk_quantity_update_notification_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_quantity_update_notification_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_quantity_update_notification_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_quantity_update_notification_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_quantity_update_notification_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notification_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_quantity_update_notification_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notification_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_quantity_update_notification_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Threshold Quantity
@@ -3231,7 +3356,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_acknowledge_rej_message = 
 end
 
 -- Display: Active Risk Acknowledge Rej Message
-memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledge_rej_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledge_rej_message = function(packet, parent, length)
   return ""
 end
 
@@ -3259,15 +3384,20 @@ end
 
 -- Dissect: Active Risk Acknowledge Rej Message
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledge_rej_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.active_risk_acknowledge_rej_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_acknowledge_rej_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledge_rej_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledge_rej_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledge_rej_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledge_rej_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledge_rej_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledge_rej_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledge_rej_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Quantity
@@ -3308,7 +3438,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_acknowledged_message = fun
 end
 
 -- Display: Active Risk Acknowledged Message
-memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledged_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledged_message = function(packet, parent, length)
   return ""
 end
 
@@ -3336,15 +3466,20 @@ end
 
 -- Dissect: Active Risk Acknowledged Message
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledged_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.active_risk_acknowledged_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_acknowledged_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledged_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledged_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledged_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledged_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledged_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledged_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledged_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Active Risk Threshold Change Rej Message
@@ -3365,7 +3500,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_threshold_change_rej_messa
 end
 
 -- Display: Active Risk Threshold Change Rej Message
-memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_rej_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_rej_message = function(packet, parent, length)
   return ""
 end
 
@@ -3393,15 +3528,20 @@ end
 
 -- Dissect: Active Risk Threshold Change Rej Message
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_rej_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.active_risk_threshold_change_rej_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_threshold_change_rej_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_rej_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_rej_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_rej_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_rej_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_rej_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_rej_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_rej_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Active Risk Threshold State Message
@@ -3422,7 +3562,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_threshold_state_message = 
 end
 
 -- Display: Active Risk Threshold State Message
-memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_state_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_state_message = function(packet, parent, length)
   return ""
 end
 
@@ -3450,15 +3590,20 @@ end
 
 -- Dissect: Active Risk Threshold State Message
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_state_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.active_risk_threshold_state_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_threshold_state_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_state_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_state_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_state_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_state_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_state_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_state_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_state_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Order Rate Threshold Change Req Message
@@ -3481,7 +3626,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_order_rate_threshold_change_req_mes
 end
 
 -- Display: Cp Order Rate Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3512,15 +3657,20 @@ end
 
 -- Dissect: Cp Order Rate Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_order_rate_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_order_rate_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_order_rate_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_order_rate_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_order_rate_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Use Order Price In Dup Check Optional
@@ -3575,7 +3725,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_duplicate_order_threshold_change_re
 end
 
 -- Display: Cp Duplicate Order Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3609,15 +3759,20 @@ end
 
 -- Dissect: Cp Duplicate Order Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_duplicate_order_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_duplicate_order_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_duplicate_order_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_duplicate_order_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_duplicate_order_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Market Order Net Notional Threshold Change Req Message
@@ -3638,7 +3793,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_net_notional_threshold
 end
 
 -- Display: Cp Market Order Net Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3666,15 +3821,20 @@ end
 
 -- Dissect: Cp Market Order Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_market_order_net_notional_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_net_notional_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_net_notional_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_net_notional_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Net Notional Threshold Change Req Message
@@ -3695,7 +3855,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_net_notional_threshold_change_req_m
 end
 
 -- Display: Cp Net Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3723,15 +3883,20 @@ end
 
 -- Dissect: Cp Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_net_notional_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_net_notional_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_net_notional_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_net_notional_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Market Order Gross Notional Threshold Change Req Message
@@ -3752,7 +3917,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_gross_notional_thresho
 end
 
 -- Display: Cp Market Order Gross Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3780,15 +3945,20 @@ end
 
 -- Dissect: Cp Market Order Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_market_order_gross_notional_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_market_order_gross_notional_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_market_order_gross_notional_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_market_order_gross_notional_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_market_order_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Gross Notional Threshold Change Req Message
@@ -3809,7 +3979,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_gross_notional_threshold_change_req
 end
 
 -- Display: Cp Gross Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3837,15 +4007,20 @@ end
 
 -- Dissect: Cp Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_gross_notional_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_gross_notional_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_gross_notional_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_gross_notional_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Order Max Contracts Change Req Message
@@ -3866,7 +4041,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_contracts_change_req_
 end
 
 -- Display: Single Order Max Contracts Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3894,15 +4069,20 @@ end
 
 -- Dissect: Single Order Max Contracts Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_max_contracts_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_contracts_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_contracts_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_contracts_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_contracts_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Order Max Notional Change Req Message
@@ -3923,7 +4103,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_notional_change_req_m
 end
 
 -- Display: Single Order Max Notional Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -3951,15 +4131,20 @@ end
 
 -- Dissect: Single Order Max Notional Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_max_notional_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_max_notional_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_max_notional_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_max_notional_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_max_notional_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Order Allow Orders In Crossed Market Change Req Message
@@ -3980,7 +4165,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_orders_in_crossed_m
 end
 
 -- Display: Single Order Allow Orders In Crossed Market Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4008,15 +4193,20 @@ end
 
 -- Dissect: Single Order Allow Orders In Crossed Market Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_allow_orders_in_crossed_market_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_orders_in_crossed_market_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_orders_in_crossed_market_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_orders_in_crossed_market_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_orders_in_crossed_market_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Single Order Allow Iso Orders Change Req Message
@@ -4037,7 +4227,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_iso_orders_change_r
 end
 
 -- Display: Single Order Allow Iso Orders Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4065,15 +4255,20 @@ end
 
 -- Dissect: Single Order Allow Iso Orders Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.single_order_allow_iso_orders_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.single_order_allow_iso_orders_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.single_order_allow_iso_orders_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.single_order_allow_iso_orders_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.single_order_allow_iso_orders_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Clear Breach Req Message
@@ -4088,7 +4283,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_clear_breach_req_message = function
 end
 
 -- Display: Cp Clear Breach Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_clear_breach_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_clear_breach_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4107,15 +4302,20 @@ end
 
 -- Dissect: Cp Clear Breach Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_clear_breach_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_clear_breach_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_clear_breach_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_clear_breach_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_clear_breach_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_clear_breach_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_clear_breach_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_clear_breach_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_clear_breach_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_clear_breach_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Send Cancels
@@ -4166,7 +4366,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_req_message =
 end
 
 -- Display: Manual Cp Breach Trigger Req Message
-memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4194,15 +4394,20 @@ end
 
 -- Dissect: Manual Cp Breach Trigger Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.manual_cp_breach_trigger_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.manual_cp_breach_trigger_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.manual_cp_breach_trigger_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.manual_cp_breach_trigger_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.manual_cp_breach_trigger_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Breach Count Threshold Change Req Message
@@ -4225,7 +4430,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_breach_count_threshold_change_req_m
 end
 
 -- Display: Cp Breach Count Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4256,15 +4461,20 @@ end
 
 -- Dissect: Cp Breach Count Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_breach_count_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_breach_count_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_breach_count_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_breach_count_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_breach_count_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Percent Outstanding Contracts Threshold Change Req Message
@@ -4285,7 +4495,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_percent_outstanding_contracts_thres
 end
 
 -- Display: Cp Percent Outstanding Contracts Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4313,15 +4523,20 @@ end
 
 -- Dissect: Cp Percent Outstanding Contracts Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_percent_outstanding_contracts_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_percent_outstanding_contracts_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_percent_outstanding_contracts_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_percent_outstanding_contracts_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_percent_outstanding_contracts_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Total Executions Threshold Change Req Message
@@ -4344,7 +4559,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_total_executions_threshold_change_r
 end
 
 -- Display: Cp Total Executions Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4375,15 +4590,20 @@ end
 
 -- Dissect: Cp Total Executions Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_total_executions_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_total_executions_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_total_executions_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_total_executions_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_total_executions_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Executed Notional Threshold Change Req Message
@@ -4406,7 +4626,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_executed_notional_threshold_change_
 end
 
 -- Display: Cp Executed Notional Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4437,15 +4657,20 @@ end
 
 -- Dissect: Cp Executed Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_executed_notional_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_executed_notional_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_executed_notional_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_executed_notional_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_executed_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cp Volume Threshold Change Req Message
@@ -4468,7 +4693,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.cp_volume_threshold_change_req_message
 end
 
 -- Display: Cp Volume Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4499,15 +4724,20 @@ end
 
 -- Dissect: Cp Volume Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cp_volume_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.cp_volume_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.cp_volume_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.cp_volume_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.cp_volume_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Active Risk Acknowledgement Req Message
@@ -4526,7 +4756,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_acknowledgement_req_messag
 end
 
 -- Display: Active Risk Acknowledgement Req Message
-memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledgement_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledgement_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4551,15 +4781,20 @@ end
 
 -- Dissect: Active Risk Acknowledgement Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledgement_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.active_risk_acknowledgement_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_acknowledgement_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledgement_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledgement_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_acknowledgement_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledgement_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_acknowledgement_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledgement_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_acknowledgement_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Active Risk Threshold Change Req Message
@@ -4578,7 +4813,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_threshold_change_req_messa
 end
 
 -- Display: Active Risk Threshold Change Req Message
-memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_req_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_req_message = function(packet, parent, length)
   return ""
 end
 
@@ -4603,15 +4838,20 @@ end
 
 -- Dissect: Active Risk Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_req_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.active_risk_threshold_change_req_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.active_risk_threshold_change_req_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_req_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_req_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.active_risk_threshold_change_req_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.active_risk_threshold_change_req_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_req_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.active_risk_threshold_change_req_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Risk Settings Query Message
@@ -4624,7 +4864,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.risk_settings_query_message = function
 end
 
 -- Display: Risk Settings Query Message
-memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_message = function(packet, parent, length)
   return ""
 end
 
@@ -4640,15 +4880,20 @@ end
 
 -- Dissect: Risk Settings Query Message
 memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.risk_settings_query_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.risk_settings_query_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.risk_settings_query_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.risk_settings_query_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.risk_settings_query_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -5324,7 +5569,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.sbe_header = function(buffer, offset)
 end
 
 -- Display: Sbe Header
-memx_options_riskcontrol_sbe_v1_6_display.sbe_header = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.sbe_header = function(packet, parent, length)
   return ""
 end
 
@@ -5349,15 +5594,20 @@ end
 
 -- Dissect: Sbe Header
 memx_options_riskcontrol_sbe_v1_6_dissect.sbe_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sbe_header then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.sbe_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.sbe_header(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.sbe_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.sbe_header, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.sbe_header(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.sbe_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Sbe Message
@@ -5375,7 +5625,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.sbe_message = function(buffer, offset)
 end
 
 -- Display: Sbe Message
-memx_options_riskcontrol_sbe_v1_6_display.sbe_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.sbe_message = function(packet, parent, length)
   return ""
 end
 
@@ -5418,7 +5668,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.sequenced_message = function(buffer, o
 end
 
 -- Display: Sequenced Message
-memx_options_riskcontrol_sbe_v1_6_display.sequenced_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.sequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -5475,7 +5725,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.stream_complete_message = function(buf
 end
 
 -- Display: Stream Complete Message
-memx_options_riskcontrol_sbe_v1_6_display.stream_complete_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.stream_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -5491,15 +5741,20 @@ end
 
 -- Dissect: Stream Complete Message
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_complete_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.stream_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_complete_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_complete_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Stream Reject Code
@@ -5542,7 +5797,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.stream_rejected_message = function(buf
 end
 
 -- Display: Stream Rejected Message
-memx_options_riskcontrol_sbe_v1_6_display.stream_rejected_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.stream_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -5558,15 +5813,20 @@ end
 
 -- Dissect: Stream Rejected Message
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_rejected_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.stream_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_rejected_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_rejected_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Next Sequence Number
@@ -5601,7 +5861,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.stream_begin_message = function(buffer
 end
 
 -- Display: Stream Begin Message
-memx_options_riskcontrol_sbe_v1_6_display.stream_begin_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.stream_begin_message = function(packet, parent, length)
   return ""
 end
 
@@ -5620,15 +5880,20 @@ end
 
 -- Dissect: Stream Begin Message
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_begin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_begin_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.stream_begin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_begin_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_begin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_begin_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_begin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Message Count
@@ -5661,7 +5926,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.replay_complete_message = function(buf
 end
 
 -- Display: Replay Complete Message
-memx_options_riskcontrol_sbe_v1_6_display.replay_complete_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.replay_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -5677,15 +5942,20 @@ end
 
 -- Dissect: Replay Complete Message
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_complete_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.replay_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_complete_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_complete_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Replay Reject Code
@@ -5731,7 +6001,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.replay_rejected_message = function(buf
 end
 
 -- Display: Replay Rejected Message
-memx_options_riskcontrol_sbe_v1_6_display.replay_rejected_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.replay_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -5747,15 +6017,20 @@ end
 
 -- Dissect: Replay Rejected Message
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_rejected_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.replay_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_rejected_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_rejected_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Pending Message Count
@@ -5790,7 +6065,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.replay_begin_message = function(buffer
 end
 
 -- Display: Replay Begin Message
-memx_options_riskcontrol_sbe_v1_6_display.replay_begin_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.replay_begin_message = function(packet, parent, length)
   return ""
 end
 
@@ -5809,15 +6084,20 @@ end
 
 -- Dissect: Replay Begin Message
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_begin_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_begin_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.replay_begin_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_begin_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_begin_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_begin_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_begin_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Session Id
@@ -5850,7 +6130,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.start_of_session_message = function(bu
 end
 
 -- Display: Start Of Session Message
-memx_options_riskcontrol_sbe_v1_6_display.start_of_session_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.start_of_session_message = function(packet, parent, length)
   return ""
 end
 
@@ -5866,15 +6146,20 @@ end
 
 -- Dissect: Start Of Session Message
 memx_options_riskcontrol_sbe_v1_6_dissect.start_of_session_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.start_of_session_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.start_of_session_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.start_of_session_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.start_of_session_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.start_of_session_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.start_of_session_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Login Reject Code
@@ -5920,7 +6205,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.login_rejected_message = function(buff
 end
 
 -- Display: Login Rejected Message
-memx_options_riskcontrol_sbe_v1_6_display.login_rejected_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.login_rejected_message = function(packet, parent, length)
   return ""
 end
 
@@ -5936,15 +6221,20 @@ end
 
 -- Dissect: Login Rejected Message
 memx_options_riskcontrol_sbe_v1_6_dissect.login_rejected_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.login_rejected_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.login_rejected_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_rejected_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_rejected_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.login_rejected_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Supported Request Mode
@@ -5987,7 +6277,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.login_accepted_message = function(buff
 end
 
 -- Display: Login Accepted Message
-memx_options_riskcontrol_sbe_v1_6_display.login_accepted_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.login_accepted_message = function(packet, parent, length)
   return ""
 end
 
@@ -6003,15 +6293,20 @@ end
 
 -- Dissect: Login Accepted Message
 memx_options_riskcontrol_sbe_v1_6_dissect.login_accepted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.login_accepted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.login_accepted_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_accepted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_accepted_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.login_accepted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Unsequenced Message
@@ -6024,7 +6319,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.unsequenced_message = function(buffer,
 end
 
 -- Display: Unsequenced Message
-memx_options_riskcontrol_sbe_v1_6_display.unsequenced_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.unsequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -6063,7 +6358,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.stream_request_message = function(buff
 end
 
 -- Display: Stream Request Message
-memx_options_riskcontrol_sbe_v1_6_display.stream_request_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.stream_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6082,15 +6377,20 @@ end
 
 -- Dissect: Stream Request Message
 memx_options_riskcontrol_sbe_v1_6_dissect.stream_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stream_request_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.stream_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_request_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.stream_request_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.stream_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Replay All Request Message
@@ -6103,7 +6403,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.replay_all_request_message = function(
 end
 
 -- Display: Replay All Request Message
-memx_options_riskcontrol_sbe_v1_6_display.replay_all_request_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.replay_all_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6119,15 +6419,20 @@ end
 
 -- Dissect: Replay All Request Message
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_all_request_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.replay_all_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_all_request_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_all_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_all_request_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_all_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Replay Request Message
@@ -6144,7 +6449,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.replay_request_message = function(buff
 end
 
 -- Display: Replay Request Message
-memx_options_riskcontrol_sbe_v1_6_display.replay_request_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.replay_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6166,15 +6471,20 @@ end
 
 -- Dissect: Replay Request Message
 memx_options_riskcontrol_sbe_v1_6_dissect.replay_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replay_request_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.replay_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_request_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.replay_request_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.replay_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Token
@@ -6229,7 +6539,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.login_request_message = function(buffe
 end
 
 -- Display: Login Request Message
-memx_options_riskcontrol_sbe_v1_6_display.login_request_message = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.login_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -6248,15 +6558,20 @@ end
 
 -- Dissect: Login Request Message
 memx_options_riskcontrol_sbe_v1_6_dissect.login_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_message then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.login_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.login_request_message(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.login_request_message, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.login_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.login_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Data
@@ -6517,7 +6832,7 @@ memx_options_riskcontrol_sbe_v1_6_size_of.common_header = function(buffer, offse
 end
 
 -- Display: Common Header
-memx_options_riskcontrol_sbe_v1_6_display.common_header = function(buffer, offset, size, packet, parent)
+memx_options_riskcontrol_sbe_v1_6_display.common_header = function(packet, parent, length)
   return ""
 end
 
@@ -6536,15 +6851,20 @@ end
 
 -- Dissect: Common Header
 memx_options_riskcontrol_sbe_v1_6_dissect.common_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.common_header then
-    local length = memx_options_riskcontrol_sbe_v1_6_size_of.common_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = memx_options_riskcontrol_sbe_v1_6_display.common_header(buffer, packet, parent)
-    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.common_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(memx_options_riskcontrol_sbe_v1_6.fields.common_header, buffer(offset, 0))
+    local index = memx_options_riskcontrol_sbe_v1_6_dissect.common_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_riskcontrol_sbe_v1_6_display.common_header(packet, parent, length)
+    parent:append_text(display)
 
-  return memx_options_riskcontrol_sbe_v1_6_dissect.common_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return memx_options_riskcontrol_sbe_v1_6_dissect.common_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

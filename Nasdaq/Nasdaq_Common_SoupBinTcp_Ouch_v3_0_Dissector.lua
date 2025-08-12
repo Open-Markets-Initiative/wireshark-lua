@@ -177,7 +177,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_size_of.unsequenced_data_packet = function(bu
 end
 
 -- Display: Unsequenced Data Packet
-nasdaq_common_soupbintcp_ouch_v3_0_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.unsequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -313,7 +313,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_size_of.login_request_packet = function(buffe
 end
 
 -- Display: Login Request Packet
-nasdaq_common_soupbintcp_ouch_v3_0_display.login_request_packet = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.login_request_packet = function(packet, parent, length)
   return ""
 end
 
@@ -338,15 +338,20 @@ end
 
 -- Dissect: Login Request Packet
 nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request_packet then
-    local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.login_request_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.login_request_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.login_request_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.login_request_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Sequenced Message
@@ -396,7 +401,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_size_of.sequenced_data_packet = function(buff
 end
 
 -- Display: Sequenced Data Packet
-nasdaq_common_soupbintcp_ouch_v3_0_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.sequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -466,7 +471,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_size_of.login_rejected_packet = function(buff
 end
 
 -- Display: Login Rejected Packet
-nasdaq_common_soupbintcp_ouch_v3_0_display.login_rejected_packet = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.login_rejected_packet = function(packet, parent, length)
   return ""
 end
 
@@ -482,15 +487,20 @@ end
 
 -- Dissect: Login Rejected Packet
 nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_rejected_packet then
-    local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.login_rejected_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.login_rejected_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.login_rejected_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.login_rejected_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.login_rejected_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sequence Number
@@ -545,7 +555,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_size_of.login_accepted_packet = function(buff
 end
 
 -- Display: Login Accepted Packet
-nasdaq_common_soupbintcp_ouch_v3_0_display.login_accepted_packet = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.login_accepted_packet = function(packet, parent, length)
   return ""
 end
 
@@ -564,15 +574,20 @@ end
 
 -- Dissect: Login Accepted Packet
 nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_accepted_packet then
-    local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.login_accepted_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.login_accepted_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.login_accepted_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.login_accepted_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.login_accepted_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -605,7 +620,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_size_of.debug_packet = function(buffer, offse
 end
 
 -- Display: Debug Packet
-nasdaq_common_soupbintcp_ouch_v3_0_display.debug_packet = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.debug_packet = function(packet, parent, length)
   return ""
 end
 
@@ -621,15 +636,20 @@ end
 
 -- Dissect: Debug Packet
 nasdaq_common_soupbintcp_ouch_v3_0_dissect.debug_packet = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.debug_packet then
-    local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.debug_packet(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.debug_packet(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.debug_packet, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.debug_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.debug_packet(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_common_soupbintcp_ouch_v3_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_common_soupbintcp_ouch_v3_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -800,7 +820,7 @@ nasdaq_common_soupbintcp_ouch_v3_0_size_of.packet_header = function(buffer, offs
 end
 
 -- Display: Packet Header
-nasdaq_common_soupbintcp_ouch_v3_0_display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -819,19 +839,24 @@ end
 
 -- Dissect: Packet Header
 nasdaq_common_soupbintcp_ouch_v3_0_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nasdaq_common_soupbintcp_ouch_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nasdaq_common_soupbintcp_ouch_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Soup Bin Tcp Packet
-nasdaq_common_soupbintcp_ouch_v3_0_display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
+nasdaq_common_soupbintcp_ouch_v3_0_display.soup_bin_tcp_packet = function(packet, parent, length)
   return ""
 end
 

@@ -535,7 +535,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.stock_summary_message = funct
 end
 
 -- Display: Stock Summary Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.stock_summary_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.stock_summary_message = function(packet, parent, length)
   return ""
 end
 
@@ -572,15 +572,20 @@ end
 
 -- Dissect: Stock Summary Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.stock_summary_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.stock_summary_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.stock_summary_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.stock_summary_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.stock_summary_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.stock_summary_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.stock_summary_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.stock_summary_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.stock_summary_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.stock_summary_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Rpi Indicator
@@ -652,7 +657,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.retail_price_improvement_mess
 end
 
 -- Display: Retail Price Improvement Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.retail_price_improvement_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.retail_price_improvement_message = function(packet, parent, length)
   return ""
 end
 
@@ -677,15 +682,20 @@ end
 
 -- Dissect: Retail Price Improvement Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retail_price_improvement_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.retail_price_improvement_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.retail_price_improvement_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.retail_price_improvement_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.retail_price_improvement_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.retail_price_improvement_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.retail_price_improvement_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Volume
@@ -746,7 +756,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.cross_correction_message = fu
 end
 
 -- Display: Cross Correction Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_correction_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_correction_message = function(packet, parent, length)
   return ""
 end
 
@@ -774,15 +784,20 @@ end
 
 -- Dissect: Cross Correction Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_correction_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cross_correction_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.cross_correction_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_correction_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.cross_correction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.cross_correction_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_correction_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_correction_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_correction_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_correction_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Id
@@ -821,7 +836,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.trade_cancel_message = functi
 end
 
 -- Display: Trade Cancel Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.trade_cancel_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.trade_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -846,15 +861,20 @@ end
 
 -- Dissect: Trade Cancel Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancel_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.trade_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.trade_cancel_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.trade_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.trade_cancel_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.trade_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cross Type
@@ -932,7 +952,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.cross_trade_message = functio
 end
 
 -- Display: Cross Trade Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_trade_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -966,15 +986,20 @@ end
 
 -- Dissect: Cross Trade Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cross_trade_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.cross_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.cross_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.cross_trade_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.cross_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trade Cond 4
@@ -1168,7 +1193,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.non_displayed_trade_message =
 end
 
 -- Display: Non Displayed Trade Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.non_displayed_trade_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.non_displayed_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -1217,15 +1242,20 @@ end
 
 -- Dissect: Non Displayed Trade Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.non_displayed_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.non_displayed_trade_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.non_displayed_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.non_displayed_trade_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.non_displayed_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.non_displayed_trade_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.non_displayed_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.non_displayed_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.non_displayed_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.non_displayed_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 11
@@ -1343,7 +1373,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.add_order_refresh_message = f
 end
 
 -- Display: Add Order Refresh Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_refresh_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_refresh_message = function(packet, parent, length)
   return ""
 end
 
@@ -1386,15 +1416,20 @@ end
 
 -- Dissect: Add Order Refresh Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_refresh_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_refresh_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.add_order_refresh_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_refresh_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.add_order_refresh_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.add_order_refresh_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_refresh_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_refresh_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_refresh_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_refresh_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Significant Imbalance
@@ -1897,7 +1932,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.imbalance_message = function(
 end
 
 -- Display: Imbalance Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.imbalance_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.imbalance_message = function(packet, parent, length)
   return ""
 end
 
@@ -1979,15 +2014,20 @@ end
 
 -- Dissect: Imbalance Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.imbalance_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.imbalance_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.imbalance_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.imbalance_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.imbalance_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.imbalance_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.imbalance_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.imbalance_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.imbalance_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.imbalance_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: New Price Parity Splits
@@ -2076,7 +2116,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.replace_order_message = funct
 end
 
 -- Display: Replace Order Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.replace_order_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.replace_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2116,15 +2156,20 @@ end
 
 -- Dissect: Replace Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.replace_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.replace_order_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.replace_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.replace_order_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.replace_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.replace_order_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.replace_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Execution Message
@@ -2161,7 +2206,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.order_execution_message = fun
 end
 
 -- Display: Order Execution Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.order_execution_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.order_execution_message = function(packet, parent, length)
   return ""
 end
 
@@ -2213,15 +2258,20 @@ end
 
 -- Dissect: Order Execution Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.order_execution_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_execution_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.order_execution_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.order_execution_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.order_execution_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.order_execution_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.order_execution_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Delete Order Message
@@ -2242,7 +2292,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.delete_order_message = functi
 end
 
 -- Display: Delete Order Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.delete_order_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.delete_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2270,15 +2320,20 @@ end
 
 -- Dissect: Delete Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.delete_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.delete_order_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.delete_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.delete_order_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.delete_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.delete_order_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.delete_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Position Change
@@ -2334,7 +2389,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.modify_order_message = functi
 end
 
 -- Display: Modify Order Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.modify_order_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.modify_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2374,15 +2429,20 @@ end
 
 -- Dissect: Modify Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.modify_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.modify_order_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.modify_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.modify_order_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.modify_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.modify_order_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.modify_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Add Order Message
@@ -2411,7 +2471,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.add_order_message = function(
 end
 
 -- Display: Add Order Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_message = function(packet, parent, length)
   return ""
 end
 
@@ -2451,15 +2511,20 @@ end
 
 -- Dissect: Add Order Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.add_order_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.add_order_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.add_order_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.add_order_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.add_order_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.add_order_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Last Symbol Seq Num
@@ -2558,7 +2623,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.refresh_header_message = func
 end
 
 -- Display: Refresh Header Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_header_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_header_message = function(packet, parent, length)
   return ""
 end
 
@@ -2583,15 +2648,20 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_header_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.refresh_header_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.refresh_header_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_header_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.refresh_header_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_header_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Session State
@@ -3019,7 +3089,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.security_status_message = fun
 end
 
 -- Display: Security Status Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.security_status_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.security_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -3077,15 +3147,20 @@ end
 
 -- Dissect: Security Status Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.security_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_status_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.security_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.security_status_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.security_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.security_status_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.security_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.security_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Next Source Seq Num
@@ -3124,7 +3199,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.symbol_clear_message = functi
 end
 
 -- Display: Symbol Clear Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_clear_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_clear_message = function(packet, parent, length)
   return ""
 end
 
@@ -3149,15 +3224,20 @@ end
 
 -- Dissect: Symbol Clear Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_clear_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.symbol_clear_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_clear_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_clear_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_clear_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_clear_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Channel Id
@@ -3256,7 +3336,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.message_unavailable_message =
 end
 
 -- Display: Message Unavailable Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.message_unavailable_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.message_unavailable_message = function(packet, parent, length)
   return ""
 end
 
@@ -3281,15 +3361,20 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_unavailable_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.message_unavailable_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.message_unavailable_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_unavailable_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_unavailable_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.message_unavailable_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Source Id
@@ -3328,7 +3413,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.refresh_request_message = fun
 end
 
 -- Display: Refresh Request Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -3353,15 +3438,20 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.refresh_request_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.refresh_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.refresh_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.refresh_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Retransmit Method
@@ -3406,7 +3496,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.symbol_index_mapping_request_
 end
 
 -- Display: Symbol Index Mapping Request Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -3434,15 +3524,20 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_index_mapping_request_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.symbol_index_mapping_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_index_mapping_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Heartbeat Response Message
@@ -3455,7 +3550,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.heartbeat_response_message = 
 end
 
 -- Display: Heartbeat Response Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.heartbeat_response_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.heartbeat_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -3471,15 +3566,20 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.heartbeat_response_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.heartbeat_response_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.heartbeat_response_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.heartbeat_response_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.heartbeat_response_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Status
@@ -3572,7 +3672,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.request_response_message = fu
 end
 
 -- Display: Request Response Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.request_response_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.request_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -3606,15 +3706,20 @@ end
 
 -- Dissect: Request Response Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.request_response_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.request_response_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.request_response_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.request_response_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.request_response_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.request_response_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Retransmission Request Message
@@ -3635,7 +3740,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.retransmission_request_messag
 end
 
 -- Display: Retransmission Request Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.retransmission_request_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.retransmission_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -3663,15 +3768,20 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.retransmission_request_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.retransmission_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.retransmission_request_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.retransmission_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.retransmission_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 2
@@ -4127,7 +4237,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.symbol_index_mapping_message 
 end
 
 -- Display: Symbol Index Mapping Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_message = function(packet, parent, length)
   return ""
 end
 
@@ -4188,15 +4298,20 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_index_mapping_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.symbol_index_mapping_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_index_mapping_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.symbol_index_mapping_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.symbol_index_mapping_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Id
@@ -4233,7 +4348,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.source_time_reference_message
 end
 
 -- Display: Source Time Reference Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.source_time_reference_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.source_time_reference_message = function(packet, parent, length)
   return ""
 end
 
@@ -4255,15 +4370,20 @@ end
 
 -- Dissect: Source Time Reference Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.source_time_reference_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.source_time_reference_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.source_time_reference_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.source_time_reference_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.source_time_reference_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.source_time_reference_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.source_time_reference_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Sequence Number Reset Message
@@ -4282,7 +4402,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.sequence_number_reset_message
 end
 
 -- Display: Sequence Number Reset Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.sequence_number_reset_message = function(packet, parent, length)
   return ""
 end
 
@@ -4307,15 +4427,20 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.sequence_number_reset_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.sequence_number_reset_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.sequence_number_reset_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.sequence_number_reset_message(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -4683,7 +4808,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.message_header = function(buf
 end
 
 -- Display: Message Header
-nyse_equities_integratedfeed_pillar_v2_5_a_display.message_header = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -4702,19 +4827,24 @@ end
 
 -- Dissect: Message Header
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.message_header(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.message_header, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-nyse_equities_integratedfeed_pillar_v2_5_a_display.message = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -4922,7 +5052,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a_size_of.packet_header = function(buff
 end
 
 -- Display: Packet Header
-nyse_equities_integratedfeed_pillar_v2_5_a_display.packet_header = function(buffer, offset, size, packet, parent)
+nyse_equities_integratedfeed_pillar_v2_5_a_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -4953,15 +5083,20 @@ end
 
 -- Dissect: Packet Header
 nyse_equities_integratedfeed_pillar_v2_5_a_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = nyse_equities_integratedfeed_pillar_v2_5_a_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.packet_header(buffer, packet, parent)
-    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.packet_header, buffer(offset, 0))
+    local index = nyse_equities_integratedfeed_pillar_v2_5_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_integratedfeed_pillar_v2_5_a_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_integratedfeed_pillar_v2_5_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

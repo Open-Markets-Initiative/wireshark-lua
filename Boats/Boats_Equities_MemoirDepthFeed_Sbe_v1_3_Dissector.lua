@@ -45,8 +45,6 @@ boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message = ProtoFiel
 boats_equities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "boats.equities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.DOUBLE)
 boats_equities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "boats.equities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32)
 boats_equities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "boats.equities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
-boats_equities_memoirdepthfeed_sbe_v1_3.fields.padding_14 = ProtoField.new("Padding 14", "boats.equities.memoirdepthfeed.sbe.v1.3.padding14", ftypes.BYTES)
-boats_equities_memoirdepthfeed_sbe_v1_3.fields.padding_7 = ProtoField.new("Padding 7", "boats.equities.memoirdepthfeed.sbe.v1.3.padding7", ftypes.BYTES)
 boats_equities_memoirdepthfeed_sbe_v1_3.fields.payload = ProtoField.new("Payload", "boats.equities.memoirdepthfeed.sbe.v1.3.payload", ftypes.STRING)
 boats_equities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "boats.equities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
 boats_equities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "boats.equities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
@@ -308,7 +306,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.timestamp = function(buffer, off
 end
 
 -- Display: Timestamp
-boats_equities_memoirdepthfeed_sbe_v1_3_display.timestamp = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.timestamp = function(packet, parent, length)
   return ""
 end
 
@@ -327,15 +325,20 @@ end
 
 -- Dissect: Timestamp
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.timestamp then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.timestamp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.timestamp(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.timestamp(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.timestamp_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Snapshot Complete Message
@@ -350,7 +353,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.snapshot_complete_message = func
 end
 
 -- Display: Snapshot Complete Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.snapshot_complete_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.snapshot_complete_message = function(packet, parent, length)
   return ""
 end
 
@@ -369,15 +372,20 @@ end
 
 -- Dissect: Snapshot Complete Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.snapshot_complete_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.snapshot_complete_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.snapshot_complete_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.snapshot_complete_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.snapshot_complete_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Security Id
@@ -412,7 +420,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.clear_book_message = function(bu
 end
 
 -- Display: Clear Book Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.clear_book_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.clear_book_message = function(packet, parent, length)
   return ""
 end
 
@@ -431,39 +439,24 @@ end
 
 -- Dissect: Clear Book Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.clear_book_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.clear_book_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.clear_book_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.clear_book_message(packet, parent, length)
+    parent:append_text(display)
+
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
   end
-
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 14
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14 = 14
-
--- Display: Padding 14
-boats_equities_memoirdepthfeed_sbe_v1_3_display.padding_14 = function(value)
-  return "Padding 14: "..value
-end
-
--- Dissect: Padding 14
-boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14 = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.padding_14(value, buffer, offset, packet, parent)
-
-  parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.padding_14, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Corrected Price
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price = 1
+boats_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price = 8
 
 -- Display: Corrected Price
 boats_equities_memoirdepthfeed_sbe_v1_3_display.corrected_price = function(value)
@@ -472,14 +465,14 @@ end
 
 -- Translate: Corrected Price
 translate.corrected_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Corrected Price
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.corrected_price(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.corrected_price(value, buffer, offset, packet, parent)
 
@@ -509,7 +502,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_quantity = function(bu
 end
 
 -- Size: Original Price
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price = 1
+boats_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price = 8
 
 -- Display: Original Price
 boats_equities_memoirdepthfeed_sbe_v1_3_display.original_price = function(value)
@@ -518,14 +511,14 @@ end
 
 -- Translate: Original Price
 translate.original_price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Original Price
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.original_price(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.original_price(value, buffer, offset, packet, parent)
 
@@ -592,13 +585,11 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_trade_message = functi
 
   index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price
 
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_14
-
   return index
 end
 
 -- Display: Corrected Trade Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.corrected_trade_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.corrected_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -618,52 +609,34 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields =
   -- Original Quantity: 4 Byte Unsigned Fixed Width Integer
   index, original_quantity = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.original_quantity(buffer, index, packet, parent)
 
-  -- Original Price: 1 Byte Signed Fixed Width Integer
+  -- Original Price: 8 Byte Unsigned Fixed Width Integer
   index, original_price = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price(buffer, index, packet, parent)
 
   -- Corrected Quantity: 4 Byte Unsigned Fixed Width Integer
   index, corrected_quantity = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_quantity(buffer, index, packet, parent)
 
-  -- Corrected Price: 1 Byte Signed Fixed Width Integer
+  -- Corrected Price: 8 Byte Unsigned Fixed Width Integer
   index, corrected_price = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_price(buffer, index, packet, parent)
-
-  -- Padding 14: 14 Byte
-  index, padding_14 = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Corrected Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.corrected_trade_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.corrected_trade_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.corrected_trade_message(packet, parent, length)
+    parent:append_text(display)
+
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
   end
-
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Padding 7
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7 = 7
-
--- Display: Padding 7
-boats_equities_memoirdepthfeed_sbe_v1_3_display.padding_7 = function(value)
-  return "Padding 7: "..value
-end
-
--- Dissect: Padding 7
-boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7 = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.padding_7(value, buffer, offset, packet, parent)
-
-  parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.padding_7, range, value, display)
-
-  return offset + length, value
 end
 
 -- Calculate size of: Broken Trade Message
@@ -680,13 +653,11 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.broken_trade_message = function(
 
   index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price
 
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
 -- Display: Broken Trade Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.broken_trade_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.broken_trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -706,30 +677,32 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message_fields = fu
   -- Original Quantity: 4 Byte Unsigned Fixed Width Integer
   index, original_quantity = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.original_quantity(buffer, index, packet, parent)
 
-  -- Original Price: 1 Byte Signed Fixed Width Integer
+  -- Original Price: 8 Byte Unsigned Fixed Width Integer
   index, original_price = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Broken Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.broken_trade_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.broken_trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.broken_trade_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.broken_trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.price = 1
+boats_equities_memoirdepthfeed_sbe_v1_3_size_of.price = 8
 
 -- Display: Price
 boats_equities_memoirdepthfeed_sbe_v1_3_display.price = function(value)
@@ -738,14 +711,14 @@ end
 
 -- Translate: Price
 translate.price = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Price
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.price = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.price
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.price(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.price(value, buffer, offset, packet, parent)
 
@@ -788,13 +761,11 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.trade_message = function(buffer,
 
   index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.price
 
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
 -- Display: Trade Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.trade_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.trade_message = function(packet, parent, length)
   return ""
 end
 
@@ -814,26 +785,28 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message_fields = function(
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.price(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.trade_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.trade_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.trade_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.trade_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.trade_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Id
@@ -872,13 +845,11 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_executed_message = functio
 
   index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.price
 
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
 -- Display: Order Executed Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.order_executed_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.order_executed_message = function(packet, parent, length)
   return ""
 end
 
@@ -901,26 +872,28 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message_fields = 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.price(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_executed_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_executed_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_executed_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_executed_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Reduced Message
@@ -939,7 +912,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_reduced_message = function
 end
 
 -- Display: Order Reduced Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.order_reduced_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.order_reduced_message = function(packet, parent, length)
   return ""
 end
 
@@ -964,15 +937,20 @@ end
 
 -- Dissect: Order Reduced Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_reduced_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_reduced_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_reduced_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_reduced_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Order Deleted Message
@@ -989,7 +967,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_deleted_message = function
 end
 
 -- Display: Order Deleted Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.order_deleted_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.order_deleted_message = function(packet, parent, length)
   return ""
 end
 
@@ -1011,15 +989,20 @@ end
 
 -- Dissect: Order Deleted Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_deleted_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_deleted_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_deleted_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_deleted_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_deleted_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_deleted_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Side
@@ -1078,13 +1061,11 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_added_message = function(b
 
   index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.price
 
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
 -- Display: Order Added Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.order_added_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.order_added_message = function(packet, parent, length)
   return ""
 end
 
@@ -1107,26 +1088,28 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message_fields = fun
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 1 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.price(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Added Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_added_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.order_added_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_added_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_added_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.order_added_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.order_added_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.order_added_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Trading Session
@@ -1187,7 +1170,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.trading_session_status_message =
 end
 
 -- Display: Trading Session Status Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.trading_session_status_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.trading_session_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1206,15 +1189,20 @@ end
 
 -- Dissect: Trading Session Status Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_session_status_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.trading_session_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.trading_session_status_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.trading_session_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Security Trading Status Reason
@@ -1322,7 +1310,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status_message 
 end
 
 -- Display: Security Trading Status Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -1347,15 +1335,20 @@ end
 
 -- Dissect: Security Trading Status Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.security_trading_status_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Short Sale Restriction
@@ -1399,7 +1392,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.reg_sho_restriction_message = fu
 end
 
 -- Display: Reg Sho Restriction Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.reg_sho_restriction_message = function(packet, parent, length)
   return ""
 end
 
@@ -1421,19 +1414,24 @@ end
 
 -- Dissect: Reg Sho Restriction Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reg_sho_restriction_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.reg_sho_restriction_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.reg_sho_restriction_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.reg_sho_restriction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.reg_sho_restriction_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Mpv
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv = 1
+boats_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv = 8
 
 -- Display: Mpv
 boats_equities_memoirdepthfeed_sbe_v1_3_display.mpv = function(value)
@@ -1442,14 +1440,14 @@ end
 
 -- Translate: Mpv
 translate.mpv = function(raw)
-  return raw/1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Mpv
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.mpv = function(buffer, offset, packet, parent)
   local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint64()
   local value = translate.mpv(raw)
   local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
@@ -1617,13 +1615,11 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.instrument_directory_message = f
 
   index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv
 
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.padding_7
-
   return index
 end
 
 -- Display: Instrument Directory Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.instrument_directory_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.instrument_directory_message = function(packet, parent, length)
   return ""
 end
 
@@ -1652,26 +1648,28 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message_fie
   -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, is_test_symbol = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.is_test_symbol(buffer, index, packet, parent)
 
-  -- Mpv: 1 Byte Signed Fixed Width Integer
+  -- Mpv: 8 Byte Unsigned Fixed Width Integer
   index, mpv = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.mpv(buffer, index, packet, parent)
-
-  -- Padding 7: 7 Byte
-  index, padding_7 = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Directory Message
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_directory_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.instrument_directory_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.instrument_directory_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.instrument_directory_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.instrument_directory_message(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -1951,7 +1949,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_header = function(buffer, of
 end
 
 -- Display: Sbe Header
-boats_equities_memoirdepthfeed_sbe_v1_3_display.sbe_header = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.sbe_header = function(packet, parent, length)
   return ""
 end
 
@@ -1976,38 +1974,29 @@ end
 
 -- Dissect: Sbe Header
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sbe_header then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.sbe_header(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_header, range, display)
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.sbe_header(packet, parent, length)
+    parent:append_text(display)
+
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
   end
-
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
-end
-
--- Calculate size of: Sbe Message
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_message = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
 end
 
 -- Display: Sbe Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.sbe_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.sbe_message = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sbe Message
-boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields = function(buffer, offset, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -2023,16 +2012,17 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields = function(bu
 end
 
 -- Dissect: Sbe Message
-boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
+  -- Optionally add struct element to protocol tree
   if show.sbe_message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_sbe_message)
     local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.sbe_message(buffer, packet, parent)
     parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_message, range, display)
   end
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent)
+  boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+
+  return offset + size_of_sbe_message
 end
 
 -- Size: Message Length
@@ -2055,46 +2045,42 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_length = function(buffer
   return offset + length, value
 end
 
--- Calculate size of: Message
-boats_equities_memoirdepthfeed_sbe_v1_3_size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.message_length
-
-  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.sbe_message(buffer, offset + index)
-
-  return index
-end
-
 -- Display: Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.message = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_length(buffer, index, packet, parent)
 
+  -- Dependency element: Block Length
+  local block_length = buffer(index, 2):uint()
+
+  -- Runtime Size Of: Sbe Message
+  local size_of_sbe_message = block_length + 6
+
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent)
+  index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
 
 -- Dissect: Message
-boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.message(buffer, packet, parent)
     parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.message, range, display)
   end
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent)
+  boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
 end
 
 -- Size: Message Count
@@ -2117,15 +2103,20 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_count = function(buffer,
   return offset + length, value
 end
 
--- Size Of: Sequenced Message
+-- Calculate size of: Sequenced Message
 boats_equities_memoirdepthfeed_sbe_v1_3_size_of.sequenced_message = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index)
+  index = index + boats_equities_memoirdepthfeed_sbe_v1_3_size_of.message_count
+
+  -- Parse runtime size of: Message
+  index = index + buffer(offset + index - 0, 2):uint()
+
+  return index
 end
 
 -- Display: Sequenced Message
-boats_equities_memoirdepthfeed_sbe_v1_3_display.sequenced_message = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.sequenced_message = function(packet, parent, length)
   return ""
 end
 
@@ -2136,12 +2127,17 @@ boats_equities_memoirdepthfeed_sbe_v1_3_dissect.sequenced_message_fields = funct
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message_count(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
   -- Message: Struct of 2 fields
-  while index < end_of_payload do
-    index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message(buffer, index, packet, parent)
+  for i = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
   end
 
   return index
@@ -2311,7 +2307,7 @@ boats_equities_memoirdepthfeed_sbe_v1_3_size_of.common_header = function(buffer,
 end
 
 -- Display: Common Header
-boats_equities_memoirdepthfeed_sbe_v1_3_display.common_header = function(buffer, offset, size, packet, parent)
+boats_equities_memoirdepthfeed_sbe_v1_3_display.common_header = function(packet, parent, length)
   return ""
 end
 
@@ -2336,15 +2332,20 @@ end
 
 -- Dissect: Common Header
 boats_equities_memoirdepthfeed_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.common_header then
-    local length = boats_equities_memoirdepthfeed_sbe_v1_3_size_of.common_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.common_header(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.common_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(boats_equities_memoirdepthfeed_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    local index = boats_equities_memoirdepthfeed_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memoirdepthfeed_sbe_v1_3_display.common_header(packet, parent, length)
+    parent:append_text(display)
 
-  return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memoirdepthfeed_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

@@ -155,7 +155,7 @@ iex_equities_udpheader_iextp_v1_0_size_of.message_header = function(buffer, offs
 end
 
 -- Display: Message Header
-iex_equities_udpheader_iextp_v1_0_display.message_header = function(buffer, offset, size, packet, parent)
+iex_equities_udpheader_iextp_v1_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -174,19 +174,24 @@ end
 
 -- Dissect: Message Header
 iex_equities_udpheader_iextp_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = iex_equities_udpheader_iextp_v1_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_udpheader_iextp_v1_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_header, buffer(offset, 0))
+    local index = iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_udpheader_iextp_v1_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-iex_equities_udpheader_iextp_v1_0_display.message = function(buffer, offset, size, packet, parent)
+iex_equities_udpheader_iextp_v1_0_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -455,7 +460,7 @@ iex_equities_udpheader_iextp_v1_0_size_of.iex_tp_header = function(buffer, offse
 end
 
 -- Display: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0_display.iex_tp_header = function(buffer, offset, size, packet, parent)
+iex_equities_udpheader_iextp_v1_0_display.iex_tp_header = function(packet, parent, length)
   return ""
 end
 
@@ -498,15 +503,20 @@ end
 
 -- Dissect: Iex Tp Header
 iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.iex_tp_header then
-    local length = iex_equities_udpheader_iextp_v1_0_size_of.iex_tp_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = iex_equities_udpheader_iextp_v1_0_display.iex_tp_header(buffer, packet, parent)
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, buffer(offset, 0))
+    local index = iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_equities_udpheader_iextp_v1_0_display.iex_tp_header(packet, parent, length)
+    parent:append_text(display)
 
-  return iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet

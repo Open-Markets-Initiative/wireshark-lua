@@ -138,7 +138,7 @@ eurex_derivatives_eti_t7_v1_0_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-eurex_derivatives_eti_t7_v1_0_display.message_header = function(buffer, offset, size, packet, parent)
+eurex_derivatives_eti_t7_v1_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -157,19 +157,24 @@ end
 
 -- Dissect: Message Header
 eurex_derivatives_eti_t7_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = eurex_derivatives_eti_t7_v1_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_derivatives_eti_t7_v1_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message_header, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_derivatives_eti_t7_v1_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-eurex_derivatives_eti_t7_v1_0_display.message = function(buffer, offset, size, packet, parent)
+eurex_derivatives_eti_t7_v1_0_display.message = function(packet, parent, length)
   return ""
 end
 

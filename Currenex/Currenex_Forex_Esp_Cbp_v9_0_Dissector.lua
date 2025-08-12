@@ -289,7 +289,7 @@ currenex_forex_esp_cbp_v9_0_size_of.reject_message = function(buffer, offset)
 end
 
 -- Display: Reject Message
-currenex_forex_esp_cbp_v9_0_display.reject_message = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.reject_message = function(packet, parent, length)
   return ""
 end
 
@@ -311,15 +311,20 @@ end
 
 -- Dissect: Reject Message
 currenex_forex_esp_cbp_v9_0_dissect.reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reject_message then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.reject_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.reject_message(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.reject_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.reject_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.reject_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.reject_message(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.reject_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.reject_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Transact Time
@@ -438,7 +443,7 @@ currenex_forex_esp_cbp_v9_0_size_of.trade_ticker_message = function(buffer, offs
 end
 
 -- Display: Trade Ticker Message
-currenex_forex_esp_cbp_v9_0_display.trade_ticker_message = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.trade_ticker_message = function(packet, parent, length)
   return ""
 end
 
@@ -463,15 +468,20 @@ end
 
 -- Dissect: Trade Ticker Message
 currenex_forex_esp_cbp_v9_0_dissect.trade_ticker_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_ticker_message then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.trade_ticker_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.trade_ticker_message(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.trade_ticker_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.trade_ticker_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.trade_ticker_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.trade_ticker_message(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.trade_ticker_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.trade_ticker_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price Id
@@ -506,7 +516,7 @@ currenex_forex_esp_cbp_v9_0_size_of.price_cancel_message = function(buffer, offs
 end
 
 -- Display: Price Cancel Message
-currenex_forex_esp_cbp_v9_0_display.price_cancel_message = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.price_cancel_message = function(packet, parent, length)
   return ""
 end
 
@@ -525,15 +535,20 @@ end
 
 -- Dissect: Price Cancel Message
 currenex_forex_esp_cbp_v9_0_dissect.price_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.price_cancel_message then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.price_cancel_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.price_cancel_message(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.price_cancel_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.price_cancel_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.price_cancel_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.price_cancel_message(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.price_cancel_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.price_cancel_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price Provider
@@ -720,7 +735,7 @@ currenex_forex_esp_cbp_v9_0_size_of.price_message = function(buffer, offset)
 end
 
 -- Display: Price Message
-currenex_forex_esp_cbp_v9_0_display.price_message = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.price_message = function(packet, parent, length)
   return ""
 end
 
@@ -757,15 +772,20 @@ end
 
 -- Dissect: Price Message
 currenex_forex_esp_cbp_v9_0_dissect.price_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.price_message then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.price_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.price_message(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.price_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.price_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.price_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.price_message(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.price_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.price_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reply Type
@@ -824,7 +844,7 @@ currenex_forex_esp_cbp_v9_0_size_of.subscription_reply = function(buffer, offset
 end
 
 -- Display: Subscription Reply
-currenex_forex_esp_cbp_v9_0_display.subscription_reply = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.subscription_reply = function(packet, parent, length)
   return ""
 end
 
@@ -849,15 +869,20 @@ end
 
 -- Dissect: Subscription Reply
 currenex_forex_esp_cbp_v9_0_dissect.subscription_reply = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.subscription_reply then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.subscription_reply(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.subscription_reply(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.subscription_reply, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.subscription_reply, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.subscription_reply_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.subscription_reply(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.subscription_reply_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.subscription_reply_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Subscribe To Ticker
@@ -959,7 +984,7 @@ currenex_forex_esp_cbp_v9_0_size_of.subscription_request = function(buffer, offs
 end
 
 -- Display: Subscription Request
-currenex_forex_esp_cbp_v9_0_display.subscription_request = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.subscription_request = function(packet, parent, length)
   return ""
 end
 
@@ -984,15 +1009,20 @@ end
 
 -- Dissect: Subscription Request
 currenex_forex_esp_cbp_v9_0_dissect.subscription_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.subscription_request then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.subscription_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.subscription_request(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.subscription_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.subscription_request, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.subscription_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.subscription_request(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.subscription_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.subscription_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Settlement Date
@@ -1093,7 +1123,7 @@ currenex_forex_esp_cbp_v9_0_size_of.instrument_info = function(buffer, offset)
 end
 
 -- Display: Instrument Info
-currenex_forex_esp_cbp_v9_0_display.instrument_info = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.instrument_info = function(packet, parent, length)
   return ""
 end
 
@@ -1121,15 +1151,20 @@ end
 
 -- Dissect: Instrument Info
 currenex_forex_esp_cbp_v9_0_dissect.instrument_info = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.instrument_info then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.instrument_info(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.instrument_info(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.instrument_info, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.instrument_info, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.instrument_info(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Heartbeat
@@ -1142,7 +1177,7 @@ currenex_forex_esp_cbp_v9_0_size_of.heartbeat = function(buffer, offset)
 end
 
 -- Display: Heartbeat
-currenex_forex_esp_cbp_v9_0_display.heartbeat = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.heartbeat = function(packet, parent, length)
   return ""
 end
 
@@ -1158,15 +1193,20 @@ end
 
 -- Dissect: Heartbeat
 currenex_forex_esp_cbp_v9_0_dissect.heartbeat = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.heartbeat then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.heartbeat(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.heartbeat(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.heartbeat, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.heartbeat, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.heartbeat_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.heartbeat(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.heartbeat_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.heartbeat_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reason
@@ -1223,7 +1263,7 @@ currenex_forex_esp_cbp_v9_0_size_of.logout = function(buffer, offset)
 end
 
 -- Display: Logout
-currenex_forex_esp_cbp_v9_0_display.logout = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.logout = function(packet, parent, length)
   return ""
 end
 
@@ -1245,15 +1285,20 @@ end
 
 -- Dissect: Logout
 currenex_forex_esp_cbp_v9_0_dissect.logout = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logout then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.logout(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.logout(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.logout, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.logout, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.logout_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.logout(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.logout_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.logout_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Password
@@ -1290,7 +1335,7 @@ currenex_forex_esp_cbp_v9_0_size_of.logon = function(buffer, offset)
 end
 
 -- Display: Logon
-currenex_forex_esp_cbp_v9_0_display.logon = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.logon = function(packet, parent, length)
   return ""
 end
 
@@ -1312,15 +1357,20 @@ end
 
 -- Dissect: Logon
 currenex_forex_esp_cbp_v9_0_dissect.logon = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.logon then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.logon(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.logon(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.logon, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.logon, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.logon_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.logon(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.logon_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.logon_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Message Body
@@ -1525,7 +1575,7 @@ currenex_forex_esp_cbp_v9_0_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-currenex_forex_esp_cbp_v9_0_display.message_header = function(buffer, offset, size, packet, parent)
+currenex_forex_esp_cbp_v9_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1547,15 +1597,20 @@ end
 
 -- Dissect: Message Header
 currenex_forex_esp_cbp_v9_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = currenex_forex_esp_cbp_v9_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = currenex_forex_esp_cbp_v9_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(currenex_forex_esp_cbp_v9_0.fields.message_header, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return currenex_forex_esp_cbp_v9_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Itch Soh

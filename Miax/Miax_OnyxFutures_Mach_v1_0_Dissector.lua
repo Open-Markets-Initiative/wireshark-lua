@@ -127,7 +127,7 @@ miax_onyxfutures_mach_v1_0_size_of.application_message = function(buffer, offset
 end
 
 -- Display: Application Message
-miax_onyxfutures_mach_v1_0_display.application_message = function(buffer, offset, size, packet, parent)
+miax_onyxfutures_mach_v1_0_display.application_message = function(packet, parent, length)
   return ""
 end
 
@@ -326,7 +326,7 @@ miax_onyxfutures_mach_v1_0_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-miax_onyxfutures_mach_v1_0_display.message = function(buffer, offset, size, packet, parent)
+miax_onyxfutures_mach_v1_0_display.message = function(packet, parent, length)
   return ""
 end
 

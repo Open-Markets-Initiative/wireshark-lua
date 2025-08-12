@@ -225,7 +225,7 @@ a2x_equities_snapshot_amd_v1_3_2_size_of.market_at_close_book_entry_message = fu
 end
 
 -- Display: Market At Close Book Entry Message
-a2x_equities_snapshot_amd_v1_3_2_display.market_at_close_book_entry_message = function(buffer, offset, size, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2_display.market_at_close_book_entry_message = function(packet, parent, length)
   return ""
 end
 
@@ -250,15 +250,20 @@ end
 
 -- Dissect: Market At Close Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_at_close_book_entry_message then
-    local length = a2x_equities_snapshot_amd_v1_3_2_size_of.market_at_close_book_entry_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_snapshot_amd_v1_3_2_display.market_at_close_book_entry_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_snapshot_amd_v1_3_2_display.market_at_close_book_entry_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Book Entry Message
@@ -277,7 +282,7 @@ a2x_equities_snapshot_amd_v1_3_2_size_of.book_entry_message = function(buffer, o
 end
 
 -- Display: Book Entry Message
-a2x_equities_snapshot_amd_v1_3_2_display.book_entry_message = function(buffer, offset, size, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2_display.book_entry_message = function(packet, parent, length)
   return ""
 end
 
@@ -302,15 +307,20 @@ end
 
 -- Dissect: Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.book_entry_message then
-    local length = a2x_equities_snapshot_amd_v1_3_2_size_of.book_entry_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_snapshot_amd_v1_3_2_display.book_entry_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_snapshot_amd_v1_3_2_display.book_entry_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Indicative Price
@@ -488,7 +498,7 @@ a2x_equities_snapshot_amd_v1_3_2_size_of.book_status_message = function(buffer, 
 end
 
 -- Display: Book Status Message
-a2x_equities_snapshot_amd_v1_3_2_display.book_status_message = function(buffer, offset, size, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2_display.book_status_message = function(packet, parent, length)
   return ""
 end
 
@@ -522,15 +532,20 @@ end
 
 -- Dissect: Book Status Message
 a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.book_status_message then
-    local length = a2x_equities_snapshot_amd_v1_3_2_size_of.book_status_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_snapshot_amd_v1_3_2_display.book_status_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_status_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_status_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_snapshot_amd_v1_3_2_display.book_status_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Timestamp
@@ -607,7 +622,7 @@ a2x_equities_snapshot_amd_v1_3_2_size_of.snapshot_start_message = function(buffe
 end
 
 -- Display: Snapshot Start Message
-a2x_equities_snapshot_amd_v1_3_2_display.snapshot_start_message = function(buffer, offset, size, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2_display.snapshot_start_message = function(packet, parent, length)
   return ""
 end
 
@@ -629,15 +644,20 @@ end
 
 -- Dissect: Snapshot Start Message
 a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.snapshot_start_message then
-    local length = a2x_equities_snapshot_amd_v1_3_2_size_of.snapshot_start_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_snapshot_amd_v1_3_2_display.snapshot_start_message(buffer, packet, parent)
-    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.snapshot_start_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.snapshot_start_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_snapshot_amd_v1_3_2_display.snapshot_start_message(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Payload
@@ -806,7 +826,7 @@ a2x_equities_snapshot_amd_v1_3_2_size_of.message_header = function(buffer, offse
 end
 
 -- Display: Message Header
-a2x_equities_snapshot_amd_v1_3_2_display.message_header = function(buffer, offset, size, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -828,19 +848,24 @@ end
 
 -- Dissect: Message Header
 a2x_equities_snapshot_amd_v1_3_2_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = a2x_equities_snapshot_amd_v1_3_2_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = a2x_equities_snapshot_amd_v1_3_2_display.message_header(buffer, packet, parent)
-    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.message_header, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = a2x_equities_snapshot_amd_v1_3_2_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return a2x_equities_snapshot_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Message
-a2x_equities_snapshot_amd_v1_3_2_display.message = function(buffer, offset, size, packet, parent)
+a2x_equities_snapshot_amd_v1_3_2_display.message = function(packet, parent, length)
   return ""
 end
 

@@ -564,7 +564,7 @@ finra_orf_tdds_dfi_v2_0_size_of.datetime = function(buffer, offset)
 end
 
 -- Display: Datetime
-finra_orf_tdds_dfi_v2_0_display.datetime = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.datetime = function(packet, parent, length)
   return ""
 end
 
@@ -598,15 +598,20 @@ end
 
 -- Dissect: Datetime
 finra_orf_tdds_dfi_v2_0_dissect.datetime = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.datetime then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.datetime(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.datetime(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.datetime, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.datetime, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.datetime(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Market Center Originator Id
@@ -732,7 +737,7 @@ finra_orf_tdds_dfi_v2_0_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-finra_orf_tdds_dfi_v2_0_display.message_header = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -760,15 +765,20 @@ end
 
 -- Dissect: Message Header
 finra_orf_tdds_dfi_v2_0_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.message_header(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.message_header, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: End Of Trade Reporting Message
@@ -781,7 +791,7 @@ finra_orf_tdds_dfi_v2_0_size_of.end_of_trade_reporting_message = function(buffer
 end
 
 -- Display: End Of Trade Reporting Message
-finra_orf_tdds_dfi_v2_0_display.end_of_trade_reporting_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_trade_reporting_message = function(packet, parent, length)
   return ""
 end
 
@@ -797,15 +807,20 @@ end
 
 -- Dissect: End Of Trade Reporting Message
 finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.end_of_trade_reporting_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_trade_reporting_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.end_of_trade_reporting_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_trade_reporting_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_trade_reporting_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_trade_reporting_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Sequence Number Reset Message
@@ -818,7 +833,7 @@ finra_orf_tdds_dfi_v2_0_size_of.sequence_number_reset_message = function(buffer,
 end
 
 -- Display: Sequence Number Reset Message
-finra_orf_tdds_dfi_v2_0_display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.sequence_number_reset_message = function(packet, parent, length)
   return ""
 end
 
@@ -834,15 +849,20 @@ end
 
 -- Dissect: Sequence Number Reset Message
 finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.sequence_number_reset_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.sequence_number_reset_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.sequence_number_reset_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.sequence_number_reset_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Line Integrity Message
@@ -855,7 +875,7 @@ finra_orf_tdds_dfi_v2_0_size_of.line_integrity_message = function(buffer, offset
 end
 
 -- Display: Line Integrity Message
-finra_orf_tdds_dfi_v2_0_display.line_integrity_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.line_integrity_message = function(packet, parent, length)
   return ""
 end
 
@@ -871,15 +891,20 @@ end
 
 -- Dissect: Line Integrity Message
 finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.line_integrity_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.line_integrity_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.line_integrity_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.line_integrity_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.line_integrity_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.line_integrity_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: End Of Transmissions Message
@@ -892,7 +917,7 @@ finra_orf_tdds_dfi_v2_0_size_of.end_of_transmissions_message = function(buffer, 
 end
 
 -- Display: End Of Transmissions Message
-finra_orf_tdds_dfi_v2_0_display.end_of_transmissions_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_transmissions_message = function(packet, parent, length)
   return ""
 end
 
@@ -908,15 +933,20 @@ end
 
 -- Dissect: End Of Transmissions Message
 finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.end_of_transmissions_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_transmissions_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.end_of_transmissions_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_transmissions_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_transmissions_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_transmissions_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: End Of Retransmission Requests Message
@@ -929,7 +959,7 @@ finra_orf_tdds_dfi_v2_0_size_of.end_of_retransmission_requests_message = functio
 end
 
 -- Display: End Of Retransmission Requests Message
-finra_orf_tdds_dfi_v2_0_display.end_of_retransmission_requests_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_retransmission_requests_message = function(packet, parent, length)
   return ""
 end
 
@@ -945,15 +975,20 @@ end
 
 -- Dissect: End Of Retransmission Requests Message
 finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.end_of_retransmission_requests_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_retransmission_requests_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.end_of_retransmission_requests_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_retransmission_requests_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_retransmission_requests_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_retransmission_requests_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Market Session Close Message
@@ -966,7 +1001,7 @@ finra_orf_tdds_dfi_v2_0_size_of.market_session_close_message = function(buffer, 
 end
 
 -- Display: Market Session Close Message
-finra_orf_tdds_dfi_v2_0_display.market_session_close_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.market_session_close_message = function(packet, parent, length)
   return ""
 end
 
@@ -982,15 +1017,20 @@ end
 
 -- Dissect: Market Session Close Message
 finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_session_close_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.market_session_close_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.market_session_close_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_close_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_close_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.market_session_close_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Market Session Open Message
@@ -1003,7 +1043,7 @@ finra_orf_tdds_dfi_v2_0_size_of.market_session_open_message = function(buffer, o
 end
 
 -- Display: Market Session Open Message
-finra_orf_tdds_dfi_v2_0_display.market_session_open_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.market_session_open_message = function(packet, parent, length)
   return ""
 end
 
@@ -1019,15 +1059,20 @@ end
 
 -- Dissect: Market Session Open Message
 finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_session_open_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.market_session_open_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.market_session_open_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_open_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_open_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.market_session_open_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: End Of Day Message
@@ -1040,7 +1085,7 @@ finra_orf_tdds_dfi_v2_0_size_of.end_of_day_message = function(buffer, offset)
 end
 
 -- Display: End Of Day Message
-finra_orf_tdds_dfi_v2_0_display.end_of_day_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -1056,15 +1101,20 @@ end
 
 -- Dissect: End Of Day Message
 finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.end_of_day_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_day_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.end_of_day_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_day_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_day_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_day_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Start Of Day Message
@@ -1077,7 +1127,7 @@ finra_orf_tdds_dfi_v2_0_size_of.start_of_day_message = function(buffer, offset)
 end
 
 -- Display: Start Of Day Message
-finra_orf_tdds_dfi_v2_0_display.start_of_day_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.start_of_day_message = function(packet, parent, length)
   return ""
 end
 
@@ -1093,15 +1143,20 @@ end
 
 -- Dissect: Start Of Day Message
 finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.start_of_day_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.start_of_day_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.start_of_day_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.start_of_day_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.start_of_day_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.start_of_day_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Control Payload
@@ -1276,7 +1331,7 @@ finra_orf_tdds_dfi_v2_0_size_of.control = function(buffer, offset)
 end
 
 -- Display: Control
-finra_orf_tdds_dfi_v2_0_display.control = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.control = function(packet, parent, length)
   return ""
 end
 
@@ -1348,7 +1403,7 @@ finra_orf_tdds_dfi_v2_0_size_of.action_datetime = function(buffer, offset)
 end
 
 -- Display: Action Datetime
-finra_orf_tdds_dfi_v2_0_display.action_datetime = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.action_datetime = function(packet, parent, length)
   return ""
 end
 
@@ -1382,15 +1437,20 @@ end
 
 -- Dissect: Action Datetime
 finra_orf_tdds_dfi_v2_0_dissect.action_datetime = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.action_datetime then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.action_datetime(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.action_datetime(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.action_datetime, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.action_datetime, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.action_datetime(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Action
@@ -1442,7 +1502,7 @@ finra_orf_tdds_dfi_v2_0_size_of.market_wide_circuit_breaker_event_message = func
 end
 
 -- Display: Market Wide Circuit Breaker Event Message
-finra_orf_tdds_dfi_v2_0_display.market_wide_circuit_breaker_event_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.market_wide_circuit_breaker_event_message = function(packet, parent, length)
   return ""
 end
 
@@ -1467,15 +1527,20 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Event Message
 finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_event_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.market_wide_circuit_breaker_event_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.market_wide_circuit_breaker_event_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_event_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_event_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.market_wide_circuit_breaker_event_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Security Symbol
@@ -1516,7 +1581,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trading_action_message = function(buffer, offset
 end
 
 -- Display: Trading Action Message
-finra_orf_tdds_dfi_v2_0_display.trading_action_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trading_action_message = function(packet, parent, length)
   return ""
 end
 
@@ -1544,15 +1609,20 @@ end
 
 -- Dissect: Trading Action Message
 finra_orf_tdds_dfi_v2_0_dissect.trading_action_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.trading_action_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.trading_action_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trading_action_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trading_action_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.trading_action_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Total Security Volume
@@ -1898,7 +1968,7 @@ finra_orf_tdds_dfi_v2_0_size_of.closing_trade_summary_report_message = function(
 end
 
 -- Display: Closing Trade Summary Report Message
-finra_orf_tdds_dfi_v2_0_display.closing_trade_summary_report_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.closing_trade_summary_report_message = function(packet, parent, length)
   return ""
 end
 
@@ -1956,15 +2026,20 @@ end
 
 -- Dissect: Closing Trade Summary Report Message
 finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.closing_trade_summary_report_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.closing_trade_summary_report_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.closing_trade_summary_report_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_trade_summary_report_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_trade_summary_report_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.closing_trade_summary_report_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Text
@@ -1999,7 +2074,7 @@ finra_orf_tdds_dfi_v2_0_size_of.general_administrative_message = function(buffer
 end
 
 -- Display: General Administrative Message
-finra_orf_tdds_dfi_v2_0_display.general_administrative_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.general_administrative_message = function(packet, parent, length)
   return ""
 end
 
@@ -2018,15 +2093,20 @@ end
 
 -- Dissect: General Administrative Message
 finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.general_administrative_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.general_administrative_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.general_administrative_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.general_administrative_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.general_administrative_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.general_administrative_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Administrative Payload
@@ -2146,7 +2226,7 @@ finra_orf_tdds_dfi_v2_0_size_of.administrative = function(buffer, offset)
 end
 
 -- Display: Administrative
-finra_orf_tdds_dfi_v2_0_display.administrative = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.administrative = function(packet, parent, length)
   return ""
 end
 
@@ -2412,7 +2492,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trade_summary_information = function(buffer, off
 end
 
 -- Display: Trade Summary Information
-finra_orf_tdds_dfi_v2_0_display.trade_summary_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_summary_information = function(packet, parent, length)
   return ""
 end
 
@@ -2452,15 +2532,20 @@ end
 
 -- Dissect: Trade Summary Information
 finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_summary_information then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_summary_information(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.trade_summary_information(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_summary_information, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_summary_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_summary_information(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Sellers Sale Days
@@ -2629,7 +2714,7 @@ finra_orf_tdds_dfi_v2_0_size_of.execution_datetime = function(buffer, offset)
 end
 
 -- Display: Execution Datetime
-finra_orf_tdds_dfi_v2_0_display.execution_datetime = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.execution_datetime = function(packet, parent, length)
   return ""
 end
 
@@ -2663,15 +2748,20 @@ end
 
 -- Dissect: Execution Datetime
 finra_orf_tdds_dfi_v2_0_dissect.execution_datetime = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_datetime then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.execution_datetime(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.execution_datetime(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.execution_datetime, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.execution_datetime, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.execution_datetime(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: As Of Indicator
@@ -2799,7 +2889,7 @@ finra_orf_tdds_dfi_v2_0_size_of.corrected_trade_information = function(buffer, o
 end
 
 -- Display: Corrected Trade Information
-finra_orf_tdds_dfi_v2_0_display.corrected_trade_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.corrected_trade_information = function(packet, parent, length)
   return ""
 end
 
@@ -2845,15 +2935,20 @@ end
 
 -- Dissect: Corrected Trade Information
 finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.corrected_trade_information then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.corrected_trade_information(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.corrected_trade_information(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.corrected_trade_information, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.corrected_trade_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.corrected_trade_information(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Original Trade Information
@@ -2886,7 +2981,7 @@ finra_orf_tdds_dfi_v2_0_size_of.original_trade_information = function(buffer, of
 end
 
 -- Display: Original Trade Information
-finra_orf_tdds_dfi_v2_0_display.original_trade_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.original_trade_information = function(packet, parent, length)
   return ""
 end
 
@@ -2932,15 +3027,20 @@ end
 
 -- Dissect: Original Trade Information
 finra_orf_tdds_dfi_v2_0_dissect.original_trade_information = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.original_trade_information then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.original_trade_information(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.original_trade_information(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_trade_information, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_trade_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.original_trade_information(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Report Function
@@ -3012,7 +3112,7 @@ finra_orf_tdds_dfi_v2_0_size_of.original_dissemination_date = function(buffer, o
 end
 
 -- Display: Original Dissemination Date
-finra_orf_tdds_dfi_v2_0_display.original_dissemination_date = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.original_dissemination_date = function(packet, parent, length)
   return ""
 end
 
@@ -3034,15 +3134,20 @@ end
 
 -- Dissect: Original Dissemination Date
 finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.original_dissemination_date then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.original_dissemination_date(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.original_dissemination_date(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_dissemination_date, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_dissemination_date, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.original_dissemination_date(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Trade Correction Message
@@ -3069,7 +3174,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trade_correction_message = function(buffer, offs
 end
 
 -- Display: Trade Correction Message
-finra_orf_tdds_dfi_v2_0_display.trade_correction_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_correction_message = function(packet, parent, length)
   return ""
 end
 
@@ -3106,15 +3211,20 @@ end
 
 -- Dissect: Trade Correction Message
 finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_correction_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_correction_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.trade_correction_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_correction_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_correction_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_correction_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Trade Cancel Error Message
@@ -3139,7 +3249,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trade_cancel_error_message = function(buffer, of
 end
 
 -- Display: Trade Cancel Error Message
-finra_orf_tdds_dfi_v2_0_display.trade_cancel_error_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_cancel_error_message = function(packet, parent, length)
   return ""
 end
 
@@ -3173,15 +3283,20 @@ end
 
 -- Dissect: Trade Cancel Error Message
 finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_cancel_error_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_cancel_error_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.trade_cancel_error_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_cancel_error_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_cancel_error_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_cancel_error_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Trade Information
@@ -3216,7 +3331,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trade_information = function(buffer, offset)
 end
 
 -- Display: Trade Information
-finra_orf_tdds_dfi_v2_0_display.trade_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_information = function(packet, parent, length)
   return ""
 end
 
@@ -3265,15 +3380,20 @@ end
 
 -- Dissect: Trade Information
 finra_orf_tdds_dfi_v2_0_dissect.trade_information = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_information then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_information(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.trade_information(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_information, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_information(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Trade Report Long Form Message
@@ -3292,7 +3412,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trade_report_long_form_message = function(buffer
 end
 
 -- Display: Trade Report Long Form Message
-finra_orf_tdds_dfi_v2_0_display.trade_report_long_form_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_report_long_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -3317,15 +3437,20 @@ end
 
 -- Dissect: Trade Report Long Form Message
 finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_report_long_form_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_report_long_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.trade_report_long_form_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_long_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_long_form_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_report_long_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Report Volume Short
@@ -3420,7 +3545,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trade_report_short_form_message = function(buffe
 end
 
 -- Display: Trade Report Short Form Message
-finra_orf_tdds_dfi_v2_0_display.trade_report_short_form_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_report_short_form_message = function(packet, parent, length)
   return ""
 end
 
@@ -3454,15 +3579,20 @@ end
 
 -- Dissect: Trade Report Short Form Message
 finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.trade_report_short_form_message then
-    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_report_short_form_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = finra_orf_tdds_dfi_v2_0_display.trade_report_short_form_message(buffer, packet, parent)
-    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_short_form_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_short_form_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_report_short_form_message(packet, parent, length)
+    parent:append_text(display)
 
-  return finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Trade Payload
@@ -3582,7 +3712,7 @@ finra_orf_tdds_dfi_v2_0_size_of.trade = function(buffer, offset)
 end
 
 -- Display: Trade
-finra_orf_tdds_dfi_v2_0_display.trade = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade = function(packet, parent, length)
   return ""
 end
 
@@ -3720,7 +3850,7 @@ finra_orf_tdds_dfi_v2_0_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-finra_orf_tdds_dfi_v2_0_display.message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.message = function(packet, parent, length)
   return ""
 end
 

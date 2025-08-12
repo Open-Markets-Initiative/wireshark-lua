@@ -490,7 +490,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.test_packet = function(buffer,
 end
 
 -- Display: Test Packet
-miax_pearlequities_expressorders_meo_v2_7_display.test_packet = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.test_packet = function(packet, parent, length)
   return ""
 end
 
@@ -585,7 +585,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.goodbye_packet = function(buff
 end
 
 -- Display: Goodbye Packet
-miax_pearlequities_expressorders_meo_v2_7_display.goodbye_packet = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.goodbye_packet = function(packet, parent, length)
   return ""
 end
 
@@ -634,7 +634,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.logout_request = function(buff
 end
 
 -- Display: Logout Request
-miax_pearlequities_expressorders_meo_v2_7_display.logout_request = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.logout_request = function(packet, parent, length)
   return ""
 end
 
@@ -722,7 +722,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.retransmission_request = funct
 end
 
 -- Display: Retransmission Request
-miax_pearlequities_expressorders_meo_v2_7_display.retransmission_request = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.retransmission_request = function(packet, parent, length)
   return ""
 end
 
@@ -741,15 +741,20 @@ end
 
 -- Dissect: Retransmission Request
 miax_pearlequities_expressorders_meo_v2_7_dissect.retransmission_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.retransmission_request then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.retransmission_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.retransmission_request(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.retransmission_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.retransmission_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.retransmission_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.retransmission_request(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.retransmission_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.retransmission_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Number Of Matching Engines
@@ -782,7 +787,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.synchronization_complete = fun
 end
 
 -- Display: Synchronization Complete
-miax_pearlequities_expressorders_meo_v2_7_display.synchronization_complete = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.synchronization_complete = function(packet, parent, length)
   return ""
 end
 
@@ -798,15 +803,20 @@ end
 
 -- Dissect: Synchronization Complete
 miax_pearlequities_expressorders_meo_v2_7_dissect.synchronization_complete = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.synchronization_complete then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.synchronization_complete(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.synchronization_complete(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.synchronization_complete, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.synchronization_complete, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.synchronization_complete_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.synchronization_complete(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.synchronization_complete_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.synchronization_complete_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Highest Sequence Number
@@ -913,7 +923,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.login_response = function(buff
 end
 
 -- Display: Login Response
-miax_pearlequities_expressorders_meo_v2_7_display.login_response = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.login_response = function(packet, parent, length)
   return ""
 end
 
@@ -938,15 +948,20 @@ end
 
 -- Dissect: Login Response
 miax_pearlequities_expressorders_meo_v2_7_dissect.login_response = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_response then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.login_response(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.login_response(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.login_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.login_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.login_response_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.login_response(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.login_response_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.login_response_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Requested Sequence Number
@@ -1089,7 +1104,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.login_request = function(buffe
 end
 
 -- Display: Login Request
-miax_pearlequities_expressorders_meo_v2_7_display.login_request = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.login_request = function(packet, parent, length)
   return ""
 end
 
@@ -1120,15 +1135,20 @@ end
 
 -- Dissect: Login Request
 miax_pearlequities_expressorders_meo_v2_7_dissect.login_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.login_request then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.login_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.login_request(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.login_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.login_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.login_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.login_request(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.login_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.login_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 12
@@ -1698,7 +1718,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.execution_notification = funct
 end
 
 -- Display: Execution Notification
-miax_pearlequities_expressorders_meo_v2_7_display.execution_notification = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.execution_notification = function(packet, parent, length)
   return ""
 end
 
@@ -1768,15 +1788,20 @@ end
 
 -- Dissect: Execution Notification
 miax_pearlequities_expressorders_meo_v2_7_dissect.execution_notification = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.execution_notification then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.execution_notification(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.execution_notification(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.execution_notification, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.execution_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.execution_notification_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.execution_notification(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.execution_notification_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.execution_notification_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 10
@@ -1859,7 +1884,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.reserve_order_replenishment_no
 end
 
 -- Display: Reserve Order Replenishment Notification
-miax_pearlequities_expressorders_meo_v2_7_display.reserve_order_replenishment_notification = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.reserve_order_replenishment_notification = function(packet, parent, length)
   return ""
 end
 
@@ -1890,15 +1915,20 @@ end
 
 -- Dissect: Reserve Order Replenishment Notification
 miax_pearlequities_expressorders_meo_v2_7_dissect.reserve_order_replenishment_notification = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.reserve_order_replenishment_notification then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.reserve_order_replenishment_notification(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.reserve_order_replenishment_notification(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.reserve_order_replenishment_notification, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.reserve_order_replenishment_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.reserve_order_replenishment_notification_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.reserve_order_replenishment_notification(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.reserve_order_replenishment_notification_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.reserve_order_replenishment_notification_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Asp Eligible Orders Cancelled
@@ -2039,7 +2069,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.aggressive_side_purge_response
 end
 
 -- Display: Aggressive Side Purge Response
-miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_response = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_response = function(packet, parent, length)
   return ""
 end
 
@@ -2076,15 +2106,20 @@ end
 
 -- Dissect: Aggressive Side Purge Response
 miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_response = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.aggressive_side_purge_response then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.aggressive_side_purge_response(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_response(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_response_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_response(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_response_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_response_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Price
@@ -2194,7 +2229,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.aggressive_side_purge_request 
 end
 
 -- Display: Aggressive Side Purge Request
-miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_request = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_request = function(packet, parent, length)
   return ""
 end
 
@@ -2228,15 +2263,20 @@ end
 
 -- Dissect: Aggressive Side Purge Request
 miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.aggressive_side_purge_request then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.aggressive_side_purge_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_request(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.aggressive_side_purge_request(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.aggressive_side_purge_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Matching Engine Status
@@ -2340,7 +2380,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.mass_cancel_response = functio
 end
 
 -- Display: Mass Cancel Response
-miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_response = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_response = function(packet, parent, length)
   return ""
 end
 
@@ -2371,15 +2411,20 @@ end
 
 -- Dissect: Mass Cancel Response
 miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_response = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_response then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.mass_cancel_response(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_response(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.mass_cancel_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.mass_cancel_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_response_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_response(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_response_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_response_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 9
@@ -2501,7 +2546,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.mass_cancel_request = function
 end
 
 -- Display: Mass Cancel Request
-miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_request = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_request = function(packet, parent, length)
   return ""
 end
 
@@ -2535,15 +2580,20 @@ end
 
 -- Dissect: Mass Cancel Request
 miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.mass_cancel_request then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.mass_cancel_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_request(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.mass_cancel_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.mass_cancel_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.mass_cancel_request(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.mass_cancel_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Cancel Status
@@ -2662,7 +2712,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_by_exchange_order
 end
 
 -- Display: Cancel Order By Exchange Order Id Response Message
-miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_response_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -2699,15 +2749,20 @@ end
 
 -- Dissect: Cancel Order By Exchange Order Id Response Message
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_response_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_by_exchange_order_id_response_message then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_by_exchange_order_id_response_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_response_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_by_exchange_order_id_response_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_by_exchange_order_id_response_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_response_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_response_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_response_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_response_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cancel Order By Exchange Order Id Request
@@ -2730,7 +2785,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_by_exchange_order
 end
 
 -- Display: Cancel Order By Exchange Order Id Request
-miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_request = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_request = function(packet, parent, length)
   return ""
 end
 
@@ -2761,15 +2816,20 @@ end
 
 -- Dissect: Cancel Order By Exchange Order Id Request
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_by_exchange_order_id_request then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_by_exchange_order_id_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_request(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_by_exchange_order_id_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_by_exchange_order_id_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_by_exchange_order_id_request(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_by_exchange_order_id_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Original Client Order Id
@@ -2834,7 +2894,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_response = functi
 end
 
 -- Display: Cancel Order Response
-miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_response = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_response = function(packet, parent, length)
   return ""
 end
 
@@ -2874,15 +2934,20 @@ end
 
 -- Dissect: Cancel Order Response
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_response = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_response then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_response(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_response(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_response_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_response(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_response_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_response_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: Cancel Order Request
@@ -2905,7 +2970,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_request = functio
 end
 
 -- Display: Cancel Order Request
-miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_request = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_request = function(packet, parent, length)
   return ""
 end
 
@@ -2936,15 +3001,20 @@ end
 
 -- Dissect: Cancel Order Request
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_order_request then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_order_request(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_request(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_request, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_order_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_request_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_order_request(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_request_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_order_request_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Modify Status
@@ -3134,7 +3204,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.modify_order_response = functi
 end
 
 -- Display: Modify Order Response
-miax_pearlequities_expressorders_meo_v2_7_display.modify_order_response = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.modify_order_response = function(packet, parent, length)
   return ""
 end
 
@@ -3177,15 +3247,20 @@ end
 
 -- Dissect: Modify Order Response
 miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_response = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.modify_order_response then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.modify_order_response(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.modify_order_response(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.modify_order_response, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.modify_order_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_response_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.modify_order_response(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_response_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_response_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 19
@@ -3409,7 +3484,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.modify_order_request_message =
 end
 
 -- Display: Modify Order Request Message
-miax_pearlequities_expressorders_meo_v2_7_display.modify_order_request_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.modify_order_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -3464,15 +3539,20 @@ end
 
 -- Dissect: Modify Order Request Message
 miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.modify_order_request_message then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.modify_order_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.modify_order_request_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.modify_order_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.modify_order_request_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.modify_order_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Order Status
@@ -3726,7 +3806,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.new_order_response_message = f
 end
 
 -- Display: New Order Response Message
-miax_pearlequities_expressorders_meo_v2_7_display.new_order_response_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.new_order_response_message = function(packet, parent, length)
   return ""
 end
 
@@ -3766,15 +3846,20 @@ end
 
 -- Dissect: New Order Response Message
 miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_response_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_response_message then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.new_order_response_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.new_order_response_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.new_order_response_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.new_order_response_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_response_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.new_order_response_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_response_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_response_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 11
@@ -4297,7 +4382,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.new_order_request_message = fu
 end
 
 -- Display: New Order Request Message
-miax_pearlequities_expressorders_meo_v2_7_display.new_order_request_message = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.new_order_request_message = function(packet, parent, length)
   return ""
 end
 
@@ -4385,15 +4470,20 @@ end
 
 -- Dissect: New Order Request Message
 miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_request_message then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.new_order_request_message(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.new_order_request_message(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.new_order_request_message, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.new_order_request_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_request_message_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.new_order_request_message(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_request_message_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_request_message_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Unsequenced Message
@@ -4619,7 +4709,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.unsequenced_data_packet = func
 end
 
 -- Display: Unsequenced Data Packet
-miax_pearlequities_expressorders_meo_v2_7_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.unsequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -4737,7 +4827,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.order_price_update_notificatio
 end
 
 -- Display: Order Price Update Notification
-miax_pearlequities_expressorders_meo_v2_7_display.order_price_update_notification = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.order_price_update_notification = function(packet, parent, length)
   return ""
 end
 
@@ -4771,15 +4861,20 @@ end
 
 -- Dissect: Order Price Update Notification
 miax_pearlequities_expressorders_meo_v2_7_dissect.order_price_update_notification = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.order_price_update_notification then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.order_price_update_notification(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.order_price_update_notification(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.order_price_update_notification, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.order_price_update_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.order_price_update_notification_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.order_price_update_notification(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.order_price_update_notification_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.order_price_update_notification_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Pending Reject Reason
@@ -5003,7 +5098,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_reduce_size_order_notif
 end
 
 -- Display: Cancel Reduce Size Order Notification
-miax_pearlequities_expressorders_meo_v2_7_display.cancel_reduce_size_order_notification = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.cancel_reduce_size_order_notification = function(packet, parent, length)
   return ""
 end
 
@@ -5052,15 +5147,20 @@ end
 
 -- Dissect: Cancel Reduce Size Order Notification
 miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_reduce_size_order_notification = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.cancel_reduce_size_order_notification then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.cancel_reduce_size_order_notification(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_reduce_size_order_notification(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_reduce_size_order_notification, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.cancel_reduce_size_order_notification(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Reserved 17
@@ -5157,7 +5257,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.modify_order_notification = fu
 end
 
 -- Display: Modify Order Notification
-miax_pearlequities_expressorders_meo_v2_7_display.modify_order_notification = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.modify_order_notification = function(packet, parent, length)
   return ""
 end
 
@@ -5224,15 +5324,20 @@ end
 
 -- Dissect: Modify Order Notification
 miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_notification = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.modify_order_notification then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.modify_order_notification(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.modify_order_notification(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.modify_order_notification, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.modify_order_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_notification_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.modify_order_notification(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_notification_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.modify_order_notification_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: New Order Notification
@@ -5297,7 +5402,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.new_order_notification = funct
 end
 
 -- Display: New Order Notification
-miax_pearlequities_expressorders_meo_v2_7_display.new_order_notification = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.new_order_notification = function(packet, parent, length)
   return ""
 end
 
@@ -5391,15 +5496,20 @@ end
 
 -- Dissect: New Order Notification
 miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_notification = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.new_order_notification then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.new_order_notification(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.new_order_notification(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.new_order_notification, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.new_order_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_notification_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.new_order_notification(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_notification_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.new_order_notification_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: System Status
@@ -5493,7 +5603,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.system_state_notification = fu
 end
 
 -- Display: System State Notification
-miax_pearlequities_expressorders_meo_v2_7_display.system_state_notification = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.system_state_notification = function(packet, parent, length)
   return ""
 end
 
@@ -5521,15 +5631,20 @@ end
 
 -- Dissect: System State Notification
 miax_pearlequities_expressorders_meo_v2_7_dissect.system_state_notification = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.system_state_notification then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.system_state_notification(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.system_state_notification(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.system_state_notification, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.system_state_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.system_state_notification_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.system_state_notification(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.system_state_notification_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.system_state_notification_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Primary Market Code
@@ -5781,7 +5896,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.symbol_update = function(buffe
 end
 
 -- Display: Symbol Update
-miax_pearlequities_expressorders_meo_v2_7_display.symbol_update = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.symbol_update = function(packet, parent, length)
   return ""
 end
 
@@ -5827,15 +5942,20 @@ end
 
 -- Dissect: Symbol Update
 miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_update = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.symbol_update then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.symbol_update(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.symbol_update(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.symbol_update, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.symbol_update, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_update_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.symbol_update(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_update_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.symbol_update_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate runtime size of: Sequenced Message
@@ -6079,7 +6199,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.sequenced_data_packet = functi
 end
 
 -- Display: Sequenced Data Packet
-miax_pearlequities_expressorders_meo_v2_7_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.sequenced_data_packet = function(packet, parent, length)
   return ""
 end
 
@@ -6338,7 +6458,7 @@ miax_pearlequities_expressorders_meo_v2_7_size_of.packet_header = function(buffe
 end
 
 -- Display: Packet Header
-miax_pearlequities_expressorders_meo_v2_7_display.packet_header = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -6357,19 +6477,24 @@ end
 
 -- Dissect: Packet Header
 miax_pearlequities_expressorders_meo_v2_7_dissect.packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = miax_pearlequities_expressorders_meo_v2_7_size_of.packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = miax_pearlequities_expressorders_meo_v2_7_display.packet_header(buffer, packet, parent)
-    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(miax_pearlequities_expressorders_meo_v2_7.fields.packet_header, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_7_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_7_display.packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return miax_pearlequities_expressorders_meo_v2_7_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_7_dissect.packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Display: Esesm Tcp Packet
-miax_pearlequities_expressorders_meo_v2_7_display.esesm_tcp_packet = function(buffer, offset, size, packet, parent)
+miax_pearlequities_expressorders_meo_v2_7_display.esesm_tcp_packet = function(packet, parent, length)
   return ""
 end
 

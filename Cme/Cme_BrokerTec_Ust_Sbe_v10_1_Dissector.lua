@@ -267,7 +267,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.coupon_rate = function(buffer, offset)
 end
 
 -- Display: Coupon Rate
-cme_brokertec_ust_sbe_v10_1_display.coupon_rate = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.coupon_rate = function(packet, parent, length)
   return ""
 end
 
@@ -286,15 +286,20 @@ end
 
 -- Dissect: Coupon Rate
 cme_brokertec_ust_sbe_v10_1_dissect.coupon_rate = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.coupon_rate then
-    local length = cme_brokertec_ust_sbe_v10_1_size_of.coupon_rate(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1_display.coupon_rate(buffer, packet, parent)
-    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1_dissect.coupon_rate_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1_display.coupon_rate(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1_dissect.coupon_rate_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1_dissect.coupon_rate_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Security Alt Id Source
@@ -539,7 +544,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.md_entry_px = function(buffer, offset)
 end
 
 -- Display: Md Entry Px
-cme_brokertec_ust_sbe_v10_1_display.md_entry_px = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.md_entry_px = function(packet, parent, length)
   return ""
 end
 
@@ -558,15 +563,20 @@ end
 
 -- Dissect: Md Entry Px
 cme_brokertec_ust_sbe_v10_1_dissect.md_entry_px = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.md_entry_px then
-    local length = cme_brokertec_ust_sbe_v10_1_size_of.md_entry_px(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1_display.md_entry_px(buffer, packet, parent)
-    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1_dissect.md_entry_px_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1_display.md_entry_px(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1_dissect.md_entry_px_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1_dissect.md_entry_px_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Md Entry Type
@@ -700,7 +710,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.m_d_incremental_refresh_btec_group = functio
 end
 
 -- Display: M D Incremental Refresh Btec Group
-cme_brokertec_ust_sbe_v10_1_display.m_d_incremental_refresh_btec_group = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.m_d_incremental_refresh_btec_group = function(packet, parent, length)
   return ""
 end
 
@@ -752,15 +762,20 @@ end
 
 -- Dissect: M D Incremental Refresh Btec Group
 cme_brokertec_ust_sbe_v10_1_dissect.m_d_incremental_refresh_btec_group = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.m_d_incremental_refresh_btec_group then
-    local length = cme_brokertec_ust_sbe_v10_1_size_of.m_d_incremental_refresh_btec_group(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1_display.m_d_incremental_refresh_btec_group(buffer, packet, parent)
-    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1_dissect.m_d_incremental_refresh_btec_group_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1_display.m_d_incremental_refresh_btec_group(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1_dissect.m_d_incremental_refresh_btec_group_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1_dissect.m_d_incremental_refresh_btec_group_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Num In Group uint 8
@@ -815,7 +830,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.group_size = function(buffer, offset)
 end
 
 -- Display: Group Size
-cme_brokertec_ust_sbe_v10_1_display.group_size = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.group_size = function(packet, parent, length)
   return ""
 end
 
@@ -834,15 +849,20 @@ end
 
 -- Dissect: Group Size
 cme_brokertec_ust_sbe_v10_1_dissect.group_size = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.group_size then
-    local length = cme_brokertec_ust_sbe_v10_1_size_of.group_size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1_display.group_size(buffer, packet, parent)
-    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.group_size, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.group_size, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1_dissect.group_size_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1_display.group_size(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1_dissect.group_size_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1_dissect.group_size_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Calculate size of: M D Incremental Refresh Btec Groups
@@ -859,7 +879,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.m_d_incremental_refresh_btec_groups = functi
 end
 
 -- Display: M D Incremental Refresh Btec Groups
-cme_brokertec_ust_sbe_v10_1_display.m_d_incremental_refresh_btec_groups = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.m_d_incremental_refresh_btec_groups = function(packet, parent, length)
   return ""
 end
 
@@ -953,7 +973,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.md_incremental_refresh_btec = function(buffe
 end
 
 -- Display: Md Incremental Refresh Btec
-cme_brokertec_ust_sbe_v10_1_display.md_incremental_refresh_btec = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.md_incremental_refresh_btec = function(packet, parent, length)
   return ""
 end
 
@@ -1121,7 +1141,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.message_header = function(buffer, offset)
 end
 
 -- Display: Message Header
-cme_brokertec_ust_sbe_v10_1_display.message_header = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.message_header = function(packet, parent, length)
   return ""
 end
 
@@ -1146,15 +1166,20 @@ end
 
 -- Dissect: Message Header
 cme_brokertec_ust_sbe_v10_1_dissect.message_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = cme_brokertec_ust_sbe_v10_1_size_of.message_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1_display.message_header(buffer, packet, parent)
-    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.message_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.message_header, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1_display.message_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1_dissect.message_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Size: Message Size
@@ -1194,7 +1219,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.message = function(buffer, offset)
 end
 
 -- Display: Message
-cme_brokertec_ust_sbe_v10_1_display.message = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.message = function(packet, parent, length)
   return ""
 end
 
@@ -1282,7 +1307,7 @@ cme_brokertec_ust_sbe_v10_1_size_of.binary_packet_header = function(buffer, offs
 end
 
 -- Display: Binary Packet Header
-cme_brokertec_ust_sbe_v10_1_display.binary_packet_header = function(buffer, offset, size, packet, parent)
+cme_brokertec_ust_sbe_v10_1_display.binary_packet_header = function(packet, parent, length)
   return ""
 end
 
@@ -1301,15 +1326,20 @@ end
 
 -- Dissect: Binary Packet Header
 cme_brokertec_ust_sbe_v10_1_dissect.binary_packet_header = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
   if show.binary_packet_header then
-    local length = cme_brokertec_ust_sbe_v10_1_size_of.binary_packet_header(buffer, offset)
-    local range = buffer(offset, length)
-    local display = cme_brokertec_ust_sbe_v10_1_display.binary_packet_header(buffer, packet, parent)
-    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.binary_packet_header, range, display)
-  end
+    -- Optionally add element to protocol tree
+    parent = parent:add(cme_brokertec_ust_sbe_v10_1.fields.binary_packet_header, buffer(offset, 0))
+    local index = cme_brokertec_ust_sbe_v10_1_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1_display.binary_packet_header(packet, parent, length)
+    parent:append_text(display)
 
-  return cme_brokertec_ust_sbe_v10_1_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    return index
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Dissect Packet
