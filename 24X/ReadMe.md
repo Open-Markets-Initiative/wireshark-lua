@@ -8,6 +8,7 @@
 | Equities | [Memo][24X.Equities.Memo.Sbe.v1.13.Dissector] | Sbe | [1.13][24X.Equities.Memo.Sbe.v1.13.Dissector] | 9/1/2025 | 7036 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.Memo.Sbe.v1.13.Url] - [pdf][24X.Equities.Memo.Sbe.v1.13.Pdf] - [xml][24X.Equities.Memo.Sbe.v1.13.Xml] |
 | Equities | [MemoirDepthFeed][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector] | 9/1/2025 | 2397 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirDepthFeed.Sbe.v1.3.Xml] |
 | Equities | [MemoirLastSale][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirLastSale.Sbe.v1.3.Dissector] | 9/1/2025 | 2451 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][24X.Equities.MemoirLastSale.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirLastSale.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirLastSale.Sbe.v1.3.Xml] |
+| Equities | [MemoirTopOfBook][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | Sbe | [1.3][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector] | 9/1/2025 | 2156 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Url] - [pdf][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf] - [xml][24X.Equities.MemoirTopOfBook.Sbe.v1.3.Xml] |
 
 
 24X: [website](https://24exchange.com "Go to 24 Exchange")
@@ -37,3 +38,7 @@
 [24X.Equities.MemoirLastSale.Sbe.v1.3.Url]: https://equities.24exchange.com/exchange "24 Exchange 1.3 Url"
 [24X.Equities.MemoirLastSale.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Specifications/Equities/MemoirLastSale/24X.Equities.MemoirLastSale.Sbe.v1.3.pdf "24 Exchange 1.3 Pdf"
 [24X.Equities.MemoirLastSale.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Specifications/Equities/MemoirLastSale/24X.Equities.MemoirLastSale.Sbe.v1.3.xml "24 Exchange 1.3 Xml"
+[24X.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/24X/24X_Equities_MemoirTopOfBook_Sbe_v1_3_Dissector.lua "24X Equities MemoirTopOfBook Sbe v1.3 Wireshark Dissector"
+[24X.Equities.MemoirTopOfBook.Sbe.v1.3.Url]: https://equities.24exchange.com/exchange "24 Exchange 1.3 Url"
+[24X.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Specifications/Equities/MemoirTop/24X.Equities.MemoirTopOfBook.Sbe.v1.3.pdf "24 Exchange 1.3 Pdf"
+[24X.Equities.MemoirTopOfBook.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/24X/Specifications/Equities/MemoirTop/24X.Equities.MemoirTopOfBook.Sbe.v1.3.xml "24 Exchange 1.3 Xml"
