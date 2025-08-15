@@ -5,8 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Rtmdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | Amd | [1.3.2][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1890 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Pdf] |
-| Equities | [Snapshot][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | Amd | [1.3.2][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 1013 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Snapshot.Amd.v1.3.2.Pdf] |
+| Equities | [Rtmdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | Amd | [1.3.2][A2X.Equities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1892 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Rtmdf.Amd.v1.3.2.Pdf] |
+| Equities | [Snapshot][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | Amd | [1.3.2][A2X.Equities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 1015 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.Equities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.Equities.Snapshot.Amd.v1.3.2.Pdf] |
 
 
 A2X: [website](https://www.a2x.co.za "Go to A2X Markets")

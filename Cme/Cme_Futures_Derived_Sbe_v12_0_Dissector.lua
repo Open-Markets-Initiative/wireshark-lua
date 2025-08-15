@@ -25,7 +25,6 @@ cme_futures_derived_sbe_v12_0.fields.aggressor_side = ProtoField.new("Aggressor 
 cme_futures_derived_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.derived.sbe.v12.0.binarypacketheader", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.block_length = ProtoField.new("Block Length", "cme.futures.derived.sbe.v12.0.blocklength", ftypes.UINT16)
 cme_futures_derived_sbe_v12_0.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.futures.derived.sbe.v12.0.financialinstrumentfullname", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.futures.derived.sbe.v12.0.globaldayroll", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.group_size = ProtoField.new("Group Size", "cme.futures.derived.sbe.v12.0.groupsize", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.futures.derived.sbe.v12.0.instrumentguid", ftypes.UINT64)
 cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group = ProtoField.new("M D Incremental Refresh Spectrum Group", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrumgroup", ftypes.STRING)
@@ -41,10 +40,6 @@ cme_futures_derived_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Si
 cme_futures_derived_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.derived.sbe.v12.0.mdentrytime", ftypes.UINT64)
 cme_futures_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoField.new("Md Entry Type Spectrum Entry Type", "cme.futures.derived.sbe.v12.0.mdentrytypespectrumentrytype", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoField.new("Md Entry Type Ticker Entry Type", "cme.futures.derived.sbe.v12.0.mdentrytypetickerentrytype", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new("Md Incremental Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshticker", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum = ProtoField.new("Md Snapshot Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrum", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker = ProtoField.new("Md Snapshot Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshticker", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.futures.derived.sbe.v12.0.message", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.futures.derived.sbe.v12.0.messageheader", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.derived.sbe.v12.0.messagesequencenumber", ftypes.UINT32)
@@ -62,6 +57,13 @@ cme_futures_derived_sbe_v12_0.fields.template_id = ProtoField.new("Template Id",
 cme_futures_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.futures.derived.sbe.v12.0.tradingsessionid", ftypes.UINT8)
 cme_futures_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.derived.sbe.v12.0.transacttime", ftypes.UINT64)
 cme_futures_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.futures.derived.sbe.v12.0.version", ftypes.UINT16)
+
+-- Cme Futures Derived Sbe 12.0 messages
+cme_futures_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.futures.derived.sbe.v12.0.globaldayroll", ftypes.STRING)
+cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING)
+cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new("Md Incremental Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdincrementalrefreshticker", ftypes.STRING)
+cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum = ProtoField.new("Md Snapshot Refresh Spectrum", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrum", ftypes.STRING)
+cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker = ProtoField.new("Md Snapshot Refresh Ticker", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshticker", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

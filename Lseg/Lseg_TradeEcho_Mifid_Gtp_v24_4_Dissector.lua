@@ -46,10 +46,8 @@ lseg_tradeecho_mifid_gtp_v24_4.fields.fa_full_details_flag = ProtoField.new("Fa 
 lseg_tradeecho_mifid_gtp_v24_4.fields.four_weeks_aggregation_flag = ProtoField.new("Four Weeks Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.fourweeksaggregationflag", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.indefinite_aggregation_flag = ProtoField.new("Indefinite Aggregation Flag", "lseg.tradeecho.mifid.gtp.v24.4.indefiniteaggregationflag", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.tradeecho.mifid.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.mifid.gtp.v24.4.instrumentdirectory", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "lseg.tradeecho.mifid.gtp.v24.4.instrumentidentificationcode", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "lseg.tradeecho.mifid.gtp.v24.4.instrumentidentificationcodetype", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.mifid.gtp.v24.4.instrumentstatus", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.mifid.gtp.v24.4.isin", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.ld_full_details_flag = ProtoField.new("Ld Full Details Flag", "lseg.tradeecho.mifid.gtp.v24.4.ldfulldetailsflag", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.mifid.gtp.v24.4.length", ftypes.UINT16)
@@ -65,7 +63,6 @@ lseg_tradeecho_mifid_gtp_v24_4.fields.message_type = ProtoField.new("Message Typ
 lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.tradeecho.mifid.gtp.v24.4.mifidprice", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.tradeecho.mifid.gtp.v24.4.mifidquantity", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.mi_fid_trading_date_and_time = ProtoField.new("Mi Fid Trading Date And Time", "lseg.tradeecho.mifid.gtp.v24.4.mifidtradingdateandtime", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report = ProtoField.new("Mifid Ii Trade Report", "lseg.tradeecho.mifid.gtp.v24.4.mifidiitradereport", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.tradeecho.mifid.gtp.v24.4.modificationindicator", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.tradeecho.mifid.gtp.v24.4.negotiationindicator", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.mifid.gtp.v24.4.newendtime", ftypes.STRING)
@@ -111,8 +108,6 @@ lseg_tradeecho_mifid_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venu
 lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_flag = ProtoField.new("Special Dividend Flag", "lseg.tradeecho.mifid.gtp.v24.4.specialdividendflag", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.tradeecho.mifid.gtp.v24.4.specialdividendindicator", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.mifid.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_tradeecho_mifid_gtp_v24_4.fields.statistics = ProtoField.new("Statistics", "lseg.tradeecho.mifid.gtp.v24.4.statistics", ftypes.STRING)
-lseg_tradeecho_mifid_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.mifid.gtp.v24.4.systemevent", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution = ProtoField.new("Thirdcountry Trading Venue Of Execution", "lseg.tradeecho.mifid.gtp.v24.4.thirdcountrytradingvenueofexecution", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.mifid.gtp.v24.4.tickid", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid.gtp.v24.4.timestamp", ftypes.UINT64)
@@ -139,6 +134,13 @@ lseg_tradeecho_mifid_gtp_v24_4.fields.volume_omission_for_sovereign_debt_flag = 
 lseg_tradeecho_mifid_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.volumeonbookonly", ftypes.DOUBLE)
 lseg_tradeecho_mifid_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid.gtp.v24.4.vwap", ftypes.DOUBLE)
 lseg_tradeecho_mifid_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
+
+-- Lseg TradeEcho Mifid Gtp 24.4 messages
+lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.mifid.gtp.v24.4.instrumentdirectory", ftypes.STRING)
+lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.mifid.gtp.v24.4.instrumentstatus", ftypes.STRING)
+lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report = ProtoField.new("Mifid Ii Trade Report", "lseg.tradeecho.mifid.gtp.v24.4.mifidiitradereport", ftypes.STRING)
+lseg_tradeecho_mifid_gtp_v24_4.fields.statistics = ProtoField.new("Statistics", "lseg.tradeecho.mifid.gtp.v24.4.statistics", ftypes.STRING)
+lseg_tradeecho_mifid_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.mifid.gtp.v24.4.systemevent", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

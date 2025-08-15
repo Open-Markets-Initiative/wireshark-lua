@@ -27,8 +27,6 @@ lseg_tradeecho_level2_gtp_v24_4.fields.currency = ProtoField.new("Currency", "ls
 lseg_tradeecho_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.tradeecho.level2.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
 lseg_tradeecho_level2_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.tradeecho.level2.gtp.v24.4.eventcode", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.tradeecho.level2.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.level2.gtp.v24.4.instrumentdirectory", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.level2.gtp.v24.4.instrumentstatus", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.level2.gtp.v24.4.isin", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.level2.gtp.v24.4.length", ftypes.UINT16)
 lseg_tradeecho_level2_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.level2.gtp.v24.4.marketdatagroup", ftypes.STRING)
@@ -39,9 +37,7 @@ lseg_tradeecho_level2_gtp_v24_4.fields.message_length = ProtoField.new("Message 
 lseg_tradeecho_level2_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.level2.gtp.v24.4.messagetype", ftypes.UINT8)
 lseg_tradeecho_level2_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.level2.gtp.v24.4.newendtime", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.level2.gtp.v24.4.offbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x40)
-lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear = ProtoField.new("Order Book Clear", "lseg.tradeecho.level2.gtp.v24.4.orderbookclear", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.level2.gtp.v24.4.orderbooktype", ftypes.UINT8)
-lseg_tradeecho_level2_gtp_v24_4.fields.order_delete = ProtoField.new("Order Delete", "lseg.tradeecho.level2.gtp.v24.4.orderdelete", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.tradeecho.level2.gtp.v24.4.orderid", ftypes.UINT64)
 lseg_tradeecho_level2_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2.gtp.v24.4.packet", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.tradeecho.level2.gtp.v24.4.participant", ftypes.STRING)
@@ -62,8 +58,6 @@ lseg_tradeecho_level2_gtp_v24_4.fields.side = ProtoField.new("Side", "lseg.trade
 lseg_tradeecho_level2_gtp_v24_4.fields.size = ProtoField.new("Size", "lseg.tradeecho.level2.gtp.v24.4.size", ftypes.DOUBLE)
 lseg_tradeecho_level2_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.level2.gtp.v24.4.sourcevenue", ftypes.UINT16)
 lseg_tradeecho_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.level2.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_tradeecho_level2_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.level2.gtp.v24.4.systemevent", ftypes.STRING)
-lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes = ProtoField.new("Systematic Internaliser Quotes", "lseg.tradeecho.level2.gtp.v24.4.systematicinternaliserquotes", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2.gtp.v24.4.tickid", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2.gtp.v24.4.timestamp", ftypes.UINT64)
 lseg_tradeecho_level2_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2.gtp.v24.4.tradingstatus", ftypes.STRING)
@@ -73,6 +67,14 @@ lseg_tradeecho_level2_gtp_v24_4.fields.unused_6 = ProtoField.new("Unused 6", "ls
 lseg_tradeecho_level2_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2.gtp.v24.4.venueinstrumentid", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.level2.gtp.v24.4.venueofpublication", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.yield = ProtoField.new("Yield", "lseg.tradeecho.level2.gtp.v24.4.yield", ftypes.DOUBLE)
+
+-- Lseg TradeEcho Level2 Gtp 24.4 messages
+lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory = ProtoField.new("Instrument Directory", "lseg.tradeecho.level2.gtp.v24.4.instrumentdirectory", ftypes.STRING)
+lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status = ProtoField.new("Instrument Status", "lseg.tradeecho.level2.gtp.v24.4.instrumentstatus", ftypes.STRING)
+lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear = ProtoField.new("Order Book Clear", "lseg.tradeecho.level2.gtp.v24.4.orderbookclear", ftypes.STRING)
+lseg_tradeecho_level2_gtp_v24_4.fields.order_delete = ProtoField.new("Order Delete", "lseg.tradeecho.level2.gtp.v24.4.orderdelete", ftypes.STRING)
+lseg_tradeecho_level2_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.level2.gtp.v24.4.systemevent", ftypes.STRING)
+lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes = ProtoField.new("Systematic Internaliser Quotes", "lseg.tradeecho.level2.gtp.v24.4.systematicinternaliserquotes", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

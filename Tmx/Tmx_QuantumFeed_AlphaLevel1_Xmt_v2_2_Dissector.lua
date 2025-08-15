@@ -38,7 +38,6 @@ tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.comment = ProtoField.new("Comment", 
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.cross_type = ProtoField.new("Cross Type", "tmx.quantumfeed.alphalevel1.xmt.v2.2.crosstype", ftypes.STRING)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.currency = ProtoField.new("Currency", "tmx.quantumfeed.alphalevel1.xmt.v2.2.currency", ftypes.STRING)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.cusip = ProtoField.new("Cusip", "tmx.quantumfeed.alphalevel1.xmt.v2.2.cusip", ftypes.STRING)
-tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.equity_quote_message = ProtoField.new("Equity Quote Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.equityquotemessage", ftypes.STRING)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.face_value = ProtoField.new("Face Value", "tmx.quantumfeed.alphalevel1.xmt.v2.2.facevalue", ftypes.DOUBLE)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.alphalevel1.xmt.v2.2.frameheader", ftypes.STRING)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.is_dark = ProtoField.new("Is Dark", "tmx.quantumfeed.alphalevel1.xmt.v2.2.isdark", ftypes.STRING)
@@ -66,17 +65,20 @@ tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.source_id = ProtoField.new("Source I
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.quantumfeed.alphalevel1.xmt.v2.2.startofframe", ftypes.INT8)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.stock_group = ProtoField.new("Stock Group", "tmx.quantumfeed.alphalevel1.xmt.v2.2.stockgroup", ftypes.UINT8)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.stock_state = ProtoField.new("Stock State", "tmx.quantumfeed.alphalevel1.xmt.v2.2.stockstate", ftypes.STRING)
-tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.stockstatusmessage", ftypes.STRING)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.stream_id = ProtoField.new("Stream Id", "tmx.quantumfeed.alphalevel1.xmt.v2.2.streamid", ftypes.UINT16)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.symbol = ProtoField.new("Symbol", "tmx.quantumfeed.alphalevel1.xmt.v2.2.symbol", ftypes.STRING)
-tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.symbolstatusmessage", ftypes.STRING)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.test_symbol = ProtoField.new("Test Symbol", "tmx.quantumfeed.alphalevel1.xmt.v2.2.testsymbol", ftypes.STRING)
-tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_cancelled_message = ProtoField.new("Trade Cancelled Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.tradecancelledmessage", ftypes.STRING)
-tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_message = ProtoField.new("Trade Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.trademessage", ftypes.STRING)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_number = ProtoField.new("Trade Number", "tmx.quantumfeed.alphalevel1.xmt.v2.2.tradenumber", ftypes.UINT32)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.quantumfeed.alphalevel1.xmt.v2.2.tradetimestamp", ftypes.UINT32)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.alphalevel1.xmt.v2.2.tradingsystemtimestamp", ftypes.UINT64)
 tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.alphalevel1.xmt.v2.2.volume", ftypes.UINT32)
+
+-- Tmx QuantumFeed AlphaLevel1 Xmt 2.2 messages
+tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.equity_quote_message = ProtoField.new("Equity Quote Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.equityquotemessage", ftypes.STRING)
+tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.stockstatusmessage", ftypes.STRING)
+tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.symbolstatusmessage", ftypes.STRING)
+tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_cancelled_message = ProtoField.new("Trade Cancelled Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.tradecancelledmessage", ftypes.STRING)
+tmx_quantumfeed_alphalevel1_xmt_v2_2.fields.trade_message = ProtoField.new("Trade Message", "tmx.quantumfeed.alphalevel1.xmt.v2.2.trademessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

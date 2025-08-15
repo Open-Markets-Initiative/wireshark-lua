@@ -20,15 +20,12 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- A2X Equities Snapshot Amd 1.3.2 Fields
-a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING)
-a2x_equities_snapshot_amd_v1_3_2.fields.book_status_message = ProtoField.new("Book Status Message", "a2x.equities.snapshot.amd.v1.3.2.bookstatusmessage", ftypes.STRING)
 a2x_equities_snapshot_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.equities.snapshot.amd.v1.3.2.closingbuyqty", ftypes.UINT32)
 a2x_equities_snapshot_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.equities.snapshot.amd.v1.3.2.closingsellqty", ftypes.UINT32)
 a2x_equities_snapshot_amd_v1_3_2.fields.entries = ProtoField.new("Entries", "a2x.equities.snapshot.amd.v1.3.2.entries", ftypes.UINT16)
 a2x_equities_snapshot_amd_v1_3_2.fields.indicative_price = ProtoField.new("Indicative Price", "a2x.equities.snapshot.amd.v1.3.2.indicativeprice", ftypes.UINT64)
 a2x_equities_snapshot_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.equities.snapshot.amd.v1.3.2.macopen", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 a2x_equities_snapshot_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.equities.snapshot.amd.v1.3.2.macrun", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
-a2x_equities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message = ProtoField.new("Market At Close Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.marketatclosebookentrymessage", ftypes.STRING)
 a2x_equities_snapshot_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.equities.snapshot.amd.v1.3.2.marketflags", ftypes.STRING)
 a2x_equities_snapshot_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.equities.snapshot.amd.v1.3.2.message", ftypes.STRING)
 a2x_equities_snapshot_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.equities.snapshot.amd.v1.3.2.messagecount", ftypes.UINT8)
@@ -43,12 +40,17 @@ a2x_equities_snapshot_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a
 a2x_equities_snapshot_amd_v1_3_2.fields.security_count = ProtoField.new("Security Count", "a2x.equities.snapshot.amd.v1.3.2.securitycount", ftypes.UINT16)
 a2x_equities_snapshot_amd_v1_3_2.fields.security_id = ProtoField.new("Security Id", "a2x.equities.snapshot.amd.v1.3.2.securityid", ftypes.UINT16)
 a2x_equities_snapshot_amd_v1_3_2.fields.seq_no = ProtoField.new("Seq No", "a2x.equities.snapshot.amd.v1.3.2.seqno", ftypes.UINT32)
-a2x_equities_snapshot_amd_v1_3_2.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "a2x.equities.snapshot.amd.v1.3.2.snapshotstartmessage", ftypes.STRING)
 a2x_equities_snapshot_amd_v1_3_2.fields.stream_seq_no = ProtoField.new("Stream Seq No", "a2x.equities.snapshot.amd.v1.3.2.streamseqno", ftypes.UINT32)
 a2x_equities_snapshot_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.equities.snapshot.amd.v1.3.2.timestamp", ftypes.UINT64)
 a2x_equities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading", "a2x.equities.snapshot.amd.v1.3.2.trading", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x01)
 a2x_equities_snapshot_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.equities.snapshot.amd.v1.3.2.tradingstatus", ftypes.UINT8)
 a2x_equities_snapshot_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.equities.snapshot.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+
+-- A2X Equities Snapshot Amd 1.3.2 messages
+a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING)
+a2x_equities_snapshot_amd_v1_3_2.fields.book_status_message = ProtoField.new("Book Status Message", "a2x.equities.snapshot.amd.v1.3.2.bookstatusmessage", ftypes.STRING)
+a2x_equities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message = ProtoField.new("Market At Close Book Entry Message", "a2x.equities.snapshot.amd.v1.3.2.marketatclosebookentrymessage", ftypes.STRING)
+a2x_equities_snapshot_amd_v1_3_2.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "a2x.equities.snapshot.amd.v1.3.2.snapshotstartmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

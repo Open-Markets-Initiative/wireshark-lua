@@ -48,9 +48,6 @@ cme_futures_settlements_sbe_v7_0.fields.mantissa = ProtoField.new("Mantissa", "c
 cme_futures_settlements_sbe_v7_0.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.settlements.sbe.v7.0.maturitymonthyear", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.settlements.sbe.v7.0.mdentrypx", ftypes.DOUBLE)
 cme_futures_settlements_sbe_v7_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.settlements.sbe.v7.0.mdentrytype", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc = ProtoField.new("Md Statistic Desc", "cme.futures.settlements.sbe.v7.0.mdstatisticdesc", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.settlements.sbe.v7.0.mdupdateaction", ftypes.UINT8)
 cme_futures_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.futures.settlements.sbe.v7.0.message", ftypes.STRING)
@@ -87,6 +84,11 @@ cme_futures_settlements_sbe_v7_0.fields.underlying_security_type = ProtoField.ne
 cme_futures_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "cme.futures.settlements.sbe.v7.0.version", ftypes.UINT16)
 cme_futures_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.futures.settlements.sbe.v7.0.week", ftypes.UINT8)
 cme_futures_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.futures.settlements.sbe.v7.0.year", ftypes.UINT16)
+
+-- Cme Futures Settlements Sbe 7.0 messages
+cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
+cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
+cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

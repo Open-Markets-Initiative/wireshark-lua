@@ -30,7 +30,6 @@ memx_equities_memoirlastsale_sbe_v1_1.fields.corrected_sale_condition_4 = ProtoF
 memx_equities_memoirlastsale_sbe_v1_1.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "memx.equities.memoirlastsale.sbe.v1.1.correctedtradeprice", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_1.fields.corrected_trade_qty = ProtoField.new("Corrected Trade Qty", "memx.equities.memoirlastsale.sbe.v1.1.correctedtradeqty", ftypes.UINT32)
 memx_equities_memoirlastsale_sbe_v1_1.fields.header_length = ProtoField.new("Header Length", "memx.equities.memoirlastsale.sbe.v1.1.headerlength", ftypes.UINT8)
-memx_equities_memoirlastsale_sbe_v1_1.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.equities.memoirlastsale.sbe.v1.1.instrumentdirectorymessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.equities.memoirlastsale.sbe.v1.1.istestsymbol", ftypes.UINT8)
 memx_equities_memoirlastsale_sbe_v1_1.fields.last_price = ProtoField.new("Last Price", "memx.equities.memoirlastsale.sbe.v1.1.lastprice", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_1.fields.message = ProtoField.new("Message", "memx.equities.memoirlastsale.sbe.v1.1.message", ftypes.STRING)
@@ -46,7 +45,6 @@ memx_equities_memoirlastsale_sbe_v1_1.fields.original_trade_price = ProtoField.n
 memx_equities_memoirlastsale_sbe_v1_1.fields.original_trade_qty = ProtoField.new("Original Trade Qty", "memx.equities.memoirlastsale.sbe.v1.1.originaltradeqty", ftypes.UINT32)
 memx_equities_memoirlastsale_sbe_v1_1.fields.packet = ProtoField.new("Packet", "memx.equities.memoirlastsale.sbe.v1.1.packet", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.payload = ProtoField.new("Payload", "memx.equities.memoirlastsale.sbe.v1.1.payload", ftypes.STRING)
-memx_equities_memoirlastsale_sbe_v1_1.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.equities.memoirlastsale.sbe.v1.1.regshorestrictionmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.round_lot = ProtoField.new("Round Lot", "memx.equities.memoirlastsale.sbe.v1.1.roundlot", ftypes.UINT32)
 memx_equities_memoirlastsale_sbe_v1_1.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "memx.equities.memoirlastsale.sbe.v1.1.salecondition1", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.sale_condition_2 = ProtoField.new("Sale Condition 2", "memx.equities.memoirlastsale.sbe.v1.1.salecondition2", ftypes.STRING)
@@ -57,7 +55,6 @@ memx_equities_memoirlastsale_sbe_v1_1.fields.sbe_message = ProtoField.new("Sbe M
 memx_equities_memoirlastsale_sbe_v1_1.fields.schema_id = ProtoField.new("Schema Id", "memx.equities.memoirlastsale.sbe.v1.1.schemaid", ftypes.UINT8)
 memx_equities_memoirlastsale_sbe_v1_1.fields.security_id = ProtoField.new("Security Id", "memx.equities.memoirlastsale.sbe.v1.1.securityid", ftypes.UINT16)
 memx_equities_memoirlastsale_sbe_v1_1.fields.security_trading_status = ProtoField.new("Security Trading Status", "memx.equities.memoirlastsale.sbe.v1.1.securitytradingstatus", ftypes.STRING)
-memx_equities_memoirlastsale_sbe_v1_1.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "memx.equities.memoirlastsale.sbe.v1.1.securitytradingstatusmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "memx.equities.memoirlastsale.sbe.v1.1.securitytradingstatusreason", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "memx.equities.memoirlastsale.sbe.v1.1.sequencenumber", ftypes.UINT64)
 memx_equities_memoirlastsale_sbe_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.equities.memoirlastsale.sbe.v1.1.sequencedmessage", ftypes.STRING)
@@ -68,15 +65,20 @@ memx_equities_memoirlastsale_sbe_v1_1.fields.symbol = ProtoField.new("Symbol", "
 memx_equities_memoirlastsale_sbe_v1_1.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "memx.equities.memoirlastsale.sbe.v1.1.symbolsfx", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.template_id = ProtoField.new("Template Id", "memx.equities.memoirlastsale.sbe.v1.1.templateid", ftypes.UINT8)
 memx_equities_memoirlastsale_sbe_v1_1.fields.timestamp = ProtoField.new("Timestamp", "memx.equities.memoirlastsale.sbe.v1.1.timestamp", ftypes.UINT64)
-memx_equities_memoirlastsale_sbe_v1_1.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "memx.equities.memoirlastsale.sbe.v1.1.tradecancelmessage", ftypes.STRING)
-memx_equities_memoirlastsale_sbe_v1_1.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "memx.equities.memoirlastsale.sbe.v1.1.tradecorrectmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.trade_id = ProtoField.new("Trade Id", "memx.equities.memoirlastsale.sbe.v1.1.tradeid", ftypes.UINT64)
 memx_equities_memoirlastsale_sbe_v1_1.fields.trade_price = ProtoField.new("Trade Price", "memx.equities.memoirlastsale.sbe.v1.1.tradeprice", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_1.fields.trade_qty = ProtoField.new("Trade Qty", "memx.equities.memoirlastsale.sbe.v1.1.tradeqty", ftypes.UINT32)
-memx_equities_memoirlastsale_sbe_v1_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "memx.equities.memoirlastsale.sbe.v1.1.tradereportmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.trading_session = ProtoField.new("Trading Session", "memx.equities.memoirlastsale.sbe.v1.1.tradingsession", ftypes.STRING)
-memx_equities_memoirlastsale_sbe_v1_1.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.equities.memoirlastsale.sbe.v1.1.tradingsessionstatusmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_1.fields.version = ProtoField.new("Version", "memx.equities.memoirlastsale.sbe.v1.1.version", ftypes.UINT16)
+
+-- Memx Equities MemoirLastSale Sbe 1.1 messages
+memx_equities_memoirlastsale_sbe_v1_1.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.equities.memoirlastsale.sbe.v1.1.instrumentdirectorymessage", ftypes.STRING)
+memx_equities_memoirlastsale_sbe_v1_1.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.equities.memoirlastsale.sbe.v1.1.regshorestrictionmessage", ftypes.STRING)
+memx_equities_memoirlastsale_sbe_v1_1.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "memx.equities.memoirlastsale.sbe.v1.1.securitytradingstatusmessage", ftypes.STRING)
+memx_equities_memoirlastsale_sbe_v1_1.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "memx.equities.memoirlastsale.sbe.v1.1.tradecancelmessage", ftypes.STRING)
+memx_equities_memoirlastsale_sbe_v1_1.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "memx.equities.memoirlastsale.sbe.v1.1.tradecorrectmessage", ftypes.STRING)
+memx_equities_memoirlastsale_sbe_v1_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "memx.equities.memoirlastsale.sbe.v1.1.tradereportmessage", ftypes.STRING)
+memx_equities_memoirlastsale_sbe_v1_1.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.equities.memoirlastsale.sbe.v1.1.tradingsessionstatusmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

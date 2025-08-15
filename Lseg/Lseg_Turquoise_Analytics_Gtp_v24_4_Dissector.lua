@@ -21,7 +21,6 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Analytics Gtp 24.4 Fields
-lseg_turquoise_analytics_gtp_v24_4.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.analytics.gtp.v24.4.addorderincrementalmessage", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.analytics.gtp.v24.4.allowedbooktypes", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.bid_ask_spread = ProtoField.new("Bid Ask Spread", "lseg.turquoise.analytics.gtp.v24.4.bidaskspread", ftypes.DOUBLE)
 lseg_turquoise_analytics_gtp_v24_4.fields.buy_limit_order_cancellations = ProtoField.new("Buy Limit Order Cancellations", "lseg.turquoise.analytics.gtp.v24.4.buylimitordercancellations", ftypes.UINT32)
@@ -35,8 +34,6 @@ lseg_turquoise_analytics_gtp_v24_4.fields.electronic_order_book = ProtoField.new
 lseg_turquoise_analytics_gtp_v24_4.fields.end_time = ProtoField.new("End Time", "lseg.turquoise.analytics.gtp.v24.4.endtime", ftypes.UINT64)
 lseg_turquoise_analytics_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.analytics.gtp.v24.4.eventcode", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.analytics.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_turquoise_analytics_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.analytics.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
-lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.analytics.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.analytics.gtp.v24.4.isin", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.turquoise.analytics.gtp.v24.4.length", ftypes.UINT16)
 lseg_turquoise_analytics_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.analytics.gtp.v24.4.marketdatagroup", ftypes.STRING)
@@ -63,7 +60,6 @@ lseg_turquoise_analytics_gtp_v24_4.fields.session_change_reason = ProtoField.new
 lseg_turquoise_analytics_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.analytics.gtp.v24.4.sourcevenue", ftypes.UINT16)
 lseg_turquoise_analytics_gtp_v24_4.fields.start_time = ProtoField.new("Start Time", "lseg.turquoise.analytics.gtp.v24.4.starttime", ftypes.UINT64)
 lseg_turquoise_analytics_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.analytics.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_turquoise_analytics_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.analytics.gtp.v24.4.systemeventmessage", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.analytics.gtp.v24.4.tickid", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.analytics.gtp.v24.4.timestamp", ftypes.UINT64)
 lseg_turquoise_analytics_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.analytics.gtp.v24.4.tradingstatus", ftypes.STRING)
@@ -73,6 +69,12 @@ lseg_turquoise_analytics_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", 
 lseg_turquoise_analytics_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.analytics.gtp.v24.4.venueinstrumentid", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.turquoise.analytics.gtp.v24.4.vwapbuy", ftypes.DOUBLE)
 lseg_turquoise_analytics_gtp_v24_4.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.analytics.gtp.v24.4.vwapsell", ftypes.DOUBLE)
+
+-- Lseg Turquoise Analytics Gtp 24.4 messages
+lseg_turquoise_analytics_gtp_v24_4.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.analytics.gtp.v24.4.addorderincrementalmessage", ftypes.STRING)
+lseg_turquoise_analytics_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.analytics.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
+lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.analytics.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
+lseg_turquoise_analytics_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.analytics.gtp.v24.4.systemeventmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

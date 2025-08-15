@@ -34,10 +34,8 @@ lseg_turquoise_mifid_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = Proto
 lseg_turquoise_mifid_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.mifid.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x20)
 lseg_turquoise_mifid_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.mifid.gtp.v24.4.eventcode", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.mifid.gtp.v24.4.instrument", ftypes.UINT64)
-lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "lseg.turquoise.mifid.gtp.v24.4.instrumentidentificationcode", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "lseg.turquoise.mifid.gtp.v24.4.instrumentidentificationcodetype", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.mifid.gtp.v24.4.isin", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.turquoise.mifid.gtp.v24.4.length", ftypes.UINT16)
 lseg_turquoise_mifid_gtp_v24_4.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.turquoise.mifid.gtp.v24.4.marketclosingpriceflag", ftypes.STRING)
@@ -48,10 +46,8 @@ lseg_turquoise_mifid_gtp_v24_4.fields.message_count = ProtoField.new("Message Co
 lseg_turquoise_mifid_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid.gtp.v24.4.messageheader", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.mifid.gtp.v24.4.messagelength", ftypes.UINT8)
 lseg_turquoise_mifid_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.mifid.gtp.v24.4.messagetype", ftypes.UINT8)
-lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message = ProtoField.new("Mi Fid Ii Trade Cross Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitradecrossmessage", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.turquoise.mifid.gtp.v24.4.mifidprice", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.turquoise.mifid.gtp.v24.4.mifidquantity", ftypes.STRING)
-lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message = ProtoField.new("Mifid Ii Trade Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitrademessage", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.turquoise.mifid.gtp.v24.4.modificationindicator", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.turquoise.mifid.gtp.v24.4.negotiationindicator", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.mifid.gtp.v24.4.newendtime", ftypes.STRING)
@@ -83,7 +79,6 @@ lseg_turquoise_mifid_gtp_v24_4.fields.session_change_reason = ProtoField.new("Se
 lseg_turquoise_mifid_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.mifid.gtp.v24.4.sourcevenue", ftypes.UINT16)
 lseg_turquoise_mifid_gtp_v24_4.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.turquoise.mifid.gtp.v24.4.specialdividendindicator", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.mifid.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
-lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.mifid.gtp.v24.4.systemeventmessage", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.mifid.gtp.v24.4.tickid", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.mifid.gtp.v24.4.timestamp", ftypes.UINT64)
 lseg_turquoise_mifid_gtp_v24_4.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.mifid.gtp.v24.4.tradequalifier", ftypes.STRING)
@@ -98,6 +93,13 @@ lseg_turquoise_mifid_gtp_v24_4.fields.unused_2 = ProtoField.new("Unused 2", "lse
 lseg_turquoise_mifid_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.mifid.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 lseg_turquoise_mifid_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid.gtp.v24.4.venueinstrumentid", ftypes.STRING)
 lseg_turquoise_mifid_gtp_v24_4.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.mifid.gtp.v24.4.venueofexecution", ftypes.STRING)
+
+-- Lseg Turquoise Mifid Gtp 24.4 messages
+lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
+lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
+lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message = ProtoField.new("Mi Fid Ii Trade Cross Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitradecrossmessage", ftypes.STRING)
+lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message = ProtoField.new("Mifid Ii Trade Message", "lseg.turquoise.mifid.gtp.v24.4.mifidiitrademessage", ftypes.STRING)
+lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.mifid.gtp.v24.4.systemeventmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

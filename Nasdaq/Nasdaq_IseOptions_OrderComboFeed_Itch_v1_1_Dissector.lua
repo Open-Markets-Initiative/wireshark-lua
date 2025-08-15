@@ -26,9 +26,6 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_id = ProtoField.new("A
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_response = ProtoField.new("Auction Response", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionresponse", ftypes.STRING)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctiontype", ftypes.STRING)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.cmta = ProtoField.new("Cmta", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.cmta", ftypes.STRING)
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_auction_message = ProtoField.new("Complex Strategy Auction Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategyauctionmessage", ftypes.STRING)
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategydirectorymessage", ftypes.STRING)
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_message = ProtoField.new("Complex Strategy Order On Book Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategyorderonbookmessage", ftypes.STRING)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.count = ProtoField.new("Count", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.count", ftypes.UINT16)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.current_day = ProtoField.new("Current Day", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.currentday", ftypes.UINT8)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.current_month = ProtoField.new("Current Month", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.currentmonth", ftypes.UINT8)
@@ -71,14 +68,19 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.side = ProtoField.new("Side", 
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.size = ProtoField.new("Size", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.size", ftypes.UINT32)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.source = ProtoField.new("Source", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.source", ftypes.UINT8)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyid", ftypes.UINT32)
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_open_closed_message = ProtoField.new("Strategy Open Closed Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyopenclosedmessage", ftypes.STRING)
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategytradingactionmessage", ftypes.STRING)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategytype", ftypes.STRING)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.subversion", ftypes.UINT8)
-nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.systemeventmessage", ftypes.STRING)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp", ftypes.UINT64)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.version", ftypes.UINT8)
+
+-- Nasdaq IseOptions OrderComboFeed Itch 1.1 messages
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_auction_message = ProtoField.new("Complex Strategy Auction Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategyauctionmessage", ftypes.STRING)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategydirectorymessage", ftypes.STRING)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_message = ProtoField.new("Complex Strategy Order On Book Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategyorderonbookmessage", ftypes.STRING)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_open_closed_message = ProtoField.new("Strategy Open Closed Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategyopenclosedmessage", ftypes.STRING)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategytradingactionmessage", ftypes.STRING)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.systemeventmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

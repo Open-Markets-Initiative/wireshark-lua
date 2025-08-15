@@ -33,7 +33,6 @@ cme_brokertec_ust_sbe_v10_1.fields.maturity_date = ProtoField.new("Maturity Date
 cme_brokertec_ust_sbe_v10_1.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.brokertec.ust.sbe.v10.1.mdentrypx", ftypes.STRING)
 cme_brokertec_ust_sbe_v10_1.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.brokertec.ust.sbe.v10.1.mdentrysize", ftypes.UINT32)
 cme_brokertec_ust_sbe_v10_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.brokertec.ust.sbe.v10.1.mdentrytype", ftypes.STRING)
-cme_brokertec_ust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 cme_brokertec_ust_sbe_v10_1.fields.md_price_level = ProtoField.new("Md Price Level", "cme.brokertec.ust.sbe.v10.1.mdpricelevel", ftypes.UINT8)
 cme_brokertec_ust_sbe_v10_1.fields.md_update_action = ProtoField.new("Md Update Action", "cme.brokertec.ust.sbe.v10.1.mdupdateaction", ftypes.UINT8)
 cme_brokertec_ust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.brokertec.ust.sbe.v10.1.message", ftypes.STRING)
@@ -55,6 +54,9 @@ cme_brokertec_ust_sbe_v10_1.fields.trade_date = ProtoField.new("Trade Date", "cm
 cme_brokertec_ust_sbe_v10_1.fields.trade_volume = ProtoField.new("Trade Volume", "cme.brokertec.ust.sbe.v10.1.tradevolume", ftypes.UINT32)
 cme_brokertec_ust_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.brokertec.ust.sbe.v10.1.transacttime", ftypes.UINT64)
 cme_brokertec_ust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.brokertec.ust.sbe.v10.1.version", ftypes.UINT16)
+
+-- Cme BrokerTec Ust Sbe 10.1 messages
+cme_brokertec_ust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.brokertec.ust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

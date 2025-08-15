@@ -56,7 +56,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.market_order_imbalance_side = Prot
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.market_order_imbalance_volume = ProtoField.new("Market Order Imbalance Volume", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.marketorderimbalancevolume", ftypes.UINT32)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.message_length = ProtoField.new("Message Length", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.messagelength", ftypes.UINT16)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_eligible = ProtoField.new("Moc Eligible", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.moceligible", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_imbalance_message = ProtoField.new("Moc Imbalance Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.mocimbalancemessage", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_length = ProtoField.new("Msg Length", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.msglength", ftypes.UINT16)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.msgtype", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_version = ProtoField.new("Msg Version", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.msgversion", ftypes.UINT8)
@@ -70,7 +69,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.price_variation = ProtoField.new("
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.product_type = ProtoField.new("Product Type", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.producttype", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.protocolname", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.protocolversion", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.quote_message = ProtoField.new("Quote Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.quotemessage", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.resume_trade_time = ProtoField.new("Resume Trade Time", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.resumetradetime", ftypes.UINT32)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.sellbrokernumber", ftypes.UINT16)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_maximum_quantity = ProtoField.new("Sell Maximum Quantity", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.sellmaximumquantity", ftypes.UINT32)
@@ -83,18 +81,22 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.source_id = ProtoField.new("Source
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.startofframe", ftypes.INT8)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_group = ProtoField.new("Stock Group", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.stockgroup", ftypes.UINT8)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_state = ProtoField.new("Stock State", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.stockstate", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.stockstatusmessage", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stream_id = ProtoField.new("Stream Id", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.streamid", ftypes.UINT16)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.symbol = ProtoField.new("Symbol", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.symbol", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.symbolstatusmessage", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.test_symbol = ProtoField.new("Test Symbol", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.testsymbol", ftypes.STRING)
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_cancelled_message = ProtoField.new("Trade Cancelled Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradecancelledmessage", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_date = ProtoField.new("Trade Date", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradedate", ftypes.UINT32)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_number = ProtoField.new("Trade Number", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradenumber", ftypes.UINT32)
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_report_message = ProtoField.new("Trade Report Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradereportmessage", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradetimestamp", ftypes.UINT32)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradingsystemtimestamp", ftypes.UINT64)
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.volume", ftypes.UINT32)
+
+-- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8 messages
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_imbalance_message = ProtoField.new("Moc Imbalance Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.mocimbalancemessage", ftypes.STRING)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.quote_message = ProtoField.new("Quote Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.quotemessage", ftypes.STRING)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_status_message = ProtoField.new("Stock Status Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.stockstatusmessage", ftypes.STRING)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.symbolstatusmessage", ftypes.STRING)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_cancelled_message = ProtoField.new("Trade Cancelled Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradecancelledmessage", ftypes.STRING)
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_report_message = ProtoField.new("Trade Report Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.8.tradereportmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

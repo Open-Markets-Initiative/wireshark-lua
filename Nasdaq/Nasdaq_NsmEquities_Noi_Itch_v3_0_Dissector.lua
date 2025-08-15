@@ -24,7 +24,6 @@ local translate = {}
 nasdaq_nsmequities_noi_itch_v3_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.noi.itch.v3.0.authenticity", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.count = ProtoField.new("Count", "nasdaq.nsmequities.noi.itch.v3.0.count", ftypes.UINT16)
 nasdaq_nsmequities_noi_itch_v3_0.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noi.itch.v3.0.crossprice", ftypes.DOUBLE)
-nasdaq_nsmequities_noi_itch_v3_0.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noi.itch.v3.0.crosstrademessage", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.noi.itch.v3.0.crosstype", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.noi.itch.v3.0.currentreferenceprice", ftypes.DOUBLE)
 nasdaq_nsmequities_noi_itch_v3_0.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nsmequities.noi.itch.v3.0.currenttradingstate", ftypes.STRING)
@@ -40,7 +39,6 @@ nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "n
 nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.nsmequities.noi.itch.v3.0.ipoprice", ftypes.DOUBLE)
 nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.nsmequities.noi.itch.v3.0.ipoquotationreleasequalifier", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.noi.itch.v3.0.ipoquotationreleasetime", ftypes.UINT32)
-nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.noi.itch.v3.0.ipoquotingperiodupdatemessage", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.noi.itch.v3.0.issueclassification", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.noi.itch.v3.0.issuesubtype", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.length = ProtoField.new("Length", "nasdaq.nsmequities.noi.itch.v3.0.length", ftypes.UINT16)
@@ -51,7 +49,6 @@ nasdaq_nsmequities_noi_itch_v3_0.fields.message = ProtoField.new("Message", "nas
 nasdaq_nsmequities_noi_itch_v3_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.noi.itch.v3.0.messageheader", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noi.itch.v3.0.messagetype", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noi.itch.v3.0.nearprice", ftypes.DOUBLE)
-nasdaq_nsmequities_noi_itch_v3_0.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.nsmequities.noi.itch.v3.0.noiimessage", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noi.itch.v3.0.packet", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noi.itch.v3.0.packetheader", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noi.itch.v3.0.pairedshares", ftypes.UINT64)
@@ -59,7 +56,6 @@ nasdaq_nsmequities_noi_itch_v3_0.fields.payload = ProtoField.new("Payload", "nas
 nasdaq_nsmequities_noi_itch_v3_0.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noi.itch.v3.0.pricevariationindicator", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noi.itch.v3.0.reason", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.noi.itch.v3.0.regshoaction", ftypes.STRING)
-nasdaq_nsmequities_noi_itch_v3_0.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "nasdaq.nsmequities.noi.itch.v3.0.regshorestrictionmessage", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noi.itch.v3.0.roundlotsize", ftypes.UINT32)
 nasdaq_nsmequities_noi_itch_v3_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.noi.itch.v3.0.roundlotsonly", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.sequence = ProtoField.new("Sequence", "nasdaq.nsmequities.noi.itch.v3.0.sequence", ftypes.UINT64)
@@ -67,11 +63,17 @@ nasdaq_nsmequities_noi_itch_v3_0.fields.session = ProtoField.new("Session", "nas
 nasdaq_nsmequities_noi_itch_v3_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.noi.itch.v3.0.shares", ftypes.UINT64)
 nasdaq_nsmequities_noi_itch_v3_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.noi.itch.v3.0.shortsalethresholdindicator", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.noi.itch.v3.0.stock", ftypes.STRING)
+nasdaq_nsmequities_noi_itch_v3_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noi.itch.v3.0.timestamp", ftypes.UINT64)
+nasdaq_nsmequities_noi_itch_v3_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noi.itch.v3.0.trackingnumber", ftypes.UINT16)
+
+-- Nasdaq NsmEquities Noi Itch 3.0 messages
+nasdaq_nsmequities_noi_itch_v3_0.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noi.itch.v3.0.crosstrademessage", ftypes.STRING)
+nasdaq_nsmequities_noi_itch_v3_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.noi.itch.v3.0.ipoquotingperiodupdatemessage", ftypes.STRING)
+nasdaq_nsmequities_noi_itch_v3_0.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.nsmequities.noi.itch.v3.0.noiimessage", ftypes.STRING)
+nasdaq_nsmequities_noi_itch_v3_0.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "nasdaq.nsmequities.noi.itch.v3.0.regshorestrictionmessage", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.nsmequities.noi.itch.v3.0.stockdirectorymessage", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.noi.itch.v3.0.stocktradingactionmessage", ftypes.STRING)
 nasdaq_nsmequities_noi_itch_v3_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.noi.itch.v3.0.systemeventmessage", ftypes.STRING)
-nasdaq_nsmequities_noi_itch_v3_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noi.itch.v3.0.timestamp", ftypes.UINT64)
-nasdaq_nsmequities_noi_itch_v3_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noi.itch.v3.0.trackingnumber", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

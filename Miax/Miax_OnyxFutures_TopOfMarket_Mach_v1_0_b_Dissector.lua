@@ -22,8 +22,6 @@ local translate = {}
 
 -- Miax OnyxFutures TopOfMarket Mach 1.0.b Fields
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.application_message = ProtoField.new("Application Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.applicationmessage", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.best_bid_and_offer_message = ProtoField.new("Best Bid And Offer Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.bestbidandoffermessage", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.complex_instrument_definition_message = ProtoField.new("Complex Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.complexinstrumentdefinitionmessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.correction_number = ProtoField.new("Correction Number", "miax.onyxfutures.topofmarket.mach.v1.0.b.correctionnumber", ftypes.UINT8)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.currency = ProtoField.new("Currency", "miax.onyxfutures.topofmarket.mach.v1.0.b.currency", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.data = ProtoField.new("Data", "miax.onyxfutures.topofmarket.mach.v1.0.b.data", ftypes.STRING)
@@ -32,9 +30,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.fields.high_limit_price = ProtoField.ne
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_id = ProtoField.new("Instrument Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentid", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_id_source = ProtoField.new("Instrument Id Source", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentidsource", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg = ProtoField.new("Instrument Leg", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentleg", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message = ProtoField.new("Instrument Trading Status Notification Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumenttradingstatusnotificationmessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_type = ProtoField.new("Instrument Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumenttype", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.lastsalemessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.leg_ratio_and_side = ProtoField.new("Leg Ratio And Side", "miax.onyxfutures.topofmarket.mach.v1.0.b.legratioandside", ftypes.INT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.low_limit_price = ProtoField.new("Low Limit Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.lowlimitprice", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.market_state = ProtoField.new("Market State", "miax.onyxfutures.topofmarket.mach.v1.0.b.marketstate", ftypes.UINT8)
@@ -64,17 +60,14 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.fields.session_number = ProtoField.new(
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_currency = ProtoField.new("Settlement Currency", "miax.onyxfutures.topofmarket.mach.v1.0.b.settlementcurrency", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_price = ProtoField.new("Settlement Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.settlementprice", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.settlement_price_type_calc_method = ProtoField.new("Settlement Price Type Calc Method", "miax.onyxfutures.topofmarket.mach.v1.0.b.settlementpricetypecalcmethod", ftypes.STRING)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.simple_instrument_definition_message = ProtoField.new("Simple Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.simpleinstrumentdefinitionmessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.size = ProtoField.new("Size", "miax.onyxfutures.topofmarket.mach.v1.0.b.size", ftypes.UINT32)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.spread_type = ProtoField.new("Spread Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.spreadtype", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.strategy_id = ProtoField.new("Strategy Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.strategyid", ftypes.UINT32)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_state_message = ProtoField.new("System State Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.systemstatemessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_status = ProtoField.new("System Status", "miax.onyxfutures.topofmarket.mach.v1.0.b.systemstatus", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tick = ProtoField.new("Tick", "miax.onyxfutures.topofmarket.mach.v1.0.b.tick", ftypes.DOUBLE)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.timestamp = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp", ftypes.UINT64)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tom_version = ProtoField.new("Tom Version", "miax.onyxfutures.topofmarket.mach.v1.0.b.tomversion", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.total_volume = ProtoField.new("Total Volume", "miax.onyxfutures.topofmarket.mach.v1.0.b.totalvolume", ftypes.UINT32)
-miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradecancelmessage", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_date = ProtoField.new("Trade Date", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradedate", ftypes.UINT16)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_id = ProtoField.new("Trade Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradeid", ftypes.UINT64)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trading_collar_variation = ProtoField.new("Trading Collar Variation", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradingcollarvariation", ftypes.DOUBLE)
@@ -84,6 +77,15 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset = ProtoField.ne
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset_type = ProtoField.new("Underlying Asset Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.underlyingassettype", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasure", ftypes.STRING)
 miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
+
+-- Miax OnyxFutures TopOfMarket Mach 1.0.b messages
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.best_bid_and_offer_message = ProtoField.new("Best Bid And Offer Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.bestbidandoffermessage", ftypes.STRING)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.complex_instrument_definition_message = ProtoField.new("Complex Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.complexinstrumentdefinitionmessage", ftypes.STRING)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message = ProtoField.new("Instrument Trading Status Notification Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumenttradingstatusnotificationmessage", ftypes.STRING)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.lastsalemessage", ftypes.STRING)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.simple_instrument_definition_message = ProtoField.new("Simple Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.simpleinstrumentdefinitionmessage", ftypes.STRING)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_state_message = ProtoField.new("System State Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.systemstatemessage", ftypes.STRING)
+miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradecancelmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

@@ -30,7 +30,6 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_4 = Proto
 boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "boats.equities.memoirlastsale.sbe.v1.3.correctedtradeprice", ftypes.DOUBLE)
 boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_qty = ProtoField.new("Corrected Trade Qty", "boats.equities.memoirlastsale.sbe.v1.3.correctedtradeqty", ftypes.UINT32)
 boats_equities_memoirlastsale_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "boats.equities.memoirlastsale.sbe.v1.3.headerlength", ftypes.UINT8)
-boats_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "boats.equities.memoirlastsale.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "boats.equities.memoirlastsale.sbe.v1.3.istestsymbol", ftypes.UINT8)
 boats_equities_memoirlastsale_sbe_v1_3.fields.last_price = ProtoField.new("Last Price", "boats.equities.memoirlastsale.sbe.v1.3.lastprice", ftypes.DOUBLE)
 boats_equities_memoirlastsale_sbe_v1_3.fields.message = ProtoField.new("Message", "boats.equities.memoirlastsale.sbe.v1.3.message", ftypes.STRING)
@@ -47,7 +46,6 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.original_trade_qty = ProtoField.ne
 boats_equities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "boats.equities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.padding_1 = ProtoField.new("Padding 1", "boats.equities.memoirlastsale.sbe.v1.3.padding1", ftypes.BYTES)
 boats_equities_memoirlastsale_sbe_v1_3.fields.payload = ProtoField.new("Payload", "boats.equities.memoirlastsale.sbe.v1.3.payload", ftypes.STRING)
-boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "boats.equities.memoirlastsale.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "boats.equities.memoirlastsale.sbe.v1.3.roundlot", ftypes.UINT32)
 boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "boats.equities.memoirlastsale.sbe.v1.3.salecondition1", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_2 = ProtoField.new("Sale Condition 2", "boats.equities.memoirlastsale.sbe.v1.3.salecondition2", ftypes.STRING)
@@ -58,7 +56,6 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe 
 boats_equities_memoirlastsale_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "boats.equities.memoirlastsale.sbe.v1.3.schemaid", ftypes.UINT8)
 boats_equities_memoirlastsale_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "boats.equities.memoirlastsale.sbe.v1.3.securityid", ftypes.UINT16)
 boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "boats.equities.memoirlastsale.sbe.v1.3.securitytradingstatus", ftypes.STRING)
-boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "boats.equities.memoirlastsale.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "boats.equities.memoirlastsale.sbe.v1.3.securitytradingstatusreason", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "boats.equities.memoirlastsale.sbe.v1.3.sequencenumber", ftypes.UINT64)
 boats_equities_memoirlastsale_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "boats.equities.memoirlastsale.sbe.v1.3.sequencedmessage", ftypes.STRING)
@@ -69,15 +66,20 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", 
 boats_equities_memoirlastsale_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "boats.equities.memoirlastsale.sbe.v1.3.symbolsfx", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "boats.equities.memoirlastsale.sbe.v1.3.templateid", ftypes.UINT8)
 boats_equities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "boats.equities.memoirlastsale.sbe.v1.3.timestamp", ftypes.UINT64)
-boats_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "boats.equities.memoirlastsale.sbe.v1.3.tradecancelmessage", ftypes.STRING)
-boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "boats.equities.memoirlastsale.sbe.v1.3.tradecorrectmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "boats.equities.memoirlastsale.sbe.v1.3.tradeid", ftypes.UINT64)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_price = ProtoField.new("Trade Price", "boats.equities.memoirlastsale.sbe.v1.3.tradeprice", ftypes.DOUBLE)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new("Trade Qty", "boats.equities.memoirlastsale.sbe.v1.3.tradeqty", ftypes.UINT32)
-boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "boats.equities.memoirlastsale.sbe.v1.3.tradereportmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "boats.equities.memoirlastsale.sbe.v1.3.tradingsession", ftypes.STRING)
-boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "boats.equities.memoirlastsale.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.version = ProtoField.new("Version", "boats.equities.memoirlastsale.sbe.v1.3.version", ftypes.UINT16)
+
+-- Boats Equities MemoirLastSale Sbe 1.3 messages
+boats_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "boats.equities.memoirlastsale.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
+boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "boats.equities.memoirlastsale.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
+boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "boats.equities.memoirlastsale.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
+boats_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "boats.equities.memoirlastsale.sbe.v1.3.tradecancelmessage", ftypes.STRING)
+boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "boats.equities.memoirlastsale.sbe.v1.3.tradecorrectmessage", ftypes.STRING)
+boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "boats.equities.memoirlastsale.sbe.v1.3.tradereportmessage", ftypes.STRING)
+boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "boats.equities.memoirlastsale.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

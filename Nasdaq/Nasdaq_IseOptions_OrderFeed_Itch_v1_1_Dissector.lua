@@ -23,7 +23,6 @@ local translate = {}
 -- Nasdaq IseOptions OrderFeed Itch 1.1 Fields
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_event = ProtoField.new("Auction Event", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionevent", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionid", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message = ProtoField.new("Auction Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionmessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response = ProtoField.new("Auction Response", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionresponse", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.closing_only = ProtoField.new("Closing Only", "nasdaq.iseoptions.orderfeed.itch.v1.1.closingonly", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.cmta = ProtoField.new("Cmta", "nasdaq.iseoptions.orderfeed.itch.v1.1.cmta", ftypes.STRING)
@@ -49,13 +48,10 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type = ProtoField.new("Mess
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv = ProtoField.new("Mpv", "nasdaq.iseoptions.orderfeed.itch.v1.1.mpv", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.number_of_responses = ProtoField.new("Number Of Responses", "nasdaq.iseoptions.orderfeed.itch.v1.1.numberofresponses", ftypes.UINT8)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.open_state = ProtoField.new("Open State", "nasdaq.iseoptions.orderfeed.itch.v1.1.openstate", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message = ProtoField.new("Opening Imbalance Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.openingimbalancemessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.optionclosingtype", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiondirectorymessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_id = ProtoField.new("Option Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.optionid", ftypes.UINT32)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiontype", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_capacity = ProtoField.new("Order Capacity", "nasdaq.iseoptions.orderfeed.itch.v1.1.ordercapacity", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message = ProtoField.new("Order On Book Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.orderonbookmessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_type = ProtoField.new("Order Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.ordertype", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.owner_id = ProtoField.new("Owner Id", "nasdaq.iseoptions.orderfeed.itch.v1.1.ownerid", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.orderfeed.itch.v1.1.packet", ftypes.STRING)
@@ -65,7 +61,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.fields.payload = ProtoField.new("Payload",
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.price", ftypes.DOUBLE)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.responseprice", ftypes.DOUBLE)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.iseoptions.orderfeed.itch.v1.1.responsesize", ftypes.UINT32)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.securityopenclosedmessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.securitysymbol", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.sequence = ProtoField.new("Sequence", "nasdaq.iseoptions.orderfeed.itch.v1.1.sequence", ftypes.UINT64)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.orderfeed.itch.v1.1.session", ftypes.STRING)
@@ -74,13 +69,20 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size = ProtoField.new("Size", "nasd
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source = ProtoField.new("Source", "nasdaq.iseoptions.orderfeed.itch.v1.1.source", ftypes.UINT8)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.strikeprice", ftypes.DOUBLE)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion = ProtoField.new("Subversion", "nasdaq.iseoptions.orderfeed.itch.v1.1.subversion", ftypes.UINT8)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.systemeventmessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.orderfeed.itch.v1.1.timestamp", ftypes.UINT64)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradable", ftypes.STRING)
-nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingactionmessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type = ProtoField.new("Trading Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingtype", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.orderfeed.itch.v1.1.version", ftypes.UINT8)
+
+-- Nasdaq IseOptions OrderFeed Itch 1.1 messages
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_message = ProtoField.new("Auction Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionmessage", ftypes.STRING)
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message = ProtoField.new("Opening Imbalance Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.openingimbalancemessage", ftypes.STRING)
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message = ProtoField.new("Option Directory Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.optiondirectorymessage", ftypes.STRING)
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message = ProtoField.new("Order On Book Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.orderonbookmessage", ftypes.STRING)
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.securityopenclosedmessage", ftypes.STRING)
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.systemeventmessage", ftypes.STRING)
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingactionmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
