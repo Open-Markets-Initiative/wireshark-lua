@@ -21,21 +21,15 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Cboe C1 Options AuctionFeed Pitch 1.1.1 Fields
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionendoffset", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionid", ftypes.UINT64)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionnotificationmessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctiononlyprice", ftypes.DOUBLE)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionsummarymessage", ftypes.STRING)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctiontrademessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_type = ProtoField.new("Auction Type", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctiontype", ftypes.STRING)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionupdatemessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.buy_contracts = ProtoField.new("Buy Contracts", "cboe.c1.options.auctionfeed.pitch.v1.1.1.buycontracts", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.client_id = ProtoField.new("Client Id", "cboe.c1.options.auctionfeed.pitch.v1.1.1.clientid", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.contracts = ProtoField.new("Contracts", "cboe.c1.options.auctionfeed.pitch.v1.1.1.contracts", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.count = ProtoField.new("Count", "cboe.c1.options.auctionfeed.pitch.v1.1.1.count", ftypes.UINT8)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1.options.auctionfeed.pitch.v1.1.1.customerindicator", ftypes.STRING)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.endofsessionmessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1.options.auctionfeed.pitch.v1.1.1.executionid", ftypes.UINT64)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1.options.auctionfeed.pitch.v1.1.1.feedsymbol", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c1.options.auctionfeed.pitch.v1.1.1.indicativeprice", ftypes.DOUBLE)
@@ -61,15 +55,23 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.side = ProtoField.new("Side", "c
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol = ProtoField.new("Symbol", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbol", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbolcondition", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbolextended", ftypes.STRING)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbolmappingmessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time = ProtoField.new("Time", "cboe.c1.options.auctionfeed.pitch.v1.1.1.time", ftypes.UINT32)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time_message = ProtoField.new("Time Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.timemessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time_offset = ProtoField.new("Time Offset", "cboe.c1.options.auctionfeed.pitch.v1.1.1.timeoffset", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1.options.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.underlying = ProtoField.new("Underlying", "cboe.c1.options.auctionfeed.pitch.v1.1.1.underlying", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.unit = ProtoField.new("Unit", "cboe.c1.options.auctionfeed.pitch.v1.1.1.unit", ftypes.UINT8)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.unitclearmessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.width_type = ProtoField.new("Width Type", "cboe.c1.options.auctionfeed.pitch.v1.1.1.widthtype", ftypes.STRING)
+
+-- Cboe C1 Options AuctionFeed Pitch 1.1.1 messages
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionnotificationmessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionsummarymessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctiontrademessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.auctionupdatemessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.endofsessionmessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbolmappingmessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time_message = ProtoField.new("Time Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.timemessage", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.unitclearmessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.widthupdatemessage", ftypes.STRING)
 
 -----------------------------------------------------------------------

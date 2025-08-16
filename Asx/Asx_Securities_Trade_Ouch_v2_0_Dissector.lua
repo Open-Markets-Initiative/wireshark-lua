@@ -21,8 +21,6 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Asx Securities Trade Ouch 2.0 Fields
-asx_securities_trade_ouch_v2_0.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.securities.trade.ouch.v2.0.cancelbyorderidmessage", ftypes.STRING)
-asx_securities_trade_ouch_v2_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.securities.trade.ouch.v2.0.cancelordermessage", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.securities.trade.ouch.v2.0.capacityofparticipant", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.securities.trade.ouch.v2.0.clearingparticipant", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.client_account = ProtoField.new("Client Account", "asx.securities.trade.ouch.v2.0.clientaccount", ftypes.STRING)
@@ -31,7 +29,6 @@ asx_securities_trade_ouch_v2_0.fields.customer_info = ProtoField.new("Customer I
 asx_securities_trade_ouch_v2_0.fields.deal_source = ProtoField.new("Deal Source", "asx.securities.trade.ouch.v2.0.dealsource", ftypes.UINT16)
 asx_securities_trade_ouch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "asx.securities.trade.ouch.v2.0.debugpacket", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.directed_wholesale = ProtoField.new("Directed Wholesale", "asx.securities.trade.ouch.v2.0.directedwholesale", ftypes.STRING)
-asx_securities_trade_ouch_v2_0.fields.enter_order_message = ProtoField.new("Enter Order Message", "asx.securities.trade.ouch.v2.0.enterordermessage", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.exchange_info = ProtoField.new("Exchange Info", "asx.securities.trade.ouch.v2.0.exchangeinfo", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.execution_venue = ProtoField.new("Execution Venue", "asx.securities.trade.ouch.v2.0.executionvenue", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.existing_order_token = ProtoField.new("Existing Order Token", "asx.securities.trade.ouch.v2.0.existingordertoken", ftypes.STRING)
@@ -44,14 +41,9 @@ asx_securities_trade_ouch_v2_0.fields.match_attributes = ProtoField.new("Match A
 asx_securities_trade_ouch_v2_0.fields.match_id = ProtoField.new("Match Id", "asx.securities.trade.ouch.v2.0.matchid", ftypes.BYTES)
 asx_securities_trade_ouch_v2_0.fields.minimum_acceptable_quantity = ProtoField.new("Minimum Acceptable Quantity", "asx.securities.trade.ouch.v2.0.minimumacceptablequantity", ftypes.UINT64)
 asx_securities_trade_ouch_v2_0.fields.open_close = ProtoField.new("Open Close", "asx.securities.trade.ouch.v2.0.openclose", ftypes.UINT8)
-asx_securities_trade_ouch_v2_0.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "asx.securities.trade.ouch.v2.0.orderacceptedmessage", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.order_book_id = ProtoField.new("Order Book Id", "asx.securities.trade.ouch.v2.0.orderbookid", ftypes.UINT32)
-asx_securities_trade_ouch_v2_0.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "asx.securities.trade.ouch.v2.0.ordercancelledmessage", ftypes.STRING)
-asx_securities_trade_ouch_v2_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "asx.securities.trade.ouch.v2.0.orderexecutedmessage", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.order_id = ProtoField.new("Order Id", "asx.securities.trade.ouch.v2.0.orderid", ftypes.UINT64)
 asx_securities_trade_ouch_v2_0.fields.order_origin = ProtoField.new("Order Origin", "asx.securities.trade.ouch.v2.0.orderorigin", ftypes.STRING)
-asx_securities_trade_ouch_v2_0.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "asx.securities.trade.ouch.v2.0.orderrejectedmessage", ftypes.STRING)
-asx_securities_trade_ouch_v2_0.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.securities.trade.ouch.v2.0.orderreplacedmessage", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.order_state = ProtoField.new("Order State", "asx.securities.trade.ouch.v2.0.orderstate", ftypes.UINT8)
 asx_securities_trade_ouch_v2_0.fields.order_token = ProtoField.new("Order Token", "asx.securities.trade.ouch.v2.0.ordertoken", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.ouch_order_type = ProtoField.new("Ouch Order Type", "asx.securities.trade.ouch.v2.0.ouchordertype", ftypes.STRING)
@@ -67,7 +59,6 @@ asx_securities_trade_ouch_v2_0.fields.quantity = ProtoField.new("Quantity", "asx
 asx_securities_trade_ouch_v2_0.fields.reason = ProtoField.new("Reason", "asx.securities.trade.ouch.v2.0.reason", ftypes.UINT8)
 asx_securities_trade_ouch_v2_0.fields.reject_code = ProtoField.new("Reject Code", "asx.securities.trade.ouch.v2.0.rejectcode", ftypes.UINT32)
 asx_securities_trade_ouch_v2_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "asx.securities.trade.ouch.v2.0.rejectreasoncode", ftypes.STRING)
-asx_securities_trade_ouch_v2_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.securities.trade.ouch.v2.0.replaceordermessage", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "asx.securities.trade.ouch.v2.0.replacementordertoken", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.securities.trade.ouch.v2.0.requestedsequencenumber", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.requested_session = ProtoField.new("Requested Session", "asx.securities.trade.ouch.v2.0.requestedsession", ftypes.STRING)
@@ -88,6 +79,17 @@ asx_securities_trade_ouch_v2_0.fields.unsequenced_data_packet = ProtoField.new("
 asx_securities_trade_ouch_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "asx.securities.trade.ouch.v2.0.unsequencedmessage", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.securities.trade.ouch.v2.0.unsequencedmessagetype", ftypes.STRING)
 asx_securities_trade_ouch_v2_0.fields.username = ProtoField.new("Username", "asx.securities.trade.ouch.v2.0.username", ftypes.STRING)
+
+-- Asx Securities Trade Ouch 2.0 messages
+asx_securities_trade_ouch_v2_0.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.securities.trade.ouch.v2.0.cancelbyorderidmessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.securities.trade.ouch.v2.0.cancelordermessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.enter_order_message = ProtoField.new("Enter Order Message", "asx.securities.trade.ouch.v2.0.enterordermessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "asx.securities.trade.ouch.v2.0.orderacceptedmessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "asx.securities.trade.ouch.v2.0.ordercancelledmessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "asx.securities.trade.ouch.v2.0.orderexecutedmessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "asx.securities.trade.ouch.v2.0.orderrejectedmessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "asx.securities.trade.ouch.v2.0.orderreplacedmessage", ftypes.STRING)
+asx_securities_trade_ouch_v2_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.securities.trade.ouch.v2.0.replaceordermessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

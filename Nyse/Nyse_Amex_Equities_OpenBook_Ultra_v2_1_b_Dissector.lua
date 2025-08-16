@@ -23,10 +23,8 @@ local verify = {}
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty = ProtoField.new("Chg Qty", "nyse.amex.equities.openbook.ultra.v2.1.b.chgqty", ftypes.INT32)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_price_point = ProtoField.new("Delta Price Point", "nyse.amex.equities.openbook.ultra.v2.1.b.deltapricepoint", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size = ProtoField.new("Delta Size", "nyse.amex.equities.openbook.ultra.v2.1.b.deltasize", ftypes.INT16)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.deltaupdatemessage", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_messages = ProtoField.new("Delta Update Messages", "nyse.amex.equities.openbook.ultra.v2.1.b.deltaupdatemessages", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_price_point = ProtoField.new("Full Price Point", "nyse.amex.equities.openbook.ultra.v2.1.b.fullpricepoint", ftypes.STRING)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.fullupdatemessage", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_messages = ProtoField.new("Full Update Messages", "nyse.amex.equities.openbook.ultra.v2.1.b.fullupdatemessages", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag = ProtoField.new("Link Flag", "nyse.amex.equities.openbook.ultra.v2.1.b.linkflag", ftypes.UINT8)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1 = ProtoField.new("Link Id 1", "nyse.amex.equities.openbook.ultra.v2.1.b.linkid1", ftypes.INT32)
@@ -49,7 +47,6 @@ nyse_amex_equities_openbook_ultra_v2_1_b.fields.reason_code = ProtoField.new("Re
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amex.equities.openbook.ultra.v2.1.b.reserved1", ftypes.BYTES)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag = ProtoField.new("Retransmission Flag", "nyse.amex.equities.openbook.ultra.v2.1.b.retransmissionflag", ftypes.UINT8)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumber", ftypes.UINT32)
-nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumberresetmessage", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.side = ProtoField.new("Side", "nyse.amex.equities.openbook.ultra.v2.1.b.side", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num = ProtoField.new("Source Seq Num", "nyse.amex.equities.openbook.ultra.v2.1.b.sourceseqnum", ftypes.INT32)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id = ProtoField.new("Source Session Id", "nyse.amex.equities.openbook.ultra.v2.1.b.sourcesessionid", ftypes.INT8)
@@ -62,6 +59,11 @@ nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp = ProtoField.new("Time
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status = ProtoField.new("Trading Status", "nyse.amex.equities.openbook.ultra.v2.1.b.tradingstatus", ftypes.STRING)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size = ProtoField.new("Update Size", "nyse.amex.equities.openbook.ultra.v2.1.b.updatesize", ftypes.INT16)
 nyse_amex_equities_openbook_ultra_v2_1_b.fields.volume = ProtoField.new("Volume", "nyse.amex.equities.openbook.ultra.v2.1.b.volume", ftypes.INT32)
+
+-- Nyse Amex Equities OpenBook Ultra 2.1.b messages
+nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.deltaupdatemessage", ftypes.STRING)
+nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.amex.equities.openbook.ultra.v2.1.b.fullupdatemessage", ftypes.STRING)
+nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amex.equities.openbook.ultra.v2.1.b.sequencenumberresetmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

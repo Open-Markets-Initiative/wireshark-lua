@@ -31,7 +31,6 @@ siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", 
 siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v1.0.blockpadbyte", ftypes.UINT8)
 siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v1.0.blocksequencenumber", ftypes.UINT32)
 siac_cqs_snapshot_cta_v1_0.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v1.0.blocksize", ftypes.UINT16)
-siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v1.0.consolidatedsnapshotmessage", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.delivery_flag = ProtoField.new("Delivery Flag", "siac.cqs.snapshot.cta.v1.0.deliveryflag", ftypes.UINT8)
 siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.snapshot.cta.v1.0.financialstatusindicator", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.finra_bbo_luld_indicator = ProtoField.new("Finra Bbo Luld Indicator", "siac.cqs.snapshot.cta.v1.0.finrabboluldindicator", ftypes.STRING)
@@ -43,18 +42,15 @@ siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_market_maker_id = ProtoField.
 siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price = ProtoField.new("Finra Best Offer Price", "siac.cqs.snapshot.cta.v1.0.finrabestofferprice", ftypes.DOUBLE)
 siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_quote_condition = ProtoField.new("Finra Best Offer Quote Condition", "siac.cqs.snapshot.cta.v1.0.finrabestofferquotecondition", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_size = ProtoField.new("Finra Best Offer Size", "siac.cqs.snapshot.cta.v1.0.finrabestoffersize", ftypes.UINT32)
-siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message = ProtoField.new("Finra Snapshot Message", "siac.cqs.snapshot.cta.v1.0.finrasnapshotmessage", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.future = ProtoField.new("Future", "siac.cqs.snapshot.cta.v1.0.future", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cqs.snapshot.cta.v1.0.haltreason", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.high_indication_price = ProtoField.new("High Indication Price", "siac.cqs.snapshot.cta.v1.0.highindicationprice", ftypes.DOUBLE)
 siac_cqs_snapshot_cta_v1_0.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.snapshot.cta.v1.0.instrumenttype", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "siac.cqs.snapshot.cta.v1.0.lastseqnum", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.snapshot.cta.v1.0.lineintegritymessage", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.low_indication_price = ProtoField.new("Low Indication Price", "siac.cqs.snapshot.cta.v1.0.lowindicationprice", ftypes.DOUBLE)
 siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band = ProtoField.new("Lower Limit Price Band", "siac.cqs.snapshot.cta.v1.0.lowerlimitpriceband", ftypes.DOUBLE)
 siac_cqs_snapshot_cta_v1_0.fields.luld_indicator = ProtoField.new("Luld Indicator", "siac.cqs.snapshot.cta.v1.0.luldindicator", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.snapshot.cta.v1.0.marketcondition", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Snapshot Message", "siac.cqs.snapshot.cta.v1.0.marketwidecircuitbreakerdeclinelevelstatussnapshotmessage", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v1.0.message", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.message_category = ProtoField.new("Message Category", "siac.cqs.snapshot.cta.v1.0.messagecategory", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.message_header = ProtoField.new("Message Header", "siac.cqs.snapshot.cta.v1.0.messageheader", ftypes.STRING)
@@ -76,7 +72,6 @@ siac_cqs_snapshot_cta_v1_0.fields.number_of_extensions = ProtoField.new("Number 
 siac_cqs_snapshot_cta_v1_0.fields.offer_price = ProtoField.new("Offer Price", "siac.cqs.snapshot.cta.v1.0.offerprice", ftypes.DOUBLE)
 siac_cqs_snapshot_cta_v1_0.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v1.0.packet", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.snapshot.cta.v1.0.participantid", ftypes.STRING)
-siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message = ProtoField.new("Participant Snapshot Message", "siac.cqs.snapshot.cta.v1.0.participantsnapshotmessage", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.payload = ProtoField.new("Payload", "siac.cqs.snapshot.cta.v1.0.payload", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.snapshot.cta.v1.0.primarylistingmarketparticipantid", ftypes.STRING)
 siac_cqs_snapshot_cta_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.snapshot.cta.v1.0.quotecondition", ftypes.STRING)
@@ -93,6 +88,13 @@ siac_cqs_snapshot_cta_v1_0.fields.snapshot_payload = ProtoField.new("Snapshot Pa
 siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover = ProtoField.new("Tot Pub Seq Rollover", "siac.cqs.snapshot.cta.v1.0.totpubseqrollover", ftypes.UINT8)
 siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v1.0.upperlimitpriceband", ftypes.DOUBLE)
 siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8)
+
+-- Siac Cqs Snapshot Cta 1.0 messages
+siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v1.0.consolidatedsnapshotmessage", ftypes.STRING)
+siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message = ProtoField.new("Finra Snapshot Message", "siac.cqs.snapshot.cta.v1.0.finrasnapshotmessage", ftypes.STRING)
+siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.snapshot.cta.v1.0.lineintegritymessage", ftypes.STRING)
+siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Snapshot Message", "siac.cqs.snapshot.cta.v1.0.marketwidecircuitbreakerdeclinelevelstatussnapshotmessage", ftypes.STRING)
+siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message = ProtoField.new("Participant Snapshot Message", "siac.cqs.snapshot.cta.v1.0.participantsnapshotmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

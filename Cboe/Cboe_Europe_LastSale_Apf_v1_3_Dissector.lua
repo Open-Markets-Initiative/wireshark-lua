@@ -27,7 +27,6 @@ cboe_europe_lastsale_apf_v1_3.fields.debug_packet = ProtoField.new("Debug Packet
 cboe_europe_lastsale_apf_v1_3.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "cboe.europe.lastsale.apf.v1.3.duplicativeindicator", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.europe.lastsale.apf.v1.3.executedshares", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.europe.lastsale.apf.v1.3.executionvenue", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_3.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.europe.lastsale.apf.v1.3.lastsaleeuropemessage", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.europe.lastsale.apf.v1.3.loginacceptedpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.europe.lastsale.apf.v1.3.loginrejectedpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.europe.lastsale.apf.v1.3.loginrequestpacket", ftypes.STRING)
@@ -61,6 +60,9 @@ cboe_europe_lastsale_apf_v1_3.fields.trading_date_time = ProtoField.new("Trading
 cboe_europe_lastsale_apf_v1_3.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.europe.lastsale.apf.v1.3.transactioncategory", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.europe.lastsale.apf.v1.3.unsequenceddatapacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_3.fields.username = ProtoField.new("Username", "cboe.europe.lastsale.apf.v1.3.username", ftypes.STRING)
+
+-- Cboe Europe LastSale Apf 1.3 messages
+cboe_europe_lastsale_apf_v1_3.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.europe.lastsale.apf.v1.3.lastsaleeuropemessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

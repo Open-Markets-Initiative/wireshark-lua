@@ -28,7 +28,6 @@ cboe_options_marketlevel2_csm_v1_0_4.fields.currency_code_text = ProtoField.new(
 cboe_options_marketlevel2_csm_v1_0_4.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.marketlevel2.csm.v1.0.4.exercisestyle", ftypes.UINT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.first_msg_seq_num = ProtoField.new("First Msg Seq Num", "cboe.options.marketlevel2.csm.v1.0.4.firstmsgseqnum", ftypes.UINT32)
 cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry = ProtoField.new("Incremental Refresh Md Entry", "cboe.options.marketlevel2.csm.v1.0.4.incrementalrefreshmdentry", ftypes.STRING)
-cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.options.marketlevel2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.marketlevel2.csm.v1.0.4.legratioqty", ftypes.UINT32)
 cboe_options_marketlevel2_csm_v1_0_4.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.marketlevel2.csm.v1.0.4.legsecurityid", ftypes.UINT32)
 cboe_options_marketlevel2_csm_v1_0_4.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.marketlevel2.csm.v1.0.4.legside", ftypes.STRING)
@@ -74,17 +73,14 @@ cboe_options_marketlevel2_csm_v1_0_4.fields.put_or_call = ProtoField.new("Put Or
 cboe_options_marketlevel2_csm_v1_0_4.fields.refresh_indicator = ProtoField.new("Refresh Indicator", "cboe.options.marketlevel2.csm.v1.0.4.refreshindicator", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.rpt_seq = ProtoField.new("Rpt Seq", "cboe.options.marketlevel2.csm.v1.0.4.rptseq", ftypes.UINT32)
 cboe_options_marketlevel2_csm_v1_0_4.fields.security_definition_leg = ProtoField.new("Security Definition Leg", "cboe.options.marketlevel2.csm.v1.0.4.securitydefinitionleg", ftypes.STRING)
-cboe_options_marketlevel2_csm_v1_0_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.options.marketlevel2.csm.v1.0.4.securitydefinitionmessage", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.options.marketlevel2.csm.v1.0.4.securityexchange", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.security_id = ProtoField.new("Security Id", "cboe.options.marketlevel2.csm.v1.0.4.securityid", ftypes.UINT32)
-cboe_options_marketlevel2_csm_v1_0_4.fields.security_status_message = ProtoField.new("Security Status Message", "cboe.options.marketlevel2.csm.v1.0.4.securitystatusmessage", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.security_trading_status = ProtoField.new("Security Trading Status", "cboe.options.marketlevel2.csm.v1.0.4.securitytradingstatus", ftypes.UINT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.security_type = ProtoField.new("Security Type", "cboe.options.marketlevel2.csm.v1.0.4.securitytype", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.security_type_length = ProtoField.new("Security Type Length", "cboe.options.marketlevel2.csm.v1.0.4.securitytypelength", ftypes.UINT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.security_type_text = ProtoField.new("Security Type Text", "cboe.options.marketlevel2.csm.v1.0.4.securitytypetext", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.sending_time = ProtoField.new("Sending Time", "cboe.options.marketlevel2.csm.v1.0.4.sendingtime", ftypes.UINT64)
 cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry = ProtoField.new("Snapshot Full Refresh Md Entry", "cboe.options.marketlevel2.csm.v1.0.4.snapshotfullrefreshmdentry", ftypes.STRING)
-cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_message = ProtoField.new("Snapshot Full Refresh Message", "cboe.options.marketlevel2.csm.v1.0.4.snapshotfullrefreshmessage", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.strike_price = ProtoField.new("Strike Price", "cboe.options.marketlevel2.csm.v1.0.4.strikeprice", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.strike_price_exponent = ProtoField.new("Strike Price Exponent", "cboe.options.marketlevel2.csm.v1.0.4.strikepriceexponent", ftypes.INT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.strike_price_mantissa = ProtoField.new("Strike Price Mantissa", "cboe.options.marketlevel2.csm.v1.0.4.strikepricemantissa", ftypes.INT32)
@@ -102,6 +98,12 @@ cboe_options_marketlevel2_csm_v1_0_4.fields.underlying_type = ProtoField.new("Un
 cboe_options_marketlevel2_csm_v1_0_4.fields.underlying_type_length = ProtoField.new("Underlying Type Length", "cboe.options.marketlevel2.csm.v1.0.4.underlyingtypelength", ftypes.UINT8)
 cboe_options_marketlevel2_csm_v1_0_4.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.options.marketlevel2.csm.v1.0.4.underlyingtypetext", ftypes.STRING)
 cboe_options_marketlevel2_csm_v1_0_4.fields.version = ProtoField.new("Version", "cboe.options.marketlevel2.csm.v1.0.4.version", ftypes.UINT8)
+
+-- Cboe Options MarketLevel2 Csm 1.0.4 messages
+cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.options.marketlevel2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
+cboe_options_marketlevel2_csm_v1_0_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.options.marketlevel2.csm.v1.0.4.securitydefinitionmessage", ftypes.STRING)
+cboe_options_marketlevel2_csm_v1_0_4.fields.security_status_message = ProtoField.new("Security Status Message", "cboe.options.marketlevel2.csm.v1.0.4.securitystatusmessage", ftypes.STRING)
+cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_message = ProtoField.new("Snapshot Full Refresh Message", "cboe.options.marketlevel2.csm.v1.0.4.snapshotfullrefreshmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

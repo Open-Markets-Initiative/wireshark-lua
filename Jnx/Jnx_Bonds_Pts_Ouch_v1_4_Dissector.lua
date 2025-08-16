@@ -22,7 +22,6 @@ local translate = {}
 
 -- Jnx Bonds Pts Ouch 1.4 Fields
 jnx_bonds_pts_ouch_v1_4.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.bonds.pts.ouch.v1.4.buysellindicator", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.bonds.pts.ouch.v1.4.cancelordermessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.capacity = ProtoField.new("Capacity", "jnx.bonds.pts.ouch.v1.4.capacity", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "jnx.bonds.pts.ouch.v1.4.cashmargintype", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.client_reference = ProtoField.new("Client Reference", "jnx.bonds.pts.ouch.v1.4.clientreference", ftypes.STRING)
@@ -30,7 +29,6 @@ jnx_bonds_pts_ouch_v1_4.fields.counter_party = ProtoField.new("Counter Party", "
 jnx_bonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.bonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "jnx.bonds.pts.ouch.v1.4.decrementquantity", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.display = ProtoField.new("Display", "jnx.bonds.pts.ouch.v1.4.display", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.bonds.pts.ouch.v1.4.enterordermessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.ouch.v1.4.executedquantity", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.execution_price = ProtoField.new("Execution Price", "jnx.bonds.pts.ouch.v1.4.executionprice", ftypes.DOUBLE)
 jnx_bonds_pts_ouch_v1_4.fields.existing_order_token = ProtoField.new("Existing Order Token", "jnx.bonds.pts.ouch.v1.4.existingordertoken", ftypes.UINT32)
@@ -42,16 +40,10 @@ jnx_bonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rej
 jnx_bonds_pts_ouch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.bonds.pts.ouch.v1.4.loginrequestpacket", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.match_number = ProtoField.new("Match Number", "jnx.bonds.pts.ouch.v1.4.matchnumber", ftypes.UINT64)
 jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "jnx.bonds.pts.ouch.v1.4.minimumquantity", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.bonds.pts.ouch.v1.4.orderacceptedmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_aiq_canceled_message = ProtoField.new("Order Aiq Canceled Message", "jnx.bonds.pts.ouch.v1.4.orderaiqcanceledmessage", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "jnx.bonds.pts.ouch.v1.4.ordercanceledmessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason = ProtoField.new("Order Canceled Reason", "jnx.bonds.pts.ouch.v1.4.ordercanceledreason", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.order_classification = ProtoField.new("Order Classification", "jnx.bonds.pts.ouch.v1.4.orderclassification", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_executed_with_counter_party_message = ProtoField.new("Order Executed With Counter Party Message", "jnx.bonds.pts.ouch.v1.4.orderexecutedwithcounterpartymessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.order_number = ProtoField.new("Order Number", "jnx.bonds.pts.ouch.v1.4.ordernumber", ftypes.UINT64)
-jnx_bonds_pts_ouch_v1_4.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "jnx.bonds.pts.ouch.v1.4.orderrejectedmessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.order_rejected_reason = ProtoField.new("Order Rejected Reason", "jnx.bonds.pts.ouch.v1.4.orderrejectedreason", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.bonds.pts.ouch.v1.4.orderreplacedmessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.order_state = ProtoField.new("Order State", "jnx.bonds.pts.ouch.v1.4.orderstate", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.order_token = ProtoField.new("Order Token", "jnx.bonds.pts.ouch.v1.4.ordertoken", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.bonds.pts.ouch.v1.4.orderbookid", ftypes.UINT32)
@@ -66,7 +58,6 @@ jnx_bonds_pts_ouch_v1_4.fields.price = ProtoField.new("Price", "jnx.bonds.pts.ou
 jnx_bonds_pts_ouch_v1_4.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.ouch.v1.4.quantity", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.bonds.pts.ouch.v1.4.quantitypreventedfromtrading", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.bonds.pts.ouch.v1.4.rejectreasoncode", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.bonds.pts.ouch.v1.4.replaceordermessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jnx.bonds.pts.ouch.v1.4.replacementordertoken", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.bonds.pts.ouch.v1.4.requestedsequencenumber", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.requested_session = ProtoField.new("Requested Session", "jnx.bonds.pts.ouch.v1.4.requestedsession", ftypes.STRING)
@@ -77,7 +68,6 @@ jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequence
 jnx_bonds_pts_ouch_v1_4.fields.session = ProtoField.new("Session", "jnx.bonds.pts.ouch.v1.4.session", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.bonds.pts.ouch.v1.4.soupbintcppacket", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.system_event = ProtoField.new("System Event", "jnx.bonds.pts.ouch.v1.4.systemevent", ftypes.STRING)
-jnx_bonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.bonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.text = ProtoField.new("Text", "jnx.bonds.pts.ouch.v1.4.text", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.time_in_force = ProtoField.new("Time In Force", "jnx.bonds.pts.ouch.v1.4.timeinforce", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.timestamp = ProtoField.new("Timestamp", "jnx.bonds.pts.ouch.v1.4.timestamp", ftypes.UINT64)
@@ -85,6 +75,18 @@ jnx_bonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unseque
 jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.bonds.pts.ouch.v1.4.unsequencedmessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.bonds.pts.ouch.v1.4.unsequencedmessagetype", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.username = ProtoField.new("Username", "jnx.bonds.pts.ouch.v1.4.username", ftypes.STRING)
+
+-- Jnx Bonds Pts Ouch 1.4 messages
+jnx_bonds_pts_ouch_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.bonds.pts.ouch.v1.4.cancelordermessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.bonds.pts.ouch.v1.4.enterordermessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.bonds.pts.ouch.v1.4.orderacceptedmessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.order_aiq_canceled_message = ProtoField.new("Order Aiq Canceled Message", "jnx.bonds.pts.ouch.v1.4.orderaiqcanceledmessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "jnx.bonds.pts.ouch.v1.4.ordercanceledmessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.order_executed_with_counter_party_message = ProtoField.new("Order Executed With Counter Party Message", "jnx.bonds.pts.ouch.v1.4.orderexecutedwithcounterpartymessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "jnx.bonds.pts.ouch.v1.4.orderrejectedmessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.bonds.pts.ouch.v1.4.orderreplacedmessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.bonds.pts.ouch.v1.4.replaceordermessage", ftypes.STRING)
+jnx_bonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.bonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

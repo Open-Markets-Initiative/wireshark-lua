@@ -26,20 +26,17 @@ cboe_options_openingauction_csm_v1_0.fields.contract_size = ProtoField.new("Cont
 cboe_options_openingauction_csm_v1_0.fields.currency_code = ProtoField.new("Currency Code", "cboe.options.openingauction.csm.v1.0.currencycode", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.currency_code_length = ProtoField.new("Currency Code Length", "cboe.options.openingauction.csm.v1.0.currencycodelength", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.currency_code_text = ProtoField.new("Currency Code Text", "cboe.options.openingauction.csm.v1.0.currencycodetext", ftypes.STRING)
-cboe_options_openingauction_csm_v1_0.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.options.openingauction.csm.v1.0.currentmarketupdatemessage", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.eop = ProtoField.new("Eop", "cboe.options.openingauction.csm.v1.0.eop", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.eop_exponent = ProtoField.new("Eop Exponent", "cboe.options.openingauction.csm.v1.0.eopexponent", ftypes.INT8)
 cboe_options_openingauction_csm_v1_0.fields.eop_mantissa = ProtoField.new("Eop Mantissa", "cboe.options.openingauction.csm.v1.0.eopmantissa", ftypes.INT32)
 cboe_options_openingauction_csm_v1_0.fields.eop_type = ProtoField.new("Eop Type", "cboe.options.openingauction.csm.v1.0.eoptype", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.eos = ProtoField.new("Eos", "cboe.options.openingauction.csm.v1.0.eos", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.options.openingauction.csm.v1.0.exercisestyle", ftypes.UINT8)
-cboe_options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.options.openingauction.csm.v1.0.expectedopeningpriceandsizemessage", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.first_msg_seq_num = ProtoField.new("First Msg Seq Num", "cboe.options.openingauction.csm.v1.0.firstmsgseqnum", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.options.openingauction.csm.v1.0.legratioqty", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.leg_security_id = ProtoField.new("Leg Security Id", "cboe.options.openingauction.csm.v1.0.legsecurityid", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.leg_side = ProtoField.new("Leg Side", "cboe.options.openingauction.csm.v1.0.legside", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.legal_market = ProtoField.new("Legal Market", "cboe.options.openingauction.csm.v1.0.legalmarket", ftypes.UINT8)
-cboe_options_openingauction_csm_v1_0.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.options.openingauction.csm.v1.0.marketdatarefreshmessage", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.options.openingauction.csm.v1.0.maturitydate", ftypes.UINT64)
 cboe_options_openingauction_csm_v1_0.fields.max_strike_price = ProtoField.new("Max Strike Price", "cboe.options.openingauction.csm.v1.0.maxstrikeprice", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.max_strike_price_exponent = ProtoField.new("Max Strike Price Exponent", "cboe.options.openingauction.csm.v1.0.maxstrikepriceexponent", ftypes.INT8)
@@ -81,7 +78,6 @@ cboe_options_openingauction_csm_v1_0.fields.prev_close_px_mantissa = ProtoField.
 cboe_options_openingauction_csm_v1_0.fields.price_type = ProtoField.new("Price Type", "cboe.options.openingauction.csm.v1.0.pricetype", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.options.openingauction.csm.v1.0.putorcall", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.security_definition_leg = ProtoField.new("Security Definition Leg", "cboe.options.openingauction.csm.v1.0.securitydefinitionleg", ftypes.STRING)
-cboe_options_openingauction_csm_v1_0.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.options.openingauction.csm.v1.0.securitydefinitionmessage", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.options.openingauction.csm.v1.0.securityexchange", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.security_id = ProtoField.new("Security Id", "cboe.options.openingauction.csm.v1.0.securityid", ftypes.UINT32)
 cboe_options_openingauction_csm_v1_0.fields.security_trading_status = ProtoField.new("Security Trading Status", "cboe.options.openingauction.csm.v1.0.securitytradingstatus", ftypes.UINT8)
@@ -107,6 +103,12 @@ cboe_options_openingauction_csm_v1_0.fields.underlying_type = ProtoField.new("Un
 cboe_options_openingauction_csm_v1_0.fields.underlying_type_length = ProtoField.new("Underlying Type Length", "cboe.options.openingauction.csm.v1.0.underlyingtypelength", ftypes.UINT8)
 cboe_options_openingauction_csm_v1_0.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.options.openingauction.csm.v1.0.underlyingtypetext", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.version = ProtoField.new("Version", "cboe.options.openingauction.csm.v1.0.version", ftypes.UINT8)
+
+-- Cboe Options OpeningAuction Csm 1.0 messages
+cboe_options_openingauction_csm_v1_0.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.options.openingauction.csm.v1.0.currentmarketupdatemessage", ftypes.STRING)
+cboe_options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.options.openingauction.csm.v1.0.expectedopeningpriceandsizemessage", ftypes.STRING)
+cboe_options_openingauction_csm_v1_0.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.options.openingauction.csm.v1.0.marketdatarefreshmessage", ftypes.STRING)
+cboe_options_openingauction_csm_v1_0.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.options.openingauction.csm.v1.0.securitydefinitionmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

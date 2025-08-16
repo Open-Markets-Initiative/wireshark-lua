@@ -37,8 +37,6 @@ cboe_europe_lastsale_apf_v1_7.fields.execution_venue = ProtoField.new("Execution
 cboe_europe_lastsale_apf_v1_7.fields.giveup_flag = ProtoField.new("Giveup Flag", "cboe.europe.lastsale.apf.v1.7.giveupflag", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.intra_group_indicator = ProtoField.new("Intra Group Indicator", "cboe.europe.lastsale.apf.v1.7.intragroupindicator", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.jurisdiction = ProtoField.new("Jurisdiction", "cboe.europe.lastsale.apf.v1.7.jurisdiction", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.europe.lastsale.apf.v1.7.lastsaleeuropemessage", ftypes.STRING)
-cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message_new = ProtoField.new("Last Sale Europe Message New", "cboe.europe.lastsale.apf.v1.7.lastsaleeuropemessagenew", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.europe.lastsale.apf.v1.7.loginacceptedpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.europe.lastsale.apf.v1.7.loginrejectedpacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.europe.lastsale.apf.v1.7.loginrequestpacket", ftypes.STRING)
@@ -81,6 +79,10 @@ cboe_europe_lastsale_apf_v1_7.fields.trading_mode = ProtoField.new("Trading Mode
 cboe_europe_lastsale_apf_v1_7.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.europe.lastsale.apf.v1.7.transactioncategory", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.europe.lastsale.apf.v1.7.unsequenceddatapacket", ftypes.STRING)
 cboe_europe_lastsale_apf_v1_7.fields.username = ProtoField.new("Username", "cboe.europe.lastsale.apf.v1.7.username", ftypes.STRING)
+
+-- Cboe Europe LastSale Apf 1.7 messages
+cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.europe.lastsale.apf.v1.7.lastsaleeuropemessage", ftypes.STRING)
+cboe_europe_lastsale_apf_v1_7.fields.last_sale_europe_message_new = ProtoField.new("Last Sale Europe Message New", "cboe.europe.lastsale.apf.v1.7.lastsaleeuropemessagenew", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

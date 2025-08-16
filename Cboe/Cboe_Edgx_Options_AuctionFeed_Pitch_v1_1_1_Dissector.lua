@@ -21,16 +21,12 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Cboe Edgx Options AuctionFeed Pitch 1.1.1 Fields
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctionendoffset", ftypes.UINT32)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_id = ProtoField.new("Auction Id", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctionid", ftypes.UINT64)
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctionnotificationmessage", ftypes.STRING)
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctiontrademessage", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_type = ProtoField.new("Auction Type", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctiontype", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.contracts = ProtoField.new("Contracts", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.contracts", ftypes.UINT32)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.count = ProtoField.new("Count", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.count", ftypes.UINT8)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.customerindicator", ftypes.STRING)
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.endofsessionmessage", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.execution_id = ProtoField.new("Execution Id", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.executionid", ftypes.UINT64)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.feedsymbol", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.length = ProtoField.new("Length", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.length", ftypes.UINT16)
@@ -48,12 +44,18 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.sequence = ProtoField.new("Seq
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.side = ProtoField.new("Side", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.side", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol = ProtoField.new("Symbol", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.symbol", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.symbolcondition", ftypes.STRING)
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.symbolmappingmessage", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time = ProtoField.new("Time", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.time", ftypes.UINT32)
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time_message = ProtoField.new("Time Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.timemessage", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time_offset = ProtoField.new("Time Offset", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.timeoffset", ftypes.UINT32)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT32)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.unit = ProtoField.new("Unit", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.unit", ftypes.UINT8)
+
+-- Cboe Edgx Options AuctionFeed Pitch 1.1.1 messages
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctionnotificationmessage", ftypes.STRING)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.auctiontrademessage", ftypes.STRING)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.endofsessionmessage", ftypes.STRING)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.symbolmappingmessage", ftypes.STRING)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time_message = ProtoField.new("Time Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.timemessage", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.unitclearmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
