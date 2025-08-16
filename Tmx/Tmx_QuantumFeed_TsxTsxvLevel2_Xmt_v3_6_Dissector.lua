@@ -37,6 +37,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_order_id = ProtoField.new("Buy
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.bypass = ProtoField.new("Bypass", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.bypass", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.calculatedopeningprice", ftypes.DOUBLE)
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.comment = ProtoField.new("Comment", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.comment", ftypes.STRING)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit = ProtoField.new("Cop Limit", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coplimit", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order = ProtoField.new("Cop Order", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.coporder", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cross_type = ProtoField.new("Cross Type", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.crosstype", ftypes.STRING)
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.currency = ProtoField.new("Currency", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v3.6.currency", ftypes.STRING)
@@ -132,6 +133,7 @@ show.body = true
 show.body_header = true
 show.body_message = true
 show.business_header = true
+show.cop_limit = true
 show.cop_order = true
 show.frame_header = true
 show.market_state_update_message = true
@@ -163,6 +165,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body = Pref.bool("Show Body", 
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_header = Pref.bool("Show Body Header", show.body_header, "Parse and add Body Header to protocol tree")
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit = Pref.bool("Show Cop Limit", show.cop_limit, "Parse and add Cop Limit to protocol tree")
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order = Pref.bool("Show Cop Order", show.cop_order, "Parse and add Cop Order to protocol tree")
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_market_state_update_message = Pref.bool("Show Market State Update Message", show.market_state_update_message, "Parse and add Market State Update Message to protocol tree")
@@ -217,6 +220,10 @@ function tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs_changed()
   end
   if show.business_header ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header then
     show.business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_business_header
+    changed = true
+  end
+  if show.cop_limit ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit then
+    show.cop_limit = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_limit
     changed = true
   end
   if show.cop_order ~= tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.prefs.show_cop_order then
@@ -2683,6 +2690,58 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_message = fun
   end
 end
 
+-- Calculate size of: Cop Limit
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
+
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
+
+  return index
+end
+
+-- Display: Cop Limit
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cop Limit
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cop Limit
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit = function(buffer, offset, packet, parent)
+  if show.cop_limit then
+    -- Optionally add element to protocol tree
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit(packet, parent, length)
+    parent:append_text(display)
+
+    return index
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Size: Calculated Opening Price
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.calculated_opening_price = 8
 
@@ -2719,7 +2778,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_limit_message = function(b
 
   index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_1
+  index = index + 15 * tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit(buffer, offset + index)
 
   index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
@@ -2744,8 +2803,10 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message_fields = fun
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
-  -- Cop Limit 1
-  index, cop_limit_1 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_1(buffer, index, packet, parent)
+  -- Array Count Of: Cop Limit
+  for i = 1, 15 do
+    index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit(buffer, index, packet, parent)
+  end
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
   index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
