@@ -37,7 +37,6 @@ asx_securities_ntp_itch_v1_05.fields.buyer_tradeable_instrument_id = ProtoField.
 asx_securities_ntp_itch_v1_05.fields.cfi_code = ProtoField.new("Cfi Code", "asx.securities.ntp.itch.v1.05.cficode", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.combination_leg = ProtoField.new("Combination Leg", "asx.securities.ntp.itch.v1.05.combinationleg", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.combination_trade_id = ProtoField.new("Combination Trade Id", "asx.securities.ntp.itch.v1.05.combinationtradeid", ftypes.UINT64)
-asx_securities_ntp_itch_v1_05.fields.count = ProtoField.new("Count", "asx.securities.ntp.itch.v1.05.count", ftypes.UINT16)
 asx_securities_ntp_itch_v1_05.fields.counter_party_id = ProtoField.new("Counter Party Id", "asx.securities.ntp.itch.v1.05.counterpartyid", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.coupon_rate = ProtoField.new("Coupon Rate", "asx.securities.ntp.itch.v1.05.couponrate", ftypes.UINT16)
 asx_securities_ntp_itch_v1_05.fields.cumulative_volume = ProtoField.new("Cumulative Volume", "asx.securities.ntp.itch.v1.05.cumulativevolume", ftypes.UINT64)
@@ -59,14 +58,15 @@ asx_securities_ntp_itch_v1_05.fields.last_trade = ProtoField.new("Last Trade", "
 asx_securities_ntp_itch_v1_05.fields.last_trading_date = ProtoField.new("Last Trading Date", "asx.securities.ntp.itch.v1.05.lasttradingdate", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.last_volume = ProtoField.new("Last Volume", "asx.securities.ntp.itch.v1.05.lastvolume", ftypes.UINT32)
 asx_securities_ntp_itch_v1_05.fields.legs = ProtoField.new("Legs", "asx.securities.ntp.itch.v1.05.legs", ftypes.UINT8)
-asx_securities_ntp_itch_v1_05.fields.length = ProtoField.new("Length", "asx.securities.ntp.itch.v1.05.length", ftypes.UINT16)
 asx_securities_ntp_itch_v1_05.fields.long_name = ProtoField.new("Long Name", "asx.securities.ntp.itch.v1.05.longname", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.lot_size_or_face_value = ProtoField.new("Lot Size Or Face Value", "asx.securities.ntp.itch.v1.05.lotsizeorfacevalue", ftypes.UINT64)
 asx_securities_ntp_itch_v1_05.fields.lowest_trade = ProtoField.new("Lowest Trade", "asx.securities.ntp.itch.v1.05.lowesttrade", ftypes.INT64)
 asx_securities_ntp_itch_v1_05.fields.matched_quantity = ProtoField.new("Matched Quantity", "asx.securities.ntp.itch.v1.05.matchedquantity", ftypes.UINT64)
 asx_securities_ntp_itch_v1_05.fields.maturity_value = ProtoField.new("Maturity Value", "asx.securities.ntp.itch.v1.05.maturityvalue", ftypes.UINT8)
 asx_securities_ntp_itch_v1_05.fields.message = ProtoField.new("Message", "asx.securities.ntp.itch.v1.05.message", ftypes.STRING)
+asx_securities_ntp_itch_v1_05.fields.message_count = ProtoField.new("Message Count", "asx.securities.ntp.itch.v1.05.messagecount", ftypes.UINT16)
 asx_securities_ntp_itch_v1_05.fields.message_header = ProtoField.new("Message Header", "asx.securities.ntp.itch.v1.05.messageheader", ftypes.STRING)
+asx_securities_ntp_itch_v1_05.fields.message_length = ProtoField.new("Message Length", "asx.securities.ntp.itch.v1.05.messagelength", ftypes.UINT16)
 asx_securities_ntp_itch_v1_05.fields.message_type = ProtoField.new("Message Type", "asx.securities.ntp.itch.v1.05.messagetype", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.open_interest = ProtoField.new("Open Interest", "asx.securities.ntp.itch.v1.05.openinterest", ftypes.UINT64)
 asx_securities_ntp_itch_v1_05.fields.opening_trade = ProtoField.new("Opening Trade", "asx.securities.ntp.itch.v1.05.openingtrade", ftypes.INT64)
@@ -99,7 +99,7 @@ asx_securities_ntp_itch_v1_05.fields.seller_order_id = ProtoField.new("Seller Or
 asx_securities_ntp_itch_v1_05.fields.seller_participant_id = ProtoField.new("Seller Participant Id", "asx.securities.ntp.itch.v1.05.sellerparticipantid", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.seller_side = ProtoField.new("Seller Side", "asx.securities.ntp.itch.v1.05.sellerside", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.seller_tradeable_instrument_id = ProtoField.new("Seller Tradeable Instrument Id", "asx.securities.ntp.itch.v1.05.sellertradeableinstrumentid", ftypes.UINT32)
-asx_securities_ntp_itch_v1_05.fields.sequence = ProtoField.new("Sequence", "asx.securities.ntp.itch.v1.05.sequence", ftypes.UINT64)
+asx_securities_ntp_itch_v1_05.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.ntp.itch.v1.05.sequencenumber", ftypes.UINT64)
 asx_securities_ntp_itch_v1_05.fields.session = ProtoField.new("Session", "asx.securities.ntp.itch.v1.05.session", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.session_state = ProtoField.new("Session State", "asx.securities.ntp.itch.v1.05.sessionstate", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.side = ProtoField.new("Side", "asx.securities.ntp.itch.v1.05.side", ftypes.STRING)
@@ -5004,22 +5004,22 @@ asx_securities_ntp_itch_v1_05_dissect.message_type = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Size: Length
-asx_securities_ntp_itch_v1_05_size_of.length = 2
+-- Size: Message Length
+asx_securities_ntp_itch_v1_05_size_of.message_length = 2
 
--- Display: Length
-asx_securities_ntp_itch_v1_05_display.length = function(value)
-  return "Length: "..value
+-- Display: Message Length
+asx_securities_ntp_itch_v1_05_display.message_length = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect: Length
-asx_securities_ntp_itch_v1_05_dissect.length = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05_size_of.length
+-- Dissect: Message Length
+asx_securities_ntp_itch_v1_05_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05_display.length(value, buffer, offset, packet, parent)
+  local display = asx_securities_ntp_itch_v1_05_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_ntp_itch_v1_05.fields.length, range, value, display)
+  parent:add(asx_securities_ntp_itch_v1_05.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -5028,7 +5028,7 @@ end
 asx_securities_ntp_itch_v1_05_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + asx_securities_ntp_itch_v1_05_size_of.length
+  index = index + asx_securities_ntp_itch_v1_05_size_of.message_length
 
   index = index + asx_securities_ntp_itch_v1_05_size_of.message_type
 
@@ -5044,8 +5044,8 @@ end
 asx_securities_ntp_itch_v1_05_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = asx_securities_ntp_itch_v1_05_dissect.length(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = asx_securities_ntp_itch_v1_05_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 26 values
   index, message_type = asx_securities_ntp_itch_v1_05_dissect.message_type(buffer, index, packet, parent)
@@ -5113,42 +5113,42 @@ asx_securities_ntp_itch_v1_05_dissect.message = function(buffer, offset, packet,
   end
 end
 
--- Size: Count
-asx_securities_ntp_itch_v1_05_size_of.count = 2
+-- Size: Message Count
+asx_securities_ntp_itch_v1_05_size_of.message_count = 2
 
--- Display: Count
-asx_securities_ntp_itch_v1_05_display.count = function(value)
-  return "Count: "..value
+-- Display: Message Count
+asx_securities_ntp_itch_v1_05_display.message_count = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Count
-asx_securities_ntp_itch_v1_05_dissect.count = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05_size_of.count
+-- Dissect: Message Count
+asx_securities_ntp_itch_v1_05_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05_display.count(value, buffer, offset, packet, parent)
+  local display = asx_securities_ntp_itch_v1_05_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_ntp_itch_v1_05.fields.count, range, value, display)
+  parent:add(asx_securities_ntp_itch_v1_05.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Sequence
-asx_securities_ntp_itch_v1_05_size_of.sequence = 8
+-- Size: Sequence Number
+asx_securities_ntp_itch_v1_05_size_of.sequence_number = 8
 
--- Display: Sequence
-asx_securities_ntp_itch_v1_05_display.sequence = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+asx_securities_ntp_itch_v1_05_display.sequence_number = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-asx_securities_ntp_itch_v1_05_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05_size_of.sequence
+-- Dissect: Sequence Number
+asx_securities_ntp_itch_v1_05_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05_display.sequence(value, buffer, offset, packet, parent)
+  local display = asx_securities_ntp_itch_v1_05_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_ntp_itch_v1_05.fields.sequence, range, value, display)
+  parent:add(asx_securities_ntp_itch_v1_05.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -5195,9 +5195,9 @@ asx_securities_ntp_itch_v1_05_size_of.packet_header = function(buffer, offset)
 
   index = index + asx_securities_ntp_itch_v1_05_size_of.session
 
-  index = index + asx_securities_ntp_itch_v1_05_size_of.sequence
+  index = index + asx_securities_ntp_itch_v1_05_size_of.sequence_number
 
-  index = index + asx_securities_ntp_itch_v1_05_size_of.count
+  index = index + asx_securities_ntp_itch_v1_05_size_of.message_count
 
   return index
 end
@@ -5214,11 +5214,11 @@ asx_securities_ntp_itch_v1_05_dissect.packet_header_fields = function(buffer, of
   -- Session: 10 Byte Ascii String
   index, session = asx_securities_ntp_itch_v1_05_dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = asx_securities_ntp_itch_v1_05_dissect.sequence(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = asx_securities_ntp_itch_v1_05_dissect.sequence_number(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = asx_securities_ntp_itch_v1_05_dissect.count(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = asx_securities_ntp_itch_v1_05_dissect.message_count(buffer, index, packet, parent)
 
   return index
 end
@@ -5248,17 +5248,17 @@ asx_securities_ntp_itch_v1_05_dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = asx_securities_ntp_itch_v1_05_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     index, message = asx_securities_ntp_itch_v1_05_dissect.message(buffer, index, packet, parent, size_of_message)

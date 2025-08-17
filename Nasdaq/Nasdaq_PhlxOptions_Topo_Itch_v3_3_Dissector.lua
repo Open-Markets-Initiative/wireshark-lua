@@ -29,16 +29,16 @@ nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_2 = ProtoField.new("Bid Price
 nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_price_4 = ProtoField.new("Bid Price 4", "nasdaq.phlxoptions.topo.itch.v3.3.bidprice4", ftypes.DOUBLE)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_2 = ProtoField.new("Bid Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.bidsize2", ftypes.UINT16)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.bid_size_4 = ProtoField.new("Bid Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.bidsize4", ftypes.UINT32)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.count = ProtoField.new("Count", "nasdaq.phlxoptions.topo.itch.v3.3.count", ftypes.UINT16)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.phlxoptions.topo.itch.v3.3.crossid", ftypes.UINT32)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlxoptions.topo.itch.v3.3.currenttradingstate", ftypes.STRING)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlxoptions.topo.itch.v3.3.eventcode", ftypes.STRING)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.phlxoptions.topo.itch.v3.3.expirationday", ftypes.UINT8)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.phlxoptions.topo.itch.v3.3.expirationmonth", ftypes.UINT8)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.phlxoptions.topo.itch.v3.3.expirationyear", ftypes.UINT8)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.length = ProtoField.new("Length", "nasdaq.phlxoptions.topo.itch.v3.3.length", ftypes.UINT16)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.topo.itch.v3.3.message", ftypes.STRING)
+nasdaq_phlxoptions_topo_itch_v3_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.phlxoptions.topo.itch.v3.3.messagecount", ftypes.UINT16)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.topo.itch.v3.3.messageheader", ftypes.STRING)
+nasdaq_phlxoptions_topo_itch_v3_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.phlxoptions.topo.itch.v3.3.messagelength", ftypes.UINT16)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.topo.itch.v3.3.messagetype", ftypes.STRING)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.phlxoptions.topo.itch.v3.3.mpv", ftypes.STRING)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlxoptions.topo.itch.v3.3.nanoseconds", ftypes.UINT32)
@@ -57,7 +57,7 @@ nasdaq_phlxoptions_topo_itch_v3_3.fields.price_4 = ProtoField.new("Price 4", "na
 nasdaq_phlxoptions_topo_itch_v3_3.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.phlxoptions.topo.itch.v3.3.quotecondition", ftypes.STRING)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.second = ProtoField.new("Second", "nasdaq.phlxoptions.topo.itch.v3.3.second", ftypes.UINT32)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.topo.itch.v3.3.securitysymbol", ftypes.STRING)
-nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlxoptions.topo.itch.v3.3.sequence", ftypes.UINT64)
+nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.phlxoptions.topo.itch.v3.3.sequencenumber", ftypes.UINT64)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.session = ProtoField.new("Session", "nasdaq.phlxoptions.topo.itch.v3.3.session", ftypes.STRING)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.size_2 = ProtoField.new("Size 2", "nasdaq.phlxoptions.topo.itch.v3.3.size2", ftypes.UINT16)
 nasdaq_phlxoptions_topo_itch_v3_3.fields.size_4 = ProtoField.new("Size 4", "nasdaq.phlxoptions.topo.itch.v3.3.size4", ftypes.UINT32)
@@ -2163,22 +2163,22 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_type = function(buffer, offset
   return offset + length, value
 end
 
--- Size: Length
-nasdaq_phlxoptions_topo_itch_v3_3_size_of.length = 2
+-- Size: Message Length
+nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_length = 2
 
--- Display: Length
-nasdaq_phlxoptions_topo_itch_v3_3_display.length = function(value)
-  return "Length: "..value
+-- Display: Message Length
+nasdaq_phlxoptions_topo_itch_v3_3_display.message_length = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect: Length
-nasdaq_phlxoptions_topo_itch_v3_3_dissect.length = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_topo_itch_v3_3_size_of.length
+-- Dissect: Message Length
+nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_topo_itch_v3_3_display.length(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_topo_itch_v3_3_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.length, range, value, display)
+  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2187,7 +2187,7 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.length
+  index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_length
 
   index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_type
 
@@ -2203,8 +2203,8 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = nasdaq_phlxoptions_topo_itch_v3_3_dissect.length(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 13 values
   index, message_type = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_type(buffer, index, packet, parent)
@@ -2272,42 +2272,42 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.message = function(buffer, offset, pac
   end
 end
 
--- Size: Count
-nasdaq_phlxoptions_topo_itch_v3_3_size_of.count = 2
+-- Size: Message Count
+nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_count = 2
 
--- Display: Count
-nasdaq_phlxoptions_topo_itch_v3_3_display.count = function(value)
-  return "Count: "..value
+-- Display: Message Count
+nasdaq_phlxoptions_topo_itch_v3_3_display.message_count = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Count
-nasdaq_phlxoptions_topo_itch_v3_3_dissect.count = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_topo_itch_v3_3_size_of.count
+-- Dissect: Message Count
+nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_topo_itch_v3_3_display.count(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_topo_itch_v3_3_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.count, range, value, display)
+  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Sequence
-nasdaq_phlxoptions_topo_itch_v3_3_size_of.sequence = 8
+-- Size: Sequence Number
+nasdaq_phlxoptions_topo_itch_v3_3_size_of.sequence_number = 8
 
--- Display: Sequence
-nasdaq_phlxoptions_topo_itch_v3_3_display.sequence = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+nasdaq_phlxoptions_topo_itch_v3_3_display.sequence_number = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-nasdaq_phlxoptions_topo_itch_v3_3_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_topo_itch_v3_3_size_of.sequence
+-- Dissect: Sequence Number
+nasdaq_phlxoptions_topo_itch_v3_3_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_topo_itch_v3_3_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_phlxoptions_topo_itch_v3_3_display.sequence(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_topo_itch_v3_3_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence, range, value, display)
+  parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2354,9 +2354,9 @@ nasdaq_phlxoptions_topo_itch_v3_3_size_of.packet_header = function(buffer, offse
 
   index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.session
 
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.sequence
+  index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.sequence_number
 
-  index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.count
+  index = index + nasdaq_phlxoptions_topo_itch_v3_3_size_of.message_count
 
   return index
 end
@@ -2373,11 +2373,11 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header_fields = function(buffer
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_phlxoptions_topo_itch_v3_3_dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_phlxoptions_topo_itch_v3_3_dissect.sequence(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_phlxoptions_topo_itch_v3_3_dissect.sequence_number(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_phlxoptions_topo_itch_v3_3_dissect.count(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_count(buffer, index, packet, parent)
 
   return index
 end
@@ -2407,17 +2407,17 @@ nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet = function(buffer, packet, pare
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     index, message = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message(buffer, index, packet, parent, size_of_message)

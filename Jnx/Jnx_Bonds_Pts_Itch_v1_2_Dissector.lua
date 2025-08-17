@@ -22,14 +22,14 @@ local translate = {}
 
 -- Jnx Bonds Pts Itch 1.2 Fields
 jnx_bonds_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.bonds.pts.itch.v1.2.buysellindicator", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.count = ProtoField.new("Count", "jnx.bonds.pts.itch.v1.2.count", ftypes.UINT16)
 jnx_bonds_pts_itch_v1_2.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.itch.v1.2.executedquantity", ftypes.UINT32)
 jnx_bonds_pts_itch_v1_2.fields.group = ProtoField.new("Group", "jnx.bonds.pts.itch.v1.2.group", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.length = ProtoField.new("Length", "jnx.bonds.pts.itch.v1.2.length", ftypes.UINT16)
 jnx_bonds_pts_itch_v1_2.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.bonds.pts.itch.v1.2.lowerpricelimit", ftypes.DOUBLE)
 jnx_bonds_pts_itch_v1_2.fields.match_number = ProtoField.new("Match Number", "jnx.bonds.pts.itch.v1.2.matchnumber", ftypes.UINT64)
 jnx_bonds_pts_itch_v1_2.fields.message = ProtoField.new("Message", "jnx.bonds.pts.itch.v1.2.message", ftypes.STRING)
+jnx_bonds_pts_itch_v1_2.fields.message_count = ProtoField.new("Message Count", "jnx.bonds.pts.itch.v1.2.messagecount", ftypes.UINT16)
 jnx_bonds_pts_itch_v1_2.fields.message_header = ProtoField.new("Message Header", "jnx.bonds.pts.itch.v1.2.messageheader", ftypes.STRING)
+jnx_bonds_pts_itch_v1_2.fields.message_length = ProtoField.new("Message Length", "jnx.bonds.pts.itch.v1.2.messagelength", ftypes.UINT16)
 jnx_bonds_pts_itch_v1_2.fields.message_type = ProtoField.new("Message Type", "jnx.bonds.pts.itch.v1.2.messagetype", ftypes.STRING)
 jnx_bonds_pts_itch_v1_2.fields.new_order_number = ProtoField.new("New Order Number", "jnx.bonds.pts.itch.v1.2.newordernumber", ftypes.UINT64)
 jnx_bonds_pts_itch_v1_2.fields.order_number = ProtoField.new("Order Number", "jnx.bonds.pts.itch.v1.2.ordernumber", ftypes.UINT64)
@@ -46,7 +46,7 @@ jnx_bonds_pts_itch_v1_2.fields.price_tick_size = ProtoField.new("Price Tick Size
 jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.bonds.pts.itch.v1.2.priceticksizetableid", ftypes.UINT32)
 jnx_bonds_pts_itch_v1_2.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.itch.v1.2.quantity", ftypes.UINT32)
 jnx_bonds_pts_itch_v1_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.bonds.pts.itch.v1.2.roundlotsize", ftypes.UINT32)
-jnx_bonds_pts_itch_v1_2.fields.sequence = ProtoField.new("Sequence", "jnx.bonds.pts.itch.v1.2.sequence", ftypes.UINT64)
+jnx_bonds_pts_itch_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.bonds.pts.itch.v1.2.sequencenumber", ftypes.UINT64)
 jnx_bonds_pts_itch_v1_2.fields.session = ProtoField.new("Session", "jnx.bonds.pts.itch.v1.2.session", ftypes.STRING)
 jnx_bonds_pts_itch_v1_2.fields.system_event = ProtoField.new("System Event", "jnx.bonds.pts.itch.v1.2.systemevent", ftypes.STRING)
 jnx_bonds_pts_itch_v1_2.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jnx.bonds.pts.itch.v1.2.timestampnanoseconds", ftypes.UINT32)
@@ -1362,22 +1362,22 @@ jnx_bonds_pts_itch_v1_2_dissect.message_type = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Size: Length
-jnx_bonds_pts_itch_v1_2_size_of.length = 2
+-- Size: Message Length
+jnx_bonds_pts_itch_v1_2_size_of.message_length = 2
 
--- Display: Length
-jnx_bonds_pts_itch_v1_2_display.length = function(value)
-  return "Length: "..value
+-- Display: Message Length
+jnx_bonds_pts_itch_v1_2_display.message_length = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect: Length
-jnx_bonds_pts_itch_v1_2_dissect.length = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_itch_v1_2_size_of.length
+-- Dissect: Message Length
+jnx_bonds_pts_itch_v1_2_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_itch_v1_2_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = jnx_bonds_pts_itch_v1_2_display.length(value, buffer, offset, packet, parent)
+  local display = jnx_bonds_pts_itch_v1_2_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.length, range, value, display)
+  parent:add(jnx_bonds_pts_itch_v1_2.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1386,7 +1386,7 @@ end
 jnx_bonds_pts_itch_v1_2_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + jnx_bonds_pts_itch_v1_2_size_of.length
+  index = index + jnx_bonds_pts_itch_v1_2_size_of.message_length
 
   index = index + jnx_bonds_pts_itch_v1_2_size_of.message_type
 
@@ -1402,8 +1402,8 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = jnx_bonds_pts_itch_v1_2_dissect.length(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = jnx_bonds_pts_itch_v1_2_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 9 values
   index, message_type = jnx_bonds_pts_itch_v1_2_dissect.message_type(buffer, index, packet, parent)
@@ -1471,42 +1471,42 @@ jnx_bonds_pts_itch_v1_2_dissect.message = function(buffer, offset, packet, paren
   end
 end
 
--- Size: Count
-jnx_bonds_pts_itch_v1_2_size_of.count = 2
+-- Size: Message Count
+jnx_bonds_pts_itch_v1_2_size_of.message_count = 2
 
--- Display: Count
-jnx_bonds_pts_itch_v1_2_display.count = function(value)
-  return "Count: "..value
+-- Display: Message Count
+jnx_bonds_pts_itch_v1_2_display.message_count = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Count
-jnx_bonds_pts_itch_v1_2_dissect.count = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_itch_v1_2_size_of.count
+-- Dissect: Message Count
+jnx_bonds_pts_itch_v1_2_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_itch_v1_2_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = jnx_bonds_pts_itch_v1_2_display.count(value, buffer, offset, packet, parent)
+  local display = jnx_bonds_pts_itch_v1_2_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.count, range, value, display)
+  parent:add(jnx_bonds_pts_itch_v1_2.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Sequence
-jnx_bonds_pts_itch_v1_2_size_of.sequence = 8
+-- Size: Sequence Number
+jnx_bonds_pts_itch_v1_2_size_of.sequence_number = 8
 
--- Display: Sequence
-jnx_bonds_pts_itch_v1_2_display.sequence = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+jnx_bonds_pts_itch_v1_2_display.sequence_number = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-jnx_bonds_pts_itch_v1_2_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_itch_v1_2_size_of.sequence
+-- Dissect: Sequence Number
+jnx_bonds_pts_itch_v1_2_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_itch_v1_2_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = jnx_bonds_pts_itch_v1_2_display.sequence(value, buffer, offset, packet, parent)
+  local display = jnx_bonds_pts_itch_v1_2_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(jnx_bonds_pts_itch_v1_2.fields.sequence, range, value, display)
+  parent:add(jnx_bonds_pts_itch_v1_2.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1553,9 +1553,9 @@ jnx_bonds_pts_itch_v1_2_size_of.packet_header = function(buffer, offset)
 
   index = index + jnx_bonds_pts_itch_v1_2_size_of.session
 
-  index = index + jnx_bonds_pts_itch_v1_2_size_of.sequence
+  index = index + jnx_bonds_pts_itch_v1_2_size_of.sequence_number
 
-  index = index + jnx_bonds_pts_itch_v1_2_size_of.count
+  index = index + jnx_bonds_pts_itch_v1_2_size_of.message_count
 
   return index
 end
@@ -1572,11 +1572,11 @@ jnx_bonds_pts_itch_v1_2_dissect.packet_header_fields = function(buffer, offset, 
   -- Session: 10 Byte Ascii String
   index, session = jnx_bonds_pts_itch_v1_2_dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = jnx_bonds_pts_itch_v1_2_dissect.sequence(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = jnx_bonds_pts_itch_v1_2_dissect.sequence_number(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = jnx_bonds_pts_itch_v1_2_dissect.count(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = jnx_bonds_pts_itch_v1_2_dissect.message_count(buffer, index, packet, parent)
 
   return index
 end
@@ -1606,17 +1606,17 @@ jnx_bonds_pts_itch_v1_2_dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = jnx_bonds_pts_itch_v1_2_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     index, message = jnx_bonds_pts_itch_v1_2_dissect.message(buffer, index, packet, parent, size_of_message)

@@ -29,16 +29,16 @@ nasdaq_nomoptions_bono_itch_v3_2.fields.bid_price_2 = ProtoField.new("Bid Price 
 nasdaq_nomoptions_bono_itch_v3_2.fields.bid_price_4 = ProtoField.new("Bid Price 4", "nasdaq.nomoptions.bono.itch.v3.2.bidprice4", ftypes.DOUBLE)
 nasdaq_nomoptions_bono_itch_v3_2.fields.bid_size_2 = ProtoField.new("Bid Size 2", "nasdaq.nomoptions.bono.itch.v3.2.bidsize2", ftypes.UINT16)
 nasdaq_nomoptions_bono_itch_v3_2.fields.bid_size_4 = ProtoField.new("Bid Size 4", "nasdaq.nomoptions.bono.itch.v3.2.bidsize4", ftypes.UINT32)
-nasdaq_nomoptions_bono_itch_v3_2.fields.count = ProtoField.new("Count", "nasdaq.nomoptions.bono.itch.v3.2.count", ftypes.UINT16)
 nasdaq_nomoptions_bono_itch_v3_2.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.nomoptions.bono.itch.v3.2.crossid", ftypes.UINT32)
 nasdaq_nomoptions_bono_itch_v3_2.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nomoptions.bono.itch.v3.2.currenttradingstate", ftypes.STRING)
 nasdaq_nomoptions_bono_itch_v3_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.nomoptions.bono.itch.v3.2.eventcode", ftypes.STRING)
 nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.nomoptions.bono.itch.v3.2.expirationday", ftypes.UINT8)
 nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.nomoptions.bono.itch.v3.2.expirationmonth", ftypes.UINT8)
 nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.nomoptions.bono.itch.v3.2.expirationyear", ftypes.UINT8)
-nasdaq_nomoptions_bono_itch_v3_2.fields.length = ProtoField.new("Length", "nasdaq.nomoptions.bono.itch.v3.2.length", ftypes.UINT16)
 nasdaq_nomoptions_bono_itch_v3_2.fields.message = ProtoField.new("Message", "nasdaq.nomoptions.bono.itch.v3.2.message", ftypes.STRING)
+nasdaq_nomoptions_bono_itch_v3_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.nomoptions.bono.itch.v3.2.messagecount", ftypes.UINT16)
 nasdaq_nomoptions_bono_itch_v3_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.nomoptions.bono.itch.v3.2.messageheader", ftypes.STRING)
+nasdaq_nomoptions_bono_itch_v3_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.nomoptions.bono.itch.v3.2.messagelength", ftypes.UINT16)
 nasdaq_nomoptions_bono_itch_v3_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.nomoptions.bono.itch.v3.2.messagetype", ftypes.STRING)
 nasdaq_nomoptions_bono_itch_v3_2.fields.mpv = ProtoField.new("Mpv", "nasdaq.nomoptions.bono.itch.v3.2.mpv", ftypes.STRING)
 nasdaq_nomoptions_bono_itch_v3_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.nomoptions.bono.itch.v3.2.nanoseconds", ftypes.UINT32)
@@ -57,7 +57,7 @@ nasdaq_nomoptions_bono_itch_v3_2.fields.price_4 = ProtoField.new("Price 4", "nas
 nasdaq_nomoptions_bono_itch_v3_2.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.nomoptions.bono.itch.v3.2.quotecondition", ftypes.STRING)
 nasdaq_nomoptions_bono_itch_v3_2.fields.seconds = ProtoField.new("Seconds", "nasdaq.nomoptions.bono.itch.v3.2.seconds", ftypes.UINT32)
 nasdaq_nomoptions_bono_itch_v3_2.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.nomoptions.bono.itch.v3.2.securitysymbol", ftypes.STRING)
-nasdaq_nomoptions_bono_itch_v3_2.fields.sequence = ProtoField.new("Sequence", "nasdaq.nomoptions.bono.itch.v3.2.sequence", ftypes.UINT64)
+nasdaq_nomoptions_bono_itch_v3_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nomoptions.bono.itch.v3.2.sequencenumber", ftypes.UINT64)
 nasdaq_nomoptions_bono_itch_v3_2.fields.session = ProtoField.new("Session", "nasdaq.nomoptions.bono.itch.v3.2.session", ftypes.STRING)
 nasdaq_nomoptions_bono_itch_v3_2.fields.size_2 = ProtoField.new("Size 2", "nasdaq.nomoptions.bono.itch.v3.2.size2", ftypes.UINT16)
 nasdaq_nomoptions_bono_itch_v3_2.fields.size_4 = ProtoField.new("Size 4", "nasdaq.nomoptions.bono.itch.v3.2.size4", ftypes.UINT32)
@@ -2154,22 +2154,22 @@ nasdaq_nomoptions_bono_itch_v3_2_dissect.message_type = function(buffer, offset,
   return offset + length, value
 end
 
--- Size: Length
-nasdaq_nomoptions_bono_itch_v3_2_size_of.length = 2
+-- Size: Message Length
+nasdaq_nomoptions_bono_itch_v3_2_size_of.message_length = 2
 
--- Display: Length
-nasdaq_nomoptions_bono_itch_v3_2_display.length = function(value)
-  return "Length: "..value
+-- Display: Message Length
+nasdaq_nomoptions_bono_itch_v3_2_display.message_length = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect: Length
-nasdaq_nomoptions_bono_itch_v3_2_dissect.length = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2_size_of.length
+-- Dissect: Message Length
+nasdaq_nomoptions_bono_itch_v3_2_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2_display.length(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_bono_itch_v3_2_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.length, range, value, display)
+  parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2178,7 +2178,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.length
+  index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.message_length
 
   index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.message_type
 
@@ -2194,8 +2194,8 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = nasdaq_nomoptions_bono_itch_v3_2_dissect.length(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_nomoptions_bono_itch_v3_2_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 13 values
   index, message_type = nasdaq_nomoptions_bono_itch_v3_2_dissect.message_type(buffer, index, packet, parent)
@@ -2263,42 +2263,42 @@ nasdaq_nomoptions_bono_itch_v3_2_dissect.message = function(buffer, offset, pack
   end
 end
 
--- Size: Count
-nasdaq_nomoptions_bono_itch_v3_2_size_of.count = 2
+-- Size: Message Count
+nasdaq_nomoptions_bono_itch_v3_2_size_of.message_count = 2
 
--- Display: Count
-nasdaq_nomoptions_bono_itch_v3_2_display.count = function(value)
-  return "Count: "..value
+-- Display: Message Count
+nasdaq_nomoptions_bono_itch_v3_2_display.message_count = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Count
-nasdaq_nomoptions_bono_itch_v3_2_dissect.count = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2_size_of.count
+-- Dissect: Message Count
+nasdaq_nomoptions_bono_itch_v3_2_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2_display.count(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_bono_itch_v3_2_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.count, range, value, display)
+  parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Sequence
-nasdaq_nomoptions_bono_itch_v3_2_size_of.sequence = 8
+-- Size: Sequence Number
+nasdaq_nomoptions_bono_itch_v3_2_size_of.sequence_number = 8
 
--- Display: Sequence
-nasdaq_nomoptions_bono_itch_v3_2_display.sequence = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+nasdaq_nomoptions_bono_itch_v3_2_display.sequence_number = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-nasdaq_nomoptions_bono_itch_v3_2_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2_size_of.sequence
+-- Dissect: Sequence Number
+nasdaq_nomoptions_bono_itch_v3_2_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nomoptions_bono_itch_v3_2_display.sequence(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_bono_itch_v3_2_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.sequence, range, value, display)
+  parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2345,9 +2345,9 @@ nasdaq_nomoptions_bono_itch_v3_2_size_of.packet_header = function(buffer, offset
 
   index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.session
 
-  index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.sequence
+  index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.sequence_number
 
-  index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.count
+  index = index + nasdaq_nomoptions_bono_itch_v3_2_size_of.message_count
 
   return index
 end
@@ -2364,11 +2364,11 @@ nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header_fields = function(buffer,
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_nomoptions_bono_itch_v3_2_dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_nomoptions_bono_itch_v3_2_dissect.sequence(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_nomoptions_bono_itch_v3_2_dissect.sequence_number(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_nomoptions_bono_itch_v3_2_dissect.count(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_nomoptions_bono_itch_v3_2_dissect.message_count(buffer, index, packet, parent)
 
   return index
 end
@@ -2398,17 +2398,17 @@ nasdaq_nomoptions_bono_itch_v3_2_dissect.packet = function(buffer, packet, paren
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     index, message = nasdaq_nomoptions_bono_itch_v3_2_dissect.message(buffer, index, packet, parent, size_of_message)

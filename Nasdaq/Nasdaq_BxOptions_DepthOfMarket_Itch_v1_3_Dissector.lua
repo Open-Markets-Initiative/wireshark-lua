@@ -40,7 +40,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size_long = ProtoField.new("
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.bxoptions.depthofmarket.itch.v1.3.buysellindicator", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.bxoptions.depthofmarket.itch.v1.3.cancelledcontracts", ftypes.UINT32)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.change_reason = ProtoField.new("Change Reason", "nasdaq.bxoptions.depthofmarket.itch.v1.3.changereason", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.count = ProtoField.new("Count", "nasdaq.bxoptions.depthofmarket.itch.v1.3.count", ftypes.UINT16)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_number = ProtoField.new("Cross Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.crossnumber", ftypes.UINT32)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.crosstype", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.bxoptions.depthofmarket.itch.v1.3.currenttradingstate", ftypes.STRING)
@@ -54,11 +53,12 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price = ProtoFie
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalancedirection", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalanceprice", ftypes.DOUBLE)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.bxoptions.depthofmarket.itch.v1.3.imbalancevolume", ftypes.UINT32)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.length = ProtoField.new("Length", "nasdaq.bxoptions.depthofmarket.itch.v1.3.length", ftypes.UINT16)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.market_side = ProtoField.new("Market Side", "nasdaq.bxoptions.depthofmarket.itch.v1.3.marketside", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.match_number = ProtoField.new("Match Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.matchnumber", ftypes.UINT32)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message = ProtoField.new("Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.message", ftypes.STRING)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagecount", ftypes.UINT16)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messageheader", ftypes.STRING)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagelength", ftypes.UINT16)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messagetype", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.bxoptions.depthofmarket.itch.v1.3.mpv", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.new_reference_number_delta = ProtoField.new("New Reference Number Delta", "nasdaq.bxoptions.depthofmarket.itch.v1.3.newreferencenumberdelta", ftypes.UINT32)
@@ -82,7 +82,7 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan = ProtoF
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved = ProtoField.new("Reserved", "nasdaq.bxoptions.depthofmarket.itch.v1.3.reserved", ftypes.UINT32)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second = ProtoField.new("Second", "nasdaq.bxoptions.depthofmarket.itch.v1.3.second", ftypes.UINT32)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.bxoptions.depthofmarket.itch.v1.3.securitysymbol", ftypes.STRING)
-nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence = ProtoField.new("Sequence", "nasdaq.bxoptions.depthofmarket.itch.v1.3.sequence", ftypes.UINT64)
+nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxoptions.depthofmarket.itch.v1.3.sequencenumber", ftypes.UINT64)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.session = ProtoField.new("Session", "nasdaq.bxoptions.depthofmarket.itch.v1.3.session", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.source = ProtoField.new("Source", "nasdaq.bxoptions.depthofmarket.itch.v1.3.source", ftypes.UINT8)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.bxoptions.depthofmarket.itch.v1.3.timestamp", ftypes.UINT32)
@@ -3669,22 +3669,22 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_type = function(buffer,
   return offset + length, value
 end
 
--- Size: Length
-nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.length = 2
+-- Size: Message Length
+nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_length = 2
 
--- Display: Length
-nasdaq_bxoptions_depthofmarket_itch_v1_3_display.length = function(value)
-  return "Length: "..value
+-- Display: Message Length
+nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_length = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect: Length
-nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.length = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.length
+-- Dissect: Message Length
+nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.length(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.length, range, value, display)
+  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -3693,7 +3693,7 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.length
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_length
 
   index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_type
 
@@ -3709,8 +3709,8 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.length(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 25 values
   index, message_type = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_type(buffer, index, packet, parent)
@@ -3778,42 +3778,42 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message = function(buffer, offs
   end
 end
 
--- Size: Count
-nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.count = 2
+-- Size: Message Count
+nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_count = 2
 
--- Display: Count
-nasdaq_bxoptions_depthofmarket_itch_v1_3_display.count = function(value)
-  return "Count: "..value
+-- Display: Message Count
+nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_count = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Count
-nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.count = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.count
+-- Dissect: Message Count
+nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.count(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.count, range, value, display)
+  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Sequence
-nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.sequence = 8
+-- Size: Sequence Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.sequence_number = 8
 
--- Display: Sequence
-nasdaq_bxoptions_depthofmarket_itch_v1_3_display.sequence = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3_display.sequence_number = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.sequence
+-- Dissect: Sequence Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.sequence(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence, range, value, display)
+  parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3860,9 +3860,9 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.packet_header = function(buffer
 
   index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.session
 
-  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.sequence
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.sequence_number
 
-  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.count
+  index = index + nasdaq_bxoptions_depthofmarket_itch_v1_3_size_of.message_count
 
   return index
 end
@@ -3879,11 +3879,11 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header_fields = function
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.sequence(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.sequence_number(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.count(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_count(buffer, index, packet, parent)
 
   return index
 end
@@ -3913,17 +3913,17 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet = function(buffer, packe
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     index, message = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)

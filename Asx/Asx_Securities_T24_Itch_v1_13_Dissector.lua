@@ -40,7 +40,6 @@ asx_securities_t24_itch_v1_13.fields.contract_number_leg_4 = ProtoField.new("Con
 asx_securities_t24_itch_v1_13.fields.contract_number_leg_5 = ProtoField.new("Contract Number Leg 5", "asx.securities.t24.itch.v1.13.contractnumberleg5", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.contract_number_leg_6 = ProtoField.new("Contract Number Leg 6", "asx.securities.t24.itch.v1.13.contractnumberleg6", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.contract_type = ProtoField.new("Contract Type", "asx.securities.t24.itch.v1.13.contracttype", ftypes.STRING)
-asx_securities_t24_itch_v1_13.fields.count = ProtoField.new("Count", "asx.securities.t24.itch.v1.13.count", ftypes.UINT16)
 asx_securities_t24_itch_v1_13.fields.coupon_rate = ProtoField.new("Coupon Rate", "asx.securities.t24.itch.v1.13.couponrate", ftypes.UINT16)
 asx_securities_t24_itch_v1_13.fields.cumulative_volume = ProtoField.new("Cumulative Volume", "asx.securities.t24.itch.v1.13.cumulativevolume", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.currency = ProtoField.new("Currency", "asx.securities.t24.itch.v1.13.currency", ftypes.STRING)
@@ -66,7 +65,6 @@ asx_securities_t24_itch_v1_13.fields.last_traded_volume = ProtoField.new("Last T
 asx_securities_t24_itch_v1_13.fields.last_trading_date = ProtoField.new("Last Trading Date", "asx.securities.t24.itch.v1.13.lasttradingdate", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.last_volume = ProtoField.new("Last Volume", "asx.securities.t24.itch.v1.13.lastvolume", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.legs = ProtoField.new("Legs", "asx.securities.t24.itch.v1.13.legs", ftypes.UINT8)
-asx_securities_t24_itch_v1_13.fields.length = ProtoField.new("Length", "asx.securities.t24.itch.v1.13.length", ftypes.UINT16)
 asx_securities_t24_itch_v1_13.fields.lot_size_or_face_value = ProtoField.new("Lot Size Or Face Value", "asx.securities.t24.itch.v1.13.lotsizeorfacevalue", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.lowest_trade = ProtoField.new("Lowest Trade", "asx.securities.t24.itch.v1.13.lowesttrade", ftypes.INT32)
 asx_securities_t24_itch_v1_13.fields.lowest_traded_price = ProtoField.new("Lowest Traded Price", "asx.securities.t24.itch.v1.13.lowesttradedprice", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x04)
@@ -74,7 +72,9 @@ asx_securities_t24_itch_v1_13.fields.market_updates = ProtoField.new("Market Upd
 asx_securities_t24_itch_v1_13.fields.match_number = ProtoField.new("Match Number", "asx.securities.t24.itch.v1.13.matchnumber", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.maturity_value = ProtoField.new("Maturity Value", "asx.securities.t24.itch.v1.13.maturityvalue", ftypes.UINT8)
 asx_securities_t24_itch_v1_13.fields.message = ProtoField.new("Message", "asx.securities.t24.itch.v1.13.message", ftypes.STRING)
+asx_securities_t24_itch_v1_13.fields.message_count = ProtoField.new("Message Count", "asx.securities.t24.itch.v1.13.messagecount", ftypes.UINT16)
 asx_securities_t24_itch_v1_13.fields.message_header = ProtoField.new("Message Header", "asx.securities.t24.itch.v1.13.messageheader", ftypes.STRING)
+asx_securities_t24_itch_v1_13.fields.message_length = ProtoField.new("Message Length", "asx.securities.t24.itch.v1.13.messagelength", ftypes.UINT16)
 asx_securities_t24_itch_v1_13.fields.message_type = ProtoField.new("Message Type", "asx.securities.t24.itch.v1.13.messagetype", ftypes.STRING)
 asx_securities_t24_itch_v1_13.fields.open_interest = ProtoField.new("Open Interest", "asx.securities.t24.itch.v1.13.openinterest", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.opening_trade = ProtoField.new("Opening Trade", "asx.securities.t24.itch.v1.13.openingtrade", ftypes.INT32)
@@ -115,7 +115,7 @@ asx_securities_t24_itch_v1_13.fields.secondary_ratio = ProtoField.new("Secondary
 asx_securities_t24_itch_v1_13.fields.seller_contract_number = ProtoField.new("Seller Contract Number", "asx.securities.t24.itch.v1.13.sellercontractnumber", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.seller_quantity_remaining = ProtoField.new("Seller Quantity Remaining", "asx.securities.t24.itch.v1.13.sellerquantityremaining", ftypes.UINT32)
 asx_securities_t24_itch_v1_13.fields.selling_order_number = ProtoField.new("Selling Order Number", "asx.securities.t24.itch.v1.13.sellingordernumber", ftypes.UINT64)
-asx_securities_t24_itch_v1_13.fields.sequence = ProtoField.new("Sequence", "asx.securities.t24.itch.v1.13.sequence", ftypes.UINT64)
+asx_securities_t24_itch_v1_13.fields.sequence_number = ProtoField.new("Sequence Number", "asx.securities.t24.itch.v1.13.sequencenumber", ftypes.UINT64)
 asx_securities_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.securities.t24.itch.v1.13.session", ftypes.STRING)
 asx_securities_t24_itch_v1_13.fields.session_week = ProtoField.new("Session Week", "asx.securities.t24.itch.v1.13.sessionweek", ftypes.STRING)
 asx_securities_t24_itch_v1_13.fields.session_year = ProtoField.new("Session Year", "asx.securities.t24.itch.v1.13.sessionyear", ftypes.STRING)
@@ -5800,22 +5800,22 @@ asx_securities_t24_itch_v1_13_dissect.message_type = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Size: Length
-asx_securities_t24_itch_v1_13_size_of.length = 2
+-- Size: Message Length
+asx_securities_t24_itch_v1_13_size_of.message_length = 2
 
--- Display: Length
-asx_securities_t24_itch_v1_13_display.length = function(value)
-  return "Length: "..value
+-- Display: Message Length
+asx_securities_t24_itch_v1_13_display.message_length = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect: Length
-asx_securities_t24_itch_v1_13_dissect.length = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13_size_of.length
+-- Dissect: Message Length
+asx_securities_t24_itch_v1_13_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = asx_securities_t24_itch_v1_13_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13_display.length(value, buffer, offset, packet, parent)
+  local display = asx_securities_t24_itch_v1_13_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_t24_itch_v1_13.fields.length, range, value, display)
+  parent:add(asx_securities_t24_itch_v1_13.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -5824,7 +5824,7 @@ end
 asx_securities_t24_itch_v1_13_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + asx_securities_t24_itch_v1_13_size_of.length
+  index = index + asx_securities_t24_itch_v1_13_size_of.message_length
 
   index = index + asx_securities_t24_itch_v1_13_size_of.message_type
 
@@ -5840,8 +5840,8 @@ end
 asx_securities_t24_itch_v1_13_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = asx_securities_t24_itch_v1_13_dissect.length(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = asx_securities_t24_itch_v1_13_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 30 values
   index, message_type = asx_securities_t24_itch_v1_13_dissect.message_type(buffer, index, packet, parent)
@@ -5909,42 +5909,42 @@ asx_securities_t24_itch_v1_13_dissect.message = function(buffer, offset, packet,
   end
 end
 
--- Size: Count
-asx_securities_t24_itch_v1_13_size_of.count = 2
+-- Size: Message Count
+asx_securities_t24_itch_v1_13_size_of.message_count = 2
 
--- Display: Count
-asx_securities_t24_itch_v1_13_display.count = function(value)
-  return "Count: "..value
+-- Display: Message Count
+asx_securities_t24_itch_v1_13_display.message_count = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Count
-asx_securities_t24_itch_v1_13_dissect.count = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13_size_of.count
+-- Dissect: Message Count
+asx_securities_t24_itch_v1_13_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = asx_securities_t24_itch_v1_13_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_t24_itch_v1_13_display.count(value, buffer, offset, packet, parent)
+  local display = asx_securities_t24_itch_v1_13_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_t24_itch_v1_13.fields.count, range, value, display)
+  parent:add(asx_securities_t24_itch_v1_13.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Sequence
-asx_securities_t24_itch_v1_13_size_of.sequence = 8
+-- Size: Sequence Number
+asx_securities_t24_itch_v1_13_size_of.sequence_number = 8
 
--- Display: Sequence
-asx_securities_t24_itch_v1_13_display.sequence = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+asx_securities_t24_itch_v1_13_display.sequence_number = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-asx_securities_t24_itch_v1_13_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = asx_securities_t24_itch_v1_13_size_of.sequence
+-- Dissect: Sequence Number
+asx_securities_t24_itch_v1_13_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = asx_securities_t24_itch_v1_13_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = asx_securities_t24_itch_v1_13_display.sequence(value, buffer, offset, packet, parent)
+  local display = asx_securities_t24_itch_v1_13_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(asx_securities_t24_itch_v1_13.fields.sequence, range, value, display)
+  parent:add(asx_securities_t24_itch_v1_13.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -6088,9 +6088,9 @@ asx_securities_t24_itch_v1_13_size_of.packet_header = function(buffer, offset)
 
   index = index + asx_securities_t24_itch_v1_13_size_of.session(buffer, offset + index)
 
-  index = index + asx_securities_t24_itch_v1_13_size_of.sequence
+  index = index + asx_securities_t24_itch_v1_13_size_of.sequence_number
 
-  index = index + asx_securities_t24_itch_v1_13_size_of.count
+  index = index + asx_securities_t24_itch_v1_13_size_of.message_count
 
   return index
 end
@@ -6107,11 +6107,11 @@ asx_securities_t24_itch_v1_13_dissect.packet_header_fields = function(buffer, of
   -- Session: Struct of 4 fields
   index, session = asx_securities_t24_itch_v1_13_dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = asx_securities_t24_itch_v1_13_dissect.sequence(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = asx_securities_t24_itch_v1_13_dissect.sequence_number(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = asx_securities_t24_itch_v1_13_dissect.count(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = asx_securities_t24_itch_v1_13_dissect.message_count(buffer, index, packet, parent)
 
   return index
 end
@@ -6141,17 +6141,17 @@ asx_securities_t24_itch_v1_13_dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = asx_securities_t24_itch_v1_13_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     index, message = asx_securities_t24_itch_v1_13_dissect.message(buffer, index, packet, parent, size_of_message)

@@ -23,7 +23,6 @@ local translate = {}
 -- Nasdaq PsxEquities Bbo Itch 2.1 Fields
 nasdaq_psxequities_bbo_itch_v2_1.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.bbo.itch.v2.1.authenticity", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.bbo.itch.v2.1.breachedlevel", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.count = ProtoField.new("Count", "nasdaq.psxequities.bbo.itch.v2.1.count", ftypes.UINT16)
 nasdaq_psxequities_bbo_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psxequities.bbo.itch.v2.1.currenttradingstate", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.psxequities.bbo.itch.v2.1.etpflag", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.psxequities.bbo.itch.v2.1.etpleveragefactor", ftypes.UINT32)
@@ -33,7 +32,6 @@ nasdaq_psxequities_bbo_itch_v2_1.fields.inverse_indicator = ProtoField.new("Inve
 nasdaq_psxequities_bbo_itch_v2_1.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.psxequities.bbo.itch.v2.1.ipoflag", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psxequities.bbo.itch.v2.1.issueclassification", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psxequities.bbo.itch.v2.1.issuesubtype", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.length = ProtoField.new("Length", "nasdaq.psxequities.bbo.itch.v2.1.length", ftypes.UINT16)
 nasdaq_psxequities_bbo_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psxequities.bbo.itch.v2.1.level1", ftypes.DOUBLE)
 nasdaq_psxequities_bbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psxequities.bbo.itch.v2.1.level2", ftypes.DOUBLE)
 nasdaq_psxequities_bbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psxequities.bbo.itch.v2.1.level3", ftypes.DOUBLE)
@@ -41,7 +39,9 @@ nasdaq_psxequities_bbo_itch_v2_1.fields.luld_reference_price_tier = ProtoField.n
 nasdaq_psxequities_bbo_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.bbo.itch.v2.1.marketcategory", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.psxequities.bbo.itch.v2.1.marketcode", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.psxequities.bbo.itch.v2.1.message", ftypes.STRING)
+nasdaq_psxequities_bbo_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.bbo.itch.v2.1.messagecount", ftypes.UINT16)
 nasdaq_psxequities_bbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.bbo.itch.v2.1.messageheader", ftypes.STRING)
+nasdaq_psxequities_bbo_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.itch.v2.1.messagelength", ftypes.UINT16)
 nasdaq_psxequities_bbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.itch.v2.1.messagetype", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psxequities.bbo.itch.v2.1.nasdaqbestbid", ftypes.DOUBLE)
 nasdaq_psxequities_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psxequities.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
@@ -58,7 +58,7 @@ nasdaq_psxequities_bbo_itch_v2_1.fields.reg_sho_action = ProtoField.new("Reg Sho
 nasdaq_psxequities_bbo_itch_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.bbo.itch.v2.1.roundlotsize", ftypes.UINT32)
 nasdaq_psxequities_bbo_itch_v2_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.bbo.itch.v2.1.roundlotsonly", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.security_class = ProtoField.new("Security Class", "nasdaq.psxequities.bbo.itch.v2.1.securityclass", ftypes.STRING)
-nasdaq_psxequities_bbo_itch_v2_1.fields.sequence = ProtoField.new("Sequence", "nasdaq.psxequities.bbo.itch.v2.1.sequence", ftypes.UINT64)
+nasdaq_psxequities_bbo_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.bbo.itch.v2.1.sequencenumber", ftypes.UINT64)
 nasdaq_psxequities_bbo_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.psxequities.bbo.itch.v2.1.session", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.psxequities.bbo.itch.v2.1.shortsalethresholdindicator", ftypes.STRING)
 nasdaq_psxequities_bbo_itch_v2_1.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.bbo.itch.v2.1.stock", ftypes.STRING)
@@ -1881,22 +1881,22 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.message_type = function(buffer, offset,
   return offset + length, value
 end
 
--- Size: Length
-nasdaq_psxequities_bbo_itch_v2_1_size_of.length = 2
+-- Size: Message Length
+nasdaq_psxequities_bbo_itch_v2_1_size_of.message_length = 2
 
--- Display: Length
-nasdaq_psxequities_bbo_itch_v2_1_display.length = function(value)
-  return "Length: "..value
+-- Display: Message Length
+nasdaq_psxequities_bbo_itch_v2_1_display.message_length = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect: Length
-nasdaq_psxequities_bbo_itch_v2_1_dissect.length = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_size_of.length
+-- Dissect: Message Length
+nasdaq_psxequities_bbo_itch_v2_1_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_display.length(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.length, range, value, display)
+  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1905,7 +1905,7 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.length
+  index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.message_length
 
   index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.message_type
 
@@ -1921,8 +1921,8 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = nasdaq_psxequities_bbo_itch_v2_1_dissect.length(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_psxequities_bbo_itch_v2_1_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 9 values
   index, message_type = nasdaq_psxequities_bbo_itch_v2_1_dissect.message_type(buffer, index, packet, parent)
@@ -1990,42 +1990,42 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.message = function(buffer, offset, pack
   end
 end
 
--- Size: Count
-nasdaq_psxequities_bbo_itch_v2_1_size_of.count = 2
+-- Size: Message Count
+nasdaq_psxequities_bbo_itch_v2_1_size_of.message_count = 2
 
--- Display: Count
-nasdaq_psxequities_bbo_itch_v2_1_display.count = function(value)
-  return "Count: "..value
+-- Display: Message Count
+nasdaq_psxequities_bbo_itch_v2_1_display.message_count = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Count
-nasdaq_psxequities_bbo_itch_v2_1_dissect.count = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_size_of.count
+-- Dissect: Message Count
+nasdaq_psxequities_bbo_itch_v2_1_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_display.count(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.count, range, value, display)
+  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Sequence
-nasdaq_psxequities_bbo_itch_v2_1_size_of.sequence = 8
+-- Size: Sequence Number
+nasdaq_psxequities_bbo_itch_v2_1_size_of.sequence_number = 8
 
--- Display: Sequence
-nasdaq_psxequities_bbo_itch_v2_1_display.sequence = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+nasdaq_psxequities_bbo_itch_v2_1_display.sequence_number = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-nasdaq_psxequities_bbo_itch_v2_1_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_size_of.sequence
+-- Dissect: Sequence Number
+nasdaq_psxequities_bbo_itch_v2_1_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_display.sequence(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.sequence, range, value, display)
+  parent:add(nasdaq_psxequities_bbo_itch_v2_1.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -2072,9 +2072,9 @@ nasdaq_psxequities_bbo_itch_v2_1_size_of.packet_header = function(buffer, offset
 
   index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.session
 
-  index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.sequence
+  index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.sequence_number
 
-  index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.count
+  index = index + nasdaq_psxequities_bbo_itch_v2_1_size_of.message_count
 
   return index
 end
@@ -2091,11 +2091,11 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.packet_header_fields = function(buffer,
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_psxequities_bbo_itch_v2_1_dissect.session(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_psxequities_bbo_itch_v2_1_dissect.sequence(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_psxequities_bbo_itch_v2_1_dissect.sequence_number(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_psxequities_bbo_itch_v2_1_dissect.count(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_psxequities_bbo_itch_v2_1_dissect.message_count(buffer, index, packet, parent)
 
   return index
 end
@@ -2125,17 +2125,17 @@ nasdaq_psxequities_bbo_itch_v2_1_dissect.packet = function(buffer, packet, paren
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_psxequities_bbo_itch_v2_1_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(index, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     index, message = nasdaq_psxequities_bbo_itch_v2_1_dissect.message(buffer, index, packet, parent, size_of_message)
