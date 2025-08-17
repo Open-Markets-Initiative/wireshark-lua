@@ -144,6 +144,10 @@ nasdaq_uqdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restrict
 nasdaq_uqdf_output_utp_v1_5.fields.session_close_recap_message = ProtoField.new("Session Close Recap Message", "nasdaq.uqdf.output.utp.v1.5.sessioncloserecapmessage", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "nasdaq.uqdf.output.utp.v1.5.startofdaymessage", ftypes.STRING)
 
+-- Nasdaq Uqdf Output Utp 1.5 generated fields
+nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index = ProtoField.new("Market Center Close Recap Index", "nasdaq.uqdf.output.utp.v1.5.marketcentercloserecapindex", ftypes.UINT16)
+nasdaq_uqdf_output_utp_v1_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.uqdf.output.utp.v1.5.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -595,17 +599,17 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.message_info = function(buffer, offset, packet, parent)
   if show.message_info then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message_info, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v1_5_dissect.message_info_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message_info, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5_dissect.message_info_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_uqdf_output_utp_v1_5_display.message_info(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v1_5_dissect.message_info_fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5_dissect.message_info_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1190,17 +1194,17 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap = function(buffer, offset, packet, parent)
   if show.market_center_close_recap then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_uqdf_output_utp_v1_5_display.market_center_close_recap(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap_fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1458,9 +1462,14 @@ nasdaq_uqdf_output_utp_v1_5_dissect.session_close_recap_message_fields = functio
   -- Number Of Market Center Attachments: 2 Byte Unsigned Fixed Width Integer
   index, number_of_market_center_attachments = nasdaq_uqdf_output_utp_v1_5_dissect.number_of_market_center_attachments(buffer, index, packet, parent)
 
-  -- Market Center Close Recap: Struct of 5 fields
-  for i = 1, number_of_market_center_attachments do
-    index = nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap(buffer, index, packet, parent)
+  -- Repeating: Market Center Close Recap
+  for market_center_close_recap_index = 1, number_of_market_center_attachments do
+    index, market_center_close_recap = nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap(buffer, index, packet, parent)
+
+    if market_center_close_recap ~= nil then
+      local iteration = market_center_close_recap:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index, market_center_close_recap_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2628,8 +2637,8 @@ nasdaq_uqdf_output_utp_v1_5_dissect.general_administrative_message_fields = func
   -- Text Length: 2 Byte Unsigned Fixed Width Integer
   index, text_length = nasdaq_uqdf_output_utp_v1_5_dissect.text_length(buffer, index, packet, parent)
 
-  -- Text: 0 Byte Ascii String
-  index = nasdaq_uqdf_output_utp_v1_5_dissect.text(buffer, index, packet, parent, text_length)
+  -- Runtime Size Of: Text
+  index, text = nasdaq_uqdf_output_utp_v1_5_dissect.text(buffer, index, packet, parent, text_length)
 
   return index
 end
@@ -3198,17 +3207,17 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_mpid_appendage = function(buffer, offset, packet, parent)
   if show.finra_adf_mpid_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.finra_adf_mpid_appendage, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_mpid_appendage_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.finra_adf_mpid_appendage, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_mpid_appendage_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_uqdf_output_utp_v1_5_display.finra_adf_mpid_appendage(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_mpid_appendage_fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_mpid_appendage_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3465,17 +3474,17 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage = function(buffer, offset, packet, parent)
   if show.long_form_national_bbo_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.long_form_national_bbo_appendage, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.long_form_national_bbo_appendage, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_uqdf_output_utp_v1_5_display.long_form_national_bbo_appendage(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage_fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3629,17 +3638,17 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage = function(buffer, offset, packet, parent)
   if show.short_form_national_bbo_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.short_form_national_bbo_appendage, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.short_form_national_bbo_appendage, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_uqdf_output_utp_v1_5_display.short_form_national_bbo_appendage(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage_fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3922,7 +3931,7 @@ nasdaq_uqdf_output_utp_v1_5_dissect.quote_long_form_message_fields = function(bu
 
   -- Runtime optional field: Short Form National Bbo Appendage
   if short_form_national_bbo_appendage_exists then
-    index = nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage(buffer, index, packet, parent)
+    index, short_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Long Form National Bbo Appendage
@@ -3930,7 +3939,7 @@ nasdaq_uqdf_output_utp_v1_5_dissect.quote_long_form_message_fields = function(bu
 
   -- Runtime optional field: Long Form National Bbo Appendage
   if long_form_national_bbo_appendage_exists then
-    index = nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage(buffer, index, packet, parent)
+    index, long_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Finra Adf Mpid Appendage
@@ -3938,7 +3947,7 @@ nasdaq_uqdf_output_utp_v1_5_dissect.quote_long_form_message_fields = function(bu
 
   -- Runtime optional field: Finra Adf Mpid Appendage
   if finra_adf_mpid_appendage_exists then
-    index = nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_mpid_appendage(buffer, index, packet, parent)
+    index, finra_adf_mpid_appendage = nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_mpid_appendage(buffer, index, packet, parent)
   end
 
   return index
@@ -4133,7 +4142,7 @@ nasdaq_uqdf_output_utp_v1_5_dissect.quote_short_form_message_fields = function(b
 
   -- Runtime optional field: Short Form National Bbo Appendage
   if short_form_national_bbo_appendage_exists then
-    index = nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage(buffer, index, packet, parent)
+    index, short_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5_dissect.short_form_national_bbo_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Long Form National Bbo Appendage
@@ -4141,7 +4150,7 @@ nasdaq_uqdf_output_utp_v1_5_dissect.quote_short_form_message_fields = function(b
 
   -- Runtime optional field: Long Form National Bbo Appendage
   if long_form_national_bbo_appendage_exists then
-    index = nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage(buffer, index, packet, parent)
+    index, long_form_national_bbo_appendage = nasdaq_uqdf_output_utp_v1_5_dissect.long_form_national_bbo_appendage(buffer, index, packet, parent)
   end
 
   return index
@@ -4459,17 +4468,17 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_uqdf_output_utp_v1_5_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4496,16 +4505,23 @@ end
 
 -- Dissect: Message
 nasdaq_uqdf_output_utp_v1_5_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = nasdaq_uqdf_output_utp_v1_5_display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message, range, display)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message, buffer(offset, 0))
+    local current = nasdaq_uqdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = nasdaq_uqdf_output_utp_v1_5_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nasdaq_uqdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  nasdaq_uqdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Count
@@ -4606,17 +4622,17 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_uqdf_output_utp_v1_5_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4640,7 +4656,7 @@ nasdaq_uqdf_output_utp_v1_5_dissect.packet = function(buffer, packet, parent)
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index = nasdaq_uqdf_output_utp_v1_5_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = nasdaq_uqdf_output_utp_v1_5_dissect.message(buffer, index, packet, parent, size_of_message)
   end
 
   return index

@@ -32,6 +32,9 @@ cboe_pitch_sequencedunitheader_pitch_v1_0.fields.payload = ProtoField.new("Paylo
 cboe_pitch_sequencedunitheader_pitch_v1_0.fields.sequence = ProtoField.new("Sequence", "cboe.pitch.sequencedunitheader.pitch.v1.0.sequence", ftypes.UINT32)
 cboe_pitch_sequencedunitheader_pitch_v1_0.fields.unit = ProtoField.new("Unit", "cboe.pitch.sequencedunitheader.pitch.v1.0.unit", ftypes.UINT8)
 
+-- Cboe Pitch SequencedUnitHeader Pitch 1.0 generated fields
+cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_index = ProtoField.new("Message Index", "cboe.pitch.sequencedunitheader.pitch.v1.0.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -170,17 +173,17 @@ end
 cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header, buffer(offset, 0))
-    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header, buffer(offset, 0))
+    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -203,23 +206,30 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields = function(buff
   local size_of_payload = message_length - 2
 
   -- Payload: 0 Byte
-  index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.payload(buffer, index, packet, parent, size_of_payload)
+  index, payload = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.payload(buffer, index, packet, parent, size_of_payload)
 
   return index
 end
 
 -- Dissect: Message
 cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message(buffer, packet, parent)
-    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message, range, display)
+    local element = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message, buffer(offset, 0))
+    local current = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Sequence
@@ -345,17 +355,17 @@ end
 cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header, buffer(offset, 0))
-    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -375,8 +385,8 @@ cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet = function(buffer, pack
     -- Dependency element: Message Length
     local message_length = buffer(index, 1):le_uint()
 
-    -- Message: Struct of 2 fields
-    index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message(buffer, index, packet, parent, message_length)
+    -- Runtime Size Of: Message
+    index, message = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   return index

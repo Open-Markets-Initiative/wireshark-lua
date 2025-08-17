@@ -96,6 +96,9 @@ nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_correction_message = ProtoFie
 nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.psxequities.lastsale.itch.v2.1.tradereportmessage", ftypes.STRING)
 nasdaq_psxequities_lastsale_itch_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.psxequities.lastsale.itch.v2.1.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq PsxEquities LastSale Itch 2.1 generated fields
+nasdaq_psxequities_lastsale_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.lastsale.itch.v2.1.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -362,17 +365,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.operational_halt_message = function(buffer, offset, packet, parent)
   if show.operational_halt_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.operational_halt_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.operational_halt_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.operational_halt_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.operational_halt_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.operational_halt_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.operational_halt_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.operational_halt_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -434,17 +437,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_breach_message = function(buffer, offset, packet, parent)
   if show.mwcb_breach_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.mwcb_breach_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_breach_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.mwcb_breach_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_breach_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.mwcb_breach_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_breach_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_breach_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -564,17 +567,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_decline_level_message = function(buffer, offset, packet, parent)
   if show.mwcb_decline_level_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.mwcb_decline_level_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.mwcb_decline_level_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.mwcb_decline_level_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.mwcb_decline_level_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1278,17 +1281,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.stock_directory_message = function(buffer, offset, packet, parent)
   if show.stock_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.stock_directory_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.stock_directory_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.stock_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.stock_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.stock_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1355,17 +1358,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.reg_sho_short_sale_price_test_restricted_indicator_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1624,17 +1627,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trading_action_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trading_action_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trading_action_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.trading_action_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trading_action_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1977,17 +1980,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_for_next_shares_message = function(buffer, offset, packet, parent)
   if show.trade_correction_for_next_shares_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_correction_for_next_shares_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_for_next_shares_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_correction_for_next_shares_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_for_next_shares_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.trade_correction_for_next_shares_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_for_next_shares_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_for_next_shares_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2069,17 +2072,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   if show.trade_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_correction_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_correction_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.trade_correction_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_correction_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2146,17 +2149,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_for_next_shares_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_error_for_next_shares_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_cancel_error_for_next_shares_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_for_next_shares_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_cancel_error_for_next_shares_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_for_next_shares_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.trade_cancel_error_for_next_shares_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_for_next_shares_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_for_next_shares_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2218,17 +2221,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_error_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_cancel_error_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_cancel_error_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.trade_cancel_error_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_cancel_error_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2593,17 +2596,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.next_shares_trade_report_message = function(buffer, offset, packet, parent)
   if show.next_shares_trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.next_shares_trade_report_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.next_shares_trade_report_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.next_shares_trade_report_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.next_shares_trade_report_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.next_shares_trade_report_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.next_shares_trade_report_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.next_shares_trade_report_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2706,17 +2709,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_report_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.trade_report_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_report_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.trade_report_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.trade_report_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2787,17 +2790,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.system_event_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.system_event_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.system_event_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3105,17 +3108,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3142,16 +3145,23 @@ end
 
 -- Dissect: Message
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = nasdaq_psxequities_lastsale_itch_v2_1_display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.message, range, display)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.message, buffer(offset, 0))
+    local current = nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = nasdaq_psxequities_lastsale_itch_v2_1_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  nasdaq_psxequities_lastsale_itch_v2_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Count
@@ -3268,17 +3278,17 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_psxequities_lastsale_itch_v2_1_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3289,11 +3299,11 @@ nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet = function(buffer, packet, 
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):uint()
 
-  -- Message: Struct of 2 fields
-  while index < end_of_payload do
+  -- Repeating: Message
+  for message_index = 1, count do
 
     -- Dependency element: Length
     local length = buffer(index, 2):uint()
@@ -3302,7 +3312,12 @@ nasdaq_psxequities_lastsale_itch_v2_1_dissect.packet = function(buffer, packet, 
     local size_of_message = length + 2
 
     -- Message: Struct of 2 fields
-    index = nasdaq_psxequities_lastsale_itch_v2_1_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = nasdaq_psxequities_lastsale_itch_v2_1_dissect.message(buffer, index, packet, parent, size_of_message)
+
+    if message ~= nil then
+      local iteration = message:add(nasdaq_psxequities_lastsale_itch_v2_1.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

@@ -424,17 +424,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_trading_status_notification = function(buffer, offset, packet, parent)
   if show.underlying_trading_status_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_trading_status_notification, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_trading_status_notification_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.underlying_trading_status_notification, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_trading_status_notification_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.underlying_trading_status_notification(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_trading_status_notification_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.underlying_trading_status_notification_fields(buffer, offset, packet, element)
   end
 end
 
@@ -622,17 +622,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.trade_cancel_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.trade_cancel_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.trade_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -744,17 +744,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.last_sale_message = function(buffer, offset, packet, parent)
   if show.last_sale_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.last_sale_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.last_sale_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.last_sale_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.last_sale_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.last_sale_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.last_sale_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.last_sale_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1098,17 +1098,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
   if show.wide_double_sided_top_of_market_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_double_sided_top_of_market_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_double_sided_top_of_market_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.wide_double_sided_top_of_market_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_double_sided_top_of_market_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1317,17 +1317,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_double_sided_top_of_market_message = function(buffer, offset, packet, parent)
   if show.compact_double_sided_top_of_market_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.compact_double_sided_top_of_market_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.compact_double_sided_top_of_market_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_double_sided_top_of_market_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.compact_double_sided_top_of_market_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_double_sided_top_of_market_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_double_sided_top_of_market_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1486,17 +1486,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_offer_message = function(buffer, offset, packet, parent)
   if show.wide_top_of_market_best_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_offer_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_offer_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_offer_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_offer_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.wide_top_of_market_best_offer_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_offer_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_offer_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1553,17 +1553,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_bid_message = function(buffer, offset, packet, parent)
   if show.wide_top_of_market_best_bid_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_bid_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_bid_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.wide_top_of_market_best_bid_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_bid_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.wide_top_of_market_best_bid_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_bid_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.wide_top_of_market_best_bid_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1686,17 +1686,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_best_offer_message = function(buffer, offset, packet, parent)
   if show.compact_top_of_market_best_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_best_offer_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_best_offer_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_best_offer_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_best_offer_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.compact_top_of_market_best_offer_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_best_offer_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_best_offer_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1753,17 +1753,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_bid_message = function(buffer, offset, packet, parent)
   if show.compact_top_of_market_bid_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_bid_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_bid_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_bid_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.compact_top_of_market_bid_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_bid_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.compact_top_of_market_bid_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1903,17 +1903,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message = function(buffer, offset, packet, parent)
   if show.system_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.system_state_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.system_state_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.system_state_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.system_state_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2406,17 +2406,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.series_update_message = function(buffer, offset, packet, parent)
   if show.series_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.series_update_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.series_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.series_update_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.series_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.series_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.series_update_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.series_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2448,17 +2448,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0_dissect.pearl_system_time_message = function(buffer, offset, packet, parent)
   if show.pearl_system_time_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_system_time_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.pearl_system_time_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_system_time_message, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v1_0_dissect.pearl_system_time_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_pearloptions_topofmarket_mach_v1_0_display.pearl_system_time_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v1_0_dissect.pearl_system_time_message_fields(buffer, offset, packet, parent)
+    return miax_pearloptions_topofmarket_mach_v1_0_dissect.pearl_system_time_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2904,7 +2904,7 @@ miax_pearloptions_topofmarket_mach_v1_0_dissect.packet = function(buffer, packet
 
   -- Message: Struct of 5 fields
   while index < end_of_payload do
-    index = miax_pearloptions_topofmarket_mach_v1_0_dissect.message(buffer, index, packet, parent)
+    index, message = miax_pearloptions_topofmarket_mach_v1_0_dissect.message(buffer, index, packet, parent)
   end
 
   return index

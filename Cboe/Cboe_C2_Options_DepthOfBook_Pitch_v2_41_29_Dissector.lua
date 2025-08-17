@@ -105,6 +105,9 @@ cboe_c2_options_depthofbook_pitch_v2_41_29.fields.transaction_end = ProtoField.n
 cboe_c2_options_depthofbook_pitch_v2_41_29.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c2.options.depthofbook.pitch.v2.41.29.unitclearmessage", ftypes.STRING)
 cboe_c2_options_depthofbook_pitch_v2_41_29.fields.width_update = ProtoField.new("Width Update", "cboe.c2.options.depthofbook.pitch.v2.41.29.widthupdate", ftypes.STRING)
 
+-- Cboe C2 Options DepthOfBook Pitch 2.41.29 generated fields
+cboe_c2_options_depthofbook_pitch_v2_41_29.fields.message_index = ProtoField.new("Message Index", "cboe.c2.options.depthofbook.pitch.v2.41.29.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -464,17 +467,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_summary_message = function(buffer, offset, packet, parent)
   if show.auction_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.auction_summary_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.auction_summary_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.auction_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -779,17 +782,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_update_message = function(buffer, offset, packet, parent)
   if show.auction_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.auction_update_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.auction_update_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.auction_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_update_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.auction_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -902,17 +905,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.width_update = function(buffer, offset, packet, parent)
   if show.width_update then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.width_update, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.width_update_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.width_update, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.width_update_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.width_update(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.width_update_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.width_update_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1060,17 +1063,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trading_status_message = function(buffer, offset, packet, parent)
   if show.trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trading_status_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.trading_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1184,17 +1187,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.symbol_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.symbol_mapping_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.symbol_mapping_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.symbol_mapping_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.symbol_mapping_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.symbol_mapping_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1246,17 +1249,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.end_of_session = function(buffer, offset, packet, parent)
   if show.end_of_session then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.end_of_session, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.end_of_session, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.end_of_session(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1313,17 +1316,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_break_message = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_break_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_break_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.trade_break_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1452,17 +1455,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message = function(buffer, offset, packet, parent)
   if show.trade_expanded_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_expanded_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_expanded_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.trade_expanded_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1659,17 +1662,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_short_message = function(buffer, offset, packet, parent)
   if show.trade_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_short_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_short_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.trade_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1736,17 +1739,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_long_message = function(buffer, offset, packet, parent)
   if show.trade_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_long_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.trade_long_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.trade_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1783,17 +1786,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.delete_order_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.delete_order_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.delete_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1845,17 +1848,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   if show.modify_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.modify_order_short_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.modify_order_short_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.modify_order_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1907,17 +1910,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   if show.modify_order_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.modify_order_long_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.modify_order_long_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.modify_order_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1979,17 +1982,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   if show.reduce_size_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.reduce_size_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2051,17 +2054,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
   if show.reduce_size_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.reduce_size_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2163,17 +2166,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
   if show.order_executed_at_price_size_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.order_executed_at_price_size_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2225,17 +2228,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.order_executed_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.order_executed_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.order_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2439,17 +2442,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
   if show.add_order_expanded_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.add_order_expanded_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2511,17 +2514,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_short_message = function(buffer, offset, packet, parent)
   if show.add_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.add_order_short_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.add_order_short_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.add_order_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2583,17 +2586,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_long_message = function(buffer, offset, packet, parent)
   if show.add_order_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.add_order_long_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.add_order_long_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.add_order_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2625,17 +2628,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_end = function(buffer, offset, packet, parent)
   if show.transaction_end then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.transaction_end, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_end_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.transaction_end, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_end_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.transaction_end(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_end_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_end_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2667,17 +2670,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_begin = function(buffer, offset, packet, parent)
   if show.transaction_begin then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.transaction_begin, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_begin_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.transaction_begin, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_begin_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.transaction_begin(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_begin_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.transaction_begin_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2709,17 +2712,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.unit_clear_message = function(buffer, offset, packet, parent)
   if show.unit_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.unit_clear_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.unit_clear_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.unit_clear_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2771,17 +2774,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.time_message = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.time_message, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.time_message, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.time_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3160,17 +3163,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.message_header, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.message_header, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3197,16 +3200,23 @@ end
 
 -- Dissect: Message
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.message(buffer, packet, parent)
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.message, range, display)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.message, buffer(offset, 0))
+    local current = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Sequence
@@ -3332,17 +3342,17 @@ end
 cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.packet_header, buffer(offset, 0))
-    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c2_options_depthofbook_pitch_v2_41_29.fields.packet_header, buffer(offset, 0))
+    local index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c2_options_depthofbook_pitch_v2_41_29_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3362,8 +3372,8 @@ cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.packet = function(buffer, pac
     -- Dependency element: Message Length
     local message_length = buffer(index, 1):le_uint()
 
-    -- Message: Struct of 2 fields
-    index = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message(buffer, index, packet, parent, message_length)
+    -- Runtime Size Of: Message
+    index, message = cboe_c2_options_depthofbook_pitch_v2_41_29_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   return index

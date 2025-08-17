@@ -85,6 +85,9 @@ nasdaq_nomoptions_bono_itch_v3_2.fields.timestamp_message = ProtoField.new("Time
 nasdaq_nomoptions_bono_itch_v3_2.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.nomoptions.bono.itch.v3.2.tradereportmessage", ftypes.STRING)
 nasdaq_nomoptions_bono_itch_v3_2.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nomoptions.bono.itch.v3.2.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq NomOptions Bono Itch 3.2 generated fields
+nasdaq_nomoptions_bono_itch_v3_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.nomoptions.bono.itch.v3.2.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -390,17 +393,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.broken_trade_report_message = function(buffer, offset, packet, parent)
   if show.broken_trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.broken_trade_report_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.broken_trade_report_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.broken_trade_report_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.broken_trade_report_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.broken_trade_report_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -543,17 +546,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.trade_report_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.trade_report_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.trade_report_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.trade_report_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.trade_report_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -658,17 +661,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_update_message = function(buffer, offset, packet, parent)
   if show.long_best_bid_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_bid_update_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_bid_update_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.long_best_bid_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -720,17 +723,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_ask_update_message = function(buffer, offset, packet, parent)
   if show.long_best_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_ask_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_ask_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.long_best_ask_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_ask_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_ask_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -828,17 +831,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_update_message = function(buffer, offset, packet, parent)
   if show.short_best_bid_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.short_best_bid_update_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.short_best_bid_update_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.short_best_bid_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -890,17 +893,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_ask_update_message = function(buffer, offset, packet, parent)
   if show.short_best_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.short_best_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_ask_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.short_best_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_ask_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.short_best_ask_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_ask_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_ask_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1054,17 +1057,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   if show.long_best_bid_and_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_bid_and_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.long_best_bid_and_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.long_best_bid_and_ask_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1218,17 +1221,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   if show.short_best_bid_and_ask_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.short_best_bid_and_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.short_best_bid_and_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.short_best_bid_and_ask_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1297,17 +1300,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   if show.security_open_closed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.security_open_closed_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.security_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.security_open_closed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1376,17 +1379,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.trading_action_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.trading_action_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.trading_action_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.trading_action_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.trading_action_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1735,17 +1738,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.options_directory_message = function(buffer, offset, packet, parent)
   if show.options_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.options_directory_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.options_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.options_directory_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.options_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.options_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.options_directory_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.options_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1874,17 +1877,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.system_event_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.system_event_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.system_event_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1936,17 +1939,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.timestamp_message = function(buffer, offset, packet, parent)
   if show.timestamp_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.timestamp_message, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.timestamp_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.timestamp_message, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.timestamp_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.timestamp_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.timestamp_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.timestamp_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2204,17 +2207,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2241,16 +2244,23 @@ end
 
 -- Dissect: Message
 nasdaq_nomoptions_bono_itch_v3_2_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = nasdaq_nomoptions_bono_itch_v3_2_display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.message, range, display)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.message, buffer(offset, 0))
+    local current = nasdaq_nomoptions_bono_itch_v3_2_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = nasdaq_nomoptions_bono_itch_v3_2_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nasdaq_nomoptions_bono_itch_v3_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  nasdaq_nomoptions_bono_itch_v3_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Count
@@ -2367,17 +2377,17 @@ end
 nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_nomoptions_bono_itch_v3_2.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_nomoptions_bono_itch_v3_2_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2388,11 +2398,11 @@ nasdaq_nomoptions_bono_itch_v3_2_dissect.packet = function(buffer, packet, paren
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_nomoptions_bono_itch_v3_2_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):uint()
 
-  -- Message: Struct of 2 fields
-  while index < end_of_payload do
+  -- Repeating: Message
+  for message_index = 1, count do
 
     -- Dependency element: Length
     local length = buffer(index, 2):uint()
@@ -2401,7 +2411,12 @@ nasdaq_nomoptions_bono_itch_v3_2_dissect.packet = function(buffer, packet, paren
     local size_of_message = length + 2
 
     -- Message: Struct of 2 fields
-    index = nasdaq_nomoptions_bono_itch_v3_2_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = nasdaq_nomoptions_bono_itch_v3_2_dissect.message(buffer, index, packet, parent, size_of_message)
+
+    if message ~= nil then
+      local iteration = message:add(nasdaq_nomoptions_bono_itch_v3_2.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

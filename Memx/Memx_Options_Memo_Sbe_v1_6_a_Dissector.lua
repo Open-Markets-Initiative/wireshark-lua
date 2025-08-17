@@ -190,6 +190,13 @@ memx_options_memo_sbe_v1_6_a.fields.short_one_sided_bulk_quote_message = ProtoFi
 memx_options_memo_sbe_v1_6_a.fields.short_two_sided_bulk_quote_message = ProtoField.new("Short Two Sided Bulk Quote Message", "memx.options.memo.sbe.v1.6.a.shorttwosidedbulkquotemessage", ftypes.STRING)
 memx_options_memo_sbe_v1_6_a.fields.user_notification_message = ProtoField.new("User Notification Message", "memx.options.memo.sbe.v1.6.a.usernotificationmessage", ftypes.STRING)
 
+-- Memx Options Memo Sbe 1.6.a generated fields
+memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index = ProtoField.new("Execution Allocations Group Index", "memx.options.memo.sbe.v1.6.a.executionallocationsgroupindex", ftypes.UINT16)
+memx_options_memo_sbe_v1_6_a.fields.parties_group_index = ProtoField.new("Parties Group Index", "memx.options.memo.sbe.v1.6.a.partiesgroupindex", ftypes.UINT16)
+memx_options_memo_sbe_v1_6_a.fields.quotes_group_index = ProtoField.new("Quotes Group Index", "memx.options.memo.sbe.v1.6.a.quotesgroupindex", ftypes.UINT16)
+memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index = ProtoField.new("Reported Allocations Group Index", "memx.options.memo.sbe.v1.6.a.reportedallocationsgroupindex", ftypes.UINT16)
+memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group_index = ProtoField.new("Requested Allocations Group Index", "memx.options.memo.sbe.v1.6.a.requestedallocationsgroupindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -728,17 +735,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_done_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_clear_lockout_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_done_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_done_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_done_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_done_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_clear_lockout_done_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_done_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_done_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -830,17 +837,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_clear_lockout_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_reject_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_reject_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_reject_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_reject_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_clear_lockout_reject_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_reject_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_reject_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -907,17 +914,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.user_notification_message = function(buffer, offset, packet, parent)
   if show.user_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.user_notification_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.user_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.user_notification_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.user_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.user_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.user_notification_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.user_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1055,17 +1062,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group = function(buffer, offset, packet, parent)
   if show.reported_allocations_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.reported_allocations_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1142,17 +1149,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.repeating_group_dimensions = function(buffer, offset, packet, parent)
   if show.repeating_group_dimensions then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.repeating_group_dimensions, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.repeating_group_dimensions, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.repeating_group_dimensions_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.repeating_group_dimensions(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.repeating_group_dimensions_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1184,9 +1191,14 @@ memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_groups_fields = functi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Reported Allocations Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group(buffer, index, packet, parent)
+  -- Repeating: Reported Allocations Group
+  for reported_allocations_group_index = 1, num_in_group do
+    index, reported_allocations_group = memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group(buffer, index, packet, parent)
+
+    if reported_allocations_group ~= nil then
+      local iteration = reported_allocations_group:add(memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index, reported_allocations_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1309,17 +1321,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group = function(buffer, offset, packet, parent)
   if show.execution_allocations_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_allocations_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1351,9 +1363,14 @@ memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_groups_fields = funct
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Execution Allocations Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group(buffer, index, packet, parent)
+  -- Repeating: Execution Allocations Group
+  for execution_allocations_group_index = 1, num_in_group do
+    index, execution_allocations_group = memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group(buffer, index, packet, parent)
+
+    if execution_allocations_group ~= nil then
+      local iteration = execution_allocations_group:add(memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index, execution_allocations_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2331,17 +2348,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.order_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.order_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_reject_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_reject_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_reject_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.order_cancel_reject_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.order_cancel_reject_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2403,17 +2420,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_done_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_done_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_done_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_done_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_done_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_done_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2749,17 +2766,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_reject_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_reject_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2831,17 +2848,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
   if show.pending_mass_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.pending_mass_cancel_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.pending_mass_cancel_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.pending_mass_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3198,17 +3215,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_restatement_message = function(buffer, offset, packet, parent)
   if show.execution_report_restatement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_restatement_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_restatement_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_restatement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_restatement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_restatement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3325,17 +3342,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_break_message = function(buffer, offset, packet, parent)
   if show.execution_report_trade_break_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_break_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_break_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_trade_break_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3422,17 +3439,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_correction_message = function(buffer, offset, packet, parent)
   if show.execution_report_trade_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_correction_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_trade_correction_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_trade_correction_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3691,17 +3708,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_replaced_message = function(buffer, offset, packet, parent)
   if show.execution_report_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_replaced_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_replaced_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_replaced_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_replaced_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_replaced_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3798,17 +3815,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_replace_message = function(buffer, offset, packet, parent)
   if show.execution_report_pending_replace_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_replace_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_replace_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_pending_replace_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4064,17 +4081,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_canceled_message = function(buffer, offset, packet, parent)
   if show.execution_report_canceled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_canceled_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_canceled_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_canceled_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_canceled_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_canceled_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4151,17 +4168,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_cancel_message = function(buffer, offset, packet, parent)
   if show.execution_report_pending_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_cancel_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_pending_cancel_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_pending_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4323,17 +4340,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.parties_group = function(buffer, offset, packet, parent)
   if show.parties_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.parties_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.parties_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.parties_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.parties_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.parties_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.parties_group_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.parties_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4365,9 +4382,14 @@ memx_options_memo_sbe_v1_6_a_dissect.parties_groups_fields = function(buffer, of
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Parties Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = memx_options_memo_sbe_v1_6_a_dissect.parties_group(buffer, index, packet, parent)
+  -- Repeating: Parties Group
+  for parties_group_index = 1, num_in_group do
+    index, parties_group = memx_options_memo_sbe_v1_6_a_dissect.parties_group(buffer, index, packet, parent)
+
+    if parties_group ~= nil then
+      local iteration = parties_group:add(memx_options_memo_sbe_v1_6_a.fields.parties_group_index, parties_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -5120,17 +5142,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_rejected_message = function(buffer, offset, packet, parent)
   if show.execution_report_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_rejected_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_rejected_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5222,17 +5244,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_component_new_message = function(buffer, offset, packet, parent)
   if show.execution_report_bulk_quote_component_new_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_component_new_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_component_new_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_report_bulk_quote_component_new_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_component_new_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.execution_report_bulk_quote_component_new_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_component_new_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.execution_report_bulk_quote_component_new_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5870,17 +5892,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group = function(buffer, offset, packet, parent)
   if show.requested_allocations_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.requested_allocations_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5912,9 +5934,14 @@ memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_groups_fields = funct
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Requested Allocations Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group(buffer, index, packet, parent)
+  -- Repeating: Requested Allocations Group
+  for requested_allocations_group_index = 1, num_in_group do
+    index, requested_allocations_group = memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group(buffer, index, packet, parent)
+
+    if requested_allocations_group ~= nil then
+      local iteration = requested_allocations_group:add(memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group_index, requested_allocations_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6048,17 +6075,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_request_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_clear_lockout_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_clear_lockout_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_clear_lockout_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_clear_lockout_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6125,17 +6152,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.mass_cancel_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.mass_cancel_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.mass_cancel_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6222,17 +6249,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.order_cancel_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6309,17 +6336,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_replace_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_replace_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.order_cancel_replace_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6468,17 +6495,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.quotes_group = function(buffer, offset, packet, parent)
   if show.quotes_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.quotes_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.quotes_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.quotes_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6510,9 +6537,14 @@ memx_options_memo_sbe_v1_6_a_dissect.quotes_groups_fields = function(buffer, off
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Quotes Group: Struct of 6 fields
-  for i = 1, num_in_group do
-    index = memx_options_memo_sbe_v1_6_a_dissect.quotes_group(buffer, index, packet, parent)
+  -- Repeating: Quotes Group
+  for quotes_group_index = 1, num_in_group do
+    index, quotes_group = memx_options_memo_sbe_v1_6_a_dissect.quotes_group(buffer, index, packet, parent)
+
+    if quotes_group ~= nil then
+      local iteration = quotes_group:add(memx_options_memo_sbe_v1_6_a.fields.quotes_group_index, quotes_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -7503,17 +7535,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.sbe_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.sbe_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7650,17 +7682,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_complete_message = function(buffer, offset, packet, parent)
   if show.stream_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_complete_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_complete_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_complete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.stream_complete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.stream_complete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7722,17 +7754,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
   if show.stream_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_rejected_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_rejected_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.stream_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.stream_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7789,17 +7821,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_begin_message = function(buffer, offset, packet, parent)
   if show.stream_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_begin_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_begin_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_begin_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.stream_begin_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.stream_begin_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7851,17 +7883,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_complete_message = function(buffer, offset, packet, parent)
   if show.replay_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_complete_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_complete_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_complete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.replay_complete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.replay_complete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7926,17 +7958,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
   if show.replay_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_rejected_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_rejected_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.replay_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.replay_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7993,17 +8025,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_begin_message = function(buffer, offset, packet, parent)
   if show.replay_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_begin_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_begin_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_begin_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.replay_begin_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.replay_begin_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8055,17 +8087,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.start_of_session_message = function(buffer, offset, packet, parent)
   if show.start_of_session_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.start_of_session_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.start_of_session_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.start_of_session_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.start_of_session_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.start_of_session_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8130,17 +8162,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.login_rejected_message = function(buffer, offset, packet, parent)
   if show.login_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_rejected_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_rejected_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.login_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.login_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.login_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8202,17 +8234,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.login_accepted_message = function(buffer, offset, packet, parent)
   if show.login_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_accepted_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_accepted_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.login_accepted_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.login_accepted_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.login_accepted_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8286,17 +8318,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.stream_request_message = function(buffer, offset, packet, parent)
   if show.stream_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.stream_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.stream_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.stream_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.stream_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8328,17 +8360,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
   if show.replay_all_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_all_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_all_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_all_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.replay_all_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.replay_all_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8400,17 +8432,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.replay_request_message = function(buffer, offset, packet, parent)
   if show.replay_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.replay_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.replay_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.replay_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.replay_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8487,17 +8519,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.login_request_message = function(buffer, offset, packet, parent)
   if show.login_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_request_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.login_request_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.login_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.login_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.login_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8780,17 +8812,17 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memo_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memo_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memo_sbe_v1_6_a_display.common_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, parent)
+    return memx_options_memo_sbe_v1_6_a_dissect.common_header_fields(buffer, offset, packet, element)
   end
 end
 

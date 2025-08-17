@@ -781,6 +781,12 @@ cboe_futures_orderentry_boe_v1_3.fields.user_modify_rejected_message = ProtoFiel
 cboe_futures_orderentry_boe_v1_3.fields.variance_quote_restatement_message = ProtoField.new("Variance Quote Restatement Message", "cboe.futures.orderentry.boe.v1.3.variancequoterestatementmessage", ftypes.STRING)
 cboe_futures_orderentry_boe_v1_3.fields.variance_restatement_message = ProtoField.new("Variance Restatement Message", "cboe.futures.orderentry.boe.v1.3.variancerestatementmessage", ftypes.STRING)
 
+-- Cboe Futures OrderEntry Boe 1.3 generated fields
+cboe_futures_orderentry_boe_v1_3.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.futures.orderentry.boe.v1.3.paramgroupindex", ftypes.UINT16)
+cboe_futures_orderentry_boe_v1_3.fields.quote_group_index = ProtoField.new("Quote Group Index", "cboe.futures.orderentry.boe.v1.3.quotegroupindex", ftypes.UINT16)
+cboe_futures_orderentry_boe_v1_3.fields.quote_result_group_index = ProtoField.new("Quote Result Group Index", "cboe.futures.orderentry.boe.v1.3.quoteresultgroupindex", ftypes.UINT16)
+cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index = ProtoField.new("Unit Sequence Index", "cboe.futures.orderentry.boe.v1.3.unitsequenceindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -4952,7 +4958,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -4960,7 +4966,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -4968,7 +4974,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -4976,7 +4982,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -4984,7 +4990,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -4992,7 +4998,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -5000,7 +5006,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -5008,7 +5014,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -5016,7 +5022,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -5024,7 +5030,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -5032,7 +5038,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -5040,7 +5046,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -5048,7 +5054,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Orig Cl Ord Id
@@ -5056,7 +5062,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+    index, orig_cl_ord_id = cboe_futures_orderentry_boe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Shares
@@ -5064,7 +5070,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Last Shares
   if last_shares_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.last_shares(buffer, index, packet, parent)
+    index, last_shares = cboe_futures_orderentry_boe_v1_3_dissect.last_shares(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Px
@@ -5072,7 +5078,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Last Px
   if last_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.last_px(buffer, index, packet, parent)
+    index, last_px = cboe_futures_orderentry_boe_v1_3_dissect.last_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Fee Code
@@ -5080,7 +5086,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Fee Code
   if fee_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.fee_code(buffer, index, packet, parent)
+    index, fee_code = cboe_futures_orderentry_boe_v1_3_dissect.fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -5088,7 +5094,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -5096,7 +5102,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -5104,7 +5110,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -5112,7 +5118,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -5120,7 +5126,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Date
@@ -5128,7 +5134,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Trade Date
   if trade_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.trade_date(buffer, index, packet, parent)
+    index, trade_date = cboe_futures_orderentry_boe_v1_3_dissect.trade_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Price
@@ -5136,7 +5142,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Clearing Price
   if clearing_price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_price(buffer, index, packet, parent)
+    index, clearing_price = cboe_futures_orderentry_boe_v1_3_dissect.clearing_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Size
@@ -5144,7 +5150,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Clearing Size
   if clearing_size_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_size(buffer, index, packet, parent)
+    index, clearing_size = cboe_futures_orderentry_boe_v1_3_dissect.clearing_size(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Symbol
@@ -5152,7 +5158,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Clearing Symbol
   if clearing_symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_symbol(buffer, index, packet, parent)
+    index, clearing_symbol = cboe_futures_orderentry_boe_v1_3_dissect.clearing_symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Multileg Reporting Type
@@ -5160,7 +5166,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Multileg Reporting Type
   if multileg_reporting_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.multileg_reporting_type(buffer, index, packet, parent)
+    index, multileg_reporting_type = cboe_futures_orderentry_boe_v1_3_dissect.multileg_reporting_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Exec Id
@@ -5168,7 +5174,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Secondary Exec Id
   if secondary_exec_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.secondary_exec_id(buffer, index, packet, parent)
+    index, secondary_exec_id = cboe_futures_orderentry_boe_v1_3_dissect.secondary_exec_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -5176,7 +5182,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fi
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -5184,16 +5190,23 @@ end
 
 -- Dissect: Variance Restatement Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields = function(buffer, offset, packet, parent, size_of_variance_restatement_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_variance_restatement_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.variance_restatement_optional_fields then
-    local range = buffer(offset, size_of_variance_restatement_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.variance_restatement_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.variance_restatement_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.variance_restatement_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fields(buffer, offset, packet, element, size_of_variance_restatement_optional_fields)
+    element:set_len(size_of_variance_restatement_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.variance_restatement_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_variance_restatement_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_variance_restatement_optional_fields)
-
-  return offset + size_of_variance_restatement_optional_fields
 end
 
 -- Size: Reserved Internal
@@ -5274,7 +5287,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_message_fields = f
   local size_of_variance_restatement_optional_fields = message_length - (index - offset) - 8
 
   -- Variance Restatement Optional Fields: Struct of 47 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields(buffer, index, packet, parent, size_of_variance_restatement_optional_fields)
+  index, variance_restatement_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields(buffer, index, packet, parent, size_of_variance_restatement_optional_fields)
 
   return index
 end
@@ -6968,7 +6981,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -6976,7 +6989,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -6984,7 +6997,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -6992,7 +7005,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -7000,7 +7013,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -7008,7 +7021,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -7016,7 +7029,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -7024,7 +7037,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -7032,7 +7045,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -7040,7 +7053,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -7048,7 +7061,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
+    index, order_qty = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -7056,7 +7069,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -7064,7 +7077,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -7072,7 +7085,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Orig Cl Ord Id
@@ -7080,7 +7093,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+    index, orig_cl_ord_id = cboe_futures_orderentry_boe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Shares
@@ -7088,7 +7101,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Last Shares
   if last_shares_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.last_shares(buffer, index, packet, parent)
+    index, last_shares = cboe_futures_orderentry_boe_v1_3_dissect.last_shares(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Px
@@ -7096,7 +7109,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Last Px
   if last_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.last_px(buffer, index, packet, parent)
+    index, last_px = cboe_futures_orderentry_boe_v1_3_dissect.last_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Fee Code
@@ -7104,7 +7117,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Fee Code
   if fee_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.fee_code(buffer, index, packet, parent)
+    index, fee_code = cboe_futures_orderentry_boe_v1_3_dissect.fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -7112,7 +7125,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -7120,7 +7133,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -7128,7 +7141,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -7136,7 +7149,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -7144,7 +7157,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Date
@@ -7152,7 +7165,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Trade Date
   if trade_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.trade_date(buffer, index, packet, parent)
+    index, trade_date = cboe_futures_orderentry_boe_v1_3_dissect.trade_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Price
@@ -7160,7 +7173,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Clearing Price
   if clearing_price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_price(buffer, index, packet, parent)
+    index, clearing_price = cboe_futures_orderentry_boe_v1_3_dissect.clearing_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Size
@@ -7168,7 +7181,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Clearing Size
   if clearing_size_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_size(buffer, index, packet, parent)
+    index, clearing_size = cboe_futures_orderentry_boe_v1_3_dissect.clearing_size(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Symbol
@@ -7176,7 +7189,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Clearing Symbol
   if clearing_symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_symbol(buffer, index, packet, parent)
+    index, clearing_symbol = cboe_futures_orderentry_boe_v1_3_dissect.clearing_symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Multileg Reporting Type
@@ -7184,7 +7197,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Multileg Reporting Type
   if multileg_reporting_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.multileg_reporting_type(buffer, index, packet, parent)
+    index, multileg_reporting_type = cboe_futures_orderentry_boe_v1_3_dissect.multileg_reporting_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Exec Id
@@ -7192,7 +7205,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Secondary Exec Id
   if secondary_exec_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.secondary_exec_id(buffer, index, packet, parent)
+    index, secondary_exec_id = cboe_futures_orderentry_boe_v1_3_dissect.secondary_exec_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -7200,7 +7213,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields 
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -7208,16 +7221,23 @@ end
 
 -- Dissect: Tas Restatement Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields = function(buffer, offset, packet, parent, size_of_tas_restatement_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_tas_restatement_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.tas_restatement_optional_fields then
-    local range = buffer(offset, size_of_tas_restatement_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.tas_restatement_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.tas_restatement_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.tas_restatement_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields(buffer, offset, packet, element, size_of_tas_restatement_optional_fields)
+    element:set_len(size_of_tas_restatement_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.tas_restatement_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_tas_restatement_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_tas_restatement_optional_fields)
-
-  return offset + size_of_tas_restatement_optional_fields
 end
 
 -- Read runtime size of: Tas Restatement Message
@@ -7258,7 +7278,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_message_fields = functi
   local size_of_tas_restatement_optional_fields = message_length - (index - offset) - 8
 
   -- Tas Restatement Optional Fields: Struct of 48 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields(buffer, index, packet, parent, size_of_tas_restatement_optional_fields)
+  index, tas_restatement_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields(buffer, index, packet, parent, size_of_tas_restatement_optional_fields)
 
   return index
 end
@@ -9139,7 +9159,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields_fields =
 
   -- Runtime optional field: Mass Cancel Id
   if mass_cancel_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_id(buffer, index, packet, parent)
+    index, mass_cancel_id = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_id(buffer, index, packet, parent)
   end
 
   return index
@@ -9147,16 +9167,23 @@ end
 
 -- Dissect: Purge Rejected Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_purge_rejected_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.purge_rejected_optional_fields then
-    local range = buffer(offset, size_of_purge_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.purge_rejected_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_rejected_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_purge_rejected_optional_fields)
+    element:set_len(size_of_purge_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.purge_rejected_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
-
-  return offset + size_of_purge_rejected_optional_fields
 end
 
 -- Size: Text
@@ -9310,7 +9337,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_message_fields = functio
   local size_of_purge_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- Purge Rejected Optional Fields: Struct of 19 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields(buffer, index, packet, parent, size_of_purge_rejected_optional_fields)
+  index, purge_rejected_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields(buffer, index, packet, parent, size_of_purge_rejected_optional_fields)
 
   return index
 end
@@ -11004,7 +11031,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -11012,7 +11039,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -11020,7 +11047,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -11028,7 +11055,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Corrected Size
@@ -11036,7 +11063,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields
 
   -- Runtime optional field: Corrected Size
   if corrected_size_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.corrected_size(buffer, index, packet, parent)
+    index, corrected_size = cboe_futures_orderentry_boe_v1_3_dissect.corrected_size(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -11044,7 +11071,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   return index
@@ -11052,16 +11079,23 @@ end
 
 -- Dissect: Trade Cancel Or Correct Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_trade_cancel_or_correct_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.trade_cancel_or_correct_optional_fields then
-    local range = buffer(offset, size_of_trade_cancel_or_correct_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.trade_cancel_or_correct_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.trade_cancel_or_correct_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.trade_cancel_or_correct_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, element, size_of_trade_cancel_or_correct_optional_fields)
+    element:set_len(size_of_trade_cancel_or_correct_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.trade_cancel_or_correct_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
-
-  return offset + size_of_trade_cancel_or_correct_optional_fields
 end
 
 -- Size: Orig Time
@@ -11239,7 +11273,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_message_fields 
   local size_of_trade_cancel_or_correct_optional_fields = message_length - (index - offset) - 8
 
   -- Trade Cancel Or Correct Optional Fields: Struct of 24 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields(buffer, index, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
+  index, trade_cancel_or_correct_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields(buffer, index, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
 
   return index
 end
@@ -13185,7 +13219,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -13193,7 +13227,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -13201,7 +13235,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -13209,7 +13243,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -13217,7 +13251,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -13225,7 +13259,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -13233,7 +13267,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -13241,7 +13275,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -13249,7 +13283,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -13257,7 +13291,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -13265,7 +13299,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
+    index, order_qty = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -13273,7 +13307,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -13281,7 +13315,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -13289,7 +13323,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -13297,7 +13331,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
+    index, expire_time = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Fee Code
@@ -13305,7 +13339,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Fee Code
   if fee_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.fee_code(buffer, index, packet, parent)
+    index, fee_code = cboe_futures_orderentry_boe_v1_3_dissect.fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -13313,7 +13347,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -13321,7 +13355,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -13329,7 +13363,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -13337,7 +13371,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -13345,7 +13379,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Date
@@ -13353,7 +13387,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Trade Date
   if trade_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.trade_date(buffer, index, packet, parent)
+    index, trade_date = cboe_futures_orderentry_boe_v1_3_dissect.trade_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Size
@@ -13361,7 +13395,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Clearing Size
   if clearing_size_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_size(buffer, index, packet, parent)
+    index, clearing_size = cboe_futures_orderentry_boe_v1_3_dissect.clearing_size(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cum Qty
@@ -13369,7 +13403,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Cum Qty
   if cum_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cum_qty(buffer, index, packet, parent)
+    index, cum_qty = cboe_futures_orderentry_boe_v1_3_dissect.cum_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Day Order Qty
@@ -13377,7 +13411,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Day Order Qty
   if day_order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.day_order_qty(buffer, index, packet, parent)
+    index, day_order_qty = cboe_futures_orderentry_boe_v1_3_dissect.day_order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Day Cum Qty
@@ -13385,7 +13419,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Day Cum Qty
   if day_cum_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.day_cum_qty(buffer, index, packet, parent)
+    index, day_cum_qty = cboe_futures_orderentry_boe_v1_3_dissect.day_cum_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Avg Px
@@ -13393,7 +13427,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Avg Px
   if avg_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.avg_px(buffer, index, packet, parent)
+    index, avg_px = cboe_futures_orderentry_boe_v1_3_dissect.avg_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Day Avg Px
@@ -13401,7 +13435,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Day Avg Px
   if day_avg_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.day_avg_px(buffer, index, packet, parent)
+    index, day_avg_px = cboe_futures_orderentry_boe_v1_3_dissect.day_avg_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Pending Status
@@ -13409,7 +13443,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Pending Status
   if pending_status_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.pending_status(buffer, index, packet, parent)
+    index, pending_status = cboe_futures_orderentry_boe_v1_3_dissect.pending_status(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Multileg Reporting Type
@@ -13417,7 +13451,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Multileg Reporting Type
   if multileg_reporting_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.multileg_reporting_type(buffer, index, packet, parent)
+    index, multileg_reporting_type = cboe_futures_orderentry_boe_v1_3_dissect.multileg_reporting_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Exec Id
@@ -13425,7 +13459,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Secondary Exec Id
   if secondary_exec_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.secondary_exec_id(buffer, index, packet, parent)
+    index, secondary_exec_id = cboe_futures_orderentry_boe_v1_3_dissect.secondary_exec_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -13433,7 +13467,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields 
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -13441,16 +13475,23 @@ end
 
 -- Dissect: Order Execution Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields = function(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_order_execution_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.order_execution_optional_fields then
-    local range = buffer(offset, size_of_order_execution_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_execution_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_execution_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_execution_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields(buffer, offset, packet, element, size_of_order_execution_optional_fields)
+    element:set_len(size_of_order_execution_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_execution_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
-
-  return offset + size_of_order_execution_optional_fields
 end
 
 -- Size: Contra Broker
@@ -13529,7 +13570,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_message_fields = functi
   local size_of_order_execution_optional_fields = message_length - (index - offset) - 8
 
   -- Order Execution Optional Fields: Struct of 50 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields(buffer, index, packet, parent, size_of_order_execution_optional_fields)
+  index, order_execution_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields(buffer, index, packet, parent, size_of_order_execution_optional_fields)
 
   return index
 end
@@ -15203,7 +15244,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -15211,7 +15252,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -15219,7 +15260,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -15227,7 +15268,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -15235,7 +15276,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -15243,7 +15284,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -15251,7 +15292,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -15259,7 +15300,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -15267,7 +15308,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -15275,7 +15316,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
+    index, expire_time = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -15283,7 +15324,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -15291,7 +15332,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -15299,7 +15340,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -15307,7 +15348,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -15315,7 +15356,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields 
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   return index
@@ -15323,16 +15364,23 @@ end
 
 -- Dissect: Cancel Rejected Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_cancel_rejected_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.cancel_rejected_optional_fields then
-    local range = buffer(offset, size_of_cancel_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_rejected_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_rejected_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_cancel_rejected_optional_fields)
+    element:set_len(size_of_cancel_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_rejected_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
-
-  return offset + size_of_cancel_rejected_optional_fields
 end
 
 -- Size: Cancel Reject Reason
@@ -15469,7 +15517,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_message_fields = functi
   local size_of_cancel_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- Cancel Rejected Optional Fields: Struct of 33 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields(buffer, index, packet, parent, size_of_cancel_rejected_optional_fields)
+  index, cancel_rejected_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields(buffer, index, packet, parent, size_of_cancel_rejected_optional_fields)
 
   return index
 end
@@ -17313,7 +17361,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -17321,7 +17369,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -17329,7 +17377,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -17337,7 +17385,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -17345,7 +17393,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -17353,7 +17401,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -17361,7 +17409,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -17369,7 +17417,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -17377,7 +17425,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -17385,7 +17433,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -17393,7 +17441,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
+    index, order_qty = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -17401,7 +17449,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -17409,7 +17457,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -17417,7 +17465,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Leaves Qty
@@ -17425,7 +17473,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
+    index, leaves_qty = cboe_futures_orderentry_boe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Shares
@@ -17433,7 +17481,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Last Shares
   if last_shares_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.last_shares(buffer, index, packet, parent)
+    index, last_shares = cboe_futures_orderentry_boe_v1_3_dissect.last_shares(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Px
@@ -17441,7 +17489,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Last Px
   if last_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.last_px(buffer, index, packet, parent)
+    index, last_px = cboe_futures_orderentry_boe_v1_3_dissect.last_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -17449,7 +17497,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
+    index, expire_time = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Order Id
@@ -17457,7 +17505,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.secondary_order_id(buffer, index, packet, parent)
+    index, secondary_order_id = cboe_futures_orderentry_boe_v1_3_dissect.secondary_order_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -17465,7 +17513,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -17473,7 +17521,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -17481,7 +17529,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -17489,7 +17537,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -17497,7 +17545,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -17505,7 +17553,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields 
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -17513,16 +17561,23 @@ end
 
 -- Dissect: Order Cancelled Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_order_cancelled_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.order_cancelled_optional_fields then
-    local range = buffer(offset, size_of_order_cancelled_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_cancelled_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_cancelled_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_cancelled_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, element, size_of_order_cancelled_optional_fields)
+    element:set_len(size_of_order_cancelled_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_cancelled_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
-
-  return offset + size_of_order_cancelled_optional_fields
 end
 
 -- Read runtime size of: Order Cancelled Message
@@ -17563,7 +17618,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_message_fields = functi
   local size_of_order_cancelled_optional_fields = message_length - (index - offset) - 8
 
   -- Order Cancelled Optional Fields: Struct of 43 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields(buffer, index, packet, parent, size_of_order_cancelled_optional_fields)
+  index, order_cancelled_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields(buffer, index, packet, parent, size_of_order_cancelled_optional_fields)
 
   return index
 end
@@ -19237,16 +19292,23 @@ end
 
 -- Dissect: User Modify Rejected Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_user_modify_rejected_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.user_modify_rejected_optional_fields then
-    local range = buffer(offset, size_of_user_modify_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.user_modify_rejected_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.user_modify_rejected_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.user_modify_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_user_modify_rejected_optional_fields)
+    element:set_len(size_of_user_modify_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.user_modify_rejected_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
-
-  return offset + size_of_user_modify_rejected_optional_fields
 end
 
 -- Size: Modify Reject Reason
@@ -19383,7 +19445,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_message_fields = f
   local size_of_user_modify_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- User Modify Rejected Optional Fields: Struct of 18 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields(buffer, index, packet, parent, size_of_user_modify_rejected_optional_fields)
+  index, user_modify_rejected_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields(buffer, index, packet, parent, size_of_user_modify_rejected_optional_fields)
 
   return index
 end
@@ -21160,7 +21222,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -21168,7 +21230,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -21176,7 +21238,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -21184,7 +21246,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -21192,7 +21254,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -21200,7 +21262,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -21208,7 +21270,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -21216,7 +21278,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -21224,7 +21286,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -21232,7 +21294,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -21240,7 +21302,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
+    index, order_qty = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -21248,7 +21310,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -21256,7 +21318,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -21264,7 +21326,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Orig Cl Ord Id
@@ -21272,7 +21334,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+    index, orig_cl_ord_id = cboe_futures_orderentry_boe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Leaves Qty
@@ -21280,7 +21342,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
+    index, leaves_qty = cboe_futures_orderentry_boe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Base Liquidity Indicator
@@ -21288,7 +21350,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
+    index, base_liquidity_indicator = cboe_futures_orderentry_boe_v1_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -21296,7 +21358,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
+    index, expire_time = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -21304,7 +21366,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -21312,7 +21374,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -21320,7 +21382,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -21328,7 +21390,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -21336,7 +21398,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -21344,7 +21406,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields =
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -21352,16 +21414,23 @@ end
 
 -- Dissect: Order Modified Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields = function(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_order_modified_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.order_modified_optional_fields then
-    local range = buffer(offset, size_of_order_modified_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_modified_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_modified_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_modified_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields(buffer, offset, packet, element, size_of_order_modified_optional_fields)
+    element:set_len(size_of_order_modified_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_modified_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
-
-  return offset + size_of_order_modified_optional_fields
 end
 
 -- Read runtime size of: Order Modified Message
@@ -21402,7 +21471,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_message_fields = functio
   local size_of_order_modified_optional_fields = message_length - (index - offset) - 8
 
   -- Order Modified Optional Fields: Struct of 42 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields(buffer, index, packet, parent, size_of_order_modified_optional_fields)
+  index, order_modified_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields(buffer, index, packet, parent, size_of_order_modified_optional_fields)
 
   return index
 end
@@ -23167,7 +23236,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -23175,7 +23244,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -23183,7 +23252,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -23191,7 +23260,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -23199,7 +23268,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -23207,7 +23276,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -23215,7 +23284,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -23223,7 +23292,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -23231,7 +23300,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -23239,7 +23308,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -23247,7 +23316,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
+    index, order_qty = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -23255,7 +23324,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -23263,7 +23332,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -23271,7 +23340,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -23279,7 +23348,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -23287,7 +23356,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -23295,7 +23364,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -23303,7 +23372,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -23311,7 +23380,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -23319,7 +23388,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields =
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -23327,16 +23396,23 @@ end
 
 -- Dissect: Order Rejected Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_order_rejected_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.order_rejected_optional_fields then
-    local range = buffer(offset, size_of_order_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_rejected_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_rejected_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_order_rejected_optional_fields)
+    element:set_len(size_of_order_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_rejected_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
-
-  return offset + size_of_order_rejected_optional_fields
 end
 
 -- Size: Order Reject Reason
@@ -23473,7 +23549,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_message_fields = functio
   local size_of_order_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- Order Rejected Optional Fields: Struct of 38 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields(buffer, index, packet, parent, size_of_order_rejected_optional_fields)
+  index, order_rejected_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields(buffer, index, packet, parent, size_of_order_rejected_optional_fields)
 
   return index
 end
@@ -23651,17 +23727,17 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group = function(buffer, offset, packet, parent)
   if show.quote_result_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_result_group, buffer(offset, 0))
-    local index = cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_result_group, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_futures_orderentry_boe_v1_3_display.quote_result_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group_fields(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -23719,9 +23795,14 @@ cboe_futures_orderentry_boe_v1_3_dissect.quote_update_acknowledgment_message_fie
   -- Number Of Quote Results: 1 Byte Unsigned Fixed Width Integer
   index, number_of_quote_results = cboe_futures_orderentry_boe_v1_3_dissect.number_of_quote_results(buffer, index, packet, parent)
 
-  -- Quote Result Group: Struct of 4 fields
-  for i = 1, number_of_quote_results do
-    index = cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group(buffer, index, packet, parent)
+  -- Repeating: Quote Result Group
+  for quote_result_group_index = 1, number_of_quote_results do
+    index, quote_result_group = cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group(buffer, index, packet, parent)
+
+    if quote_result_group ~= nil then
+      local iteration = quote_result_group:add(cboe_futures_orderentry_boe_v1_3.fields.quote_result_group_index, quote_result_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -25396,7 +25477,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -25404,7 +25485,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -25412,7 +25493,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -25420,7 +25501,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -25428,7 +25509,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -25436,7 +25517,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -25444,7 +25525,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -25452,7 +25533,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -25460,7 +25541,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -25468,7 +25549,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -25476,7 +25557,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
+    index, order_qty = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -25484,7 +25565,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -25492,7 +25573,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -25500,7 +25581,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Leaves Qty
@@ -25508,7 +25589,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
+    index, leaves_qty = cboe_futures_orderentry_boe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Base Liquidity Indicator
@@ -25516,7 +25597,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
+    index, base_liquidity_indicator = cboe_futures_orderentry_boe_v1_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -25524,7 +25605,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
+    index, expire_time = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Sub Liquidity Indicator
@@ -25532,7 +25613,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+    index, sub_liquidity_indicator = cboe_futures_orderentry_boe_v1_3_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -25540,7 +25621,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -25548,7 +25629,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -25556,7 +25637,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -25564,7 +25645,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -25572,7 +25653,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cum Qty
@@ -25580,7 +25661,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Cum Qty
   if cum_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cum_qty(buffer, index, packet, parent)
+    index, cum_qty = cboe_futures_orderentry_boe_v1_3_dissect.cum_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Day Order Qty
@@ -25588,7 +25669,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Day Order Qty
   if day_order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.day_order_qty(buffer, index, packet, parent)
+    index, day_order_qty = cboe_futures_orderentry_boe_v1_3_dissect.day_order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Day Cum Qty
@@ -25596,7 +25677,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Day Cum Qty
   if day_cum_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.day_cum_qty(buffer, index, packet, parent)
+    index, day_cum_qty = cboe_futures_orderentry_boe_v1_3_dissect.day_cum_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Avg Px
@@ -25604,7 +25685,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Avg Px
   if avg_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.avg_px(buffer, index, packet, parent)
+    index, avg_px = cboe_futures_orderentry_boe_v1_3_dissect.avg_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Day Avg Px
@@ -25612,7 +25693,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Day Avg Px
   if day_avg_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.day_avg_px(buffer, index, packet, parent)
+    index, day_avg_px = cboe_futures_orderentry_boe_v1_3_dissect.day_avg_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -25620,7 +25701,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fi
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -25628,16 +25709,23 @@ end
 
 -- Dissect: Order Acknowledgment Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_order_acknowledgment_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.order_acknowledgment_optional_fields then
-    local range = buffer(offset, size_of_order_acknowledgment_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_acknowledgment_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_acknowledgment_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_acknowledgment_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, element, size_of_order_acknowledgment_optional_fields)
+    element:set_len(size_of_order_acknowledgment_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_acknowledgment_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
-
-  return offset + size_of_order_acknowledgment_optional_fields
 end
 
 -- Read runtime size of: Order Acknowledgment Message
@@ -25678,7 +25766,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_message_fields = f
   local size_of_order_acknowledgment_optional_fields = message_length - (index - offset) - 8
 
   -- Order Acknowledgment Optional Fields: Struct of 47 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields(buffer, index, packet, parent, size_of_order_acknowledgment_optional_fields)
+  index, order_acknowledgment_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields(buffer, index, packet, parent, size_of_order_acknowledgment_optional_fields)
 
   return index
 end
@@ -26097,7 +26185,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields = fu
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Mass Cancel Inst
@@ -26105,7 +26193,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields = fu
 
   -- Runtime optional field: Mass Cancel Inst
   if mass_cancel_inst_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_inst(buffer, index, packet, parent)
+    index, mass_cancel_inst = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Product Name
@@ -26113,7 +26201,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields = fu
 
   -- Runtime optional field: Product Name
   if product_name_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.product_name(buffer, index, packet, parent)
+    index, product_name = cboe_futures_orderentry_boe_v1_3_dissect.product_name(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Mass Cancel Id
@@ -26121,7 +26209,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields = fu
 
   -- Runtime optional field: Mass Cancel Id
   if mass_cancel_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_id(buffer, index, packet, parent)
+    index, mass_cancel_id = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -26129,7 +26217,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields = fu
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -26137,7 +26225,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields = fu
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   return index
@@ -26145,16 +26233,23 @@ end
 
 -- Dissect: Purge Order Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields = function(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_purge_order_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.purge_order_optional_fields then
-    local range = buffer(offset, size_of_purge_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.purge_order_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_order_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields(buffer, offset, packet, element, size_of_purge_order_optional_fields)
+    element:set_len(size_of_purge_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.purge_order_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
-
-  return offset + size_of_purge_order_optional_fields
 end
 
 -- Read runtime size of: Purge Order Message
@@ -26186,7 +26281,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_message_fields = function(b
   local size_of_purge_order_optional_fields = message_length - (index - offset) - 8
 
   -- Purge Order Optional Fields: Struct of 9 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields(buffer, index, packet, parent, size_of_purge_order_optional_fields)
+  index, purge_order_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields(buffer, index, packet, parent, size_of_purge_order_optional_fields)
 
   return index
 end
@@ -26281,17 +26376,17 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.quote_group = function(buffer, offset, packet, parent)
   if show.quote_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_group, buffer(offset, 0))
-    local index = cboe_futures_orderentry_boe_v1_3_dissect.quote_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_group, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe_v1_3_dissect.quote_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_futures_orderentry_boe_v1_3_display.quote_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_futures_orderentry_boe_v1_3_dissect.quote_group_fields(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe_v1_3_dissect.quote_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -26397,9 +26492,14 @@ cboe_futures_orderentry_boe_v1_3_dissect.quote_update_message_fields = function(
   -- Number Of Quotes: 1 Byte Unsigned Fixed Width Integer
   index, number_of_quotes = cboe_futures_orderentry_boe_v1_3_dissect.number_of_quotes(buffer, index, packet, parent)
 
-  -- Quote Group: Struct of 6 fields
-  for i = 1, number_of_quotes do
-    index = cboe_futures_orderentry_boe_v1_3_dissect.quote_group(buffer, index, packet, parent)
+  -- Repeating: Quote Group
+  for quote_group_index = 1, number_of_quotes do
+    index, quote_group = cboe_futures_orderentry_boe_v1_3_dissect.quote_group(buffer, index, packet, parent)
+
+    if quote_group ~= nil then
+      local iteration = quote_group:add(cboe_futures_orderentry_boe_v1_3.fields.quote_group_index, quote_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -26676,7 +26776,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -26684,7 +26784,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
+    index, order_qty = cboe_futures_orderentry_boe_v1_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -26692,7 +26792,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -26700,7 +26800,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Orig On Reject
@@ -26708,7 +26808,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Cancel Orig On Reject
   if cancel_orig_on_reject_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cancel_orig_on_reject(buffer, index, packet, parent)
+    index, cancel_orig_on_reject = cboe_futures_orderentry_boe_v1_3_dissect.cancel_orig_on_reject(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -26716,7 +26816,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.exec_inst(buffer, index, packet, parent)
+    index, exec_inst = cboe_futures_orderentry_boe_v1_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -26724,7 +26824,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Side
   if side_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
+    index, side = cboe_futures_orderentry_boe_v1_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Reserved Bit 1
@@ -26732,7 +26832,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Reserved Bit 1
   if reserved_bit_1_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.reserved_bit_1(buffer, index, packet, parent)
+    index, reserved_bit_1 = cboe_futures_orderentry_boe_v1_3_dissect.reserved_bit_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -26740,7 +26840,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -26748,7 +26848,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -26756,7 +26856,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -26764,7 +26864,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields = f
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -26772,16 +26872,23 @@ end
 
 -- Dissect: Modify Order Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields = function(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_modify_order_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.modify_order_optional_fields then
-    local range = buffer(offset, size_of_modify_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.modify_order_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.modify_order_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.modify_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields(buffer, offset, packet, element, size_of_modify_order_optional_fields)
+    element:set_len(size_of_modify_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.modify_order_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
-
-  return offset + size_of_modify_order_optional_fields
 end
 
 -- Read runtime size of: Modify Order Message
@@ -26816,7 +26923,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_message_fields = function(
   local size_of_modify_order_optional_fields = message_length - (index - offset) - 8
 
   -- Modify Order Optional Fields: Struct of 15 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields(buffer, index, packet, parent, size_of_modify_order_optional_fields)
+  index, modify_order_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields(buffer, index, packet, parent, size_of_modify_order_optional_fields)
 
   return index
 end
@@ -27065,7 +27172,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields = f
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Product Name
@@ -27073,7 +27180,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields = f
 
   -- Runtime optional field: Product Name
   if product_name_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.product_name(buffer, index, packet, parent)
+    index, product_name = cboe_futures_orderentry_boe_v1_3_dissect.product_name(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Mass Cancel Id
@@ -27081,7 +27188,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields = f
 
   -- Runtime optional field: Mass Cancel Id
   if mass_cancel_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_id(buffer, index, packet, parent)
+    index, mass_cancel_id = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -27089,7 +27196,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields = f
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -27097,7 +27204,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields = f
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Mass Cancel Inst
@@ -27105,7 +27212,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields = f
 
   -- Runtime optional field: Mass Cancel Inst
   if mass_cancel_inst_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_inst(buffer, index, packet, parent)
+    index, mass_cancel_inst = cboe_futures_orderentry_boe_v1_3_dissect.mass_cancel_inst(buffer, index, packet, parent)
   end
 
   return index
@@ -27113,16 +27220,23 @@ end
 
 -- Dissect: Cancel Order Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields = function(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_cancel_order_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.cancel_order_optional_fields then
-    local range = buffer(offset, size_of_cancel_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_order_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_order_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields(buffer, offset, packet, element, size_of_cancel_order_optional_fields)
+    element:set_len(size_of_cancel_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_order_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
-
-  return offset + size_of_cancel_order_optional_fields
 end
 
 -- Read runtime size of: Cancel Order Message
@@ -27154,7 +27268,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_message_fields = function(
   local size_of_cancel_order_optional_fields = message_length - (index - offset) - 8
 
   -- Cancel Order Optional Fields: Struct of 9 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields(buffer, index, packet, parent, size_of_cancel_order_optional_fields)
+  index, cancel_order_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields(buffer, index, packet, parent, size_of_cancel_order_optional_fields)
 
   return index
 end
@@ -27973,7 +28087,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
+    index, clearing_firm = cboe_futures_orderentry_boe_v1_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -27981,7 +28095,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
+    index, clearing_account = cboe_futures_orderentry_boe_v1_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -27989,7 +28103,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Price
   if price_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
+    index, price = cboe_futures_orderentry_boe_v1_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -27997,7 +28111,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
+    index, ord_type = cboe_futures_orderentry_boe_v1_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -28005,7 +28119,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
+    index, time_in_force = cboe_futures_orderentry_boe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -28013,7 +28127,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
+    index, min_qty = cboe_futures_orderentry_boe_v1_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -28021,7 +28135,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
+    index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -28029,7 +28143,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
+    index, capacity = cboe_futures_orderentry_boe_v1_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -28037,7 +28151,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Account
   if account_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
+    index, account = cboe_futures_orderentry_boe_v1_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -28045,7 +28159,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
+    index, prevent_match = cboe_futures_orderentry_boe_v1_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -28053,7 +28167,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
+    index, expire_time = cboe_futures_orderentry_boe_v1_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Maturity Date
@@ -28061,7 +28175,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Maturity Date
   if maturity_date_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
+    index, maturity_date = cboe_futures_orderentry_boe_v1_3_dissect.maturity_date(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Risk Reset
@@ -28069,7 +28183,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Risk Reset
   if risk_reset_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.risk_reset(buffer, index, packet, parent)
+    index, risk_reset = cboe_futures_orderentry_boe_v1_3_dissect.risk_reset(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Open Close
@@ -28077,7 +28191,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Open Close
   if open_close_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
+    index, open_close = cboe_futures_orderentry_boe_v1_3_dissect.open_close(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cmta Number
@@ -28085,7 +28199,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Cmta Number
   if cmta_number_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
+    index, cmta_number = cboe_futures_orderentry_boe_v1_3_dissect.cmta_number(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -28093,7 +28207,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
+    index, stop_px = cboe_futures_orderentry_boe_v1_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Custom Group Id
@@ -28101,7 +28215,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Custom Group Id
   if custom_group_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.custom_group_id(buffer, index, packet, parent)
+    index, custom_group_id = cboe_futures_orderentry_boe_v1_3_dissect.custom_group_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cti Code
@@ -28109,7 +28223,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Cti Code
   if cti_code_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
+    index, cti_code = cboe_futures_orderentry_boe_v1_3_dissect.cti_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Manual Order Indicator
@@ -28117,7 +28231,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Manual Order Indicator
   if manual_order_indicator_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
+    index, manual_order_indicator = cboe_futures_orderentry_boe_v1_3_dissect.manual_order_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Oeoid
@@ -28125,7 +28239,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Oeoid
   if oeoid_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
+    index, oeoid = cboe_futures_orderentry_boe_v1_3_dissect.oeoid(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Reserved Bit 2
@@ -28133,7 +28247,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Reserved Bit 2
   if reserved_bit_2_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.reserved_bit_2(buffer, index, packet, parent)
+    index, reserved_bit_2 = cboe_futures_orderentry_boe_v1_3_dissect.reserved_bit_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Frequent Trader Id
@@ -28141,7 +28255,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields = func
 
   -- Runtime optional field: Frequent Trader Id
   if frequent_trader_id_exists then
-    index = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
+    index, frequent_trader_id = cboe_futures_orderentry_boe_v1_3_dissect.frequent_trader_id(buffer, index, packet, parent)
   end
 
   return index
@@ -28149,16 +28263,23 @@ end
 
 -- Dissect: New Order Optional Fields
 cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields = function(buffer, offset, packet, parent, size_of_new_order_optional_fields)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_new_order_optional_fields
+
+  -- Optionally add group/struct element to protocol tree
   if show.new_order_optional_fields then
-    local range = buffer(offset, size_of_new_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.new_order_optional_fields(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.new_order_optional_fields, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.new_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields(buffer, offset, packet, element, size_of_new_order_optional_fields)
+    element:set_len(size_of_new_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.new_order_optional_fields(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields(buffer, offset, packet, parent, size_of_new_order_optional_fields)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields(buffer, offset, packet, parent, size_of_new_order_optional_fields)
-
-  return offset + size_of_new_order_optional_fields
 end
 
 -- Read runtime size of: New Order Message
@@ -28196,7 +28317,7 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_message_fields = function(buf
   local size_of_new_order_optional_fields = message_length - (index - offset) - 8
 
   -- New Order Optional Fields: Struct of 31 fields
-  index = cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields(buffer, index, packet, parent, size_of_new_order_optional_fields)
+  index, new_order_optional_fields = cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields(buffer, index, packet, parent, size_of_new_order_optional_fields)
 
   return index
 end
@@ -28291,17 +28412,17 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence = function(buffer, offset, packet, parent)
   if show.unit_sequence then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence, buffer(offset, 0))
-    local index = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_futures_orderentry_boe_v1_3_display.unit_sequence(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence_fields(buffer, offset, packet, element)
   end
 end
 
@@ -28429,9 +28550,14 @@ cboe_futures_orderentry_boe_v1_3_dissect.logout_message_fields = function(buffer
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
   index, number_of_units = cboe_futures_orderentry_boe_v1_3_dissect.number_of_units(buffer, index, packet, parent)
 
-  -- Unit Sequence: Struct of 2 fields
-  for i = 1, number_of_units do
-    index = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
+  -- Repeating: Unit Sequence
+  for unit_sequence_index = 1, number_of_units do
+    index, unit_sequence = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
+
+    if unit_sequence ~= nil then
+      local iteration = unit_sequence:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -31419,9 +31545,14 @@ cboe_futures_orderentry_boe_v1_3_dissect.unit_sequences_fields = function(buffer
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
   index, number_of_units = cboe_futures_orderentry_boe_v1_3_dissect.number_of_units(buffer, index, packet, parent)
 
-  -- Unit Sequence: Struct of 2 fields
-  for i = 1, number_of_units do
-    index = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
+  -- Repeating: Unit Sequence
+  for unit_sequence_index = 1, number_of_units do
+    index, unit_sequence = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
+
+    if unit_sequence ~= nil then
+      local iteration = unit_sequence:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -31573,17 +31704,17 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.param_header = function(buffer, offset, packet, parent)
   if show.param_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_header, buffer(offset, 0))
-    local index = cboe_futures_orderentry_boe_v1_3_dissect.param_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_header, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe_v1_3_dissect.param_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_futures_orderentry_boe_v1_3_display.param_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_futures_orderentry_boe_v1_3_dissect.param_header_fields(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe_v1_3_dissect.param_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -31610,16 +31741,23 @@ end
 
 -- Dissect: Param Group
 cboe_futures_orderentry_boe_v1_3_dissect.param_group = function(buffer, offset, packet, parent, size_of_param_group)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_param_group
+
+  -- Optionally add group/struct element to protocol tree
   if show.param_group then
-    local range = buffer(offset, size_of_param_group)
-    local display = cboe_futures_orderentry_boe_v1_3_display.param_group(buffer, packet, parent)
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_group, range, display)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_group, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields(buffer, offset, packet, element, size_of_param_group)
+    element:set_len(size_of_param_group)
+    local display = cboe_futures_orderentry_boe_v1_3_display.param_group(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields(buffer, offset, packet, parent, size_of_param_group)
+
+    return index
   end
-
-  cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields(buffer, offset, packet, parent, size_of_param_group)
-
-  return offset + size_of_param_group
 end
 
 -- Size: Number Of Param Groups
@@ -31744,22 +31882,32 @@ cboe_futures_orderentry_boe_v1_3_dissect.login_response_message_fields = functio
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
   index, number_of_units = cboe_futures_orderentry_boe_v1_3_dissect.number_of_units(buffer, index, packet, parent)
 
-  -- Unit Sequence: Struct of 2 fields
-  for i = 1, number_of_units do
-    index = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
+  -- Repeating: Unit Sequence
+  for unit_sequence_index = 1, number_of_units do
+    index, unit_sequence = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
+
+    if unit_sequence ~= nil then
+      local iteration = unit_sequence:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
+      iteration:set_generated()
+    end
   end
 
   -- Number Of Param Groups: 1 Byte Unsigned Fixed Width Integer
   index, number_of_param_groups = cboe_futures_orderentry_boe_v1_3_dissect.number_of_param_groups(buffer, index, packet, parent)
 
-  -- Param Group: Struct of 2 fields
-  for i = 1, number_of_param_groups do
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
 
     -- Dependency element: Param Group Length
     local param_group_length = buffer(index, 2):le_uint()
 
-    -- Param Group: Struct of 2 fields
-    index = cboe_futures_orderentry_boe_v1_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
+    -- Runtime Size Of: Param Group
+    index, param_group = cboe_futures_orderentry_boe_v1_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
+
+    if param_group ~= nil then
+      local iteration = param_group:add(cboe_futures_orderentry_boe_v1_3.fields.param_group_index, param_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -31873,14 +32021,19 @@ cboe_futures_orderentry_boe_v1_3_dissect.login_request_message_fields = function
   -- Number Of Param Groups: 1 Byte Unsigned Fixed Width Integer
   index, number_of_param_groups = cboe_futures_orderentry_boe_v1_3_dissect.number_of_param_groups(buffer, index, packet, parent)
 
-  -- Param Group: Struct of 2 fields
-  for i = 1, number_of_param_groups do
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
 
     -- Dependency element: Param Group Length
     local param_group_length = buffer(index, 2):le_uint()
 
-    -- Param Group: Struct of 2 fields
-    index = cboe_futures_orderentry_boe_v1_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
+    -- Runtime Size Of: Param Group
+    index, param_group = cboe_futures_orderentry_boe_v1_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
+
+    if param_group ~= nil then
+      local iteration = param_group:add(cboe_futures_orderentry_boe_v1_3.fields.param_group_index, param_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -32428,17 +32581,17 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.message_header, buffer(offset, 0))
-    local index = cboe_futures_orderentry_boe_v1_3_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.message_header, buffer(offset, 0))
+    local index = cboe_futures_orderentry_boe_v1_3_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_futures_orderentry_boe_v1_3_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_futures_orderentry_boe_v1_3_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe_v1_3_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 

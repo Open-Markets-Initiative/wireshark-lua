@@ -145,7 +145,7 @@ miax_onyxfutures_mach_v1_0_dissect.application_message_fields = function(buffer,
   local size_of_data = packet_length - 13
 
   -- Data: 0 Byte
-  index = miax_onyxfutures_mach_v1_0_dissect.data(buffer, index, packet, parent, size_of_data)
+  index, data = miax_onyxfutures_mach_v1_0_dissect.data(buffer, index, packet, parent, size_of_data)
 
   return index
 end
@@ -374,7 +374,7 @@ miax_onyxfutures_mach_v1_0_dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 5 fields
   while index < end_of_payload do
-    index = miax_onyxfutures_mach_v1_0_dissect.message(buffer, index, packet, parent)
+    index, message = miax_onyxfutures_mach_v1_0_dissect.message(buffer, index, packet, parent)
   end
 
   return index

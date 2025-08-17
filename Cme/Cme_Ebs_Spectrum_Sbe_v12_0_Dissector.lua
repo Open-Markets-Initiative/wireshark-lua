@@ -65,6 +65,12 @@ cme_ebs_spectrum_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new
 cme_ebs_spectrum_sbe_v12_0.fields.md_snapshot_refresh_spectrum = ProtoField.new("Md Snapshot Refresh Spectrum", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshspectrum", ftypes.STRING)
 cme_ebs_spectrum_sbe_v12_0.fields.md_snapshot_refresh_ticker = ProtoField.new("Md Snapshot Refresh Ticker", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshticker", ftypes.STRING)
 
+-- Cme Ebs Spectrum Sbe 12.0 generated fields
+cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index = ProtoField.new("M D Incremental Refresh Spectrum Group Index", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshspectrumgroupindex", ftypes.UINT16)
+cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index = ProtoField.new("M D Incremental Refresh Ticker Group Index", "cme.ebs.spectrum.sbe.v12.0.mdincrementalrefreshtickergroupindex", ftypes.UINT16)
+cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index = ProtoField.new("M D Snapshot Refresh Spectrum Group Index", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshspectrumgroupindex", ftypes.UINT16)
+cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index = ProtoField.new("M D Snapshot Refresh Ticker Group Index", "cme.ebs.spectrum.sbe.v12.0.mdsnapshotrefreshtickergroupindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -281,17 +287,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.global_day_roll = function(buffer, offset, packet, parent)
   if show.global_day_roll then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.global_day_roll_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.global_day_roll_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.global_day_roll(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.global_day_roll_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.global_day_roll_fields(buffer, offset, packet, element)
   end
 end
 
@@ -603,17 +609,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group = function(buffer, offset, packet, parent)
   if show.m_d_snapshot_refresh_ticker_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.m_d_snapshot_refresh_ticker_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -690,17 +696,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.group_size = function(buffer, offset, packet, parent)
   if show.group_size then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.group_size, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.group_size_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.group_size, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.group_size_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.group_size(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.group_size_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.group_size_fields(buffer, offset, packet, element)
   end
 end
 
@@ -732,9 +738,14 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups_fields = f
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
-  -- M D Snapshot Refresh Ticker Group: Struct of 7 fields
-  for i = 1, num_in_group_uint_8 do
-    index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group(buffer, index, packet, parent)
+  -- Repeating: M D Snapshot Refresh Ticker Group
+  for m_d_snapshot_refresh_ticker_group_index = 1, num_in_group_uint_8 do
+    index, m_d_snapshot_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group(buffer, index, packet, parent)
+
+    if m_d_snapshot_refresh_ticker_group ~= nil then
+      local iteration = m_d_snapshot_refresh_ticker_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index, m_d_snapshot_refresh_ticker_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1015,17 +1026,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group = function(buffer, offset, packet, parent)
   if show.m_d_snapshot_refresh_spectrum_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.m_d_snapshot_refresh_spectrum_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1057,9 +1068,14 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups_fields =
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
-  -- M D Snapshot Refresh Spectrum Group: Struct of 4 fields
-  for i = 1, num_in_group_uint_8 do
-    index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group(buffer, index, packet, parent)
+  -- Repeating: M D Snapshot Refresh Spectrum Group
+  for m_d_snapshot_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
+    index, m_d_snapshot_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group(buffer, index, packet, parent)
+
+    if m_d_snapshot_refresh_spectrum_group ~= nil then
+      local iteration = m_d_snapshot_refresh_spectrum_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index, m_d_snapshot_refresh_spectrum_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1223,17 +1239,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_ticker_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.m_d_incremental_refresh_ticker_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1265,9 +1281,14 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups_fields 
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Ticker Group: Struct of 11 fields
-  for i = 1, num_in_group_uint_8 do
-    index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Ticker Group
+  for m_d_incremental_refresh_ticker_group_index = 1, num_in_group_uint_8 do
+    index, m_d_incremental_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_ticker_group ~= nil then
+      local iteration = m_d_incremental_refresh_ticker_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index, m_d_incremental_refresh_ticker_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1396,17 +1417,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_spectrum_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.m_d_incremental_refresh_spectrum_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1438,9 +1459,14 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups_field
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Spectrum Group: Struct of 8 fields
-  for i = 1, num_in_group_uint_8 do
-    index = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Spectrum Group
+  for m_d_incremental_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
+    index, m_d_incremental_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_spectrum_group ~= nil then
+      local iteration = m_d_incremental_refresh_spectrum_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index, m_d_incremental_refresh_spectrum_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1712,17 +1738,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.message_header, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.message_header, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1872,17 +1898,17 @@ end
 cme_ebs_spectrum_sbe_v12_0_dissect.binary_packet_header = function(buffer, offset, packet, parent)
   if show.binary_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.binary_packet_header, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.binary_packet_header, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0_dissect.binary_packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_ebs_spectrum_sbe_v12_0_display.binary_packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    return cme_ebs_spectrum_sbe_v12_0_dissect.binary_packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1898,7 +1924,7 @@ cme_ebs_spectrum_sbe_v12_0_dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index = cme_ebs_spectrum_sbe_v12_0_dissect.message(buffer, index, packet, parent)
+    index, message = cme_ebs_spectrum_sbe_v12_0_dissect.message(buffer, index, packet, parent)
   end
 
   return index

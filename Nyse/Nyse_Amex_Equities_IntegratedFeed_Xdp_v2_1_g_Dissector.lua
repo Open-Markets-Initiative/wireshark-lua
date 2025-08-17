@@ -140,6 +140,9 @@ nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.unit_of_trade = ProtoField.n
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.amex.equities.integratedfeed.xdp.v2.1.g.uppercollar", ftypes.UINT32)
 nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.volume = ProtoField.new("Volume", "nyse.amex.equities.integratedfeed.xdp.v2.1.g.volume", ftypes.UINT32)
 
+-- Nyse Amex Equities IntegratedFeed Xdp 2.1.g generated fields
+nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.message_index = ProtoField.new("Message Index", "nyse.amex.equities.integratedfeed.xdp.v2.1.g.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -568,17 +571,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.stock_summary_message = function(buffer, offset, packet, parent)
   if show.stock_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.stock_summary_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.stock_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.stock_summary_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.stock_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.stock_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.stock_summary_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.stock_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -772,17 +775,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.non_displayed_trade_message = function(buffer, offset, packet, parent)
   if show.non_displayed_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.non_displayed_trade_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.non_displayed_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.non_displayed_trade_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.non_displayed_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.non_displayed_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.non_displayed_trade_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.non_displayed_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -899,17 +902,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.order_execution_message = function(buffer, offset, packet, parent)
   if show.order_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.order_execution_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.order_execution_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.order_execution_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.order_execution_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.order_execution_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1402,17 +1405,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.imbalance_message = function(buffer, offset, packet, parent)
   if show.imbalance_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.imbalance_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.imbalance_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.imbalance_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.imbalance_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.imbalance_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.imbalance_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.imbalance_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1536,17 +1539,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_refresh_message = function(buffer, offset, packet, parent)
   if show.add_order_refresh_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.add_order_refresh_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_refresh_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.add_order_refresh_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_refresh_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.add_order_refresh_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_refresh_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_refresh_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1626,17 +1629,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retail_price_improvement_message = function(buffer, offset, packet, parent)
   if show.retail_price_improvement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.retail_price_improvement_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.retail_price_improvement_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retail_price_improvement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.retail_price_improvement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retail_price_improvement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1708,17 +1711,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_correction_message = function(buffer, offset, packet, parent)
   if show.cross_correction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.cross_correction_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_correction_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.cross_correction_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_correction_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.cross_correction_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_correction_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_correction_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1813,17 +1816,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_trade_message = function(buffer, offset, packet, parent)
   if show.cross_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.cross_trade_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.cross_trade_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.cross_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.cross_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1870,17 +1873,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.trade_cancel_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.trade_cancel_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.trade_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1932,17 +1935,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.delete_order_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.delete_order_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.delete_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.delete_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.delete_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2074,17 +2077,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.replace_order_message = function(buffer, offset, packet, parent)
   if show.replace_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.replace_order_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.replace_order_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.replace_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.replace_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.replace_order_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.replace_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2183,17 +2186,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.modify_order_message = function(buffer, offset, packet, parent)
   if show.modify_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.modify_order_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.modify_order_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.modify_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.modify_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.modify_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2265,17 +2268,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_message = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.add_order_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.add_order_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.add_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.add_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2402,17 +2405,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_header_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.refresh_header_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_header_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2898,17 +2901,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.security_status_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.security_status_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.security_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.security_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.security_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2975,17 +2978,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.symbol_clear_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.symbol_clear_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.symbol_clear_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3112,17 +3115,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.message_unavailable_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.message_unavailable_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3189,17 +3192,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.refresh_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.refresh_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3275,17 +3278,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.symbol_index_mapping_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3317,17 +3320,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.heartbeat_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3460,17 +3463,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.request_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.request_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.request_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3522,17 +3525,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.retransmission_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4061,17 +4064,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.symbol_index_mapping_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4133,17 +4136,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.source_time_reference_message = function(buffer, offset, packet, parent)
   if show.source_time_reference_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.source_time_reference_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.source_time_reference_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.source_time_reference_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.source_time_reference_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.source_time_reference_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4190,17 +4193,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.sequence_number_reset_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4590,17 +4593,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.message_header, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.message_header, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4859,17 +4862,17 @@ end
 nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.packet_header, buffer(offset, 0))
-    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_amex_equities_integratedfeed_xdp_v2_1_g.fields.packet_header, buffer(offset, 0))
+    local index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_amex_equities_integratedfeed_xdp_v2_1_g_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4885,7 +4888,7 @@ nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.packet = function(buffer, p
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message(buffer, index, packet, parent)
+    index, message = nyse_amex_equities_integratedfeed_xdp_v2_1_g_dissect.message(buffer, index, packet, parent)
   end
 
   return index

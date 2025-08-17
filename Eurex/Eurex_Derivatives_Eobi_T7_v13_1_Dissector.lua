@@ -183,6 +183,12 @@ eurex_derivatives_eobi_t7_v13_1.fields.top_of_book = ProtoField.new("Top Of Book
 eurex_derivatives_eobi_t7_v13_1.fields.trade_report = ProtoField.new("Trade Report", "eurex.derivatives.eobi.t7.v13.1.tradereport", ftypes.STRING)
 eurex_derivatives_eobi_t7_v13_1.fields.trade_reversal = ProtoField.new("Trade Reversal", "eurex.derivatives.eobi.t7.v13.1.tradereversal", ftypes.STRING)
 
+-- Eurex Derivatives Eobi T7 13.1 generated fields
+eurex_derivatives_eobi_t7_v13_1.fields.instrmt_leg_grp_comp_index = ProtoField.new("Instrmt Leg Grp Comp Index", "eurex.derivatives.eobi.t7.v13.1.instrmtleggrpcompindex", ftypes.UINT16)
+eurex_derivatives_eobi_t7_v13_1.fields.md_instrument_entry_grp_comp_index = ProtoField.new("Md Instrument Entry Grp Comp Index", "eurex.derivatives.eobi.t7.v13.1.mdinstrumententrygrpcompindex", ftypes.UINT16)
+eurex_derivatives_eobi_t7_v13_1.fields.md_trade_entry_grp_comp_index = ProtoField.new("Md Trade Entry Grp Comp Index", "eurex.derivatives.eobi.t7.v13.1.mdtradeentrygrpcompindex", ftypes.UINT16)
+eurex_derivatives_eobi_t7_v13_1.fields.sec_mass_stat_grp_comp_index = ProtoField.new("Sec Mass Stat Grp Comp Index", "eurex.derivatives.eobi.t7.v13.1.secmassstatgrpcompindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -655,17 +661,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.md_trade_entry_grp_comp = function(buffer, offset, packet, parent)
   if show.md_trade_entry_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.md_trade_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.md_trade_entry_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.md_trade_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.md_trade_entry_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.md_trade_entry_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.md_trade_entry_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.md_trade_entry_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1012,9 +1018,14 @@ eurex_derivatives_eobi_t7_v13_1_dissect.trade_reversal_fields = function(buffer,
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_md_entries = eurex_derivatives_eobi_t7_v13_1_dissect.no_md_entries(buffer, index, packet, parent)
 
-  -- Md Trade Entry Grp Comp: Struct of 4 fields
-  for i = 1, no_md_entries do
-    index = eurex_derivatives_eobi_t7_v13_1_dissect.md_trade_entry_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Md Trade Entry Grp Comp
+  for md_trade_entry_grp_comp_index = 1, no_md_entries do
+    index, md_trade_entry_grp_comp = eurex_derivatives_eobi_t7_v13_1_dissect.md_trade_entry_grp_comp(buffer, index, packet, parent)
+
+    if md_trade_entry_grp_comp ~= nil then
+      local iteration = md_trade_entry_grp_comp:add(eurex_derivatives_eobi_t7_v13_1.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1256,17 +1267,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.trade_report = function(buffer, offset, packet, parent)
   if show.trade_report then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.trade_report, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.trade_report_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.trade_report, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.trade_report_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.trade_report(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.trade_report_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.trade_report_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1552,17 +1563,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.top_of_book = function(buffer, offset, packet, parent)
   if show.top_of_book then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.top_of_book, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.top_of_book_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.top_of_book, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.top_of_book_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.top_of_book(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.top_of_book_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.top_of_book_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1901,17 +1912,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.tes_trade_report = function(buffer, offset, packet, parent)
   if show.tes_trade_report then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.tes_trade_report, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.tes_trade_report_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.tes_trade_report, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.tes_trade_report_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.tes_trade_report(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.tes_trade_report_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.tes_trade_report_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2177,17 +2188,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.order_details_comp = function(buffer, offset, packet, parent)
   if show.order_details_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_details_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_details_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_details_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_details_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.order_details_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.order_details_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.order_details_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2219,17 +2230,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.snapshot_order = function(buffer, offset, packet, parent)
   if show.snapshot_order then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.snapshot_order, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.snapshot_order_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.snapshot_order, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.snapshot_order_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.snapshot_order(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.snapshot_order_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.snapshot_order_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2281,17 +2292,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.quote_request = function(buffer, offset, packet, parent)
   if show.quote_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.quote_request, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.quote_request_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.quote_request, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.quote_request_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.quote_request(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.quote_request_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.quote_request_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2590,17 +2601,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.product_summary = function(buffer, offset, packet, parent)
   if show.product_summary then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.product_summary, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.product_summary_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.product_summary, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.product_summary_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.product_summary(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.product_summary_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.product_summary_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2687,17 +2698,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.product_state_change = function(buffer, offset, packet, parent)
   if show.product_state_change then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.product_state_change, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.product_state_change_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.product_state_change, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.product_state_change_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.product_state_change(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.product_state_change_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.product_state_change_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2774,17 +2785,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.partial_order_execution = function(buffer, offset, packet, parent)
   if show.partial_order_execution then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.partial_order_execution, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.partial_order_execution_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.partial_order_execution, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.partial_order_execution_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.partial_order_execution(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.partial_order_execution_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.partial_order_execution_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2900,17 +2911,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_same_prio = function(buffer, offset, packet, parent)
   if show.order_modify_same_prio then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_modify_same_prio, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_same_prio_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_modify_same_prio, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_same_prio_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.order_modify_same_prio(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_same_prio_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_same_prio_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3068,17 +3079,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.order_modify = function(buffer, offset, packet, parent)
   if show.order_modify then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_modify, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_modify, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.order_modify(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.order_modify_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3115,17 +3126,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.order_mass_delete = function(buffer, offset, packet, parent)
   if show.order_mass_delete then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_mass_delete, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_mass_delete_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_mass_delete, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_mass_delete_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.order_mass_delete(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.order_mass_delete_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.order_mass_delete_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3172,17 +3183,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.order_delete = function(buffer, offset, packet, parent)
   if show.order_delete then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_delete, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_delete_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_delete, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_delete_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.order_delete(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.order_delete_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.order_delete_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3224,17 +3235,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.order_add = function(buffer, offset, packet, parent)
   if show.order_add then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_add, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_add_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.order_add, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.order_add_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.order_add(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.order_add_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.order_add_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3617,17 +3628,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.sec_mass_stat_grp_comp = function(buffer, offset, packet, parent)
   if show.sec_mass_stat_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.sec_mass_stat_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.sec_mass_stat_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.sec_mass_stat_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.sec_mass_stat_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.sec_mass_stat_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.sec_mass_stat_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.sec_mass_stat_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4096,9 +4107,14 @@ eurex_derivatives_eobi_t7_v13_1_dissect.mass_instrument_state_change_fields = fu
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_derivatives_eobi_t7_v13_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Sec Mass Stat Grp Comp: Struct of 10 fields
-  for i = 1, no_related_sym do
-    index = eurex_derivatives_eobi_t7_v13_1_dissect.sec_mass_stat_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Sec Mass Stat Grp Comp
+  for sec_mass_stat_grp_comp_index = 1, no_related_sym do
+    index, sec_mass_stat_grp_comp = eurex_derivatives_eobi_t7_v13_1_dissect.sec_mass_stat_grp_comp(buffer, index, packet, parent)
+
+    if sec_mass_stat_grp_comp ~= nil then
+      local iteration = sec_mass_stat_grp_comp:add(eurex_derivatives_eobi_t7_v13_1.fields.sec_mass_stat_grp_comp_index, sec_mass_stat_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4185,17 +4201,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.md_instrument_entry_grp_comp = function(buffer, offset, packet, parent)
   if show.md_instrument_entry_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.md_instrument_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.md_instrument_entry_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.md_instrument_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.md_instrument_entry_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.md_instrument_entry_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.md_instrument_entry_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.md_instrument_entry_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4418,9 +4434,14 @@ eurex_derivatives_eobi_t7_v13_1_dissect.instrument_summary_fields = function(buf
   -- Pad 5: 5 Byte
   index, pad_5 = eurex_derivatives_eobi_t7_v13_1_dissect.pad_5(buffer, index, packet, parent)
 
-  -- Md Instrument Entry Grp Comp: Struct of 9 fields
-  for i = 1, no_md_entries do
-    index = eurex_derivatives_eobi_t7_v13_1_dissect.md_instrument_entry_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Md Instrument Entry Grp Comp
+  for md_instrument_entry_grp_comp_index = 1, no_md_entries do
+    index, md_instrument_entry_grp_comp = eurex_derivatives_eobi_t7_v13_1_dissect.md_instrument_entry_grp_comp(buffer, index, packet, parent)
+
+    if md_instrument_entry_grp_comp ~= nil then
+      local iteration = md_instrument_entry_grp_comp:add(eurex_derivatives_eobi_t7_v13_1.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4527,17 +4548,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.instrument_state_change = function(buffer, offset, packet, parent)
   if show.instrument_state_change then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.instrument_state_change, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.instrument_state_change_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.instrument_state_change, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.instrument_state_change_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.instrument_state_change(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.instrument_state_change_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.instrument_state_change_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4574,17 +4595,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.heartbeat = function(buffer, offset, packet, parent)
   if show.heartbeat then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.heartbeat, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.heartbeat_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.heartbeat, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.heartbeat_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.heartbeat(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.heartbeat_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.heartbeat_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4661,17 +4682,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.full_order_execution = function(buffer, offset, packet, parent)
   if show.full_order_execution then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.full_order_execution, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.full_order_execution_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.full_order_execution, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.full_order_execution_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.full_order_execution(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.full_order_execution_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.full_order_execution_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4813,17 +4834,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.remaining_order_details_comp = function(buffer, offset, packet, parent)
   if show.remaining_order_details_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.remaining_order_details_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.remaining_order_details_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.remaining_order_details_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.remaining_order_details_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.remaining_order_details_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.remaining_order_details_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.remaining_order_details_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5023,17 +5044,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.execution_summary = function(buffer, offset, packet, parent)
   if show.execution_summary then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.execution_summary, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.execution_summary_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.execution_summary, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.execution_summary_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.execution_summary(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.execution_summary_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.execution_summary_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5157,17 +5178,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.cross_request = function(buffer, offset, packet, parent)
   if show.cross_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.cross_request, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.cross_request_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.cross_request, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.cross_request_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.cross_request(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.cross_request_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.cross_request_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5300,17 +5321,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.auction_clearing_price = function(buffer, offset, packet, parent)
   if show.auction_clearing_price then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.auction_clearing_price, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.auction_clearing_price_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.auction_clearing_price, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.auction_clearing_price_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.auction_clearing_price(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.auction_clearing_price_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.auction_clearing_price_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5441,17 +5462,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.auction_bbo = function(buffer, offset, packet, parent)
   if show.auction_bbo then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.auction_bbo, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.auction_bbo_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.auction_bbo, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.auction_bbo_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.auction_bbo(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.auction_bbo_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.auction_bbo_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5508,17 +5529,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.related_instrument_grp_comp = function(buffer, offset, packet, parent)
   if show.related_instrument_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.related_instrument_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.related_instrument_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.related_instrument_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.related_instrument_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.related_instrument_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.related_instrument_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.related_instrument_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5668,17 +5689,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.add_scaled_simple_instrument = function(buffer, offset, packet, parent)
   if show.add_scaled_simple_instrument then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.add_scaled_simple_instrument, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.add_scaled_simple_instrument_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.add_scaled_simple_instrument, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.add_scaled_simple_instrument_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.add_scaled_simple_instrument(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.add_scaled_simple_instrument_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.add_scaled_simple_instrument_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5996,17 +6017,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.add_flexible_instrument = function(buffer, offset, packet, parent)
   if show.add_flexible_instrument then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.add_flexible_instrument, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.add_flexible_instrument_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.add_flexible_instrument, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.add_flexible_instrument_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.add_flexible_instrument(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.add_flexible_instrument_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.add_flexible_instrument_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6353,17 +6374,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.instrmt_leg_grp_comp = function(buffer, offset, packet, parent)
   if show.instrmt_leg_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.instrmt_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.instrmt_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.instrmt_leg_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6547,9 +6568,14 @@ eurex_derivatives_eobi_t7_v13_1_dissect.add_complex_instrument_fields = function
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_derivatives_eobi_t7_v13_1_dissect.last_fragment(buffer, index, packet, parent)
 
-  -- Instrmt Leg Grp Comp: Struct of 10 fields
-  for i = 1, no_legs do
-    index = eurex_derivatives_eobi_t7_v13_1_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Instrmt Leg Grp Comp
+  for instrmt_leg_grp_comp_index = 1, no_legs do
+    index, instrmt_leg_grp_comp = eurex_derivatives_eobi_t7_v13_1_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
+
+    if instrmt_leg_grp_comp ~= nil then
+      local iteration = instrmt_leg_grp_comp:add(eurex_derivatives_eobi_t7_v13_1.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -7006,17 +7032,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.message_header_comp = function(buffer, offset, packet, parent)
   if show.message_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.message_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.message_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.message_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.message_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.message_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.message_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.message_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7043,16 +7069,23 @@ end
 
 -- Dissect: Message
 eurex_derivatives_eobi_t7_v13_1_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = eurex_derivatives_eobi_t7_v13_1_display.message(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.message, range, display)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.message, buffer(offset, 0))
+    local current = eurex_derivatives_eobi_t7_v13_1_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = eurex_derivatives_eobi_t7_v13_1_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_eobi_t7_v13_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  eurex_derivatives_eobi_t7_v13_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Appl Seq Reset Indicator
@@ -7288,17 +7321,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.packet_info = function(buffer, offset, packet, parent)
   if show.packet_info then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.packet_info, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.packet_info_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.packet_info, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.packet_info_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.packet_info(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.packet_info_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.packet_info_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7365,17 +7398,17 @@ end
 eurex_derivatives_eobi_t7_v13_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.packet_header, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v13_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_eobi_t7_v13_1.fields.packet_header, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v13_1_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_eobi_t7_v13_1_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v13_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eobi_t7_v13_1_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7395,8 +7428,8 @@ eurex_derivatives_eobi_t7_v13_1_dissect.packet = function(buffer, packet, parent
     -- Dependency element: Body Len
     local body_len = buffer(index, 2):le_uint()
 
-    -- Message: Struct of 2 fields
-    index = eurex_derivatives_eobi_t7_v13_1_dissect.message(buffer, index, packet, parent, body_len)
+    -- Runtime Size Of: Message
+    index, message = eurex_derivatives_eobi_t7_v13_1_dissect.message(buffer, index, packet, parent, body_len)
   end
 
   return index

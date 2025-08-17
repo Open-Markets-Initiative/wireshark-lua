@@ -99,6 +99,9 @@ nyse_equities_bbo_pillar_v2_5_b.fields.symbol_clear_message = ProtoField.new("Sy
 nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.equities.bbo.pillar.v2.5.b.symbolindexmappingmessage", ftypes.STRING)
 nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.equities.bbo.pillar.v2.5.b.symbolindexmappingrequestmessage", ftypes.STRING)
 
+-- Nyse Equities Bbo Pillar 2.5.b generated fields
+nyse_equities_bbo_pillar_v2_5_b.fields.message_index = ProtoField.new("Message Index", "nyse.equities.bbo.pillar.v2.5.b.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -500,17 +503,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.quote_message = function(buffer, offset, packet, parent)
   if show.quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.quote_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.quote_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.quote_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.quote_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.quote_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.quote_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.quote_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -637,17 +640,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_header_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.refresh_header_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_header_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1130,17 +1133,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.security_status_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.security_status_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.security_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.security_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.security_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1207,17 +1210,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.symbol_clear_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.symbol_clear_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.symbol_clear_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1344,17 +1347,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.message_unavailable_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.message_unavailable_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1421,17 +1424,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.refresh_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.refresh_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1507,17 +1510,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.symbol_index_mapping_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1549,17 +1552,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.heartbeat_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1661,17 +1664,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.request_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.request_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.request_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1723,17 +1726,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.retransmission_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2245,17 +2248,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.symbol_index_mapping_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2317,17 +2320,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.source_time_reference_message = function(buffer, offset, packet, parent)
   if show.source_time_reference_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.source_time_reference_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.source_time_reference_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.source_time_reference_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.source_time_reference_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.source_time_reference_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.source_time_reference_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2374,17 +2377,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.sequence_number_reset_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2642,17 +2645,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.message_header, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.message_header, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2679,16 +2682,23 @@ end
 
 -- Dissect: Message
 nyse_equities_bbo_pillar_v2_5_b_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = nyse_equities_bbo_pillar_v2_5_b_display.message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.message, range, display)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.message, buffer(offset, 0))
+    local current = nyse_equities_bbo_pillar_v2_5_b_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = nyse_equities_bbo_pillar_v2_5_b_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nyse_equities_bbo_pillar_v2_5_b_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  nyse_equities_bbo_pillar_v2_5_b_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Nanoseconds
@@ -2898,17 +2908,17 @@ end
 nyse_equities_bbo_pillar_v2_5_b_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.packet_header, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_bbo_pillar_v2_5_b.fields.packet_header, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_bbo_pillar_v2_5_b_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nyse_equities_bbo_pillar_v2_5_b_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2928,8 +2938,8 @@ nyse_equities_bbo_pillar_v2_5_b_dissect.packet = function(buffer, packet, parent
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
-    -- Message: Struct of 2 fields
-    index = nyse_equities_bbo_pillar_v2_5_b_dissect.message(buffer, index, packet, parent, message_size)
+    -- Runtime Size Of: Message
+    index, message = nyse_equities_bbo_pillar_v2_5_b_dissect.message(buffer, index, packet, parent, message_size)
   end
 
   return index

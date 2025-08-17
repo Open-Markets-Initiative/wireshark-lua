@@ -84,6 +84,10 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message = Prot
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.systemeventmessage", ftypes.STRING)
 nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq IseOptions OrderFeed Itch 1.1 generated fields
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index = ProtoField.new("Auction Response Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionresponseindex", ftypes.UINT16)
+nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -284,17 +288,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response = function(buffer, offset, packet, parent)
   if show.auction_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.auction_response(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, element)
   end
 end
 
@@ -736,9 +740,14 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_message_fields = function(
   -- Number Of Responses: 1 Byte Unsigned Fixed Width Integer
   index, number_of_responses = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.number_of_responses(buffer, index, packet, parent)
 
-  -- Auction Response: Struct of 2 fields
-  for i = 1, number_of_responses do
-    index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response(buffer, index, packet, parent)
+  -- Repeating: Auction Response
+  for auction_response_index = 1, number_of_responses do
+    index, auction_response = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response(buffer, index, packet, parent)
+
+    if auction_response ~= nil then
+      local iteration = auction_response:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index, auction_response_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -835,17 +844,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_on_book_message = function(buffer, offset, packet, parent)
   if show.order_on_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_on_book_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_on_book_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_on_book_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.order_on_book_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_on_book_message_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.order_on_book_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -995,17 +1004,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.opening_imbalance_message = function(buffer, offset, packet, parent)
   if show.opening_imbalance_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.opening_imbalance_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.opening_imbalance_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.opening_imbalance_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.opening_imbalance_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.opening_imbalance_message_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.opening_imbalance_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1074,17 +1083,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   if show.security_open_closed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.security_open_closed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1153,17 +1162,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_action_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.trading_action_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.trading_action_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1607,17 +1616,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_directory_message = function(buffer, offset, packet, parent)
   if show.option_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_directory_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.option_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.option_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1824,17 +1833,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.system_event_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2026,17 +2035,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2063,16 +2072,23 @@ end
 
 -- Dissect: Message
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message, range, display)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message, buffer(offset, 0))
+    local current = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Count
@@ -2189,17 +2205,17 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_iseoptions_orderfeed_itch_v1_1_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2210,11 +2226,11 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet = function(buffer, packet, 
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):uint()
 
-  -- Message: Struct of 2 fields
-  while index < end_of_payload do
+  -- Repeating: Message
+  for message_index = 1, count do
 
     -- Dependency element: Length
     local length = buffer(index, 2):uint()
@@ -2223,7 +2239,12 @@ nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.packet = function(buffer, packet, 
     local size_of_message = length + 2
 
     -- Message: Struct of 2 fields
-    index = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message(buffer, index, packet, parent, size_of_message)
+
+    if message ~= nil then
+      local iteration = message:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

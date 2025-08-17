@@ -151,6 +151,11 @@ asx_securities_ntp_itch_v1_05.fields.trade_cancellation_message = ProtoField.new
 asx_securities_ntp_itch_v1_05.fields.trade_executed_message = ProtoField.new("Trade Executed Message", "asx.securities.ntp.itch.v1.05.tradeexecutedmessage", ftypes.STRING)
 asx_securities_ntp_itch_v1_05.fields.volume_and_open_interest_message = ProtoField.new("Volume And Open Interest Message", "asx.securities.ntp.itch.v1.05.volumeandopeninterestmessage", ftypes.STRING)
 
+-- Asx Securities Ntp Itch 1.05 generated fields
+asx_securities_ntp_itch_v1_05.fields.bundle_leg_index = ProtoField.new("Bundle Leg Index", "asx.securities.ntp.itch.v1.05.bundlelegindex", ftypes.UINT16)
+asx_securities_ntp_itch_v1_05.fields.combination_leg_index = ProtoField.new("Combination Leg Index", "asx.securities.ntp.itch.v1.05.combinationlegindex", ftypes.UINT16)
+asx_securities_ntp_itch_v1_05.fields.message_index = ProtoField.new("Message Index", "asx.securities.ntp.itch.v1.05.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -572,17 +577,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.volume_and_open_interest_message = function(buffer, offset, packet, parent)
   if show.volume_and_open_interest_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.volume_and_open_interest_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.volume_and_open_interest_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.volume_and_open_interest_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.volume_and_open_interest_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.volume_and_open_interest_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.volume_and_open_interest_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.volume_and_open_interest_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -774,17 +779,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.anomalous_order_threshold_publish_message = function(buffer, offset, packet, parent)
   if show.anomalous_order_threshold_publish_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.anomalous_order_threshold_publish_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.anomalous_order_threshold_publish_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.anomalous_order_threshold_publish_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.anomalous_order_threshold_publish_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.anomalous_order_threshold_publish_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.anomalous_order_threshold_publish_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.anomalous_order_threshold_publish_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -889,17 +894,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.request_for_quote_message = function(buffer, offset, packet, parent)
   if show.request_for_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.request_for_quote_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.request_for_quote_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.request_for_quote_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.request_for_quote_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.request_for_quote_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.request_for_quote_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.request_for_quote_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -986,17 +991,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.text_message = function(buffer, offset, packet, parent)
   if show.text_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.text_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.text_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.text_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.text_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.text_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.text_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.text_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1188,17 +1193,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.market_settlement_message = function(buffer, offset, packet, parent)
   if show.market_settlement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.market_settlement_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.market_settlement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.market_settlement_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.market_settlement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.market_settlement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.market_settlement_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.market_settlement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1270,17 +1275,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.open_high_low_last_trade_adjustment_message = function(buffer, offset, packet, parent)
   if show.open_high_low_last_trade_adjustment_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.open_high_low_last_trade_adjustment_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.open_high_low_last_trade_adjustment_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.open_high_low_last_trade_adjustment_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.open_high_low_last_trade_adjustment_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.open_high_low_last_trade_adjustment_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.open_high_low_last_trade_adjustment_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.open_high_low_last_trade_adjustment_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1422,17 +1427,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.equilibrium_price_message = function(buffer, offset, packet, parent)
   if show.equilibrium_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.equilibrium_price_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.equilibrium_price_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.equilibrium_price_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.equilibrium_price_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.equilibrium_price_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.equilibrium_price_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.equilibrium_price_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1499,17 +1504,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.trade_cancellation_message = function(buffer, offset, packet, parent)
   if show.trade_cancellation_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.trade_cancellation_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.trade_cancellation_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.trade_cancellation_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.trade_cancellation_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.trade_cancellation_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.trade_cancellation_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.trade_cancellation_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1932,17 +1937,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.combination_trade_executed_message = function(buffer, offset, packet, parent)
   if show.combination_trade_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_trade_executed_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.combination_trade_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_trade_executed_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.combination_trade_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.combination_trade_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.combination_trade_executed_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.combination_trade_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2079,17 +2084,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.trade_executed_message = function(buffer, offset, packet, parent)
   if show.trade_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.trade_executed_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.trade_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.trade_executed_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.trade_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.trade_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.trade_executed_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.trade_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2188,17 +2193,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.implied_order_deleted_message = function(buffer, offset, packet, parent)
   if show.implied_order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.implied_order_deleted_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.implied_order_deleted_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.implied_order_deleted_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.implied_order_deleted_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.implied_order_deleted_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.implied_order_deleted_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.implied_order_deleted_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2305,17 +2310,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.implied_order_replaced_message = function(buffer, offset, packet, parent)
   if show.implied_order_replaced_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.implied_order_replaced_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.implied_order_replaced_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.implied_order_replaced_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.implied_order_replaced_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.implied_order_replaced_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.implied_order_replaced_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.implied_order_replaced_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2382,17 +2387,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.implied_order_added_message = function(buffer, offset, packet, parent)
   if show.implied_order_added_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.implied_order_added_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.implied_order_added_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.implied_order_added_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.implied_order_added_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.implied_order_added_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.implied_order_added_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.implied_order_added_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2576,17 +2581,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.combination_order_executed_message = function(buffer, offset, packet, parent)
   if show.combination_order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_order_executed_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.combination_order_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_order_executed_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.combination_order_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.combination_order_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.combination_order_executed_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.combination_order_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2668,17 +2673,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.auction_order_executed_message = function(buffer, offset, packet, parent)
   if show.auction_order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.auction_order_executed_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.auction_order_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.auction_order_executed_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.auction_order_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.auction_order_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.auction_order_executed_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.auction_order_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2785,17 +2790,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.order_executed_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.order_executed_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.order_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.order_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.order_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2847,17 +2852,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.order_deleted_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.order_deleted_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.order_deleted_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.order_deleted_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.order_deleted_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2914,17 +2919,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.order_volume_cancelled_message = function(buffer, offset, packet, parent)
   if show.order_volume_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.order_volume_cancelled_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.order_volume_cancelled_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.order_volume_cancelled_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.order_volume_cancelled_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.order_volume_cancelled_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.order_volume_cancelled_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.order_volume_cancelled_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2991,17 +2996,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.add_order_message = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.add_order_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.add_order_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.add_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.add_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.add_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3087,17 +3092,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.order_book_state_message = function(buffer, offset, packet, parent)
   if show.order_book_state_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.order_book_state_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.order_book_state_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.order_book_state_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.order_book_state_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.order_book_state_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.order_book_state_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.order_book_state_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3234,17 +3239,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.bundle_leg = function(buffer, offset, packet, parent)
   if show.bundle_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.bundle_leg, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.bundle_leg_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.bundle_leg, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.bundle_leg_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.bundle_leg(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.bundle_leg_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.bundle_leg_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3494,9 +3499,14 @@ asx_securities_ntp_itch_v1_05_dissect.bundles_symbol_directory_fields = function
   -- Legs: 1 Byte Unsigned Fixed Width Integer
   index, legs = asx_securities_ntp_itch_v1_05_dissect.legs(buffer, index, packet, parent)
 
-  -- Array Count Of: Bundle Leg
-  for i = 1, 20 do
-    index = asx_securities_ntp_itch_v1_05_dissect.bundle_leg(buffer, index, packet, parent)
+  -- Array Of: Bundle Leg
+  for bundle_leg_index = 1, 20 do
+    index, bundle_leg = asx_securities_ntp_itch_v1_05_dissect.bundle_leg(buffer, index, packet, parent)
+
+    if bundle_leg ~= nil then
+      local iteration = bundle_leg:add(asx_securities_ntp_itch_v1_05.fields.bundle_leg_index, bundle_leg_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3506,17 +3516,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.bundles_symbol_directory = function(buffer, offset, packet, parent)
   if show.bundles_symbol_directory then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.bundles_symbol_directory, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.bundles_symbol_directory_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.bundles_symbol_directory, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.bundles_symbol_directory_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.bundles_symbol_directory(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.bundles_symbol_directory_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.bundles_symbol_directory_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3563,17 +3573,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.combination_leg = function(buffer, offset, packet, parent)
   if show.combination_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_leg, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.combination_leg_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_leg, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.combination_leg_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.combination_leg(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.combination_leg_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.combination_leg_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3650,9 +3660,14 @@ asx_securities_ntp_itch_v1_05_dissect.combination_symbol_directory_message_field
   -- Legs: 1 Byte Unsigned Fixed Width Integer
   index, legs = asx_securities_ntp_itch_v1_05_dissect.legs(buffer, index, packet, parent)
 
-  -- Array Count Of: Combination Leg
-  for i = 1, 6 do
-    index = asx_securities_ntp_itch_v1_05_dissect.combination_leg(buffer, index, packet, parent)
+  -- Array Of: Combination Leg
+  for combination_leg_index = 1, 6 do
+    index, combination_leg = asx_securities_ntp_itch_v1_05_dissect.combination_leg(buffer, index, packet, parent)
+
+    if combination_leg ~= nil then
+      local iteration = combination_leg:add(asx_securities_ntp_itch_v1_05.fields.combination_leg_index, combination_leg_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3662,17 +3677,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.combination_symbol_directory_message = function(buffer, offset, packet, parent)
   if show.combination_symbol_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_symbol_directory_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.combination_symbol_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_symbol_directory_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.combination_symbol_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.combination_symbol_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.combination_symbol_directory_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.combination_symbol_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4338,17 +4353,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.options_symbol_directory_message = function(buffer, offset, packet, parent)
   if show.options_symbol_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.options_symbol_directory_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.options_symbol_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.options_symbol_directory_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.options_symbol_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.options_symbol_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.options_symbol_directory_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.options_symbol_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4490,17 +4505,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.future_symbol_directory_message = function(buffer, offset, packet, parent)
   if show.future_symbol_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.future_symbol_directory_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.future_symbol_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.future_symbol_directory_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.future_symbol_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.future_symbol_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.future_symbol_directory_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.future_symbol_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4566,17 +4581,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.end_of_business_trade_date_message = function(buffer, offset, packet, parent)
   if show.end_of_business_trade_date_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.end_of_business_trade_date_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.end_of_business_trade_date_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.end_of_business_trade_date_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.end_of_business_trade_date_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.end_of_business_trade_date_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.end_of_business_trade_date_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.end_of_business_trade_date_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4631,17 +4646,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.seconds_message = function(buffer, offset, packet, parent)
   if show.seconds_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.seconds_message, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.seconds_message, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.seconds_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5042,17 +5057,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.message_header, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.message_header, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.message_header_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5079,16 +5094,23 @@ end
 
 -- Dissect: Message
 asx_securities_ntp_itch_v1_05_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = asx_securities_ntp_itch_v1_05_display.message(buffer, packet, parent)
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.message, range, display)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.message, buffer(offset, 0))
+    local current = asx_securities_ntp_itch_v1_05_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = asx_securities_ntp_itch_v1_05_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    asx_securities_ntp_itch_v1_05_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  asx_securities_ntp_itch_v1_05_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Count
@@ -5205,17 +5227,17 @@ end
 asx_securities_ntp_itch_v1_05_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.packet_header, buffer(offset, 0))
-    local index = asx_securities_ntp_itch_v1_05_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.packet_header, buffer(offset, 0))
+    local index = asx_securities_ntp_itch_v1_05_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = asx_securities_ntp_itch_v1_05_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return asx_securities_ntp_itch_v1_05_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return asx_securities_ntp_itch_v1_05_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5226,11 +5248,11 @@ asx_securities_ntp_itch_v1_05_dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = asx_securities_ntp_itch_v1_05_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):uint()
 
-  -- Message: Struct of 2 fields
-  while index < end_of_payload do
+  -- Repeating: Message
+  for message_index = 1, count do
 
     -- Dependency element: Length
     local length = buffer(index, 2):uint()
@@ -5239,7 +5261,12 @@ asx_securities_ntp_itch_v1_05_dissect.packet = function(buffer, packet, parent)
     local size_of_message = length + 2
 
     -- Message: Struct of 2 fields
-    index = asx_securities_ntp_itch_v1_05_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = asx_securities_ntp_itch_v1_05_dissect.message(buffer, index, packet, parent, size_of_message)
+
+    if message ~= nil then
+      local iteration = message:add(asx_securities_ntp_itch_v1_05.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

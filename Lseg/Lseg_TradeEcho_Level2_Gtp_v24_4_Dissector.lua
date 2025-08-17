@@ -76,6 +76,9 @@ lseg_tradeecho_level2_gtp_v24_4.fields.order_delete = ProtoField.new("Order Dele
 lseg_tradeecho_level2_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.level2.gtp.v24.4.systemevent", ftypes.STRING)
 lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes = ProtoField.new("Systematic Internaliser Quotes", "lseg.tradeecho.level2.gtp.v24.4.systematicinternaliserquotes", ftypes.STRING)
 
+-- Lseg TradeEcho Level2 Gtp 24.4 generated fields
+lseg_tradeecho_level2_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.level2.gtp.v24.4.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -587,17 +590,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes = function(buffer, offset, packet, parent)
   if show.systematic_internaliser_quotes then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.systematic_internaliser_quotes(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields(buffer, offset, packet, element)
   end
 end
 
@@ -644,17 +647,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear = function(buffer, offset, packet, parent)
   if show.order_book_clear then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.order_book_clear(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields(buffer, offset, packet, element)
   end
 end
 
@@ -802,17 +805,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete = function(buffer, offset, packet, parent)
   if show.order_delete then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_delete, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.order_delete, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.order_delete(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields(buffer, offset, packet, element)
   end
 end
 
@@ -951,17 +954,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status = function(buffer, offset, packet, parent)
   if show.instrument_status then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.instrument_status(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1358,17 +1361,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory = function(buffer, offset, packet, parent)
   if show.instrument_directory then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.instrument_directory(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1440,17 +1443,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.system_event = function(buffer, offset, packet, parent)
   if show.system_event then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.system_event, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.system_event, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.system_event(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1631,17 +1634,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1816,17 +1819,17 @@ end
 lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_level2_gtp_v24_4_display.unit_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1842,7 +1845,7 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.packet = function(buffer, packet, parent
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = lseg_tradeecho_level2_gtp_v24_4_dissect.message(buffer, index, packet, parent)
+    index, message = lseg_tradeecho_level2_gtp_v24_4_dissect.message(buffer, index, packet, parent)
   end
 
   return index

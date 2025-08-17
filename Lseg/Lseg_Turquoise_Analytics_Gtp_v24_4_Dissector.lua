@@ -76,6 +76,9 @@ lseg_turquoise_analytics_gtp_v24_4.fields.instrument_directory_message = ProtoFi
 lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.analytics.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 lseg_turquoise_analytics_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.analytics.gtp.v24.4.systemeventmessage", ftypes.STRING)
 
+-- Lseg Turquoise Analytics Gtp 24.4 generated fields
+lseg_turquoise_analytics_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.analytics.gtp.v24.4.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -713,17 +716,17 @@ end
 lseg_turquoise_analytics_gtp_v24_4_dissect.add_order_incremental_message = function(buffer, offset, packet, parent)
   if show.add_order_incremental_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.add_order_incremental_message, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.add_order_incremental_message, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_turquoise_analytics_gtp_v24_4_display.add_order_incremental_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, parent)
+    return lseg_turquoise_analytics_gtp_v24_4_dissect.add_order_incremental_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -919,17 +922,17 @@ end
 lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_status_message = function(buffer, offset, packet, parent)
   if show.instrument_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_turquoise_analytics_gtp_v24_4_display.instrument_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
+    return lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1286,17 +1289,17 @@ end
 lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_turquoise_analytics_gtp_v24_4_display.instrument_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return lseg_turquoise_analytics_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1365,17 +1368,17 @@ end
 lseg_turquoise_analytics_gtp_v24_4_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_turquoise_analytics_gtp_v24_4_display.system_event_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return lseg_turquoise_analytics_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1534,17 +1537,17 @@ end
 lseg_turquoise_analytics_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.message_header, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_turquoise_analytics_gtp_v24_4_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    return lseg_turquoise_analytics_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1719,17 +1722,17 @@ end
 lseg_turquoise_analytics_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.unit_header, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_turquoise_analytics_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    local index = lseg_turquoise_analytics_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_turquoise_analytics_gtp_v24_4_display.unit_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    return lseg_turquoise_analytics_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1745,7 +1748,7 @@ lseg_turquoise_analytics_gtp_v24_4_dissect.packet = function(buffer, packet, par
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = lseg_turquoise_analytics_gtp_v24_4_dissect.message(buffer, index, packet, parent)
+    index, message = lseg_turquoise_analytics_gtp_v24_4_dissect.message(buffer, index, packet, parent)
   end
 
   return index

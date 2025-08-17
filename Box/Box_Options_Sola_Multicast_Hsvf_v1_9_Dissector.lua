@@ -185,6 +185,11 @@ box_options_sola_multicast_hsvf_v1_9.fields.strategies_group_status_message = Pr
 box_options_sola_multicast_hsvf_v1_9.fields.strategy_trade_message = ProtoField.new("Strategy Trade Message", "box.options.sola.multicast.hsvf.v1.9.strategytrademessage", ftypes.STRING)
 box_options_sola_multicast_hsvf_v1_9.fields.system_timestamp_message = ProtoField.new("System Timestamp Message", "box.options.sola.multicast.hsvf.v1.9.systemtimestampmessage", ftypes.STRING)
 
+-- Box Options Sola Multicast Hsvf 1.9 generated fields
+box_options_sola_multicast_hsvf_v1_9.fields.complex_market_depth_level_index = ProtoField.new("Complex Market Depth Level Index", "box.options.sola.multicast.hsvf.v1.9.complexmarketdepthlevelindex", ftypes.UINT16)
+box_options_sola_multicast_hsvf_v1_9.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "box.options.sola.multicast.hsvf.v1.9.instrumentlegindex", ftypes.UINT16)
+box_options_sola_multicast_hsvf_v1_9.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "box.options.sola.multicast.hsvf.v1.9.marketdepthlevelindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -719,17 +724,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_initial_and_improvement_order_message = function(buffer, offset, packet, parent)
   if show.complex_order_initial_and_improvement_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_initial_and_improvement_order_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_initial_and_improvement_order_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_initial_and_improvement_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.complex_order_initial_and_improvement_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_initial_and_improvement_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1010,17 +1015,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.instrument_description = function(buffer, offset, packet, parent)
   if show.instrument_description then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.instrument_description, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.instrument_description_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.instrument_description, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.instrument_description_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.instrument_description(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.instrument_description_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.instrument_description_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1082,17 +1087,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.initial_and_improvement_order_message = function(buffer, offset, packet, parent)
   if show.initial_and_improvement_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.initial_and_improvement_order_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.initial_and_improvement_order_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.initial_and_improvement_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.initial_and_improvement_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.initial_and_improvement_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1402,17 +1407,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_market_sheet_initial_and_improvement_order_message = function(buffer, offset, packet, parent)
   if show.complex_order_market_sheet_initial_and_improvement_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_market_sheet_initial_and_improvement_order_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_market_sheet_initial_and_improvement_order_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.complex_order_market_sheet_initial_and_improvement_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1514,17 +1519,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.market_sheet_initial_and_improvement_order_message = function(buffer, offset, packet, parent)
   if show.market_sheet_initial_and_improvement_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.market_sheet_initial_and_improvement_order_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.market_sheet_initial_and_improvement_order_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.market_sheet_initial_and_improvement_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1825,17 +1830,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_improvement_process_beginning_message_message = function(buffer, offset, packet, parent)
   if show.complex_order_improvement_process_beginning_message_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_improvement_process_beginning_message_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_improvement_process_beginning_message_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_improvement_process_beginning_message_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_improvement_process_beginning_message_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.complex_order_improvement_process_beginning_message_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_improvement_process_beginning_message_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_improvement_process_beginning_message_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1927,17 +1932,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_improvement_process_beginning_message = function(buffer, offset, packet, parent)
   if show.option_improvement_process_beginning_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_improvement_process_beginning_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_improvement_process_beginning_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_improvement_process_beginning_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_improvement_process_beginning_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_improvement_process_beginning_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_improvement_process_beginning_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_improvement_process_beginning_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2019,17 +2024,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.end_of_sales_message = function(buffer, offset, packet, parent)
   if show.end_of_sales_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.end_of_sales_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.end_of_sales_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.end_of_sales_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.end_of_sales_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.end_of_sales_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.end_of_sales_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.end_of_sales_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2061,17 +2066,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_complex_order_summary_message = function(buffer, offset, packet, parent)
   if show.beginning_of_complex_order_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.beginning_of_complex_order_summary_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_complex_order_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.beginning_of_complex_order_summary_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_complex_order_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.beginning_of_complex_order_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_complex_order_summary_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_complex_order_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2103,17 +2108,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_options_summary_message = function(buffer, offset, packet, parent)
   if show.beginning_of_options_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.beginning_of_options_summary_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_options_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.beginning_of_options_summary_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_options_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.beginning_of_options_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_options_summary_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.beginning_of_options_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2840,17 +2845,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_summary_message = function(buffer, offset, packet, parent)
   if show.complex_order_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_summary_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_summary_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.complex_order_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_summary_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2996,17 +3001,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_marker = function(buffer, offset, packet, parent)
   if show.option_marker then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_marker, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_marker_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_marker, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_marker_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_marker(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_marker_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_marker_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3210,17 +3215,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_summary_message = function(buffer, offset, packet, parent)
   if show.option_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_summary_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_summary_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_summary_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3346,17 +3351,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.bulletins_message = function(buffer, offset, packet, parent)
   if show.bulletins_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.bulletins_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.bulletins_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.bulletins_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.bulletins_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.bulletins_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.bulletins_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.bulletins_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3470,17 +3475,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.instrument_leg = function(buffer, offset, packet, parent)
   if show.instrument_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.instrument_leg, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.instrument_leg_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.instrument_leg, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.instrument_leg_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.instrument_leg(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.instrument_leg_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.instrument_leg_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4037,9 +4042,14 @@ box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_instrument_keys_messa
   -- Number Of Legs: N
   index, number_of_legs = box_options_sola_multicast_hsvf_v1_9_dissect.number_of_legs(buffer, index, packet, parent)
 
-  -- Instrument Leg: Struct of 3 fields
-  for i = 1, number_of_legs do
-    index = box_options_sola_multicast_hsvf_v1_9_dissect.instrument_leg(buffer, index, packet, parent)
+  -- Repeating: Instrument Leg
+  for instrument_leg_index = 1, number_of_legs do
+    index, instrument_leg = box_options_sola_multicast_hsvf_v1_9_dissect.instrument_leg(buffer, index, packet, parent)
+
+    if instrument_leg ~= nil then
+      local iteration = instrument_leg:add(box_options_sola_multicast_hsvf_v1_9.fields.instrument_leg_index, instrument_leg_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4185,17 +4195,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.market_flow_indicator = function(buffer, offset, packet, parent)
   if show.market_flow_indicator then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.market_flow_indicator, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.market_flow_indicator_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.market_flow_indicator, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.market_flow_indicator_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.market_flow_indicator(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.market_flow_indicator_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.market_flow_indicator_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4506,17 +4516,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_instrument_keys_message = function(buffer, offset, packet, parent)
   if show.option_instrument_keys_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_instrument_keys_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_instrument_keys_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_instrument_keys_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_instrument_keys_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_instrument_keys_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_instrument_keys_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_instrument_keys_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4777,17 +4787,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_trade_cancellation_message = function(buffer, offset, packet, parent)
   if show.complex_order_trade_cancellation_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_trade_cancellation_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_trade_cancellation_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_trade_cancellation_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_trade_cancellation_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.complex_order_trade_cancellation_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_trade_cancellation_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_trade_cancellation_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4884,17 +4894,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_cancellation_message = function(buffer, offset, packet, parent)
   if show.option_trade_cancellation_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_trade_cancellation_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_cancellation_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_trade_cancellation_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_cancellation_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_trade_cancellation_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_cancellation_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_cancellation_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5061,17 +5071,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.complex_market_depth_level = function(buffer, offset, packet, parent)
   if show.complex_market_depth_level then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_market_depth_level, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_market_depth_level_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_market_depth_level, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_market_depth_level_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.complex_market_depth_level(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_market_depth_level_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_market_depth_level_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5194,9 +5204,14 @@ box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_market_depth_message_
   -- Number Of Levels: N
   index, number_of_levels = box_options_sola_multicast_hsvf_v1_9_dissect.number_of_levels(buffer, index, packet, parent)
 
-  -- Complex Market Depth Level: Struct of 11 fields
-  for i = 1, number_of_levels do
-    index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_market_depth_level(buffer, index, packet, parent)
+  -- Repeating: Complex Market Depth Level
+  for complex_market_depth_level_index = 1, number_of_levels do
+    index, complex_market_depth_level = box_options_sola_multicast_hsvf_v1_9_dissect.complex_market_depth_level(buffer, index, packet, parent)
+
+    if complex_market_depth_level ~= nil then
+      local iteration = complex_market_depth_level:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_market_depth_level_index, complex_market_depth_level_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -5283,17 +5298,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.market_depth_level = function(buffer, offset, packet, parent)
   if show.market_depth_level then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.market_depth_level, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.market_depth_level_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.market_depth_level, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.market_depth_level_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.market_depth_level(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.market_depth_level_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.market_depth_level_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5337,9 +5352,14 @@ box_options_sola_multicast_hsvf_v1_9_dissect.option_market_depth_message_fields 
   -- Number Of Levels: N
   index, number_of_levels = box_options_sola_multicast_hsvf_v1_9_dissect.number_of_levels(buffer, index, packet, parent)
 
-  -- Market Depth Level: Struct of 9 fields
-  for i = 1, number_of_levels do
-    index = box_options_sola_multicast_hsvf_v1_9_dissect.market_depth_level(buffer, index, packet, parent)
+  -- Repeating: Market Depth Level
+  for market_depth_level_index = 1, number_of_levels do
+    index, market_depth_level = box_options_sola_multicast_hsvf_v1_9_dissect.market_depth_level(buffer, index, packet, parent)
+
+    if market_depth_level ~= nil then
+      local iteration = market_depth_level:add(box_options_sola_multicast_hsvf_v1_9.fields.market_depth_level_index, market_depth_level_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -5461,17 +5481,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.strategies_group_status_message = function(buffer, offset, packet, parent)
   if show.strategies_group_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.strategies_group_status_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.strategies_group_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.strategies_group_status_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.strategies_group_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.strategies_group_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.strategies_group_status_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.strategies_group_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5513,17 +5533,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.group_status_message = function(buffer, offset, packet, parent)
   if show.group_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.group_status_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.group_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.group_status_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.group_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.group_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.group_status_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.group_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5595,17 +5615,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.group_opening_time_message = function(buffer, offset, packet, parent)
   if show.group_opening_time_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.group_opening_time_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.group_opening_time_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.group_opening_time_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.group_opening_time_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.group_opening_time_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.group_opening_time_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.group_opening_time_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5747,17 +5767,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_quote_message = function(buffer, offset, packet, parent)
   if show.complex_order_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_quote_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_quote_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.complex_order_quote_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_quote_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.complex_order_quote_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_quote_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.complex_order_quote_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5844,17 +5864,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_quote_message = function(buffer, offset, packet, parent)
   if show.option_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_quote_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_quote_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_quote_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_quote_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_quote_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_quote_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_quote_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5921,17 +5941,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_request_for_quote_message = function(buffer, offset, packet, parent)
   if show.option_request_for_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_request_for_quote_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_request_for_quote_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_request_for_quote_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_request_for_quote_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_request_for_quote_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_request_for_quote_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_request_for_quote_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6023,17 +6043,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.strategy_trade_message = function(buffer, offset, packet, parent)
   if show.strategy_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.strategy_trade_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.strategy_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.strategy_trade_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.strategy_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.strategy_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.strategy_trade_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.strategy_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6125,17 +6145,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_message = function(buffer, offset, packet, parent)
   if show.option_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_trade_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.option_trade_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.option_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.option_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6192,17 +6212,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.system_timestamp_message = function(buffer, offset, packet, parent)
   if show.system_timestamp_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.system_timestamp_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.system_timestamp_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.system_timestamp_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.system_timestamp_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.system_timestamp_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.system_timestamp_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.system_timestamp_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6234,17 +6254,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.circuit_assurance_message = function(buffer, offset, packet, parent)
   if show.circuit_assurance_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.circuit_assurance_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.circuit_assurance_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.circuit_assurance_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.circuit_assurance_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.circuit_assurance_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.circuit_assurance_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.circuit_assurance_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6281,17 +6301,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.end_of_transmission_message = function(buffer, offset, packet, parent)
   if show.end_of_transmission_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.end_of_transmission_message, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.end_of_transmission_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.end_of_transmission_message, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.end_of_transmission_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.end_of_transmission_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.end_of_transmission_message_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.end_of_transmission_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6730,17 +6750,17 @@ end
 box_options_sola_multicast_hsvf_v1_9_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.message_header, buffer(offset, 0))
-    local index = box_options_sola_multicast_hsvf_v1_9_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(box_options_sola_multicast_hsvf_v1_9.fields.message_header, buffer(offset, 0))
+    local index = box_options_sola_multicast_hsvf_v1_9_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = box_options_sola_multicast_hsvf_v1_9_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return box_options_sola_multicast_hsvf_v1_9_dissect.message_header_fields(buffer, offset, packet, parent)
+    return box_options_sola_multicast_hsvf_v1_9_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 

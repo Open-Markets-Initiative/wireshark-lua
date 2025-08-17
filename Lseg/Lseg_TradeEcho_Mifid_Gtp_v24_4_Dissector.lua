@@ -142,6 +142,9 @@ lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report = ProtoField.new("Mi
 lseg_tradeecho_mifid_gtp_v24_4.fields.statistics = ProtoField.new("Statistics", "lseg.tradeecho.mifid.gtp.v24.4.statistics", ftypes.STRING)
 lseg_tradeecho_mifid_gtp_v24_4.fields.system_event = ProtoField.new("System Event", "lseg.tradeecho.mifid.gtp.v24.4.systemevent", ftypes.STRING)
 
+-- Lseg TradeEcho Mifid Gtp 24.4 generated fields
+lseg_tradeecho_mifid_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.mifid.gtp.v24.4.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -2221,17 +2224,17 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report = function(buffer, offset, packet, parent)
   if show.mifid_ii_trade_report then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report, buffer(offset, 0))
-    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.mifid_ii_trade_report, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.mifid_ii_trade_report(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.mifid_ii_trade_report_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2509,17 +2512,17 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics = function(buffer, offset, packet, parent)
   if show.statistics then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.statistics, buffer(offset, 0))
-    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.statistics, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.statistics(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.statistics_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2685,17 +2688,17 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status = function(buffer, offset, packet, parent)
   if show.instrument_status then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
-    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_status(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3112,17 +3115,17 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory = function(buffer, offset, packet, parent)
   if show.instrument_directory then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
-    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.instrument_directory(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3194,17 +3197,17 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event = function(buffer, offset, packet, parent)
   if show.system_event then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.system_event, buffer(offset, 0))
-    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.system_event, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.system_event(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3374,17 +3377,17 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
-    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3559,17 +3562,17 @@ end
 lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
-    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    local index = lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = lseg_tradeecho_mifid_gtp_v24_4_display.unit_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3585,7 +3588,7 @@ lseg_tradeecho_mifid_gtp_v24_4_dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = lseg_tradeecho_mifid_gtp_v24_4_dissect.message(buffer, index, packet, parent)
+    index, message = lseg_tradeecho_mifid_gtp_v24_4_dissect.message(buffer, index, packet, parent)
   end
 
   return index

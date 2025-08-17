@@ -513,6 +513,26 @@ eurex_cash_eti_t7_v10_1.fields.xetra_en_light_quoting_status_request = ProtoFiel
 eurex_cash_eti_t7_v10_1.fields.xetra_en_light_status_broadcast = ProtoField.new("Xetra En Light Status Broadcast", "eurex.cash.eti.t7.v10.1.xetraenlightstatusbroadcast", ftypes.STRING)
 eurex_cash_eti_t7_v10_1.fields.xetra_en_light_update_negotiation_request = ProtoField.new("Xetra En Light Update Negotiation Request", "eurex.cash.eti.t7.v10.1.xetraenlightupdatenegotiationrequest", ftypes.STRING)
 
+-- Eurex Cash Eti T7 10.1 generated fields
+eurex_cash_eti_t7_v10_1.fields.affected_ord_grp_comp_index = ProtoField.new("Affected Ord Grp Comp Index", "eurex.cash.eti.t7.v10.1.affectedordgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.affected_order_requests_grp_comp_index = ProtoField.new("Affected Order Requests Grp Comp Index", "eurex.cash.eti.t7.v10.1.affectedorderrequestsgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.enrichment_rules_grp_comp_index = ProtoField.new("Enrichment Rules Grp Comp Index", "eurex.cash.eti.t7.v10.1.enrichmentrulesgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.fills_grp_comp_index = ProtoField.new("Fills Grp Comp Index", "eurex.cash.eti.t7.v10.1.fillsgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.not_affected_orders_grp_comp_index = ProtoField.new("Not Affected Orders Grp Comp Index", "eurex.cash.eti.t7.v10.1.notaffectedordersgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.not_affected_securities_grp_comp_index = ProtoField.new("Not Affected Securities Grp Comp Index", "eurex.cash.eti.t7.v10.1.notaffectedsecuritiesgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.order_book_item_grp_comp_index = ProtoField.new("Order Book Item Grp Comp Index", "eurex.cash.eti.t7.v10.1.orderbookitemgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index = ProtoField.new("Order Event Grp Comp Index", "eurex.cash.eti.t7.v10.1.ordereventgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.party_details_grp_comp_index = ProtoField.new("Party Details Grp Comp Index", "eurex.cash.eti.t7.v10.1.partydetailsgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.quote_entry_ack_grp_comp_index = ProtoField.new("Quote Entry Ack Grp Comp Index", "eurex.cash.eti.t7.v10.1.quoteentryackgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.quote_entry_grp_comp_index = ProtoField.new("Quote Entry Grp Comp Index", "eurex.cash.eti.t7.v10.1.quoteentrygrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.quote_event_grp_comp_index = ProtoField.new("Quote Event Grp Comp Index", "eurex.cash.eti.t7.v10.1.quoteeventgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.security_status_event_grp_comp_index = ProtoField.new("Security Status Event Grp Comp Index", "eurex.cash.eti.t7.v10.1.securitystatuseventgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.sessions_grp_comp_index = ProtoField.new("Sessions Grp Comp Index", "eurex.cash.eti.t7.v10.1.sessionsgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_bc_comp_index = ProtoField.new("Side Alloc Grp Bc Comp Index", "eurex.cash.eti.t7.v10.1.sideallocgrpbccompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_comp_index = ProtoField.new("Side Alloc Grp Comp Index", "eurex.cash.eti.t7.v10.1.sideallocgrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.srqs_quote_entry_grp_comp_index = ProtoField.new("Srqs Quote Entry Grp Comp Index", "eurex.cash.eti.t7.v10.1.srqsquoteentrygrpcompindex", ftypes.UINT16)
+eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp_index = ProtoField.new("Xetra En Light Target Parties Comp Index", "eurex.cash.eti.t7.v10.1.xetraenlighttargetpartiescompindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -1582,17 +1602,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp = function(buffer, offset, packet, parent)
   if show.xetra_en_light_target_parties_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.xetra_en_light_target_parties_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2667,17 +2687,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.request_header_comp = function(buffer, offset, packet, parent)
   if show.request_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.request_header_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.request_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.request_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.request_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.request_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2856,9 +2876,14 @@ eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_update_negotiation_request_fields
   -- Pad 7: 7 Byte
   index, pad_7 = eurex_cash_eti_t7_v10_1_dissect.pad_7(buffer, index, packet, parent)
 
-  -- Xetra En Light Target Parties Comp: Struct of 4 fields
-  for i = 1, no_target_party_i_ds do
-    index = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+  -- Repeating: Xetra En Light Target Parties Comp
+  for xetra_en_light_target_parties_comp_index = 1, no_target_party_i_ds do
+    index, xetra_en_light_target_parties_comp = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+
+    if xetra_en_light_target_parties_comp ~= nil then
+      local iteration = xetra_en_light_target_parties_comp:add(eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3248,17 +3273,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.rbc_header_comp = function(buffer, offset, packet, parent)
   if show.rbc_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.rbc_header_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.rbc_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.rbc_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.rbc_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.rbc_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3562,17 +3587,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.response_header_comp = function(buffer, offset, packet, parent)
   if show.response_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.response_header_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.response_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.response_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.response_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.response_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3893,17 +3918,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.srqs_quote_entry_grp_comp = function(buffer, offset, packet, parent)
   if show.srqs_quote_entry_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.srqs_quote_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.srqs_quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.srqs_quote_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.srqs_quote_entry_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.srqs_quote_entry_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.srqs_quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.srqs_quote_entry_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4000,9 +4025,14 @@ eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_quote_requester_notification_fiel
   -- Pad 3: 3 Byte
   index, pad_3 = eurex_cash_eti_t7_v10_1_dissect.pad_3(buffer, index, packet, parent)
 
-  -- Srqs Quote Entry Grp Comp: Struct of 13 fields
-  for i = 1, no_quote_entries do
-    index = eurex_cash_eti_t7_v10_1_dissect.srqs_quote_entry_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Srqs Quote Entry Grp Comp
+  for srqs_quote_entry_grp_comp_index = 1, no_quote_entries do
+    index, srqs_quote_entry_grp_comp = eurex_cash_eti_t7_v10_1_dissect.srqs_quote_entry_grp_comp(buffer, index, packet, parent)
+
+    if srqs_quote_entry_grp_comp ~= nil then
+      local iteration = srqs_quote_entry_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.srqs_quote_entry_grp_comp_index, srqs_quote_entry_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4650,9 +4680,14 @@ eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_open_negotiation_requester_notifi
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Xetra En Light Target Parties Comp: Struct of 4 fields
-  for i = 1, no_target_party_i_ds do
-    index = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+  -- Repeating: Xetra En Light Target Parties Comp
+  for xetra_en_light_target_parties_comp_index = 1, no_target_party_i_ds do
+    index, xetra_en_light_target_parties_comp = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+
+    if xetra_en_light_target_parties_comp ~= nil then
+      local iteration = xetra_en_light_target_parties_comp:add(eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4848,9 +4883,14 @@ eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_open_negotiation_request_fields =
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Xetra En Light Target Parties Comp: Struct of 4 fields
-  for i = 1, no_target_party_i_ds do
-    index = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+  -- Repeating: Xetra En Light Target Parties Comp
+  for xetra_en_light_target_parties_comp_index = 1, no_target_party_i_ds do
+    index, xetra_en_light_target_parties_comp = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+
+    if xetra_en_light_target_parties_comp ~= nil then
+      local iteration = xetra_en_light_target_parties_comp:add(eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -5312,9 +5352,14 @@ eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_negotiation_requester_notificatio
   -- Pad 2: 2 Byte
   index, pad_2 = eurex_cash_eti_t7_v10_1_dissect.pad_2(buffer, index, packet, parent)
 
-  -- Xetra En Light Target Parties Comp: Struct of 4 fields
-  for i = 1, no_target_party_i_ds do
-    index = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+  -- Repeating: Xetra En Light Target Parties Comp
+  for xetra_en_light_target_parties_comp_index = 1, no_target_party_i_ds do
+    index, xetra_en_light_target_parties_comp = eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_target_parties_comp(buffer, index, packet, parent)
+
+    if xetra_en_light_target_parties_comp ~= nil then
+      local iteration = xetra_en_light_target_parties_comp:add(eurex_cash_eti_t7_v10_1.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6108,17 +6153,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.order_book_item_grp_comp = function(buffer, offset, packet, parent)
   if show.order_book_item_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.order_book_item_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.order_book_item_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.order_book_item_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6456,9 +6501,14 @@ eurex_cash_eti_t7_v10_1_dissect.xetra_en_light_create_deal_notification_fields =
   -- Free Text 4: 16 Byte Ascii String Nullable
   index, free_text_4 = eurex_cash_eti_t7_v10_1_dissect.free_text_4(buffer, index, packet, parent)
 
-  -- Order Book Item Grp Comp: Struct of 7 fields
-  for i = 1, no_order_book_items do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_book_item_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Book Item Grp Comp
+  for order_book_item_grp_comp_index = 1, no_order_book_items do
+    index, order_book_item_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_book_item_grp_comp(buffer, index, packet, parent)
+
+    if order_book_item_grp_comp ~= nil then
+      local iteration = order_book_item_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_book_item_grp_comp_index, order_book_item_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -7501,17 +7551,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.rbc_header_me_comp = function(buffer, offset, packet, parent)
   if show.rbc_header_me_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.rbc_header_me_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.rbc_header_me_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.rbc_header_me_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.rbc_header_me_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.rbc_header_me_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9726,17 +9776,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.notif_header_comp = function(buffer, offset, packet, parent)
   if show.notif_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.notif_header_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.notif_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.notif_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.notif_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.notif_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10790,17 +10840,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_bc_comp = function(buffer, offset, packet, parent)
   if show.side_alloc_grp_bc_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_bc_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_bc_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.side_alloc_grp_bc_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11020,13 +11070,18 @@ eurex_cash_eti_t7_v10_1_dissect.tes_broadcast_fields = function(buffer, offset, 
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v10_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Side Alloc Grp Bc Comp: Struct of 8 fields
-  for i = 1, no_side_allocs do
-    index = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
+  -- Repeating: Side Alloc Grp Bc Comp
+  for side_alloc_grp_bc_comp_index = 1, no_side_allocs do
+    index, side_alloc_grp_bc_comp = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
+
+    if side_alloc_grp_bc_comp ~= nil then
+      local iteration = side_alloc_grp_bc_comp:add(eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -11041,7 +11096,7 @@ eurex_cash_eti_t7_v10_1_dissect.tes_broadcast_fields = function(buffer, offset, 
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -11221,8 +11276,8 @@ eurex_cash_eti_t7_v10_1_dissect.tes_approve_broadcast_fields = function(buffer, 
   -- Pad 7: 7 Byte
   index, pad_7 = eurex_cash_eti_t7_v10_1_dissect.pad_7(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -11237,7 +11292,7 @@ eurex_cash_eti_t7_v10_1_dissect.tes_approve_broadcast_fields = function(buffer, 
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -11597,17 +11652,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.nr_response_header_me_comp = function(buffer, offset, packet, parent)
   if show.nr_response_header_me_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.nr_response_header_me_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.nr_response_header_me_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.nr_response_header_me_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12311,17 +12366,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp = function(buffer, offset, packet, parent)
   if show.fills_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.fills_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.fills_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.fills_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12931,9 +12986,14 @@ eurex_cash_eti_t7_v10_1_dissect.specialist_order_book_notification_fields = func
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
   index, fix_cl_ord_id = eurex_cash_eti_t7_v10_1_dissect.fix_cl_ord_id(buffer, index, packet, parent)
 
-  -- Fills Grp Comp: Struct of 6 fields
-  for i = 1, no_fills do
-    index = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Fills Grp Comp
+  for fills_grp_comp_index = 1, no_fills do
+    index, fills_grp_comp = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+
+    if fills_grp_comp ~= nil then
+      local iteration = fills_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.fills_grp_comp_index, fills_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -13099,17 +13159,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp = function(buffer, offset, packet, parent)
   if show.not_affected_orders_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.not_affected_orders_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.not_affected_orders_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.not_affected_orders_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -13196,17 +13256,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp = function(buffer, offset, packet, parent)
   if show.affected_ord_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.affected_ord_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.affected_ord_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.affected_ord_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -13415,14 +13475,24 @@ eurex_cash_eti_t7_v10_1_dissect.specialist_delete_all_order_broadcast_fields = f
   -- Pad 2: 2 Byte
   index, pad_2 = eurex_cash_eti_t7_v10_1_dissect.pad_2(buffer, index, packet, parent)
 
-  -- Affected Ord Grp Comp: Struct of 2 fields
-  for i = 1, no_affected_orders do
-    index = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Affected Ord Grp Comp
+  for affected_ord_grp_comp_index = 1, no_affected_orders do
+    index, affected_ord_grp_comp = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+
+    if affected_ord_grp_comp ~= nil then
+      local iteration = affected_ord_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Not Affected Orders Grp Comp: Struct of 2 fields
-  for i = 1, no_not_affected_orders do
-    index = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Not Affected Orders Grp Comp
+  for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
+    index, not_affected_orders_grp_comp = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+
+    if not_affected_orders_grp_comp ~= nil then
+      local iteration = not_affected_orders_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -13825,17 +13895,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.nrbc_header_comp = function(buffer, offset, packet, parent)
   if show.nrbc_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.nrbc_header_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.nrbc_header_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.nrbc_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.nrbc_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.nrbc_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -14842,8 +14912,8 @@ eurex_cash_eti_t7_v10_1_dissect.reject_fields = function(buffer, offset, packet,
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v10_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -14858,7 +14928,7 @@ eurex_cash_eti_t7_v10_1_dissect.reject_fields = function(buffer, offset, packet,
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -15601,17 +15671,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.quote_event_grp_comp = function(buffer, offset, packet, parent)
   if show.quote_event_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.quote_event_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.quote_event_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.quote_event_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.quote_event_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.quote_event_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -15677,9 +15747,14 @@ eurex_cash_eti_t7_v10_1_dissect.quote_execution_report_fields = function(buffer,
   -- Pad 3: 3 Byte
   index, pad_3 = eurex_cash_eti_t7_v10_1_dissect.pad_3(buffer, index, packet, parent)
 
-  -- Quote Event Grp Comp: Struct of 11 fields
-  for i = 1, no_quote_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.quote_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Quote Event Grp Comp
+  for quote_event_grp_comp_index = 1, no_quote_events do
+    index, quote_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.quote_event_grp_comp(buffer, index, packet, parent)
+
+    if quote_event_grp_comp ~= nil then
+      local iteration = quote_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.quote_event_grp_comp_index, quote_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -15755,17 +15830,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp = function(buffer, offset, packet, parent)
   if show.not_affected_securities_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.not_affected_securities_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.not_affected_securities_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.not_affected_securities_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -15828,9 +15903,14 @@ eurex_cash_eti_t7_v10_1_dissect.quote_activation_response_fields = function(buff
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp Comp: Struct of 1 fields
-  for i = 1, no_not_affected_securities do
-    index = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Not Affected Securities Grp Comp
+  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
+    index, not_affected_securities_grp_comp = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+
+    if not_affected_securities_grp_comp ~= nil then
+      local iteration = not_affected_securities_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -16029,9 +16109,14 @@ eurex_cash_eti_t7_v10_1_dissect.quote_activation_notification_fields = function(
   -- Pad 3: 3 Byte
   index, pad_3 = eurex_cash_eti_t7_v10_1_dissect.pad_3(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp Comp: Struct of 1 fields
-  for i = 1, no_not_affected_securities do
-    index = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Not Affected Securities Grp Comp
+  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
+    index, not_affected_securities_grp_comp = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+
+    if not_affected_securities_grp_comp ~= nil then
+      local iteration = not_affected_securities_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -16783,17 +16868,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp = function(buffer, offset, packet, parent)
   if show.order_event_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.order_event_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -16991,17 +17076,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.response_header_me_comp = function(buffer, offset, packet, parent)
   if show.response_header_me_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.response_header_me_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.response_header_me_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.response_header_me_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.response_header_me_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.response_header_me_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -17102,14 +17187,24 @@ eurex_cash_eti_t7_v10_1_dissect.order_exec_response_fields = function(buffer, of
   -- Pad 5: 5 Byte
   index, pad_5 = eurex_cash_eti_t7_v10_1_dissect.pad_5(buffer, index, packet, parent)
 
-  -- Fills Grp Comp: Struct of 6 fields
-  for i = 1, no_fills do
-    index = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Fills Grp Comp
+  for fills_grp_comp_index = 1, no_fills do
+    index, fills_grp_comp = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+
+    if fills_grp_comp ~= nil then
+      local iteration = fills_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.fills_grp_comp_index, fills_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Order Event Grp Comp: Struct of 5 fields
-  for i = 1, no_order_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Event Grp Comp
+  for order_event_grp_comp_index = 1, no_order_events do
+    index, order_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+
+    if order_event_grp_comp ~= nil then
+      local iteration = order_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -17532,14 +17627,24 @@ eurex_cash_eti_t7_v10_1_dissect.order_exec_report_broadcast_fields = function(bu
   -- Pad 3: 3 Byte
   index, pad_3 = eurex_cash_eti_t7_v10_1_dissect.pad_3(buffer, index, packet, parent)
 
-  -- Fills Grp Comp: Struct of 6 fields
-  for i = 1, no_fills do
-    index = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Fills Grp Comp
+  for fills_grp_comp_index = 1, no_fills do
+    index, fills_grp_comp = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+
+    if fills_grp_comp ~= nil then
+      local iteration = fills_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.fills_grp_comp_index, fills_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Order Event Grp Comp: Struct of 5 fields
-  for i = 1, no_order_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Event Grp Comp
+  for order_event_grp_comp_index = 1, no_order_events do
+    index, order_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+
+    if order_event_grp_comp ~= nil then
+      local iteration = order_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -17656,14 +17761,24 @@ eurex_cash_eti_t7_v10_1_dissect.order_exec_notification_fields = function(buffer
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v10_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Fills Grp Comp: Struct of 6 fields
-  for i = 1, no_fills do
-    index = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Fills Grp Comp
+  for fills_grp_comp_index = 1, no_fills do
+    index, fills_grp_comp = eurex_cash_eti_t7_v10_1_dissect.fills_grp_comp(buffer, index, packet, parent)
+
+    if fills_grp_comp ~= nil then
+      local iteration = fills_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.fills_grp_comp_index, fills_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Order Event Grp Comp: Struct of 5 fields
-  for i = 1, no_order_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Event Grp Comp
+  for order_event_grp_comp_index = 1, no_order_events do
+    index, order_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+
+    if order_event_grp_comp ~= nil then
+      local iteration = order_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -17776,8 +17891,8 @@ eurex_cash_eti_t7_v10_1_dissect.news_broadcast_fields = function(buffer, offset,
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -17792,7 +17907,7 @@ eurex_cash_eti_t7_v10_1_dissect.news_broadcast_fields = function(buffer, offset,
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -18201,9 +18316,14 @@ eurex_cash_eti_t7_v10_1_dissect.new_order_response_fields = function(buffer, off
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Order Event Grp Comp: Struct of 5 fields
-  for i = 1, no_order_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Event Grp Comp
+  for order_event_grp_comp_index = 1, no_order_events do
+    index, order_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+
+    if order_event_grp_comp ~= nil then
+      local iteration = order_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -18296,9 +18416,14 @@ eurex_cash_eti_t7_v10_1_dissect.new_order_nr_response_fields = function(buffer, 
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Order Event Grp Comp: Struct of 5 fields
-  for i = 1, no_order_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Event Grp Comp
+  for order_event_grp_comp_index = 1, no_order_events do
+    index, order_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+
+    if order_event_grp_comp ~= nil then
+      local iteration = order_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -18379,17 +18504,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp = function(buffer, offset, packet, parent)
   if show.side_alloc_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.side_alloc_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -18457,9 +18582,14 @@ eurex_cash_eti_t7_v10_1_dissect.modify_tes_trade_request_fields = function(buffe
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Side Alloc Grp Comp: Struct of 7 fields
-  for i = 1, no_side_allocs do
-    index = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Side Alloc Grp Comp
+  for side_alloc_grp_comp_index = 1, no_side_allocs do
+    index, side_alloc_grp_comp = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
+
+    if side_alloc_grp_comp ~= nil then
+      local iteration = side_alloc_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -18921,9 +19051,14 @@ eurex_cash_eti_t7_v10_1_dissect.modify_order_response_fields = function(buffer, 
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Order Event Grp Comp: Struct of 5 fields
-  for i = 1, no_order_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Event Grp Comp
+  for order_event_grp_comp_index = 1, no_order_events do
+    index, order_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+
+    if order_event_grp_comp ~= nil then
+      local iteration = order_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -19028,9 +19163,14 @@ eurex_cash_eti_t7_v10_1_dissect.modify_order_nr_response_fields = function(buffe
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Order Event Grp Comp: Struct of 5 fields
-  for i = 1, no_order_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Order Event Grp Comp
+  for order_event_grp_comp_index = 1, no_order_events do
+    index, order_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.order_event_grp_comp(buffer, index, packet, parent)
+
+    if order_event_grp_comp ~= nil then
+      local iteration = order_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -19334,17 +19474,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.quote_entry_ack_grp_comp = function(buffer, offset, packet, parent)
   if show.quote_entry_ack_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.quote_entry_ack_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -19441,9 +19581,14 @@ eurex_cash_eti_t7_v10_1_dissect.mass_quote_response_fields = function(buffer, of
   -- Pad 3: 3 Byte
   index, pad_3 = eurex_cash_eti_t7_v10_1_dissect.pad_3(buffer, index, packet, parent)
 
-  -- Quote Entry Ack Grp Comp: Struct of 6 fields
-  for i = 1, no_quote_side_entries do
-    index = eurex_cash_eti_t7_v10_1_dissect.quote_entry_ack_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Quote Entry Ack Grp Comp
+  for quote_entry_ack_grp_comp_index = 1, no_quote_side_entries do
+    index, quote_entry_ack_grp_comp = eurex_cash_eti_t7_v10_1_dissect.quote_entry_ack_grp_comp(buffer, index, packet, parent)
+
+    if quote_entry_ack_grp_comp ~= nil then
+      local iteration = quote_entry_ack_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -19514,17 +19659,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.quote_entry_grp_comp = function(buffer, offset, packet, parent)
   if show.quote_entry_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.quote_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.quote_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.quote_entry_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -19607,9 +19752,14 @@ eurex_cash_eti_t7_v10_1_dissect.mass_quote_request_fields = function(buffer, off
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Quote Entry Grp Comp: Struct of 5 fields
-  for i = 1, no_quote_entries do
-    index = eurex_cash_eti_t7_v10_1_dissect.quote_entry_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Quote Entry Grp Comp
+  for quote_entry_grp_comp_index = 1, no_quote_entries do
+    index, quote_entry_grp_comp = eurex_cash_eti_t7_v10_1_dissect.quote_entry_grp_comp(buffer, index, packet, parent)
+
+    if quote_entry_grp_comp ~= nil then
+      local iteration = quote_entry_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -20457,8 +20607,8 @@ eurex_cash_eti_t7_v10_1_dissect.legal_notification_broadcast_fields = function(b
   -- Pad 5: 5 Byte
   index, pad_5 = eurex_cash_eti_t7_v10_1_dissect.pad_5(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -20473,7 +20623,7 @@ eurex_cash_eti_t7_v10_1_dissect.legal_notification_broadcast_fields = function(b
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -20648,17 +20798,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.security_status_event_grp_comp = function(buffer, offset, packet, parent)
   if show.security_status_event_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.security_status_event_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.security_status_event_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.security_status_event_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.security_status_event_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.security_status_event_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.security_status_event_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.security_status_event_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -20799,9 +20949,14 @@ eurex_cash_eti_t7_v10_1_dissect.issuer_security_state_change_request_fields = fu
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v10_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Security Status Event Grp Comp: Struct of 4 fields
-  for i = 1, no_events do
-    index = eurex_cash_eti_t7_v10_1_dissect.security_status_event_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Security Status Event Grp Comp
+  for security_status_event_grp_comp_index = 1, no_events do
+    index, security_status_event_grp_comp = eurex_cash_eti_t7_v10_1_dissect.security_status_event_grp_comp(buffer, index, packet, parent)
+
+    if security_status_event_grp_comp ~= nil then
+      local iteration = security_status_event_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.security_status_event_grp_comp_index, security_status_event_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -21162,17 +21317,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.party_details_grp_comp = function(buffer, offset, packet, parent)
   if show.party_details_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.party_details_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.party_details_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.party_details_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.party_details_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.party_details_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.party_details_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.party_details_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -21255,9 +21410,14 @@ eurex_cash_eti_t7_v10_1_dissect.inquire_user_response_fields = function(buffer, 
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Party Details Grp Comp: Struct of 6 fields
-  for i = 1, no_party_details do
-    index = eurex_cash_eti_t7_v10_1_dissect.party_details_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Party Details Grp Comp
+  for party_details_grp_comp_index = 1, no_party_details do
+    index, party_details_grp_comp = eurex_cash_eti_t7_v10_1_dissect.party_details_grp_comp(buffer, index, packet, parent)
+
+    if party_details_grp_comp ~= nil then
+      local iteration = party_details_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.party_details_grp_comp_index, party_details_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -21440,17 +21600,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.sessions_grp_comp = function(buffer, offset, packet, parent)
   if show.sessions_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.sessions_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.sessions_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.sessions_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.sessions_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.sessions_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -21510,9 +21670,14 @@ eurex_cash_eti_t7_v10_1_dissect.inquire_session_list_response_fields = function(
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Sessions Grp Comp: Struct of 4 fields
-  for i = 1, no_sessions do
-    index = eurex_cash_eti_t7_v10_1_dissect.sessions_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Sessions Grp Comp
+  for sessions_grp_comp_index = 1, no_sessions do
+    index, sessions_grp_comp = eurex_cash_eti_t7_v10_1_dissect.sessions_grp_comp(buffer, index, packet, parent)
+
+    if sessions_grp_comp ~= nil then
+      local iteration = sessions_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.sessions_grp_comp_index, sessions_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -21631,17 +21796,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.enrichment_rules_grp_comp = function(buffer, offset, packet, parent)
   if show.enrichment_rules_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.enrichment_rules_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.enrichment_rules_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.enrichment_rules_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -21704,9 +21869,14 @@ eurex_cash_eti_t7_v10_1_dissect.inquire_enrichment_rule_id_list_response_fields 
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Enrichment Rules Grp Comp: Struct of 5 fields
-  for i = 1, no_enrichment_rules do
-    index = eurex_cash_eti_t7_v10_1_dissect.enrichment_rules_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Enrichment Rules Grp Comp
+  for enrichment_rules_grp_comp_index = 1, no_enrichment_rules do
+    index, enrichment_rules_grp_comp = eurex_cash_eti_t7_v10_1_dissect.enrichment_rules_grp_comp(buffer, index, packet, parent)
+
+    if enrichment_rules_grp_comp ~= nil then
+      local iteration = enrichment_rules_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -21907,8 +22077,8 @@ eurex_cash_eti_t7_v10_1_dissect.forced_user_logout_notification_fields = functio
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v10_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21923,7 +22093,7 @@ eurex_cash_eti_t7_v10_1_dissect.forced_user_logout_notification_fields = functio
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -21977,8 +22147,8 @@ eurex_cash_eti_t7_v10_1_dissect.forced_logout_notification_fields = function(buf
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -21993,7 +22163,7 @@ eurex_cash_eti_t7_v10_1_dissect.forced_logout_notification_fields = function(buf
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -22266,9 +22436,14 @@ eurex_cash_eti_t7_v10_1_dissect.enter_tes_trade_request_fields = function(buffer
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Side Alloc Grp Comp: Struct of 7 fields
-  for i = 1, no_side_allocs do
-    index = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Side Alloc Grp Comp
+  for side_alloc_grp_comp_index = 1, no_side_allocs do
+    index, side_alloc_grp_comp = eurex_cash_eti_t7_v10_1_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
+
+    if side_alloc_grp_comp ~= nil then
+      local iteration = side_alloc_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -22766,9 +22941,14 @@ eurex_cash_eti_t7_v10_1_dissect.delete_all_quote_response_fields = function(buff
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp Comp: Struct of 1 fields
-  for i = 1, no_not_affected_securities do
-    index = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Not Affected Securities Grp Comp
+  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
+    index, not_affected_securities_grp_comp = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+
+    if not_affected_securities_grp_comp ~= nil then
+      local iteration = not_affected_securities_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -22943,9 +23123,14 @@ eurex_cash_eti_t7_v10_1_dissect.delete_all_quote_broadcast_fields = function(buf
   -- Pad 1: 1 Byte
   index, pad_1 = eurex_cash_eti_t7_v10_1_dissect.pad_1(buffer, index, packet, parent)
 
-  -- Not Affected Securities Grp Comp: Struct of 1 fields
-  for i = 1, no_not_affected_securities do
-    index = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Not Affected Securities Grp Comp
+  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
+    index, not_affected_securities_grp_comp = eurex_cash_eti_t7_v10_1_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+
+    if not_affected_securities_grp_comp ~= nil then
+      local iteration = not_affected_securities_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -23026,17 +23211,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp = function(buffer, offset, packet, parent)
   if show.affected_order_requests_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.affected_order_requests_grp_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.affected_order_requests_grp_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.affected_order_requests_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -23105,19 +23290,34 @@ eurex_cash_eti_t7_v10_1_dissect.delete_all_order_response_fields = function(buff
   -- Pad 2: 2 Byte
   index, pad_2 = eurex_cash_eti_t7_v10_1_dissect.pad_2(buffer, index, packet, parent)
 
-  -- Not Affected Orders Grp Comp: Struct of 2 fields
-  for i = 1, no_not_affected_orders do
-    index = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Not Affected Orders Grp Comp
+  for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
+    index, not_affected_orders_grp_comp = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+
+    if not_affected_orders_grp_comp ~= nil then
+      local iteration = not_affected_orders_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Affected Ord Grp Comp: Struct of 2 fields
-  for i = 1, no_affected_orders do
-    index = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Affected Ord Grp Comp
+  for affected_ord_grp_comp_index = 1, no_affected_orders do
+    index, affected_ord_grp_comp = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+
+    if affected_ord_grp_comp ~= nil then
+      local iteration = affected_ord_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Affected Order Requests Grp Comp: Struct of 2 fields
-  for i = 1, no_affected_order_requests do
-    index = eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Affected Order Requests Grp Comp
+  for affected_order_requests_grp_comp_index = 1, no_affected_order_requests do
+    index, affected_order_requests_grp_comp = eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
+
+    if affected_order_requests_grp_comp ~= nil then
+      local iteration = affected_order_requests_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.affected_order_requests_grp_comp_index, affected_order_requests_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -23402,19 +23602,34 @@ eurex_cash_eti_t7_v10_1_dissect.delete_all_order_broadcast_fields = function(buf
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_cash_eti_t7_v10_1_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Not Affected Orders Grp Comp: Struct of 2 fields
-  for i = 1, no_not_affected_orders do
-    index = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Not Affected Orders Grp Comp
+  for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
+    index, not_affected_orders_grp_comp = eurex_cash_eti_t7_v10_1_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+
+    if not_affected_orders_grp_comp ~= nil then
+      local iteration = not_affected_orders_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Affected Ord Grp Comp: Struct of 2 fields
-  for i = 1, no_affected_orders do
-    index = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Affected Ord Grp Comp
+  for affected_ord_grp_comp_index = 1, no_affected_orders do
+    index, affected_ord_grp_comp = eurex_cash_eti_t7_v10_1_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+
+    if affected_ord_grp_comp ~= nil then
+      local iteration = affected_ord_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Affected Order Requests Grp Comp: Struct of 2 fields
-  for i = 1, no_affected_order_requests do
-    index = eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Affected Order Requests Grp Comp
+  for affected_order_requests_grp_comp_index = 1, no_affected_order_requests do
+    index, affected_order_requests_grp_comp = eurex_cash_eti_t7_v10_1_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
+
+    if affected_order_requests_grp_comp ~= nil then
+      local iteration = affected_order_requests_grp_comp:add(eurex_cash_eti_t7_v10_1.fields.affected_order_requests_grp_comp_index, affected_order_requests_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -23615,8 +23830,8 @@ eurex_cash_eti_t7_v10_1_dissect.broadcast_error_notification_fields = function(b
   -- Pad 4: 4 Byte
   index, pad_4 = eurex_cash_eti_t7_v10_1_dissect.pad_4(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_cash_eti_t7_v10_1_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -23631,7 +23846,7 @@ eurex_cash_eti_t7_v10_1_dissect.broadcast_error_notification_fields = function(b
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_cash_eti_t7_v10_1_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -25194,17 +25409,17 @@ end
 eurex_cash_eti_t7_v10_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.message_header, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v10_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.message_header, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v10_1_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_cash_eti_t7_v10_1_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v10_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    return eurex_cash_eti_t7_v10_1_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -25231,16 +25446,23 @@ end
 
 -- Dissect: Message
 eurex_cash_eti_t7_v10_1_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = eurex_cash_eti_t7_v10_1_display.message(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v10_1.fields.message, range, display)
+    local element = parent:add(eurex_cash_eti_t7_v10_1.fields.message, buffer(offset, 0))
+    local current = eurex_cash_eti_t7_v10_1_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = eurex_cash_eti_t7_v10_1_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    eurex_cash_eti_t7_v10_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  eurex_cash_eti_t7_v10_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Remaining Bytes For: Message

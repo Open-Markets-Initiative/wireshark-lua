@@ -243,6 +243,18 @@ cboe_c1_options_orderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_messag
 cboe_c1_options_orderentry_boe3_v1_0_12.fields.reset_risk_message = ProtoField.new("Reset Risk Message", "cboe.c1.options.orderentry.boe3.v1.0.12.resetriskmessage", ftypes.STRING)
 cboe_c1_options_orderentry_boe3_v1_0_12.fields.trade_cancel_correct_message = ProtoField.new("Trade Cancel Correct Message", "cboe.c1.options.orderentry.boe3.v1.0.12.tradecancelcorrectmessage", ftypes.STRING)
 
+-- Cboe C1 Options OrderEntry Boe3 1.0.12 generated fields
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.acknowledgement_allocation_index = ProtoField.new("Acknowledgement Allocation Index", "cboe.c1.options.orderentry.boe3.v1.0.12.acknowledgementallocationindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation_index = ProtoField.new("Allocation Index", "cboe.c1.options.orderentry.boe3.v1.0.12.allocationindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation_cancelled_index = ProtoField.new("Allocation Cancelled Index", "cboe.c1.options.orderentry.boe3.v1.0.12.allocationcancelledindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.c1.options.orderentry.boe3.v1.0.12.complexlegindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.custom_group_id_index = ProtoField.new("Custom Group Id Index", "cboe.c1.options.orderentry.boe3.v1.0.12.customgroupidindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.leg_position_effect_index = ProtoField.new("Leg Position Effect Index", "cboe.c1.options.orderentry.boe3.v1.0.12.legpositioneffectindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_index = ProtoField.new("Quote Index", "cboe.c1.options.orderentry.boe3.v1.0.12.quoteindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement_index = ProtoField.new("Quote Acknowledgement Index", "cboe.c1.options.orderentry.boe3.v1.0.12.quoteacknowledgementindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_short_index = ProtoField.new("Quote Short Index", "cboe.c1.options.orderentry.boe3.v1.0.12.quoteshortindex", ftypes.UINT16)
+cboe_c1_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index = ProtoField.new("Unit Sequence Index", "cboe.c1.options.orderentry.boe3.v1.0.12.unitsequenceindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -783,17 +795,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message = function(buffer, offset, packet, parent)
   if show.done_for_day_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.done_for_day_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.done_for_day_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.done_for_day_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.done_for_day_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1730,17 +1742,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.prevent_match = function(buffer, offset, packet, parent)
   if show.prevent_match then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.prevent_match, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.prevent_match_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.prevent_match, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.prevent_match_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.prevent_match(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.prevent_match_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.prevent_match_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2372,17 +2384,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message = function(buffer, offset, packet, parent)
   if show.carried_restatement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.carried_restatement_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.carried_restatement_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.carried_restatement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.carried_restatement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2499,17 +2511,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message = function(buffer, offset, packet, parent)
   if show.new_complex_instrument_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.new_complex_instrument_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.new_complex_instrument_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2613,17 +2625,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg = function(buffer, offset, packet, parent)
   if show.complex_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.complex_leg, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.complex_leg, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.complex_leg(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2697,9 +2709,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_accepted_
   -- Leg Cnt: Binary
   index, leg_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
-  -- Complex Leg: Struct of 6 fields
-  for i = 1, leg_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg(buffer, index, packet, parent)
+  -- Repeating: Complex Leg
+  for complex_leg_index = 1, leg_cnt do
+    index, complex_leg = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg(buffer, index, packet, parent)
+
+    if complex_leg ~= nil then
+      local iteration = complex_leg:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.complex_leg_index, complex_leg_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2888,17 +2905,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message = function(buffer, offset, packet, parent)
   if show.purge_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.purge_notification_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.purge_notification_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.purge_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2975,17 +2992,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.purge_acknowledgement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.purge_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.purge_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.purge_acknowledgement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3057,17 +3074,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.mass_cancel_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3119,17 +3136,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_acknowledgment_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_acknowledgment_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_acknowledgment_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.mass_cancel_acknowledgment_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_acknowledgment_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3253,17 +3270,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.reset_risk_acknowledgement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.reset_risk_acknowledgement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3335,17 +3352,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message = function(buffer, offset, packet, parent)
   if show.purge_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.purge_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.purge_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.purge_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3729,17 +3746,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_correct_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.trade_cancel_correct_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.trade_cancel_correct_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.trade_cancel_correct_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.trade_cancel_correct_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3996,17 +4013,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message = function(buffer, offset, packet, parent)
   if show.quote_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_execution_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_execution_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.quote_execution_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_execution_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4420,17 +4437,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_execution_message = function(buffer, offset, packet, parent)
   if show.order_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_execution_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_execution_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_execution_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.order_execution_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_execution_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4512,17 +4529,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
   if show.cancel_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.cancel_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.cancel_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.cancel_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4579,17 +4596,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_cancelled = function(buffer, offset, packet, parent)
   if show.allocation_cancelled then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation_cancelled, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_cancelled_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation_cancelled, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_cancelled_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.allocation_cancelled(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_cancelled_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_cancelled_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4703,9 +4720,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cross_order_cancelled_message_fi
   -- Alloc Cnt: Binary
   index, alloc_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.alloc_cnt(buffer, index, packet, parent)
 
-  -- Allocation Cancelled: Struct of 2 fields
-  for i = 1, alloc_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_cancelled(buffer, index, packet, parent)
+  -- Repeating: Allocation Cancelled
+  for allocation_cancelled_index = 1, alloc_cnt do
+    index, allocation_cancelled = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_cancelled(buffer, index, packet, parent)
+
+    if allocation_cancelled ~= nil then
+      local iteration = allocation_cancelled:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation_cancelled_index, allocation_cancelled_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4807,17 +4829,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message = function(buffer, offset, packet, parent)
   if show.quote_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_cancelled_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_cancelled_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.quote_cancelled_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cancelled_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4889,17 +4911,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   if show.order_cancelled_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_cancelled_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_cancelled_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.order_cancelled_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_cancelled_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5006,17 +5028,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message = function(buffer, offset, packet, parent)
   if show.modify_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.modify_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.modify_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.modify_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5115,17 +5137,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message = function(buffer, offset, packet, parent)
   if show.quote_restated_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_restated_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_restated_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.quote_restated_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_restated_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5305,17 +5327,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_restated_message = function(buffer, offset, packet, parent)
   if show.order_restated_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_restated_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_restated_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_restated_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_restated_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.order_restated_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_restated_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_restated_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5437,17 +5459,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_modified_message = function(buffer, offset, packet, parent)
   if show.order_modified_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_modified_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_modified_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_modified_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.order_modified_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_modified_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_modified_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5514,17 +5536,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message = function(buffer, offset, packet, parent)
   if show.quote_update_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_update_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_update_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.quote_update_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5581,17 +5603,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cross_order_rejected_message = function(buffer, offset, packet, parent)
   if show.cross_order_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.cross_order_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cross_order_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.cross_order_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cross_order_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.cross_order_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cross_order_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cross_order_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5653,17 +5675,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message = function(buffer, offset, packet, parent)
   if show.order_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_rejected_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_rejected_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.order_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5814,17 +5836,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement = function(buffer, offset, packet, parent)
   if show.quote_acknowledgement then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.quote_acknowledgement(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5893,9 +5915,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_acknowledgement_mes
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cnt(buffer, index, packet, parent)
 
-  -- Quote Acknowledgement: Struct of 4 fields
-  for i = 1, quote_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement(buffer, index, packet, parent)
+  -- Repeating: Quote Acknowledgement
+  for quote_acknowledgement_index = 1, quote_cnt do
+    index, quote_acknowledgement = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement(buffer, index, packet, parent)
+
+    if quote_acknowledgement ~= nil then
+      local iteration = quote_acknowledgement:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement_index, quote_acknowledgement_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -5972,17 +5999,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_allocation = function(buffer, offset, packet, parent)
   if show.acknowledgement_allocation then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.acknowledgement_allocation, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_allocation_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.acknowledgement_allocation, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_allocation_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.acknowledgement_allocation(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_allocation_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_allocation_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6056,9 +6083,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cross_order_acknowledgment_messa
   -- Alloc Cnt: Binary
   index, alloc_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.alloc_cnt(buffer, index, packet, parent)
 
-  -- Acknowledgement Allocation: Struct of 3 fields
-  for i = 1, alloc_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_allocation(buffer, index, packet, parent)
+  -- Repeating: Acknowledgement Allocation
+  for acknowledgement_allocation_index = 1, alloc_cnt do
+    index, acknowledgement_allocation = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.acknowledgement_allocation(buffer, index, packet, parent)
+
+    if acknowledgement_allocation ~= nil then
+      local iteration = acknowledgement_allocation:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.acknowledgement_allocation_index, acknowledgement_allocation_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6345,17 +6377,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.order_acknowledgement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.order_acknowledgement_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.order_acknowledgement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.order_acknowledgement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6497,17 +6529,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message = function(buffer, offset, packet, parent)
   if show.reset_risk_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.reset_risk_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.reset_risk_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.reset_risk_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.reset_risk_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6724,17 +6756,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst = function(buffer, offset, packet, parent)
   if show.mass_cancel_inst then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_inst, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_inst, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.mass_cancel_inst(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_inst_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6798,9 +6830,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.purge_orders_message_fields = fu
   -- Custom Group Id Cnt: Binary
   index, custom_group_id_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.custom_group_id_cnt(buffer, index, packet, parent)
 
-  -- Custom Group Id: Binary
-  for i = 1, custom_group_id_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
+  -- Repeating: Custom Group Id
+  for custom_group_id_index = 1, custom_group_id_cnt do
+    index, custom_group_id = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.custom_group_id(buffer, index, packet, parent)
+
+    if custom_group_id ~= nil then
+      local iteration = custom_group_id:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.custom_group_id_index, custom_group_id_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6918,17 +6955,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_short = function(buffer, offset, packet, parent)
   if show.quote_short then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_short, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_short, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.quote_short(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7098,9 +7135,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_short_message_field
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cnt(buffer, index, packet, parent)
 
-  -- Quote Short: Struct of 6 fields
-  for i = 1, quote_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_short(buffer, index, packet, parent)
+  -- Repeating: Quote Short
+  for quote_short_index = 1, quote_cnt do
+    index, quote_short = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_short(buffer, index, packet, parent)
+
+    if quote_short ~= nil then
+      local iteration = quote_short:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_short_index, quote_short_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -7172,17 +7214,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote = function(buffer, offset, packet, parent)
   if show.quote then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.quote(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7266,9 +7308,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_update_message_fields = fu
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote_cnt(buffer, index, packet, parent)
 
-  -- Quote: Struct of 6 fields
-  for i = 1, quote_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote(buffer, index, packet, parent)
+  -- Repeating: Quote
+  for quote_index = 1, quote_cnt do
+    index, quote = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.quote(buffer, index, packet, parent)
+
+    if quote ~= nil then
+      local iteration = quote:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.quote_index, quote_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -7397,17 +7444,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_order_message = function(buffer, offset, packet, parent)
   if show.modify_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.modify_order_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.modify_order_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.modify_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.modify_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7469,17 +7516,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_order_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.mass_cancel_order_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.mass_cancel_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.mass_cancel_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7526,17 +7573,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.cancel_order_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.cancel_order_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.cancel_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.cancel_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7648,17 +7695,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation = function(buffer, offset, packet, parent)
   if show.allocation then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.allocation(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8207,14 +8254,24 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_cross_multileg_message
   -- Alloc Leg Cnt: Binary
   index, alloc_leg_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.alloc_leg_cnt(buffer, index, packet, parent)
 
-  -- Allocation: Struct of 11 fields
-  for i = 1, alloc_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation(buffer, index, packet, parent)
+  -- Repeating: Allocation
+  for allocation_index = 1, alloc_cnt do
+    index, allocation = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation(buffer, index, packet, parent)
+
+    if allocation ~= nil then
+      local iteration = allocation:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation_index, allocation_index)
+      iteration:set_generated()
+    end
   end
 
-  -- Leg Position Effect: Text
-  for i = 1, alloc_leg_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
+  -- Repeating: Leg Position Effect
+  for leg_position_effect_index = 1, alloc_leg_cnt do
+    index, leg_position_effect = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
+
+    if leg_position_effect ~= nil then
+      local iteration = leg_position_effect:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.leg_position_effect_index, leg_position_effect_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8388,9 +8445,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_short_message_
   -- Leg Cnt: Binary
   index, leg_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
-  -- Leg Position Effect: Text
-  for i = 1, leg_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
+  -- Repeating: Leg Position Effect
+  for leg_position_effect_index = 1, leg_cnt do
+    index, leg_position_effect = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
+
+    if leg_position_effect ~= nil then
+      local iteration = leg_position_effect:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.leg_position_effect_index, leg_position_effect_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8718,9 +8780,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_order_message_fields
   -- Leg Cnt: Binary
   index, leg_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
-  -- Leg Position Effect: Text
-  for i = 1, leg_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
+  -- Repeating: Leg Position Effect
+  for leg_position_effect_index = 1, leg_cnt do
+    index, leg_position_effect = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_position_effect(buffer, index, packet, parent)
+
+    if leg_position_effect ~= nil then
+      local iteration = leg_position_effect:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.leg_position_effect_index, leg_position_effect_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8779,9 +8846,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_complex_instrument_message_f
   -- Leg Cnt: Binary
   index, leg_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.leg_cnt(buffer, index, packet, parent)
 
-  -- Complex Leg: Struct of 6 fields
-  for i = 1, leg_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg(buffer, index, packet, parent)
+  -- Repeating: Complex Leg
+  for complex_leg_index = 1, leg_cnt do
+    index, complex_leg = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.complex_leg(buffer, index, packet, parent)
+
+    if complex_leg ~= nil then
+      local iteration = complex_leg:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.complex_leg_index, complex_leg_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8960,9 +9032,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_cross_message_fields =
   -- Alloc Cnt: Binary
   index, alloc_cnt = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.alloc_cnt(buffer, index, packet, parent)
 
-  -- Allocation: Struct of 11 fields
-  for i = 1, alloc_cnt do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation(buffer, index, packet, parent)
+  -- Repeating: Allocation
+  for allocation_index = 1, alloc_cnt do
+    index, allocation = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.allocation(buffer, index, packet, parent)
+
+    if allocation ~= nil then
+      local iteration = allocation:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.allocation_index, allocation_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9139,17 +9216,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message = function(buffer, offset, packet, parent)
   if show.new_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.new_order_short_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.new_order_short_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.new_order_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9401,17 +9478,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_message = function(buffer, offset, packet, parent)
   if show.new_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.new_order_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.new_order_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.new_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.new_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9498,17 +9575,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.logout_response_message = function(buffer, offset, packet, parent)
   if show.logout_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.logout_response_message, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.logout_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.logout_response_message, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.logout_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.logout_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.logout_response_message_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.logout_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9585,17 +9662,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence = function(buffer, offset, packet, parent)
   if show.unit_sequence then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.unit_sequence, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.unit_sequence(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9744,9 +9821,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.login_response_message_fields = 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
   index, number_of_units = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.number_of_units(buffer, index, packet, parent)
 
-  -- Unit Sequence: Struct of 2 fields
-  for i = 1, number_of_units do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence(buffer, index, packet, parent)
+  -- Repeating: Unit Sequence
+  for unit_sequence_index = 1, number_of_units do
+    index, unit_sequence = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence(buffer, index, packet, parent)
+
+    if unit_sequence ~= nil then
+      local iteration = unit_sequence:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9900,9 +9982,14 @@ cboe_c1_options_orderentry_boe3_v1_0_12_dissect.login_request_message_fields = f
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
   index, number_of_units = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.number_of_units(buffer, index, packet, parent)
 
-  -- Unit Sequence: Struct of 2 fields
-  for i = 1, number_of_units do
-    index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence(buffer, index, packet, parent)
+  -- Repeating: Unit Sequence
+  for unit_sequence_index = 1, number_of_units do
+    index, unit_sequence = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.unit_sequence(buffer, index, packet, parent)
+
+    if unit_sequence ~= nil then
+      local iteration = unit_sequence:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -10471,17 +10558,17 @@ end
 cboe_c1_options_orderentry_boe3_v1_0_12_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.message_header, buffer(offset, 0))
-    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_c1_options_orderentry_boe3_v1_0_12.fields.message_header, buffer(offset, 0))
+    local index = cboe_c1_options_orderentry_boe3_v1_0_12_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_c1_options_orderentry_boe3_v1_0_12_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cboe_c1_options_orderentry_boe3_v1_0_12_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 

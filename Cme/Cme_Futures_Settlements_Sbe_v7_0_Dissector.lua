@@ -90,6 +90,11 @@ cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoF
 cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
 
+-- Cme Futures Settlements Sbe 7.0 generated fields
+cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index = ProtoField.new("M D Incremental Refresh High Low Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlowgroupindex", ftypes.UINT16)
+cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index = ProtoField.new("M D Incremental Refresh Settle Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettlegroupindex", ftypes.UINT16)
+cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index = ProtoField.new("M D Incremental Refresh Voi Group Index", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroupindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -398,17 +403,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.high_px = function(buffer, offset, packet, parent)
   if show.high_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.high_px, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.high_px_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.high_px, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.high_px_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.high_px(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.high_px_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.high_px_fields(buffer, offset, packet, element)
   end
 end
 
@@ -488,17 +493,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.low_px = function(buffer, offset, packet, parent)
   if show.low_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.low_px, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.low_px_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.low_px, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.low_px_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.low_px(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.low_px_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.low_px_fields(buffer, offset, packet, element)
   end
 end
 
@@ -731,17 +736,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.underlying_maturity_month_year = function(buffer, offset, packet, parent)
   if show.underlying_maturity_month_year then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_maturity_month_year, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.underlying_maturity_month_year_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_maturity_month_year, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.underlying_maturity_month_year_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.underlying_maturity_month_year(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.underlying_maturity_month_year_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.underlying_maturity_month_year_fields(buffer, offset, packet, element)
   end
 end
 
@@ -911,17 +916,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.strike_price = function(buffer, offset, packet, parent)
   if show.strike_price then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.strike_price, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.strike_price_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.strike_price, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.strike_price_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.strike_price(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.strike_price_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.strike_price_fields(buffer, offset, packet, element)
   end
 end
 
@@ -998,17 +1003,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.maturity_month_year = function(buffer, offset, packet, parent)
   if show.maturity_month_year then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.maturity_month_year, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.maturity_month_year, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.maturity_month_year_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.maturity_month_year(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.maturity_month_year_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1268,17 +1273,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_high_low_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_high_low_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1355,17 +1360,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.group_size = function(buffer, offset, packet, parent)
   if show.group_size then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.group_size, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.group_size_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.group_size, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.group_size_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.group_size(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.group_size_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.group_size_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1397,9 +1402,14 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_groups
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh High Low Group: Struct of 20 fields
-  for i = 1, num_in_group_uint_8 do
-    index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh High Low Group
+  for m_d_incremental_refresh_high_low_group_index = 1, num_in_group_uint_8 do
+    index, m_d_incremental_refresh_high_low_group = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_high_low_group ~= nil then
+      local iteration = m_d_incremental_refresh_high_low_group:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index, m_d_incremental_refresh_high_low_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1675,17 +1685,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_voi_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_voi_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1717,9 +1727,14 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_groups_fiel
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Voi Group: Struct of 19 fields
-  for i = 1, num_in_group_uint_8 do
-    index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Voi Group
+  for m_d_incremental_refresh_voi_group_index = 1, num_in_group_uint_8 do
+    index, m_d_incremental_refresh_voi_group = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_voi_group ~= nil then
+      local iteration = m_d_incremental_refresh_voi_group:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index, m_d_incremental_refresh_voi_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1959,17 +1974,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px = function(buffer, offset, packet, parent)
   if show.formatted_last_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.formatted_last_px, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.formatted_last_px(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2169,17 +2184,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_settle_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_settle_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2211,9 +2226,14 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_groups_f
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Settle Group: Struct of 22 fields
-  for i = 1, num_in_group_uint_8 do
-    index = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Settle Group
+  for m_d_incremental_refresh_settle_group_index = 1, num_in_group_uint_8 do
+    index, m_d_incremental_refresh_settle_group = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_settle_group ~= nil then
+      local iteration = m_d_incremental_refresh_settle_group:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index, m_d_incremental_refresh_settle_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2458,17 +2478,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.message_header, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.message_header, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2618,17 +2638,17 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.binary_packet_header = function(buffer, offset, packet, parent)
   if show.binary_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.binary_packet_header, buffer(offset, 0))
-    local index = cme_futures_settlements_sbe_v7_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_settlements_sbe_v7_0.fields.binary_packet_header, buffer(offset, 0))
+    local index = cme_futures_settlements_sbe_v7_0_dissect.binary_packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_settlements_sbe_v7_0_display.binary_packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_settlements_sbe_v7_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    return cme_futures_settlements_sbe_v7_0_dissect.binary_packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2644,7 +2664,7 @@ cme_futures_settlements_sbe_v7_0_dissect.packet = function(buffer, packet, paren
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index = cme_futures_settlements_sbe_v7_0_dissect.message(buffer, index, packet, parent)
+    index, message = cme_futures_settlements_sbe_v7_0_dissect.message(buffer, index, packet, parent)
   end
 
   return index

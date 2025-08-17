@@ -450,6 +450,33 @@ euronext_optiq_orderentrygateway_sbe_v5_39.fields.wave_for_liquidity_message = P
 euronext_optiq_orderentrygateway_sbe_v5_39.fields.wave_for_liquidity_notification_message = ProtoField.new("Wave For Liquidity Notification Message", "euronext.optiq.orderentrygateway.sbe.v5.39.waveforliquiditynotificationmessage", ftypes.STRING)
 euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_order_ack_message = ProtoField.new("Wholesale Order Ack Message", "euronext.optiq.orderentrygateway.sbe.v5.39.wholesaleorderackmessage", ftypes.STRING)
 
+-- Euronext Optiq OrderEntryGateway Sbe 5.39 generated fields
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.additional_infos_group_index = ProtoField.new("Additional Infos Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.additionalinfosgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_dataset_group_index = ProtoField.new("Clearing Dataset Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.clearingdatasetgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_group_index = ProtoField.new("Clearing Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.clearingfieldsgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_x_group_index = ProtoField.new("Clearing Fields X Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.clearingfieldsxgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.collar_fields_group_index = ProtoField.new("Collar Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.collarfieldsgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.free_text_section_group_index = ProtoField.new("Free Text Section Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.freetextsectiongroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.instrument_synchronization_section_group_index = ProtoField.new("Instrument Synchronization Section Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.instrumentsynchronizationsectiongroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_fields_group_index = ProtoField.new("Mifid Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.mifidfieldsgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_short_codes_group_index = ProtoField.new("Mifid Short Codes Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.mifidshortcodesgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section_group_index = ProtoField.new("Mmp Section Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.mmpsectiongroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section2_group_index = ProtoField.new("Mmp Section2 Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.mmpsection2groupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.not_used_group_1_group_index = ProtoField.new("Not Used Group 1 Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.notusedgroup1groupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.not_used_group_2_group_index = ProtoField.new("Not Used Group 2 Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.notusedgroup2groupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_derivatives_group_index = ProtoField.new("Optional Fields Derivatives Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.optionalfieldsderivativesgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_fill_group_index = ProtoField.new("Optional Fields Fill Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.optionalfieldsfillgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_group_index = ProtoField.new("Optional Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.optionalfieldsgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.quote_acks_group_index = ProtoField.new("Quote Acks Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.quoteacksgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.quotes_rep_group_index = ProtoField.new("Quotes Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.quotesrepgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_counterparts_group_index = ProtoField.new("Rfq Counterparts Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.rfqcounterpartsgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_fields_group_index = ProtoField.new("Strategy Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.strategyfieldsgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_legs_group_index = ProtoField.new("Strategy Legs Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.strategylegsgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_clearing_rep_group_index = ProtoField.new("Wholesale Ack Clearing Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.wholesaleackclearingrepgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_legs_rep_group_index = ProtoField.new("Wholesale Ack Legs Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.wholesaleacklegsrepgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_client_rep_group_index = ProtoField.new("Wholesale Client Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.wholesaleclientrepgroupindex", ftypes.UINT16)
+euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_legs_rep_group_index = ProtoField.new("Wholesale Legs Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v5.39.wholesalelegsrepgroupindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -1268,17 +1295,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.group_size_encoding = function(buffer, offset, packet, parent)
   if show.group_size_encoding then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.group_size_encoding, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.group_size_encoding_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.group_size_encoding, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.group_size_encoding_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.group_size_encoding(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.group_size_encoding_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.group_size_encoding_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1310,9 +1337,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.not_used_group_1_groups_field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Not Used Group 1 Group
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.not_used_group_1_group(buffer, index, packet, parent)
+  -- Repeating: Not Used Group 1 Group
+  for not_used_group_1_group_index = 1, num_in_group do
+    index, not_used_group_1_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.not_used_group_1_group(buffer, index, packet, parent)
+
+    if not_used_group_1_group ~= nil then
+      local iteration = not_used_group_1_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.not_used_group_1_group_index, not_used_group_1_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1864,17 +1896,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_ack_message = function(buffer, offset, packet, parent)
   if show.fund_price_input_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.fund_price_input_ack_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_ack_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.fund_price_input_ack_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_ack_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.fund_price_input_ack_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_ack_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_ack_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1981,17 +2013,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_message = function(buffer, offset, packet, parent)
   if show.fund_price_input_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.fund_price_input_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.fund_price_input_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.fund_price_input_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.fund_price_input_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2149,17 +2181,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.declaration_cancel_and_refusal_message = function(buffer, offset, packet, parent)
   if show.declaration_cancel_and_refusal_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.declaration_cancel_and_refusal_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.declaration_cancel_and_refusal_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.declaration_cancel_and_refusal_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.declaration_cancel_and_refusal_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.declaration_cancel_and_refusal_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.declaration_cancel_and_refusal_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.declaration_cancel_and_refusal_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2191,9 +2223,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.not_used_group_2_groups_field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Not Used Group 2 Group
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.not_used_group_2_group(buffer, index, packet, parent)
+  -- Repeating: Not Used Group 2 Group
+  for not_used_group_2_group_index = 1, num_in_group do
+    index, not_used_group_2_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.not_used_group_2_group(buffer, index, packet, parent)
+
+    if not_used_group_2_group ~= nil then
+      local iteration = not_used_group_2_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.not_used_group_2_group_index, not_used_group_2_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4312,17 +4349,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.technical_reject_message = function(buffer, offset, packet, parent)
   if show.technical_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.technical_reject_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.technical_reject_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.technical_reject_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.technical_reject_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.technical_reject_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.technical_reject_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.technical_reject_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4396,17 +4433,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logout_message = function(buffer, offset, packet, parent)
   if show.logout_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logout_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logout_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logout_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logout_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.logout_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logout_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logout_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4571,17 +4608,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_reject_message = function(buffer, offset, packet, parent)
   if show.logon_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logon_reject_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_reject_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logon_reject_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_reject_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.logon_reject_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_reject_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_reject_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4618,17 +4655,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_ack_message = function(buffer, offset, packet, parent)
   if show.logon_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logon_ack_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_ack_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logon_ack_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_ack_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.logon_ack_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_ack_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_ack_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4801,17 +4838,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_message = function(buffer, offset, packet, parent)
   if show.logon_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logon_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.logon_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.logon_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.logon_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4858,17 +4895,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clear_book_message = function(buffer, offset, packet, parent)
   if show.clear_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clear_book_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clear_book_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clear_book_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.clear_book_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clear_book_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5380,17 +5417,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_notification_message = function(buffer, offset, packet, parent)
   if show.wave_for_liquidity_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wave_for_liquidity_notification_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wave_for_liquidity_notification_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.wave_for_liquidity_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_notification_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5634,17 +5671,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_message = function(buffer, offset, packet, parent)
   if show.wave_for_liquidity_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wave_for_liquidity_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wave_for_liquidity_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.wave_for_liquidity_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wave_for_liquidity_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5868,17 +5905,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_group = function(buffer, offset, packet, parent)
   if show.rfq_counterparts_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_counterparts_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_counterparts_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.rfq_counterparts_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5910,9 +5947,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_groups_field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Rfq Counterparts Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_group(buffer, index, packet, parent)
+  -- Repeating: Rfq Counterparts Group
+  for rfq_counterparts_group_index = 1, num_in_group do
+    index, rfq_counterparts_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_counterparts_group(buffer, index, packet, parent)
+
+    if rfq_counterparts_group ~= nil then
+      local iteration = rfq_counterparts_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_counterparts_group_index, rfq_counterparts_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6296,17 +6338,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_group = function(buffer, offset, packet, parent)
   if show.strategy_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.strategy_fields_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6338,9 +6380,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_groups_fields
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Strategy Fields Group: Struct of 6 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_group(buffer, index, packet, parent)
+  -- Repeating: Strategy Fields Group
+  for strategy_fields_group_index = 1, num_in_group do
+    index, strategy_fields_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_fields_group(buffer, index, packet, parent)
+
+    if strategy_fields_group ~= nil then
+      local iteration = strategy_fields_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_fields_group_index, strategy_fields_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6644,17 +6691,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_group = function(buffer, offset, packet, parent)
   if show.clearing_fields_x_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_x_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_x_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.clearing_fields_x_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6686,9 +6733,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_groups_fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Clearing Fields X Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_group(buffer, index, packet, parent)
+  -- Repeating: Clearing Fields X Group
+  for clearing_fields_x_group_index = 1, num_in_group do
+    index, clearing_fields_x_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_x_group(buffer, index, packet, parent)
+
+    if clearing_fields_x_group ~= nil then
+      local iteration = clearing_fields_x_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_x_group_index, clearing_fields_x_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6770,17 +6822,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_group = function(buffer, offset, packet, parent)
   if show.mifid_short_codes_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_short_codes_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_short_codes_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.mifid_short_codes_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6812,9 +6864,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_groups_fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Mifid Short Codes Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_group(buffer, index, packet, parent)
+  -- Repeating: Mifid Short Codes Group
+  for mifid_short_codes_group_index = 1, num_in_group do
+    index, mifid_short_codes_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_short_codes_group(buffer, index, packet, parent)
+
+    if mifid_short_codes_group ~= nil then
+      local iteration = mifid_short_codes_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_short_codes_group_index, mifid_short_codes_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6861,17 +6918,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_group = function(buffer, offset, packet, parent)
   if show.free_text_section_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.free_text_section_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.free_text_section_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.free_text_section_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6903,9 +6960,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_groups_fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Free Text Section Group: Struct of 1 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_group(buffer, index, packet, parent)
+  -- Repeating: Free Text Section Group
+  for free_text_section_group_index = 1, num_in_group do
+    index, free_text_section_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.free_text_section_group(buffer, index, packet, parent)
+
+    if free_text_section_group ~= nil then
+      local iteration = free_text_section_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.free_text_section_group_index, free_text_section_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -7350,17 +7412,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_implied_execution_message = function(buffer, offset, packet, parent)
   if show.request_for_implied_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.request_for_implied_execution_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_implied_execution_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.request_for_implied_execution_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_implied_execution_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.request_for_implied_execution_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_implied_execution_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_implied_execution_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7417,17 +7479,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_group = function(buffer, offset, packet, parent)
   if show.wholesale_ack_clearing_rep_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_clearing_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_clearing_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.wholesale_ack_clearing_rep_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7459,9 +7521,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_gr
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Wholesale Ack Clearing Rep Group: Struct of 6 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_group(buffer, index, packet, parent)
+  -- Repeating: Wholesale Ack Clearing Rep Group
+  for wholesale_ack_clearing_rep_group_index = 1, num_in_group do
+    index, wholesale_ack_clearing_rep_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_clearing_rep_group(buffer, index, packet, parent)
+
+    if wholesale_ack_clearing_rep_group ~= nil then
+      local iteration = wholesale_ack_clearing_rep_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_clearing_rep_group_index, wholesale_ack_clearing_rep_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -7623,17 +7690,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_group = function(buffer, offset, packet, parent)
   if show.wholesale_ack_legs_rep_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_legs_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_legs_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.wholesale_ack_legs_rep_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7665,9 +7732,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_groups
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Wholesale Ack Legs Rep Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_group(buffer, index, packet, parent)
+  -- Repeating: Wholesale Ack Legs Rep Group
+  for wholesale_ack_legs_rep_group_index = 1, num_in_group do
+    index, wholesale_ack_legs_rep_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_ack_legs_rep_group(buffer, index, packet, parent)
+
+    if wholesale_ack_legs_rep_group ~= nil then
+      local iteration = wholesale_ack_legs_rep_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_ack_legs_rep_group_index, wholesale_ack_legs_rep_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8389,17 +8461,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_group = function(buffer, offset, packet, parent)
   if show.wholesale_client_rep_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_client_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_client_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.wholesale_client_rep_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8431,9 +8503,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_groups_f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Wholesale Client Rep Group: Struct of 15 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_group(buffer, index, packet, parent)
+  -- Repeating: Wholesale Client Rep Group
+  for wholesale_client_rep_group_index = 1, num_in_group do
+    index, wholesale_client_rep_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_client_rep_group(buffer, index, packet, parent)
+
+    if wholesale_client_rep_group ~= nil then
+      local iteration = wholesale_client_rep_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_client_rep_group_index, wholesale_client_rep_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8741,17 +8818,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_group = function(buffer, offset, packet, parent)
   if show.wholesale_legs_rep_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_legs_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_legs_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.wholesale_legs_rep_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8783,9 +8860,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_groups_fie
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Wholesale Legs Rep Group: Struct of 10 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_group(buffer, index, packet, parent)
+  -- Repeating: Wholesale Legs Rep Group
+  for wholesale_legs_rep_group_index = 1, num_in_group do
+    index, wholesale_legs_rep_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.wholesale_legs_rep_group(buffer, index, packet, parent)
+
+    if wholesale_legs_rep_group ~= nil then
+      local iteration = wholesale_legs_rep_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.wholesale_legs_rep_group_index, wholesale_legs_rep_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9124,17 +9206,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_group = function(buffer, offset, packet, parent)
   if show.mmp_section2_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section2_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section2_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.mmp_section2_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9166,9 +9248,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_groups_fields = 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Mmp Section2 Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_group(buffer, index, packet, parent)
+  -- Repeating: Mmp Section2 Group
+  for mmp_section2_group_index = 1, num_in_group do
+    index, mmp_section2_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section2_group(buffer, index, packet, parent)
+
+    if mmp_section2_group ~= nil then
+      local iteration = mmp_section2_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section2_group_index, mmp_section2_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9412,17 +9499,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_group = function(buffer, offset, packet, parent)
   if show.mmp_section_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.mmp_section_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9454,9 +9541,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_groups_fields = f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Mmp Section Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_group(buffer, index, packet, parent)
+  -- Repeating: Mmp Section Group
+  for mmp_section_group_index = 1, num_in_group do
+    index, mmp_section_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mmp_section_group(buffer, index, packet, parent)
+
+    if mmp_section_group ~= nil then
+      local iteration = mmp_section_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mmp_section_group_index, mmp_section_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9680,17 +9772,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.security_definition_ack_message = function(buffer, offset, packet, parent)
   if show.security_definition_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.security_definition_ack_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.security_definition_ack_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.security_definition_ack_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.security_definition_ack_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.security_definition_ack_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.security_definition_ack_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.security_definition_ack_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9829,17 +9921,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_group = function(buffer, offset, packet, parent)
   if show.strategy_legs_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_legs_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_legs_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.strategy_legs_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9871,9 +9963,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_groups_fields =
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Strategy Legs Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_group(buffer, index, packet, parent)
+  -- Repeating: Strategy Legs Group
+  for strategy_legs_group_index = 1, num_in_group do
+    index, strategy_legs_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.strategy_legs_group(buffer, index, packet, parent)
+
+    if strategy_legs_group ~= nil then
+      local iteration = strategy_legs_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.strategy_legs_group_index, strategy_legs_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -10220,17 +10317,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.synchronization_time_message = function(buffer, offset, packet, parent)
   if show.synchronization_time_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.synchronization_time_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.synchronization_time_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.synchronization_time_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.synchronization_time_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.synchronization_time_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.synchronization_time_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.synchronization_time_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10267,17 +10364,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_section_group = function(buffer, offset, packet, parent)
   if show.instrument_synchronization_section_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.instrument_synchronization_section_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_section_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.instrument_synchronization_section_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_section_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.instrument_synchronization_section_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_section_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_section_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10309,9 +10406,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_se
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Instrument Synchronization Section Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_section_group(buffer, index, packet, parent)
+  -- Repeating: Instrument Synchronization Section Group
+  for instrument_synchronization_section_group_index = 1, num_in_group do
+    index, instrument_synchronization_section_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.instrument_synchronization_section_group(buffer, index, packet, parent)
+
+    if instrument_synchronization_section_group ~= nil then
+      local iteration = instrument_synchronization_section_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.instrument_synchronization_section_group_index, instrument_synchronization_section_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -10515,17 +10617,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_ack_message = function(buffer, offset, packet, parent)
   if show.mm_sign_in_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mm_sign_in_ack_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_ack_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mm_sign_in_ack_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_ack_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.mm_sign_in_ack_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_ack_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_ack_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10632,17 +10734,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_message = function(buffer, offset, packet, parent)
   if show.mm_sign_in_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mm_sign_in_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mm_sign_in_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.mm_sign_in_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mm_sign_in_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11231,17 +11333,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfqlp_matching_status_message = function(buffer, offset, packet, parent)
   if show.rfqlp_matching_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfqlp_matching_status_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfqlp_matching_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfqlp_matching_status_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfqlp_matching_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.rfqlp_matching_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfqlp_matching_status_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfqlp_matching_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11415,17 +11517,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_matching_status_message = function(buffer, offset, packet, parent)
   if show.rfq_matching_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_matching_status_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_matching_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_matching_status_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_matching_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.rfq_matching_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_matching_status_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_matching_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11734,17 +11836,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_notification_message = function(buffer, offset, packet, parent)
   if show.rfq_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_notification_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.rfq_notification_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.rfq_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_notification_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.rfq_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11791,17 +11893,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_execution_message = function(buffer, offset, packet, parent)
   if show.request_for_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.request_for_execution_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_execution_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.request_for_execution_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_execution_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.request_for_execution_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_execution_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.request_for_execution_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11889,17 +11991,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ask_for_quote_message = function(buffer, offset, packet, parent)
   if show.ask_for_quote_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.ask_for_quote_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ask_for_quote_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.ask_for_quote_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ask_for_quote_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.ask_for_quote_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ask_for_quote_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ask_for_quote_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12007,17 +12109,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.liquidity_provider_command_message = function(buffer, offset, packet, parent)
   if show.liquidity_provider_command_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.liquidity_provider_command_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.liquidity_provider_command_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.liquidity_provider_command_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.liquidity_provider_command_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.liquidity_provider_command_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.liquidity_provider_command_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.liquidity_provider_command_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12121,17 +12223,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.price_input_message = function(buffer, offset, packet, parent)
   if show.price_input_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.price_input_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.price_input_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.price_input_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.price_input_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.price_input_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.price_input_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.price_input_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12258,17 +12360,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_breach_confirmation_message = function(buffer, offset, packet, parent)
   if show.collar_breach_confirmation_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.collar_breach_confirmation_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_breach_confirmation_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.collar_breach_confirmation_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_breach_confirmation_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.collar_breach_confirmation_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_breach_confirmation_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_breach_confirmation_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12521,17 +12623,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.trade_bust_notification_message = function(buffer, offset, packet, parent)
   if show.trade_bust_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.trade_bust_notification_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.trade_bust_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.trade_bust_notification_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.trade_bust_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.trade_bust_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.trade_bust_notification_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.trade_bust_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12684,17 +12786,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_message = function(buffer, offset, packet, parent)
   if show.ownership_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.ownership_request_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.ownership_request_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.ownership_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12786,17 +12888,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_ack_message = function(buffer, offset, packet, parent)
   if show.ownership_request_ack_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.ownership_request_ack_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_ack_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.ownership_request_ack_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_ack_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.ownership_request_ack_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_ack_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.ownership_request_ack_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -12878,17 +12980,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.open_order_request_message = function(buffer, offset, packet, parent)
   if show.open_order_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.open_order_request_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.open_order_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.open_order_request_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.open_order_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.open_order_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.open_order_request_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.open_order_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -13004,17 +13106,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_group = function(buffer, offset, packet, parent)
   if show.mifid_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.mifid_fields_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -13046,9 +13148,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_groups_fields = 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Mifid Fields Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_group(buffer, index, packet, parent)
+  -- Repeating: Mifid Fields Group
+  for mifid_fields_group_index = 1, num_in_group do
+    index, mifid_fields_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.mifid_fields_group(buffer, index, packet, parent)
+
+    if mifid_fields_group ~= nil then
+      local iteration = mifid_fields_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.mifid_fields_group_index, mifid_fields_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -13826,17 +13933,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_request_message = function(buffer, offset, packet, parent)
   if show.quote_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quote_request_message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quote_request_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.quote_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_request_message_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -14069,17 +14176,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_group = function(buffer, offset, packet, parent)
   if show.quote_acks_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quote_acks_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quote_acks_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.quote_acks_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -14111,9 +14218,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_groups_fields = fu
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Quote Acks Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_group(buffer, index, packet, parent)
+  -- Repeating: Quote Acks Group
+  for quote_acks_group_index = 1, num_in_group do
+    index, quote_acks_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quote_acks_group(buffer, index, packet, parent)
+
+    if quote_acks_group ~= nil then
+      local iteration = quote_acks_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quote_acks_group_index, quote_acks_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -14422,17 +14534,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_group = function(buffer, offset, packet, parent)
   if show.quotes_rep_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quotes_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quotes_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.quotes_rep_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -14464,9 +14576,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_groups_fields = fu
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Quotes Rep Group: Struct of 6 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_group(buffer, index, packet, parent)
+  -- Repeating: Quotes Rep Group
+  for quotes_rep_group_index = 1, num_in_group do
+    index, quotes_rep_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.quotes_rep_group(buffer, index, packet, parent)
+
+    if quotes_rep_group ~= nil then
+      local iteration = quotes_rep_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.quotes_rep_group_index, quotes_rep_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -14579,17 +14696,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_group = function(buffer, offset, packet, parent)
   if show.clearing_dataset_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_dataset_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_dataset_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.clearing_dataset_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -14621,9 +14738,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_groups_field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Clearing Dataset Group: Struct of 7 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_group(buffer, index, packet, parent)
+  -- Repeating: Clearing Dataset Group
+  for clearing_dataset_group_index = 1, num_in_group do
+    index, clearing_dataset_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_dataset_group(buffer, index, packet, parent)
+
+    if clearing_dataset_group ~= nil then
+      local iteration = clearing_dataset_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_dataset_group_index, clearing_dataset_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -14882,17 +15004,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_group = function(buffer, offset, packet, parent)
   if show.collar_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.collar_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.collar_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.collar_fields_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -14924,9 +15046,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_groups_fields =
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Collar Fields Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_group(buffer, index, packet, parent)
+  -- Repeating: Collar Fields Group
+  for collar_fields_group_index = 1, num_in_group do
+    index, collar_fields_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.collar_fields_group(buffer, index, packet, parent)
+
+    if collar_fields_group ~= nil then
+      local iteration = collar_fields_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.collar_fields_group_index, collar_fields_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -15136,17 +15263,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_group = function(buffer, offset, packet, parent)
   if show.additional_infos_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.additional_infos_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.additional_infos_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.additional_infos_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -15178,9 +15305,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_groups_field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Additional Infos Group: Struct of 1 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_group(buffer, index, packet, parent)
+  -- Repeating: Additional Infos Group
+  for additional_infos_group_index = 1, num_in_group do
+    index, additional_infos_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.additional_infos_group(buffer, index, packet, parent)
+
+    if additional_infos_group ~= nil then
+      local iteration = additional_infos_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.additional_infos_group_index, additional_infos_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -15262,17 +15394,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_group = function(buffer, offset, packet, parent)
   if show.clearing_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.clearing_fields_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -15304,9 +15436,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_groups_fields
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Clearing Fields Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_group(buffer, index, packet, parent)
+  -- Repeating: Clearing Fields Group
+  for clearing_fields_group_index = 1, num_in_group do
+    index, clearing_fields_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.clearing_fields_group(buffer, index, packet, parent)
+
+    if clearing_fields_group ~= nil then
+      local iteration = clearing_fields_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.clearing_fields_group_index, clearing_fields_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -15717,17 +15854,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_group = function(buffer, offset, packet, parent)
   if show.optional_fields_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.optional_fields_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -15759,9 +15896,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_groups_fields
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Optional Fields Group: Struct of 11 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_group(buffer, index, packet, parent)
+  -- Repeating: Optional Fields Group
+  for optional_fields_group_index = 1, num_in_group do
+    index, optional_fields_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_group(buffer, index, packet, parent)
+
+    if optional_fields_group ~= nil then
+      local iteration = optional_fields_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_group_index, optional_fields_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -16460,17 +16602,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_group = function(buffer, offset, packet, parent)
   if show.optional_fields_derivatives_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_derivatives_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_derivatives_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.optional_fields_derivatives_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -16502,9 +16644,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_g
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Optional Fields Derivatives Group: Struct of 4 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_group(buffer, index, packet, parent)
+  -- Repeating: Optional Fields Derivatives Group
+  for optional_fields_derivatives_group_index = 1, num_in_group do
+    index, optional_fields_derivatives_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_derivatives_group(buffer, index, packet, parent)
+
+    if optional_fields_derivatives_group ~= nil then
+      local iteration = optional_fields_derivatives_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_derivatives_group_index, optional_fields_derivatives_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -16652,17 +16799,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_group = function(buffer, offset, packet, parent)
   if show.optional_fields_fill_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_fill_group, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_fill_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.optional_fields_fill_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_group_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -16694,9 +16841,14 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_groups_f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Optional Fields Fill Group: Struct of 4 fields
-  for i = 1, num_in_group do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_group(buffer, index, packet, parent)
+  -- Repeating: Optional Fields Fill Group
+  for optional_fields_fill_group_index = 1, num_in_group do
+    index, optional_fields_fill_group = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.optional_fields_fill_group(buffer, index, packet, parent)
+
+    if optional_fields_fill_group ~= nil then
+      local iteration = optional_fields_fill_group:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.optional_fields_fill_group_index, optional_fields_fill_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -18469,17 +18621,17 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_39_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.message_header, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(euronext_optiq_orderentrygateway_sbe_v5_39.fields.message_header, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = euronext_optiq_orderentrygateway_sbe_v5_39_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.message_header_fields(buffer, offset, packet, parent)
+    return euronext_optiq_orderentrygateway_sbe_v5_39_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -18565,7 +18717,7 @@ euronext_optiq_orderentrygateway_sbe_v5_39_dissect.packet = function(buffer, pac
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.message(buffer, index, packet, parent)
+    index, message = euronext_optiq_orderentrygateway_sbe_v5_39_dissect.message(buffer, index, packet, parent)
   end
 
   return index

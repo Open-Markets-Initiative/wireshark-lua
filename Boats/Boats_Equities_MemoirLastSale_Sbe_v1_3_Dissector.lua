@@ -81,6 +81,9 @@ boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message = ProtoField
 boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "boats.equities.memoirlastsale.sbe.v1.3.tradereportmessage", ftypes.STRING)
 boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "boats.equities.memoirlastsale.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
+-- Boats Equities MemoirLastSale Sbe 1.3 generated fields
+boats_equities_memoirlastsale_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "boats.equities.memoirlastsale.sbe.v1.3.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -797,17 +800,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message = function(buffer, offset, packet, parent)
   if show.trade_correct_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1093,17 +1096,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1206,17 +1209,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.trade_report_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1304,17 +1307,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
   if show.trading_session_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1455,17 +1458,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
   if show.security_trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1539,17 +1542,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   if show.reg_sho_restriction_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1761,17 +1764,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2013,17 +2016,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.sbe_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2050,16 +2053,23 @@ end
 
 -- Dissect: Sbe Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_sbe_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    local range = buffer(offset, size_of_sbe_message)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.sbe_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_message, range, display)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
+    local current = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, element, size_of_sbe_message)
+    element:set_len(size_of_sbe_message)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.sbe_message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+
+    return index
   end
-
-  boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
-
-  return offset + size_of_sbe_message
 end
 
 -- Size: Message Length
@@ -2101,23 +2111,30 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer,
   local size_of_sbe_message = block_length + 6
 
   -- Sbe Message: Struct of 2 fields
-  index = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
+  index, sbe_message = boats_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
 
 -- Dissect: Message
 boats_equities_memoirlastsale_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = boats_equities_memoirlastsale_sbe_v1_3_display.message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.message, range, display)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.message, buffer(offset, 0))
+    local current = boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = boats_equities_memoirlastsale_sbe_v1_3_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  boats_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Message Count
@@ -2164,8 +2181,8 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message_fields = functi
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = boats_equities_memoirlastsale_sbe_v1_3_dissect.message_count(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
-  for i = 1, message_count do
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()
@@ -2174,7 +2191,12 @@ boats_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message_fields = functi
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index = boats_equities_memoirlastsale_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = boats_equities_memoirlastsale_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
+
+    if message ~= nil then
+      local iteration = message:add(boats_equities_memoirlastsale_sbe_v1_3.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2371,17 +2393,17 @@ end
 boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.common_header, buffer(offset, 0))
-    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memoirlastsale_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    local index = boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memoirlastsale_sbe_v1_3_display.common_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    return boats_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, element)
   end
 end
 

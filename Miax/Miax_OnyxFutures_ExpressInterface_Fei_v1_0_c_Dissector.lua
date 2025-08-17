@@ -139,6 +139,9 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_request = 
 miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message = ProtoField.new("Strategy Creation Response Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategycreationresponsemessage", ftypes.STRING)
 miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message = ProtoField.new("System State Notification Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.systemstatenotificationmessage", ftypes.STRING)
 
+-- Miax OnyxFutures ExpressInterface Fei 1.0.c generated fields
+miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index = ProtoField.new("Strategy Leg Index", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategylegindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -466,7 +469,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.goodbye_packet_fields = fun
   local size_of_logout_text = packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_text(buffer, index, packet, parent, size_of_logout_text)
+  index, logout_text = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_text(buffer, index, packet, parent, size_of_logout_text)
 
   return index
 end
@@ -515,7 +518,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_request_fields = fun
   local size_of_logout_text = packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
-  index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_text(buffer, index, packet, parent, size_of_logout_text)
+  index, logout_text = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.logout_text(buffer, index, packet, parent, size_of_logout_text)
 
   return index
 end
@@ -606,17 +609,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.retransmission_request = function(buffer, offset, packet, parent)
   if show.retransmission_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.retransmission_request_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.retransmission_request_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.retransmission_request(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.retransmission_request_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.retransmission_request_fields(buffer, offset, packet, element)
   end
 end
 
@@ -740,17 +743,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response = function(buffer, offset, packet, parent)
   if show.login_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.login_response(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_response_fields(buffer, offset, packet, element)
   end
 end
 
@@ -927,17 +930,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_request = function(buffer, offset, packet, parent)
   if show.login_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_request_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_request_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.login_request(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_request_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.login_request_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1150,17 +1153,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message = function(buffer, offset, packet, parent)
   if show.strategy_creation_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.strategy_creation_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1262,17 +1265,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg = function(buffer, offset, packet, parent)
   if show.strategy_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.strategy_leg(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1447,9 +1450,14 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_request_f
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.number_of_legs(buffer, index, packet, parent)
 
-  -- Strategy Leg: Struct of 3 fields
-  for i = 1, number_of_legs do
-    index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg(buffer, index, packet, parent)
+  -- Repeating: Strategy Leg
+  for strategy_leg_index = 1, number_of_legs do
+    index, strategy_leg = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg(buffer, index, packet, parent)
+
+    if strategy_leg ~= nil then
+      local iteration = strategy_leg:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1536,17 +1544,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response = function(buffer, offset, packet, parent)
   if show.mass_cancel_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_response, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_response, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.mass_cancel_response(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_response_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1769,17 +1777,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request = function(buffer, offset, packet, parent)
   if show.mass_cancel_request then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_request, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_request, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.mass_cancel_request(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.mass_cancel_request_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1897,17 +1905,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response = function(buffer, offset, packet, parent)
   if show.cancel_order_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.cancel_order_response(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_response_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2015,17 +2023,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message = function(buffer, offset, packet, parent)
   if show.cancel_order_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.cancel_order_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_order_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2117,17 +2125,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response = function(buffer, offset, packet, parent)
   if show.modify_order_response then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_response, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_response, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.modify_order_response(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_response_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2455,17 +2463,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message = function(buffer, offset, packet, parent)
   if show.modify_order_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_request_message, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_request_message, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.modify_order_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2551,17 +2559,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message = function(buffer, offset, packet, parent)
   if show.new_order_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_response_message, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_response_message, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.new_order_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2999,17 +3007,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message = function(buffer, offset, packet, parent)
   if show.new_order_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_request_message, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_request_message, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.new_order_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3385,17 +3393,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification = function(buffer, offset, packet, parent)
   if show.complex_execution_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_execution_notification, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_execution_notification, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.complex_execution_notification(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.complex_execution_notification_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3664,17 +3672,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification = function(buffer, offset, packet, parent)
   if show.simple_execution_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_execution_notification, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_execution_notification, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.simple_execution_notification(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.simple_execution_notification_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3746,17 +3754,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification = function(buffer, offset, packet, parent)
   if show.order_status_update_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status_update_notification, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status_update_notification, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.order_status_update_notification(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.order_status_update_notification_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3868,17 +3876,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification = function(buffer, offset, packet, parent)
   if show.cancel_reduce_size_order_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.cancel_reduce_size_order_notification(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.cancel_reduce_size_order_notification_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4000,17 +4008,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification = function(buffer, offset, packet, parent)
   if show.modify_order_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_notification, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_order_notification, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.modify_order_notification(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.modify_order_notification_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4167,17 +4175,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification = function(buffer, offset, packet, parent)
   if show.new_order_notification then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_notification, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.new_order_notification, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.new_order_notification(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.new_order_notification_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4269,17 +4277,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message = function(buffer, offset, packet, parent)
   if show.system_state_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.system_state_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.system_state_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4769,17 +4777,17 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header, buffer(offset, 0))
-    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet_header, buffer(offset, 0))
+    local index = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4806,16 +4814,23 @@ end
 
 -- Dissect: Sesm Tcp Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_sesm_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
   if show.sesm_tcp_packet then
-    local range = buffer(offset, size_of_sesm_tcp_packet)
-    local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sesm_tcp_packet(buffer, packet, parent)
-    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet, range, display)
+    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet, buffer(offset, 0))
+    local current = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet_fields(buffer, offset, packet, element, size_of_sesm_tcp_packet)
+    element:set_len(size_of_sesm_tcp_packet)
+    local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sesm_tcp_packet(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+
+    return index
   end
-
-  miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
-
-  return offset + size_of_sesm_tcp_packet
 end
 
 -- Remaining Bytes For: Sesm Tcp Packet

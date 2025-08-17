@@ -108,6 +108,9 @@ nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.unpaired_qty = ProtoField.new("Un
 nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.equities.imbalancesfeed.xdp.v2.2.a.unpairedside", ftypes.STRING)
 nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.equities.imbalancesfeed.xdp.v2.2.a.uppercollar", ftypes.UINT32)
 
+-- Nyse Equities ImbalancesFeed Xdp 2.2.a generated fields
+nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.message_index = ProtoField.new("Message Index", "nyse.equities.imbalancesfeed.xdp.v2.2.a.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -896,17 +899,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.imbalance_message = function(buffer, offset, packet, parent)
   if show.imbalance_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.imbalance_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.imbalance_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.imbalance_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.imbalance_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.imbalance_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.imbalance_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.imbalance_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1033,17 +1036,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_header_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.refresh_header_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_header_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1365,17 +1368,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.security_status_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.security_status_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.security_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.security_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.security_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1442,17 +1445,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.symbol_clear_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.symbol_clear_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.symbol_clear_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1579,17 +1582,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.message_unavailable_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.message_unavailable_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1656,17 +1659,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.refresh_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.refresh_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1738,17 +1741,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.symbol_index_mapping_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1780,17 +1783,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.heartbeat_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1892,17 +1895,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.request_response_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.request_response_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.request_response_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1954,17 +1957,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.retransmission_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2371,17 +2374,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.symbol_index_mapping_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.symbol_index_mapping_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.symbol_index_mapping_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2428,17 +2431,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.sequence_number_reset_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2685,17 +2688,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.message_header, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.message_header, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2954,17 +2957,17 @@ end
 nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.packet_header, buffer(offset, 0))
-    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_imbalancesfeed_xdp_v2_2_a.fields.packet_header, buffer(offset, 0))
+    local index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_imbalancesfeed_xdp_v2_2_a_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2980,7 +2983,7 @@ nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.packet = function(buffer, packet
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message(buffer, index, packet, parent)
+    index, message = nyse_equities_imbalancesfeed_xdp_v2_2_a_dissect.message(buffer, index, packet, parent)
   end
 
   return index

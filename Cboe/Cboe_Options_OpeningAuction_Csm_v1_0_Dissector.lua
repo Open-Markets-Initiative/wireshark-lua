@@ -110,6 +110,11 @@ cboe_options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_mess
 cboe_options_openingauction_csm_v1_0.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.options.openingauction.csm.v1.0.marketdatarefreshmessage", ftypes.STRING)
 cboe_options_openingauction_csm_v1_0.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.options.openingauction.csm.v1.0.securitydefinitionmessage", ftypes.STRING)
 
+-- Cboe Options OpeningAuction Csm 1.0 generated fields
+cboe_options_openingauction_csm_v1_0.fields.md_entry_index = ProtoField.new("Md Entry Index", "cboe.options.openingauction.csm.v1.0.mdentryindex", ftypes.UINT16)
+cboe_options_openingauction_csm_v1_0.fields.message_index = ProtoField.new("Message Index", "cboe.options.openingauction.csm.v1.0.messageindex", ftypes.UINT16)
+cboe_options_openingauction_csm_v1_0.fields.security_definition_leg_index = ProtoField.new("Security Definition Leg Index", "cboe.options.openingauction.csm.v1.0.securitydefinitionlegindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -465,17 +470,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.eop = function(buffer, offset, packet, parent)
   if show.eop then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.eop, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.eop_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.eop, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.eop_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.eop(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.eop_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.eop_fields(buffer, offset, packet, element)
   end
 end
 
@@ -572,17 +577,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.expected_opening_price_and_size_message = function(buffer, offset, packet, parent)
   if show.expected_opening_price_and_size_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_message, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.expected_opening_price_and_size_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_message, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.expected_opening_price_and_size_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.expected_opening_price_and_size_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.expected_opening_price_and_size_message_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.expected_opening_price_and_size_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -712,17 +717,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.md_entry_px = function(buffer, offset, packet, parent)
   if show.md_entry_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_px, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.md_entry_px_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_px, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.md_entry_px_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.md_entry_px(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.md_entry_px_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.md_entry_px_fields(buffer, offset, packet, element)
   end
 end
 
@@ -814,17 +819,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.md_entry = function(buffer, offset, packet, parent)
   if show.md_entry then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.md_entry, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.md_entry_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.md_entry, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.md_entry_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.md_entry(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.md_entry_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.md_entry_fields(buffer, offset, packet, element)
   end
 end
 
@@ -961,9 +966,14 @@ cboe_options_openingauction_csm_v1_0_dissect.current_market_update_message_field
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index, no_entries = cboe_options_openingauction_csm_v1_0_dissect.no_entries(buffer, index, packet, parent)
 
-  -- Md Entry: Struct of 4 fields
-  for i = 1, no_entries do
-    index = cboe_options_openingauction_csm_v1_0_dissect.md_entry(buffer, index, packet, parent)
+  -- Repeating: Md Entry
+  for md_entry_index = 1, no_entries do
+    index, md_entry = cboe_options_openingauction_csm_v1_0_dissect.md_entry(buffer, index, packet, parent)
+
+    if md_entry ~= nil then
+      local iteration = md_entry:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_index, md_entry_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1075,17 +1085,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.prev_close_px = function(buffer, offset, packet, parent)
   if show.prev_close_px then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.prev_close_px, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.prev_close_px_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.prev_close_px, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.prev_close_px_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.prev_close_px(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.prev_close_px_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.prev_close_px_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1169,9 +1179,14 @@ cboe_options_openingauction_csm_v1_0_dissect.market_data_refresh_message_fields 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
   index, no_entries = cboe_options_openingauction_csm_v1_0_dissect.no_entries(buffer, index, packet, parent)
 
-  -- Md Entry: Struct of 4 fields
-  for i = 1, no_entries do
-    index = cboe_options_openingauction_csm_v1_0_dissect.md_entry(buffer, index, packet, parent)
+  -- Repeating: Md Entry
+  for md_entry_index = 1, no_entries do
+    index, md_entry = cboe_options_openingauction_csm_v1_0_dissect.md_entry(buffer, index, packet, parent)
+
+    if md_entry ~= nil then
+      local iteration = md_entry:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_index, md_entry_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1295,17 +1310,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg = function(buffer, offset, packet, parent)
   if show.security_definition_leg then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.security_definition_leg, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.security_definition_leg, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.security_definition_leg(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1409,8 +1424,8 @@ cboe_options_openingauction_csm_v1_0_dissect.underlying_type_fields = function(b
   -- Underlying Type Length: 1 Byte Unsigned Fixed Width Integer
   index, underlying_type_length = cboe_options_openingauction_csm_v1_0_dissect.underlying_type_length(buffer, index, packet, parent)
 
-  -- Underlying Type Text: 0 Byte Ascii String
-  index = cboe_options_openingauction_csm_v1_0_dissect.underlying_type_text(buffer, index, packet, parent, underlying_type_length)
+  -- Runtime Size Of: Underlying Type Text
+  index, underlying_type_text = cboe_options_openingauction_csm_v1_0_dissect.underlying_type_text(buffer, index, packet, parent, underlying_type_length)
 
   return index
 end
@@ -1488,8 +1503,8 @@ cboe_options_openingauction_csm_v1_0_dissect.underlying_symbol_fields = function
   -- Underlying Symbol Length: 1 Byte Unsigned Fixed Width Integer
   index, underlying_symbol_length = cboe_options_openingauction_csm_v1_0_dissect.underlying_symbol_length(buffer, index, packet, parent)
 
-  -- Underlying Symbol Text: 0 Byte Ascii String
-  index = cboe_options_openingauction_csm_v1_0_dissect.underlying_symbol_text(buffer, index, packet, parent, underlying_symbol_length)
+  -- Runtime Size Of: Underlying Symbol Text
+  index, underlying_symbol_text = cboe_options_openingauction_csm_v1_0_dissect.underlying_symbol_text(buffer, index, packet, parent, underlying_symbol_length)
 
   return index
 end
@@ -1567,8 +1582,8 @@ cboe_options_openingauction_csm_v1_0_dissect.currency_code_fields = function(buf
   -- Currency Code Length: 1 Byte Unsigned Fixed Width Integer
   index, currency_code_length = cboe_options_openingauction_csm_v1_0_dissect.currency_code_length(buffer, index, packet, parent)
 
-  -- Currency Code Text: 0 Byte Ascii String
-  index = cboe_options_openingauction_csm_v1_0_dissect.currency_code_text(buffer, index, packet, parent, currency_code_length)
+  -- Runtime Size Of: Currency Code Text
+  index, currency_code_text = cboe_options_openingauction_csm_v1_0_dissect.currency_code_text(buffer, index, packet, parent, currency_code_length)
 
   return index
 end
@@ -1686,17 +1701,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.minimum_below_premium_fraction = function(buffer, offset, packet, parent)
   if show.minimum_below_premium_fraction then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.minimum_below_premium_fraction, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.minimum_below_premium_fraction, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.minimum_below_premium_fraction(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1773,17 +1788,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.minimum_above_premium_fraction = function(buffer, offset, packet, parent)
   if show.minimum_above_premium_fraction then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.minimum_above_premium_fraction, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.minimum_above_premium_fraction, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.minimum_above_premium_fraction(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1860,17 +1875,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.premium_break_point = function(buffer, offset, packet, parent)
   if show.premium_break_point then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.premium_break_point, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.premium_break_point_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.premium_break_point, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.premium_break_point_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.premium_break_point(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.premium_break_point_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.premium_break_point_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1947,17 +1962,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.max_strike_price = function(buffer, offset, packet, parent)
   if show.max_strike_price then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.max_strike_price, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.max_strike_price_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.max_strike_price, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.max_strike_price_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.max_strike_price(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.max_strike_price_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.max_strike_price_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2034,17 +2049,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.minimum_strike_price_fraction = function(buffer, offset, packet, parent)
   if show.minimum_strike_price_fraction then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.minimum_strike_price_fraction, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.minimum_strike_price_fraction, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.minimum_strike_price_fraction(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2148,17 +2163,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.strike_price = function(buffer, offset, packet, parent)
   if show.strike_price then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.strike_price, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.strike_price_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.strike_price, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.strike_price_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.strike_price(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.strike_price_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.strike_price_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2242,8 +2257,8 @@ cboe_options_openingauction_csm_v1_0_dissect.target_location_id_fields = functio
   -- Target Location Id Length: 1 Byte Unsigned Fixed Width Integer
   index, target_location_id_length = cboe_options_openingauction_csm_v1_0_dissect.target_location_id_length(buffer, index, packet, parent)
 
-  -- Target Location Id Text: 0 Byte Ascii String
-  index = cboe_options_openingauction_csm_v1_0_dissect.target_location_id_text(buffer, index, packet, parent, target_location_id_length)
+  -- Runtime Size Of: Target Location Id Text
+  index, target_location_id_text = cboe_options_openingauction_csm_v1_0_dissect.target_location_id_text(buffer, index, packet, parent, target_location_id_length)
 
   return index
 end
@@ -2321,8 +2336,8 @@ cboe_options_openingauction_csm_v1_0_dissect.symbol_fields = function(buffer, of
   -- Symbol Length: 1 Byte Unsigned Fixed Width Integer
   index, symbol_length = cboe_options_openingauction_csm_v1_0_dissect.symbol_length(buffer, index, packet, parent)
 
-  -- Symbol Text: 0 Byte Ascii String
-  index = cboe_options_openingauction_csm_v1_0_dissect.symbol_text(buffer, index, packet, parent, symbol_length)
+  -- Runtime Size Of: Symbol Text
+  index, symbol_text = cboe_options_openingauction_csm_v1_0_dissect.symbol_text(buffer, index, packet, parent, symbol_length)
 
   return index
 end
@@ -2436,8 +2451,8 @@ cboe_options_openingauction_csm_v1_0_dissect.security_type_fields = function(buf
   -- Security Type Length: 1 Byte Unsigned Fixed Width Integer
   index, security_type_length = cboe_options_openingauction_csm_v1_0_dissect.security_type_length(buffer, index, packet, parent)
 
-  -- Security Type Text: 0 Byte Ascii String
-  index = cboe_options_openingauction_csm_v1_0_dissect.security_type_text(buffer, index, packet, parent, security_type_length)
+  -- Runtime Size Of: Security Type Text
+  index, security_type_text = cboe_options_openingauction_csm_v1_0_dissect.security_type_text(buffer, index, packet, parent, security_type_length)
 
   return index
 end
@@ -2580,9 +2595,14 @@ cboe_options_openingauction_csm_v1_0_dissect.security_definition_message_fields 
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
   index, no_legs = cboe_options_openingauction_csm_v1_0_dissect.no_legs(buffer, index, packet, parent)
 
-  -- Security Definition Leg: Struct of 3 fields
-  for i = 1, no_legs do
-    index = cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg(buffer, index, packet, parent)
+  -- Repeating: Security Definition Leg
+  for security_definition_leg_index = 1, no_legs do
+    index, security_definition_leg = cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg(buffer, index, packet, parent)
+
+    if security_definition_leg ~= nil then
+      local iteration = security_definition_leg:add(cboe_options_openingauction_csm_v1_0.fields.security_definition_leg_index, security_definition_leg_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2816,17 +2836,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.message_header, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.message_header, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3026,17 +3046,17 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_options_openingauction_csm_v1_0.fields.packet_header, buffer(offset, 0))
-    local index = cboe_options_openingauction_csm_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_options_openingauction_csm_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = cboe_options_openingauction_csm_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_options_openingauction_csm_v1_0_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_options_openingauction_csm_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return cboe_options_openingauction_csm_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3050,9 +3070,14 @@ cboe_options_openingauction_csm_v1_0_dissect.packet = function(buffer, packet, p
   -- Dependency element: Message Count
   local message_count = buffer(index - 5, 1):uint()
 
-  -- Message: Struct of 2 fields
-  for i = 1, message_count do
-    index = cboe_options_openingauction_csm_v1_0_dissect.message(buffer, index, packet, parent)
+  -- Repeating: Message
+  for message_index = 1, message_count do
+    index, message = cboe_options_openingauction_csm_v1_0_dissect.message(buffer, index, packet, parent)
+
+    if message ~= nil then
+      local iteration = message:add(cboe_options_openingauction_csm_v1_0.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

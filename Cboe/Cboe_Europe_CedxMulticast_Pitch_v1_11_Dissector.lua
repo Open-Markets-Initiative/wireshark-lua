@@ -148,6 +148,10 @@ cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_begin_message = ProtoFi
 cboe_europe_cedxmulticast_pitch_v1_11.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.europe.cedxmulticast.pitch.v1.11.unitclearmessage", ftypes.STRING)
 cboe_europe_cedxmulticast_pitch_v1_11.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.europe.cedxmulticast.pitch.v1.11.widthupdatemessage", ftypes.STRING)
 
+-- Cboe Europe CedxMulticast Pitch 1.11 generated fields
+cboe_europe_cedxmulticast_pitch_v1_11.fields.message_index = ProtoField.new("Message Index", "cboe.europe.cedxmulticast.pitch.v1.11.messageindex", ftypes.UINT16)
+cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index = ProtoField.new("Price Level Group Index", "cboe.europe.cedxmulticast.pitch.v1.11.pricelevelgroupindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -777,17 +781,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_day_summary_message = function(buffer, offset, packet, parent)
   if show.end_of_day_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_day_summary_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_day_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_day_summary_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_day_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.end_of_day_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_day_summary_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_day_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -886,17 +890,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.settlement_message = function(buffer, offset, packet, parent)
   if show.settlement_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.settlement_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.settlement_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.settlement_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.settlement_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.settlement_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.settlement_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -953,17 +957,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_break_message = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_break_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_break_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.trade_break_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1080,17 +1084,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.width_update_message = function(buffer, offset, packet, parent)
   if show.width_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.width_update_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.width_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.width_update_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.width_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.width_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.width_update_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.width_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1331,17 +1335,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.options_instrument_definition_message = function(buffer, offset, packet, parent)
   if show.options_instrument_definition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.options_instrument_definition_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.options_instrument_definition_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.options_instrument_definition_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.options_instrument_definition_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.options_instrument_definition_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.options_instrument_definition_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.options_instrument_definition_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1403,17 +1407,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.futures_instrument_definition_message = function(buffer, offset, packet, parent)
   if show.futures_instrument_definition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.futures_instrument_definition_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.futures_instrument_definition_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.futures_instrument_definition_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.futures_instrument_definition_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.futures_instrument_definition_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.futures_instrument_definition_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.futures_instrument_definition_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1496,17 +1500,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group = function(buffer, offset, packet, parent)
   if show.price_level_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.price_level_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1585,9 +1589,14 @@ cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_liquidity_message_fields =
   -- Price Level Count: 1 Byte Unsigned Fixed Width Integer
   index, price_level_count = cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_count(buffer, index, packet, parent)
 
-  -- Price Level Group: Struct of 2 fields
-  for i = 1, price_level_count do
-    index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group(buffer, index, packet, parent)
+  -- Repeating: Price Level Group
+  for price_level_group_index = 1, price_level_count do
+    index, price_level_group = cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group(buffer, index, packet, parent)
+
+    if price_level_group ~= nil then
+      local iteration = price_level_group:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index, price_level_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1799,17 +1808,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.execution_flags = function(buffer, offset, packet, parent)
   if show.execution_flags then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_flags, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.execution_flags_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.execution_flags, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.execution_flags_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.execution_flags(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.execution_flags_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.execution_flags_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1912,17 +1921,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_trade_message = function(buffer, offset, packet, parent)
   if show.auction_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_trade_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_trade_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.auction_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1959,17 +1968,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_cancel_message = function(buffer, offset, packet, parent)
   if show.auction_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_cancel_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_cancel_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.auction_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2156,17 +2165,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_notification_message = function(buffer, offset, packet, parent)
   if show.auction_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_notification_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_notification_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.auction_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2458,17 +2467,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.opening_auction_update_message = function(buffer, offset, packet, parent)
   if show.opening_auction_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.opening_auction_update_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.opening_auction_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.opening_auction_update_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.opening_auction_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.opening_auction_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.opening_auction_update_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.opening_auction_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2540,17 +2549,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_summary_message = function(buffer, offset, packet, parent)
   if show.auction_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_summary_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.auction_summary_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.auction_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2632,17 +2641,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.fast_status_message = function(buffer, offset, packet, parent)
   if show.fast_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.fast_status_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.fast_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.fast_status_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.fast_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.fast_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.fast_status_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.fast_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2748,17 +2757,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.trading_status_message = function(buffer, offset, packet, parent)
   if show.trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trading_status_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trading_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.trading_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trading_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2790,17 +2799,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.transaction_begin_message = function(buffer, offset, packet, parent)
   if show.transaction_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_begin_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.transaction_begin_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.transaction_begin_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.transaction_begin_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.transaction_begin_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.transaction_begin_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.transaction_begin_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2832,17 +2841,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_session = function(buffer, offset, packet, parent)
   if show.end_of_session then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_session, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_session_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.end_of_session, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_session_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.end_of_session(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_session_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.end_of_session_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3039,17 +3048,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_extended_message = function(buffer, offset, packet, parent)
   if show.trade_extended_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_extended_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_extended_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_extended_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_extended_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.trade_extended_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_extended_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_extended_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3181,17 +3190,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_flags = function(buffer, offset, packet, parent)
   if show.trade_flags then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_flags, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_flags_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_flags, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_flags_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.trade_flags(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_flags_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_flags_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3351,17 +3360,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_short_message = function(buffer, offset, packet, parent)
   if show.trade_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_short_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_short_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.trade_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3428,17 +3437,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_long_message = function(buffer, offset, packet, parent)
   if show.trade_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_long_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.trade_long_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.trade_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.trade_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3475,17 +3484,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.delete_order_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.delete_order_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.delete_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.delete_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.delete_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3532,17 +3541,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   if show.modify_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.modify_order_short_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.modify_order_short_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.modify_order_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3589,17 +3598,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   if show.modify_order_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.modify_order_long_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.modify_order_long_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.modify_order_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.modify_order_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3661,17 +3670,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   if show.reduce_size_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.reduce_size_short_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.reduce_size_short_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.reduce_size_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3733,17 +3742,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
   if show.reduce_size_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.reduce_size_long_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.reduce_size_long_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.reduce_size_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.reduce_size_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3845,17 +3854,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
   if show.order_executed_at_price_size_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.order_executed_at_price_size_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.order_executed_at_price_size_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.order_executed_at_price_size_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3907,17 +3916,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.order_executed_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.order_executed_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.order_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4014,17 +4023,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_short_message = function(buffer, offset, packet, parent)
   if show.add_order_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_short_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_short_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.add_order_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4101,17 +4110,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_long_message = function(buffer, offset, packet, parent)
   if show.add_order_long_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_long_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.add_order_long_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_long_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.add_order_long_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.add_order_long_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4143,17 +4152,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.unit_clear_message = function(buffer, offset, packet, parent)
   if show.unit_clear_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.unit_clear_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.unit_clear_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.unit_clear_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.unit_clear_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.unit_clear_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4205,17 +4214,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.time_message = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.time_message, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.time_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.time_message, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.time_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.time_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.time_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.time_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4682,17 +4691,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message_header, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message_header, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4719,16 +4728,23 @@ end
 
 -- Dissect: Message
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11_display.message(buffer, packet, parent)
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message, range, display)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message, buffer(offset, 0))
+    local current = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Sequence
@@ -4854,17 +4870,17 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.packet_header, buffer(offset, 0))
-    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.packet_header, buffer(offset, 0))
+    local index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cboe_europe_cedxmulticast_pitch_v1_11_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return cboe_europe_cedxmulticast_pitch_v1_11_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4884,8 +4900,8 @@ cboe_europe_cedxmulticast_pitch_v1_11_dissect.packet = function(buffer, packet, 
     -- Dependency element: Message Length
     local message_length = buffer(index, 1):le_uint()
 
-    -- Message: Struct of 2 fields
-    index = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message(buffer, index, packet, parent, message_length)
+    -- Runtime Size Of: Message
+    index, message = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   return index

@@ -307,6 +307,32 @@ cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book = ProtoField.
 cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp = ProtoField.new("Snapshot Full Refresh Tcp", "cme.futures.mdp3.sbe.v1.11.snapshotfullrefreshtcp", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders = ProtoField.new("Snapshot Refresh Top Orders", "cme.futures.mdp3.sbe.v1.11.snapshotrefreshtoporders", ftypes.STRING)
 
+-- Cme Futures Mdp3 Sbe 1.11 generated fields
+cme_futures_mdp3_sbe_v1_11.fields.channel_reset_group_index = ProtoField.new("Channel Reset Group Index", "cme.futures.mdp3.sbe.v1.11.channelresetgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.collateral_market_value_group_index = ProtoField.new("Collateral Market Value Group Index", "cme.futures.mdp3.sbe.v1.11.collateralmarketvaluegroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.events_group_index = ProtoField.new("Events Group Index", "cme.futures.mdp3.sbe.v1.11.eventsgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.inst_attrib_group_index = ProtoField.new("Inst Attrib Group Index", "cme.futures.mdp3.sbe.v1.11.instattribgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.lot_type_rules_group_index = ProtoField.new("Lot Type Rules Group Index", "cme.futures.mdp3.sbe.v1.11.lottyperulesgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_feed_types_group_index = ProtoField.new("M D Feed Types Group Index", "cme.futures.mdp3.sbe.v1.11.mdfeedtypesgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_group_index = ProtoField.new("M D Incremental Refresh Book Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshbookgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_order_group_index = ProtoField.new("M D Incremental Refresh Book Order Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshbookordergroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_daily_statistics_group_index = ProtoField.new("M D Incremental Refresh Daily Statistics Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshdailystatisticsgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_limits_banding_group_index = ProtoField.new("M D Incremental Refresh Limits Banding Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshlimitsbandinggroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_order_book_group_index = ProtoField.new("M D Incremental Refresh Order Book Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshorderbookgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_session_statistics_group_index = ProtoField.new("M D Incremental Refresh Session Statistics Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshsessionstatisticsgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_group_index = ProtoField.new("M D Incremental Refresh Trade Summary Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshtradesummarygroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_order_group_index = ProtoField.new("M D Incremental Refresh Trade Summary Order Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshtradesummaryordergroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_volume_group_index = ProtoField.new("M D Incremental Refresh Volume Group Index", "cme.futures.mdp3.sbe.v1.11.mdincrementalrefreshvolumegroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.m_d_instrument_definition_spread_leg_group_index = ProtoField.new("M D Instrument Definition Spread Leg Group Index", "cme.futures.mdp3.sbe.v1.11.mdinstrumentdefinitionspreadleggroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.related_instruments_group_index = ProtoField.new("Related Instruments Group Index", "cme.futures.mdp3.sbe.v1.11.relatedinstrumentsgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.related_sym_group_index = ProtoField.new("Related Sym Group Index", "cme.futures.mdp3.sbe.v1.11.relatedsymgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.security_status_workup_order_group_index = ProtoField.new("Security Status Workup Order Group Index", "cme.futures.mdp3.sbe.v1.11.securitystatusworkupordergroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_group_index = ProtoField.new("Snapshot Full Refresh Group Index", "cme.futures.mdp3.sbe.v1.11.snapshotfullrefreshgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_group_index = ProtoField.new("Snapshot Full Refresh Order Book Group Index", "cme.futures.mdp3.sbe.v1.11.snapshotfullrefreshorderbookgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp_group_index = ProtoField.new("Snapshot Full Refresh Tcp Group Index", "cme.futures.mdp3.sbe.v1.11.snapshotfullrefreshtcpgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders_group_index = ProtoField.new("Snapshot Refresh Top Orders Group Index", "cme.futures.mdp3.sbe.v1.11.snapshotrefreshtopordersgroupindex", ftypes.UINT16)
+cme_futures_mdp3_sbe_v1_11.fields.underlyings_group_index = ProtoField.new("Underlyings Group Index", "cme.futures.mdp3.sbe.v1.11.underlyingsgroupindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -1076,17 +1102,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group = function(buffer, offset, packet, parent)
   if show.collateral_market_value_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.collateral_market_value_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.collateral_market_value_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.collateral_market_value_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1163,17 +1189,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.group_size = function(buffer, offset, packet, parent)
   if show.group_size then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.group_size_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.group_size_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.group_size(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.group_size_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.group_size_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1205,9 +1231,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_groups_fields = funct
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Collateral Market Value Group: Struct of 7 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group(buffer, index, packet, parent)
+  -- Repeating: Collateral Market Value Group
+  for collateral_market_value_group_index = 1, num_in_group do
+    index, collateral_market_value_group = cme_futures_mdp3_sbe_v1_11_dissect.collateral_market_value_group(buffer, index, packet, parent)
+
+    if collateral_market_value_group ~= nil then
+      local iteration = collateral_market_value_group:add(cme_futures_mdp3_sbe_v1_11.fields.collateral_market_value_group_index, collateral_market_value_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1809,17 +1840,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group = function(buffer, offset, packet, parent)
   if show.snapshot_full_refresh_tcp_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_tcp_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1851,9 +1882,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_groups_fields = fun
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Snapshot Full Refresh Tcp Group: Struct of 9 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group(buffer, index, packet, parent)
+  -- Repeating: Snapshot Full Refresh Tcp Group
+  for snapshot_full_refresh_tcp_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_tcp_group = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_tcp_group(buffer, index, packet, parent)
+
+    if snapshot_full_refresh_tcp_group ~= nil then
+      local iteration = snapshot_full_refresh_tcp_group:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp_group_index, snapshot_full_refresh_tcp_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2182,17 +2218,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group = function(buffer, offset, packet, parent)
   if show.security_status_workup_order_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status_workup_order_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status_workup_order_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.security_status_workup_order_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2224,9 +2260,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_groups_fields = 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Security Status Workup Order Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group(buffer, index, packet, parent)
+  -- Repeating: Security Status Workup Order Group
+  for security_status_workup_order_group_index = 1, num_in_group do
+    index, security_status_workup_order_group = cme_futures_mdp3_sbe_v1_11_dissect.security_status_workup_order_group(buffer, index, packet, parent)
+
+    if security_status_workup_order_group ~= nil then
+      local iteration = security_status_workup_order_group:add(cme_futures_mdp3_sbe_v1_11.fields.security_status_workup_order_group_index, security_status_workup_order_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2649,17 +2690,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group = function(buffer, offset, packet, parent)
   if show.snapshot_refresh_top_orders_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_refresh_top_orders_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2691,9 +2732,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_groups_fields = f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Snapshot Refresh Top Orders Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group(buffer, index, packet, parent)
+  -- Repeating: Snapshot Refresh Top Orders Group
+  for snapshot_refresh_top_orders_group_index = 1, num_in_group do
+    index, snapshot_refresh_top_orders_group = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_refresh_top_orders_group(buffer, index, packet, parent)
+
+    if snapshot_refresh_top_orders_group ~= nil then
+      local iteration = snapshot_refresh_top_orders_group:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders_group_index, snapshot_refresh_top_orders_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2853,17 +2899,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group = function(buffer, offset, packet, parent)
   if show.related_instruments_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_instruments_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_instruments_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.related_instruments_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2895,9 +2941,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_groups_fields = function(
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Related Instruments Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group(buffer, index, packet, parent)
+  -- Repeating: Related Instruments Group
+  for related_instruments_group_index = 1, num_in_group do
+    index, related_instruments_group = cme_futures_mdp3_sbe_v1_11_dissect.related_instruments_group(buffer, index, packet, parent)
+
+    if related_instruments_group ~= nil then
+      local iteration = related_instruments_group:add(cme_futures_mdp3_sbe_v1_11.fields.related_instruments_group_index, related_instruments_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3005,17 +3056,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group = function(buffer, offset, packet, parent)
   if show.underlyings_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.underlyings_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.underlyings_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.underlyings_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3047,9 +3098,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.underlyings_groups_fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Underlyings Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group(buffer, index, packet, parent)
+  -- Repeating: Underlyings Group
+  for underlyings_group_index = 1, num_in_group do
+    index, underlyings_group = cme_futures_mdp3_sbe_v1_11_dissect.underlyings_group(buffer, index, packet, parent)
+
+    if underlyings_group ~= nil then
+      local iteration = underlyings_group:add(cme_futures_mdp3_sbe_v1_11.fields.underlyings_group_index, underlyings_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3157,17 +3213,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group = function(buffer, offset, packet, parent)
   if show.lot_type_rules_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.lot_type_rules_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.lot_type_rules_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.lot_type_rules_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3199,9 +3255,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_groups_fields = function(buffe
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Lot Type Rules Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group(buffer, index, packet, parent)
+  -- Repeating: Lot Type Rules Group
+  for lot_type_rules_group_index = 1, num_in_group do
+    index, lot_type_rules_group = cme_futures_mdp3_sbe_v1_11_dissect.lot_type_rules_group(buffer, index, packet, parent)
+
+    if lot_type_rules_group ~= nil then
+      local iteration = lot_type_rules_group:add(cme_futures_mdp3_sbe_v1_11.fields.lot_type_rules_group_index, lot_type_rules_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3448,17 +3509,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group = function(buffer, offset, packet, parent)
   if show.inst_attrib_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.inst_attrib_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.inst_attrib_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.inst_attrib_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3490,9 +3551,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_groups_fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Inst Attrib Group: Struct of 1 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group(buffer, index, packet, parent)
+  -- Repeating: Inst Attrib Group
+  for inst_attrib_group_index = 1, num_in_group do
+    index, inst_attrib_group = cme_futures_mdp3_sbe_v1_11_dissect.inst_attrib_group(buffer, index, packet, parent)
+
+    if inst_attrib_group ~= nil then
+      local iteration = inst_attrib_group:add(cme_futures_mdp3_sbe_v1_11.fields.inst_attrib_group_index, inst_attrib_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3600,17 +3666,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group = function(buffer, offset, packet, parent)
   if show.m_d_feed_types_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_feed_types_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_feed_types_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_feed_types_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3642,9 +3708,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_groups_fields = function(buffe
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Feed Types Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group(buffer, index, packet, parent)
+  -- Repeating: M D Feed Types Group
+  for m_d_feed_types_group_index = 1, num_in_group do
+    index, m_d_feed_types_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_feed_types_group(buffer, index, packet, parent)
+
+    if m_d_feed_types_group ~= nil then
+      local iteration = m_d_feed_types_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_feed_types_group_index, m_d_feed_types_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3743,17 +3814,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.events_group = function(buffer, offset, packet, parent)
   if show.events_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.events_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.events_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.events_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.events_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.events_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.events_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.events_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3785,9 +3856,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.events_groups_fields = function(buffer, offse
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Events Group: Struct of 2 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.events_group(buffer, index, packet, parent)
+  -- Repeating: Events Group
+  for events_group_index = 1, num_in_group do
+    index, events_group = cme_futures_mdp3_sbe_v1_11_dissect.events_group(buffer, index, packet, parent)
+
+    if events_group ~= nil then
+      local iteration = events_group:add(cme_futures_mdp3_sbe_v1_11.fields.events_group_index, events_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6283,17 +6359,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group = function(buffer, offset, packet, parent)
   if show.m_d_instrument_definition_spread_leg_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_instrument_definition_spread_leg_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_instrument_definition_spread_leg_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_instrument_definition_spread_leg_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6325,9 +6401,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_groups_f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Instrument Definition Spread Leg Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group(buffer, index, packet, parent)
+  -- Repeating: M D Instrument Definition Spread Leg Group
+  for m_d_instrument_definition_spread_leg_group_index = 1, num_in_group do
+    index, m_d_instrument_definition_spread_leg_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_instrument_definition_spread_leg_group(buffer, index, packet, parent)
+
+    if m_d_instrument_definition_spread_leg_group ~= nil then
+      local iteration = m_d_instrument_definition_spread_leg_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_instrument_definition_spread_leg_group_index, m_d_instrument_definition_spread_leg_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6636,17 +6717,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year = function(buffer, offset, packet, parent)
   if show.maturity_month_year then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.maturity_month_year, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.maturity_month_year, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.maturity_month_year(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.maturity_month_year_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7859,17 +7940,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group = function(buffer, offset, packet, parent)
   if show.snapshot_full_refresh_order_book_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_order_book_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7901,9 +7982,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_groups_field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Snapshot Full Refresh Order Book Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group(buffer, index, packet, parent)
+  -- Repeating: Snapshot Full Refresh Order Book Group
+  for snapshot_full_refresh_order_book_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_order_book_group = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_order_book_group(buffer, index, packet, parent)
+
+    if snapshot_full_refresh_order_book_group ~= nil then
+      local iteration = snapshot_full_refresh_order_book_group:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_group_index, snapshot_full_refresh_order_book_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8132,17 +8218,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group = function(buffer, offset, packet, parent)
   if show.snapshot_full_refresh_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.snapshot_full_refresh_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8174,9 +8260,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_groups_fields = functio
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Snapshot Full Refresh Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group(buffer, index, packet, parent)
+  -- Repeating: Snapshot Full Refresh Group
+  for snapshot_full_refresh_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_group = cme_futures_mdp3_sbe_v1_11_dissect.snapshot_full_refresh_group(buffer, index, packet, parent)
+
+    if snapshot_full_refresh_group ~= nil then
+      local iteration = snapshot_full_refresh_group:add(cme_futures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_group_index, snapshot_full_refresh_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8481,17 +8572,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_session_statistics_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_session_statistics_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_session_statistics_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_session_statistics_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8523,9 +8614,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_gr
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Session Statistics Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Session Statistics Group
+  for m_d_incremental_refresh_session_statistics_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_session_statistics_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_session_statistics_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_session_statistics_group ~= nil then
+      local iteration = m_d_incremental_refresh_session_statistics_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_session_statistics_group_index, m_d_incremental_refresh_session_statistics_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8644,17 +8740,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_limits_banding_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_limits_banding_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_limits_banding_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_limits_banding_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8686,9 +8782,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_groups
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Limits Banding Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Limits Banding Group
+  for m_d_incremental_refresh_limits_banding_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_limits_banding_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_limits_banding_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_limits_banding_group ~= nil then
+      local iteration = m_d_incremental_refresh_limits_banding_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_limits_banding_group_index, m_d_incremental_refresh_limits_banding_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -8893,17 +8994,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_daily_statistics_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_daily_statistics_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_daily_statistics_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_daily_statistics_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8935,9 +9036,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Daily Statistics Group: Struct of 9 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Daily Statistics Group
+  for m_d_incremental_refresh_daily_statistics_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_daily_statistics_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_daily_statistics_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_daily_statistics_group ~= nil then
+      local iteration = m_d_incremental_refresh_daily_statistics_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_daily_statistics_group_index, m_d_incremental_refresh_daily_statistics_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9086,17 +9192,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_trade_summary_order_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_order_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_order_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_order_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9158,17 +9264,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte = function(buffer, offset, packet, parent)
   if show.group_size_8_byte then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size_8_byte, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.group_size_8_byte, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.group_size_8_byte(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.group_size_8_byte_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9200,9 +9306,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_g
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Trade Summary Order Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Trade Summary Order Group
+  for m_d_incremental_refresh_trade_summary_order_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_trade_summary_order_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_order_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_trade_summary_order_group ~= nil then
+      local iteration = m_d_incremental_refresh_trade_summary_order_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_order_group_index, m_d_incremental_refresh_trade_summary_order_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9387,17 +9498,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_trade_summary_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_trade_summary_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9429,9 +9540,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_groups_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Trade Summary Group: Struct of 9 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Trade Summary Group
+  for m_d_incremental_refresh_trade_summary_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_trade_summary_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_trade_summary_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_trade_summary_group ~= nil then
+      local iteration = m_d_incremental_refresh_trade_summary_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_trade_summary_group_index, m_d_incremental_refresh_trade_summary_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9640,17 +9756,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_order_book_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_order_book_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_order_book_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_order_book_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9682,9 +9798,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_groups_fie
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Order Book Group: Struct of 8 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Order Book Group
+  for m_d_incremental_refresh_order_book_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_order_book_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_order_book_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_order_book_group ~= nil then
+      local iteration = m_d_incremental_refresh_order_book_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_order_book_group_index, m_d_incremental_refresh_order_book_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -9863,17 +9984,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_book_order_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_order_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_order_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_order_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9905,9 +10026,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_groups_fie
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Book Order Group: Struct of 6 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Book Order Group
+  for m_d_incremental_refresh_book_order_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_book_order_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_order_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_book_order_group ~= nil then
+      local iteration = m_d_incremental_refresh_book_order_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_order_group_index, m_d_incremental_refresh_book_order_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -10019,17 +10145,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_book_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_book_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10061,9 +10187,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_groups_fields = 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Book Group: Struct of 10 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Book Group
+  for m_d_incremental_refresh_book_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_book_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_book_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_book_group ~= nil then
+      local iteration = m_d_incremental_refresh_book_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_book_group_index, m_d_incremental_refresh_book_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -10262,17 +10393,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group = function(buffer, offset, packet, parent)
   if show.related_sym_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_sym_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.related_sym_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.related_sym_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10304,9 +10435,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.related_sym_groups_fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Related Sym Group: Struct of 6 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group(buffer, index, packet, parent)
+  -- Repeating: Related Sym Group
+  for related_sym_group_index = 1, num_in_group do
+    index, related_sym_group = cme_futures_mdp3_sbe_v1_11_dissect.related_sym_group(buffer, index, packet, parent)
+
+    if related_sym_group ~= nil then
+      local iteration = related_sym_group:add(cme_futures_mdp3_sbe_v1_11.fields.related_sym_group_index, related_sym_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -10486,17 +10622,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group = function(buffer, offset, packet, parent)
   if show.m_d_incremental_refresh_volume_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_volume_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_volume_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.m_d_incremental_refresh_volume_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10528,9 +10664,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_groups_fields 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- M D Incremental Refresh Volume Group: Struct of 5 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group(buffer, index, packet, parent)
+  -- Repeating: M D Incremental Refresh Volume Group
+  for m_d_incremental_refresh_volume_group_index = 1, num_in_group do
+    index, m_d_incremental_refresh_volume_group = cme_futures_mdp3_sbe_v1_11_dissect.m_d_incremental_refresh_volume_group(buffer, index, packet, parent)
+
+    if m_d_incremental_refresh_volume_group ~= nil then
+      local iteration = m_d_incremental_refresh_volume_group:add(cme_futures_mdp3_sbe_v1_11.fields.m_d_incremental_refresh_volume_group_index, m_d_incremental_refresh_volume_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -10757,17 +10898,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.security_status = function(buffer, offset, packet, parent)
   if show.security_status then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.security_status_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_status, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.security_status_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.security_status(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.security_status_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.security_status_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10835,17 +10976,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.admin_logout = function(buffer, offset, packet, parent)
   if show.admin_logout then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_logout, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.admin_logout_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_logout, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.admin_logout_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.admin_logout(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.admin_logout_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.admin_logout_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10897,17 +11038,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.admin_login = function(buffer, offset, packet, parent)
   if show.admin_login then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_login, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.admin_login_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.admin_login, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.admin_login_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.admin_login(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.admin_login_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.admin_login_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10939,17 +11080,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group = function(buffer, offset, packet, parent)
   if show.channel_reset_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.channel_reset_group, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.channel_reset_group, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.channel_reset_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10981,9 +11122,14 @@ cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_groups_fields = function(buffer
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Channel Reset Group: Struct of 1 fields
-  for i = 1, num_in_group do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group(buffer, index, packet, parent)
+  -- Repeating: Channel Reset Group
+  for channel_reset_group_index = 1, num_in_group do
+    index, channel_reset_group = cme_futures_mdp3_sbe_v1_11_dissect.channel_reset_group(buffer, index, packet, parent)
+
+    if channel_reset_group ~= nil then
+      local iteration = channel_reset_group:add(cme_futures_mdp3_sbe_v1_11.fields.channel_reset_group_index, channel_reset_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -11453,17 +11599,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.message_header, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.message_header, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11613,17 +11759,17 @@ end
 cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header = function(buffer, offset, packet, parent)
   if show.binary_packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(cme_futures_mdp3_sbe_v1_11.fields.binary_packet_header, buffer(offset, 0))
-    local index = cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(cme_futures_mdp3_sbe_v1_11.fields.binary_packet_header, buffer(offset, 0))
+    local index = cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = cme_futures_mdp3_sbe_v1_11_display.binary_packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    return cme_futures_mdp3_sbe_v1_11_dissect.binary_packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -11639,7 +11785,7 @@ cme_futures_mdp3_sbe_v1_11_dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index = cme_futures_mdp3_sbe_v1_11_dissect.message(buffer, index, packet, parent)
+    index, message = cme_futures_mdp3_sbe_v1_11_dissect.message(buffer, index, packet, parent)
   end
 
   return index

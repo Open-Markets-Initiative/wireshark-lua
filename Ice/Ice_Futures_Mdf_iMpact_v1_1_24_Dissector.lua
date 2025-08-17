@@ -249,6 +249,13 @@ ice_futures_mdf_impact_v1_1_24.fields.strip_info_message = ProtoField.new("Strip
 ice_futures_mdf_impact_v1_1_24.fields.system_text_message = ProtoField.new("System Text Message", "ice.futures.mdf.impact.v1.1.24.systemtextmessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_24.fields.trade_message = ProtoField.new("Trade Message", "ice.futures.mdf.impact.v1.1.24.trademessage", ftypes.STRING)
 
+-- Ice Futures Mdf iMpact 1.1.24 generated fields
+ice_futures_mdf_impact_v1_1_24.fields.hedge_definition_index = ProtoField.new("Hedge Definition Index", "ice.futures.mdf.impact.v1.1.24.hedgedefinitionindex", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_24.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "ice.futures.mdf.impact.v1.1.24.legdefinitionindex", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_24.fields.message_index = ProtoField.new("Message Index", "ice.futures.mdf.impact.v1.1.24.messageindex", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_24.fields.special_field_index = ProtoField.new("Special Field Index", "ice.futures.mdf.impact.v1.1.24.specialfieldindex", ftypes.UINT16)
+ice_futures_mdf_impact_v1_1_24.fields.strategy_leg_definition_index = ProtoField.new("Strategy Leg Definition Index", "ice.futures.mdf.impact.v1.1.24.strategylegdefinitionindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -1061,17 +1068,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.old_style_options_trade_and_market_stats_message = function(buffer, offset, packet, parent)
   if show.old_style_options_trade_and_market_stats_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.old_style_options_trade_and_market_stats_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.old_style_options_trade_and_market_stats_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.old_style_options_trade_and_market_stats_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.old_style_options_trade_and_market_stats_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1326,17 +1333,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.option_settlement_price_message = function(buffer, offset, packet, parent)
   if show.option_settlement_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.option_settlement_price_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.option_settlement_price_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.option_settlement_price_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.option_settlement_price_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.option_settlement_price_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.option_settlement_price_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.option_settlement_price_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1439,17 +1446,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.option_open_interest_message = function(buffer, offset, packet, parent)
   if show.option_open_interest_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.option_open_interest_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.option_open_interest_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.option_open_interest_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.option_open_interest_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.option_open_interest_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.option_open_interest_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.option_open_interest_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2039,17 +2046,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.rfq_message = function(buffer, offset, packet, parent)
   if show.rfq_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.rfq_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.rfq_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.rfq_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.rfq_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.rfq_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.rfq_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.rfq_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3141,17 +3148,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.new_options_market_definition_message = function(buffer, offset, packet, parent)
   if show.new_options_market_definition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.new_options_market_definition_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.new_options_market_definition_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.new_options_market_definition_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.new_options_market_definition_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.new_options_market_definition_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.new_options_market_definition_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.new_options_market_definition_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3760,17 +3767,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition = function(buffer, offset, packet, parent)
   if show.hedge_definition then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.hedge_definition, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.hedge_definition, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.hedge_definition(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3952,17 +3959,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition = function(buffer, offset, packet, parent)
   if show.strategy_leg_definition then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.strategy_leg_definition, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.strategy_leg_definition, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.strategy_leg_definition(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4121,17 +4128,27 @@ ice_futures_mdf_impact_v1_1_24_dissect.new_options_strategy_definition_message_f
   -- Number Of Strategy Leg Definitions: Numeric
   index, number_of_strategy_leg_definitions = ice_futures_mdf_impact_v1_1_24_dissect.number_of_strategy_leg_definitions(buffer, index, packet, parent)
 
-  -- Strategy Leg Definition: Struct of 5 fields
-  for i = 1, number_of_strategy_leg_definitions do
-    index = ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition(buffer, index, packet, parent)
+  -- Repeating: Strategy Leg Definition
+  for strategy_leg_definition_index = 1, number_of_strategy_leg_definitions do
+    index, strategy_leg_definition = ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition(buffer, index, packet, parent)
+
+    if strategy_leg_definition ~= nil then
+      local iteration = strategy_leg_definition:add(ice_futures_mdf_impact_v1_1_24.fields.strategy_leg_definition_index, strategy_leg_definition_index)
+      iteration:set_generated()
+    end
   end
 
   -- Number Of Hedge Definitions: Numeric
   index, number_of_hedge_definitions = ice_futures_mdf_impact_v1_1_24_dissect.number_of_hedge_definitions(buffer, index, packet, parent)
 
-  -- Hedge Definition: Struct of 7 fields
-  for i = 1, number_of_hedge_definitions do
-    index = ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition(buffer, index, packet, parent)
+  -- Repeating: Hedge Definition
+  for hedge_definition_index = 1, number_of_hedge_definitions do
+    index, hedge_definition = ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition(buffer, index, packet, parent)
+
+    if hedge_definition ~= nil then
+      local iteration = hedge_definition:add(ice_futures_mdf_impact_v1_1_24.fields.hedge_definition_index, hedge_definition_index)
+      iteration:set_generated()
+    end
   end
 
   -- Security Sub Type: Numeric
@@ -4220,17 +4237,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.delete_price_level_message = function(buffer, offset, packet, parent)
   if show.delete_price_level_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.delete_price_level_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.delete_price_level_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.delete_price_level_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.delete_price_level_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.delete_price_level_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.delete_price_level_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.delete_price_level_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4357,17 +4374,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.change_price_level_message = function(buffer, offset, packet, parent)
   if show.change_price_level_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.change_price_level_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.change_price_level_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.change_price_level_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.change_price_level_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.change_price_level_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.change_price_level_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.change_price_level_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4434,17 +4451,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.add_price_level_message = function(buffer, offset, packet, parent)
   if show.add_price_level_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.add_price_level_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.add_price_level_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.add_price_level_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.add_price_level_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.add_price_level_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.add_price_level_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.add_price_level_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4511,17 +4528,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_price_level_message = function(buffer, offset, packet, parent)
   if show.market_snapshot_price_level_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_snapshot_price_level_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_snapshot_price_level_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.market_snapshot_price_level_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_price_level_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4880,17 +4897,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.fixing_lockdown_message = function(buffer, offset, packet, parent)
   if show.fixing_lockdown_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.fixing_lockdown_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.fixing_lockdown_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.fixing_lockdown_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.fixing_lockdown_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.fixing_lockdown_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.fixing_lockdown_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.fixing_lockdown_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5029,17 +5046,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.fixing_transition_message = function(buffer, offset, packet, parent)
   if show.fixing_transition_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.fixing_transition_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.fixing_transition_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.fixing_transition_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.fixing_transition_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.fixing_transition_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.fixing_transition_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.fixing_transition_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5111,17 +5128,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.message_bundle_marker = function(buffer, offset, packet, parent)
   if show.message_bundle_marker then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.message_bundle_marker, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.message_bundle_marker, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.message_bundle_marker_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.message_bundle_marker(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.message_bundle_marker_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.message_bundle_marker_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5178,17 +5195,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.delete_order_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.delete_order_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.delete_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.delete_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.delete_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5420,17 +5437,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.add_or_modify_order_message = function(buffer, offset, packet, parent)
   if show.add_or_modify_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.add_or_modify_order_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.add_or_modify_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.add_or_modify_order_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.add_or_modify_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.add_or_modify_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.add_or_modify_order_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.add_or_modify_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5507,17 +5524,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_order_message = function(buffer, offset, packet, parent)
   if show.market_snapshot_order_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_snapshot_order_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_snapshot_order_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_order_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.market_snapshot_order_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_order_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_order_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5606,8 +5623,8 @@ ice_futures_mdf_impact_v1_1_24_dissect.special_field_fields = function(buffer, o
   -- Special Field Length: 2 Byte Unsigned Fixed Width Integer
   index, special_field_length = ice_futures_mdf_impact_v1_1_24_dissect.special_field_length(buffer, index, packet, parent)
 
-  -- Special Field Value: 0 Byte
-  index = ice_futures_mdf_impact_v1_1_24_dissect.special_field_value(buffer, index, packet, parent, special_field_length)
+  -- Runtime Size Of: Special Field Value
+  index, special_field_value = ice_futures_mdf_impact_v1_1_24_dissect.special_field_value(buffer, index, packet, parent, special_field_length)
 
   return index
 end
@@ -5671,9 +5688,14 @@ ice_futures_mdf_impact_v1_1_24_dissect.special_field_message_fields = function(b
   -- Number Of Special Fields: Numeric
   index, number_of_special_fields = ice_futures_mdf_impact_v1_1_24_dissect.number_of_special_fields(buffer, index, packet, parent)
 
-  -- Special Field: Struct of 3 fields
-  for i = 1, number_of_special_fields do
-    index = ice_futures_mdf_impact_v1_1_24_dissect.special_field(buffer, index, packet, parent)
+  -- Repeating: Special Field
+  for special_field_index = 1, number_of_special_fields do
+    index, special_field = ice_futures_mdf_impact_v1_1_24_dissect.special_field(buffer, index, packet, parent)
+
+    if special_field ~= nil then
+      local iteration = special_field:add(ice_futures_mdf_impact_v1_1_24.fields.special_field_index, special_field_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -6427,17 +6449,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.new_expiry_message = function(buffer, offset, packet, parent)
   if show.new_expiry_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.new_expiry_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.new_expiry_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.new_expiry_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.new_expiry_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.new_expiry_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.new_expiry_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.new_expiry_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6484,17 +6506,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.leg_definition = function(buffer, offset, packet, parent)
   if show.leg_definition then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.leg_definition, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.leg_definition_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.leg_definition, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.leg_definition_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.leg_definition(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.leg_definition_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.leg_definition_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6586,9 +6608,14 @@ ice_futures_mdf_impact_v1_1_24_dissect.new_futures_strategy_definition_message_f
   -- Number Of Leg Definitions: Numeric
   index, number_of_leg_definitions = ice_futures_mdf_impact_v1_1_24_dissect.number_of_leg_definitions(buffer, index, packet, parent)
 
-  -- Leg Definition: Struct of 4 fields
-  for i = 1, number_of_leg_definitions do
-    index = ice_futures_mdf_impact_v1_1_24_dissect.leg_definition(buffer, index, packet, parent)
+  -- Repeating: Leg Definition
+  for leg_definition_index = 1, number_of_leg_definitions do
+    index, leg_definition = ice_futures_mdf_impact_v1_1_24_dissect.leg_definition(buffer, index, packet, parent)
+
+    if leg_definition ~= nil then
+      local iteration = leg_definition:add(ice_futures_mdf_impact_v1_1_24.fields.leg_definition_index, leg_definition_index)
+      iteration:set_generated()
+    end
   end
 
   -- Security Sub Type: Numeric
@@ -6847,17 +6874,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.interval_price_limit_notification_message = function(buffer, offset, packet, parent)
   if show.interval_price_limit_notification_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.interval_price_limit_notification_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.interval_price_limit_notification_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.interval_price_limit_notification_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.interval_price_limit_notification_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7146,17 +7173,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.strip_info_message = function(buffer, offset, packet, parent)
   if show.strip_info_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.strip_info_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.strip_info_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.strip_info_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.strip_info_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.strip_info_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.strip_info_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.strip_info_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7281,17 +7308,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.pre_open_price_indicator_message = function(buffer, offset, packet, parent)
   if show.pre_open_price_indicator_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.pre_open_price_indicator_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.pre_open_price_indicator_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.pre_open_price_indicator_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.pre_open_price_indicator_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7366,17 +7393,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.market_event_message = function(buffer, offset, packet, parent)
   if show.market_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_event_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_event_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_event_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_event_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.market_event_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.market_event_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.market_event_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7508,17 +7535,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.end_of_day_market_summary_message = function(buffer, offset, packet, parent)
   if show.end_of_day_market_summary_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.end_of_day_market_summary_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.end_of_day_market_summary_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.end_of_day_market_summary_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.end_of_day_market_summary_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7671,17 +7698,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.marker_index_prices = function(buffer, offset, packet, parent)
   if show.marker_index_prices then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.marker_index_prices, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.marker_index_prices_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.marker_index_prices, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.marker_index_prices_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.marker_index_prices(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.marker_index_prices_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.marker_index_prices_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7738,17 +7765,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.settlement_price_message = function(buffer, offset, packet, parent)
   if show.settlement_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.settlement_price_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.settlement_price_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.settlement_price_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.settlement_price_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.settlement_price_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.settlement_price_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.settlement_price_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7810,17 +7837,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.close_price_message = function(buffer, offset, packet, parent)
   if show.close_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.close_price_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.close_price_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.close_price_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.close_price_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.close_price_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.close_price_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.close_price_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7882,17 +7909,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.open_price_message = function(buffer, offset, packet, parent)
   if show.open_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.open_price_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.open_price_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.open_price_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.open_price_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.open_price_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.open_price_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.open_price_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -7964,17 +7991,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.open_interest_message = function(buffer, offset, packet, parent)
   if show.open_interest_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.open_interest_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.open_interest_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.open_interest_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.open_interest_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.open_interest_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.open_interest_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.open_interest_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8088,17 +8115,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.system_text_message = function(buffer, offset, packet, parent)
   if show.system_text_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.system_text_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.system_text_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.system_text_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.system_text_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.system_text_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.system_text_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.system_text_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8140,17 +8167,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.market_state_change_message = function(buffer, offset, packet, parent)
   if show.market_state_change_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_state_change_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_state_change_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_state_change_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_state_change_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.market_state_change_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.market_state_change_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.market_state_change_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8222,17 +8249,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.market_statistics_message = function(buffer, offset, packet, parent)
   if show.market_statistics_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_statistics_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_statistics_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_statistics_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_statistics_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.market_statistics_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.market_statistics_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.market_statistics_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8356,17 +8383,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.cancelled_trade_message = function(buffer, offset, packet, parent)
   if show.cancelled_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.cancelled_trade_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.cancelled_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.cancelled_trade_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.cancelled_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.cancelled_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.cancelled_trade_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.cancelled_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8433,17 +8460,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.investigated_trade_message = function(buffer, offset, packet, parent)
   if show.investigated_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.investigated_trade_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.investigated_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.investigated_trade_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.investigated_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.investigated_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.investigated_trade_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.investigated_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8603,17 +8630,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.spot_market_trade_message = function(buffer, offset, packet, parent)
   if show.spot_market_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.spot_market_trade_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.spot_market_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.spot_market_trade_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.spot_market_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.spot_market_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.spot_market_trade_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.spot_market_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -8859,17 +8886,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.trade_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.trade_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9289,17 +9316,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_message = function(buffer, offset, packet, parent)
   if show.market_snapshot_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_snapshot_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.market_snapshot_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.market_snapshot_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_message_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.market_snapshot_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -9821,17 +9848,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.message_header, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.message_header, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.message_header_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10010,17 +10037,17 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(ice_futures_mdf_impact_v1_1_24.fields.packet_header, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_24_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(ice_futures_mdf_impact_v1_1_24.fields.packet_header, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_24_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = ice_futures_mdf_impact_v1_1_24_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_24_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return ice_futures_mdf_impact_v1_1_24_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -10034,9 +10061,14 @@ ice_futures_mdf_impact_v1_1_24_dissect.packet = function(buffer, packet, parent)
   -- Dependency element: Number Of Msgs
   local number_of_msgs = buffer(index - 10, 2):uint()
 
-  -- Message: Struct of 2 fields
-  for i = 1, number_of_msgs do
-    index = ice_futures_mdf_impact_v1_1_24_dissect.message(buffer, index, packet, parent)
+  -- Repeating: Message
+  for message_index = 1, number_of_msgs do
+    index, message = ice_futures_mdf_impact_v1_1_24_dissect.message(buffer, index, packet, parent)
+
+    if message ~= nil then
+      local iteration = message:add(ice_futures_mdf_impact_v1_1_24.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

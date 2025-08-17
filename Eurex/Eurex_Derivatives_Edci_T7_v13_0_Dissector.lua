@@ -132,6 +132,12 @@ eurex_derivatives_edci_t7_v13_0.fields.reject = ProtoField.new("Reject", "eurex.
 eurex_derivatives_edci_t7_v13_0.fields.session_list_notification = ProtoField.new("Session List Notification", "eurex.derivatives.edci.t7.v13.0.sessionlistnotification", ftypes.STRING)
 eurex_derivatives_edci_t7_v13_0.fields.session_status_broadcast = ProtoField.new("Session Status Broadcast", "eurex.derivatives.edci.t7.v13.0.sessionstatusbroadcast", ftypes.STRING)
 
+-- Eurex Derivatives Edci T7 13.0 generated fields
+eurex_derivatives_edci_t7_v13_0.fields.affected_ord_grp_comp_index = ProtoField.new("Affected Ord Grp Comp Index", "eurex.derivatives.edci.t7.v13.0.affectedordgrpcompindex", ftypes.UINT16)
+eurex_derivatives_edci_t7_v13_0.fields.fills_grp_comp_index = ProtoField.new("Fills Grp Comp Index", "eurex.derivatives.edci.t7.v13.0.fillsgrpcompindex", ftypes.UINT16)
+eurex_derivatives_edci_t7_v13_0.fields.partition_grp_comp_index = ProtoField.new("Partition Grp Comp Index", "eurex.derivatives.edci.t7.v13.0.partitiongrpcompindex", ftypes.UINT16)
+eurex_derivatives_edci_t7_v13_0.fields.sessions_grp_comp_index = ProtoField.new("Sessions Grp Comp Index", "eurex.derivatives.edci.t7.v13.0.sessionsgrpcompindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -617,17 +623,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp = function(buffer, offset, packet, parent)
   if show.rbc_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.rbc_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.rbc_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.rbc_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -857,17 +863,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp = function(buffer, offset, packet, parent)
   if show.sessions_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.sessions_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.sessions_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.sessions_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -924,17 +930,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp = function(buffer, offset, packet, parent)
   if show.notif_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.notif_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.notif_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.notif_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -969,9 +975,14 @@ eurex_derivatives_edci_t7_v13_0_dissect.session_list_notification_fields = funct
   -- Pad 6: 6 Byte
   index, pad_6 = eurex_derivatives_edci_t7_v13_0_dissect.pad_6(buffer, index, packet, parent)
 
-  -- Sessions Grp Comp: Struct of 4 fields
-  for i = 1, no_sessions do
-    index = eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Sessions Grp Comp
+  for sessions_grp_comp_index = 1, no_sessions do
+    index, sessions_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp(buffer, index, packet, parent)
+
+    if sessions_grp_comp ~= nil then
+      local iteration = sessions_grp_comp:add(eurex_derivatives_edci_t7_v13_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1271,17 +1282,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp = function(buffer, offset, packet, parent)
   if show.response_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.response_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.response_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.response_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1319,8 +1330,8 @@ eurex_derivatives_edci_t7_v13_0_dissect.reject_fields = function(buffer, offset,
   -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, session_status = eurex_derivatives_edci_t7_v13_0_dissect.session_status(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_derivatives_edci_t7_v13_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_derivatives_edci_t7_v13_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -1335,7 +1346,7 @@ eurex_derivatives_edci_t7_v13_0_dissect.reject_fields = function(buffer, offset,
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_derivatives_edci_t7_v13_0_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_derivatives_edci_t7_v13_0_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -1391,17 +1402,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp = function(buffer, offset, packet, parent)
   if show.partition_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.partition_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.partition_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.partition_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1461,9 +1472,14 @@ eurex_derivatives_edci_t7_v13_0_dissect.partition_list_notification_fields = fun
   -- Pad 7: 7 Byte
   index, pad_7 = eurex_derivatives_edci_t7_v13_0_dissect.pad_7(buffer, index, packet, parent)
 
-  -- Partition Grp Comp: Struct of 2 fields
-  for i = 1, no_partitions do
-    index = eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Partition Grp Comp
+  for partition_grp_comp_index = 1, no_partitions do
+    index, partition_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp(buffer, index, packet, parent)
+
+    if partition_grp_comp ~= nil then
+      local iteration = partition_grp_comp:add(eurex_derivatives_edci_t7_v13_0.fields.partition_grp_comp_index, partition_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -1651,17 +1667,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp = function(buffer, offset, packet, parent)
   if show.fills_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.fills_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.fills_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.fills_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3078,9 +3094,14 @@ eurex_derivatives_edci_t7_v13_0_dissect.order_exec_report_broadcast_fields = fun
   -- Pad 7: 7 Byte
   index, pad_7 = eurex_derivatives_edci_t7_v13_0_dissect.pad_7(buffer, index, packet, parent)
 
-  -- Fills Grp Comp: Struct of 4 fields
-  for i = 1, no_fills do
-    index = eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Fills Grp Comp
+  for fills_grp_comp_index = 1, no_fills do
+    index, fills_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp(buffer, index, packet, parent)
+
+    if fills_grp_comp ~= nil then
+      local iteration = fills_grp_comp:add(eurex_derivatives_edci_t7_v13_0.fields.fills_grp_comp_index, fills_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -3201,17 +3222,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp = function(buffer, offset, packet, parent)
   if show.request_header_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.request_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.request_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.request_header_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3716,8 +3737,8 @@ eurex_derivatives_edci_t7_v13_0_dissect.forced_logout_notification_fields = func
   -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, var_text_len = eurex_derivatives_edci_t7_v13_0_dissect.var_text_len(buffer, index, packet, parent)
 
-  -- Var Text: 2000 Byte Ascii String Nullable
-  index = eurex_derivatives_edci_t7_v13_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_derivatives_edci_t7_v13_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -3732,7 +3753,7 @@ eurex_derivatives_edci_t7_v13_0_dissect.forced_logout_notification_fields = func
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index = eurex_derivatives_edci_t7_v13_0_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_derivatives_edci_t7_v13_0_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -3958,17 +3979,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp = function(buffer, offset, packet, parent)
   if show.affected_ord_grp_comp then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.affected_ord_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.affected_ord_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.affected_ord_grp_comp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4034,9 +4055,14 @@ eurex_derivatives_edci_t7_v13_0_dissect.delete_order_broadcast_fields = function
   -- Pad 2: 2 Byte
   index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
 
-  -- Affected Ord Grp Comp: Struct of 11 fields
-  for i = 1, no_affected_orders do
-    index = eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+  -- Repeating: Affected Ord Grp Comp
+  for affected_ord_grp_comp_index = 1, no_affected_orders do
+    index, affected_ord_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
+
+    if affected_ord_grp_comp ~= nil then
+      local iteration = affected_ord_grp_comp:add(eurex_derivatives_edci_t7_v13_0.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -4321,17 +4347,17 @@ end
 eurex_derivatives_edci_t7_v13_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.message_header, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.message_header, buffer(offset, 0))
+    local index = eurex_derivatives_edci_t7_v13_0_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = eurex_derivatives_edci_t7_v13_0_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4358,16 +4384,23 @@ end
 
 -- Dissect: Message
 eurex_derivatives_edci_t7_v13_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = eurex_derivatives_edci_t7_v13_0_display.message(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_edci_t7_v13_0.fields.message, range, display)
+    local element = parent:add(eurex_derivatives_edci_t7_v13_0.fields.message, buffer(offset, 0))
+    local current = eurex_derivatives_edci_t7_v13_0_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = eurex_derivatives_edci_t7_v13_0_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    eurex_derivatives_edci_t7_v13_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  eurex_derivatives_edci_t7_v13_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Remaining Bytes For: Message

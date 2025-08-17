@@ -343,17 +343,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.clear_book_message = function(buffer, offset, packet, parent)
   if show.clear_book_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.clear_book_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -630,17 +630,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.trade_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.trade_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -738,17 +738,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.best_offer_short_message = function(buffer, offset, packet, parent)
   if show.best_offer_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_offer_short_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_offer_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_offer_short_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_offer_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.best_offer_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.best_offer_short_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.best_offer_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -846,17 +846,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.best_bid_short_message = function(buffer, offset, packet, parent)
   if show.best_bid_short_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_bid_short_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_bid_short_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_bid_short_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_bid_short_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.best_bid_short_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.best_bid_short_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.best_bid_short_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -974,17 +974,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.best_offer_message = function(buffer, offset, packet, parent)
   if show.best_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_offer_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_offer_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_offer_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_offer_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.best_offer_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.best_offer_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.best_offer_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1102,17 +1102,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message = function(buffer, offset, packet, parent)
   if show.best_bid_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_bid_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_bid_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.best_bid_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1179,17 +1179,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.best_bid_offer_message = function(buffer, offset, packet, parent)
   if show.best_bid_offer_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_bid_offer_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_bid_offer_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.best_bid_offer_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.best_bid_offer_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.best_bid_offer_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.best_bid_offer_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.best_bid_offer_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1246,17 +1246,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.snapshot_complete_message = function(buffer, offset, packet, parent)
   if show.snapshot_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.snapshot_complete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.snapshot_complete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1410,17 +1410,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message = function(buffer, offset, packet, parent)
   if show.corrected_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.corrected_trade_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.corrected_trade_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.corrected_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1472,17 +1472,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.broken_trade_message = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.broken_trade_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.broken_trade_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.broken_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.broken_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1559,17 +1559,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
   if show.trading_session_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.trading_session_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1696,17 +1696,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status_message = function(buffer, offset, packet, parent)
   if show.instrument_trading_status_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.instrument_trading_status_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2050,17 +2050,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.instrument_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2368,17 +2368,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.sbe_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2536,7 +2536,7 @@ memx_options_memoirtop_sbe_v1_3_dissect.sequenced_message_fields = function(buff
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = memx_options_memoirtop_sbe_v1_3_dissect.message(buffer, index, packet, parent)
+    index, message = memx_options_memoirtop_sbe_v1_3_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -2733,17 +2733,17 @@ end
 memx_options_memoirtop_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(memx_options_memoirtop_sbe_v1_3.fields.common_header, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(memx_options_memoirtop_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = memx_options_memoirtop_sbe_v1_3_display.common_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    return memx_options_memoirtop_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, element)
   end
 end
 

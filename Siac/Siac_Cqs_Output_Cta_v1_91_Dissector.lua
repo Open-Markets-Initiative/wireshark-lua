@@ -132,6 +132,9 @@ siac_cqs_output_cta_v1_91.fields.special_long_quote_message = ProtoField.new("Sp
 siac_cqs_output_cta_v1_91.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cqs.output.cta.v1.91.startofdaymessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message = ProtoField.new("Start Of Test Cycle Message", "siac.cqs.output.cta.v1.91.startoftestcyclemessage", ftypes.STRING)
 
+-- Siac Cqs Output Cta 1.91 generated fields
+siac_cqs_output_cta_v1_91.fields.message_index = ProtoField.new("Message Index", "siac.cqs.output.cta.v1.91.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -562,17 +565,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage = function(buffer, offset, packet, parent)
   if show.national_best_offer_short_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.national_best_offer_short_appendage(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage_fields(buffer, offset, packet, element)
   end
 end
 
@@ -735,17 +738,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage = function(buffer, offset, packet, parent)
   if show.national_best_bid_short_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.national_best_bid_short_appendage(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage_fields(buffer, offset, packet, element)
   end
 end
 
@@ -883,17 +886,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage = function(buffer, offset, packet, parent)
   if show.national_best_offer_long_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.national_best_offer_long_appendage(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1031,17 +1034,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage = function(buffer, offset, packet, parent)
   if show.national_best_bid_long_appendage then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.national_best_bid_long_appendage(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1487,17 +1490,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.adf_timestamp = function(buffer, offset, packet, parent)
   if show.adf_timestamp then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.adf_timestamp, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.adf_timestamp_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.adf_timestamp, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.adf_timestamp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.adf_timestamp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.adf_timestamp_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.adf_timestamp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2113,17 +2116,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.participant_timestamp = function(buffer, offset, packet, parent)
   if show.participant_timestamp then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.participant_timestamp, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.participant_timestamp_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.participant_timestamp, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.participant_timestamp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.participant_timestamp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.participant_timestamp_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.participant_timestamp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2325,7 +2328,7 @@ siac_cqs_output_cta_v1_91_dissect.special_long_quote_message_fields = function(b
 
   -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+    index, national_best_bid_long_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Long Appendage
@@ -2333,7 +2336,7 @@ siac_cqs_output_cta_v1_91_dissect.special_long_quote_message_fields = function(b
 
   -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+    index, national_best_offer_long_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Bid Short Appendage
@@ -2341,7 +2344,7 @@ siac_cqs_output_cta_v1_91_dissect.special_long_quote_message_fields = function(b
 
   -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+    index, national_best_bid_short_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Short Appendage
@@ -2349,7 +2352,7 @@ siac_cqs_output_cta_v1_91_dissect.special_long_quote_message_fields = function(b
 
   -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+    index, national_best_offer_short_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
   end
 
   return index
@@ -2524,7 +2527,7 @@ siac_cqs_output_cta_v1_91_dissect.short_quote_message_fields = function(buffer, 
 
   -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+    index, national_best_bid_long_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Long Appendage
@@ -2532,7 +2535,7 @@ siac_cqs_output_cta_v1_91_dissect.short_quote_message_fields = function(buffer, 
 
   -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+    index, national_best_offer_long_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Bid Short Appendage
@@ -2540,7 +2543,7 @@ siac_cqs_output_cta_v1_91_dissect.short_quote_message_fields = function(buffer, 
 
   -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+    index, national_best_bid_short_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Short Appendage
@@ -2548,7 +2551,7 @@ siac_cqs_output_cta_v1_91_dissect.short_quote_message_fields = function(buffer, 
 
   -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+    index, national_best_offer_short_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
   end
 
   return index
@@ -2775,7 +2778,7 @@ siac_cqs_output_cta_v1_91_dissect.long_quote_message_fields = function(buffer, o
 
   -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+    index, national_best_bid_long_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Long Appendage
@@ -2783,7 +2786,7 @@ siac_cqs_output_cta_v1_91_dissect.long_quote_message_fields = function(buffer, o
 
   -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+    index, national_best_offer_long_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Bid Short Appendage
@@ -2791,7 +2794,7 @@ siac_cqs_output_cta_v1_91_dissect.long_quote_message_fields = function(buffer, o
 
   -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+    index, national_best_bid_short_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Short Appendage
@@ -2799,7 +2802,7 @@ siac_cqs_output_cta_v1_91_dissect.long_quote_message_fields = function(buffer, o
 
   -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+    index, national_best_offer_short_appendage = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
   end
 
   return index
@@ -4418,17 +4421,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.message_header, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.message_header, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4455,16 +4458,23 @@ end
 
 -- Dissect: Message
 siac_cqs_output_cta_v1_91_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = siac_cqs_output_cta_v1_91_display.message(buffer, packet, parent)
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.message, range, display)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.message, buffer(offset, 0))
+    local current = siac_cqs_output_cta_v1_91_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = siac_cqs_output_cta_v1_91_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    siac_cqs_output_cta_v1_91_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  siac_cqs_output_cta_v1_91_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Block Checksum
@@ -4520,17 +4530,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   if show.sip_block_timestamp then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.sip_block_timestamp, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.sip_block_timestamp, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.sip_block_timestamp(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4724,17 +4734,17 @@ end
 siac_cqs_output_cta_v1_91_dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(siac_cqs_output_cta_v1_91.fields.block_header, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(siac_cqs_output_cta_v1_91.fields.block_header, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = siac_cqs_output_cta_v1_91_display.block_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4748,14 +4758,19 @@ siac_cqs_output_cta_v1_91_dissect.packet = function(buffer, packet, parent)
   -- Dependency element: Messages In Block
   local messages_in_block = buffer(index - 11, 1):uint()
 
-  -- Message: Struct of 2 fields
-  for i = 1, messages_in_block do
+  -- Repeating: Message
+  for message_index = 1, messages_in_block do
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()
 
-    -- Message: Struct of 2 fields
-    index = siac_cqs_output_cta_v1_91_dissect.message(buffer, index, packet, parent, message_length)
+    -- Runtime Size Of: Message
+    index, message = siac_cqs_output_cta_v1_91_dissect.message(buffer, index, packet, parent, message_length)
+
+    if message ~= nil then
+      local iteration = message:add(siac_cqs_output_cta_v1_91.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   -- Runtime optional field exists: Block Pad Byte
@@ -4763,7 +4778,7 @@ siac_cqs_output_cta_v1_91_dissect.packet = function(buffer, packet, parent)
 
   -- Runtime optional field: Block Pad Byte
   if block_pad_byte_exists then
-    index = siac_cqs_output_cta_v1_91_dissect.block_pad_byte(buffer, index, packet, parent)
+    index, block_pad_byte = siac_cqs_output_cta_v1_91_dissect.block_pad_byte(buffer, index, packet, parent)
   end
 
   return index

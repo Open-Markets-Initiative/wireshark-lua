@@ -38,6 +38,9 @@ iex_equities_udpheader_iextp_v1_0.fields.session_id = ProtoField.new("Session Id
 iex_equities_udpheader_iextp_v1_0.fields.stream_offset = ProtoField.new("Stream Offset", "iex.equities.udpheader.iextp.v1.0.streamoffset", ftypes.UINT64)
 iex_equities_udpheader_iextp_v1_0.fields.version = ProtoField.new("Version", "iex.equities.udpheader.iextp.v1.0.version", ftypes.UINT8)
 
+-- Iex Equities UdpHeader IexTp 1.0 generated fields
+iex_equities_udpheader_iextp_v1_0.fields.message_index = ProtoField.new("Message Index", "iex.equities.udpheader.iextp.v1.0.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -176,17 +179,17 @@ end
 iex_equities_udpheader_iextp_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_header, buffer(offset, 0))
-    local index = iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message_header, buffer(offset, 0))
+    local index = iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = iex_equities_udpheader_iextp_v1_0_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -209,23 +212,30 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_fields = function(buffer, offs
   local size_of_message_data = message_length - 1
 
   -- Message Data: 0 Byte
-  index = iex_equities_udpheader_iextp_v1_0_dissect.message_data(buffer, index, packet, parent, size_of_message_data)
+  index, message_data = iex_equities_udpheader_iextp_v1_0_dissect.message_data(buffer, index, packet, parent, size_of_message_data)
 
   return index
 end
 
 -- Dissect: Message
 iex_equities_udpheader_iextp_v1_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = iex_equities_udpheader_iextp_v1_0_display.message(buffer, packet, parent)
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message, range, display)
+    local element = parent:add(iex_equities_udpheader_iextp_v1_0.fields.message, buffer(offset, 0))
+    local current = iex_equities_udpheader_iextp_v1_0_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = iex_equities_udpheader_iextp_v1_0_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    iex_equities_udpheader_iextp_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  iex_equities_udpheader_iextp_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Send Time
@@ -505,17 +515,17 @@ end
 iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header = function(buffer, offset, packet, parent)
   if show.iex_tp_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, buffer(offset, 0))
-    local index = iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, buffer(offset, 0))
+    local index = iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = iex_equities_udpheader_iextp_v1_0_display.iex_tp_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    return iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -529,8 +539,8 @@ iex_equities_udpheader_iextp_v1_0_dissect.packet = function(buffer, packet, pare
   -- Dependency element: Message Count
   local message_count = buffer(index - 26, 2):le_uint()
 
-  -- Message: Struct of 2 fields
-  for i = 1, message_count do
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):le_uint()
@@ -539,7 +549,12 @@ iex_equities_udpheader_iextp_v1_0_dissect.packet = function(buffer, packet, pare
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index = iex_equities_udpheader_iextp_v1_0_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = iex_equities_udpheader_iextp_v1_0_dissect.message(buffer, index, packet, parent, size_of_message)
+
+    if message ~= nil then
+      local iteration = message:add(iex_equities_udpheader_iextp_v1_0.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

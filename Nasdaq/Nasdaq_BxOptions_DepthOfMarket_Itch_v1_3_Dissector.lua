@@ -119,6 +119,9 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message = Pro
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.systemeventmessage", ftypes.STRING)
 nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.bxoptions.depthofmarket.itch.v1.3.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq BxOptions DepthOfMarket Itch 1.3 generated fields
+nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.bxoptions.depthofmarket.itch.v1.3.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -657,17 +660,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet, parent)
   if show.net_order_imbalance_indicator_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.net_order_imbalance_indicator_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -749,17 +752,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.broken_trade_or_order_execution_message = function(buffer, offset, packet, parent)
   if show.broken_trade_or_order_execution_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.broken_trade_or_order_execution_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.broken_trade_or_order_execution_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.broken_trade_or_order_execution_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.broken_trade_or_order_execution_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.broken_trade_or_order_execution_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.broken_trade_or_order_execution_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.broken_trade_or_order_execution_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -894,17 +897,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
   if show.options_cross_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_cross_trade_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_cross_trade_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_cross_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.options_cross_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.options_cross_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -993,17 +996,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.non_auction_options_trade_message = function(buffer, offset, packet, parent)
   if show.non_auction_options_trade_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.non_auction_options_trade_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.non_auction_options_trade_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.non_auction_options_trade_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1085,17 +1088,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.block_delete_message = function(buffer, offset, packet, parent)
   if show.block_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.block_delete_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.block_delete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.block_delete_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.block_delete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.block_delete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.block_delete_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.block_delete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1177,17 +1180,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_delete_message = function(buffer, offset, packet, parent)
   if show.quote_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_delete_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_delete_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_delete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.quote_delete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_delete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1411,17 +1414,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_long_form = function(buffer, offset, packet, parent)
   if show.quote_replace_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_long_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_long_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.quote_replace_message_long_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_long_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1585,17 +1588,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_short_form = function(buffer, offset, packet, parent)
   if show.quote_replace_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_short_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.quote_replace_message_short_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.quote_replace_message_short_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.quote_replace_message_short_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1697,17 +1700,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_update_message = function(buffer, offset, packet, parent)
   if show.single_side_update_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_update_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.single_side_update_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_update_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1744,17 +1747,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_delete_message = function(buffer, offset, packet, parent)
   if show.single_side_delete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_delete_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_delete_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_delete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.single_side_delete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_delete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1846,17 +1849,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_long_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_long_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.single_side_replace_message_long_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1954,17 +1957,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_short_form = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_short_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_replace_message_short_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.single_side_replace_message_short_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2046,17 +2049,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_cancel_message = function(buffer, offset, packet, parent)
   if show.order_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_cancel_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_cancel_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.order_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.order_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2145,17 +2148,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_order_executed_with_price_message = function(buffer, offset, packet, parent)
   if show.single_side_order_executed_with_price_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_order_executed_with_price_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_order_executed_with_price_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_order_executed_with_price_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_order_executed_with_price_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.single_side_order_executed_with_price_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_order_executed_with_price_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_order_executed_with_price_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2227,17 +2230,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_executed_message = function(buffer, offset, packet, parent)
   if show.single_side_executed_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_executed_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.single_side_executed_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_executed_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.single_side_executed_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.single_side_executed_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2344,17 +2347,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_long_form = function(buffer, offset, packet, parent)
   if show.add_quote_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_long_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_long_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_long_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.add_quote_message_long_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_long_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2421,17 +2424,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_short_form = function(buffer, offset, packet, parent)
   if show.add_quote_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_short_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_quote_message_short_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_short_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.add_quote_message_short_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_quote_message_short_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2515,17 +2518,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_long_form = function(buffer, offset, packet, parent)
   if show.add_order_message_long_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_long_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.add_order_message_long_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_long_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2582,17 +2585,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_short_form = function(buffer, offset, packet, parent)
   if show.add_order_message_short_form then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_short_form, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.add_order_message_short_form, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_short_form_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.add_order_message_short_form(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.add_order_message_short_form_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2654,17 +2657,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_open_message = function(buffer, offset, packet, parent)
   if show.option_open_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_open_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_open_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_open_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_open_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.option_open_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_open_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_open_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2745,17 +2748,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.trading_action_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.trading_action_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.trading_action_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.trading_action_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.trading_action_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3104,17 +3107,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_directory_message = function(buffer, offset, packet, parent)
   if show.option_directory_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_directory_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_directory_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_directory_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.option_directory_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.option_directory_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3171,17 +3174,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_message = function(buffer, offset, packet, parent)
   if show.base_reference_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.base_reference_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.base_reference_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3257,17 +3260,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.system_event_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.system_event_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.system_event_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3319,17 +3322,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.seconds_message = function(buffer, offset, packet, parent)
   if show.seconds_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.seconds_message, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.seconds_message, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.seconds_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.seconds_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.seconds_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3719,17 +3722,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3756,16 +3759,23 @@ end
 
 -- Dissect: Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message, range, display)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message, buffer(offset, 0))
+    local current = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Count
@@ -3882,17 +3892,17 @@ end
 nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nasdaq_bxoptions_depthofmarket_itch_v1_3_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -3903,11 +3913,11 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet = function(buffer, packe
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet_header(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):uint()
 
-  -- Message: Struct of 2 fields
-  while index < end_of_payload do
+  -- Repeating: Message
+  for message_index = 1, count do
 
     -- Dependency element: Length
     local length = buffer(index, 2):uint()
@@ -3916,7 +3926,12 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.packet = function(buffer, packe
     local size_of_message = length + 2
 
     -- Message: Struct of 2 fields
-    index = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = nasdaq_bxoptions_depthofmarket_itch_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
+
+    if message ~= nil then
+      local iteration = message:add(nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_index, message_index)
+      iteration:set_generated()
+    end
   end
 
   return index

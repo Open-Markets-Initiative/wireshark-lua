@@ -37,6 +37,9 @@ otc_markets_headers_ats_v1_0.fields.seq_num = ProtoField.new("Seq Num", "otc.mar
 otc_markets_headers_ats_v1_0.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otc.markets.headers.ats.v1.0.seqnumreset", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x02)
 otc_markets_headers_ats_v1_0.fields.test = ProtoField.new("Test", "otc.markets.headers.ats.v1.0.test", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, 0x80)
 
+-- Otc Markets Headers Ats 1.0 generated fields
+otc_markets_headers_ats_v1_0.fields.message_index = ProtoField.new("Message Index", "otc.markets.headers.ats.v1.0.messageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -165,17 +168,17 @@ end
 otc_markets_headers_ats_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_headers_ats_v1_0.fields.message_header, buffer(offset, 0))
-    local index = otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(otc_markets_headers_ats_v1_0.fields.message_header, buffer(offset, 0))
+    local index = otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = otc_markets_headers_ats_v1_0_display.message_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -199,16 +202,23 @@ end
 
 -- Dissect: Message
 otc_markets_headers_ats_v1_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = otc_markets_headers_ats_v1_0_display.message(buffer, packet, parent)
-    parent = parent:add(otc_markets_headers_ats_v1_0.fields.message, range, display)
+    local element = parent:add(otc_markets_headers_ats_v1_0.fields.message, buffer(offset, 0))
+    local current = otc_markets_headers_ats_v1_0_dissect.message_fields(buffer, offset, packet, element, size_of_message)
+    element:set_len(size_of_message)
+    local display = otc_markets_headers_ats_v1_0_display.message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    otc_markets_headers_ats_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
-
-  otc_markets_headers_ats_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Size: Packet Milli
@@ -399,17 +409,17 @@ end
 otc_markets_headers_ats_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(otc_markets_headers_ats_v1_0.fields.packet_header, buffer(offset, 0))
-    local index = otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(otc_markets_headers_ats_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = otc_markets_headers_ats_v1_0_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -429,8 +439,8 @@ otc_markets_headers_ats_v1_0_dissect.packet = function(buffer, packet, parent)
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):uint()
 
-    -- Message: Struct of 2 fields
-    index = otc_markets_headers_ats_v1_0_dissect.message(buffer, index, packet, parent, message_size)
+    -- Runtime Size Of: Message
+    index, message = otc_markets_headers_ats_v1_0_dissect.message(buffer, index, packet, parent, message_size)
   end
 
   return index

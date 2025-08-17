@@ -153,6 +153,9 @@ boats_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message = Prot
 boats_equities_memo_sbe_v1_13.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "boats.equities.memo.sbe.v1.13.ordercancelrequestmessage", ftypes.STRING)
 boats_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "boats.equities.memo.sbe.v1.13.pendingmasscancelmessage", ftypes.STRING)
 
+-- Boats Equities Memo Sbe 1.13 generated fields
+boats_equities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Parties Group Index", "boats.equities.memo.sbe.v1.13.partiesgroupindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -848,17 +851,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_reject_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1124,17 +1127,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.order_cancel_reject_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_reject_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_reject_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.order_cancel_reject_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_reject_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1269,17 +1272,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.parties_group = function(buffer, offset, packet, parent)
   if show.parties_group then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.parties_group, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.parties_group, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.parties_group(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.parties_group_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1356,17 +1359,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions = function(buffer, offset, packet, parent)
   if show.repeating_group_dimensions then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.repeating_group_dimensions, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.repeating_group_dimensions, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.repeating_group_dimensions(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.repeating_group_dimensions_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1398,9 +1401,14 @@ boats_equities_memo_sbe_v1_13_dissect.parties_groups_fields = function(buffer, o
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Parties Group: Struct of 3 fields
-  for i = 1, num_in_group do
-    index = boats_equities_memo_sbe_v1_13_dissect.parties_group(buffer, index, packet, parent)
+  -- Repeating: Parties Group
+  for parties_group_index = 1, num_in_group do
+    index, parties_group = boats_equities_memo_sbe_v1_13_dissect.parties_group(buffer, index, packet, parent)
+
+    if parties_group ~= nil then
+      local iteration = parties_group:add(boats_equities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
+      iteration:set_generated()
+    end
   end
 
   return index
@@ -2712,17 +2720,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_done_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_done_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_done_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_done_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_done_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -2965,17 +2973,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
   if show.pending_mass_cancel_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.pending_mass_cancel_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.pending_mass_cancel_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4781,17 +4789,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_request_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.mass_cancel_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.mass_cancel_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.mass_cancel_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -4868,17 +4876,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_request_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.order_cancel_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5001,17 +5009,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_replace_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.order_cancel_replace_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5562,17 +5570,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.sbe_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.sbe_header_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5599,16 +5607,23 @@ end
 
 -- Dissect: Sbe Message
 boats_equities_memo_sbe_v1_13_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_sbe_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    local range = buffer(offset, size_of_sbe_message)
-    local display = boats_equities_memo_sbe_v1_13_display.sbe_message(buffer, packet, parent)
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_message, range, display)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_message, buffer(offset, 0))
+    local current = boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, element, size_of_sbe_message)
+    element:set_len(size_of_sbe_message)
+    local display = boats_equities_memo_sbe_v1_13_display.sbe_message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+
+    return index
   end
-
-  boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
-
-  return offset + size_of_sbe_message
 end
 
 -- Calculate size of: Sequenced Message
@@ -5637,7 +5652,7 @@ boats_equities_memo_sbe_v1_13_dissect.sequenced_message_fields = function(buffer
   local size_of_sbe_message = block_length + 6
 
   -- Sbe Message: Struct of 2 fields
-  index = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
+  index, sbe_message = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
@@ -5703,17 +5718,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.stream_complete_message = function(buffer, offset, packet, parent)
   if show.stream_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.stream_complete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.stream_complete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5775,17 +5790,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
   if show.stream_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.stream_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.stream_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5842,17 +5857,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.stream_begin_message = function(buffer, offset, packet, parent)
   if show.stream_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.stream_begin_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.stream_begin_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5904,17 +5919,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.replay_complete_message = function(buffer, offset, packet, parent)
   if show.replay_complete_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.replay_complete_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.replay_complete_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -5979,17 +5994,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
   if show.replay_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.replay_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.replay_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6046,17 +6061,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.replay_begin_message = function(buffer, offset, packet, parent)
   if show.replay_begin_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.replay_begin_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.replay_begin_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6108,17 +6123,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.start_of_session_message = function(buffer, offset, packet, parent)
   if show.start_of_session_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.start_of_session_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.start_of_session_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6183,17 +6198,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.login_rejected_message = function(buffer, offset, packet, parent)
   if show.login_rejected_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.login_rejected_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.login_rejected_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6255,17 +6270,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.login_accepted_message = function(buffer, offset, packet, parent)
   if show.login_accepted_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.login_accepted_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.login_accepted_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6295,7 +6310,7 @@ boats_equities_memo_sbe_v1_13_dissect.unsequenced_message_fields = function(buff
   local size_of_sbe_message = block_length + 6
 
   -- Sbe Message: Struct of 2 fields
-  index = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
+  index, sbe_message = boats_equities_memo_sbe_v1_13_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
@@ -6346,17 +6361,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.stream_request_message = function(buffer, offset, packet, parent)
   if show.stream_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.stream_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.stream_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6388,17 +6403,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
   if show.replay_all_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.replay_all_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.replay_all_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6460,17 +6475,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.replay_request_message = function(buffer, offset, packet, parent)
   if show.replay_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.replay_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.replay_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6547,17 +6562,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.login_request_message = function(buffer, offset, packet, parent)
   if show.login_request_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.login_request_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.login_request_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -6840,17 +6855,17 @@ end
 boats_equities_memo_sbe_v1_13_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = boats_equities_memo_sbe_v1_13_display.common_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, parent)
+    return boats_equities_memo_sbe_v1_13_dissect.common_header_fields(buffer, offset, packet, element)
   end
 end
 

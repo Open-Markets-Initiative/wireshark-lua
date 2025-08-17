@@ -198,17 +198,17 @@ end
 nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_openbook_ultra_v2_1_b_display.sequence_number_reset_message(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
   end
 end
 
@@ -480,17 +480,17 @@ end
 nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point = function(buffer, offset, packet, parent)
   if show.delta_price_point then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
+    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_openbook_ultra_v2_1_b_display.delta_price_point(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, element)
   end
 end
 
@@ -735,7 +735,7 @@ nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields = functi
 
   -- Delta Price Point: Struct of 9 fields
   while index < end_of_payload do
-    index = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point(buffer, index, packet, parent)
+    index, delta_price_point = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point(buffer, index, packet, parent)
   end
 
   return index
@@ -743,16 +743,23 @@ end
 
 -- Dissect: Delta Update Message
 nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message = function(buffer, offset, packet, parent, size_of_delta_update_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_delta_update_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.delta_update_message then
-    local range = buffer(offset, size_of_delta_update_message)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.delta_update_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.delta_update_message, range, display)
+    local element = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.delta_update_message, buffer(offset, 0))
+    local current = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, element, size_of_delta_update_message)
+    element:set_len(size_of_delta_update_message)
+    local display = nyse_equities_openbook_ultra_v2_1_b_display.delta_update_message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
+
+    return index
   end
-
-  nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
-
-  return offset + size_of_delta_update_message
 end
 
 -- Size Of: Delta Update Messages
@@ -778,8 +785,8 @@ nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages_fields = funct
     -- Dependency element: Delta Size
     local delta_size = buffer(index, 2):int()
 
-    -- Delta Update Message: Struct of 10 fields
-    index = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message(buffer, index, packet, parent, delta_size)
+    -- Runtime Size Of: Delta Update Message
+    index, delta_update_message = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message(buffer, index, packet, parent, delta_size)
   end
 
   return index
@@ -866,17 +873,17 @@ end
 nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point = function(buffer, offset, packet, parent)
   if show.full_price_point then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
+    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_openbook_ultra_v2_1_b_display.full_price_point(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, element)
   end
 end
 
@@ -1010,7 +1017,7 @@ nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields = functio
 
   -- Full Price Point: Struct of 5 fields
   while index < end_of_payload do
-    index = nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point(buffer, index, packet, parent)
+    index, full_price_point = nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point(buffer, index, packet, parent)
   end
 
   return index
@@ -1018,16 +1025,23 @@ end
 
 -- Dissect: Full Update Message
 nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message = function(buffer, offset, packet, parent, size_of_full_update_message)
-  -- Optionally add struct element to protocol tree
+  local index = offset + size_of_full_update_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.full_update_message then
-    local range = buffer(offset, size_of_full_update_message)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.full_update_message(buffer, packet, parent)
-    parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.full_update_message, range, display)
+    local element = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.full_update_message, buffer(offset, 0))
+    local current = nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, element, size_of_full_update_message)
+    element:set_len(size_of_full_update_message)
+    local display = nyse_equities_openbook_ultra_v2_1_b_display.full_update_message(buffer, packet, element)
+    element:append_text(display)
+
+    return index, element
+  else
+    -- Skip element, add fields directly
+    nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)
+
+    return index
   end
-
-  nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)
-
-  return offset + size_of_full_update_message
 end
 
 -- Size Of: Full Update Messages
@@ -1053,8 +1067,8 @@ nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_messages_fields = functi
     -- Dependency element: Update Size
     local update_size = buffer(index, 2):int()
 
-    -- Full Update Message: Struct of 13 fields
-    index = nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message(buffer, index, packet, parent, update_size)
+    -- Runtime Size Of: Full Update Message
+    index, full_update_message = nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message(buffer, index, packet, parent, update_size)
   end
 
   return index
@@ -1377,17 +1391,17 @@ end
 nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    parent = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local element = parent:add(nyse_equities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
+    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, element)
     local length = index - offset
-    parent:set_len(length)
+    element:set_len(length)
     local display = nyse_equities_openbook_ultra_v2_1_b_display.packet_header(packet, parent, length)
-    parent:append_text(display)
+    element:append_text(display)
 
-    return index
+    return index, element
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, element)
   end
 end
 
