@@ -280,11 +280,18 @@ currenex_forex_orderservice_cbp_v26_0_size_of.reason_code = 1
 -- Display: Reason Code
 currenex_forex_orderservice_cbp_v26_0_display.reason_code = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Reason Code: No Value"
   end
 
-  return "Reason Code: "..value
+  if value == "1" then
+    return "Reason Code: Not Resendable (1)"
+  end
+  if value == "2" then
+    return "Reason Code: Not Available (2)"
+  end
+
+  return "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -442,11 +449,21 @@ currenex_forex_orderservice_cbp_v26_0_size_of.aggressor_flag = 1
 -- Display: Aggressor Flag
 currenex_forex_orderservice_cbp_v26_0_display.aggressor_flag = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Aggressor Flag: No Value"
   end
 
-  return "Aggressor Flag: "..value
+  if value == "1" then
+    return "Aggressor Flag: Aggressor (1)"
+  end
+  if value == "2" then
+    return "Aggressor Flag: Not Aggressor (2)"
+  end
+  if value == "2" then
+    return "Aggressor Flag: Passive (2)"
+  end
+
+  return "Aggressor Flag: Unknown("..value..")"
 end
 
 -- Dissect: Aggressor Flag
@@ -555,11 +572,15 @@ currenex_forex_orderservice_cbp_v26_0_size_of.exec_type = 1
 -- Display: Exec Type
 currenex_forex_orderservice_cbp_v26_0_display.exec_type = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Exec Type: No Value"
   end
 
-  return "Exec Type: "..value
+  if value == "1" then
+    return "Exec Type: New Trade (1)"
+  end
+
+  return "Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type
@@ -919,11 +940,18 @@ currenex_forex_orderservice_cbp_v26_0_size_of.side = 1
 -- Display: Side
 currenex_forex_orderservice_cbp_v26_0_display.side = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Side: No Value"
   end
 
-  return "Side: "..value
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1078,7 +1106,17 @@ currenex_forex_orderservice_cbp_v26_0_size_of.type = 2
 
 -- Display: Type
 currenex_forex_orderservice_cbp_v26_0_display.type = function(value)
-  return "Type: "..value
+  if value == 0 then
+    return "Type: User (0)"
+  end
+  if value == 1 then
+    return "Type: System (1)"
+  end
+  if value == 2 then
+    return "Type: Below Min (2)"
+  end
+
+  return "Type: Unknown("..value..")"
 end
 
 -- Dissect: Type
@@ -1099,11 +1137,27 @@ currenex_forex_orderservice_cbp_v26_0_size_of.status = 1
 -- Display: Status
 currenex_forex_orderservice_cbp_v26_0_display.status = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Status: No Value"
   end
 
-  return "Status: "..value
+  if value == "C" then
+    return "Status: Confirmed (C)"
+  end
+  if value == "R" then
+    return "Status: Rejected (R)"
+  end
+  if value == "P" then
+    return "Status: Replaced (P)"
+  end
+  if value == "C" then
+    return "Status: Cancelled (C)"
+  end
+  if value == "E" then
+    return "Status: Expired (E)"
+  end
+
+  return "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -1669,11 +1723,18 @@ currenex_forex_orderservice_cbp_v26_0_size_of.order_type = 1
 -- Display: Order Type
 currenex_forex_orderservice_cbp_v26_0_display.order_type = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Order Type: No Value"
   end
 
-  return "Order Type: "..value
+  if value == "F" then
+    return "Order Type: Limit (F)"
+  end
+  if value == "Z" then
+    return "Order Type: Iceberg (Z)"
+  end
+
+  return "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1824,11 +1885,18 @@ currenex_forex_orderservice_cbp_v26_0_size_of.instrument_type = 1
 -- Display: Instrument Type
 currenex_forex_orderservice_cbp_v26_0_display.instrument_type = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Instrument Type: No Value"
   end
 
-  return "Instrument Type: "..value
+  if value == "1" then
+    return "Instrument Type: Foreign Exchange (1)"
+  end
+  if value == "2" then
+    return "Instrument Type: Cash Metals (2)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
