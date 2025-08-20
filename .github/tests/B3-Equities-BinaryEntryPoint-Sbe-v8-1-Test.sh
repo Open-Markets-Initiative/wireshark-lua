@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.200.pcap" \
+  -r "Data/B3/BinaryEntryPoint.v8.1/ExecutionReportNewMessage.pcap" \
   -X "lua_script:B3/B3_Equities_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["b3.equities.binaryentrypoint.sbe.v8.1.lua"]' \
