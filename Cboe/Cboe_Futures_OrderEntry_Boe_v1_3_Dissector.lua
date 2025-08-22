@@ -23708,7 +23708,7 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group_fields = function(buffer, offset, packet, parent, quote_result_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Result Group Index
   if quote_result_group_index ~= nil then
     local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_result_group_index, quote_result_group_index)
     iteration:set_generated()
@@ -26352,7 +26352,7 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.quote_group_fields = function(buffer, offset, packet, parent, quote_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Group Index
   if quote_group_index ~= nil then
     local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_group_index, quote_group_index)
     iteration:set_generated()
@@ -28401,7 +28401,7 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence_fields = function(buffer, offset, packet, parent, unit_sequence_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Unit Sequence Index
   if unit_sequence_index ~= nil then
     local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()
@@ -31725,7 +31725,7 @@ end
 cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields = function(buffer, offset, packet, parent, size_of_param_group, param_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Param Group Index
   if param_group_index ~= nil then
     local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_group_index, param_group_index)
     iteration:set_generated()

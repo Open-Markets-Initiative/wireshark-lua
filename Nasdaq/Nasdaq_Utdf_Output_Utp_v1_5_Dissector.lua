@@ -1187,7 +1187,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.market_center_volume_attachment_fields = function(buffer, offset, packet, parent, market_center_volume_attachment_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Market Center Volume Attachment Index
   if market_center_volume_attachment_index ~= nil then
     local iteration = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment_index, market_center_volume_attachment_index)
     iteration:set_generated()
@@ -1580,7 +1580,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.market_center_closing_price_and_volume_summary_fields = function(buffer, offset, packet, parent, market_center_closing_price_and_volume_summary_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Market Center Closing Price And Volume Summary Index
   if market_center_closing_price_and_volume_summary_index ~= nil then
     local iteration = parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary_index, market_center_closing_price_and_volume_summary_index)
     iteration:set_generated()
@@ -4929,7 +4929,7 @@ end
 nasdaq_utdf_output_utp_v1_5_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nasdaq_utdf_output_utp_v1_5.fields.message_index, message_index)
     iteration:set_generated()

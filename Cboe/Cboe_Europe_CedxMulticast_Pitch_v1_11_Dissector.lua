@@ -1487,7 +1487,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group_fields = function(buffer, offset, packet, parent, price_level_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Price Level Group Index
   if price_level_group_index ~= nil then
     local iteration = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index, price_level_group_index)
     iteration:set_generated()
@@ -4715,7 +4715,7 @@ end
 cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message_index, message_index)
     iteration:set_generated()

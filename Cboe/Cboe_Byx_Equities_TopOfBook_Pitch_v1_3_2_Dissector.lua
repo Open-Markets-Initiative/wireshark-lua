@@ -2627,7 +2627,7 @@ end
 cboe_byx_equities_topofbook_pitch_v1_3_2_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_byx_equities_topofbook_pitch_v1_3_2.fields.message_index, message_index)
     iteration:set_generated()

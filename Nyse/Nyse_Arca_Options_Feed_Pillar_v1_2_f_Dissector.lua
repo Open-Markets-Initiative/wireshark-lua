@@ -4928,7 +4928,7 @@ end
 nyse_arca_options_feed_pillar_v1_2_f_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nyse_arca_options_feed_pillar_v1_2_f.fields.message_index, message_index)
     iteration:set_generated()

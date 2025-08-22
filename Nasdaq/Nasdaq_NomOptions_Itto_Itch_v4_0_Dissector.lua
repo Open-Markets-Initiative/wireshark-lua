@@ -3580,7 +3580,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nasdaq_nomoptions_itto_itch_v4_0.fields.message_index, message_index)
     iteration:set_generated()

@@ -1710,7 +1710,7 @@ end
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgement_group_fields = function(buffer, offset, packet, parent, quote_update_acknowledgement_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Update Acknowledgement Group Index
   if quote_update_acknowledgement_group_index ~= nil then
     local iteration = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgement_group_index, quote_update_acknowledgement_group_index)
     iteration:set_generated()
@@ -4608,7 +4608,7 @@ end
 cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_group_fields = function(buffer, offset, packet, parent, quote_update_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Update Group Index
   if quote_update_group_index ~= nil then
     local iteration = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_group_index, quote_update_group_index)
     iteration:set_generated()
@@ -5660,7 +5660,7 @@ end
 cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence_fields = function(buffer, offset, packet, parent, unit_sequence_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Unit Sequence Index
   if unit_sequence_index ~= nil then
     local iteration = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()

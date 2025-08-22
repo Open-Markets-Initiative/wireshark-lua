@@ -723,7 +723,7 @@ end
 cme_brokertec_ust_sbe_v10_1_dissect.m_d_incremental_refresh_btec_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_btec_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Btec Group Index
   if m_d_incremental_refresh_btec_group_index ~= nil then
     local iteration = parent:add(cme_brokertec_ust_sbe_v10_1.fields.m_d_incremental_refresh_btec_group_index, m_d_incremental_refresh_btec_group_index)
     iteration:set_generated()

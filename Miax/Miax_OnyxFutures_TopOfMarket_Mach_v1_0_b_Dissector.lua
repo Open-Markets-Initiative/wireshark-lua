@@ -997,7 +997,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields = function(buffer, offset, packet, parent, instrument_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Instrument Leg Index
   if instrument_leg_index ~= nil then
     local iteration = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index, instrument_leg_index)
     iteration:set_generated()

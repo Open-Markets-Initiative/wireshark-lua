@@ -1754,7 +1754,7 @@ end
 n24x_equities_memoirtopofbook_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_index, message_index)
     iteration:set_generated()

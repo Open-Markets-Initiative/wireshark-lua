@@ -1544,7 +1544,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.xetra_en_light_target_parties_comp_fields = function(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Xetra En Light Target Parties Comp Index
   if xetra_en_light_target_parties_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
     iteration:set_generated()
@@ -3173,7 +3173,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.srqs_quote_entry_grp_comp_fields = function(buffer, offset, packet, parent, srqs_quote_entry_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Srqs Quote Entry Grp Comp Index
   if srqs_quote_entry_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.srqs_quote_entry_grp_comp_index, srqs_quote_entry_grp_comp_index)
     iteration:set_generated()
@@ -5501,7 +5501,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.order_book_item_grp_comp_fields = function(buffer, offset, packet, parent, order_book_item_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Order Book Item Grp Comp Index
   if order_book_item_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.order_book_item_grp_comp_index, order_book_item_grp_comp_index)
     iteration:set_generated()
@@ -10152,7 +10152,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp_fields = function(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Side Alloc Grp Bc Comp Index
   if side_alloc_grp_bc_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
     iteration:set_generated()
@@ -11676,7 +11676,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent, fills_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Fills Grp Comp Index
   if fills_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.fills_grp_comp_index, fills_grp_comp_index)
     iteration:set_generated()
@@ -12482,7 +12482,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.not_affected_orders_grp_comp_fields = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Not Affected Orders Grp Comp Index
   if not_affected_orders_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
     iteration:set_generated()
@@ -12585,7 +12585,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.affected_ord_grp_comp_fields = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Affected Ord Grp Comp Index
   if affected_ord_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
     iteration:set_generated()
@@ -14918,7 +14918,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.quote_event_grp_comp_fields = function(buffer, offset, packet, parent, quote_event_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Event Grp Comp Index
   if quote_event_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.quote_event_grp_comp_index, quote_event_grp_comp_index)
     iteration:set_generated()
@@ -15108,7 +15108,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.not_affected_securities_grp_comp_fields = function(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Not Affected Securities Grp Comp Index
   if not_affected_securities_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
     iteration:set_generated()
@@ -17355,7 +17355,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.side_alloc_grp_comp_fields = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Side Alloc Grp Comp Index
   if side_alloc_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
     iteration:set_generated()
@@ -18297,7 +18297,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp_fields = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Entry Ack Grp Comp Index
   if quote_entry_ack_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
     iteration:set_generated()
@@ -18486,7 +18486,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.quote_entry_grp_comp_fields = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Entry Grp Comp Index
   if quote_entry_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
     iteration:set_generated()
@@ -19629,7 +19629,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.security_status_event_grp_comp_fields = function(buffer, offset, packet, parent, security_status_event_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Security Status Event Grp Comp Index
   if security_status_event_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.security_status_event_grp_comp_index, security_status_event_grp_comp_index)
     iteration:set_generated()
@@ -20143,7 +20143,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.party_details_grp_comp_fields = function(buffer, offset, packet, parent, party_details_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Party Details Grp Comp Index
   if party_details_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.party_details_grp_comp_index, party_details_grp_comp_index)
     iteration:set_generated()
@@ -20433,7 +20433,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Sessions Grp Comp Index
   if sessions_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
     iteration:set_generated()
@@ -20627,7 +20627,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.enrichment_rules_grp_comp_fields = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Enrichment Rules Grp Comp Index
   if enrichment_rules_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
     iteration:set_generated()
@@ -22037,7 +22037,7 @@ end
 eurex_cash_eti_t7_v9_0_dissect.affected_order_requests_grp_comp_fields = function(buffer, offset, packet, parent, affected_order_requests_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Affected Order Requests Grp Comp Index
   if affected_order_requests_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_cash_eti_t7_v9_0.fields.affected_order_requests_grp_comp_index, affected_order_requests_grp_comp_index)
     iteration:set_generated()

@@ -1335,7 +1335,7 @@ end
 nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.leg_definition_fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Leg Definition Index
   if leg_definition_index ~= nil then
     local iteration = parent:add(nyse_arca_options_complexfeed_pillar_v1_0_d.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
@@ -4077,7 +4077,7 @@ end
 nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message_index, message_index)
     iteration:set_generated()

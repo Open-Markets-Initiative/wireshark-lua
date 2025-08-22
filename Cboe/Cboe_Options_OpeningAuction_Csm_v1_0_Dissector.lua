@@ -800,7 +800,7 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.md_entry_fields = function(buffer, offset, packet, parent, md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Md Entry Index
   if md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_index, md_entry_index)
     iteration:set_generated()
@@ -1290,7 +1290,7 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent, security_definition_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Security Definition Leg Index
   if security_definition_leg_index ~= nil then
     local iteration = parent:add(cboe_options_openingauction_csm_v1_0.fields.security_definition_leg_index, security_definition_leg_index)
     iteration:set_generated()
@@ -2870,7 +2870,7 @@ end
 cboe_options_openingauction_csm_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_options_openingauction_csm_v1_0.fields.message_index, message_index)
     iteration:set_generated()

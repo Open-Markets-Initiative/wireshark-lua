@@ -3911,7 +3911,7 @@ end
 cboe_c1_options_depthofbook_pitch_v2_41_29_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.message_index, message_index)
     iteration:set_generated()

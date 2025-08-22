@@ -1249,7 +1249,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields = function(buffer, offset, packet, parent, strategy_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Leg Index
   if strategy_leg_index ~= nil then
     local iteration = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
     iteration:set_generated()

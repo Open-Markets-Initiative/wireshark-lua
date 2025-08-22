@@ -211,7 +211,7 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index, message_index)
     iteration:set_generated()

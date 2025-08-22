@@ -1132,7 +1132,7 @@ end
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.adap_block_fields = function(buffer, offset, packet, parent, adap_block_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Adap Block Index
   if adap_block_index ~= nil then
     local iteration = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.adap_block_index, adap_block_index)
     iteration:set_generated()
@@ -1697,7 +1697,7 @@ end
 cboe_byx_equities_summarydepth_pitch_v1_0_4_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_byx_equities_summarydepth_pitch_v1_0_4.fields.message_index, message_index)
     iteration:set_generated()

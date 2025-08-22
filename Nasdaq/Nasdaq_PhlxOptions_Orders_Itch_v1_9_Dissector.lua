@@ -976,7 +976,7 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields = function(buffer, offset, packet, parent, complex_order_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Complex Order Leg Index
   if complex_order_leg_index ~= nil then
     local iteration = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg_index, complex_order_leg_index)
     iteration:set_generated()
@@ -1977,7 +1977,7 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields = function(buffer, offset, packet, parent, complex_order_strategy_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Complex Order Strategy Leg Index
   if complex_order_strategy_leg_index ~= nil then
     local iteration = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg_index, complex_order_strategy_leg_index)
     iteration:set_generated()
@@ -2688,7 +2688,7 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.message_index, message_index)
     iteration:set_generated()

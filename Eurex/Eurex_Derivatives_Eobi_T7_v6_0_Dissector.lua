@@ -515,7 +515,7 @@ end
 eurex_derivatives_eobi_t7_v6_0_dissect.md_trade_entry_grp_comp_fields = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Md Trade Entry Grp Comp Index
   if md_trade_entry_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
     iteration:set_generated()
@@ -2462,7 +2462,7 @@ end
 eurex_derivatives_eobi_t7_v6_0_dissect.md_instrument_entry_grp_comp_fields = function(buffer, offset, packet, parent, md_instrument_entry_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Md Instrument Entry Grp Comp Index
   if md_instrument_entry_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
     iteration:set_generated()
@@ -3705,7 +3705,7 @@ end
 eurex_derivatives_eobi_t7_v6_0_dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Instrmt Leg Grp Comp Index
   if instrmt_leg_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_derivatives_eobi_t7_v6_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
     iteration:set_generated()

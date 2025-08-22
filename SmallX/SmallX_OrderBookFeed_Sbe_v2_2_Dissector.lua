@@ -560,7 +560,7 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group_fields = function(buffer, offset, packet, parent, multileg_definition_snapshot_v_2_message_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Multileg Definition Snapshot V 2 Message Leg Group Index
   if multileg_definition_snapshot_v_2_message_leg_group_index ~= nil then
     local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_snapshot_v_2_message_leg_group_index, multileg_definition_snapshot_v_2_message_leg_group_index)
     iteration:set_generated()
@@ -2055,7 +2055,7 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group_fields = function(buffer, offset, packet, parent, multileg_definition_incremental_v_2_message_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Multileg Definition Incremental V 2 Message Leg Group Index
   if multileg_definition_incremental_v_2_message_leg_group_index ~= nil then
     local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_incremental_v_2_message_leg_group_index, multileg_definition_incremental_v_2_message_leg_group_index)
     iteration:set_generated()
@@ -3521,7 +3521,7 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields = function(buffer, offset, packet, parent, orders_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Orders Group Index
   if orders_group_index ~= nil then
     local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.orders_group_index, orders_group_index)
     iteration:set_generated()
@@ -4077,7 +4077,7 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields = function(buffer, offset, packet, parent, trades_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Trades Group Index
   if trades_group_index ~= nil then
     local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.trades_group_index, trades_group_index)
     iteration:set_generated()

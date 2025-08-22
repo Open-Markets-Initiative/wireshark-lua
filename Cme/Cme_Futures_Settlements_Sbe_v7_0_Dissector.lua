@@ -1206,7 +1206,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh High Low Group Index
   if m_d_incremental_refresh_high_low_group_index ~= nil then
     local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index, m_d_incremental_refresh_high_low_group_index)
     iteration:set_generated()
@@ -1622,7 +1622,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Voi Group Index
   if m_d_incremental_refresh_voi_group_index ~= nil then
     local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index, m_d_incremental_refresh_voi_group_index)
     iteration:set_generated()
@@ -2113,7 +2113,7 @@ end
 cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Settle Group Index
   if m_d_incremental_refresh_settle_group_index ~= nil then
     local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index, m_d_incremental_refresh_settle_group_index)
     iteration:set_generated()

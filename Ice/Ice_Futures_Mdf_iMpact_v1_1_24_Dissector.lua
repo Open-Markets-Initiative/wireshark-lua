@@ -3739,7 +3739,7 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.hedge_definition_fields = function(buffer, offset, packet, parent, hedge_definition_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Hedge Definition Index
   if hedge_definition_index ~= nil then
     local iteration = parent:add(ice_futures_mdf_impact_v1_1_24.fields.hedge_definition_index, hedge_definition_index)
     iteration:set_generated()
@@ -3943,7 +3943,7 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.strategy_leg_definition_fields = function(buffer, offset, packet, parent, strategy_leg_definition_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Leg Definition Index
   if strategy_leg_definition_index ~= nil then
     local iteration = parent:add(ice_futures_mdf_impact_v1_1_24.fields.strategy_leg_definition_index, strategy_leg_definition_index)
     iteration:set_generated()
@@ -5619,7 +5619,7 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.special_field_fields = function(buffer, offset, packet, parent, special_field_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Special Field Index
   if special_field_index ~= nil then
     local iteration = parent:add(ice_futures_mdf_impact_v1_1_24.fields.special_field_index, special_field_index)
     iteration:set_generated()
@@ -6490,7 +6490,7 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.leg_definition_fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Leg Definition Index
   if leg_definition_index ~= nil then
     local iteration = parent:add(ice_futures_mdf_impact_v1_1_24.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
@@ -9889,7 +9889,7 @@ end
 ice_futures_mdf_impact_v1_1_24_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(ice_futures_mdf_impact_v1_1_24.fields.message_index, message_index)
     iteration:set_generated()

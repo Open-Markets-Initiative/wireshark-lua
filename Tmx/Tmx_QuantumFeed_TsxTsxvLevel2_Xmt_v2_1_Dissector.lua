@@ -2707,7 +2707,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1_dissect.cop_limit_fields = function(buffer, offset, packet, parent, cop_limit_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Cop Limit Index
   if cop_limit_index ~= nil then
     local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.cop_limit_index, cop_limit_index)
     iteration:set_generated()
@@ -2905,7 +2905,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1_dissect.cop_order_fields = function(buffer, offset, packet, parent, cop_order_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Cop Order Index
   if cop_order_index ~= nil then
     local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.cop_order_index, cop_order_index)
     iteration:set_generated()
@@ -4100,7 +4100,7 @@ end
 tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1_dissect.body_fields = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Body Index
   if body_index ~= nil then
     local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body_index, body_index)
     iteration:set_generated()

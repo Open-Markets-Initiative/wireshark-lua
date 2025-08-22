@@ -1331,7 +1331,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_instrument_definition_eris_leg_group_fields = function(buffer, offset, packet, parent, m_d_instrument_definition_eris_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Instrument Definition Eris Leg Group Index
   if m_d_instrument_definition_eris_leg_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_instrument_definition_eris_leg_group_index, m_d_instrument_definition_eris_leg_group_index)
     iteration:set_generated()
@@ -1622,7 +1622,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.security_alt_id_group_fields = function(buffer, offset, packet, parent, security_alt_id_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Security Alt Id Group Index
   if security_alt_id_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.security_alt_id_group_index, security_alt_id_group_index)
     iteration:set_generated()
@@ -1774,7 +1774,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.events_group_fields = function(buffer, offset, packet, parent, events_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Events Group Index
   if events_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.events_group_index, events_group_index)
     iteration:set_generated()
@@ -2004,7 +2004,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_feed_types_group_fields = function(buffer, offset, packet, parent, m_d_feed_types_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Feed Types Group Index
   if m_d_feed_types_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_feed_types_group_index, m_d_feed_types_group_index)
     iteration:set_generated()
@@ -3735,7 +3735,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_otc_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Otc Group Index
   if m_d_incremental_refresh_otc_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_incremental_refresh_otc_group_index, m_d_incremental_refresh_otc_group_index)
     iteration:set_generated()
@@ -4523,7 +4523,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_incremental_refresh_eris_353_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_eris_353_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Eris 353 Group Index
   if m_d_incremental_refresh_eris_353_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_incremental_refresh_eris_353_group_index, m_d_incremental_refresh_eris_353_group_index)
     iteration:set_generated()
@@ -4755,7 +4755,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_incremental_refresh_eris_351_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_eris_351_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Eris 351 Group Index
   if m_d_incremental_refresh_eris_351_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_incremental_refresh_eris_351_group_index, m_d_incremental_refresh_eris_351_group_index)
     iteration:set_generated()
@@ -5349,7 +5349,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_incremental_refresh_trade_blocks_349_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_blocks_349_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Trade Blocks 349 Group Index
   if m_d_incremental_refresh_trade_blocks_349_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_incremental_refresh_trade_blocks_349_group_index, m_d_incremental_refresh_trade_blocks_349_group_index)
     iteration:set_generated()
@@ -6012,7 +6012,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_indices_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Indices Group Index
   if m_d_incremental_refresh_indices_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_incremental_refresh_indices_group_index, m_d_incremental_refresh_indices_group_index)
     iteration:set_generated()
@@ -6302,7 +6302,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent, inst_attrib_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Inst Attrib Group Index
   if inst_attrib_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.inst_attrib_group_index, inst_attrib_group_index)
     iteration:set_generated()
@@ -6499,7 +6499,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.related_sym_group_fields = function(buffer, offset, packet, parent, related_sym_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Related Sym Group Index
   if related_sym_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.related_sym_group_index, related_sym_group_index)
     iteration:set_generated()
@@ -6740,7 +6740,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_incremental_refresh_trade_blocks_340_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_blocks_340_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Trade Blocks 340 Group Index
   if m_d_incremental_refresh_trade_blocks_340_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_incremental_refresh_trade_blocks_340_group_index, m_d_incremental_refresh_trade_blocks_340_group_index)
     iteration:set_generated()
@@ -7009,7 +7009,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.lines_of_text_group_fields = function(buffer, offset, packet, parent, lines_of_text_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Lines Of Text Group Index
   if lines_of_text_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.lines_of_text_group_index, lines_of_text_group_index)
     iteration:set_generated()
@@ -8700,7 +8700,7 @@ end
 cme_futures_streamlined_sbe_v5_8_dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Eris Reference Data And Daily Statistics Group Index
   if m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_index ~= nil then
     local iteration = parent:add(cme_futures_streamlined_sbe_v5_8.fields.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_index, m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_index)
     iteration:set_generated()

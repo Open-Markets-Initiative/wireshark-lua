@@ -425,7 +425,7 @@ end
 tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Body Index
   if body_index ~= nil then
     local iteration = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index, body_index)
     iteration:set_generated()

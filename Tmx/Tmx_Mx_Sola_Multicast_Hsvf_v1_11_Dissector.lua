@@ -1001,7 +1001,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11_dissect.tick_entry_group_fields = function(buffer, offset, packet, parent, tick_entry_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Tick Entry Group Index
   if tick_entry_group_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.tick_entry_group_index, tick_entry_group_index)
     iteration:set_generated()
@@ -4209,7 +4209,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_summary_strategy_leg_fields = function(buffer, offset, packet, parent, strategy_summary_strategy_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Summary Strategy Leg Index
   if strategy_summary_strategy_leg_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_summary_strategy_leg_index, strategy_summary_strategy_leg_index)
     iteration:set_generated()
@@ -7988,7 +7988,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11_dissect.swap_future_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, swap_future_market_depth_trading_instrument_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Swap Future Market Depth Trading Instrument Index
   if swap_future_market_depth_trading_instrument_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.swap_future_market_depth_trading_instrument_index, swap_future_market_depth_trading_instrument_index)
     iteration:set_generated()
@@ -8236,7 +8236,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, strategy_market_depth_trading_instrument_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Market Depth Trading Instrument Index
   if strategy_market_depth_trading_instrument_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_market_depth_trading_instrument_index, strategy_market_depth_trading_instrument_index)
     iteration:set_generated()
@@ -8391,7 +8391,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11_dissect.futures_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, futures_market_depth_trading_instrument_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Futures Market Depth Trading Instrument Index
   if futures_market_depth_trading_instrument_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.futures_market_depth_trading_instrument_index, futures_market_depth_trading_instrument_index)
     iteration:set_generated()
@@ -8555,7 +8555,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11_dissect.future_options_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, future_options_market_depth_trading_instrument_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Future Options Market Depth Trading Instrument Index
   if future_options_market_depth_trading_instrument_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.future_options_market_depth_trading_instrument_index, future_options_market_depth_trading_instrument_index)
     iteration:set_generated()
@@ -8734,7 +8734,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11_dissect.option_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, option_market_depth_trading_instrument_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Option Market Depth Trading Instrument Index
   if option_market_depth_trading_instrument_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.option_market_depth_trading_instrument_index, option_market_depth_trading_instrument_index)
     iteration:set_generated()

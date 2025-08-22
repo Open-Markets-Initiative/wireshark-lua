@@ -1046,7 +1046,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.reported_allocations_group_fields = function(buffer, offset, packet, parent, reported_allocations_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Reported Allocations Group Index
   if reported_allocations_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.reported_allocations_group_index, reported_allocations_group_index)
     iteration:set_generated()
@@ -1306,7 +1306,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.execution_allocations_group_fields = function(buffer, offset, packet, parent, execution_allocations_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Allocations Group Index
   if execution_allocations_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.execution_allocations_group_index, execution_allocations_group_index)
     iteration:set_generated()
@@ -4326,7 +4326,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.parties_group_fields = function(buffer, offset, packet, parent, parties_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Parties Group Index
   if parties_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
@@ -5882,7 +5882,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.requested_allocations_group_fields = function(buffer, offset, packet, parent, requested_allocations_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Requested Allocations Group Index
   if requested_allocations_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.requested_allocations_group_index, requested_allocations_group_index)
     iteration:set_generated()
@@ -6474,7 +6474,7 @@ end
 memx_options_memo_sbe_v1_6_a_dissect.quotes_group_fields = function(buffer, offset, packet, parent, quotes_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quotes Group Index
   if quotes_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_6_a.fields.quotes_group_index, quotes_group_index)
     iteration:set_generated()

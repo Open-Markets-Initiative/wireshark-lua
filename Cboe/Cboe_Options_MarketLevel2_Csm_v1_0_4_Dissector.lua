@@ -531,7 +531,7 @@ end
 cboe_options_marketlevel2_csm_v1_0_4_dissect.md_volume_entry_fields = function(buffer, offset, packet, parent, md_volume_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Md Volume Entry Index
   if md_volume_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.md_volume_entry_index, md_volume_entry_index)
     iteration:set_generated()
@@ -781,7 +781,7 @@ end
 cboe_options_marketlevel2_csm_v1_0_4_dissect.incremental_refresh_md_entry_fields = function(buffer, offset, packet, parent, incremental_refresh_md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Incremental Refresh Md Entry Index
   if incremental_refresh_md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry_index, incremental_refresh_md_entry_index)
     iteration:set_generated()
@@ -966,7 +966,7 @@ end
 cboe_options_marketlevel2_csm_v1_0_4_dissect.snapshot_full_refresh_md_entry_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Snapshot Full Refresh Md Entry Index
   if snapshot_full_refresh_md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry_index, snapshot_full_refresh_md_entry_index)
     iteration:set_generated()
@@ -1201,7 +1201,7 @@ end
 cboe_options_marketlevel2_csm_v1_0_4_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent, security_definition_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Security Definition Leg Index
   if security_definition_leg_index ~= nil then
     local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.security_definition_leg_index, security_definition_leg_index)
     iteration:set_generated()
@@ -2761,7 +2761,7 @@ end
 cboe_options_marketlevel2_csm_v1_0_4_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.message_index, message_index)
     iteration:set_generated()

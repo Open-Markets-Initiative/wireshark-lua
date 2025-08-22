@@ -2376,7 +2376,7 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_index, message_index)
     iteration:set_generated()

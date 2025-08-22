@@ -3220,7 +3220,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.bundle_leg_fields = function(buffer, offset, packet, parent, bundle_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Bundle Leg Index
   if bundle_leg_index ~= nil then
     local iteration = parent:add(asx_securities_ntp_itch_v1_05.fields.bundle_leg_index, bundle_leg_index)
     iteration:set_generated()
@@ -3555,7 +3555,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.combination_leg_fields = function(buffer, offset, packet, parent, combination_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Combination Leg Index
   if combination_leg_index ~= nil then
     local iteration = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_leg_index, combination_leg_index)
     iteration:set_generated()
@@ -5079,7 +5079,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(asx_securities_ntp_itch_v1_05.fields.message_index, message_index)
     iteration:set_generated()

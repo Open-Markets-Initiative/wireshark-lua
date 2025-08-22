@@ -1141,7 +1141,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.quote_cancel_ack_set_group_fields = function(buffer, offset, packet, parent, quote_cancel_ack_set_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Cancel Ack Set Group Index
   if quote_cancel_ack_set_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_set_group_index, quote_cancel_ack_set_group_index)
     iteration:set_generated()
@@ -1392,7 +1392,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.quote_cancel_ack_entry_group_fields = function(buffer, offset, packet, parent, quote_cancel_ack_entry_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Cancel Ack Entry Group Index
   if quote_cancel_ack_entry_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_ack_entry_group_index, quote_cancel_ack_entry_group_index)
     iteration:set_generated()
@@ -2324,7 +2324,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.affected_orders_group_fields = function(buffer, offset, packet, parent, affected_orders_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Affected Orders Group Index
   if affected_orders_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.affected_orders_group_index, affected_orders_group_index)
     iteration:set_generated()
@@ -3226,7 +3226,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.security_definition_response_leg_group_fields = function(buffer, offset, packet, parent, security_definition_response_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Security Definition Response Leg Group Index
   if security_definition_response_leg_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.security_definition_response_leg_group_index, security_definition_response_leg_group_index)
     iteration:set_generated()
@@ -4084,7 +4084,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.security_definition_request_leg_group_fields = function(buffer, offset, packet, parent, security_definition_request_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Security Definition Request Leg Group Index
   if security_definition_request_leg_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.security_definition_request_leg_group_index, security_definition_request_leg_group_index)
     iteration:set_generated()
@@ -4554,7 +4554,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_addendum_spread_leg_order_event_group_fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_order_event_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Addendum Spread Leg Order Event Group Index
   if execution_report_trade_addendum_spread_leg_order_event_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_order_event_group_index, execution_report_trade_addendum_spread_leg_order_event_group_index)
     iteration:set_generated()
@@ -4777,7 +4777,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.fills_group_fields = function(buffer, offset, packet, parent, fills_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Fills Group Index
   if fills_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.fills_group_index, fills_group_index)
     iteration:set_generated()
@@ -5412,7 +5412,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_addendum_spread_order_event_group_fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_order_event_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Addendum Spread Order Event Group Index
   if execution_report_trade_addendum_spread_order_event_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_order_event_group_index, execution_report_trade_addendum_spread_order_event_group_index)
     iteration:set_generated()
@@ -5677,7 +5677,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_addendum_spread_leg_group_fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_spread_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Addendum Spread Leg Group Index
   if execution_report_trade_addendum_spread_leg_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_spread_leg_group_index, execution_report_trade_addendum_spread_leg_group_index)
     iteration:set_generated()
@@ -6286,7 +6286,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_addendum_outright_order_event_group_fields = function(buffer, offset, packet, parent, execution_report_trade_addendum_outright_order_event_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Addendum Outright Order Event Group Index
   if execution_report_trade_addendum_outright_order_event_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_addendum_outright_order_event_group_index, execution_report_trade_addendum_outright_order_event_group_index)
     iteration:set_generated()
@@ -6794,7 +6794,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.mass_quote_ack_entry_group_fields = function(buffer, offset, packet, parent, mass_quote_ack_entry_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Mass Quote Ack Entry Group Index
   if mass_quote_ack_entry_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.mass_quote_ack_entry_group_index, mass_quote_ack_entry_group_index)
     iteration:set_generated()
@@ -7147,7 +7147,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.sides_group_fields = function(buffer, offset, packet, parent, sides_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Sides Group Index
   if sides_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.sides_group_index, sides_group_index)
     iteration:set_generated()
@@ -7471,7 +7471,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.related_sym_group_fields = function(buffer, offset, packet, parent, related_sym_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Related Sym Group Index
   if related_sym_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.related_sym_group_index, related_sym_group_index)
     iteration:set_generated()
@@ -7917,7 +7917,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.trd_reg_publications_group_fields = function(buffer, offset, packet, parent, trd_reg_publications_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Trd Reg Publications Group Index
   if trd_reg_publications_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.trd_reg_publications_group_index, trd_reg_publications_group_index)
     iteration:set_generated()
@@ -8091,7 +8091,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.party_details_group_fields = function(buffer, offset, packet, parent, party_details_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Party Details Group Index
   if party_details_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.party_details_group_index, party_details_group_index)
     iteration:set_generated()
@@ -8860,7 +8860,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.party_i_ds_group_fields = function(buffer, offset, packet, parent, party_i_ds_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Party I Ds Group Index
   if party_i_ds_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.party_i_ds_group_index, party_i_ds_group_index)
     iteration:set_generated()
@@ -9069,7 +9069,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.requesting_party_i_ds_group_fields = function(buffer, offset, packet, parent, requesting_party_i_ds_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Requesting Party I Ds Group Index
   if requesting_party_i_ds_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.requesting_party_i_ds_group_index, requesting_party_i_ds_group_index)
     iteration:set_generated()
@@ -11144,7 +11144,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.quote_cancel_set_group_fields = function(buffer, offset, packet, parent, quote_cancel_set_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Cancel Set Group Index
   if quote_cancel_set_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_set_group_index, quote_cancel_set_group_index)
     iteration:set_generated()
@@ -11249,7 +11249,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.quote_cancel_entry_group_fields = function(buffer, offset, packet, parent, quote_cancel_entry_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Cancel Entry Group Index
   if quote_cancel_entry_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.quote_cancel_entry_group_index, quote_cancel_entry_group_index)
     iteration:set_generated()
@@ -11509,7 +11509,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_spread_leg_order_event_group_fields = function(buffer, offset, packet, parent, execution_report_trade_spread_leg_order_event_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Spread Leg Order Event Group Index
   if execution_report_trade_spread_leg_order_event_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_order_event_group_index, execution_report_trade_spread_leg_order_event_group_index)
     iteration:set_generated()
@@ -12079,7 +12079,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_spread_order_event_group_fields = function(buffer, offset, packet, parent, execution_report_trade_spread_order_event_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Spread Order Event Group Index
   if execution_report_trade_spread_order_event_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_order_event_group_index, execution_report_trade_spread_order_event_group_index)
     iteration:set_generated()
@@ -12201,7 +12201,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_spread_leg_group_fields = function(buffer, offset, packet, parent, execution_report_trade_spread_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Spread Leg Group Index
   if execution_report_trade_spread_leg_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_spread_leg_group_index, execution_report_trade_spread_leg_group_index)
     iteration:set_generated()
@@ -12592,7 +12592,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.execution_report_trade_outright_order_event_group_fields = function(buffer, offset, packet, parent, execution_report_trade_outright_order_event_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Execution Report Trade Outright Order Event Group Index
   if execution_report_trade_outright_order_event_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.execution_report_trade_outright_order_event_group_index, execution_report_trade_outright_order_event_group_index)
     iteration:set_generated()
@@ -14467,7 +14467,7 @@ end
 cme_futures_ilink3_sbe_v8_5_dissect.mass_quote_entry_group_fields = function(buffer, offset, packet, parent, mass_quote_entry_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Mass Quote Entry Group Index
   if mass_quote_entry_group_index ~= nil then
     local iteration = parent:add(cme_futures_ilink3_sbe_v8_5.fields.mass_quote_entry_group_index, mass_quote_entry_group_index)
     iteration:set_generated()

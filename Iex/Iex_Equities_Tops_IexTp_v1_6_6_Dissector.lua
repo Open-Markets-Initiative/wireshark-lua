@@ -2233,7 +2233,7 @@ end
 iex_equities_tops_iextp_v1_6_6_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(iex_equities_tops_iextp_v1_6_6.fields.message_index, message_index)
     iteration:set_generated()

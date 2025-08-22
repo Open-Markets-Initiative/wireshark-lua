@@ -1659,7 +1659,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.instrument_synchronization_section_group_fields = function(buffer, offset, packet, parent, instrument_synchronization_section_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Instrument Synchronization Section Group Index
   if instrument_synchronization_section_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_section_group_index, instrument_synchronization_section_group_index)
     iteration:set_generated()
@@ -7144,7 +7144,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.quote_acks_group_fields = function(buffer, offset, packet, parent, quote_acks_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Acks Group Index
   if quote_acks_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_group_index, quote_acks_group_index)
     iteration:set_generated()
@@ -7496,7 +7496,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.quotes_rep_group_fields = function(buffer, offset, packet, parent, quotes_rep_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quotes Rep Group Index
   if quotes_rep_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_group_index, quotes_rep_group_index)
     iteration:set_generated()
@@ -7842,7 +7842,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.clearing_dataset_group_fields = function(buffer, offset, packet, parent, clearing_dataset_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Clearing Dataset Group Index
   if clearing_dataset_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_group_index, clearing_dataset_group_index)
     iteration:set_generated()
@@ -7986,7 +7986,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.mifid_short_codes_group_fields = function(buffer, offset, packet, parent, mifid_short_codes_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Mifid Short Codes Group Index
   if mifid_short_codes_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.mifid_short_codes_group_index, mifid_short_codes_group_index)
     iteration:set_generated()
@@ -8263,7 +8263,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.collar_fields_group_fields = function(buffer, offset, packet, parent, collar_fields_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Collar Fields Group Index
   if collar_fields_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_fields_group_index, collar_fields_group_index)
     iteration:set_generated()
@@ -8553,7 +8553,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.clearing_fields_group_fields = function(buffer, offset, packet, parent, clearing_fields_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Clearing Fields Group Index
   if clearing_fields_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_fields_group_index, clearing_fields_group_index)
     iteration:set_generated()
@@ -9017,7 +9017,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.optional_fields_group_fields = function(buffer, offset, packet, parent, optional_fields_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Optional Fields Group Index
   if optional_fields_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_group_index, optional_fields_group_index)
     iteration:set_generated()
@@ -9144,7 +9144,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.free_text_section_group_fields = function(buffer, offset, packet, parent, free_text_section_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Free Text Section Group Index
   if free_text_section_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.free_text_section_group_index, free_text_section_group_index)
     iteration:set_generated()
@@ -9944,7 +9944,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.strategy_fields_group_fields = function(buffer, offset, packet, parent, strategy_fields_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Fields Group Index
   if strategy_fields_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.strategy_fields_group_index, strategy_fields_group_index)
     iteration:set_generated()
@@ -10142,7 +10142,7 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3_dissect.optional_fields_fill_group_fields = function(buffer, offset, packet, parent, optional_fields_fill_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Optional Fields Fill Group Index
   if optional_fields_fill_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v1_3.fields.optional_fields_fill_group_index, optional_fields_fill_group_index)
     iteration:set_generated()

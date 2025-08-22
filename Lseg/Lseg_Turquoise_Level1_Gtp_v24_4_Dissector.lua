@@ -2723,7 +2723,7 @@ end
 lseg_turquoise_level1_gtp_v24_4_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(lseg_turquoise_level1_gtp_v24_4.fields.message_index, message_index)
     iteration:set_generated()

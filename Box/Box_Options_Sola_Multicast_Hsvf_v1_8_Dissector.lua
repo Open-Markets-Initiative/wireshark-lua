@@ -3462,7 +3462,7 @@ end
 box_options_sola_multicast_hsvf_v1_8_dissect.instrument_leg_fields = function(buffer, offset, packet, parent, instrument_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Instrument Leg Index
   if instrument_leg_index ~= nil then
     local iteration = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.instrument_leg_index, instrument_leg_index)
     iteration:set_generated()
@@ -4990,7 +4990,7 @@ end
 box_options_sola_multicast_hsvf_v1_8_dissect.complex_market_depth_level_fields = function(buffer, offset, packet, parent, complex_market_depth_level_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Complex Market Depth Level Index
   if complex_market_depth_level_index ~= nil then
     local iteration = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.complex_market_depth_level_index, complex_market_depth_level_index)
     iteration:set_generated()
@@ -5224,7 +5224,7 @@ end
 box_options_sola_multicast_hsvf_v1_8_dissect.market_depth_level_fields = function(buffer, offset, packet, parent, market_depth_level_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Market Depth Level Index
   if market_depth_level_index ~= nil then
     local iteration = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.market_depth_level_index, market_depth_level_index)
     iteration:set_generated()

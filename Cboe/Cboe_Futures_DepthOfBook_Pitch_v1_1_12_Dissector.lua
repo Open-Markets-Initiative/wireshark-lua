@@ -2067,7 +2067,7 @@ end
 cboe_futures_depthofbook_pitch_v1_1_12_dissect.future_leg_fields = function(buffer, offset, packet, parent, future_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Future Leg Index
   if future_leg_index ~= nil then
     local iteration = parent:add(cboe_futures_depthofbook_pitch_v1_1_12.fields.future_leg_index, future_leg_index)
     iteration:set_generated()
@@ -3354,7 +3354,7 @@ end
 cboe_futures_depthofbook_pitch_v1_1_12_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_futures_depthofbook_pitch_v1_1_12.fields.message_index, message_index)
     iteration:set_generated()

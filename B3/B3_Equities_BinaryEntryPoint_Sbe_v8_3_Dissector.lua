@@ -2769,7 +2769,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3_dissect.no_positions_group_fields = function(buffer, offset, packet, parent, no_positions_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit No Positions Group Index
   if no_positions_group_index ~= nil then
     local iteration = parent:add(b3_equities_binaryentrypoint_sbe_v8_3.fields.no_positions_group_index, no_positions_group_index)
     iteration:set_generated()
@@ -3749,7 +3749,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3_dissect.no_sides_group_fields = function(buffer, offset, packet, parent, no_sides_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit No Sides Group Index
   if no_sides_group_index ~= nil then
     local iteration = parent:add(b3_equities_binaryentrypoint_sbe_v8_3.fields.no_sides_group_index, no_sides_group_index)
     iteration:set_generated()
@@ -5624,7 +5624,7 @@ end
 b3_equities_binaryentrypoint_sbe_v8_3_dissect.no_legs_group_fields = function(buffer, offset, packet, parent, no_legs_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit No Legs Group Index
   if no_legs_group_index ~= nil then
     local iteration = parent:add(b3_equities_binaryentrypoint_sbe_v8_3.fields.no_legs_group_index, no_legs_group_index)
     iteration:set_generated()

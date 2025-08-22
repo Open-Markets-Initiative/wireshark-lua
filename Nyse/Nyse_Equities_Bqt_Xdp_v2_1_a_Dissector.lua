@@ -577,7 +577,7 @@ end
 nyse_equities_bqt_xdp_v2_1_a_dissect.close_price_fields = function(buffer, offset, packet, parent, close_price_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Close Price Index
   if close_price_index ~= nil then
     local iteration = parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.close_price_index, close_price_index)
     iteration:set_generated()
@@ -4293,7 +4293,7 @@ end
 nyse_equities_bqt_xdp_v2_1_a_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.message_index, message_index)
     iteration:set_generated()

@@ -3115,7 +3115,7 @@ end
 nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_index, message_index)
     iteration:set_generated()

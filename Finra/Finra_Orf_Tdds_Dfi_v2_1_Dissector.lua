@@ -3812,7 +3812,7 @@ end
 finra_orf_tdds_dfi_v2_1_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(finra_orf_tdds_dfi_v2_1.fields.message_index, message_index)
     iteration:set_generated()

@@ -4722,7 +4722,7 @@ end
 siac_cts_output_cta_v2_9_dissect.participants_fields = function(buffer, offset, packet, parent, participants_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Participants Index
   if participants_index ~= nil then
     local iteration = parent:add(siac_cts_output_cta_v2_9.fields.participants_index, participants_index)
     iteration:set_generated()
@@ -6544,7 +6544,7 @@ end
 siac_cts_output_cta_v2_9_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(siac_cts_output_cta_v2_9.fields.message_index, message_index)
     iteration:set_generated()

@@ -3694,7 +3694,7 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nasdaq_psxequities_totalview_itch_v5_0.fields.message_index, message_index)
     iteration:set_generated()

@@ -641,7 +641,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_md_entry_fields = function(buffer, offset, packet, parent, summary_md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Summary Md Entry Index
   if summary_md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry_index, summary_md_entry_index)
     iteration:set_generated()
@@ -1069,7 +1069,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_md_entry_fields = function(buffer, offset, packet, parent, settlement_value_md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Settlement Value Md Entry Index
   if settlement_value_md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry_index, settlement_value_md_entry_index)
     iteration:set_generated()
@@ -1183,7 +1183,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_md_entry_fields = function(buffer, offset, packet, parent, index_value_md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Index Value Md Entry Index
   if index_value_md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry_index, index_value_md_entry_index)
     iteration:set_generated()
@@ -1724,7 +1724,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_md_entry_fields = function(buffer, offset, packet, parent, ticker_md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Ticker Md Entry Index
   if ticker_md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry_index, ticker_md_entry_index)
     iteration:set_generated()
@@ -1842,7 +1842,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_md_entry_fields = function(buffer, offset, packet, parent, recap_update_md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Recap Update Md Entry Index
   if recap_update_md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry_index, recap_update_md_entry_index)
     iteration:set_generated()
@@ -2093,7 +2093,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_fields = function(buffer, offset, packet, parent, md_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Md Entry Index
   if md_entry_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_index, md_entry_index)
     iteration:set_generated()
@@ -2507,7 +2507,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent, security_definition_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Security Definition Leg Index
   if security_definition_leg_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg_index, security_definition_leg_index)
     iteration:set_generated()
@@ -4085,7 +4085,7 @@ end
 cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_index, message_index)
     iteration:set_generated()

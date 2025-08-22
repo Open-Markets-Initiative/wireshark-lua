@@ -844,7 +844,7 @@ end
 eurex_derivatives_edci_t7_v13_1_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Sessions Grp Comp Index
   if sessions_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.sessions_grp_comp_index, sessions_grp_comp_index)
     iteration:set_generated()
@@ -1390,7 +1390,7 @@ end
 eurex_derivatives_edci_t7_v13_1_dissect.partition_grp_comp_fields = function(buffer, offset, packet, parent, partition_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Partition Grp Comp Index
   if partition_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.partition_grp_comp_index, partition_grp_comp_index)
     iteration:set_generated()
@@ -1650,7 +1650,7 @@ end
 eurex_derivatives_edci_t7_v13_1_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent, fills_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Fills Grp Comp Index
   if fills_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.fills_grp_comp_index, fills_grp_comp_index)
     iteration:set_generated()
@@ -3945,7 +3945,7 @@ end
 eurex_derivatives_edci_t7_v13_1_dissect.affected_ord_grp_comp_fields = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Affected Ord Grp Comp Index
   if affected_ord_grp_comp_index ~= nil then
     local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
     iteration:set_generated()

@@ -4551,7 +4551,7 @@ end
 siac_cqs_output_cta_v2_9_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(siac_cqs_output_cta_v2_9.fields.message_index, message_index)
     iteration:set_generated()

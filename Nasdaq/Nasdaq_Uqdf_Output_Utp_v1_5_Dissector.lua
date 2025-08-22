@@ -1172,7 +1172,7 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap_fields = function(buffer, offset, packet, parent, market_center_close_recap_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Market Center Close Recap Index
   if market_center_close_recap_index ~= nil then
     local iteration = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index, market_center_close_recap_index)
     iteration:set_generated()
@@ -4492,7 +4492,7 @@ end
 nasdaq_uqdf_output_utp_v1_5_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message_index, message_index)
     iteration:set_generated()

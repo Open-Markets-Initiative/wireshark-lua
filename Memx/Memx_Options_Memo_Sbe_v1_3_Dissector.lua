@@ -1016,7 +1016,7 @@ end
 memx_options_memo_sbe_v1_3_dissect.allocations_group_fields = function(buffer, offset, packet, parent, allocations_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Allocations Group Index
   if allocations_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_3.fields.allocations_group_index, allocations_group_index)
     iteration:set_generated()
@@ -4089,7 +4089,7 @@ end
 memx_options_memo_sbe_v1_3_dissect.parties_group_fields = function(buffer, offset, packet, parent, parties_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Parties Group Index
   if parties_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_3.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
@@ -6073,7 +6073,7 @@ end
 memx_options_memo_sbe_v1_3_dissect.quotes_group_fields = function(buffer, offset, packet, parent, quotes_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quotes Group Index
   if quotes_group_index ~= nil then
     local iteration = parent:add(memx_options_memo_sbe_v1_3.fields.quotes_group_index, quotes_group_index)
     iteration:set_generated()

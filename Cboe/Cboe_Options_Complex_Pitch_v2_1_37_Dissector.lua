@@ -2686,7 +2686,7 @@ end
 cboe_options_complex_pitch_v2_1_37_dissect.complex_instrument_leg_fields = function(buffer, offset, packet, parent, complex_instrument_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Complex Instrument Leg Index
   if complex_instrument_leg_index ~= nil then
     local iteration = parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_leg_index, complex_instrument_leg_index)
     iteration:set_generated()
@@ -3508,7 +3508,7 @@ end
 cboe_options_complex_pitch_v2_1_37_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(cboe_options_complex_pitch_v2_1_37.fields.message_index, message_index)
     iteration:set_generated()

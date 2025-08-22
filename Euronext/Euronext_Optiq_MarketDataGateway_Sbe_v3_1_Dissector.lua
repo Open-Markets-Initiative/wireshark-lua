@@ -3841,7 +3841,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.package_components_group_fields = function(buffer, offset, packet, parent, package_components_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Package Components Group Index
   if package_components_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.package_components_group_index, package_components_group_index)
     iteration:set_generated()
@@ -4334,7 +4334,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.outright_rep_group_fields = function(buffer, offset, packet, parent, outright_rep_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Outright Rep Group Index
   if outright_rep_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.outright_rep_group_index, outright_rep_group_index)
     iteration:set_generated()
@@ -5528,7 +5528,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.contract_emm_properties_group_fields = function(buffer, offset, packet, parent, contract_emm_properties_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Contract Emm Properties Group Index
   if contract_emm_properties_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.contract_emm_properties_group_index, contract_emm_properties_group_index)
     iteration:set_generated()
@@ -7315,7 +7315,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.strategy_standing_datarep_1_group_fields = function(buffer, offset, packet, parent, strategy_standing_datarep_1_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Standing Datarep 1 Group Index
   if strategy_standing_datarep_1_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.strategy_standing_datarep_1_group_index, strategy_standing_datarep_1_group_index)
     iteration:set_generated()
@@ -8044,7 +8044,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.new_stats_group_fields = function(buffer, offset, packet, parent, new_stats_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit New Stats Group Index
   if new_stats_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.new_stats_group_index, new_stats_group_index)
     iteration:set_generated()
@@ -8497,7 +8497,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.em_m_pattern_rep_group_fields = function(buffer, offset, packet, parent, em_m_pattern_rep_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Em M Pattern Rep Group Index
   if em_m_pattern_rep_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.em_m_pattern_rep_group_index, em_m_pattern_rep_group_index)
     iteration:set_generated()
@@ -10629,7 +10629,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.timetables_group_fields = function(buffer, offset, packet, parent, timetables_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Timetables Group Index
   if timetables_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.timetables_group_index, timetables_group_index)
     iteration:set_generated()
@@ -11250,7 +11250,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.market_states_group_fields = function(buffer, offset, packet, parent, market_states_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Market States Group Index
   if market_states_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.market_states_group_index, market_states_group_index)
     iteration:set_generated()
@@ -12891,7 +12891,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.prices_group_fields = function(buffer, offset, packet, parent, prices_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Prices Group Index
   if prices_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.prices_group_index, prices_group_index)
     iteration:set_generated()
@@ -13333,7 +13333,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.orders_group_fields = function(buffer, offset, packet, parent, orders_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Orders Group Index
   if orders_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.orders_group_index, orders_group_index)
     iteration:set_generated()
@@ -13832,7 +13832,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v3_1_dissect.updates_group_fields = function(buffer, offset, packet, parent, updates_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Updates Group Index
   if updates_group_index ~= nil then
     local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v3_1.fields.updates_group_index, updates_group_index)
     iteration:set_generated()

@@ -2168,7 +2168,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.complex_leg_fields = function(buffer, offset, packet, parent, complex_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Complex Leg Index
   if complex_leg_index ~= nil then
     local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.complex_leg_index, complex_leg_index)
     iteration:set_generated()
@@ -4907,7 +4907,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_acknowledgement_fields = function(buffer, offset, packet, parent, quote_acknowledgement_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Acknowledgement Index
   if quote_acknowledgement_index ~= nil then
     local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_acknowledgement_index, quote_acknowledgement_index)
     iteration:set_generated()
@@ -5833,7 +5833,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_short_fields = function(buffer, offset, packet, parent, quote_short_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Short Index
   if quote_short_index ~= nil then
     local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_short_index, quote_short_index)
     iteration:set_generated()
@@ -6093,7 +6093,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.quote_fields = function(buffer, offset, packet, parent, quote_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Index
   if quote_index ~= nil then
     local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.quote_index, quote_index)
     iteration:set_generated()
@@ -7626,7 +7626,7 @@ end
 cboe_c2_options_orderentry_boe3_v1_0_12_dissect.unit_sequence_fields = function(buffer, offset, packet, parent, unit_sequence_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Unit Sequence Index
   if unit_sequence_index ~= nil then
     local iteration = parent:add(cboe_c2_options_orderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()

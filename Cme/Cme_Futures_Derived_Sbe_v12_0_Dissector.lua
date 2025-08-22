@@ -571,7 +571,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Snapshot Refresh Ticker Group Index
   if m_d_snapshot_refresh_ticker_group_index ~= nil then
     local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index, m_d_snapshot_refresh_ticker_group_index)
     iteration:set_generated()
@@ -998,7 +998,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Snapshot Refresh Spectrum Group Index
   if m_d_snapshot_refresh_spectrum_group_index ~= nil then
     local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index, m_d_snapshot_refresh_spectrum_group_index)
     iteration:set_generated()
@@ -1191,7 +1191,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Ticker Group Index
   if m_d_incremental_refresh_ticker_group_index ~= nil then
     local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index, m_d_incremental_refresh_ticker_group_index)
     iteration:set_generated()
@@ -1379,7 +1379,7 @@ end
 cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Spectrum Group Index
   if m_d_incremental_refresh_spectrum_group_index ~= nil then
     local iteration = parent:add(cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index, m_d_incremental_refresh_spectrum_group_index)
     iteration:set_generated()

@@ -275,7 +275,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.auction_response_fields = function(buffer, offset, packet, parent, auction_response_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Auction Response Index
   if auction_response_index ~= nil then
     local iteration = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index, auction_response_index)
     iteration:set_generated()
@@ -2059,7 +2059,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index, message_index)
     iteration:set_generated()

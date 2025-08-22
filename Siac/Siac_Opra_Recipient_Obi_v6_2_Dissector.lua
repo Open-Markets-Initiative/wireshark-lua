@@ -3402,7 +3402,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Message Index
   if message_index ~= nil then
     local iteration = parent:add(siac_opra_recipient_obi_v6_2.fields.message_index, message_index)
     iteration:set_generated()

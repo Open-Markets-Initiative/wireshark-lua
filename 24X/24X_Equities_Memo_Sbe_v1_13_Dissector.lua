@@ -1257,7 +1257,7 @@ end
 n24x_equities_memo_sbe_v1_13_dissect.parties_group_fields = function(buffer, offset, packet, parent, parties_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Parties Group Index
   if parties_group_index ~= nil then
     local iteration = parent:add(n24x_equities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
     iteration:set_generated()

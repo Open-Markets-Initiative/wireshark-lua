@@ -1050,7 +1050,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_entry_fields = function(buffer, offset, packet, parent, tick_entry_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Tick Entry Index
   if tick_entry_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_entry_index, tick_entry_index)
     iteration:set_generated()
@@ -1759,7 +1759,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.bond_definition_fields = function(buffer, offset, packet, parent, bond_definition_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Bond Definition Index
   if bond_definition_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.bond_definition_index, bond_definition_index)
     iteration:set_generated()
@@ -5498,7 +5498,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_instrument_leg_fields = function(buffer, offset, packet, parent, strategy_instrument_leg_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Instrument Leg Index
   if strategy_instrument_leg_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_instrument_leg_index, strategy_instrument_leg_index)
     iteration:set_generated()
@@ -7524,7 +7524,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_market_depth_level_fields = function(buffer, offset, packet, parent, strategy_market_depth_level_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Strategy Market Depth Level Index
   if strategy_market_depth_level_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_market_depth_level_index, strategy_market_depth_level_index)
     iteration:set_generated()
@@ -7758,7 +7758,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_depth_level_fields = function(buffer, offset, packet, parent, market_depth_level_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Market Depth Level Index
   if market_depth_level_index ~= nil then
     local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level_index, market_depth_level_index)
     iteration:set_generated()

@@ -913,7 +913,7 @@ end
 b3_equities_binaryumdf_sbe_v1_9_dissect.no_m_d_entries_group_fields = function(buffer, offset, packet, parent, no_m_d_entries_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit No M D Entries Group Index
   if no_m_d_entries_group_index ~= nil then
     local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_9.fields.no_m_d_entries_group_index, no_m_d_entries_group_index)
     iteration:set_generated()
@@ -5135,7 +5135,7 @@ end
 b3_equities_binaryumdf_sbe_v1_9_dissect.no_instr_attribs_group_fields = function(buffer, offset, packet, parent, no_instr_attribs_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit No Instr Attribs Group Index
   if no_instr_attribs_group_index ~= nil then
     local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_9.fields.no_instr_attribs_group_index, no_instr_attribs_group_index)
     iteration:set_generated()
@@ -5424,7 +5424,7 @@ end
 b3_equities_binaryumdf_sbe_v1_9_dissect.no_legs_group_fields = function(buffer, offset, packet, parent, no_legs_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit No Legs Group Index
   if no_legs_group_index ~= nil then
     local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_9.fields.no_legs_group_index, no_legs_group_index)
     iteration:set_generated()
@@ -5591,7 +5591,7 @@ end
 b3_equities_binaryumdf_sbe_v1_9_dissect.no_underlyings_group_fields = function(buffer, offset, packet, parent, no_underlyings_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit No Underlyings Group Index
   if no_underlyings_group_index ~= nil then
     local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_9.fields.no_underlyings_group_index, no_underlyings_group_index)
     iteration:set_generated()

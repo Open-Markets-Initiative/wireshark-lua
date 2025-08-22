@@ -29926,7 +29926,7 @@ end
 cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields = function(buffer, offset, packet, parent, quote_result_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Result Group Index
   if quote_result_group_index ~= nil then
     local iteration = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.quote_result_group_index, quote_result_group_index)
     iteration:set_generated()
@@ -35021,7 +35021,7 @@ end
 cboe_edgx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields = function(buffer, offset, packet, parent, short_quote_update_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Short Quote Update Index
   if short_quote_update_index ~= nil then
     local iteration = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.short_quote_update_index, short_quote_update_index)
     iteration:set_generated()
@@ -35281,7 +35281,7 @@ end
 cboe_edgx_options_orderentry_boe_v2_10_dissect.quote_update_fields = function(buffer, offset, packet, parent, quote_update_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Quote Update Index
   if quote_update_index ~= nil then
     local iteration = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.quote_update_index, quote_update_index)
     iteration:set_generated()
@@ -39151,7 +39151,7 @@ end
 cboe_edgx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields = function(buffer, offset, packet, parent, unit_sequence_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Unit Sequence Index
   if unit_sequence_index ~= nil then
     local iteration = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()
@@ -44483,7 +44483,7 @@ end
 cboe_edgx_options_orderentry_boe_v2_10_dissect.param_group_fields = function(buffer, offset, packet, parent, size_of_param_group, param_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Param Group Index
   if param_group_index ~= nil then
     local iteration = parent:add(cboe_edgx_options_orderentry_boe_v2_10.fields.param_group_index, param_group_index)
     iteration:set_generated()

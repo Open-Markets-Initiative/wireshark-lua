@@ -1130,7 +1130,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_instrument_definition_spread_56_leg_group_fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_56_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Instrument Definition Spread 56 Leg Group Index
   if m_d_instrument_definition_spread_56_leg_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_56_leg_group_index, m_d_instrument_definition_spread_56_leg_group_index)
     iteration:set_generated()
@@ -1384,7 +1384,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.lot_type_rules_group_fields = function(buffer, offset, packet, parent, lot_type_rules_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Lot Type Rules Group Index
   if lot_type_rules_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.lot_type_rules_group_index, lot_type_rules_group_index)
     iteration:set_generated()
@@ -1673,7 +1673,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent, inst_attrib_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Inst Attrib Group Index
   if inst_attrib_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_group_index, inst_attrib_group_index)
     iteration:set_generated()
@@ -1828,7 +1828,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_feed_types_group_fields = function(buffer, offset, packet, parent, m_d_feed_types_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Feed Types Group Index
   if m_d_feed_types_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_feed_types_group_index, m_d_feed_types_group_index)
     iteration:set_generated()
@@ -1977,7 +1977,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.events_group_fields = function(buffer, offset, packet, parent, events_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Events Group Index
   if events_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.events_group_index, events_group_index)
     iteration:set_generated()
@@ -3768,7 +3768,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.related_instruments_group_fields = function(buffer, offset, packet, parent, related_instruments_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Related Instruments Group Index
   if related_instruments_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.related_instruments_group_index, related_instruments_group_index)
     iteration:set_generated()
@@ -3926,7 +3926,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.underlyings_group_fields = function(buffer, offset, packet, parent, underlyings_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Underlyings Group Index
   if underlyings_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.underlyings_group_index, underlyings_group_index)
     iteration:set_generated()
@@ -5157,7 +5157,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.snapshot_full_refresh_order_book_53_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_53_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Snapshot Full Refresh Order Book 53 Group Index
   if snapshot_full_refresh_order_book_53_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_53_group_index, snapshot_full_refresh_order_book_53_group_index)
     iteration:set_generated()
@@ -5673,7 +5673,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.snapshot_full_refresh_52_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_52_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Snapshot Full Refresh 52 Group Index
   if snapshot_full_refresh_52_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_52_group_index, snapshot_full_refresh_52_group_index)
     iteration:set_generated()
@@ -6050,7 +6050,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_session_statistics_51_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_51_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Session Statistics 51 Group Index
   if m_d_incremental_refresh_session_statistics_51_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_session_statistics_51_group_index, m_d_incremental_refresh_session_statistics_51_group_index)
     iteration:set_generated()
@@ -6248,7 +6248,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_limits_banding_50_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_limits_banding_50_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Limits Banding 50 Group Index
   if m_d_incremental_refresh_limits_banding_50_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_limits_banding_50_group_index, m_d_incremental_refresh_limits_banding_50_group_index)
     iteration:set_generated()
@@ -6491,7 +6491,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_daily_statistics_49_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_daily_statistics_49_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Daily Statistics 49 Group Index
   if m_d_incremental_refresh_daily_statistics_49_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_daily_statistics_49_group_index, m_d_incremental_refresh_daily_statistics_49_group_index)
     iteration:set_generated()
@@ -6708,7 +6708,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_trade_summary_48_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_48_order_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Trade Summary 48 Order Group Index
   if m_d_incremental_refresh_trade_summary_48_order_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_trade_summary_48_order_group_index, m_d_incremental_refresh_trade_summary_48_order_group_index)
     iteration:set_generated()
@@ -6997,7 +6997,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_trade_summary_48_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_48_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Trade Summary 48 Group Index
   if m_d_incremental_refresh_trade_summary_48_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_trade_summary_48_group_index, m_d_incremental_refresh_trade_summary_48_group_index)
     iteration:set_generated()
@@ -7259,7 +7259,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_order_book_47_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_order_book_47_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Order Book 47 Group Index
   if m_d_incremental_refresh_order_book_47_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_order_book_47_group_index, m_d_incremental_refresh_order_book_47_group_index)
     iteration:set_generated()
@@ -7494,7 +7494,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_book_46_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_46_order_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Book 46 Order Group Index
   if m_d_incremental_refresh_book_46_order_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_46_order_group_index, m_d_incremental_refresh_book_46_order_group_index)
     iteration:set_generated()
@@ -7642,7 +7642,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_book_46_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_46_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Book 46 Group Index
   if m_d_incremental_refresh_book_46_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_46_group_index, m_d_incremental_refresh_book_46_group_index)
     iteration:set_generated()
@@ -7828,7 +7828,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.snapshot_full_refresh_order_book_44_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_44_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Snapshot Full Refresh Order Book 44 Group Index
   if snapshot_full_refresh_order_book_44_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_44_group_index, snapshot_full_refresh_order_book_44_group_index)
     iteration:set_generated()
@@ -8018,7 +8018,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_order_book_43_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_order_book_43_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Order Book 43 Group Index
   if m_d_incremental_refresh_order_book_43_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_order_book_43_group_index, m_d_incremental_refresh_order_book_43_group_index)
     iteration:set_generated()
@@ -8192,7 +8192,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_trade_summary_42_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_order_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Trade Summary 42 Order Group Index
   if m_d_incremental_refresh_trade_summary_42_order_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_trade_summary_42_order_group_index, m_d_incremental_refresh_trade_summary_42_order_group_index)
     iteration:set_generated()
@@ -8311,7 +8311,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_trade_summary_42_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Trade Summary 42 Group Index
   if m_d_incremental_refresh_trade_summary_42_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_trade_summary_42_group_index, m_d_incremental_refresh_trade_summary_42_group_index)
     iteration:set_generated()
@@ -9155,7 +9155,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.related_sym_group_fields = function(buffer, offset, packet, parent, related_sym_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Related Sym Group Index
   if related_sym_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.related_sym_group_index, related_sym_group_index)
     iteration:set_generated()
@@ -9394,7 +9394,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.snapshot_full_refresh_38_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_38_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Snapshot Full Refresh 38 Group Index
   if snapshot_full_refresh_38_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_38_group_index, snapshot_full_refresh_38_group_index)
     iteration:set_generated()
@@ -9648,7 +9648,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_volume_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_volume_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Volume Group Index
   if m_d_incremental_refresh_volume_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_volume_group_index, m_d_incremental_refresh_volume_group_index)
     iteration:set_generated()
@@ -9823,7 +9823,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_session_statistics_35_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_35_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Session Statistics 35 Group Index
   if m_d_incremental_refresh_session_statistics_35_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_session_statistics_35_group_index, m_d_incremental_refresh_session_statistics_35_group_index)
     iteration:set_generated()
@@ -10001,7 +10001,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_limits_banding_34_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_limits_banding_34_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Limits Banding 34 Group Index
   if m_d_incremental_refresh_limits_banding_34_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_limits_banding_34_group_index, m_d_incremental_refresh_limits_banding_34_group_index)
     iteration:set_generated()
@@ -10178,7 +10178,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_daily_statistics_33_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_daily_statistics_33_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Daily Statistics 33 Group Index
   if m_d_incremental_refresh_daily_statistics_33_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_daily_statistics_33_group_index, m_d_incremental_refresh_daily_statistics_33_group_index)
     iteration:set_generated()
@@ -10361,7 +10361,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_book_32_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_order_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Book 32 Order Group Index
   if m_d_incremental_refresh_book_32_order_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_32_order_group_index, m_d_incremental_refresh_book_32_order_group_index)
     iteration:set_generated()
@@ -10489,7 +10489,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_incremental_refresh_book_32_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Incremental Refresh Book 32 Group Index
   if m_d_incremental_refresh_book_32_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_32_group_index, m_d_incremental_refresh_book_32_group_index)
     iteration:set_generated()
@@ -10953,7 +10953,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.m_d_instrument_definition_spread_29_leg_group_fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_leg_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit M D Instrument Definition Spread 29 Leg Group Index
   if m_d_instrument_definition_spread_29_leg_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.m_d_instrument_definition_spread_29_leg_group_index, m_d_instrument_definition_spread_29_leg_group_index)
     iteration:set_generated()
@@ -11783,7 +11783,7 @@ end
 cme_futures_mdp3_sbe_v1_9_dissect.channel_reset_group_fields = function(buffer, offset, packet, parent, channel_reset_group_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Channel Reset Group Index
   if channel_reset_group_index ~= nil then
     local iteration = parent:add(cme_futures_mdp3_sbe_v1_9.fields.channel_reset_group_index, channel_reset_group_index)
     iteration:set_generated()

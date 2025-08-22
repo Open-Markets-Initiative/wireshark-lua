@@ -1990,7 +1990,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.leg_definition_fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
 
-  -- TODO
+  -- Implicit Leg Definition Index
   if leg_definition_index ~= nil then
     local iteration = parent:add(miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
