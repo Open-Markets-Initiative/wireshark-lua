@@ -151,13 +151,13 @@ smallx_headers_sbe_v1_0_dissect.sbe_frame = function(buffer, offset, packet, par
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_frame then
-    local element = parent:add(smallx_headers_sbe_v1_0.fields.sbe_frame, buffer(offset, 0))
-    local current = smallx_headers_sbe_v1_0_dissect.sbe_frame_fields(buffer, offset, packet, element, size_of_sbe_frame)
-    element:set_len(size_of_sbe_frame)
-    local display = smallx_headers_sbe_v1_0_display.sbe_frame(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(smallx_headers_sbe_v1_0.fields.sbe_frame, buffer(offset, 0))
+    local current = smallx_headers_sbe_v1_0_dissect.sbe_frame_fields(buffer, offset, packet, parent, size_of_sbe_frame)
+    parent:set_len(size_of_sbe_frame)
+    local display = smallx_headers_sbe_v1_0_display.sbe_frame(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     smallx_headers_sbe_v1_0_dissect.sbe_frame_fields(buffer, offset, packet, parent, size_of_sbe_frame)

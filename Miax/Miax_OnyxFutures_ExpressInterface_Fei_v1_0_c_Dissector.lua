@@ -1246,8 +1246,14 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_display.strategy_leg = function(pac
 end
 
 -- Dissect Fields: Strategy Leg
-miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg_fields = function(buffer, offset, packet, parent, strategy_leg_index)
   local index = offset
+
+  -- TODO
+  if strategy_leg_index ~= nil then
+    local iteration = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
+    iteration:set_generated()
+  end
 
   -- Instrument Id Binary U 4: BinaryU
   index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.instrument_id_binary_u_4(buffer, index, packet, parent)
@@ -1453,11 +1459,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_creation_request_f
   -- Repeating: Strategy Leg
   for strategy_leg_index = 1, number_of_legs do
     index, strategy_leg = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.strategy_leg(buffer, index, packet, parent)
-
-    if strategy_leg ~= nil then
-      local iteration = strategy_leg:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4818,13 +4819,13 @@ miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.sesm_tcp_packet then
-    local element = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet, buffer(offset, 0))
-    local current = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet_fields(buffer, offset, packet, element, size_of_sesm_tcp_packet)
-    element:set_len(size_of_sesm_tcp_packet)
-    local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sesm_tcp_packet(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet, buffer(offset, 0))
+    local current = miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    parent:set_len(size_of_sesm_tcp_packet)
+    local display = miax_onyxfutures_expressinterface_fei_v1_0_c_display.sesm_tcp_packet(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     miax_onyxfutures_expressinterface_fei_v1_0_c_dissect.sesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)

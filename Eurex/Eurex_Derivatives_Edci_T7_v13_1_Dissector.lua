@@ -841,8 +841,14 @@ eurex_derivatives_edci_t7_v13_1_display.sessions_grp_comp = function(packet, par
 end
 
 -- Dissect Fields: Sessions Grp Comp
-eurex_derivatives_edci_t7_v13_1_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_1_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if sessions_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.sessions_grp_comp_index, sessions_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_derivatives_edci_t7_v13_1_dissect.party_id_session_id(buffer, index, packet, parent)
@@ -978,11 +984,6 @@ eurex_derivatives_edci_t7_v13_1_dissect.session_list_notification_fields = funct
   -- Repeating: Sessions Grp Comp
   for sessions_grp_comp_index = 1, no_sessions do
     index, sessions_grp_comp = eurex_derivatives_edci_t7_v13_1_dissect.sessions_grp_comp(buffer, index, packet, parent)
-
-    if sessions_grp_comp ~= nil then
-      local iteration = sessions_grp_comp:add(eurex_derivatives_edci_t7_v13_1.fields.sessions_grp_comp_index, sessions_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1386,8 +1387,14 @@ eurex_derivatives_edci_t7_v13_1_display.partition_grp_comp = function(packet, pa
 end
 
 -- Dissect Fields: Partition Grp Comp
-eurex_derivatives_edci_t7_v13_1_dissect.partition_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_1_dissect.partition_grp_comp_fields = function(buffer, offset, packet, parent, partition_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if partition_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.partition_grp_comp_index, partition_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_derivatives_edci_t7_v13_1_dissect.partition_id(buffer, index, packet, parent)
@@ -1475,11 +1482,6 @@ eurex_derivatives_edci_t7_v13_1_dissect.partition_list_notification_fields = fun
   -- Repeating: Partition Grp Comp
   for partition_grp_comp_index = 1, no_partitions do
     index, partition_grp_comp = eurex_derivatives_edci_t7_v13_1_dissect.partition_grp_comp(buffer, index, packet, parent)
-
-    if partition_grp_comp ~= nil then
-      local iteration = partition_grp_comp:add(eurex_derivatives_edci_t7_v13_1.fields.partition_grp_comp_index, partition_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1645,8 +1647,14 @@ eurex_derivatives_edci_t7_v13_1_display.fills_grp_comp = function(packet, parent
 end
 
 -- Dissect Fields: Fills Grp Comp
-eurex_derivatives_edci_t7_v13_1_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_1_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent, fills_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if fills_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.fills_grp_comp_index, fills_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, fill_px = eurex_derivatives_edci_t7_v13_1_dissect.fill_px(buffer, index, packet, parent)
@@ -3100,11 +3108,6 @@ eurex_derivatives_edci_t7_v13_1_dissect.order_exec_report_broadcast_fields = fun
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
     index, fills_grp_comp = eurex_derivatives_edci_t7_v13_1_dissect.fills_grp_comp(buffer, index, packet, parent)
-
-    if fills_grp_comp ~= nil then
-      local iteration = fills_grp_comp:add(eurex_derivatives_edci_t7_v13_1.fields.fills_grp_comp_index, fills_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3939,8 +3942,14 @@ eurex_derivatives_edci_t7_v13_1_display.affected_ord_grp_comp = function(packet,
 end
 
 -- Dissect Fields: Affected Ord Grp Comp
-eurex_derivatives_edci_t7_v13_1_dissect.affected_ord_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_1_dissect.affected_ord_grp_comp_fields = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if affected_ord_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_edci_t7_v13_1.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, affected_order_id = eurex_derivatives_edci_t7_v13_1_dissect.affected_order_id(buffer, index, packet, parent)
@@ -4061,11 +4070,6 @@ eurex_derivatives_edci_t7_v13_1_dissect.delete_order_broadcast_fields = function
   -- Repeating: Affected Ord Grp Comp
   for affected_ord_grp_comp_index = 1, no_affected_orders do
     index, affected_ord_grp_comp = eurex_derivatives_edci_t7_v13_1_dissect.affected_ord_grp_comp(buffer, index, packet, parent)
-
-    if affected_ord_grp_comp ~= nil then
-      local iteration = affected_ord_grp_comp:add(eurex_derivatives_edci_t7_v13_1.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4391,13 +4395,13 @@ eurex_derivatives_edci_t7_v13_1_dissect.message = function(buffer, offset, packe
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(eurex_derivatives_edci_t7_v13_1.fields.message, buffer(offset, 0))
-    local current = eurex_derivatives_edci_t7_v13_1_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = eurex_derivatives_edci_t7_v13_1_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(eurex_derivatives_edci_t7_v13_1.fields.message, buffer(offset, 0))
+    local current = eurex_derivatives_edci_t7_v13_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = eurex_derivatives_edci_t7_v13_1_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     eurex_derivatives_edci_t7_v13_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)

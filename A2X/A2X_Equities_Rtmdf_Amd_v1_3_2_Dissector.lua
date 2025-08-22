@@ -1752,8 +1752,14 @@ a2x_equities_rtmdf_amd_v1_3_2_display.message = function(packet, parent, length)
 end
 
 -- Dissect Fields: Message
-a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 3 fields
   index, message_header = a2x_equities_rtmdf_amd_v1_3_2_dissect.message_header(buffer, index, packet, parent)
@@ -1768,21 +1774,21 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields = function(buffer, offset, 
 end
 
 -- Dissect: Message
-a2x_equities_rtmdf_amd_v1_3_2_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+a2x_equities_rtmdf_amd_v1_3_2_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message, buffer(offset, 0))
-    local current = a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = a2x_equities_rtmdf_amd_v1_3_2_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message, buffer(offset, 0))
+    local current = a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = a2x_equities_rtmdf_amd_v1_3_2_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    a2x_equities_rtmdf_amd_v1_3_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -1823,11 +1829,6 @@ a2x_equities_rtmdf_amd_v1_3_2_dissect.packet = function(buffer, packet, parent)
 
     -- Runtime Size Of: Message
     index, message = a2x_equities_rtmdf_amd_v1_3_2_dissect.message(buffer, index, packet, parent, msg_length)
-
-    if message ~= nil then
-      local iteration = message:add(a2x_equities_rtmdf_amd_v1_3_2.fields.message_index, message_index)
-      iteration:set_generated()
-    end
   end
 
   return index

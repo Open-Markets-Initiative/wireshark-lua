@@ -2569,8 +2569,14 @@ eurex_derivatives_eti_t7_v10_0_display.underlying_stip_grp_comp = function(packe
 end
 
 -- Dissect Fields: Underlying Stip Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_grp_comp_fields = function(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if underlying_stip_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Underlying Stip Value: 32 Byte Ascii String Nullable
   index, underlying_stip_value = eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_value(buffer, index, packet, parent)
@@ -2708,8 +2714,14 @@ eurex_derivatives_eti_t7_v10_0_display.instrument_attribute_grp_comp = function(
 end
 
 -- Dissect Fields: Instrument Attribute Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.instrument_attribute_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.instrument_attribute_grp_comp_fields = function(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if instrument_attribute_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Instr Attrib Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, instr_attrib_type = eurex_derivatives_eti_t7_v10_0_dissect.instr_attrib_type(buffer, index, packet, parent)
@@ -2835,8 +2847,14 @@ eurex_derivatives_eti_t7_v10_0_display.instrument_event_grp_comp = function(pack
 end
 
 -- Dissect Fields: Instrument Event Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.instrument_event_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.instrument_event_grp_comp_fields = function(buffer, offset, packet, parent, instrument_event_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if instrument_event_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Event Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, event_date = eurex_derivatives_eti_t7_v10_0_dissect.event_date(buffer, index, packet, parent)
@@ -2984,8 +3002,14 @@ eurex_derivatives_eti_t7_v10_0_display.trd_instrmnt_leg_grp_comp = function(pack
 end
 
 -- Dissect Fields: Trd Instrmnt Leg Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp_fields = function(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if trd_instrmnt_leg_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v10_0_dissect.leg_security_id(buffer, index, packet, parent)
@@ -3927,8 +3951,14 @@ eurex_derivatives_eti_t7_v10_0_display.side_alloc_ext_grp_comp = function(packet
 end
 
 -- Dissect Fields: Side Alloc Ext Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if side_alloc_ext_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_ext_grp_comp_index, side_alloc_ext_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v10_0_dissect.alloc_qty(buffer, index, packet, parent)
@@ -5237,51 +5267,26 @@ eurex_derivatives_eti_t7_v10_0_dissect.upload_tes_trade_request_fields = functio
   -- Repeating: Side Alloc Ext Grp Comp
   for side_alloc_ext_grp_comp_index = 1, no_side_allocs do
     index, side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent)
-
-    if side_alloc_ext_grp_comp ~= nil then
-      local iteration = side_alloc_ext_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_ext_grp_comp_index, side_alloc_ext_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
     index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
-
-    if trd_instrmnt_leg_grp_comp ~= nil then
-      local iteration = trd_instrmnt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
     index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
-
-    if instrument_event_grp_comp ~= nil then
-      local iteration = instrument_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
     index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
-
-    if instrument_attribute_grp_comp ~= nil then
-      local iteration = instrument_attribute_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
     index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
-
-    if underlying_stip_grp_comp ~= nil then
-      local iteration = underlying_stip_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8047,51 +8052,26 @@ eurex_derivatives_eti_t7_v10_0_dissect.tes_upload_broadcast_fields = function(bu
   -- Repeating: Side Alloc Ext Grp Comp
   for side_alloc_ext_grp_comp_index = 1, no_side_allocs do
     index, side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent)
-
-    if side_alloc_ext_grp_comp ~= nil then
-      local iteration = side_alloc_ext_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_ext_grp_comp_index, side_alloc_ext_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
     index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
-
-    if trd_instrmnt_leg_grp_comp ~= nil then
-      local iteration = trd_instrmnt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
     index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
-
-    if instrument_event_grp_comp ~= nil then
-      local iteration = instrument_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
     index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
-
-    if instrument_attribute_grp_comp ~= nil then
-      local iteration = instrument_attribute_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
     index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
-
-    if underlying_stip_grp_comp ~= nil then
-      local iteration = underlying_stip_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8210,8 +8190,14 @@ eurex_derivatives_eti_t7_v10_0_display.srqs_related_trade_id_grp_comp = function
 end
 
 -- Dissect Fields: Srqs Related Trade Id Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.srqs_related_trade_id_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.srqs_related_trade_id_grp_comp_fields = function(buffer, offset, packet, parent, srqs_related_trade_id_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if srqs_related_trade_id_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_related_trade_id_grp_comp_index, srqs_related_trade_id_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Srqs Related Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, srqs_related_trade_id = eurex_derivatives_eti_t7_v10_0_dissect.srqs_related_trade_id(buffer, index, packet, parent)
@@ -8726,11 +8712,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.tes_trade_broadcast_fields = function(buf
   -- Repeating: Srqs Related Trade Id Grp Comp
   for srqs_related_trade_id_grp_comp_index = 1, no_srqs_related_trade_i_ds do
     index, srqs_related_trade_id_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
-
-    if srqs_related_trade_id_grp_comp ~= nil then
-      local iteration = srqs_related_trade_id_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_related_trade_id_grp_comp_index, srqs_related_trade_id_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8812,8 +8793,14 @@ eurex_derivatives_eti_t7_v10_0_display.side_alloc_grp_bc_comp = function(packet,
 end
 
 -- Dissect Fields: Side Alloc Grp Bc Comp
-eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_bc_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_bc_comp_fields = function(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
   local index = offset
+
+  -- TODO
+  if side_alloc_grp_bc_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
+    iteration:set_generated()
+  end
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v10_0_dissect.alloc_qty(buffer, index, packet, parent)
@@ -9016,11 +9003,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.tes_reversal_broadcast_fields = function(
   -- Repeating: Side Alloc Grp Bc Comp
   for side_alloc_grp_bc_comp_index = 1, no_side_allocs do
     index, side_alloc_grp_bc_comp = eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
-
-    if side_alloc_grp_bc_comp ~= nil then
-      local iteration = side_alloc_grp_bc_comp:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -9862,51 +9844,26 @@ eurex_derivatives_eti_t7_v10_0_dissect.tes_broadcast_fields = function(buffer, o
   -- Repeating: Side Alloc Grp Bc Comp
   for side_alloc_grp_bc_comp_index = 1, no_side_allocs do
     index, side_alloc_grp_bc_comp = eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
-
-    if side_alloc_grp_bc_comp ~= nil then
-      local iteration = side_alloc_grp_bc_comp:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
     index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
-
-    if trd_instrmnt_leg_grp_comp ~= nil then
-      local iteration = trd_instrmnt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
     index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
-
-    if instrument_event_grp_comp ~= nil then
-      local iteration = instrument_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
     index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
-
-    if instrument_attribute_grp_comp ~= nil then
-      local iteration = instrument_attribute_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
     index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
-
-    if underlying_stip_grp_comp ~= nil then
-      local iteration = underlying_stip_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Runtime Size Of: Var Text
@@ -10214,41 +10171,21 @@ eurex_derivatives_eti_t7_v10_0_dissect.tes_approve_broadcast_fields = function(b
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
     index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
-
-    if trd_instrmnt_leg_grp_comp ~= nil then
-      local iteration = trd_instrmnt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
     index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
-
-    if instrument_event_grp_comp ~= nil then
-      local iteration = instrument_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
     index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
-
-    if instrument_attribute_grp_comp ~= nil then
-      local iteration = instrument_attribute_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
     index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
-
-    if underlying_stip_grp_comp ~= nil then
-      local iteration = underlying_stip_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Runtime Size Of: Var Text
@@ -11476,8 +11413,14 @@ eurex_derivatives_eti_t7_v10_0_display.target_parties_comp = function(packet, pa
 end
 
 -- Dissect Fields: Target Parties Comp
-eurex_derivatives_eti_t7_v10_0_dissect.target_parties_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.target_parties_comp_fields = function(buffer, offset, packet, parent, target_parties_comp_index)
   local index = offset
+
+  -- TODO
+  if target_parties_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.target_parties_comp_index, target_parties_comp_index)
+    iteration:set_generated()
+  end
 
   -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, target_party_id_executing_trader = eurex_derivatives_eti_t7_v10_0_dissect.target_party_id_executing_trader(buffer, index, packet, parent)
@@ -12102,11 +12045,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_update_negotiation_request_fields = 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
     index, target_parties_comp = eurex_derivatives_eti_t7_v10_0_dissect.target_parties_comp(buffer, index, packet, parent)
-
-    if target_parties_comp ~= nil then
-      local iteration = target_parties_comp:add(eurex_derivatives_eti_t7_v10_0.fields.target_parties_comp_index, target_parties_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12982,8 +12920,14 @@ eurex_derivatives_eti_t7_v10_0_display.quot_req_legs_grp_comp = function(packet,
 end
 
 -- Dissect Fields: Quot Req Legs Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.quot_req_legs_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.quot_req_legs_grp_comp_fields = function(buffer, offset, packet, parent, quot_req_legs_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if quot_req_legs_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.quot_req_legs_grp_comp_index, quot_req_legs_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v10_0_dissect.leg_security_id(buffer, index, packet, parent)
@@ -13394,21 +13338,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_open_negotiation_requester_notificat
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
     index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
-
-    if quot_req_legs_grp_comp ~= nil then
-      local iteration = quot_req_legs_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.quot_req_legs_grp_comp_index, quot_req_legs_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
     index, target_parties_comp = eurex_derivatives_eti_t7_v10_0_dissect.target_parties_comp(buffer, index, packet, parent)
-
-    if target_parties_comp ~= nil then
-      local iteration = target_parties_comp:add(eurex_derivatives_eti_t7_v10_0.fields.target_parties_comp_index, target_parties_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -13580,21 +13514,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_open_negotiation_request_fields = fu
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
     index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
-
-    if quot_req_legs_grp_comp ~= nil then
-      local iteration = quot_req_legs_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.quot_req_legs_grp_comp_index, quot_req_legs_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
     index, target_parties_comp = eurex_derivatives_eti_t7_v10_0_dissect.target_parties_comp(buffer, index, packet, parent)
-
-    if target_parties_comp ~= nil then
-      local iteration = target_parties_comp:add(eurex_derivatives_eti_t7_v10_0.fields.target_parties_comp_index, target_parties_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -13839,11 +13763,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_open_negotiation_notification_fields
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
     index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
-
-    if quot_req_legs_grp_comp ~= nil then
-      local iteration = quot_req_legs_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.quot_req_legs_grp_comp_index, quot_req_legs_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14131,11 +14050,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_negotiation_requester_notification_f
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
     index, target_parties_comp = eurex_derivatives_eti_t7_v10_0_dissect.target_parties_comp(buffer, index, packet, parent)
-
-    if target_parties_comp ~= nil then
-      local iteration = target_parties_comp:add(eurex_derivatives_eti_t7_v10_0.fields.target_parties_comp_index, target_parties_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14356,8 +14270,14 @@ eurex_derivatives_eti_t7_v10_0_display.smart_party_detail_grp_comp = function(pa
 end
 
 -- Dissect Fields: Smart Party Detail Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.smart_party_detail_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.smart_party_detail_grp_comp_fields = function(buffer, offset, packet, parent, smart_party_detail_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if smart_party_detail_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.smart_party_detail_grp_comp_index, smart_party_detail_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Party Detail Executing Unit: 5 Byte Ascii String Nullable
   index, party_detail_executing_unit = eurex_derivatives_eti_t7_v10_0_dissect.party_detail_executing_unit(buffer, index, packet, parent)
@@ -14451,11 +14371,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_inquire_smart_respondent_response_fi
   -- Repeating: Smart Party Detail Grp Comp
   for smart_party_detail_grp_comp_index = 1, no_party_details do
     index, smart_party_detail_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.smart_party_detail_grp_comp(buffer, index, packet, parent)
-
-    if smart_party_detail_grp_comp ~= nil then
-      local iteration = smart_party_detail_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.smart_party_detail_grp_comp_index, smart_party_detail_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14694,8 +14609,14 @@ eurex_derivatives_eti_t7_v10_0_display.srqs_hit_quote_grp_comp = function(packet
 end
 
 -- Dissect Fields: Srqs Hit Quote Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.srqs_hit_quote_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.srqs_hit_quote_grp_comp_fields = function(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if srqs_hit_quote_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_hit_quote_grp_comp_index, srqs_hit_quote_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = eurex_derivatives_eti_t7_v10_0_dissect.order_qty(buffer, index, packet, parent)
@@ -14937,11 +14858,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_hit_quote_request_fields = function(
   -- Repeating: Srqs Hit Quote Grp Comp
   for srqs_hit_quote_grp_comp_index = 1, no_srqs_quote_grps do
     index, srqs_hit_quote_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.srqs_hit_quote_grp_comp(buffer, index, packet, parent)
-
-    if srqs_hit_quote_grp_comp ~= nil then
-      local iteration = srqs_hit_quote_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_hit_quote_grp_comp_index, srqs_hit_quote_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -15123,8 +15039,14 @@ eurex_derivatives_eti_t7_v10_0_display.srqs_quote_grp_comp = function(packet, pa
 end
 
 -- Dissect Fields: Srqs Quote Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.srqs_quote_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.srqs_quote_grp_comp_fields = function(buffer, offset, packet, parent, srqs_quote_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if srqs_quote_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_quote_grp_comp_index, srqs_quote_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_derivatives_eti_t7_v10_0_dissect.quote_id(buffer, index, packet, parent)
@@ -15227,11 +15149,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_deal_response_fields = function(buff
   -- Repeating: Srqs Quote Grp Comp
   for srqs_quote_grp_comp_index = 1, no_srqs_quote_grps do
     index, srqs_quote_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.srqs_quote_grp_comp(buffer, index, packet, parent)
-
-    if srqs_quote_grp_comp ~= nil then
-      local iteration = srqs_quote_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_quote_grp_comp_index, srqs_quote_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -15306,8 +15223,14 @@ eurex_derivatives_eti_t7_v10_0_display.srqs_target_party_trd_grp_comp = function
 end
 
 -- Dissect Fields: Srqs Target Party Trd Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.srqs_target_party_trd_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.srqs_target_party_trd_grp_comp_fields = function(buffer, offset, packet, parent, srqs_target_party_trd_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if srqs_target_party_trd_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_target_party_trd_grp_comp_index, srqs_target_party_trd_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Side Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, side_last_qty = eurex_derivatives_eti_t7_v10_0_dissect.side_last_qty(buffer, index, packet, parent)
@@ -15594,11 +15517,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_deal_notification_fields = function(
   -- Repeating: Srqs Target Party Trd Grp Comp
   for srqs_target_party_trd_grp_comp_index = 1, no_srqs_target_party_trd_grps do
     index, srqs_target_party_trd_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.srqs_target_party_trd_grp_comp(buffer, index, packet, parent)
-
-    if srqs_target_party_trd_grp_comp ~= nil then
-      local iteration = srqs_target_party_trd_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_target_party_trd_grp_comp_index, srqs_target_party_trd_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -15854,8 +15772,14 @@ eurex_derivatives_eti_t7_v10_0_display.order_book_item_grp_comp = function(packe
 end
 
 -- Dissect Fields: Order Book Item Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.order_book_item_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.order_book_item_grp_comp_fields = function(buffer, offset, packet, parent, order_book_item_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if order_book_item_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.order_book_item_grp_comp_index, order_book_item_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v10_0_dissect.security_id(buffer, index, packet, parent)
@@ -16114,21 +16038,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.srqs_create_deal_notification_fields = fu
   -- Repeating: Order Book Item Grp Comp
   for order_book_item_grp_comp_index = 1, no_order_book_items do
     index, order_book_item_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_book_item_grp_comp(buffer, index, packet, parent)
-
-    if order_book_item_grp_comp ~= nil then
-      local iteration = order_book_item_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_book_item_grp_comp_index, order_book_item_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Srqs Target Party Trd Grp Comp
   for srqs_target_party_trd_grp_comp_index = 1, no_srqs_target_party_trd_grps do
     index, srqs_target_party_trd_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.srqs_target_party_trd_grp_comp(buffer, index, packet, parent)
-
-    if srqs_target_party_trd_grp_comp ~= nil then
-      local iteration = srqs_target_party_trd_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.srqs_target_party_trd_grp_comp_index, srqs_target_party_trd_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -17539,8 +17453,14 @@ eurex_derivatives_eti_t7_v10_0_display.quote_leg_exec_grp_comp = function(packet
 end
 
 -- Dissect Fields: Quote Leg Exec Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.quote_leg_exec_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.quote_leg_exec_grp_comp_fields = function(buffer, offset, packet, parent, quote_leg_exec_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if quote_leg_exec_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.quote_leg_exec_grp_comp_index, quote_leg_exec_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v10_0_dissect.leg_security_id(buffer, index, packet, parent)
@@ -17907,8 +17827,14 @@ eurex_derivatives_eti_t7_v10_0_display.quote_event_grp_comp = function(packet, p
 end
 
 -- Dissect Fields: Quote Event Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.quote_event_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.quote_event_grp_comp_fields = function(buffer, offset, packet, parent, quote_event_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if quote_event_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.quote_event_grp_comp_index, quote_event_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v10_0_dissect.security_id(buffer, index, packet, parent)
@@ -18057,21 +17983,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.quote_execution_report_fields = function(
   -- Repeating: Quote Event Grp Comp
   for quote_event_grp_comp_index = 1, no_quote_events do
     index, quote_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.quote_event_grp_comp(buffer, index, packet, parent)
-
-    if quote_event_grp_comp ~= nil then
-      local iteration = quote_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.quote_event_grp_comp_index, quote_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Quote Leg Exec Grp Comp
   for quote_leg_exec_grp_comp_index = 1, no_leg_execs do
     index, quote_leg_exec_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.quote_leg_exec_grp_comp(buffer, index, packet, parent)
-
-    if quote_leg_exec_grp_comp ~= nil then
-      local iteration = quote_leg_exec_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.quote_leg_exec_grp_comp_index, quote_leg_exec_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -18134,8 +18050,14 @@ eurex_derivatives_eti_t7_v10_0_display.not_affected_securities_grp_comp = functi
 end
 
 -- Dissect Fields: Not Affected Securities Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.not_affected_securities_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.not_affected_securities_grp_comp_fields = function(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if not_affected_securities_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Not Affected Security Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, not_affected_security_id = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_security_id(buffer, index, packet, parent)
@@ -18251,11 +18173,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.quote_activation_response_fields = functi
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
     index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
-
-    if not_affected_securities_grp_comp ~= nil then
-      local iteration = not_affected_securities_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -18584,11 +18501,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.quote_activation_notification_fields = fu
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
     index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
-
-    if not_affected_securities_grp_comp ~= nil then
-      local iteration = not_affected_securities_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -18696,8 +18608,14 @@ eurex_derivatives_eti_t7_v10_0_display.risk_limit_qty_grp_comp = function(packet
 end
 
 -- Dissect Fields: Risk Limit Qty Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.risk_limit_qty_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.risk_limit_qty_grp_comp_fields = function(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if risk_limit_qty_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.risk_limit_qty_grp_comp_index, risk_limit_qty_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, risk_limit_qty = eurex_derivatives_eti_t7_v10_0_dissect.risk_limit_qty(buffer, index, packet, parent)
@@ -18900,11 +18818,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.pre_trade_risk_limits_definition_request_
   -- Repeating: Risk Limit Qty Grp Comp
   for risk_limit_qty_grp_comp_index = 1, no_risk_limits_qty do
     index, risk_limit_qty_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.risk_limit_qty_grp_comp(buffer, index, packet, parent)
-
-    if risk_limit_qty_grp_comp ~= nil then
-      local iteration = risk_limit_qty_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.risk_limit_qty_grp_comp_index, risk_limit_qty_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -19093,8 +19006,14 @@ eurex_derivatives_eti_t7_v10_0_display.risk_limits_rpt_grp_comp = function(packe
 end
 
 -- Dissect Fields: Risk Limits Rpt Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.risk_limits_rpt_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.risk_limits_rpt_grp_comp_fields = function(buffer, offset, packet, parent, risk_limits_rpt_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if risk_limits_rpt_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.risk_limits_rpt_grp_comp_index, risk_limits_rpt_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, risk_limit_qty = eurex_derivatives_eti_t7_v10_0_dissect.risk_limit_qty(buffer, index, packet, parent)
@@ -19243,11 +19162,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.pre_trade_risk_limit_response_fields = fu
   -- Repeating: Risk Limits Rpt Grp Comp
   for risk_limits_rpt_grp_comp_index = 1, no_risk_limits do
     index, risk_limits_rpt_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.risk_limits_rpt_grp_comp(buffer, index, packet, parent)
-
-    if risk_limits_rpt_grp_comp ~= nil then
-      local iteration = risk_limits_rpt_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.risk_limits_rpt_grp_comp_index, risk_limits_rpt_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -19776,8 +19690,14 @@ eurex_derivatives_eti_t7_v10_0_display.order_event_grp_comp = function(packet, p
 end
 
 -- Dissect Fields: Order Event Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp_fields = function(buffer, offset, packet, parent, order_event_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if order_event_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Order Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_event_px = eurex_derivatives_eti_t7_v10_0_dissect.order_event_px(buffer, index, packet, parent)
@@ -19867,8 +19787,14 @@ eurex_derivatives_eti_t7_v10_0_display.instrmnt_leg_exec_grp_comp = function(pac
 end
 
 -- Dissect Fields: Instrmnt Leg Exec Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.instrmnt_leg_exec_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.instrmnt_leg_exec_grp_comp_fields = function(buffer, offset, packet, parent, instrmnt_leg_exec_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if instrmnt_leg_exec_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.instrmnt_leg_exec_grp_comp_index, instrmnt_leg_exec_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v10_0_dissect.leg_security_id(buffer, index, packet, parent)
@@ -20101,8 +20027,14 @@ eurex_derivatives_eti_t7_v10_0_display.fills_grp_comp = function(packet, parent,
 end
 
 -- Dissect Fields: Fills Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent, fills_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if fills_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.fills_grp_comp_index, fills_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, fill_px = eurex_derivatives_eti_t7_v10_0_dissect.fill_px(buffer, index, packet, parent)
@@ -20787,31 +20719,16 @@ eurex_derivatives_eti_t7_v10_0_dissect.order_exec_response_fields = function(buf
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
     index, fills_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.fills_grp_comp(buffer, index, packet, parent)
-
-    if fills_grp_comp ~= nil then
-      local iteration = fills_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.fills_grp_comp_index, fills_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
     index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
-
-    if instrmnt_leg_exec_grp_comp ~= nil then
-      local iteration = instrmnt_leg_exec_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmnt_leg_exec_grp_comp_index, instrmnt_leg_exec_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Order Event Grp Comp
   for order_event_grp_comp_index = 1, no_order_events do
     index, order_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp(buffer, index, packet, parent)
-
-    if order_event_grp_comp ~= nil then
-      local iteration = order_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -20918,8 +20835,14 @@ eurex_derivatives_eti_t7_v10_0_display.leg_ord_grp_comp = function(packet, paren
 end
 
 -- Dissect Fields: Leg Ord Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.leg_ord_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.leg_ord_grp_comp_fields = function(buffer, offset, packet, parent, leg_ord_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if leg_ord_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.leg_ord_grp_comp_index, leg_ord_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Account: 2 Byte Ascii String Nullable
   index, leg_account = eurex_derivatives_eti_t7_v10_0_dissect.leg_account(buffer, index, packet, parent)
@@ -21403,41 +21326,21 @@ eurex_derivatives_eti_t7_v10_0_dissect.order_exec_report_broadcast_fields = func
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
     index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent)
-
-    if leg_ord_grp_comp ~= nil then
-      local iteration = leg_ord_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.leg_ord_grp_comp_index, leg_ord_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
     index, fills_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.fills_grp_comp(buffer, index, packet, parent)
-
-    if fills_grp_comp ~= nil then
-      local iteration = fills_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.fills_grp_comp_index, fills_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
     index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
-
-    if instrmnt_leg_exec_grp_comp ~= nil then
-      local iteration = instrmnt_leg_exec_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmnt_leg_exec_grp_comp_index, instrmnt_leg_exec_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Order Event Grp Comp
   for order_event_grp_comp_index = 1, no_order_events do
     index, order_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp(buffer, index, packet, parent)
-
-    if order_event_grp_comp ~= nil then
-      local iteration = order_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -21551,31 +21454,16 @@ eurex_derivatives_eti_t7_v10_0_dissect.order_exec_notification_fields = function
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
     index, fills_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.fills_grp_comp(buffer, index, packet, parent)
-
-    if fills_grp_comp ~= nil then
-      local iteration = fills_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.fills_grp_comp_index, fills_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
     index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
-
-    if instrmnt_leg_exec_grp_comp ~= nil then
-      local iteration = instrmnt_leg_exec_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmnt_leg_exec_grp_comp_index, instrmnt_leg_exec_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Order Event Grp Comp
   for order_event_grp_comp_index = 1, no_order_events do
     index, order_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp(buffer, index, packet, parent)
-
-    if order_event_grp_comp ~= nil then
-      local iteration = order_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -22198,11 +22086,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.new_order_response_fields = function(buff
   -- Repeating: Order Event Grp Comp
   for order_event_grp_comp_index = 1, no_order_events do
     index, order_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp(buffer, index, packet, parent)
-
-    if order_event_grp_comp ~= nil then
-      local iteration = order_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -22298,11 +22181,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.new_order_nr_response_fields = function(b
   -- Repeating: Order Event Grp Comp
   for order_event_grp_comp_index = 1, no_order_events do
     index, order_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp(buffer, index, packet, parent)
-
-    if order_event_grp_comp ~= nil then
-      local iteration = order_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -22587,11 +22465,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.new_order_complex_request_fields = functi
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
     index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent)
-
-    if leg_ord_grp_comp ~= nil then
-      local iteration = leg_ord_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.leg_ord_grp_comp_index, leg_ord_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -22641,8 +22514,14 @@ eurex_derivatives_eti_t7_v10_0_display.side_alloc_grp_comp = function(packet, pa
 end
 
 -- Dissect Fields: Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_comp_fields = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if side_alloc_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v10_0_dissect.alloc_qty(buffer, index, packet, parent)
@@ -22765,21 +22644,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.modify_tes_trade_request_fields = functio
   -- Repeating: Side Alloc Grp Comp
   for side_alloc_grp_comp_index = 1, no_side_allocs do
     index, side_alloc_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
-
-    if side_alloc_grp_comp ~= nil then
-      local iteration = side_alloc_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
     index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
-
-    if trd_instrmnt_leg_grp_comp ~= nil then
-      local iteration = trd_instrmnt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -23205,11 +23074,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.modify_order_response_fields = function(b
   -- Repeating: Order Event Grp Comp
   for order_event_grp_comp_index = 1, no_order_events do
     index, order_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp(buffer, index, packet, parent)
-
-    if order_event_grp_comp ~= nil then
-      local iteration = order_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -23311,11 +23175,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.modify_order_nr_response_fields = functio
   -- Repeating: Order Event Grp Comp
   for order_event_grp_comp_index = 1, no_order_events do
     index, order_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.order_event_grp_comp(buffer, index, packet, parent)
-
-    if order_event_grp_comp ~= nil then
-      local iteration = order_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.order_event_grp_comp_index, order_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -23612,11 +23471,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.modify_order_complex_request_fields = fun
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
     index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent)
-
-    if leg_ord_grp_comp ~= nil then
-      local iteration = leg_ord_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.leg_ord_grp_comp_index, leg_ord_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -23725,8 +23579,14 @@ eurex_derivatives_eti_t7_v10_0_display.basket_side_alloc_grp_comp = function(pac
 end
 
 -- Dissect Fields: Basket Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_grp_comp_fields = function(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if basket_side_alloc_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_grp_comp_index, basket_side_alloc_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v10_0_dissect.alloc_qty(buffer, index, packet, parent)
@@ -23900,8 +23760,14 @@ eurex_derivatives_eti_t7_v10_0_display.instrmt_match_side_grp_comp = function(pa
 end
 
 -- Dissect Fields: Instrmt Match Side Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.instrmt_match_side_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.instrmt_match_side_grp_comp_fields = function(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if instrmt_match_side_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_match_side_grp_comp_index, instrmt_match_side_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v10_0_dissect.security_id(buffer, index, packet, parent)
@@ -24069,8 +23935,14 @@ eurex_derivatives_eti_t7_v10_0_display.basket_root_party_grp_comp = function(pac
 end
 
 -- Dissect Fields: Basket Root Party Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.basket_root_party_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.basket_root_party_grp_comp_fields = function(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if basket_root_party_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Root Party Sub Id Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, root_party_sub_id_type = eurex_derivatives_eti_t7_v10_0_dissect.root_party_sub_id_type(buffer, index, packet, parent)
@@ -24328,31 +24200,16 @@ eurex_derivatives_eti_t7_v10_0_dissect.modify_basket_trade_request_fields = func
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
     index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
-
-    if basket_root_party_grp_comp ~= nil then
-      local iteration = basket_root_party_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
     index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
-
-    if instrmt_match_side_grp_comp ~= nil then
-      local iteration = instrmt_match_side_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_match_side_grp_comp_index, instrmt_match_side_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
     index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
-
-    if basket_side_alloc_grp_comp ~= nil then
-      local iteration = basket_side_alloc_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_grp_comp_index, basket_side_alloc_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -24589,8 +24446,14 @@ eurex_derivatives_eti_t7_v10_0_display.quote_entry_ack_grp_comp = function(packe
 end
 
 -- Dissect Fields: Quote Entry Ack Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.quote_entry_ack_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.quote_entry_ack_grp_comp_fields = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if quote_entry_ack_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v10_0_dissect.security_id(buffer, index, packet, parent)
@@ -24727,11 +24590,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.mass_quote_response_fields = function(buf
   -- Repeating: Quote Entry Ack Grp Comp
   for quote_entry_ack_grp_comp_index = 1, no_quote_side_entries do
     index, quote_entry_ack_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.quote_entry_ack_grp_comp(buffer, index, packet, parent)
-
-    if quote_entry_ack_grp_comp ~= nil then
-      local iteration = quote_entry_ack_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -24777,8 +24635,14 @@ eurex_derivatives_eti_t7_v10_0_display.quote_entry_grp_comp = function(packet, p
 end
 
 -- Dissect Fields: Quote Entry Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.quote_entry_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.quote_entry_grp_comp_fields = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if quote_entry_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eti_t7_v10_0_dissect.security_id(buffer, index, packet, parent)
@@ -24947,11 +24811,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.mass_quote_request_fields = function(buff
   -- Repeating: Quote Entry Grp Comp
   for quote_entry_grp_comp_index = 1, no_quote_entries do
     index, quote_entry_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.quote_entry_grp_comp(buffer, index, packet, parent)
-
-    if quote_entry_grp_comp ~= nil then
-      local iteration = quote_entry_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -26188,8 +26047,14 @@ eurex_derivatives_eti_t7_v10_0_display.party_details_grp_comp = function(packet,
 end
 
 -- Dissect Fields: Party Details Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.party_details_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.party_details_grp_comp_fields = function(buffer, offset, packet, parent, party_details_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if party_details_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.party_details_grp_comp_index, party_details_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Party Detail Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_detail_id_executing_trader = eurex_derivatives_eti_t7_v10_0_dissect.party_detail_id_executing_trader(buffer, index, packet, parent)
@@ -26287,11 +26152,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.inquire_user_response_fields = function(b
   -- Repeating: Party Details Grp Comp
   for party_details_grp_comp_index = 1, no_party_details do
     index, party_details_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.party_details_grp_comp(buffer, index, packet, parent)
-
-    if party_details_grp_comp ~= nil then
-      local iteration = party_details_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.party_details_grp_comp_index, party_details_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -26452,8 +26312,14 @@ eurex_derivatives_eti_t7_v10_0_display.sessions_grp_comp = function(packet, pare
 end
 
 -- Dissect Fields: Sessions Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if sessions_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_session_id = eurex_derivatives_eti_t7_v10_0_dissect.party_id_session_id(buffer, index, packet, parent)
@@ -26547,11 +26413,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.inquire_session_list_response_fields = fu
   -- Repeating: Sessions Grp Comp
   for sessions_grp_comp_index = 1, no_sessions do
     index, sessions_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.sessions_grp_comp(buffer, index, packet, parent)
-
-    if sessions_grp_comp ~= nil then
-      local iteration = sessions_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -26735,8 +26596,14 @@ eurex_derivatives_eti_t7_v10_0_display.mm_parameter_grp_comp = function(packet, 
 end
 
 -- Dissect Fields: Mm Parameter Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.mm_parameter_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.mm_parameter_grp_comp_fields = function(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if mm_parameter_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.mm_parameter_grp_comp_index, mm_parameter_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Exposure Duration: 8 Byte Signed Fixed Width Integer Nullable
   index, exposure_duration = eurex_derivatives_eti_t7_v10_0_dissect.exposure_duration(buffer, index, packet, parent)
@@ -26870,11 +26737,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.inquire_mm_parameter_response_fields = fu
   -- Repeating: Mm Parameter Grp Comp
   for mm_parameter_grp_comp_index = 1, no_mm_parameters do
     index, mm_parameter_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.mm_parameter_grp_comp(buffer, index, packet, parent)
-
-    if mm_parameter_grp_comp ~= nil then
-      local iteration = mm_parameter_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.mm_parameter_grp_comp_index, mm_parameter_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -27013,8 +26875,14 @@ eurex_derivatives_eti_t7_v10_0_display.enrichment_rules_grp_comp = function(pack
 end
 
 -- Dissect Fields: Enrichment Rules Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.enrichment_rules_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.enrichment_rules_grp_comp_fields = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if enrichment_rules_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, enrichment_rule_id = eurex_derivatives_eti_t7_v10_0_dissect.enrichment_rule_id(buffer, index, packet, parent)
@@ -27132,11 +27000,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.inquire_enrichment_rule_id_list_response_
   -- Repeating: Enrichment Rules Grp Comp
   for enrichment_rules_grp_comp_index = 1, no_enrichment_rules do
     index, enrichment_rules_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.enrichment_rules_grp_comp(buffer, index, packet, parent)
-
-    if enrichment_rules_grp_comp ~= nil then
-      local iteration = enrichment_rules_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -27573,51 +27436,26 @@ eurex_derivatives_eti_t7_v10_0_dissect.enter_tes_trade_request_fields = function
   -- Repeating: Side Alloc Grp Comp
   for side_alloc_grp_comp_index = 1, no_side_allocs do
     index, side_alloc_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
-
-    if side_alloc_grp_comp ~= nil then
-      local iteration = side_alloc_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
     index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
-
-    if trd_instrmnt_leg_grp_comp ~= nil then
-      local iteration = trd_instrmnt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
     index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
-
-    if instrument_event_grp_comp ~= nil then
-      local iteration = instrument_event_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
     index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
-
-    if instrument_attribute_grp_comp ~= nil then
-      local iteration = instrument_attribute_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
     index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
-
-    if underlying_stip_grp_comp ~= nil then
-      local iteration = underlying_stip_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -27691,8 +27529,14 @@ eurex_derivatives_eti_t7_v10_0_display.side_cross_leg_grp_comp = function(packet
 end
 
 -- Dissect Fields: Side Cross Leg Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.side_cross_leg_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.side_cross_leg_grp_comp_fields = function(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if side_cross_leg_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.side_cross_leg_grp_comp_index, side_cross_leg_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_input_source = eurex_derivatives_eti_t7_v10_0_dissect.leg_input_source(buffer, index, packet, parent)
@@ -27877,8 +27721,14 @@ eurex_derivatives_eti_t7_v10_0_display.cross_request_side_grp_comp = function(pa
 end
 
 -- Dissect Fields: Cross Request Side Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.cross_request_side_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.cross_request_side_grp_comp_fields = function(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if cross_request_side_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.cross_request_side_grp_comp_index, cross_request_side_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_client_id = eurex_derivatives_eti_t7_v10_0_dissect.party_id_client_id(buffer, index, packet, parent)
@@ -28173,21 +28023,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.enter_clip_request_fields = function(buff
   -- Repeating: Cross Request Side Grp Comp
   for cross_request_side_grp_comp_index = 1, no_sides do
     index, cross_request_side_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.cross_request_side_grp_comp(buffer, index, packet, parent)
-
-    if cross_request_side_grp_comp ~= nil then
-      local iteration = cross_request_side_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.cross_request_side_grp_comp_index, cross_request_side_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Side Cross Leg Grp Comp
   for side_cross_leg_grp_comp_index = 1, no_cross_legs do
     index, side_cross_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.side_cross_leg_grp_comp(buffer, index, packet, parent)
-
-    if side_cross_leg_grp_comp ~= nil then
-      local iteration = side_cross_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.side_cross_leg_grp_comp_index, side_cross_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -28310,31 +28150,16 @@ eurex_derivatives_eti_t7_v10_0_dissect.enter_basket_trade_request_fields = funct
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
     index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
-
-    if basket_root_party_grp_comp ~= nil then
-      local iteration = basket_root_party_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
     index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
-
-    if instrmt_match_side_grp_comp ~= nil then
-      local iteration = instrmt_match_side_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_match_side_grp_comp_index, instrmt_match_side_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
     index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
-
-    if basket_side_alloc_grp_comp ~= nil then
-      local iteration = basket_side_alloc_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_grp_comp_index, basket_side_alloc_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -29060,11 +28885,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.delete_all_quote_response_fields = functi
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
     index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
-
-    if not_affected_securities_grp_comp ~= nil then
-      local iteration = not_affected_securities_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -29242,11 +29062,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.delete_all_quote_broadcast_fields = funct
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
     index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
-
-    if not_affected_securities_grp_comp ~= nil then
-      local iteration = not_affected_securities_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -29311,8 +29126,14 @@ eurex_derivatives_eti_t7_v10_0_display.affected_order_requests_grp_comp = functi
 end
 
 -- Dissect Fields: Affected Order Requests Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.affected_order_requests_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.affected_order_requests_grp_comp_fields = function(buffer, offset, packet, parent, affected_order_requests_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if affected_order_requests_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.affected_order_requests_grp_comp_index, affected_order_requests_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Affected Order Request Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, affected_order_request_id = eurex_derivatives_eti_t7_v10_0_dissect.affected_order_request_id(buffer, index, packet, parent)
@@ -29408,8 +29229,14 @@ eurex_derivatives_eti_t7_v10_0_display.not_affected_orders_grp_comp = function(p
 end
 
 -- Dissect Fields: Not Affected Orders Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.not_affected_orders_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.not_affected_orders_grp_comp_fields = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if not_affected_orders_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Not Affected Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, not_affected_order_id = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_order_id(buffer, index, packet, parent)
@@ -29528,21 +29355,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.delete_all_order_response_fields = functi
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
     index, not_affected_orders_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
-
-    if not_affected_orders_grp_comp ~= nil then
-      local iteration = not_affected_orders_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Affected Order Requests Grp Comp
   for affected_order_requests_grp_comp_index = 1, no_affected_order_requests do
     index, affected_order_requests_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
-
-    if affected_order_requests_grp_comp ~= nil then
-      local iteration = affected_order_requests_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.affected_order_requests_grp_comp_index, affected_order_requests_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -29824,21 +29641,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.delete_all_order_broadcast_fields = funct
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
     index, not_affected_orders_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
-
-    if not_affected_orders_grp_comp ~= nil then
-      local iteration = not_affected_orders_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Affected Order Requests Grp Comp
   for affected_order_requests_grp_comp_index = 1, no_affected_order_requests do
     index, affected_order_requests_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
-
-    if affected_order_requests_grp_comp ~= nil then
-      local iteration = affected_order_requests_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.affected_order_requests_grp_comp_index, affected_order_requests_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -29990,8 +29797,14 @@ eurex_derivatives_eti_t7_v10_0_display.cross_request_ack_side_grp_comp = functio
 end
 
 -- Dissect Fields: Cross Request Ack Side Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.cross_request_ack_side_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.cross_request_ack_side_grp_comp_fields = function(buffer, offset, packet, parent, cross_request_ack_side_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if cross_request_ack_side_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.cross_request_ack_side_grp_comp_index, cross_request_ack_side_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = eurex_derivatives_eti_t7_v10_0_dissect.order_id(buffer, index, packet, parent)
@@ -30072,11 +29885,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.clip_response_fields = function(buffer, o
   -- Repeating: Cross Request Ack Side Grp Comp
   for cross_request_ack_side_grp_comp_index = 1, no_sides do
     index, cross_request_ack_side_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.cross_request_ack_side_grp_comp(buffer, index, packet, parent)
-
-    if cross_request_ack_side_grp_comp ~= nil then
-      local iteration = cross_request_ack_side_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.cross_request_ack_side_grp_comp_index, cross_request_ack_side_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -30175,21 +29983,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.clip_execution_notification_fields = func
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
     index, fills_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.fills_grp_comp(buffer, index, packet, parent)
-
-    if fills_grp_comp ~= nil then
-      local iteration = fills_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.fills_grp_comp_index, fills_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
     index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
-
-    if instrmnt_leg_exec_grp_comp ~= nil then
-      local iteration = instrmnt_leg_exec_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmnt_leg_exec_grp_comp_index, instrmnt_leg_exec_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -30473,8 +30271,14 @@ eurex_derivatives_eti_t7_v10_0_display.basket_exec_grp_comp = function(packet, p
 end
 
 -- Dissect Fields: Basket Exec Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.basket_exec_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.basket_exec_grp_comp_fields = function(buffer, offset, packet, parent, basket_exec_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if basket_exec_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.basket_exec_grp_comp_index, basket_exec_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, package_id = eurex_derivatives_eti_t7_v10_0_dissect.package_id(buffer, index, packet, parent)
@@ -30573,11 +30377,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.basket_execution_broadcast_fields = funct
   -- Repeating: Basket Exec Grp Comp
   for basket_exec_grp_comp_index = 1, no_instrmt_match_sides do
     index, basket_exec_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_exec_grp_comp(buffer, index, packet, parent)
-
-    if basket_exec_grp_comp ~= nil then
-      local iteration = basket_exec_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_exec_grp_comp_index, basket_exec_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -30776,31 +30575,16 @@ eurex_derivatives_eti_t7_v10_0_dissect.basket_broadcast_fields = function(buffer
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps_bc do
     index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
-
-    if basket_root_party_grp_comp ~= nil then
-      local iteration = basket_root_party_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
     index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
-
-    if instrmt_match_side_grp_comp ~= nil then
-      local iteration = instrmt_match_side_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_match_side_grp_comp_index, instrmt_match_side_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
     index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
-
-    if basket_side_alloc_grp_comp ~= nil then
-      local iteration = basket_side_alloc_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_grp_comp_index, basket_side_alloc_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -30898,8 +30682,14 @@ eurex_derivatives_eti_t7_v10_0_display.basket_side_alloc_ext_bc_grp_comp = funct
 end
 
 -- Dissect Fields: Basket Side Alloc Ext Bc Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_ext_bc_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_ext_bc_grp_comp_fields = function(buffer, offset, packet, parent, basket_side_alloc_ext_bc_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if basket_side_alloc_ext_bc_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_ext_bc_grp_comp_index, basket_side_alloc_ext_bc_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v10_0_dissect.alloc_qty(buffer, index, packet, parent)
@@ -31091,21 +30881,11 @@ eurex_derivatives_eti_t7_v10_0_dissect.basket_approve_broadcast_fields = functio
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
     index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
-
-    if basket_root_party_grp_comp ~= nil then
-      local iteration = basket_root_party_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Basket Side Alloc Ext Bc Grp Comp
   for basket_side_alloc_ext_bc_grp_comp_index = 1, no_basket_side_alloc do
     index, basket_side_alloc_ext_bc_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_ext_bc_grp_comp(buffer, index, packet, parent)
-
-    if basket_side_alloc_ext_bc_grp_comp ~= nil then
-      local iteration = basket_side_alloc_ext_bc_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_ext_bc_grp_comp_index, basket_side_alloc_ext_bc_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -31421,8 +31201,14 @@ eurex_derivatives_eti_t7_v10_0_display.basket_side_alloc_ext_grp_comp = function
 end
 
 -- Dissect Fields: Basket Side Alloc Ext Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_ext_grp_comp_fields = function(buffer, offset, packet, parent, basket_side_alloc_ext_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if basket_side_alloc_ext_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_ext_grp_comp_index, basket_side_alloc_ext_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, alloc_qty = eurex_derivatives_eti_t7_v10_0_dissect.alloc_qty(buffer, index, packet, parent)
@@ -31596,11 +31382,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.approve_basket_trade_request_fields = fun
   -- Repeating: Basket Side Alloc Ext Grp Comp
   for basket_side_alloc_ext_grp_comp_index = 1, no_basket_side_alloc do
     index, basket_side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_ext_grp_comp(buffer, index, packet, parent)
-
-    if basket_side_alloc_ext_grp_comp ~= nil then
-      local iteration = basket_side_alloc_ext_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_ext_grp_comp_index, basket_side_alloc_ext_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -31693,31 +31474,16 @@ eurex_derivatives_eti_t7_v10_0_dissect.amend_basket_trade_request_fields = funct
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
     index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
-
-    if basket_root_party_grp_comp ~= nil then
-      local iteration = basket_root_party_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
     index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
-
-    if instrmt_match_side_grp_comp ~= nil then
-      local iteration = instrmt_match_side_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_match_side_grp_comp_index, instrmt_match_side_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
     index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
-
-    if basket_side_alloc_grp_comp ~= nil then
-      local iteration = basket_side_alloc_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.basket_side_alloc_grp_comp_index, basket_side_alloc_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -32165,8 +31931,14 @@ eurex_derivatives_eti_t7_v10_0_display.instrmt_leg_grp_comp = function(packet, p
 end
 
 -- Dissect Fields: Instrmt Leg Grp Comp
-eurex_derivatives_eti_t7_v10_0_dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v10_0_dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if instrmt_leg_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = eurex_derivatives_eti_t7_v10_0_dissect.leg_security_id(buffer, index, packet, parent)
@@ -32431,11 +32203,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.add_complex_instrument_response_fields = 
   -- Repeating: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, no_legs do
     index, instrmt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
-
-    if instrmt_leg_grp_comp ~= nil then
-      local iteration = instrmt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -32507,11 +32274,6 @@ eurex_derivatives_eti_t7_v10_0_dissect.add_complex_instrument_request_fields = f
   -- Repeating: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, no_legs do
     index, instrmt_leg_grp_comp = eurex_derivatives_eti_t7_v10_0_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
-
-    if instrmt_leg_grp_comp ~= nil then
-      local iteration = instrmt_leg_grp_comp:add(eurex_derivatives_eti_t7_v10_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -34267,13 +34029,13 @@ eurex_derivatives_eti_t7_v10_0_dissect.message = function(buffer, offset, packet
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(eurex_derivatives_eti_t7_v10_0.fields.message, buffer(offset, 0))
-    local current = eurex_derivatives_eti_t7_v10_0_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = eurex_derivatives_eti_t7_v10_0_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(eurex_derivatives_eti_t7_v10_0.fields.message, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v10_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = eurex_derivatives_eti_t7_v10_0_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     eurex_derivatives_eti_t7_v10_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)

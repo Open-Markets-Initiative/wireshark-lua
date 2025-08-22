@@ -919,13 +919,13 @@ nasdaq_nsmequities_orders_ouch_v5_0_dissect.replace_order_appendage = function(b
 
   -- Optionally add group/struct element to protocol tree
   if show.replace_order_appendage then
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.replace_order_appendage_fields(buffer, offset, packet, element, size_of_replace_order_appendage)
-    element:set_len(size_of_replace_order_appendage)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.replace_order_appendage(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.replace_order_appendage_fields(buffer, offset, packet, parent, size_of_replace_order_appendage)
+    parent:set_len(size_of_replace_order_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.replace_order_appendage(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nasdaq_nsmequities_orders_ouch_v5_0_dissect.replace_order_appendage_fields(buffer, offset, packet, parent, size_of_replace_order_appendage)
@@ -1390,13 +1390,13 @@ nasdaq_nsmequities_orders_ouch_v5_0_dissect.enter_order_appendage = function(buf
 
   -- Optionally add group/struct element to protocol tree
   if show.enter_order_appendage then
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.enter_order_appendage_fields(buffer, offset, packet, element, size_of_enter_order_appendage)
-    element:set_len(size_of_enter_order_appendage)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.enter_order_appendage(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.enter_order_appendage_fields(buffer, offset, packet, parent, size_of_enter_order_appendage)
+    parent:set_len(size_of_enter_order_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.enter_order_appendage(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nasdaq_nsmequities_orders_ouch_v5_0_dissect.enter_order_appendage_fields(buffer, offset, packet, parent, size_of_enter_order_appendage)
@@ -2152,13 +2152,13 @@ nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_restated_appendage = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.order_restated_appendage then
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_restated_appendage_fields(buffer, offset, packet, element, size_of_order_restated_appendage)
-    element:set_len(size_of_order_restated_appendage)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_restated_appendage(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_restated_appendage_fields(buffer, offset, packet, parent, size_of_order_restated_appendage)
+    parent:set_len(size_of_order_restated_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_restated_appendage(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_restated_appendage_fields(buffer, offset, packet, parent, size_of_order_restated_appendage)
@@ -3160,13 +3160,13 @@ nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_executed_appendage = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.order_executed_appendage then
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_executed_appendage_fields(buffer, offset, packet, element, size_of_order_executed_appendage)
-    element:set_len(size_of_order_executed_appendage)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_executed_appendage(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_executed_appendage_fields(buffer, offset, packet, parent, size_of_order_executed_appendage)
+    parent:set_len(size_of_order_executed_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_executed_appendage(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_executed_appendage_fields(buffer, offset, packet, parent, size_of_order_executed_appendage)
@@ -4121,13 +4121,13 @@ nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_accepted_appendage = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.order_accepted_appendage then
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_accepted_appendage_fields(buffer, offset, packet, element, size_of_order_accepted_appendage)
-    element:set_len(size_of_order_accepted_appendage)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_accepted_appendage(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_accepted_appendage_fields(buffer, offset, packet, parent, size_of_order_accepted_appendage)
+    parent:set_len(size_of_order_accepted_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_accepted_appendage(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_accepted_appendage_fields(buffer, offset, packet, parent, size_of_order_accepted_appendage)
@@ -5012,13 +5012,13 @@ nasdaq_nsmequities_orders_ouch_v5_0_dissect.soup_bin_tcp_packet = function(buffe
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, element, size_of_soup_bin_tcp_packet)
-    element:set_len(size_of_soup_bin_tcp_packet)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.soup_bin_tcp_packet(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    parent:set_len(size_of_soup_bin_tcp_packet)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0_display.soup_bin_tcp_packet(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nasdaq_nsmequities_orders_ouch_v5_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)

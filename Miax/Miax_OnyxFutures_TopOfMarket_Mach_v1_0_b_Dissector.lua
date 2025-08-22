@@ -994,8 +994,14 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_display.instrument_leg = function(packe
 end
 
 -- Dissect Fields: Instrument Leg
-miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields = function(buffer, offset, packet, parent, instrument_leg_index)
   local index = offset
+
+  -- TODO
+  if instrument_leg_index ~= nil then
+    local iteration = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index, instrument_leg_index)
+    iteration:set_generated()
+  end
 
   -- Instrument Id: BinaryU
   index, instrument_id = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
@@ -1624,11 +1630,6 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.complex_instrument_definition_m
   -- Repeating: Instrument Leg
   for instrument_leg_index = 1, number_of_legs do
     index, instrument_leg = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg(buffer, index, packet, parent)
-
-    if instrument_leg ~= nil then
-      local iteration = instrument_leg:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index, instrument_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index

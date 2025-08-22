@@ -2745,8 +2745,14 @@ b3_equities_binaryentrypoint_sbe_v8_2_display.no_positions_group = function(pack
 end
 
 -- Dissect Fields: No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_positions_group_fields = function(buffer, offset, packet, parent)
+b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_positions_group_fields = function(buffer, offset, packet, parent, no_positions_group_index)
   local index = offset
+
+  -- TODO
+  if no_positions_group_index ~= nil then
+    local iteration = parent:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.no_positions_group_index, no_positions_group_index)
+    iteration:set_generated()
+  end
 
   -- Pos Type: 1 Byte Ascii String Enum with 6 values
   index, pos_type = b3_equities_binaryentrypoint_sbe_v8_2_dissect.pos_type(buffer, index, packet, parent)
@@ -2896,11 +2902,6 @@ b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_positions_groups_fields = funct
   -- Repeating: No Positions Group
   for no_positions_group_index = 1, num_in_group do
     index, no_positions_group = b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_positions_group(buffer, index, packet, parent)
-
-    if no_positions_group ~= nil then
-      local iteration = no_positions_group:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.no_positions_group_index, no_positions_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3697,8 +3698,14 @@ b3_equities_binaryentrypoint_sbe_v8_2_display.no_sides_group = function(packet, 
 end
 
 -- Dissect Fields: No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_sides_group_fields = function(buffer, offset, packet, parent)
+b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_sides_group_fields = function(buffer, offset, packet, parent, no_sides_group_index)
   local index = offset
+
+  -- TODO
+  if no_sides_group_index ~= nil then
+    local iteration = parent:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.no_sides_group_index, no_sides_group_index)
+    iteration:set_generated()
+  end
 
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = b3_equities_binaryentrypoint_sbe_v8_2_dissect.side(buffer, index, packet, parent)
@@ -3767,11 +3774,6 @@ b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_sides_groups_fields = function(
   -- Repeating: No Sides Group
   for no_sides_group_index = 1, num_in_group do
     index, no_sides_group = b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_sides_group(buffer, index, packet, parent)
-
-    if no_sides_group ~= nil then
-      local iteration = no_sides_group:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.no_sides_group_index, no_sides_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5578,8 +5580,14 @@ b3_equities_binaryentrypoint_sbe_v8_2_display.no_legs_group = function(packet, p
 end
 
 -- Dissect Fields: No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_legs_group_fields = function(buffer, offset, packet, parent)
+b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_legs_group_fields = function(buffer, offset, packet, parent, no_legs_group_index)
   local index = offset
+
+  -- TODO
+  if no_legs_group_index ~= nil then
+    local iteration = parent:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.no_legs_group_index, no_legs_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol: 20 Byte Ascii String
   index, leg_symbol = b3_equities_binaryentrypoint_sbe_v8_2_dissect.leg_symbol(buffer, index, packet, parent)
@@ -5645,11 +5653,6 @@ b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_legs_groups_fields = function(b
   -- Repeating: No Legs Group
   for no_legs_group_index = 1, num_in_group do
     index, no_legs_group = b3_equities_binaryentrypoint_sbe_v8_2_dissect.no_legs_group(buffer, index, packet, parent)
-
-    if no_legs_group ~= nil then
-      local iteration = no_legs_group:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.no_legs_group_index, no_legs_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14154,13 +14157,13 @@ b3_equities_binaryentrypoint_sbe_v8_2_dissect.simple_open_frame = function(buffe
 
   -- Optionally add group/struct element to protocol tree
   if show.simple_open_frame then
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.simple_open_frame, buffer(offset, 0))
-    local current = b3_equities_binaryentrypoint_sbe_v8_2_dissect.simple_open_frame_fields(buffer, offset, packet, element, size_of_simple_open_frame)
-    element:set_len(size_of_simple_open_frame)
-    local display = b3_equities_binaryentrypoint_sbe_v8_2_display.simple_open_frame(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_2.fields.simple_open_frame, buffer(offset, 0))
+    local current = b3_equities_binaryentrypoint_sbe_v8_2_dissect.simple_open_frame_fields(buffer, offset, packet, parent, size_of_simple_open_frame)
+    parent:set_len(size_of_simple_open_frame)
+    local display = b3_equities_binaryentrypoint_sbe_v8_2_display.simple_open_frame(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     b3_equities_binaryentrypoint_sbe_v8_2_dissect.simple_open_frame_fields(buffer, offset, packet, parent, size_of_simple_open_frame)

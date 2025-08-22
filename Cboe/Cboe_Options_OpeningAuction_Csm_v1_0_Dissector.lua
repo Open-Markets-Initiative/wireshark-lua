@@ -797,8 +797,14 @@ cboe_options_openingauction_csm_v1_0_display.md_entry = function(packet, parent,
 end
 
 -- Dissect Fields: Md Entry
-cboe_options_openingauction_csm_v1_0_dissect.md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_openingauction_csm_v1_0_dissect.md_entry_fields = function(buffer, offset, packet, parent, md_entry_index)
   local index = offset
+
+  -- TODO
+  if md_entry_index ~= nil then
+    local iteration = parent:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_index, md_entry_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
   index, md_entry_type = cboe_options_openingauction_csm_v1_0_dissect.md_entry_type(buffer, index, packet, parent)
@@ -969,11 +975,6 @@ cboe_options_openingauction_csm_v1_0_dissect.current_market_update_message_field
   -- Repeating: Md Entry
   for md_entry_index = 1, no_entries do
     index, md_entry = cboe_options_openingauction_csm_v1_0_dissect.md_entry(buffer, index, packet, parent)
-
-    if md_entry ~= nil then
-      local iteration = md_entry:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_index, md_entry_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1182,11 +1183,6 @@ cboe_options_openingauction_csm_v1_0_dissect.market_data_refresh_message_fields 
   -- Repeating: Md Entry
   for md_entry_index = 1, no_entries do
     index, md_entry = cboe_options_openingauction_csm_v1_0_dissect.md_entry(buffer, index, packet, parent)
-
-    if md_entry ~= nil then
-      local iteration = md_entry:add(cboe_options_openingauction_csm_v1_0.fields.md_entry_index, md_entry_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1291,8 +1287,14 @@ cboe_options_openingauction_csm_v1_0_display.security_definition_leg = function(
 end
 
 -- Dissect Fields: Security Definition Leg
-cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent)
+cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent, security_definition_leg_index)
   local index = offset
+
+  -- TODO
+  if security_definition_leg_index ~= nil then
+    local iteration = parent:add(cboe_options_openingauction_csm_v1_0.fields.security_definition_leg_index, security_definition_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer
   index, leg_ratio_qty = cboe_options_openingauction_csm_v1_0_dissect.leg_ratio_qty(buffer, index, packet, parent)
@@ -2598,11 +2600,6 @@ cboe_options_openingauction_csm_v1_0_dissect.security_definition_message_fields 
   -- Repeating: Security Definition Leg
   for security_definition_leg_index = 1, no_legs do
     index, security_definition_leg = cboe_options_openingauction_csm_v1_0_dissect.security_definition_leg(buffer, index, packet, parent)
-
-    if security_definition_leg ~= nil then
-      local iteration = security_definition_leg:add(cboe_options_openingauction_csm_v1_0.fields.security_definition_leg_index, security_definition_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2870,8 +2867,14 @@ cboe_options_openingauction_csm_v1_0_display.message = function(packet, parent, 
 end
 
 -- Dissect Fields: Message
-cboe_options_openingauction_csm_v1_0_dissect.message_fields = function(buffer, offset, packet, parent)
+cboe_options_openingauction_csm_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(cboe_options_openingauction_csm_v1_0.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 4 fields
   index, message_header = cboe_options_openingauction_csm_v1_0_dissect.message_header(buffer, index, packet, parent)
@@ -3073,11 +3076,6 @@ cboe_options_openingauction_csm_v1_0_dissect.packet = function(buffer, packet, p
   -- Repeating: Message
   for message_index = 1, message_count do
     index, message = cboe_options_openingauction_csm_v1_0_dissect.message(buffer, index, packet, parent)
-
-    if message ~= nil then
-      local iteration = message:add(cboe_options_openingauction_csm_v1_0.fields.message_index, message_index)
-      iteration:set_generated()
-    end
   end
 
   return index

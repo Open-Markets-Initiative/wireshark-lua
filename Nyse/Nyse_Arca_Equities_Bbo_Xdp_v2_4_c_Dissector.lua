@@ -2789,8 +2789,14 @@ nyse_arca_equities_bbo_xdp_v2_4_c_display.message = function(packet, parent, len
 end
 
 -- Dissect Fields: Message
-nyse_arca_equities_bbo_xdp_v2_4_c_dissect.message_fields = function(buffer, offset, packet, parent)
+nyse_arca_equities_bbo_xdp_v2_4_c_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nyse_arca_equities_bbo_xdp_v2_4_c.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_arca_equities_bbo_xdp_v2_4_c_dissect.message_header(buffer, index, packet, parent)

@@ -5028,13 +5028,13 @@ coinbase_derivatives_ordersapi_sbe_v1_4_dissect.sbe_message = function(buffer, o
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    local element = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message, buffer(offset, 0))
-    local current = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.sbe_message_fields(buffer, offset, packet, element, size_of_sbe_message)
-    element:set_len(size_of_sbe_message)
-    local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.sbe_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message, buffer(offset, 0))
+    local current = coinbase_derivatives_ordersapi_sbe_v1_4_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+    parent:set_len(size_of_sbe_message)
+    local display = coinbase_derivatives_ordersapi_sbe_v1_4_display.sbe_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     coinbase_derivatives_ordersapi_sbe_v1_4_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)

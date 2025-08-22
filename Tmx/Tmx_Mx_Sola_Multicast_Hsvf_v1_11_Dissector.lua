@@ -998,8 +998,14 @@ tmx_mx_sola_multicast_hsvf_v1_11_display.tick_entry_group = function(packet, par
 end
 
 -- Dissect Fields: Tick Entry Group
-tmx_mx_sola_multicast_hsvf_v1_11_dissect.tick_entry_group_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_11_dissect.tick_entry_group_fields = function(buffer, offset, packet, parent, tick_entry_group_index)
   local index = offset
+
+  -- TODO
+  if tick_entry_group_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.tick_entry_group_index, tick_entry_group_index)
+    iteration:set_generated()
+  end
 
   -- Min Price: N
   index, min_price = tmx_mx_sola_multicast_hsvf_v1_11_dissect.min_price(buffer, index, packet, parent)
@@ -1142,11 +1148,6 @@ tmx_mx_sola_multicast_hsvf_v1_11_dissect.tick_table_message_fields = function(bu
   -- Repeating: Tick Entry Group
   for tick_entry_group_index = 1, number_of_entries do
     index, tick_entry_group = tmx_mx_sola_multicast_hsvf_v1_11_dissect.tick_entry_group(buffer, index, packet, parent)
-
-    if tick_entry_group ~= nil then
-      local iteration = tick_entry_group:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.tick_entry_group_index, tick_entry_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4205,8 +4206,14 @@ tmx_mx_sola_multicast_hsvf_v1_11_display.strategy_summary_strategy_leg = functio
 end
 
 -- Dissect Fields: Strategy Summary Strategy Leg
-tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_summary_strategy_leg_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_summary_strategy_leg_fields = function(buffer, offset, packet, parent, strategy_summary_strategy_leg_index)
   local index = offset
+
+  -- TODO
+  if strategy_summary_strategy_leg_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_summary_strategy_leg_index, strategy_summary_strategy_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Ratio Sign: X
   index, leg_ratio_sign = tmx_mx_sola_multicast_hsvf_v1_11_dissect.leg_ratio_sign(buffer, index, packet, parent)
@@ -4566,11 +4573,6 @@ tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_summary_message_fields = funct
   -- Repeating: Strategy Summary Strategy Leg
   for strategy_summary_strategy_leg_index = 1, number_of_legs do
     index, strategy_summary_strategy_leg = tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_summary_strategy_leg(buffer, index, packet, parent)
-
-    if strategy_summary_strategy_leg ~= nil then
-      local iteration = strategy_summary_strategy_leg:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_summary_strategy_leg_index, strategy_summary_strategy_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7983,8 +7985,14 @@ tmx_mx_sola_multicast_hsvf_v1_11_display.swap_future_market_depth_trading_instru
 end
 
 -- Dissect Fields: Swap Future Market Depth Trading Instrument
-tmx_mx_sola_multicast_hsvf_v1_11_dissect.swap_future_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_11_dissect.swap_future_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, swap_future_market_depth_trading_instrument_index)
   local index = offset
+
+  -- TODO
+  if swap_future_market_depth_trading_instrument_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.swap_future_market_depth_trading_instrument_index, swap_future_market_depth_trading_instrument_index)
+    iteration:set_generated()
+  end
 
   -- Level: X
   index, level = tmx_mx_sola_multicast_hsvf_v1_11_dissect.level(buffer, index, packet, parent)
@@ -8152,11 +8160,6 @@ tmx_mx_sola_multicast_hsvf_v1_11_dissect.swap_future_market_depth_message_fields
   -- Repeating: Swap Future Market Depth Trading Instrument
   for swap_future_market_depth_trading_instrument_index = 1, number_of_level do
     index, swap_future_market_depth_trading_instrument = tmx_mx_sola_multicast_hsvf_v1_11_dissect.swap_future_market_depth_trading_instrument(buffer, index, packet, parent)
-
-    if swap_future_market_depth_trading_instrument ~= nil then
-      local iteration = swap_future_market_depth_trading_instrument:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.swap_future_market_depth_trading_instrument_index, swap_future_market_depth_trading_instrument_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8230,8 +8233,14 @@ tmx_mx_sola_multicast_hsvf_v1_11_display.strategy_market_depth_trading_instrumen
 end
 
 -- Dissect Fields: Strategy Market Depth Trading Instrument
-tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, strategy_market_depth_trading_instrument_index)
   local index = offset
+
+  -- TODO
+  if strategy_market_depth_trading_instrument_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_market_depth_trading_instrument_index, strategy_market_depth_trading_instrument_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_11_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -8330,11 +8339,6 @@ tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_market_depth_message_fields = 
   -- Repeating: Strategy Market Depth Trading Instrument
   for strategy_market_depth_trading_instrument_index = 1, number_of_level do
     index, strategy_market_depth_trading_instrument = tmx_mx_sola_multicast_hsvf_v1_11_dissect.strategy_market_depth_trading_instrument(buffer, index, packet, parent)
-
-    if strategy_market_depth_trading_instrument ~= nil then
-      local iteration = strategy_market_depth_trading_instrument:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_market_depth_trading_instrument_index, strategy_market_depth_trading_instrument_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8384,8 +8388,14 @@ tmx_mx_sola_multicast_hsvf_v1_11_display.futures_market_depth_trading_instrument
 end
 
 -- Dissect Fields: Futures Market Depth Trading Instrument
-tmx_mx_sola_multicast_hsvf_v1_11_dissect.futures_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_11_dissect.futures_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, futures_market_depth_trading_instrument_index)
   local index = offset
+
+  -- TODO
+  if futures_market_depth_trading_instrument_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.futures_market_depth_trading_instrument_index, futures_market_depth_trading_instrument_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_11_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -8493,11 +8503,6 @@ tmx_mx_sola_multicast_hsvf_v1_11_dissect.futures_market_depth_message_fields = f
   -- Repeating: Futures Market Depth Trading Instrument
   for futures_market_depth_trading_instrument_index = 1, number_of_level do
     index, futures_market_depth_trading_instrument = tmx_mx_sola_multicast_hsvf_v1_11_dissect.futures_market_depth_trading_instrument(buffer, index, packet, parent)
-
-    if futures_market_depth_trading_instrument ~= nil then
-      local iteration = futures_market_depth_trading_instrument:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.futures_market_depth_trading_instrument_index, futures_market_depth_trading_instrument_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8547,8 +8552,14 @@ tmx_mx_sola_multicast_hsvf_v1_11_display.future_options_market_depth_trading_ins
 end
 
 -- Dissect Fields: Future Options Market Depth Trading Instrument
-tmx_mx_sola_multicast_hsvf_v1_11_dissect.future_options_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_11_dissect.future_options_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, future_options_market_depth_trading_instrument_index)
   local index = offset
+
+  -- TODO
+  if future_options_market_depth_trading_instrument_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.future_options_market_depth_trading_instrument_index, future_options_market_depth_trading_instrument_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_11_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -8671,11 +8682,6 @@ tmx_mx_sola_multicast_hsvf_v1_11_dissect.future_options_market_depth_message_fie
   -- Repeating: Future Options Market Depth Trading Instrument
   for future_options_market_depth_trading_instrument_index = 1, number_of_level do
     index, future_options_market_depth_trading_instrument = tmx_mx_sola_multicast_hsvf_v1_11_dissect.future_options_market_depth_trading_instrument(buffer, index, packet, parent)
-
-    if future_options_market_depth_trading_instrument ~= nil then
-      local iteration = future_options_market_depth_trading_instrument:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.future_options_market_depth_trading_instrument_index, future_options_market_depth_trading_instrument_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8725,8 +8731,14 @@ tmx_mx_sola_multicast_hsvf_v1_11_display.option_market_depth_trading_instrument 
 end
 
 -- Dissect Fields: Option Market Depth Trading Instrument
-tmx_mx_sola_multicast_hsvf_v1_11_dissect.option_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_11_dissect.option_market_depth_trading_instrument_fields = function(buffer, offset, packet, parent, option_market_depth_trading_instrument_index)
   local index = offset
+
+  -- TODO
+  if option_market_depth_trading_instrument_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.option_market_depth_trading_instrument_index, option_market_depth_trading_instrument_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_11_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -8849,11 +8861,6 @@ tmx_mx_sola_multicast_hsvf_v1_11_dissect.option_market_depth_message_fields = fu
   -- Repeating: Option Market Depth Trading Instrument
   for option_market_depth_trading_instrument_index = 1, number_of_level do
     index, option_market_depth_trading_instrument = tmx_mx_sola_multicast_hsvf_v1_11_dissect.option_market_depth_trading_instrument(buffer, index, packet, parent)
-
-    if option_market_depth_trading_instrument ~= nil then
-      local iteration = option_market_depth_trading_instrument:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.option_market_depth_trading_instrument_index, option_market_depth_trading_instrument_index)
-      iteration:set_generated()
-    end
   end
 
   return index

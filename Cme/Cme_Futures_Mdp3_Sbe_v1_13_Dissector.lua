@@ -1347,8 +1347,14 @@ cme_futures_mdp3_sbe_v1_13_display.snapshot_full_refresh_long_qty_group = functi
 end
 
 -- Dissect Fields: Snapshot Full Refresh Long Qty Group
-cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_long_qty_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_long_qty_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_long_qty_group_index)
   local index = offset
+
+  -- TODO
+  if snapshot_full_refresh_long_qty_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_long_qty_group_index, snapshot_full_refresh_long_qty_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px_optional(buffer, index, packet, parent)
@@ -1507,11 +1513,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_long_qty_groups_fields 
   -- Repeating: Snapshot Full Refresh Long Qty Group
   for snapshot_full_refresh_long_qty_group_index = 1, num_in_group do
     index, snapshot_full_refresh_long_qty_group = cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_long_qty_group(buffer, index, packet, parent)
-
-    if snapshot_full_refresh_long_qty_group ~= nil then
-      local iteration = snapshot_full_refresh_long_qty_group:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_long_qty_group_index, snapshot_full_refresh_long_qty_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1963,8 +1964,14 @@ cme_futures_mdp3_sbe_v1_13_display.snapshot_full_refresh_tc_p_long_qty_group = f
 end
 
 -- Dissect Fields: Snapshot Full Refresh Tc P Long Qty Group
-cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tc_p_long_qty_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tc_p_long_qty_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_tc_p_long_qty_group_index)
   local index = offset
+
+  -- TODO
+  if snapshot_full_refresh_tc_p_long_qty_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_tc_p_long_qty_group_index, snapshot_full_refresh_tc_p_long_qty_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px_optional(buffer, index, packet, parent)
@@ -2036,11 +2043,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tc_p_long_qty_groups_fi
   -- Repeating: Snapshot Full Refresh Tc P Long Qty Group
   for snapshot_full_refresh_tc_p_long_qty_group_index = 1, num_in_group do
     index, snapshot_full_refresh_tc_p_long_qty_group = cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tc_p_long_qty_group(buffer, index, packet, parent)
-
-    if snapshot_full_refresh_tc_p_long_qty_group ~= nil then
-      local iteration = snapshot_full_refresh_tc_p_long_qty_group:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_tc_p_long_qty_group_index, snapshot_full_refresh_tc_p_long_qty_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2377,8 +2379,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_session_statistics_lo
 end
 
 -- Dissect Fields: M D Incremental Refresh Session Statistics Long Qty Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_long_qty_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_long_qty_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_long_qty_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_session_statistics_long_qty_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_session_statistics_long_qty_group_index, m_d_incremental_refresh_session_statistics_long_qty_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index, md_entry_px = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px(buffer, index, packet, parent)
@@ -2456,11 +2464,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_lo
   -- Repeating: M D Incremental Refresh Session Statistics Long Qty Group
   for m_d_incremental_refresh_session_statistics_long_qty_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_session_statistics_long_qty_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_long_qty_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_session_statistics_long_qty_group ~= nil then
-      local iteration = m_d_incremental_refresh_session_statistics_long_qty_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_session_statistics_long_qty_group_index, m_d_incremental_refresh_session_statistics_long_qty_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2614,8 +2617,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_volume_long_qty_group
 end
 
 -- Dissect Fields: M D Incremental Refresh Volume Long Qty Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_long_qty_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_long_qty_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_volume_long_qty_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_volume_long_qty_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_volume_long_qty_group_index, m_d_incremental_refresh_volume_long_qty_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Size u Int 64: 8 Byte Unsigned Fixed Width Integer
   index, md_entry_size_u_int_64 = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_size_u_int_64(buffer, index, packet, parent)
@@ -2684,11 +2693,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_long_qty_group
   -- Repeating: M D Incremental Refresh Volume Long Qty Group
   for m_d_incremental_refresh_volume_long_qty_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_volume_long_qty_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_long_qty_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_volume_long_qty_group ~= nil then
-      local iteration = m_d_incremental_refresh_volume_long_qty_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_volume_long_qty_group_index, m_d_incremental_refresh_volume_long_qty_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2838,8 +2842,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_trade_summary_long_qt
 end
 
 -- Dissect Fields: M D Incremental Refresh Trade Summary Long Qty Order Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qty_order_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qty_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_long_qty_order_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_trade_summary_long_qty_order_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_long_qty_order_group_index, m_d_incremental_refresh_trade_summary_long_qty_order_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cme_futures_mdp3_sbe_v1_13_dissect.order_id(buffer, index, packet, parent)
@@ -2954,11 +2964,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qt
   -- Repeating: M D Incremental Refresh Trade Summary Long Qty Order Group
   for m_d_incremental_refresh_trade_summary_long_qty_order_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_trade_summary_long_qty_order_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qty_order_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_trade_summary_long_qty_order_group ~= nil then
-      local iteration = m_d_incremental_refresh_trade_summary_long_qty_order_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_long_qty_order_group_index, m_d_incremental_refresh_trade_summary_long_qty_order_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3101,8 +3106,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_trade_summary_long_qt
 end
 
 -- Dissect Fields: M D Incremental Refresh Trade Summary Long Qty Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qty_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qty_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_long_qty_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_trade_summary_long_qty_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_long_qty_group_index, m_d_incremental_refresh_trade_summary_long_qty_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index, md_entry_px = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px(buffer, index, packet, parent)
@@ -3183,11 +3194,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qt
   -- Repeating: M D Incremental Refresh Trade Summary Long Qty Group
   for m_d_incremental_refresh_trade_summary_long_qty_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_trade_summary_long_qty_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_long_qty_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_trade_summary_long_qty_group ~= nil then
-      local iteration = m_d_incremental_refresh_trade_summary_long_qty_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_long_qty_group_index, m_d_incremental_refresh_trade_summary_long_qty_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3393,8 +3399,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_book_long_qty_order_g
 end
 
 -- Dissect Fields: M D Incremental Refresh Book Long Qty Order Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_order_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_long_qty_order_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_book_long_qty_order_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_long_qty_order_group_index, m_d_incremental_refresh_book_long_qty_order_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cme_futures_mdp3_sbe_v1_13_dissect.order_id(buffer, index, packet, parent)
@@ -3466,11 +3478,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_order_g
   -- Repeating: M D Incremental Refresh Book Long Qty Order Group
   for m_d_incremental_refresh_book_long_qty_order_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_book_long_qty_order_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_order_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_book_long_qty_order_group ~= nil then
-      local iteration = m_d_incremental_refresh_book_long_qty_order_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_long_qty_order_group_index, m_d_incremental_refresh_book_long_qty_order_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3615,8 +3622,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_book_long_qty_group =
 end
 
 -- Dissect Fields: M D Incremental Refresh Book Long Qty Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_long_qty_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_book_long_qty_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_long_qty_group_index, m_d_incremental_refresh_book_long_qty_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px_optional(buffer, index, packet, parent)
@@ -3697,11 +3710,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_groups_
   -- Repeating: M D Incremental Refresh Book Long Qty Group
   for m_d_incremental_refresh_book_long_qty_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_book_long_qty_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_long_qty_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_book_long_qty_group ~= nil then
-      local iteration = m_d_incremental_refresh_book_long_qty_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_long_qty_group_index, m_d_incremental_refresh_book_long_qty_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3884,8 +3892,14 @@ cme_futures_mdp3_sbe_v1_13_display.trading_sessions_group = function(packet, par
 end
 
 -- Dissect Fields: Trading Sessions Group
-cme_futures_mdp3_sbe_v1_13_dissect.trading_sessions_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.trading_sessions_group_fields = function(buffer, offset, packet, parent, trading_sessions_group_index)
   local index = offset
+
+  -- TODO
+  if trading_sessions_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.trading_sessions_group_index, trading_sessions_group_index)
+    iteration:set_generated()
+  end
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = cme_futures_mdp3_sbe_v1_13_dissect.trade_date(buffer, index, packet, parent)
@@ -3951,11 +3965,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.trading_sessions_groups_fields = function(buf
   -- Repeating: Trading Sessions Group
   for trading_sessions_group_index = 1, num_in_group do
     index, trading_sessions_group = cme_futures_mdp3_sbe_v1_13_dissect.trading_sessions_group(buffer, index, packet, parent)
-
-    if trading_sessions_group ~= nil then
-      local iteration = trading_sessions_group:add(cme_futures_mdp3_sbe_v1_13.fields.trading_sessions_group_index, trading_sessions_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4047,8 +4056,14 @@ cme_futures_mdp3_sbe_v1_13_display.lot_type_rules_group = function(packet, paren
 end
 
 -- Dissect Fields: Lot Type Rules Group
-cme_futures_mdp3_sbe_v1_13_dissect.lot_type_rules_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.lot_type_rules_group_fields = function(buffer, offset, packet, parent, lot_type_rules_group_index)
   local index = offset
+
+  -- TODO
+  if lot_type_rules_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.lot_type_rules_group_index, lot_type_rules_group_index)
+    iteration:set_generated()
+  end
 
   -- Lot Type: 1 Byte Signed Fixed Width Integer
   index, lot_type = cme_futures_mdp3_sbe_v1_13_dissect.lot_type(buffer, index, packet, parent)
@@ -4108,11 +4123,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.lot_type_rules_groups_fields = function(buffe
   -- Repeating: Lot Type Rules Group
   for lot_type_rules_group_index = 1, num_in_group do
     index, lot_type_rules_group = cme_futures_mdp3_sbe_v1_13_dissect.lot_type_rules_group(buffer, index, packet, parent)
-
-    if lot_type_rules_group ~= nil then
-      local iteration = lot_type_rules_group:add(cme_futures_mdp3_sbe_v1_13.fields.lot_type_rules_group_index, lot_type_rules_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4346,8 +4356,14 @@ cme_futures_mdp3_sbe_v1_13_display.inst_attrib_group = function(packet, parent, 
 end
 
 -- Dissect Fields: Inst Attrib Group
-cme_futures_mdp3_sbe_v1_13_dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.inst_attrib_group_fields = function(buffer, offset, packet, parent, inst_attrib_group_index)
   local index = offset
+
+  -- TODO
+  if inst_attrib_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.inst_attrib_group_index, inst_attrib_group_index)
+    iteration:set_generated()
+  end
 
   -- Inst Attrib Value: Struct of 25 fields
   index, inst_attrib_value = cme_futures_mdp3_sbe_v1_13_dissect.inst_attrib_value(buffer, index, packet, parent)
@@ -4404,11 +4420,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.inst_attrib_groups_fields = function(buffer, 
   -- Repeating: Inst Attrib Group
   for inst_attrib_group_index = 1, num_in_group do
     index, inst_attrib_group = cme_futures_mdp3_sbe_v1_13_dissect.inst_attrib_group(buffer, index, packet, parent)
-
-    if inst_attrib_group ~= nil then
-      local iteration = inst_attrib_group:add(cme_futures_mdp3_sbe_v1_13.fields.inst_attrib_group_index, inst_attrib_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4500,8 +4511,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_feed_types_group = function(packet, paren
 end
 
 -- Dissect Fields: M D Feed Types Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_feed_types_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_feed_types_group_fields = function(buffer, offset, packet, parent, m_d_feed_types_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_feed_types_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_feed_types_group_index, m_d_feed_types_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Feed Type: 3 Byte Ascii String
   index, md_feed_type = cme_futures_mdp3_sbe_v1_13_dissect.md_feed_type(buffer, index, packet, parent)
@@ -4561,11 +4578,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_feed_types_groups_fields = function(buffe
   -- Repeating: M D Feed Types Group
   for m_d_feed_types_group_index = 1, num_in_group do
     index, m_d_feed_types_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_feed_types_group(buffer, index, packet, parent)
-
-    if m_d_feed_types_group ~= nil then
-      local iteration = m_d_feed_types_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_feed_types_group_index, m_d_feed_types_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4648,8 +4660,14 @@ cme_futures_mdp3_sbe_v1_13_display.events_group = function(packet, parent, lengt
 end
 
 -- Dissect Fields: Events Group
-cme_futures_mdp3_sbe_v1_13_dissect.events_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.events_group_fields = function(buffer, offset, packet, parent, events_group_index)
   local index = offset
+
+  -- TODO
+  if events_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.events_group_index, events_group_index)
+    iteration:set_generated()
+  end
 
   -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, event_type = cme_futures_mdp3_sbe_v1_13_dissect.event_type(buffer, index, packet, parent)
@@ -4709,11 +4727,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.events_groups_fields = function(buffer, offse
   -- Repeating: Events Group
   for events_group_index = 1, num_in_group do
     index, events_group = cme_futures_mdp3_sbe_v1_13_dissect.events_group(buffer, index, packet, parent)
-
-    if events_group ~= nil then
-      local iteration = events_group:add(cme_futures_mdp3_sbe_v1_13.fields.events_group_index, events_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6596,8 +6609,14 @@ cme_futures_mdp3_sbe_v1_13_display.collateral_market_value_group = function(pack
 end
 
 -- Dissect Fields: Collateral Market Value Group
-cme_futures_mdp3_sbe_v1_13_dissect.collateral_market_value_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.collateral_market_value_group_fields = function(buffer, offset, packet, parent, collateral_market_value_group_index)
   local index = offset
+
+  -- TODO
+  if collateral_market_value_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.collateral_market_value_group_index, collateral_market_value_group_index)
+    iteration:set_generated()
+  end
 
   -- Underlying Security Alt Id: 12 Byte Ascii String
   index, underlying_security_alt_id = cme_futures_mdp3_sbe_v1_13_dissect.underlying_security_alt_id(buffer, index, packet, parent)
@@ -6672,11 +6691,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.collateral_market_value_groups_fields = funct
   -- Repeating: Collateral Market Value Group
   for collateral_market_value_group_index = 1, num_in_group do
     index, collateral_market_value_group = cme_futures_mdp3_sbe_v1_13_dissect.collateral_market_value_group(buffer, index, packet, parent)
-
-    if collateral_market_value_group ~= nil then
-      local iteration = collateral_market_value_group:add(cme_futures_mdp3_sbe_v1_13.fields.collateral_market_value_group_index, collateral_market_value_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6945,8 +6959,14 @@ cme_futures_mdp3_sbe_v1_13_display.snapshot_full_refresh_tcp_group = function(pa
 end
 
 -- Dissect Fields: Snapshot Full Refresh Tcp Group
-cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tcp_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tcp_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_tcp_group_index)
   local index = offset
+
+  -- TODO
+  if snapshot_full_refresh_tcp_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_tcp_group_index, snapshot_full_refresh_tcp_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px_optional(buffer, index, packet, parent)
@@ -7027,11 +7047,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tcp_groups_fields = fun
   -- Repeating: Snapshot Full Refresh Tcp Group
   for snapshot_full_refresh_tcp_group_index = 1, num_in_group do
     index, snapshot_full_refresh_tcp_group = cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_tcp_group(buffer, index, packet, parent)
-
-    if snapshot_full_refresh_tcp_group ~= nil then
-      local iteration = snapshot_full_refresh_tcp_group:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_tcp_group_index, snapshot_full_refresh_tcp_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7193,8 +7208,14 @@ cme_futures_mdp3_sbe_v1_13_display.security_status_workup_order_group = function
 end
 
 -- Dissect Fields: Security Status Workup Order Group
-cme_futures_mdp3_sbe_v1_13_dissect.security_status_workup_order_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.security_status_workup_order_group_fields = function(buffer, offset, packet, parent, security_status_workup_order_group_index)
   local index = offset
+
+  -- TODO
+  if security_status_workup_order_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.security_status_workup_order_group_index, security_status_workup_order_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cme_futures_mdp3_sbe_v1_13_dissect.order_id(buffer, index, packet, parent)
@@ -7257,11 +7278,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.security_status_workup_order_groups_fields = 
   -- Repeating: Security Status Workup Order Group
   for security_status_workup_order_group_index = 1, num_in_group do
     index, security_status_workup_order_group = cme_futures_mdp3_sbe_v1_13_dissect.security_status_workup_order_group(buffer, index, packet, parent)
-
-    if security_status_workup_order_group ~= nil then
-      local iteration = security_status_workup_order_group:add(cme_futures_mdp3_sbe_v1_13.fields.security_status_workup_order_group_index, security_status_workup_order_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7562,8 +7578,14 @@ cme_futures_mdp3_sbe_v1_13_display.snapshot_refresh_top_orders_group = function(
 end
 
 -- Dissect Fields: Snapshot Refresh Top Orders Group
-cme_futures_mdp3_sbe_v1_13_dissect.snapshot_refresh_top_orders_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.snapshot_refresh_top_orders_group_fields = function(buffer, offset, packet, parent, snapshot_refresh_top_orders_group_index)
   local index = offset
+
+  -- TODO
+  if snapshot_refresh_top_orders_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_refresh_top_orders_group_index, snapshot_refresh_top_orders_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cme_futures_mdp3_sbe_v1_13_dissect.order_id(buffer, index, packet, parent)
@@ -7632,11 +7654,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.snapshot_refresh_top_orders_groups_fields = f
   -- Repeating: Snapshot Refresh Top Orders Group
   for snapshot_refresh_top_orders_group_index = 1, num_in_group do
     index, snapshot_refresh_top_orders_group = cme_futures_mdp3_sbe_v1_13_dissect.snapshot_refresh_top_orders_group(buffer, index, packet, parent)
-
-    if snapshot_refresh_top_orders_group ~= nil then
-      local iteration = snapshot_refresh_top_orders_group:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_refresh_top_orders_group_index, snapshot_refresh_top_orders_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7818,8 +7835,14 @@ cme_futures_mdp3_sbe_v1_13_display.broken_dates_group = function(packet, parent,
 end
 
 -- Dissect Fields: Broken Dates Group
-cme_futures_mdp3_sbe_v1_13_dissect.broken_dates_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.broken_dates_group_fields = function(buffer, offset, packet, parent, broken_dates_group_index)
   local index = offset
+
+  -- TODO
+  if broken_dates_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.broken_dates_group_index, broken_dates_group_index)
+    iteration:set_generated()
+  end
 
   -- Broken Date Guid: 8 Byte Unsigned Fixed Width Integer
   index, broken_date_guid = cme_futures_mdp3_sbe_v1_13_dissect.broken_date_guid(buffer, index, packet, parent)
@@ -7885,11 +7908,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.broken_dates_groups_fields = function(buffer,
   -- Repeating: Broken Dates Group
   for broken_dates_group_index = 1, num_in_group do
     index, broken_dates_group = cme_futures_mdp3_sbe_v1_13_dissect.broken_dates_group(buffer, index, packet, parent)
-
-    if broken_dates_group ~= nil then
-      local iteration = broken_dates_group:add(cme_futures_mdp3_sbe_v1_13.fields.broken_dates_group_index, broken_dates_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7981,8 +7999,14 @@ cme_futures_mdp3_sbe_v1_13_display.related_instruments_group = function(packet, 
 end
 
 -- Dissect Fields: Related Instruments Group
-cme_futures_mdp3_sbe_v1_13_dissect.related_instruments_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.related_instruments_group_fields = function(buffer, offset, packet, parent, related_instruments_group_index)
   local index = offset
+
+  -- TODO
+  if related_instruments_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.related_instruments_group_index, related_instruments_group_index)
+    iteration:set_generated()
+  end
 
   -- Related Security Id: 4 Byte Signed Fixed Width Integer
   index, related_security_id = cme_futures_mdp3_sbe_v1_13_dissect.related_security_id(buffer, index, packet, parent)
@@ -8042,11 +8066,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.related_instruments_groups_fields = function(
   -- Repeating: Related Instruments Group
   for related_instruments_group_index = 1, num_in_group do
     index, related_instruments_group = cme_futures_mdp3_sbe_v1_13_dissect.related_instruments_group(buffer, index, packet, parent)
-
-    if related_instruments_group ~= nil then
-      local iteration = related_instruments_group:add(cme_futures_mdp3_sbe_v1_13.fields.related_instruments_group_index, related_instruments_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8138,8 +8157,14 @@ cme_futures_mdp3_sbe_v1_13_display.underlyings_group = function(packet, parent, 
 end
 
 -- Dissect Fields: Underlyings Group
-cme_futures_mdp3_sbe_v1_13_dissect.underlyings_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.underlyings_group_fields = function(buffer, offset, packet, parent, underlyings_group_index)
   local index = offset
+
+  -- TODO
+  if underlyings_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.underlyings_group_index, underlyings_group_index)
+    iteration:set_generated()
+  end
 
   -- Underlying Security Id: 4 Byte Signed Fixed Width Integer
   index, underlying_security_id = cme_futures_mdp3_sbe_v1_13_dissect.underlying_security_id(buffer, index, packet, parent)
@@ -8199,11 +8224,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.underlyings_groups_fields = function(buffer, 
   -- Repeating: Underlyings Group
   for underlyings_group_index = 1, num_in_group do
     index, underlyings_group = cme_futures_mdp3_sbe_v1_13_dissect.underlyings_group(buffer, index, packet, parent)
-
-    if underlyings_group ~= nil then
-      local iteration = underlyings_group:add(cme_futures_mdp3_sbe_v1_13.fields.underlyings_group_index, underlyings_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -9858,8 +9878,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_instrument_definition_spread_leg_group = 
 end
 
 -- Dissect Fields: M D Instrument Definition Spread Leg Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_instrument_definition_spread_leg_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_instrument_definition_spread_leg_group_fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_leg_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_instrument_definition_spread_leg_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_instrument_definition_spread_leg_group_index, m_d_instrument_definition_spread_leg_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Security Id: 4 Byte Signed Fixed Width Integer
   index, leg_security_id = cme_futures_mdp3_sbe_v1_13_dissect.leg_security_id(buffer, index, packet, parent)
@@ -9928,11 +9954,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_instrument_definition_spread_leg_groups_f
   -- Repeating: M D Instrument Definition Spread Leg Group
   for m_d_instrument_definition_spread_leg_group_index = 1, num_in_group do
     index, m_d_instrument_definition_spread_leg_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_instrument_definition_spread_leg_group(buffer, index, packet, parent)
-
-    if m_d_instrument_definition_spread_leg_group ~= nil then
-      local iteration = m_d_instrument_definition_spread_leg_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_instrument_definition_spread_leg_group_index, m_d_instrument_definition_spread_leg_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -11257,8 +11278,14 @@ cme_futures_mdp3_sbe_v1_13_display.snapshot_full_refresh_order_book_group = func
 end
 
 -- Dissect Fields: Snapshot Full Refresh Order Book Group
-cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_order_book_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_order_book_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_group_index)
   local index = offset
+
+  -- TODO
+  if snapshot_full_refresh_order_book_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_order_book_group_index, snapshot_full_refresh_order_book_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cme_futures_mdp3_sbe_v1_13_dissect.order_id(buffer, index, packet, parent)
@@ -11327,11 +11354,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_order_book_groups_field
   -- Repeating: Snapshot Full Refresh Order Book Group
   for snapshot_full_refresh_order_book_group_index = 1, num_in_group do
     index, snapshot_full_refresh_order_book_group = cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_order_book_group(buffer, index, packet, parent)
-
-    if snapshot_full_refresh_order_book_group ~= nil then
-      local iteration = snapshot_full_refresh_order_book_group:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_order_book_group_index, snapshot_full_refresh_order_book_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -11486,8 +11508,14 @@ cme_futures_mdp3_sbe_v1_13_display.snapshot_full_refresh_group = function(packet
 end
 
 -- Dissect Fields: Snapshot Full Refresh Group
-cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_group_index)
   local index = offset
+
+  -- TODO
+  if snapshot_full_refresh_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_group_index, snapshot_full_refresh_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px_optional(buffer, index, packet, parent)
@@ -11565,11 +11593,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_groups_fields = functio
   -- Repeating: Snapshot Full Refresh Group
   for snapshot_full_refresh_group_index = 1, num_in_group do
     index, snapshot_full_refresh_group = cme_futures_mdp3_sbe_v1_13_dissect.snapshot_full_refresh_group(buffer, index, packet, parent)
-
-    if snapshot_full_refresh_group ~= nil then
-      local iteration = snapshot_full_refresh_group:add(cme_futures_mdp3_sbe_v1_13.fields.snapshot_full_refresh_group_index, snapshot_full_refresh_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -11709,8 +11732,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_session_statistics_gr
 end
 
 -- Dissect Fields: M D Incremental Refresh Session Statistics Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_session_statistics_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_session_statistics_group_index, m_d_incremental_refresh_session_statistics_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index, md_entry_px = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px(buffer, index, packet, parent)
@@ -11788,11 +11817,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_gr
   -- Repeating: M D Incremental Refresh Session Statistics Group
   for m_d_incremental_refresh_session_statistics_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_session_statistics_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_session_statistics_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_session_statistics_group ~= nil then
-      local iteration = m_d_incremental_refresh_session_statistics_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_session_statistics_group_index, m_d_incremental_refresh_session_statistics_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -11886,8 +11910,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_limits_banding_group 
 end
 
 -- Dissect Fields: M D Incremental Refresh Limits Banding Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_limits_banding_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_limits_banding_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_limits_banding_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_limits_banding_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_limits_banding_group_index, m_d_incremental_refresh_limits_banding_group_index)
+    iteration:set_generated()
+  end
 
   -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_limit_price = cme_futures_mdp3_sbe_v1_13_dissect.high_limit_price(buffer, index, packet, parent)
@@ -11956,11 +11986,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_limits_banding_groups
   -- Repeating: M D Incremental Refresh Limits Banding Group
   for m_d_incremental_refresh_limits_banding_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_limits_banding_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_limits_banding_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_limits_banding_group ~= nil then
-      local iteration = m_d_incremental_refresh_limits_banding_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_limits_banding_group_index, m_d_incremental_refresh_limits_banding_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12108,8 +12133,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_daily_statistics_grou
 end
 
 -- Dissect Fields: M D Incremental Refresh Daily Statistics Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_daily_statistics_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_daily_statistics_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_daily_statistics_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_daily_statistics_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_daily_statistics_group_index, m_d_incremental_refresh_daily_statistics_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px_optional(buffer, index, packet, parent)
@@ -12190,11 +12221,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_daily_statistics_grou
   -- Repeating: M D Incremental Refresh Daily Statistics Group
   for m_d_incremental_refresh_daily_statistics_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_daily_statistics_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_daily_statistics_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_daily_statistics_group ~= nil then
-      local iteration = m_d_incremental_refresh_daily_statistics_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_daily_statistics_group_index, m_d_incremental_refresh_daily_statistics_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12284,8 +12310,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_trade_summary_order_g
 end
 
 -- Dissect Fields: M D Incremental Refresh Trade Summary Order Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_order_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_order_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_trade_summary_order_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_order_group_index, m_d_incremental_refresh_trade_summary_order_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cme_futures_mdp3_sbe_v1_13_dissect.order_id(buffer, index, packet, parent)
@@ -12348,11 +12380,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_order_g
   -- Repeating: M D Incremental Refresh Trade Summary Order Group
   for m_d_incremental_refresh_trade_summary_order_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_trade_summary_order_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_order_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_trade_summary_order_group ~= nil then
-      local iteration = m_d_incremental_refresh_trade_summary_order_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_order_group_index, m_d_incremental_refresh_trade_summary_order_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12447,8 +12474,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_trade_summary_group =
 end
 
 -- Dissect Fields: M D Incremental Refresh Trade Summary Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_trade_summary_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_group_index, m_d_incremental_refresh_trade_summary_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index, md_entry_px = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px(buffer, index, packet, parent)
@@ -12529,11 +12562,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_groups_
   -- Repeating: M D Incremental Refresh Trade Summary Group
   for m_d_incremental_refresh_trade_summary_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_trade_summary_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_trade_summary_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_trade_summary_group ~= nil then
-      local iteration = m_d_incremental_refresh_trade_summary_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_trade_summary_group_index, m_d_incremental_refresh_trade_summary_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12663,8 +12691,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_order_book_group = fu
 end
 
 -- Dissect Fields: M D Incremental Refresh Order Book Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_order_book_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_order_book_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_order_book_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_order_book_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_order_book_group_index, m_d_incremental_refresh_order_book_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id_optional = cme_futures_mdp3_sbe_v1_13_dissect.order_id_optional(buffer, index, packet, parent)
@@ -12742,11 +12776,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_order_book_groups_fie
   -- Repeating: M D Incremental Refresh Order Book Group
   for m_d_incremental_refresh_order_book_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_order_book_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_order_book_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_order_book_group ~= nil then
-      local iteration = m_d_incremental_refresh_order_book_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_order_book_group_index, m_d_incremental_refresh_order_book_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12842,8 +12871,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_book_order_group = fu
 end
 
 -- Dissect Fields: M D Incremental Refresh Book Order Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_order_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_order_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_order_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_book_order_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_order_group_index, m_d_incremental_refresh_book_order_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cme_futures_mdp3_sbe_v1_13_dissect.order_id(buffer, index, packet, parent)
@@ -12915,11 +12950,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_order_groups_fie
   -- Repeating: M D Incremental Refresh Book Order Group
   for m_d_incremental_refresh_book_order_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_book_order_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_order_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_book_order_group ~= nil then
-      local iteration = m_d_incremental_refresh_book_order_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_order_group_index, m_d_incremental_refresh_book_order_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12971,8 +13001,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_book_group = function
 end
 
 -- Dissect Fields: M D Incremental Refresh Book Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_book_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_group_index, m_d_incremental_refresh_book_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_entry_px_optional = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_px_optional(buffer, index, packet, parent)
@@ -13056,11 +13092,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_groups_fields = 
   -- Repeating: M D Incremental Refresh Book Group
   for m_d_incremental_refresh_book_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_book_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_book_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_book_group ~= nil then
-      local iteration = m_d_incremental_refresh_book_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_book_group_index, m_d_incremental_refresh_book_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -13231,8 +13262,14 @@ cme_futures_mdp3_sbe_v1_13_display.related_sym_group = function(packet, parent, 
 end
 
 -- Dissect Fields: Related Sym Group
-cme_futures_mdp3_sbe_v1_13_dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.related_sym_group_fields = function(buffer, offset, packet, parent, related_sym_group_index)
   local index = offset
+
+  -- TODO
+  if related_sym_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.related_sym_group_index, related_sym_group_index)
+    iteration:set_generated()
+  end
 
   -- Symbol: 20 Byte Ascii String
   index, symbol = cme_futures_mdp3_sbe_v1_13_dissect.symbol(buffer, index, packet, parent)
@@ -13304,11 +13341,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.related_sym_groups_fields = function(buffer, 
   -- Repeating: Related Sym Group
   for related_sym_group_index = 1, num_in_group do
     index, related_sym_group = cme_futures_mdp3_sbe_v1_13_dissect.related_sym_group(buffer, index, packet, parent)
-
-    if related_sym_group ~= nil then
-      local iteration = related_sym_group:add(cme_futures_mdp3_sbe_v1_13.fields.related_sym_group_index, related_sym_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -13463,8 +13495,14 @@ cme_futures_mdp3_sbe_v1_13_display.m_d_incremental_refresh_volume_group = functi
 end
 
 -- Dissect Fields: M D Incremental Refresh Volume Group
-cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_volume_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_volume_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_volume_group_index, m_d_incremental_refresh_volume_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Size: 4 Byte Signed Fixed Width Integer
   index, md_entry_size = cme_futures_mdp3_sbe_v1_13_dissect.md_entry_size(buffer, index, packet, parent)
@@ -13533,11 +13571,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_groups_fields 
   -- Repeating: M D Incremental Refresh Volume Group
   for m_d_incremental_refresh_volume_group_index = 1, num_in_group do
     index, m_d_incremental_refresh_volume_group = cme_futures_mdp3_sbe_v1_13_dissect.m_d_incremental_refresh_volume_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_volume_group ~= nil then
-      local iteration = m_d_incremental_refresh_volume_group:add(cme_futures_mdp3_sbe_v1_13.fields.m_d_incremental_refresh_volume_group_index, m_d_incremental_refresh_volume_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -13933,8 +13966,14 @@ cme_futures_mdp3_sbe_v1_13_display.channel_reset_group = function(packet, parent
 end
 
 -- Dissect Fields: Channel Reset Group
-cme_futures_mdp3_sbe_v1_13_dissect.channel_reset_group_fields = function(buffer, offset, packet, parent)
+cme_futures_mdp3_sbe_v1_13_dissect.channel_reset_group_fields = function(buffer, offset, packet, parent, channel_reset_group_index)
   local index = offset
+
+  -- TODO
+  if channel_reset_group_index ~= nil then
+    local iteration = parent:add(cme_futures_mdp3_sbe_v1_13.fields.channel_reset_group_index, channel_reset_group_index)
+    iteration:set_generated()
+  end
 
   -- Appl Id: 2 Byte Signed Fixed Width Integer
   index, appl_id = cme_futures_mdp3_sbe_v1_13_dissect.appl_id(buffer, index, packet, parent)
@@ -13991,11 +14030,6 @@ cme_futures_mdp3_sbe_v1_13_dissect.channel_reset_groups_fields = function(buffer
   -- Repeating: Channel Reset Group
   for channel_reset_group_index = 1, num_in_group do
     index, channel_reset_group = cme_futures_mdp3_sbe_v1_13_dissect.channel_reset_group(buffer, index, packet, parent)
-
-    if channel_reset_group ~= nil then
-      local iteration = channel_reset_group:add(cme_futures_mdp3_sbe_v1_13.fields.channel_reset_group_index, channel_reset_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index

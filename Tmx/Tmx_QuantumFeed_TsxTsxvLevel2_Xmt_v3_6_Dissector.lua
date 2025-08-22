@@ -2714,8 +2714,14 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit = function(packet, pare
 end
 
 -- Dissect Fields: Cop Limit
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_fields = function(buffer, offset, packet, parent, cop_limit_index)
   local index = offset
+
+  -- TODO
+  if cop_limit_index ~= nil then
+    local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_index, cop_limit_index)
+    iteration:set_generated()
+  end
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
   index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
@@ -2811,11 +2817,6 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message_fields = fun
   -- Array Of: Cop Limit
   for cop_limit_index = 1, 15 do
     index, cop_limit = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit(buffer, index, packet, parent)
-
-    if cop_limit ~= nil then
-      local iteration = cop_limit:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_index, cop_limit_index)
-      iteration:set_generated()
-    end
   end
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
@@ -2911,8 +2912,14 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order = function(packet, pare
 end
 
 -- Dissect Fields: Cop Order
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_fields = function(buffer, offset, packet, parent, cop_order_index)
   local index = offset
+
+  -- TODO
+  if cop_order_index ~= nil then
+    local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_index, cop_order_index)
+    iteration:set_generated()
+  end
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
   index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
@@ -2979,11 +2986,6 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_message_fields 
   -- Array Of: Cop Order
   for cop_order_index = 1, 15 do
     index, cop_order = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order(buffer, index, packet, parent)
-
-    if cop_order ~= nil then
-      local iteration = cop_order:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_index, cop_order_index)
-      iteration:set_generated()
-    end
   end
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
@@ -3948,13 +3950,13 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message = function(buffer, o
 
   -- Optionally add group/struct element to protocol tree
   if show.body_message then
-    local element = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_message, buffer(offset, 0))
-    local current = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message_fields(buffer, offset, packet, element, size_of_body_message)
-    element:set_len(size_of_body_message)
-    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_message, buffer(offset, 0))
+    local current = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message_fields(buffer, offset, packet, parent, size_of_body_message)
+    parent:set_len(size_of_body_message)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message_fields(buffer, offset, packet, parent, size_of_body_message)
@@ -4120,8 +4122,14 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body = function(packet, parent, l
 end
 
 -- Dissect Fields: Body
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields = function(buffer, offset, packet, parent, size_of_body)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset
+
+  -- TODO
+  if body_index ~= nil then
+    local iteration = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_index, body_index)
+    iteration:set_generated()
+  end
 
   -- Body Header: Struct of 2 fields
   index, body_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_header(buffer, index, packet, parent)
@@ -4139,21 +4147,21 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields = function(buffer, of
 end
 
 -- Dissect: Body
-tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body = function(buffer, offset, packet, parent, size_of_body)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset + size_of_body
 
   -- Optionally add group/struct element to protocol tree
   if show.body then
-    local element = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body, buffer(offset, 0))
-    local current = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields(buffer, offset, packet, element, size_of_body)
-    element:set_len(size_of_body)
-    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body, buffer(offset, 0))
+    local current = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields(buffer, offset, packet, parent, size_of_body, body_index)
+    parent:set_len(size_of_body)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields(buffer, offset, packet, parent, size_of_body)
+    tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields(buffer, offset, packet, parent, size_of_body, body_index)
 
     return index
   end
@@ -4406,11 +4414,6 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.packet = function(buffer, packet,
 
       -- Runtime Size Of: Body
       index, body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body(buffer, index, packet, parent, msg_length)
-
-      if body ~= nil then
-        local iteration = body:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_index, body_index)
-        iteration:set_generated()
-      end
     end
   end
 

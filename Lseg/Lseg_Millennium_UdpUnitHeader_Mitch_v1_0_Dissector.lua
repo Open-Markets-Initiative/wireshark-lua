@@ -208,8 +208,14 @@ lseg_millennium_udpunitheader_mitch_v1_0_display.message = function(packet, pare
 end
 
 -- Dissect Fields: Message
-lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields = function(buffer, offset, packet, parent)
+lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header(buffer, index, packet, parent)

@@ -314,13 +314,13 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_message = function(buffer, offse
 
   -- Optionally add group/struct element to protocol tree
   if show.body_message then
-    local element = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_message, buffer(offset, 0))
-    local current = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_message_fields(buffer, offset, packet, element, size_of_body_message)
-    element:set_len(size_of_body_message)
-    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_message, buffer(offset, 0))
+    local current = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_message_fields(buffer, offset, packet, parent, size_of_body_message)
+    parent:set_len(size_of_body_message)
+    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_message_fields(buffer, offset, packet, parent, size_of_body_message)
@@ -422,8 +422,14 @@ tmx_quantumfeed_xmtheader_udp_v1_1_display.body = function(packet, parent, lengt
 end
 
 -- Dissect Fields: Body
-tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields = function(buffer, offset, packet, parent, size_of_body)
+tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset
+
+  -- TODO
+  if body_index ~= nil then
+    local iteration = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index, body_index)
+    iteration:set_generated()
+  end
 
   -- Body Header: Struct of 2 fields
   index, body_header = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_header(buffer, index, packet, parent)
@@ -441,21 +447,21 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields = function(buffer, offset
 end
 
 -- Dissect: Body
-tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body = function(buffer, offset, packet, parent, size_of_body)
+tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset + size_of_body
 
   -- Optionally add group/struct element to protocol tree
   if show.body then
-    local element = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body, buffer(offset, 0))
-    local current = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields(buffer, offset, packet, element, size_of_body)
-    element:set_len(size_of_body)
-    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body, buffer(offset, 0))
+    local current = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields(buffer, offset, packet, parent, size_of_body, body_index)
+    parent:set_len(size_of_body)
+    local display = tmx_quantumfeed_xmtheader_udp_v1_1_display.body(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields(buffer, offset, packet, parent, size_of_body)
+    tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body_fields(buffer, offset, packet, parent, size_of_body, body_index)
 
     return index
   end
@@ -708,11 +714,6 @@ tmx_quantumfeed_xmtheader_udp_v1_1_dissect.packet = function(buffer, packet, par
 
       -- Runtime Size Of: Body
       index, body = tmx_quantumfeed_xmtheader_udp_v1_1_dissect.body(buffer, index, packet, parent, msg_length)
-
-      if body ~= nil then
-        local iteration = body:add(tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_index, body_index)
-        iteration:set_generated()
-      end
     end
   end
 

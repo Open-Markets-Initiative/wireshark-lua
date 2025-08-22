@@ -203,13 +203,13 @@ eurex_derivatives_eti_t7_v1_0_dissect.message = function(buffer, offset, packet,
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message, buffer(offset, 0))
-    local current = eurex_derivatives_eti_t7_v1_0_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = eurex_derivatives_eti_t7_v1_0_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message, buffer(offset, 0))
+    local current = eurex_derivatives_eti_t7_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = eurex_derivatives_eti_t7_v1_0_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     eurex_derivatives_eti_t7_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)

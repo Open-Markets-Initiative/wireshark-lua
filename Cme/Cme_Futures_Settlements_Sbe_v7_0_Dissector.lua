@@ -1203,8 +1203,14 @@ cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_high_low_group 
 end
 
 -- Dissect Fields: M D Incremental Refresh High Low Group
-cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields = function(buffer, offset, packet, parent)
+cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_high_low_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_high_low_group_index ~= nil then
+    local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index, m_d_incremental_refresh_high_low_group_index)
+    iteration:set_generated()
+  end
 
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = cme_futures_settlements_sbe_v7_0_dissect.product_guid(buffer, index, packet, parent)
@@ -1405,11 +1411,6 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_groups
   -- Repeating: M D Incremental Refresh High Low Group
   for m_d_incremental_refresh_high_low_group_index = 1, num_in_group_uint_8 do
     index, m_d_incremental_refresh_high_low_group = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_high_low_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_high_low_group ~= nil then
-      local iteration = m_d_incremental_refresh_high_low_group:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_high_low_group_index, m_d_incremental_refresh_high_low_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1618,8 +1619,14 @@ cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_voi_group = fun
 end
 
 -- Dissect Fields: M D Incremental Refresh Voi Group
-cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields = function(buffer, offset, packet, parent)
+cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_voi_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_voi_group_index ~= nil then
+    local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index, m_d_incremental_refresh_voi_group_index)
+    iteration:set_generated()
+  end
 
   -- Product Guid: 8 Byte Unsigned Fixed Width Integer Nullable
   index, product_guid = cme_futures_settlements_sbe_v7_0_dissect.product_guid(buffer, index, packet, parent)
@@ -1730,11 +1737,6 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_groups_fiel
   -- Repeating: M D Incremental Refresh Voi Group
   for m_d_incremental_refresh_voi_group_index = 1, num_in_group_uint_8 do
     index, m_d_incremental_refresh_voi_group = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_voi_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_voi_group ~= nil then
-      local iteration = m_d_incremental_refresh_voi_group:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group_index, m_d_incremental_refresh_voi_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2108,8 +2110,14 @@ cme_futures_settlements_sbe_v7_0_display.m_d_incremental_refresh_settle_group = 
 end
 
 -- Dissect Fields: M D Incremental Refresh Settle Group
-cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields = function(buffer, offset, packet, parent)
+cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_settle_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_settle_group_index ~= nil then
+    local iteration = parent:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index, m_d_incremental_refresh_settle_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, md_update_action = cme_futures_settlements_sbe_v7_0_dissect.md_update_action(buffer, index, packet, parent)
@@ -2229,11 +2237,6 @@ cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_groups_f
   -- Repeating: M D Incremental Refresh Settle Group
   for m_d_incremental_refresh_settle_group_index = 1, num_in_group_uint_8 do
     index, m_d_incremental_refresh_settle_group = cme_futures_settlements_sbe_v7_0_dissect.m_d_incremental_refresh_settle_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_settle_group ~= nil then
-      local iteration = m_d_incremental_refresh_settle_group:add(cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_settle_group_index, m_d_incremental_refresh_settle_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index

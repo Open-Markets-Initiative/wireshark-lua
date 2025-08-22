@@ -3302,13 +3302,13 @@ nasdaq_bxequities_orders_ouch_v4_2_dissect.soup_bin_tcp_packet = function(buffer
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    local element = parent:add(nasdaq_bxequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_bxequities_orders_ouch_v4_2_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, element, size_of_soup_bin_tcp_packet)
-    element:set_len(size_of_soup_bin_tcp_packet)
-    local display = nasdaq_bxequities_orders_ouch_v4_2_display.soup_bin_tcp_packet(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_bxequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_bxequities_orders_ouch_v4_2_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    parent:set_len(size_of_soup_bin_tcp_packet)
+    local display = nasdaq_bxequities_orders_ouch_v4_2_display.soup_bin_tcp_packet(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nasdaq_bxequities_orders_ouch_v4_2_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)

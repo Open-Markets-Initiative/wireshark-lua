@@ -1517,8 +1517,14 @@ imperative_intelligentcross_mdf_v1_11_display.message = function(packet, parent,
 end
 
 -- Dissect Fields: Message
-imperative_intelligentcross_mdf_v1_11_dissect.message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(imperative_intelligentcross_mdf_v1_11.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = imperative_intelligentcross_mdf_v1_11_dissect.message_header(buffer, index, packet, parent)

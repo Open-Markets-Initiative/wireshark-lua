@@ -3368,8 +3368,14 @@ lseg_turquoise_level2_gtp_v24_4_display.message = function(packet, parent, lengt
 end
 
 -- Dissect Fields: Message
-lseg_turquoise_level2_gtp_v24_4_dissect.message_fields = function(buffer, offset, packet, parent)
+lseg_turquoise_level2_gtp_v24_4_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(lseg_turquoise_level2_gtp_v24_4.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = lseg_turquoise_level2_gtp_v24_4_dissect.message_header(buffer, index, packet, parent)

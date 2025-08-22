@@ -1363,13 +1363,13 @@ miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet = function(buffer, offs
 
   -- Optionally add group/struct element to protocol tree
   if show.esesm_tcp_packet then
-    local element = parent:add(miax_pearlequities_esesm_v1_0_a.fields.esesm_tcp_packet, buffer(offset, 0))
-    local current = miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet_fields(buffer, offset, packet, element, size_of_esesm_tcp_packet)
-    element:set_len(size_of_esesm_tcp_packet)
-    local display = miax_pearlequities_esesm_v1_0_a_display.esesm_tcp_packet(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(miax_pearlequities_esesm_v1_0_a.fields.esesm_tcp_packet, buffer(offset, 0))
+    local current = miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    parent:set_len(size_of_esesm_tcp_packet)
+    local display = miax_pearlequities_esesm_v1_0_a_display.esesm_tcp_packet(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)

@@ -3399,8 +3399,14 @@ siac_opra_recipient_obi_v6_2_display.message = function(packet, parent, length)
 end
 
 -- Dissect Fields: Message
-siac_opra_recipient_obi_v6_2_dissect.message_fields = function(buffer, offset, packet, parent)
+siac_opra_recipient_obi_v6_2_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(siac_opra_recipient_obi_v6_2.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
   index, participant_id = siac_opra_recipient_obi_v6_2_dissect.participant_id(buffer, index, packet, parent)
@@ -3776,11 +3782,6 @@ siac_opra_recipient_obi_v6_2_dissect.packet = function(buffer, packet, parent)
   -- Repeating: Message
   for message_index = 1, messages_in_block do
     index, message = siac_opra_recipient_obi_v6_2_dissect.message(buffer, index, packet, parent)
-
-    if message ~= nil then
-      local iteration = message:add(siac_opra_recipient_obi_v6_2.fields.message_index, message_index)
-      iteration:set_generated()
-    end
   end
 
   -- Runtime optional field exists: Block Pad Byte

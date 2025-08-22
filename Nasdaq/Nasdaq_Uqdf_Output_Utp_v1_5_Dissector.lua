@@ -1169,8 +1169,14 @@ nasdaq_uqdf_output_utp_v1_5_display.market_center_close_recap = function(packet,
 end
 
 -- Dissect Fields: Market Center Close Recap
-nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap_fields = function(buffer, offset, packet, parent)
+nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap_fields = function(buffer, offset, packet, parent, market_center_close_recap_index)
   local index = offset
+
+  -- TODO
+  if market_center_close_recap_index ~= nil then
+    local iteration = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index, market_center_close_recap_index)
+    iteration:set_generated()
+  end
 
   -- Market Center Identifier: 1 Byte Ascii String
   index, market_center_identifier = nasdaq_uqdf_output_utp_v1_5_dissect.market_center_identifier(buffer, index, packet, parent)
@@ -1465,11 +1471,6 @@ nasdaq_uqdf_output_utp_v1_5_dissect.session_close_recap_message_fields = functio
   -- Repeating: Market Center Close Recap
   for market_center_close_recap_index = 1, number_of_market_center_attachments do
     index, market_center_close_recap = nasdaq_uqdf_output_utp_v1_5_dissect.market_center_close_recap(buffer, index, packet, parent)
-
-    if market_center_close_recap ~= nil then
-      local iteration = market_center_close_recap:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index, market_center_close_recap_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4488,8 +4489,14 @@ nasdaq_uqdf_output_utp_v1_5_display.message = function(packet, parent, length)
 end
 
 -- Dissect Fields: Message
-nasdaq_uqdf_output_utp_v1_5_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+nasdaq_uqdf_output_utp_v1_5_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 3 fields
   index, message_header = nasdaq_uqdf_output_utp_v1_5_dissect.message_header(buffer, index, packet, parent)
@@ -4504,21 +4511,21 @@ nasdaq_uqdf_output_utp_v1_5_dissect.message_fields = function(buffer, offset, pa
 end
 
 -- Dissect: Message
-nasdaq_uqdf_output_utp_v1_5_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+nasdaq_uqdf_output_utp_v1_5_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = nasdaq_uqdf_output_utp_v1_5_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_uqdf_output_utp_v1_5.fields.message, buffer(offset, 0))
+    local current = nasdaq_uqdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nasdaq_uqdf_output_utp_v1_5_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    nasdaq_uqdf_output_utp_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -4656,7 +4663,7 @@ nasdaq_uqdf_output_utp_v1_5_dissect.packet = function(buffer, packet, parent)
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = nasdaq_uqdf_output_utp_v1_5_dissect.message(buffer, index, packet, parent, size_of_message)
+    index, message = nasdaq_uqdf_output_utp_v1_5_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index

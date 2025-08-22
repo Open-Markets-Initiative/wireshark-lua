@@ -2146,8 +2146,14 @@ iex_equities_tops_iextp_v1_5_6_display.message = function(packet, parent, length
 end
 
 -- Dissect Fields: Message
-iex_equities_tops_iextp_v1_5_6_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+iex_equities_tops_iextp_v1_5_6_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(iex_equities_tops_iextp_v1_5_6.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = iex_equities_tops_iextp_v1_5_6_dissect.message_header(buffer, index, packet, parent)
@@ -2162,21 +2168,21 @@ iex_equities_tops_iextp_v1_5_6_dissect.message_fields = function(buffer, offset,
 end
 
 -- Dissect: Message
-iex_equities_tops_iextp_v1_5_6_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+iex_equities_tops_iextp_v1_5_6_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(iex_equities_tops_iextp_v1_5_6.fields.message, buffer(offset, 0))
-    local current = iex_equities_tops_iextp_v1_5_6_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = iex_equities_tops_iextp_v1_5_6_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(iex_equities_tops_iextp_v1_5_6.fields.message, buffer(offset, 0))
+    local current = iex_equities_tops_iextp_v1_5_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = iex_equities_tops_iextp_v1_5_6_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    iex_equities_tops_iextp_v1_5_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    iex_equities_tops_iextp_v1_5_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -2493,12 +2499,7 @@ iex_equities_tops_iextp_v1_5_6_dissect.packet = function(buffer, packet, parent)
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = iex_equities_tops_iextp_v1_5_6_dissect.message(buffer, index, packet, parent, size_of_message)
-
-    if message ~= nil then
-      local iteration = message:add(iex_equities_tops_iextp_v1_5_6.fields.message_index, message_index)
-      iteration:set_generated()
-    end
+    index, message = iex_equities_tops_iextp_v1_5_6_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index

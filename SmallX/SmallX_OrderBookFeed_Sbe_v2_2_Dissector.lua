@@ -557,8 +557,14 @@ smallx_orderbookfeed_sbe_v2_2_display.multileg_definition_snapshot_v_2_message_l
 end
 
 -- Dissect Fields: Multileg Definition Snapshot V 2 Message Leg Group
-smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group_fields = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group_fields = function(buffer, offset, packet, parent, multileg_definition_snapshot_v_2_message_leg_group_index)
   local index = offset
+
+  -- TODO
+  if multileg_definition_snapshot_v_2_message_leg_group_index ~= nil then
+    local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_snapshot_v_2_message_leg_group_index, multileg_definition_snapshot_v_2_message_leg_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Instrument Id: 4 Byte Signed Fixed Width Integer
   index, leg_instrument_id = smallx_orderbookfeed_sbe_v2_2_dissect.leg_instrument_id(buffer, index, packet, parent)
@@ -714,11 +720,6 @@ smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_l
   -- Repeating: Multileg Definition Snapshot V 2 Message Leg Group
   for multileg_definition_snapshot_v_2_message_leg_group_index = 1, num_in_group do
     index, multileg_definition_snapshot_v_2_message_leg_group = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group(buffer, index, packet, parent)
-
-    if multileg_definition_snapshot_v_2_message_leg_group ~= nil then
-      local iteration = multileg_definition_snapshot_v_2_message_leg_group:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_snapshot_v_2_message_leg_group_index, multileg_definition_snapshot_v_2_message_leg_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2051,8 +2052,14 @@ smallx_orderbookfeed_sbe_v2_2_display.multileg_definition_incremental_v_2_messag
 end
 
 -- Dissect Fields: Multileg Definition Incremental V 2 Message Leg Group
-smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group_fields = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group_fields = function(buffer, offset, packet, parent, multileg_definition_incremental_v_2_message_leg_group_index)
   local index = offset
+
+  -- TODO
+  if multileg_definition_incremental_v_2_message_leg_group_index ~= nil then
+    local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_incremental_v_2_message_leg_group_index, multileg_definition_incremental_v_2_message_leg_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Instrument Id: 4 Byte Signed Fixed Width Integer
   index, leg_instrument_id = smallx_orderbookfeed_sbe_v2_2_dissect.leg_instrument_id(buffer, index, packet, parent)
@@ -2121,11 +2128,6 @@ smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_messag
   -- Repeating: Multileg Definition Incremental V 2 Message Leg Group
   for multileg_definition_incremental_v_2_message_leg_group_index = 1, num_in_group do
     index, multileg_definition_incremental_v_2_message_leg_group = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group(buffer, index, packet, parent)
-
-    if multileg_definition_incremental_v_2_message_leg_group ~= nil then
-      local iteration = multileg_definition_incremental_v_2_message_leg_group:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_incremental_v_2_message_leg_group_index, multileg_definition_incremental_v_2_message_leg_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3516,8 +3518,14 @@ smallx_orderbookfeed_sbe_v2_2_display.orders_group = function(packet, parent, le
 end
 
 -- Dissect Fields: Orders Group
-smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields = function(buffer, offset, packet, parent, orders_group_index)
   local index = offset
+
+  -- TODO
+  if orders_group_index ~= nil then
+    local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.orders_group_index, orders_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Update Action: 1 Byte Ascii String Enum with 3 values
   index, order_update_action = smallx_orderbookfeed_sbe_v2_2_dissect.order_update_action(buffer, index, packet, parent)
@@ -3595,11 +3603,6 @@ smallx_orderbookfeed_sbe_v2_2_dissect.orders_groups_fields = function(buffer, of
   -- Repeating: Orders Group
   for orders_group_index = 1, num_in_group do
     index, orders_group = smallx_orderbookfeed_sbe_v2_2_dissect.orders_group(buffer, index, packet, parent)
-
-    if orders_group ~= nil then
-      local iteration = orders_group:add(smallx_orderbookfeed_sbe_v2_2.fields.orders_group_index, orders_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4071,8 +4074,14 @@ smallx_orderbookfeed_sbe_v2_2_display.trades_group = function(packet, parent, le
 end
 
 -- Dissect Fields: Trades Group
-smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields = function(buffer, offset, packet, parent, trades_group_index)
   local index = offset
+
+  -- TODO
+  if trades_group_index ~= nil then
+    local iteration = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.trades_group_index, trades_group_index)
+    iteration:set_generated()
+  end
 
   -- Trade Id Trade Id: 8 Byte Signed Fixed Width Integer
   index, trade_id_trade_id = smallx_orderbookfeed_sbe_v2_2_dissect.trade_id_trade_id(buffer, index, packet, parent)
@@ -4147,11 +4156,6 @@ smallx_orderbookfeed_sbe_v2_2_dissect.trades_groups_fields = function(buffer, of
   -- Repeating: Trades Group
   for trades_group_index = 1, num_in_group do
     index, trades_group = smallx_orderbookfeed_sbe_v2_2_dissect.trades_group(buffer, index, packet, parent)
-
-    if trades_group ~= nil then
-      local iteration = trades_group:add(smallx_orderbookfeed_sbe_v2_2.fields.trades_group_index, trades_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4892,13 +4896,13 @@ smallx_orderbookfeed_sbe_v2_2_dissect.sbe_frame = function(buffer, offset, packe
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_frame then
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame, buffer(offset, 0))
-    local current = smallx_orderbookfeed_sbe_v2_2_dissect.sbe_frame_fields(buffer, offset, packet, element, size_of_sbe_frame)
-    element:set_len(size_of_sbe_frame)
-    local display = smallx_orderbookfeed_sbe_v2_2_display.sbe_frame(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame, buffer(offset, 0))
+    local current = smallx_orderbookfeed_sbe_v2_2_dissect.sbe_frame_fields(buffer, offset, packet, parent, size_of_sbe_frame)
+    parent:set_len(size_of_sbe_frame)
+    local display = smallx_orderbookfeed_sbe_v2_2_display.sbe_frame(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     smallx_orderbookfeed_sbe_v2_2_dissect.sbe_frame_fields(buffer, offset, packet, parent, size_of_sbe_frame)

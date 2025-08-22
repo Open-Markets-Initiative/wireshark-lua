@@ -2005,13 +2005,13 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message = function(buffer, off
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
-    local current = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, element, size_of_sbe_message)
-    element:set_len(size_of_sbe_message)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sbe_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
+    local current = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+    parent:set_len(size_of_sbe_message)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sbe_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
@@ -2046,8 +2046,14 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.message = function(packet, parent,
 end
 
 -- Dissect Fields: Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_length(buffer, index, packet, parent)
@@ -2065,21 +2071,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, 
 end
 
 -- Dissect: Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+n24x_equities_memoirlastsale_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.message, buffer(offset, 0))
-    local current = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.message, buffer(offset, 0))
+    local current = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -2139,12 +2145,7 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message_fields = functio
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message)
-
-    if message ~= nil then
-      local iteration = message:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.message_index, message_index)
-      iteration:set_generated()
-    end
+    index, message = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index

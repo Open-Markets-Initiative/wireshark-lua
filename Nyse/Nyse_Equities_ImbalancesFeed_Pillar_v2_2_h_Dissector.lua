@@ -3112,8 +3112,14 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h_display.message = function(packet, pa
 end
 
 -- Dissect Fields: Message
-nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_header(buffer, index, packet, parent)
@@ -3128,21 +3134,21 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields = function(buf
 end
 
 -- Dissect: Message
-nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message, buffer(offset, 0))
-    local current = nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = nyse_equities_imbalancesfeed_pillar_v2_2_h_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message, buffer(offset, 0))
+    local current = nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nyse_equities_imbalancesfeed_pillar_v2_2_h_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    nyse_equities_imbalancesfeed_pillar_v2_2_h_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end

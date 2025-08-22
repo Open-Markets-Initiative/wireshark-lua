@@ -720,8 +720,14 @@ cboe_futures_orderentry_boe3_v1_1_20_display.option_leg = function(packet, paren
 end
 
 -- Dissect Fields: Option Leg
-cboe_futures_orderentry_boe3_v1_1_20_dissect.option_leg_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_1_20_dissect.option_leg_fields = function(buffer, offset, packet, parent, option_leg_index)
   local index = offset
+
+  -- TODO
+  if option_leg_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe3_v1_1_20.fields.option_leg_index, option_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol: Alphanumeric
   index, leg_symbol = cboe_futures_orderentry_boe3_v1_1_20_dissect.leg_symbol(buffer, index, packet, parent)
@@ -841,11 +847,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.new_complex_instrument_accepted_opt
   -- Repeating: Option Leg
   for option_leg_index = 1, leg_cnt do
     index, option_leg = cboe_futures_orderentry_boe3_v1_1_20_dissect.option_leg(buffer, index, packet, parent)
-
-    if option_leg ~= nil then
-      local iteration = option_leg:add(cboe_futures_orderentry_boe3_v1_1_20.fields.option_leg_index, option_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2010,8 +2011,14 @@ cboe_futures_orderentry_boe3_v1_1_20_display.quote_update_acknowledgement_group 
 end
 
 -- Dissect Fields: Quote Update Acknowledgement Group
-cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_acknowledgement_group_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_acknowledgement_group_fields = function(buffer, offset, packet, parent, quote_update_acknowledgement_group_index)
   local index = offset
+
+  -- TODO
+  if quote_update_acknowledgement_group_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe3_v1_1_20.fields.quote_update_acknowledgement_group_index, quote_update_acknowledgement_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: Binary
   index, order_id = cboe_futures_orderentry_boe3_v1_1_20_dissect.order_id(buffer, index, packet, parent)
@@ -2106,11 +2113,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_acknowledgement_fields
   -- Repeating: Quote Update Acknowledgement Group
   for quote_update_acknowledgement_group_index = 1, quote_cnt do
     index, quote_update_acknowledgement_group = cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_acknowledgement_group(buffer, index, packet, parent)
-
-    if quote_update_acknowledgement_group ~= nil then
-      local iteration = quote_update_acknowledgement_group:add(cboe_futures_orderentry_boe3_v1_1_20.fields.quote_update_acknowledgement_group_index, quote_update_acknowledgement_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4821,11 +4823,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.order_acknowledgement_option_fields
   -- Repeating: Leg Position Effect
   for leg_position_effect_index = 1, leg_cnt do
     index, leg_position_effect = cboe_futures_orderentry_boe3_v1_1_20_dissect.leg_position_effect(buffer, index, packet, parent)
-
-    if leg_position_effect ~= nil then
-      local iteration = leg_position_effect:add(cboe_futures_orderentry_boe3_v1_1_20.fields.leg_position_effect_index, leg_position_effect_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5272,8 +5269,14 @@ cboe_futures_orderentry_boe3_v1_1_20_display.quote_update_option_group = functio
 end
 
 -- Dissect Fields: Quote Update Option Group
-cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_option_group_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_option_group_fields = function(buffer, offset, packet, parent, quote_update_option_group_index)
   local index = offset
+
+  -- TODO
+  if quote_update_option_group_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe3_v1_1_20.fields.quote_update_option_group_index, quote_update_option_group_index)
+    iteration:set_generated()
+  end
 
   -- Quote Symbol: Alphanumeric
   index, quote_symbol = cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_symbol(buffer, index, packet, parent)
@@ -5421,11 +5424,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_option_fields = functi
   -- Repeating: Quote Update Option Group
   for quote_update_option_group_index = 1, quote_cnt do
     index, quote_update_option_group = cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_option_group(buffer, index, packet, parent)
-
-    if quote_update_option_group ~= nil then
-      local iteration = quote_update_option_group:add(cboe_futures_orderentry_boe3_v1_1_20.fields.quote_update_option_group_index, quote_update_option_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5467,8 +5465,14 @@ cboe_futures_orderentry_boe3_v1_1_20_display.quote_update_group = function(packe
 end
 
 -- Dissect Fields: Quote Update Group
-cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_group_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_group_fields = function(buffer, offset, packet, parent, quote_update_group_index)
   local index = offset
+
+  -- TODO
+  if quote_update_group_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe3_v1_1_20.fields.quote_update_group_index, quote_update_group_index)
+    iteration:set_generated()
+  end
 
   -- Quote Symbol: Alphanumeric
   index, quote_symbol = cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_symbol(buffer, index, packet, parent)
@@ -5589,11 +5593,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_fields = function(buff
   -- Repeating: Quote Update Group
   for quote_update_group_index = 1, quote_cnt do
     index, quote_update_group = cboe_futures_orderentry_boe3_v1_1_20_dissect.quote_update_group(buffer, index, packet, parent)
-
-    if quote_update_group ~= nil then
-      local iteration = quote_update_group:add(cboe_futures_orderentry_boe3_v1_1_20.fields.quote_update_group_index, quote_update_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6324,11 +6323,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.new_order_option_fields = function(
   -- Repeating: Leg Position Effect
   for leg_position_effect_index = 1, leg_cnt do
     index, leg_position_effect = cboe_futures_orderentry_boe3_v1_1_20_dissect.leg_position_effect(buffer, index, packet, parent)
-
-    if leg_position_effect ~= nil then
-      local iteration = leg_position_effect:add(cboe_futures_orderentry_boe3_v1_1_20.fields.leg_position_effect_index, leg_position_effect_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6663,8 +6657,14 @@ cboe_futures_orderentry_boe3_v1_1_20_display.unit_sequence = function(packet, pa
 end
 
 -- Dissect Fields: Unit Sequence
-cboe_futures_orderentry_boe3_v1_1_20_dissect.unit_sequence_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_1_20_dissect.unit_sequence_fields = function(buffer, offset, packet, parent, unit_sequence_index)
   local index = offset
+
+  -- TODO
+  if unit_sequence_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe3_v1_1_20.fields.unit_sequence_index, unit_sequence_index)
+    iteration:set_generated()
+  end
 
   -- Unit Number: 1 Byte Unsigned Fixed Width Integer
   index, unit_number = cboe_futures_orderentry_boe3_v1_1_20_dissect.unit_number(buffer, index, packet, parent)
@@ -6841,11 +6841,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.login_response_message_fields = fun
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
     index, unit_sequence = cboe_futures_orderentry_boe3_v1_1_20_dissect.unit_sequence(buffer, index, packet, parent)
-
-    if unit_sequence ~= nil then
-      local iteration = unit_sequence:add(cboe_futures_orderentry_boe3_v1_1_20.fields.unit_sequence_index, unit_sequence_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7002,11 +6997,6 @@ cboe_futures_orderentry_boe3_v1_1_20_dissect.login_request_message_fields = func
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
     index, unit_sequence = cboe_futures_orderentry_boe3_v1_1_20_dissect.unit_sequence(buffer, index, packet, parent)
-
-    if unit_sequence ~= nil then
-      local iteration = unit_sequence:add(cboe_futures_orderentry_boe3_v1_1_20.fields.unit_sequence_index, unit_sequence_index)
-      iteration:set_generated()
-    end
   end
 
   return index

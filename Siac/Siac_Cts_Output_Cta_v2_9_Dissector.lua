@@ -4719,8 +4719,14 @@ siac_cts_output_cta_v2_9_display.participants = function(packet, parent, length)
 end
 
 -- Dissect Fields: Participants
-siac_cts_output_cta_v2_9_dissect.participants_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v2_9_dissect.participants_fields = function(buffer, offset, packet, parent, participants_index)
   local index = offset
+
+  -- TODO
+  if participants_index ~= nil then
+    local iteration = parent:add(siac_cts_output_cta_v2_9.fields.participants_index, participants_index)
+    iteration:set_generated()
+  end
 
   -- Participant Id: 1 Byte Ascii String Enum with 20 values
   index, participant_id = siac_cts_output_cta_v2_9_dissect.participant_id(buffer, index, packet, parent)
@@ -4789,11 +4795,6 @@ siac_cts_output_cta_v2_9_dissect.approximate_adjusted_volume_market_center_messa
   -- Repeating: Participants
   for participants_index = 1, number_of_participants do
     index, participants = siac_cts_output_cta_v2_9_dissect.participants(buffer, index, packet, parent)
-
-    if participants ~= nil then
-      local iteration = participants:add(siac_cts_output_cta_v2_9.fields.participants_index, participants_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6540,8 +6541,14 @@ siac_cts_output_cta_v2_9_display.message = function(packet, parent, length)
 end
 
 -- Dissect Fields: Message
-siac_cts_output_cta_v2_9_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+siac_cts_output_cta_v2_9_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(siac_cts_output_cta_v2_9.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = siac_cts_output_cta_v2_9_dissect.message_header(buffer, index, packet, parent)
@@ -6556,21 +6563,21 @@ siac_cts_output_cta_v2_9_dissect.message_fields = function(buffer, offset, packe
 end
 
 -- Dissect: Message
-siac_cts_output_cta_v2_9_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+siac_cts_output_cta_v2_9_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(siac_cts_output_cta_v2_9.fields.message, buffer(offset, 0))
-    local current = siac_cts_output_cta_v2_9_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = siac_cts_output_cta_v2_9_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(siac_cts_output_cta_v2_9.fields.message, buffer(offset, 0))
+    local current = siac_cts_output_cta_v2_9_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = siac_cts_output_cta_v2_9_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    siac_cts_output_cta_v2_9_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    siac_cts_output_cta_v2_9_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -6865,11 +6872,6 @@ siac_cts_output_cta_v2_9_dissect.packet = function(buffer, packet, parent)
 
     -- Runtime Size Of: Message
     index, message = siac_cts_output_cta_v2_9_dissect.message(buffer, index, packet, parent, message_length)
-
-    if message ~= nil then
-      local iteration = message:add(siac_cts_output_cta_v2_9.fields.message_index, message_index)
-      iteration:set_generated()
-    end
   end
 
   -- Runtime optional field exists: Block Pad Byte

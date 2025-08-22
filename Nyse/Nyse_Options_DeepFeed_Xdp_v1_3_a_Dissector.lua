@@ -2373,8 +2373,14 @@ nyse_options_deepfeed_xdp_v1_3_a_display.message = function(packet, parent, leng
 end
 
 -- Dissect Fields: Message
-nyse_options_deepfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, offset, packet, parent)
+nyse_options_deepfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_options_deepfeed_xdp_v1_3_a_dissect.message_header(buffer, index, packet, parent)

@@ -973,8 +973,14 @@ nasdaq_phlxoptions_orders_itch_v1_9_display.complex_order_leg = function(packet,
 end
 
 -- Dissect Fields: Complex Order Leg
-nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields = function(buffer, offset, packet, parent, complex_order_leg_index)
   local index = offset
+
+  -- TODO
+  if complex_order_leg_index ~= nil then
+    local iteration = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg_index, complex_order_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Open Close Indicator: 1 Byte Ascii String Enum with 3 values
   index, leg_open_close_indicator = nasdaq_phlxoptions_orders_itch_v1_9_dissect.leg_open_close_indicator(buffer, index, packet, parent)
@@ -1409,11 +1415,6 @@ nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_message_fields = funct
   -- Repeating: Complex Order Leg
   for complex_order_leg_index = 1, number_of_legs do
     index, complex_order_leg = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg(buffer, index, packet, parent)
-
-    if complex_order_leg ~= nil then
-      local iteration = complex_order_leg:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg_index, complex_order_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1973,8 +1974,14 @@ nasdaq_phlxoptions_orders_itch_v1_9_display.complex_order_strategy_leg = functio
 end
 
 -- Dissect Fields: Complex Order Strategy Leg
-nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields = function(buffer, offset, packet, parent, complex_order_strategy_leg_index)
   local index = offset
+
+  -- TODO
+  if complex_order_strategy_leg_index ~= nil then
+    local iteration = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg_index, complex_order_strategy_leg_index)
+    iteration:set_generated()
+  end
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9_dissect.option_id(buffer, index, packet, parent)
@@ -2123,11 +2130,6 @@ nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_message_field
   -- Repeating: Complex Order Strategy Leg
   for complex_order_strategy_leg_index = 1, number_of_legs do
     index, complex_order_strategy_leg = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg(buffer, index, packet, parent)
-
-    if complex_order_strategy_leg ~= nil then
-      local iteration = complex_order_strategy_leg:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg_index, complex_order_strategy_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2683,8 +2685,14 @@ nasdaq_phlxoptions_orders_itch_v1_9_display.message = function(packet, parent, l
 end
 
 -- Dissect Fields: Message
-nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_header(buffer, index, packet, parent)

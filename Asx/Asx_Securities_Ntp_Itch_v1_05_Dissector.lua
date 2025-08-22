@@ -3217,8 +3217,14 @@ asx_securities_ntp_itch_v1_05_display.bundle_leg = function(packet, parent, leng
 end
 
 -- Dissect Fields: Bundle Leg
-asx_securities_ntp_itch_v1_05_dissect.bundle_leg_fields = function(buffer, offset, packet, parent)
+asx_securities_ntp_itch_v1_05_dissect.bundle_leg_fields = function(buffer, offset, packet, parent, bundle_leg_index)
   local index = offset
+
+  -- TODO
+  if bundle_leg_index ~= nil then
+    local iteration = parent:add(asx_securities_ntp_itch_v1_05.fields.bundle_leg_index, bundle_leg_index)
+    iteration:set_generated()
+  end
 
   -- Tradeable Instrument Id Leg: 4 Byte Unsigned Fixed Width Integer
   index, tradeable_instrument_id_leg = asx_securities_ntp_itch_v1_05_dissect.tradeable_instrument_id_leg(buffer, index, packet, parent)
@@ -3502,11 +3508,6 @@ asx_securities_ntp_itch_v1_05_dissect.bundles_symbol_directory_fields = function
   -- Array Of: Bundle Leg
   for bundle_leg_index = 1, 20 do
     index, bundle_leg = asx_securities_ntp_itch_v1_05_dissect.bundle_leg(buffer, index, packet, parent)
-
-    if bundle_leg ~= nil then
-      local iteration = bundle_leg:add(asx_securities_ntp_itch_v1_05.fields.bundle_leg_index, bundle_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3551,8 +3552,14 @@ asx_securities_ntp_itch_v1_05_display.combination_leg = function(packet, parent,
 end
 
 -- Dissect Fields: Combination Leg
-asx_securities_ntp_itch_v1_05_dissect.combination_leg_fields = function(buffer, offset, packet, parent)
+asx_securities_ntp_itch_v1_05_dissect.combination_leg_fields = function(buffer, offset, packet, parent, combination_leg_index)
   local index = offset
+
+  -- TODO
+  if combination_leg_index ~= nil then
+    local iteration = parent:add(asx_securities_ntp_itch_v1_05.fields.combination_leg_index, combination_leg_index)
+    iteration:set_generated()
+  end
 
   -- Tradeable Instrument Id Leg: 4 Byte Unsigned Fixed Width Integer
   index, tradeable_instrument_id_leg = asx_securities_ntp_itch_v1_05_dissect.tradeable_instrument_id_leg(buffer, index, packet, parent)
@@ -3663,11 +3670,6 @@ asx_securities_ntp_itch_v1_05_dissect.combination_symbol_directory_message_field
   -- Array Of: Combination Leg
   for combination_leg_index = 1, 6 do
     index, combination_leg = asx_securities_ntp_itch_v1_05_dissect.combination_leg(buffer, index, packet, parent)
-
-    if combination_leg ~= nil then
-      local iteration = combination_leg:add(asx_securities_ntp_itch_v1_05.fields.combination_leg_index, combination_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4636,9 +4638,6 @@ asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields = function(buffer, 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
   index, seconds = asx_securities_ntp_itch_v1_05_dissect.seconds(buffer, index, packet, parent)
 
-  -- Store Seconds Value
-  asx_securities_ntp_itch_v1_05_store.seconds = seconds
-
   return index
 end
 
@@ -5077,8 +5076,14 @@ asx_securities_ntp_itch_v1_05_display.message = function(packet, parent, length)
 end
 
 -- Dissect Fields: Message
-asx_securities_ntp_itch_v1_05_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+asx_securities_ntp_itch_v1_05_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(asx_securities_ntp_itch_v1_05.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = asx_securities_ntp_itch_v1_05_dissect.message_header(buffer, index, packet, parent)
@@ -5093,21 +5098,21 @@ asx_securities_ntp_itch_v1_05_dissect.message_fields = function(buffer, offset, 
 end
 
 -- Dissect: Message
-asx_securities_ntp_itch_v1_05_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+asx_securities_ntp_itch_v1_05_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(asx_securities_ntp_itch_v1_05.fields.message, buffer(offset, 0))
-    local current = asx_securities_ntp_itch_v1_05_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = asx_securities_ntp_itch_v1_05_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(asx_securities_ntp_itch_v1_05.fields.message, buffer(offset, 0))
+    local current = asx_securities_ntp_itch_v1_05_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = asx_securities_ntp_itch_v1_05_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    asx_securities_ntp_itch_v1_05_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    asx_securities_ntp_itch_v1_05_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -5261,12 +5266,7 @@ asx_securities_ntp_itch_v1_05_dissect.packet = function(buffer, packet, parent)
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = asx_securities_ntp_itch_v1_05_dissect.message(buffer, index, packet, parent, size_of_message)
-
-    if message ~= nil then
-      local iteration = message:add(asx_securities_ntp_itch_v1_05.fields.message_index, message_index)
-      iteration:set_generated()
-    end
+    index, message = asx_securities_ntp_itch_v1_05_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index

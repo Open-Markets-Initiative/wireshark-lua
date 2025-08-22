@@ -528,8 +528,14 @@ cboe_options_marketlevel2_csm_v1_0_4_display.md_volume_entry = function(packet, 
 end
 
 -- Dissect Fields: Md Volume Entry
-cboe_options_marketlevel2_csm_v1_0_4_dissect.md_volume_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketlevel2_csm_v1_0_4_dissect.md_volume_entry_fields = function(buffer, offset, packet, parent, md_volume_entry_index)
   local index = offset
+
+  -- TODO
+  if md_volume_entry_index ~= nil then
+    local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.md_volume_entry_index, md_volume_entry_index)
+    iteration:set_generated()
+  end
 
   -- Md Volume Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, md_volume_type = cboe_options_marketlevel2_csm_v1_0_4_dissect.md_volume_type(buffer, index, packet, parent)
@@ -772,8 +778,14 @@ cboe_options_marketlevel2_csm_v1_0_4_display.incremental_refresh_md_entry = func
 end
 
 -- Dissect Fields: Incremental Refresh Md Entry
-cboe_options_marketlevel2_csm_v1_0_4_dissect.incremental_refresh_md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketlevel2_csm_v1_0_4_dissect.incremental_refresh_md_entry_fields = function(buffer, offset, packet, parent, incremental_refresh_md_entry_index)
   local index = offset
+
+  -- TODO
+  if incremental_refresh_md_entry_index ~= nil then
+    local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry_index, incremental_refresh_md_entry_index)
+    iteration:set_generated()
+  end
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, md_update_action = cboe_options_marketlevel2_csm_v1_0_4_dissect.md_update_action(buffer, index, packet, parent)
@@ -796,11 +808,6 @@ cboe_options_marketlevel2_csm_v1_0_4_dissect.incremental_refresh_md_entry_fields
   -- Repeating: Md Volume Entry
   for md_volume_entry_index = 1, no_entries do
     index, md_volume_entry = cboe_options_marketlevel2_csm_v1_0_4_dissect.md_volume_entry(buffer, index, packet, parent)
-
-    if md_volume_entry ~= nil then
-      local iteration = md_volume_entry:add(cboe_options_marketlevel2_csm_v1_0_4.fields.md_volume_entry_index, md_volume_entry_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -913,11 +920,6 @@ cboe_options_marketlevel2_csm_v1_0_4_dissect.incremental_refresh_message_fields 
   -- Repeating: Incremental Refresh Md Entry
   for incremental_refresh_md_entry_index = 1, no_entries do
     index, incremental_refresh_md_entry = cboe_options_marketlevel2_csm_v1_0_4_dissect.incremental_refresh_md_entry(buffer, index, packet, parent)
-
-    if incremental_refresh_md_entry ~= nil then
-      local iteration = incremental_refresh_md_entry:add(cboe_options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry_index, incremental_refresh_md_entry_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -961,8 +963,14 @@ cboe_options_marketlevel2_csm_v1_0_4_display.snapshot_full_refresh_md_entry = fu
 end
 
 -- Dissect Fields: Snapshot Full Refresh Md Entry
-cboe_options_marketlevel2_csm_v1_0_4_dissect.snapshot_full_refresh_md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketlevel2_csm_v1_0_4_dissect.snapshot_full_refresh_md_entry_fields = function(buffer, offset, packet, parent, snapshot_full_refresh_md_entry_index)
   local index = offset
+
+  -- TODO
+  if snapshot_full_refresh_md_entry_index ~= nil then
+    local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry_index, snapshot_full_refresh_md_entry_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 2 values
   index, md_entry_type = cboe_options_marketlevel2_csm_v1_0_4_dissect.md_entry_type(buffer, index, packet, parent)
@@ -982,11 +990,6 @@ cboe_options_marketlevel2_csm_v1_0_4_dissect.snapshot_full_refresh_md_entry_fiel
   -- Repeating: Md Volume Entry
   for md_volume_entry_index = 1, no_entries do
     index, md_volume_entry = cboe_options_marketlevel2_csm_v1_0_4_dissect.md_volume_entry(buffer, index, packet, parent)
-
-    if md_volume_entry ~= nil then
-      local iteration = md_volume_entry:add(cboe_options_marketlevel2_csm_v1_0_4.fields.md_volume_entry_index, md_volume_entry_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1091,11 +1094,6 @@ cboe_options_marketlevel2_csm_v1_0_4_dissect.snapshot_full_refresh_message_field
   -- Repeating: Snapshot Full Refresh Md Entry
   for snapshot_full_refresh_md_entry_index = 1, no_entries do
     index, snapshot_full_refresh_md_entry = cboe_options_marketlevel2_csm_v1_0_4_dissect.snapshot_full_refresh_md_entry(buffer, index, packet, parent)
-
-    if snapshot_full_refresh_md_entry ~= nil then
-      local iteration = snapshot_full_refresh_md_entry:add(cboe_options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry_index, snapshot_full_refresh_md_entry_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1200,8 +1198,14 @@ cboe_options_marketlevel2_csm_v1_0_4_display.security_definition_leg = function(
 end
 
 -- Dissect Fields: Security Definition Leg
-cboe_options_marketlevel2_csm_v1_0_4_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent)
+cboe_options_marketlevel2_csm_v1_0_4_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent, security_definition_leg_index)
   local index = offset
+
+  -- TODO
+  if security_definition_leg_index ~= nil then
+    local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.security_definition_leg_index, security_definition_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer
   index, leg_ratio_qty = cboe_options_marketlevel2_csm_v1_0_4_dissect.leg_ratio_qty(buffer, index, packet, parent)
@@ -2487,11 +2491,6 @@ cboe_options_marketlevel2_csm_v1_0_4_dissect.security_definition_message_fields 
   -- Repeating: Security Definition Leg
   for security_definition_leg_index = 1, no_legs do
     index, security_definition_leg = cboe_options_marketlevel2_csm_v1_0_4_dissect.security_definition_leg(buffer, index, packet, parent)
-
-    if security_definition_leg ~= nil then
-      local iteration = security_definition_leg:add(cboe_options_marketlevel2_csm_v1_0_4.fields.security_definition_leg_index, security_definition_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2759,8 +2758,14 @@ cboe_options_marketlevel2_csm_v1_0_4_display.message = function(packet, parent, 
 end
 
 -- Dissect Fields: Message
-cboe_options_marketlevel2_csm_v1_0_4_dissect.message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketlevel2_csm_v1_0_4_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(cboe_options_marketlevel2_csm_v1_0_4.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 4 fields
   index, message_header = cboe_options_marketlevel2_csm_v1_0_4_dissect.message_header(buffer, index, packet, parent)
@@ -2962,11 +2967,6 @@ cboe_options_marketlevel2_csm_v1_0_4_dissect.packet = function(buffer, packet, p
   -- Repeating: Message
   for message_index = 1, message_count do
     index, message = cboe_options_marketlevel2_csm_v1_0_4_dissect.message(buffer, index, packet, parent)
-
-    if message ~= nil then
-      local iteration = message:add(cboe_options_marketlevel2_csm_v1_0_4.fields.message_index, message_index)
-      iteration:set_generated()
-    end
   end
 
   return index

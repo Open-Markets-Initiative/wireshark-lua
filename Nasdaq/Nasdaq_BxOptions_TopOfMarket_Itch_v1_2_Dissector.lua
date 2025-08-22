@@ -2220,8 +2220,14 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_display.message = function(packet, parent
 end
 
 -- Dissect Fields: Message
-nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_header(buffer, index, packet, parent)
@@ -2236,21 +2242,21 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields = function(buffer,
 end
 
 -- Dissect: Message
-nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message, buffer(offset, 0))
-    local current = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message, buffer(offset, 0))
+    local current = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nasdaq_bxoptions_topofmarket_itch_v1_2_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -2404,12 +2410,7 @@ nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.packet = function(buffer, packet,
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message(buffer, index, packet, parent, size_of_message)
-
-    if message ~= nil then
-      local iteration = message:add(nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_index, message_index)
-      iteration:set_generated()
-    end
+    index, message = nasdaq_bxoptions_topofmarket_itch_v1_2_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index

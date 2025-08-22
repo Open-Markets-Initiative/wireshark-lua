@@ -1484,8 +1484,14 @@ cboe_europe_cedxmulticast_pitch_v1_11_display.price_level_group = function(packe
 end
 
 -- Dissect Fields: Price Level Group
-cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group_fields = function(buffer, offset, packet, parent)
+cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group_fields = function(buffer, offset, packet, parent, price_level_group_index)
   local index = offset
+
+  -- TODO
+  if price_level_group_index ~= nil then
+    local iteration = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index, price_level_group_index)
+    iteration:set_generated()
+  end
 
   -- Price Level: 8 Byte Unsigned Fixed Width Integer
   index, price_level = cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level(buffer, index, packet, parent)
@@ -1592,11 +1598,6 @@ cboe_europe_cedxmulticast_pitch_v1_11_dissect.auction_liquidity_message_fields =
   -- Repeating: Price Level Group
   for price_level_group_index = 1, price_level_count do
     index, price_level_group = cboe_europe_cedxmulticast_pitch_v1_11_dissect.price_level_group(buffer, index, packet, parent)
-
-    if price_level_group ~= nil then
-      local iteration = price_level_group:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.price_level_group_index, price_level_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4711,8 +4712,14 @@ cboe_europe_cedxmulticast_pitch_v1_11_display.message = function(packet, parent,
 end
 
 -- Dissect Fields: Message
-cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_header(buffer, index, packet, parent)
@@ -4727,21 +4734,21 @@ cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields = function(buffer, 
 end
 
 -- Dissect: Message
-cboe_europe_cedxmulticast_pitch_v1_11_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+cboe_europe_cedxmulticast_pitch_v1_11_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message, buffer(offset, 0))
-    local current = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = cboe_europe_cedxmulticast_pitch_v1_11_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_europe_cedxmulticast_pitch_v1_11.fields.message, buffer(offset, 0))
+    local current = cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_europe_cedxmulticast_pitch_v1_11_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    cboe_europe_cedxmulticast_pitch_v1_11_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end

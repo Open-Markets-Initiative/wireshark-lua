@@ -608,8 +608,14 @@ eurex_derivatives_eobi_t7_v11_1_display.md_trade_entry_grp_comp = function(packe
 end
 
 -- Dissect Fields: Md Trade Entry Grp Comp
-eurex_derivatives_eobi_t7_v11_1_dissect.md_trade_entry_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eobi_t7_v11_1_dissect.md_trade_entry_grp_comp_fields = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if md_trade_entry_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eobi_t7_v11_1.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_entry_px = eurex_derivatives_eobi_t7_v11_1_dissect.md_entry_px(buffer, index, packet, parent)
@@ -987,11 +993,6 @@ eurex_derivatives_eobi_t7_v11_1_dissect.trade_reversal_fields = function(buffer,
   -- Repeating: Md Trade Entry Grp Comp
   for md_trade_entry_grp_comp_index = 1, no_md_entries do
     index, md_trade_entry_grp_comp = eurex_derivatives_eobi_t7_v11_1_dissect.md_trade_entry_grp_comp(buffer, index, packet, parent)
-
-    if md_trade_entry_grp_comp ~= nil then
-      local iteration = md_trade_entry_grp_comp:add(eurex_derivatives_eobi_t7_v11_1.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3450,8 +3451,14 @@ eurex_derivatives_eobi_t7_v11_1_display.sec_mass_stat_grp_comp = function(packet
 end
 
 -- Dissect Fields: Sec Mass Stat Grp Comp
-eurex_derivatives_eobi_t7_v11_1_dissect.sec_mass_stat_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eobi_t7_v11_1_dissect.sec_mass_stat_grp_comp_fields = function(buffer, offset, packet, parent, sec_mass_stat_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if sec_mass_stat_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eobi_t7_v11_1.fields.sec_mass_stat_grp_comp_index, sec_mass_stat_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_derivatives_eobi_t7_v11_1_dissect.security_id(buffer, index, packet, parent)
@@ -3957,11 +3964,6 @@ eurex_derivatives_eobi_t7_v11_1_dissect.mass_instrument_state_change_fields = fu
   -- Repeating: Sec Mass Stat Grp Comp
   for sec_mass_stat_grp_comp_index = 1, no_related_sym do
     index, sec_mass_stat_grp_comp = eurex_derivatives_eobi_t7_v11_1_dissect.sec_mass_stat_grp_comp(buffer, index, packet, parent)
-
-    if sec_mass_stat_grp_comp ~= nil then
-      local iteration = sec_mass_stat_grp_comp:add(eurex_derivatives_eobi_t7_v11_1.fields.sec_mass_stat_grp_comp_index, sec_mass_stat_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4011,8 +4013,14 @@ eurex_derivatives_eobi_t7_v11_1_display.md_instrument_entry_grp_comp = function(
 end
 
 -- Dissect Fields: Md Instrument Entry Grp Comp
-eurex_derivatives_eobi_t7_v11_1_dissect.md_instrument_entry_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eobi_t7_v11_1_dissect.md_instrument_entry_grp_comp_fields = function(buffer, offset, packet, parent, md_instrument_entry_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if md_instrument_entry_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eobi_t7_v11_1.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_entry_px = eurex_derivatives_eobi_t7_v11_1_dissect.md_entry_px(buffer, index, packet, parent)
@@ -4275,11 +4283,6 @@ eurex_derivatives_eobi_t7_v11_1_dissect.instrument_summary_fields = function(buf
   -- Repeating: Md Instrument Entry Grp Comp
   for md_instrument_entry_grp_comp_index = 1, no_md_entries do
     index, md_instrument_entry_grp_comp = eurex_derivatives_eobi_t7_v11_1_dissect.md_instrument_entry_grp_comp(buffer, index, packet, parent)
-
-    if md_instrument_entry_grp_comp ~= nil then
-      local iteration = md_instrument_entry_grp_comp:add(eurex_derivatives_eobi_t7_v11_1.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5783,8 +5786,14 @@ eurex_derivatives_eobi_t7_v11_1_display.instrmt_leg_grp_comp = function(packet, 
 end
 
 -- Dissect Fields: Instrmt Leg Grp Comp
-eurex_derivatives_eobi_t7_v11_1_dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eobi_t7_v11_1_dissect.instrmt_leg_grp_comp_fields = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
   local index = offset
+
+  -- TODO
+  if instrmt_leg_grp_comp_index ~= nil then
+    local iteration = parent:add(eurex_derivatives_eobi_t7_v11_1.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
   index, leg_symbol = eurex_derivatives_eobi_t7_v11_1_dissect.leg_symbol(buffer, index, packet, parent)
@@ -6014,11 +6023,6 @@ eurex_derivatives_eobi_t7_v11_1_dissect.add_complex_instrument_fields = function
   -- Repeating: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, no_legs do
     index, instrmt_leg_grp_comp = eurex_derivatives_eobi_t7_v11_1_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
-
-    if instrmt_leg_grp_comp ~= nil then
-      local iteration = instrmt_leg_grp_comp:add(eurex_derivatives_eobi_t7_v11_1.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6505,13 +6509,13 @@ eurex_derivatives_eobi_t7_v11_1_dissect.message = function(buffer, offset, packe
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(eurex_derivatives_eobi_t7_v11_1.fields.message, buffer(offset, 0))
-    local current = eurex_derivatives_eobi_t7_v11_1_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = eurex_derivatives_eobi_t7_v11_1_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(eurex_derivatives_eobi_t7_v11_1.fields.message, buffer(offset, 0))
+    local current = eurex_derivatives_eobi_t7_v11_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = eurex_derivatives_eobi_t7_v11_1_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     eurex_derivatives_eobi_t7_v11_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)

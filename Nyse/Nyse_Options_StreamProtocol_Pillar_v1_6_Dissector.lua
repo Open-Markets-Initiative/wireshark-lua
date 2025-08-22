@@ -304,13 +304,13 @@ nyse_options_streamprotocol_pillar_v1_6_dissect.sequenced_message = function(buf
 
   -- Optionally add group/struct element to protocol tree
   if show.sequenced_message then
-    local element = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.sequenced_message, buffer(offset, 0))
-    local current = nyse_options_streamprotocol_pillar_v1_6_dissect.sequenced_message_fields(buffer, offset, packet, element, size_of_sequenced_message)
-    element:set_len(size_of_sequenced_message)
-    local display = nyse_options_streamprotocol_pillar_v1_6_display.sequenced_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.sequenced_message, buffer(offset, 0))
+    local current = nyse_options_streamprotocol_pillar_v1_6_dissect.sequenced_message_fields(buffer, offset, packet, parent, size_of_sequenced_message)
+    parent:set_len(size_of_sequenced_message)
+    local display = nyse_options_streamprotocol_pillar_v1_6_display.sequenced_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nyse_options_streamprotocol_pillar_v1_6_dissect.sequenced_message_fields(buffer, offset, packet, parent, size_of_sequenced_message)

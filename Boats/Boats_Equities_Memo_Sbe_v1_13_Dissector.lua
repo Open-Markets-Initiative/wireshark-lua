@@ -1253,8 +1253,14 @@ boats_equities_memo_sbe_v1_13_display.parties_group = function(packet, parent, l
 end
 
 -- Dissect Fields: Parties Group
-boats_equities_memo_sbe_v1_13_dissect.parties_group_fields = function(buffer, offset, packet, parent)
+boats_equities_memo_sbe_v1_13_dissect.parties_group_fields = function(buffer, offset, packet, parent, parties_group_index)
   local index = offset
+
+  -- TODO
+  if parties_group_index ~= nil then
+    local iteration = parent:add(boats_equities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
+    iteration:set_generated()
+  end
 
   -- Party I D New Order Single Party Id: 16 Byte Ascii String
   index, party_i_d_new_order_single_party_id = boats_equities_memo_sbe_v1_13_dissect.party_i_d_new_order_single_party_id(buffer, index, packet, parent)
@@ -1404,11 +1410,6 @@ boats_equities_memo_sbe_v1_13_dissect.parties_groups_fields = function(buffer, o
   -- Repeating: Parties Group
   for parties_group_index = 1, num_in_group do
     index, parties_group = boats_equities_memo_sbe_v1_13_dissect.parties_group(buffer, index, packet, parent)
-
-    if parties_group ~= nil then
-      local iteration = parties_group:add(boats_equities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5611,13 +5612,13 @@ boats_equities_memo_sbe_v1_13_dissect.sbe_message = function(buffer, offset, pac
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
-    local element = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_message, buffer(offset, 0))
-    local current = boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, element, size_of_sbe_message)
-    element:set_len(size_of_sbe_message)
-    local display = boats_equities_memo_sbe_v1_13_display.sbe_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(boats_equities_memo_sbe_v1_13.fields.sbe_message, buffer(offset, 0))
+    local current = boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+    parent:set_len(size_of_sbe_message)
+    local display = boats_equities_memo_sbe_v1_13_display.sbe_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     boats_equities_memo_sbe_v1_13_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)

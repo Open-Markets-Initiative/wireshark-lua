@@ -3459,8 +3459,14 @@ box_options_sola_multicast_hsvf_v1_8_display.instrument_leg = function(packet, p
 end
 
 -- Dissect Fields: Instrument Leg
-box_options_sola_multicast_hsvf_v1_8_dissect.instrument_leg_fields = function(buffer, offset, packet, parent)
+box_options_sola_multicast_hsvf_v1_8_dissect.instrument_leg_fields = function(buffer, offset, packet, parent, instrument_leg_index)
   local index = offset
+
+  -- TODO
+  if instrument_leg_index ~= nil then
+    local iteration = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.instrument_leg_index, instrument_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Ratio Sign: X
   index, leg_ratio_sign = box_options_sola_multicast_hsvf_v1_8_dissect.leg_ratio_sign(buffer, index, packet, parent)
@@ -4048,11 +4054,6 @@ box_options_sola_multicast_hsvf_v1_8_dissect.complex_order_instrument_keys_messa
   -- Repeating: Instrument Leg
   for instrument_leg_index = 1, number_of_legs do
     index, instrument_leg = box_options_sola_multicast_hsvf_v1_8_dissect.instrument_leg(buffer, index, packet, parent)
-
-    if instrument_leg ~= nil then
-      local iteration = instrument_leg:add(box_options_sola_multicast_hsvf_v1_8.fields.instrument_leg_index, instrument_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4986,8 +4987,14 @@ box_options_sola_multicast_hsvf_v1_8_display.complex_market_depth_level = functi
 end
 
 -- Dissect Fields: Complex Market Depth Level
-box_options_sola_multicast_hsvf_v1_8_dissect.complex_market_depth_level_fields = function(buffer, offset, packet, parent)
+box_options_sola_multicast_hsvf_v1_8_dissect.complex_market_depth_level_fields = function(buffer, offset, packet, parent, complex_market_depth_level_index)
   local index = offset
+
+  -- TODO
+  if complex_market_depth_level_index ~= nil then
+    local iteration = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.complex_market_depth_level_index, complex_market_depth_level_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = box_options_sola_multicast_hsvf_v1_8_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -5165,11 +5172,6 @@ box_options_sola_multicast_hsvf_v1_8_dissect.complex_order_market_depth_message_
   -- Repeating: Complex Market Depth Level
   for complex_market_depth_level_index = 1, number_of_levels do
     index, complex_market_depth_level = box_options_sola_multicast_hsvf_v1_8_dissect.complex_market_depth_level(buffer, index, packet, parent)
-
-    if complex_market_depth_level ~= nil then
-      local iteration = complex_market_depth_level:add(box_options_sola_multicast_hsvf_v1_8.fields.complex_market_depth_level_index, complex_market_depth_level_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5219,8 +5221,14 @@ box_options_sola_multicast_hsvf_v1_8_display.market_depth_level = function(packe
 end
 
 -- Dissect Fields: Market Depth Level
-box_options_sola_multicast_hsvf_v1_8_dissect.market_depth_level_fields = function(buffer, offset, packet, parent)
+box_options_sola_multicast_hsvf_v1_8_dissect.market_depth_level_fields = function(buffer, offset, packet, parent, market_depth_level_index)
   local index = offset
+
+  -- TODO
+  if market_depth_level_index ~= nil then
+    local iteration = parent:add(box_options_sola_multicast_hsvf_v1_8.fields.market_depth_level_index, market_depth_level_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = box_options_sola_multicast_hsvf_v1_8_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -5313,11 +5321,6 @@ box_options_sola_multicast_hsvf_v1_8_dissect.option_market_depth_message_fields 
   -- Repeating: Market Depth Level
   for market_depth_level_index = 1, number_of_levels do
     index, market_depth_level = box_options_sola_multicast_hsvf_v1_8_dissect.market_depth_level(buffer, index, packet, parent)
-
-    if market_depth_level ~= nil then
-      local iteration = market_depth_level:add(box_options_sola_multicast_hsvf_v1_8.fields.market_depth_level_index, market_depth_level_index)
-      iteration:set_generated()
-    end
   end
 
   return index

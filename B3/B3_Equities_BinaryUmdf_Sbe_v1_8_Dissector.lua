@@ -872,8 +872,14 @@ b3_equities_binaryumdf_sbe_v1_8_display.no_m_d_entries_group = function(packet, 
 end
 
 -- Dissect Fields: No M D Entries Group
-b3_equities_binaryumdf_sbe_v1_8_dissect.no_m_d_entries_group_fields = function(buffer, offset, packet, parent)
+b3_equities_binaryumdf_sbe_v1_8_dissect.no_m_d_entries_group_fields = function(buffer, offset, packet, parent, no_m_d_entries_group_index)
   local index = offset
+
+  -- TODO
+  if no_m_d_entries_group_index ~= nil then
+    local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_m_d_entries_group_index, no_m_d_entries_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Corporate Offset Price Optional: 8 Byte Signed Fixed Width Integer Nullable
   index, md_corporate_offset_price_optional = b3_equities_binaryumdf_sbe_v1_8_dissect.md_corporate_offset_price_optional(buffer, index, packet, parent)
@@ -1035,11 +1041,6 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.no_m_d_entries_groups_fields = function(
   -- Repeating: No M D Entries Group
   for no_m_d_entries_group_index = 1, num_in_group do
     index, no_m_d_entries_group = b3_equities_binaryumdf_sbe_v1_8_dissect.no_m_d_entries_group(buffer, index, packet, parent)
-
-    if no_m_d_entries_group ~= nil then
-      local iteration = no_m_d_entries_group:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_m_d_entries_group_index, no_m_d_entries_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5249,8 +5250,14 @@ b3_equities_binaryumdf_sbe_v1_8_display.no_instr_attribs_group = function(packet
 end
 
 -- Dissect Fields: No Instr Attribs Group
-b3_equities_binaryumdf_sbe_v1_8_dissect.no_instr_attribs_group_fields = function(buffer, offset, packet, parent)
+b3_equities_binaryumdf_sbe_v1_8_dissect.no_instr_attribs_group_fields = function(buffer, offset, packet, parent, no_instr_attribs_group_index)
   local index = offset
+
+  -- TODO
+  if no_instr_attribs_group_index ~= nil then
+    local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_instr_attribs_group_index, no_instr_attribs_group_index)
+    iteration:set_generated()
+  end
 
   -- Instr Attrib Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, instr_attrib_type = b3_equities_binaryumdf_sbe_v1_8_dissect.instr_attrib_type(buffer, index, packet, parent)
@@ -5310,11 +5317,6 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.no_instr_attribs_groups_fields = functio
   -- Repeating: No Instr Attribs Group
   for no_instr_attribs_group_index = 1, num_in_group do
     index, no_instr_attribs_group = b3_equities_binaryumdf_sbe_v1_8_dissect.no_instr_attribs_group(buffer, index, packet, parent)
-
-    if no_instr_attribs_group ~= nil then
-      local iteration = no_instr_attribs_group:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_instr_attribs_group_index, no_instr_attribs_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5537,8 +5539,14 @@ b3_equities_binaryumdf_sbe_v1_8_display.no_legs_group = function(packet, parent,
 end
 
 -- Dissect Fields: No Legs Group
-b3_equities_binaryumdf_sbe_v1_8_dissect.no_legs_group_fields = function(buffer, offset, packet, parent)
+b3_equities_binaryumdf_sbe_v1_8_dissect.no_legs_group_fields = function(buffer, offset, packet, parent, no_legs_group_index)
   local index = offset
+
+  -- TODO
+  if no_legs_group_index ~= nil then
+    local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_legs_group_index, no_legs_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Security Id: 8 Byte Unsigned Fixed Width Integer
   index, leg_security_id = b3_equities_binaryumdf_sbe_v1_8_dissect.leg_security_id(buffer, index, packet, parent)
@@ -5607,11 +5615,6 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.no_legs_groups_fields = function(buffer,
   -- Repeating: No Legs Group
   for no_legs_group_index = 1, num_in_group do
     index, no_legs_group = b3_equities_binaryumdf_sbe_v1_8_dissect.no_legs_group(buffer, index, packet, parent)
-
-    if no_legs_group ~= nil then
-      local iteration = no_legs_group:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_legs_group_index, no_legs_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5779,8 +5782,14 @@ b3_equities_binaryumdf_sbe_v1_8_display.no_underlyings_group = function(packet, 
 end
 
 -- Dissect Fields: No Underlyings Group
-b3_equities_binaryumdf_sbe_v1_8_dissect.no_underlyings_group_fields = function(buffer, offset, packet, parent)
+b3_equities_binaryumdf_sbe_v1_8_dissect.no_underlyings_group_fields = function(buffer, offset, packet, parent, no_underlyings_group_index)
   local index = offset
+
+  -- TODO
+  if no_underlyings_group_index ~= nil then
+    local iteration = parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_underlyings_group_index, no_underlyings_group_index)
+    iteration:set_generated()
+  end
 
   -- Underlying Security Id: 8 Byte Unsigned Fixed Width Integer
   index, underlying_security_id = b3_equities_binaryumdf_sbe_v1_8_dissect.underlying_security_id(buffer, index, packet, parent)
@@ -5846,11 +5855,6 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.no_underlyings_groups_fields = function(
   -- Repeating: No Underlyings Group
   for no_underlyings_group_index = 1, num_in_group do
     index, no_underlyings_group = b3_equities_binaryumdf_sbe_v1_8_dissect.no_underlyings_group(buffer, index, packet, parent)
-
-    if no_underlyings_group ~= nil then
-      local iteration = no_underlyings_group:add(b3_equities_binaryumdf_sbe_v1_8.fields.no_underlyings_group_index, no_underlyings_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -9326,13 +9330,13 @@ b3_equities_binaryumdf_sbe_v1_8_dissect.message = function(buffer, offset, packe
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.message, buffer(offset, 0))
-    local current = b3_equities_binaryumdf_sbe_v1_8_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = b3_equities_binaryumdf_sbe_v1_8_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(b3_equities_binaryumdf_sbe_v1_8.fields.message, buffer(offset, 0))
+    local current = b3_equities_binaryumdf_sbe_v1_8_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = b3_equities_binaryumdf_sbe_v1_8_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     b3_equities_binaryumdf_sbe_v1_8_dissect.message_fields(buffer, offset, packet, parent, size_of_message)

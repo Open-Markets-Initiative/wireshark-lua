@@ -2060,8 +2060,14 @@ cboe_futures_depthofbook_pitch_v1_1_6_display.future_leg = function(packet, pare
 end
 
 -- Dissect Fields: Future Leg
-cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg_fields = function(buffer, offset, packet, parent, future_leg_index)
   local index = offset
+
+  -- TODO
+  if future_leg_index ~= nil then
+    local iteration = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_leg_index, future_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Ratio: 4 Byte Signed Fixed Width Integer
   index, leg_ratio = cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_ratio(buffer, index, packet, parent)
@@ -2316,11 +2322,6 @@ cboe_futures_depthofbook_pitch_v1_1_6_dissect.variance_fields = function(buffer,
   -- Repeating: Future Leg
   for future_leg_index = 1, leg_count do
     index, future_leg = cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg(buffer, index, packet, parent)
-
-    if future_leg ~= nil then
-      local iteration = future_leg:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_leg_index, future_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2365,11 +2366,6 @@ cboe_futures_depthofbook_pitch_v1_1_6_dissect.standard_fields = function(buffer,
   -- Repeating: Future Leg
   for future_leg_index = 1, leg_count do
     index, future_leg = cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg(buffer, index, packet, parent)
-
-    if future_leg ~= nil then
-      local iteration = future_leg:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_leg_index, future_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -3326,8 +3322,14 @@ cboe_futures_depthofbook_pitch_v1_1_6_display.message = function(packet, parent,
 end
 
 -- Dissect Fields: Message
-cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_header(buffer, index, packet, parent)
@@ -3342,21 +3344,21 @@ cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields = function(buffer, 
 end
 
 -- Dissect: Message
-cboe_futures_depthofbook_pitch_v1_1_6_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message, buffer(offset, 0))
-    local current = cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message, buffer(offset, 0))
+    local current = cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end

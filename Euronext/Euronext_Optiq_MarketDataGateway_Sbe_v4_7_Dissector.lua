@@ -2106,8 +2106,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.interest_payment_date_rep_grou
 end
 
 -- Dissect Fields: Interest Payment Date Rep Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.interest_payment_date_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.interest_payment_date_rep_group_fields = function(buffer, offset, packet, parent, interest_payment_date_rep_group_index)
   local index = offset
+
+  -- TODO
+  if interest_payment_date_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.interest_payment_date_rep_group_index, interest_payment_date_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Interest Payment Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, interest_payment_date = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.interest_payment_date(buffer, index, packet, parent)
@@ -2251,11 +2257,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.interest_payment_date_rep_grou
   -- Repeating: Interest Payment Date Rep Group
   for interest_payment_date_rep_group_index = 1, num_in_group do
     index, interest_payment_date_rep_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.interest_payment_date_rep_group(buffer, index, packet, parent)
-
-    if interest_payment_date_rep_group ~= nil then
-      local iteration = interest_payment_date_rep_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.interest_payment_date_rep_group_index, interest_payment_date_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6423,8 +6424,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.package_components_group = fun
 end
 
 -- Dissect Fields: Package Components Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.package_components_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.package_components_group_fields = function(buffer, offset, packet, parent, package_components_group_index)
   local index = offset
+
+  -- TODO
+  if package_components_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.package_components_group_index, package_components_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.leg_symbol_index(buffer, index, packet, parent)
@@ -6490,11 +6497,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.package_components_groups_fiel
   -- Repeating: Package Components Group
   for package_components_group_index = 1, num_in_group do
     index, package_components_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.package_components_group(buffer, index, packet, parent)
-
-    if package_components_group ~= nil then
-      local iteration = package_components_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.package_components_group_index, package_components_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7107,8 +7109,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.orders_group = function(packet
 end
 
 -- Dissect Fields: Orders Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.orders_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.orders_group_fields = function(buffer, offset, packet, parent, orders_group_index)
   local index = offset
+
+  -- TODO
+  if orders_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.orders_group_index, orders_group_index)
+    iteration:set_generated()
+  end
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.symbol_index(buffer, index, packet, parent)
@@ -7189,11 +7197,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.orders_groups_fields = functio
   -- Repeating: Orders Group
   for orders_group_index = 1, num_in_group do
     index, orders_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.orders_group(buffer, index, packet, parent)
-
-    if orders_group ~= nil then
-      local iteration = orders_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.orders_group_index, orders_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7284,8 +7287,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.outright_rep_group = function(
 end
 
 -- Dissect Fields: Outright Rep Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.outright_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.outright_rep_group_fields = function(buffer, offset, packet, parent, outright_rep_group_index)
   local index = offset
+
+  -- TODO
+  if outright_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.outright_rep_group_index, outright_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.emm(buffer, index, packet, parent)
@@ -7342,11 +7351,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.outright_rep_groups_fields = f
   -- Repeating: Outright Rep Group
   for outright_rep_group_index = 1, num_in_group do
     index, outright_rep_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.outright_rep_group(buffer, index, packet, parent)
-
-    if outright_rep_group ~= nil then
-      local iteration = outright_rep_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.outright_rep_group_index, outright_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8457,8 +8461,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.contract_emm_properties_group 
 end
 
 -- Dissect Fields: Contract Emm Properties Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.contract_emm_properties_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.contract_emm_properties_group_fields = function(buffer, offset, packet, parent, contract_emm_properties_group_index)
   local index = offset
+
+  -- TODO
+  if contract_emm_properties_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.contract_emm_properties_group_index, contract_emm_properties_group_index)
+    iteration:set_generated()
+  end
 
   -- Emm Optional: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm_optional = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.emm_optional(buffer, index, packet, parent)
@@ -8536,11 +8546,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.contract_emm_properties_groups
   -- Repeating: Contract Emm Properties Group
   for contract_emm_properties_group_index = 1, num_in_group do
     index, contract_emm_properties_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.contract_emm_properties_group(buffer, index, packet, parent)
-
-    if contract_emm_properties_group ~= nil then
-      local iteration = contract_emm_properties_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.contract_emm_properties_group_index, contract_emm_properties_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -10130,8 +10135,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.strategy_standing_datarep_1_gr
 end
 
 -- Dissect Fields: Strategy Standing Datarep 1 Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.strategy_standing_datarep_1_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.strategy_standing_datarep_1_group_fields = function(buffer, offset, packet, parent, strategy_standing_datarep_1_group_index)
   local index = offset
+
+  -- TODO
+  if strategy_standing_datarep_1_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.strategy_standing_datarep_1_group_index, strategy_standing_datarep_1_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.leg_symbol_index(buffer, index, packet, parent)
@@ -10197,11 +10208,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.strategy_standing_datarep_1_gr
   -- Repeating: Strategy Standing Datarep 1 Group
   for strategy_standing_datarep_1_group_index = 1, num_in_group do
     index, strategy_standing_datarep_1_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.strategy_standing_datarep_1_group(buffer, index, packet, parent)
-
-    if strategy_standing_datarep_1_group ~= nil then
-      local iteration = strategy_standing_datarep_1_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.strategy_standing_datarep_1_group_index, strategy_standing_datarep_1_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -10858,8 +10864,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.new_stats_group = function(pac
 end
 
 -- Dissect Fields: New Stats Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.new_stats_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.new_stats_group_fields = function(buffer, offset, packet, parent, new_stats_group_index)
   local index = offset
+
+  -- TODO
+  if new_stats_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.new_stats_group_index, new_stats_group_index)
+    iteration:set_generated()
+  end
 
   -- Stats Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
   index, stats_update_type = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.stats_update_type(buffer, index, packet, parent)
@@ -10919,11 +10931,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.new_stats_groups_fields = func
   -- Repeating: New Stats Group
   for new_stats_group_index = 1, num_in_group do
     index, new_stats_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.new_stats_group(buffer, index, packet, parent)
-
-    if new_stats_group ~= nil then
-      local iteration = new_stats_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.new_stats_group_index, new_stats_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -11342,8 +11349,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.em_m_pattern_rep_group = funct
 end
 
 -- Dissect Fields: Em M Pattern Rep Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.em_m_pattern_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.em_m_pattern_rep_group_fields = function(buffer, offset, packet, parent, em_m_pattern_rep_group_index)
   local index = offset
+
+  -- TODO
+  if em_m_pattern_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.em_m_pattern_rep_group_index, em_m_pattern_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, emm = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.emm(buffer, index, packet, parent)
@@ -11418,11 +11431,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.em_m_pattern_rep_groups_fields
   -- Repeating: Em M Pattern Rep Group
   for em_m_pattern_rep_group_index = 1, num_in_group do
     index, em_m_pattern_rep_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.em_m_pattern_rep_group(buffer, index, packet, parent)
-
-    if em_m_pattern_rep_group ~= nil then
-      local iteration = em_m_pattern_rep_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.em_m_pattern_rep_group_index, em_m_pattern_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -13382,8 +13390,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.timetables_group = function(pa
 end
 
 -- Dissect Fields: Timetables Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.timetables_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.timetables_group_fields = function(buffer, offset, packet, parent, timetables_group_index)
   local index = offset
+
+  -- TODO
+  if timetables_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.timetables_group_index, timetables_group_index)
+    iteration:set_generated()
+  end
 
   -- Phase Time: 8 Byte Unsigned Fixed Width Integer
   index, phase_time = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.phase_time(buffer, index, packet, parent)
@@ -13458,11 +13472,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.timetables_groups_fields = fun
   -- Repeating: Timetables Group
   for timetables_group_index = 1, num_in_group do
     index, timetables_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.timetables_group(buffer, index, packet, parent)
-
-    if timetables_group ~= nil then
-      local iteration = timetables_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.timetables_group_index, timetables_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14002,8 +14011,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.market_states_group = function
 end
 
 -- Dissect Fields: Market States Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.market_states_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.market_states_group_fields = function(buffer, offset, packet, parent, market_states_group_index)
   local index = offset
+
+  -- TODO
+  if market_states_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.market_states_group_index, market_states_group_index)
+    iteration:set_generated()
+  end
 
   -- Change Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, change_type = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.change_type(buffer, index, packet, parent)
@@ -14102,11 +14117,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.market_states_groups_fields = 
   -- Repeating: Market States Group
   for market_states_group_index = 1, num_in_group do
     index, market_states_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.market_states_group(buffer, index, packet, parent)
-
-    if market_states_group ~= nil then
-      local iteration = market_states_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.market_states_group_index, market_states_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14208,11 +14218,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.not_used_group_1_groups_fields
   -- Repeating: Not Used Group 1 Group
   for not_used_group_1_group_index = 1, num_in_group do
     index, not_used_group_1_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.not_used_group_1_group(buffer, index, packet, parent)
-
-    if not_used_group_1_group ~= nil then
-      local iteration = not_used_group_1_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.not_used_group_1_group_index, not_used_group_1_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -15504,8 +15509,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.prices_group = function(packet
 end
 
 -- Dissect Fields: Prices Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.prices_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.prices_group_fields = function(buffer, offset, packet, parent, prices_group_index)
   local index = offset
+
+  -- TODO
+  if prices_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.prices_group_index, prices_group_index)
+    iteration:set_generated()
+  end
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 22 values
   index, price_type = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.price_type(buffer, index, packet, parent)
@@ -15577,11 +15588,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.prices_groups_fields = functio
   -- Repeating: Prices Group
   for prices_group_index = 1, num_in_group do
     index, prices_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.prices_group(buffer, index, packet, parent)
-
-    if prices_group ~= nil then
-      local iteration = prices_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.prices_group_index, prices_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -16050,8 +16056,14 @@ euronext_optiq_marketdatagateway_sbe_v4_7_display.updates_group = function(packe
 end
 
 -- Dissect Fields: Updates Group
-euronext_optiq_marketdatagateway_sbe_v4_7_dissect.updates_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_7_dissect.updates_group_fields = function(buffer, offset, packet, parent, updates_group_index)
   local index = offset
+
+  -- TODO
+  if updates_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.updates_group_index, updates_group_index)
+    iteration:set_generated()
+  end
 
   -- Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 89 values
   index, update_type = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.update_type(buffer, index, packet, parent)
@@ -16120,11 +16132,6 @@ euronext_optiq_marketdatagateway_sbe_v4_7_dissect.updates_groups_fields = functi
   -- Repeating: Updates Group
   for updates_group_index = 1, num_in_group do
     index, updates_group = euronext_optiq_marketdatagateway_sbe_v4_7_dissect.updates_group(buffer, index, packet, parent)
-
-    if updates_group ~= nil then
-      local iteration = updates_group:add(euronext_optiq_marketdatagateway_sbe_v4_7.fields.updates_group_index, updates_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index

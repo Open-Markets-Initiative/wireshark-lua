@@ -578,8 +578,14 @@ cme_ebs_spectrum_sbe_v12_0_display.m_d_snapshot_refresh_ticker_group = function(
 end
 
 -- Dissect Fields: M D Snapshot Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields = function(buffer, offset, packet, parent)
+cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_snapshot_refresh_ticker_group_index ~= nil then
+    local iteration = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index, m_d_snapshot_refresh_ticker_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Type Ticker Entry Type: 1 Byte Ascii String Enum with 12 values
   index, md_entry_type_ticker_entry_type = cme_ebs_spectrum_sbe_v12_0_dissect.md_entry_type_ticker_entry_type(buffer, index, packet, parent)
@@ -741,11 +747,6 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups_fields = f
   -- Repeating: M D Snapshot Refresh Ticker Group
   for m_d_snapshot_refresh_ticker_group_index = 1, num_in_group_uint_8 do
     index, m_d_snapshot_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group(buffer, index, packet, parent)
-
-    if m_d_snapshot_refresh_ticker_group ~= nil then
-      local iteration = m_d_snapshot_refresh_ticker_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group_index, m_d_snapshot_refresh_ticker_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1004,8 +1005,14 @@ cme_ebs_spectrum_sbe_v12_0_display.m_d_snapshot_refresh_spectrum_group = functio
 end
 
 -- Dissect Fields: M D Snapshot Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields = function(buffer, offset, packet, parent)
+cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_snapshot_refresh_spectrum_group_index ~= nil then
+    local iteration = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index, m_d_snapshot_refresh_spectrum_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Type Spectrum Entry Type: 1 Byte Ascii String Enum with 2 values
   index, md_entry_type_spectrum_entry_type = cme_ebs_spectrum_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type(buffer, index, packet, parent)
@@ -1071,11 +1078,6 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups_fields =
   -- Repeating: M D Snapshot Refresh Spectrum Group
   for m_d_snapshot_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
     index, m_d_snapshot_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group(buffer, index, packet, parent)
-
-    if m_d_snapshot_refresh_spectrum_group ~= nil then
-      local iteration = m_d_snapshot_refresh_spectrum_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group_index, m_d_snapshot_refresh_spectrum_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1196,8 +1198,14 @@ cme_ebs_spectrum_sbe_v12_0_display.m_d_incremental_refresh_ticker_group = functi
 end
 
 -- Dissect Fields: M D Incremental Refresh Ticker Group
-cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields = function(buffer, offset, packet, parent)
+cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_ticker_group_index ~= nil then
+    local iteration = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index, m_d_incremental_refresh_ticker_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Type Ticker Entry Type: 1 Byte Ascii String Enum with 12 values
   index, md_entry_type_ticker_entry_type = cme_ebs_spectrum_sbe_v12_0_dissect.md_entry_type_ticker_entry_type(buffer, index, packet, parent)
@@ -1284,11 +1292,6 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups_fields 
   -- Repeating: M D Incremental Refresh Ticker Group
   for m_d_incremental_refresh_ticker_group_index = 1, num_in_group_uint_8 do
     index, m_d_incremental_refresh_ticker_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_ticker_group ~= nil then
-      local iteration = m_d_incremental_refresh_ticker_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group_index, m_d_incremental_refresh_ticker_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1383,8 +1386,14 @@ cme_ebs_spectrum_sbe_v12_0_display.m_d_incremental_refresh_spectrum_group = func
 end
 
 -- Dissect Fields: M D Incremental Refresh Spectrum Group
-cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields = function(buffer, offset, packet, parent)
+cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
   local index = offset
+
+  -- TODO
+  if m_d_incremental_refresh_spectrum_group_index ~= nil then
+    local iteration = parent:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index, m_d_incremental_refresh_spectrum_group_index)
+    iteration:set_generated()
+  end
 
   -- Md Entry Type Spectrum Entry Type: 1 Byte Ascii String Enum with 2 values
   index, md_entry_type_spectrum_entry_type = cme_ebs_spectrum_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type(buffer, index, packet, parent)
@@ -1462,11 +1471,6 @@ cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups_field
   -- Repeating: M D Incremental Refresh Spectrum Group
   for m_d_incremental_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
     index, m_d_incremental_refresh_spectrum_group = cme_ebs_spectrum_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group(buffer, index, packet, parent)
-
-    if m_d_incremental_refresh_spectrum_group ~= nil then
-      local iteration = m_d_incremental_refresh_spectrum_group:add(cme_ebs_spectrum_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group_index, m_d_incremental_refresh_spectrum_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index

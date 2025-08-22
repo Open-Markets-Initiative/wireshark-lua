@@ -1987,8 +1987,14 @@ miax_miaxoptions_complextopofmarket_mach_v1_1_display.leg_definition = function(
 end
 
 -- Dissect Fields: Leg Definition
-miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.leg_definition_fields = function(buffer, offset, packet, parent)
+miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.leg_definition_fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
+
+  -- TODO
+  if leg_definition_index ~= nil then
+    local iteration = parent:add(miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_definition_index, leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Product Id: BinaryU
   index, product_id = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.product_id(buffer, index, packet, parent)
@@ -2220,11 +2226,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.complex_strategy_definitio
   -- Repeating: Leg Definition
   for leg_definition_index = 1, number_of_legs do
     index, leg_definition = miax_miaxoptions_complextopofmarket_mach_v1_1_dissect.leg_definition(buffer, index, packet, parent)
-
-    if leg_definition ~= nil then
-      local iteration = leg_definition:add(miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_definition_index, leg_definition_index)
-      iteration:set_generated()
-    end
   end
 
   return index

@@ -5194,13 +5194,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields = 
 
   -- Optionally add group/struct element to protocol tree
   if show.variance_restatement_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.variance_restatement_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fields(buffer, offset, packet, element, size_of_variance_restatement_optional_fields)
-    element:set_len(size_of_variance_restatement_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.variance_restatement_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.variance_restatement_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_variance_restatement_optional_fields)
+    parent:set_len(size_of_variance_restatement_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.variance_restatement_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.variance_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_variance_restatement_optional_fields)
@@ -7225,13 +7225,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields = funct
 
   -- Optionally add group/struct element to protocol tree
   if show.tas_restatement_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.tas_restatement_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields(buffer, offset, packet, element, size_of_tas_restatement_optional_fields)
-    element:set_len(size_of_tas_restatement_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.tas_restatement_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.tas_restatement_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_tas_restatement_optional_fields)
+    parent:set_len(size_of_tas_restatement_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.tas_restatement_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.tas_restatement_optional_fields_fields(buffer, offset, packet, parent, size_of_tas_restatement_optional_fields)
@@ -9171,13 +9171,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields = functi
 
   -- Optionally add group/struct element to protocol tree
   if show.purge_rejected_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_rejected_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_purge_rejected_optional_fields)
-    element:set_len(size_of_purge_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.purge_rejected_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
+    parent:set_len(size_of_purge_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.purge_rejected_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
@@ -11083,13 +11083,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields
 
   -- Optionally add group/struct element to protocol tree
   if show.trade_cancel_or_correct_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.trade_cancel_or_correct_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, element, size_of_trade_cancel_or_correct_optional_fields)
-    element:set_len(size_of_trade_cancel_or_correct_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.trade_cancel_or_correct_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.trade_cancel_or_correct_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
+    parent:set_len(size_of_trade_cancel_or_correct_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.trade_cancel_or_correct_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
@@ -13479,13 +13479,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields = funct
 
   -- Optionally add group/struct element to protocol tree
   if show.order_execution_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_execution_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields(buffer, offset, packet, element, size_of_order_execution_optional_fields)
-    element:set_len(size_of_order_execution_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_execution_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_execution_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
+    parent:set_len(size_of_order_execution_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_execution_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.order_execution_optional_fields_fields(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
@@ -15368,13 +15368,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields = funct
 
   -- Optionally add group/struct element to protocol tree
   if show.cancel_rejected_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_rejected_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_cancel_rejected_optional_fields)
-    element:set_len(size_of_cancel_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_rejected_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
+    parent:set_len(size_of_cancel_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_rejected_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
@@ -17565,13 +17565,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields = funct
 
   -- Optionally add group/struct element to protocol tree
   if show.order_cancelled_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_cancelled_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, element, size_of_order_cancelled_optional_fields)
-    element:set_len(size_of_order_cancelled_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_cancelled_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_cancelled_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
+    parent:set_len(size_of_order_cancelled_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_cancelled_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
@@ -19296,13 +19296,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields = 
 
   -- Optionally add group/struct element to protocol tree
   if show.user_modify_rejected_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.user_modify_rejected_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_user_modify_rejected_optional_fields)
-    element:set_len(size_of_user_modify_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.user_modify_rejected_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.user_modify_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
+    parent:set_len(size_of_user_modify_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.user_modify_rejected_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
@@ -21418,13 +21418,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields = functi
 
   -- Optionally add group/struct element to protocol tree
   if show.order_modified_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_modified_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields(buffer, offset, packet, element, size_of_order_modified_optional_fields)
-    element:set_len(size_of_order_modified_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_modified_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_modified_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
+    parent:set_len(size_of_order_modified_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_modified_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.order_modified_optional_fields_fields(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
@@ -23400,13 +23400,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields = functi
 
   -- Optionally add group/struct element to protocol tree
   if show.order_rejected_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_rejected_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields(buffer, offset, packet, element, size_of_order_rejected_optional_fields)
-    element:set_len(size_of_order_rejected_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_rejected_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_rejected_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
+    parent:set_len(size_of_order_rejected_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_rejected_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.order_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
@@ -23705,8 +23705,14 @@ cboe_futures_orderentry_boe_v1_3_display.quote_result_group = function(packet, p
 end
 
 -- Dissect Fields: Quote Result Group
-cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group_fields = function(buffer, offset, packet, parent, quote_result_group_index)
   local index = offset
+
+  -- TODO
+  if quote_result_group_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_result_group_index, quote_result_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_futures_orderentry_boe_v1_3_dissect.order_id(buffer, index, packet, parent)
@@ -23798,11 +23804,6 @@ cboe_futures_orderentry_boe_v1_3_dissect.quote_update_acknowledgment_message_fie
   -- Repeating: Quote Result Group
   for quote_result_group_index = 1, number_of_quote_results do
     index, quote_result_group = cboe_futures_orderentry_boe_v1_3_dissect.quote_result_group(buffer, index, packet, parent)
-
-    if quote_result_group ~= nil then
-      local iteration = quote_result_group:add(cboe_futures_orderentry_boe_v1_3.fields.quote_result_group_index, quote_result_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -25713,13 +25714,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields = 
 
   -- Optionally add group/struct element to protocol tree
   if show.order_acknowledgment_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_acknowledgment_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, element, size_of_order_acknowledgment_optional_fields)
-    element:set_len(size_of_order_acknowledgment_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.order_acknowledgment_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.order_acknowledgment_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
+    parent:set_len(size_of_order_acknowledgment_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.order_acknowledgment_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
@@ -26237,13 +26238,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.purge_order_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_order_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields(buffer, offset, packet, element, size_of_purge_order_optional_fields)
-    element:set_len(size_of_purge_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.purge_order_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.purge_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
+    parent:set_len(size_of_purge_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.purge_order_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.purge_order_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
@@ -26348,8 +26349,14 @@ cboe_futures_orderentry_boe_v1_3_display.quote_group = function(packet, parent, 
 end
 
 -- Dissect Fields: Quote Group
-cboe_futures_orderentry_boe_v1_3_dissect.quote_group_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe_v1_3_dissect.quote_group_fields = function(buffer, offset, packet, parent, quote_group_index)
   local index = offset
+
+  -- TODO
+  if quote_group_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.quote_group_index, quote_group_index)
+    iteration:set_generated()
+  end
 
   -- Symbol: 6 Byte Ascii String
   index, symbol = cboe_futures_orderentry_boe_v1_3_dissect.symbol(buffer, index, packet, parent)
@@ -26495,11 +26502,6 @@ cboe_futures_orderentry_boe_v1_3_dissect.quote_update_message_fields = function(
   -- Repeating: Quote Group
   for quote_group_index = 1, number_of_quotes do
     index, quote_group = cboe_futures_orderentry_boe_v1_3_dissect.quote_group(buffer, index, packet, parent)
-
-    if quote_group ~= nil then
-      local iteration = quote_group:add(cboe_futures_orderentry_boe_v1_3.fields.quote_group_index, quote_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -26876,13 +26878,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields = function
 
   -- Optionally add group/struct element to protocol tree
   if show.modify_order_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.modify_order_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields(buffer, offset, packet, element, size_of_modify_order_optional_fields)
-    element:set_len(size_of_modify_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.modify_order_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.modify_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
+    parent:set_len(size_of_modify_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.modify_order_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.modify_order_optional_fields_fields(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
@@ -27224,13 +27226,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields = function
 
   -- Optionally add group/struct element to protocol tree
   if show.cancel_order_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_order_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields(buffer, offset, packet, element, size_of_cancel_order_optional_fields)
-    element:set_len(size_of_cancel_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_order_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.cancel_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
+    parent:set_len(size_of_cancel_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.cancel_order_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.cancel_order_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
@@ -28267,13 +28269,13 @@ cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields = function(bu
 
   -- Optionally add group/struct element to protocol tree
   if show.new_order_optional_fields then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.new_order_optional_fields, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields(buffer, offset, packet, element, size_of_new_order_optional_fields)
-    element:set_len(size_of_new_order_optional_fields)
-    local display = cboe_futures_orderentry_boe_v1_3_display.new_order_optional_fields(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.new_order_optional_fields, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields(buffer, offset, packet, parent, size_of_new_order_optional_fields)
+    parent:set_len(size_of_new_order_optional_fields)
+    local display = cboe_futures_orderentry_boe_v1_3_display.new_order_optional_fields(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     cboe_futures_orderentry_boe_v1_3_dissect.new_order_optional_fields_fields(buffer, offset, packet, parent, size_of_new_order_optional_fields)
@@ -28396,8 +28398,14 @@ cboe_futures_orderentry_boe_v1_3_display.unit_sequence = function(packet, parent
 end
 
 -- Dissect Fields: Unit Sequence
-cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence_fields = function(buffer, offset, packet, parent, unit_sequence_index)
   local index = offset
+
+  -- TODO
+  if unit_sequence_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
+    iteration:set_generated()
+  end
 
   -- Unit Number: 1 Byte Unsigned Fixed Width Integer
   index, unit_number = cboe_futures_orderentry_boe_v1_3_dissect.unit_number(buffer, index, packet, parent)
@@ -28553,11 +28561,6 @@ cboe_futures_orderentry_boe_v1_3_dissect.logout_message_fields = function(buffer
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
     index, unit_sequence = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
-
-    if unit_sequence ~= nil then
-      local iteration = unit_sequence:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -31548,11 +31551,6 @@ cboe_futures_orderentry_boe_v1_3_dissect.unit_sequences_fields = function(buffer
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
     index, unit_sequence = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
-
-    if unit_sequence ~= nil then
-      local iteration = unit_sequence:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -31724,8 +31722,14 @@ cboe_futures_orderentry_boe_v1_3_display.param_group = function(packet, parent, 
 end
 
 -- Dissect Fields: Param Group
-cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields = function(buffer, offset, packet, parent, size_of_param_group)
+cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields = function(buffer, offset, packet, parent, size_of_param_group, param_group_index)
   local index = offset
+
+  -- TODO
+  if param_group_index ~= nil then
+    local iteration = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_group_index, param_group_index)
+    iteration:set_generated()
+  end
 
   -- Param Header: Struct of 2 fields
   index, param_header = cboe_futures_orderentry_boe_v1_3_dissect.param_header(buffer, index, packet, parent)
@@ -31740,21 +31744,21 @@ cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields = function(buffer, o
 end
 
 -- Dissect: Param Group
-cboe_futures_orderentry_boe_v1_3_dissect.param_group = function(buffer, offset, packet, parent, size_of_param_group)
+cboe_futures_orderentry_boe_v1_3_dissect.param_group = function(buffer, offset, packet, parent, size_of_param_group, param_group_index)
   local index = offset + size_of_param_group
 
   -- Optionally add group/struct element to protocol tree
   if show.param_group then
-    local element = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_group, buffer(offset, 0))
-    local current = cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields(buffer, offset, packet, element, size_of_param_group)
-    element:set_len(size_of_param_group)
-    local display = cboe_futures_orderentry_boe_v1_3_display.param_group(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_futures_orderentry_boe_v1_3.fields.param_group, buffer(offset, 0))
+    local current = cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields(buffer, offset, packet, parent, size_of_param_group, param_group_index)
+    parent:set_len(size_of_param_group)
+    local display = cboe_futures_orderentry_boe_v1_3_display.param_group(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields(buffer, offset, packet, parent, size_of_param_group)
+    cboe_futures_orderentry_boe_v1_3_dissect.param_group_fields(buffer, offset, packet, parent, size_of_param_group, param_group_index)
 
     return index
   end
@@ -31885,11 +31889,6 @@ cboe_futures_orderentry_boe_v1_3_dissect.login_response_message_fields = functio
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
     index, unit_sequence = cboe_futures_orderentry_boe_v1_3_dissect.unit_sequence(buffer, index, packet, parent)
-
-    if unit_sequence ~= nil then
-      local iteration = unit_sequence:add(cboe_futures_orderentry_boe_v1_3.fields.unit_sequence_index, unit_sequence_index)
-      iteration:set_generated()
-    end
   end
 
   -- Number Of Param Groups: 1 Byte Unsigned Fixed Width Integer
@@ -31903,11 +31902,6 @@ cboe_futures_orderentry_boe_v1_3_dissect.login_response_message_fields = functio
 
     -- Runtime Size Of: Param Group
     index, param_group = cboe_futures_orderentry_boe_v1_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
-
-    if param_group ~= nil then
-      local iteration = param_group:add(cboe_futures_orderentry_boe_v1_3.fields.param_group_index, param_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -32029,11 +32023,6 @@ cboe_futures_orderentry_boe_v1_3_dissect.login_request_message_fields = function
 
     -- Runtime Size Of: Param Group
     index, param_group = cboe_futures_orderentry_boe_v1_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
-
-    if param_group ~= nil then
-      local iteration = param_group:add(cboe_futures_orderentry_boe_v1_3.fields.param_group_index, param_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index

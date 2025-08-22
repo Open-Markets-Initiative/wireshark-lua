@@ -5152,8 +5152,14 @@ ice_futures_mdf_impact_v1_1_51_display.extra_strategy_leg_definition = function(
 end
 
 -- Dissect Fields: Extra Strategy Leg Definition
-ice_futures_mdf_impact_v1_1_51_dissect.extra_strategy_leg_definition_fields = function(buffer, offset, packet, parent)
+ice_futures_mdf_impact_v1_1_51_dissect.extra_strategy_leg_definition_fields = function(buffer, offset, packet, parent, extra_strategy_leg_definition_index)
   local index = offset
+
+  -- TODO
+  if extra_strategy_leg_definition_index ~= nil then
+    local iteration = parent:add(ice_futures_mdf_impact_v1_1_51.fields.extra_strategy_leg_definition_index, extra_strategy_leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
@@ -6032,8 +6038,14 @@ ice_futures_mdf_impact_v1_1_51_display.hedge_definition = function(packet, paren
 end
 
 -- Dissect Fields: Hedge Definition
-ice_futures_mdf_impact_v1_1_51_dissect.hedge_definition_fields = function(buffer, offset, packet, parent)
+ice_futures_mdf_impact_v1_1_51_dissect.hedge_definition_fields = function(buffer, offset, packet, parent, hedge_definition_index)
   local index = offset
+
+  -- TODO
+  if hedge_definition_index ~= nil then
+    local iteration = parent:add(ice_futures_mdf_impact_v1_1_51.fields.hedge_definition_index, hedge_definition_index)
+    iteration:set_generated()
+  end
 
   -- Hedge Body Length: Numeric
   index, hedge_body_length = ice_futures_mdf_impact_v1_1_51_dissect.hedge_body_length(buffer, index, packet, parent)
@@ -6156,8 +6168,14 @@ ice_futures_mdf_impact_v1_1_51_display.strategy_leg_definition = function(packet
 end
 
 -- Dissect Fields: Strategy Leg Definition
-ice_futures_mdf_impact_v1_1_51_dissect.strategy_leg_definition_fields = function(buffer, offset, packet, parent)
+ice_futures_mdf_impact_v1_1_51_dissect.strategy_leg_definition_fields = function(buffer, offset, packet, parent, strategy_leg_definition_index)
   local index = offset
+
+  -- TODO
+  if strategy_leg_definition_index ~= nil then
+    local iteration = parent:add(ice_futures_mdf_impact_v1_1_51.fields.strategy_leg_definition_index, strategy_leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
@@ -6408,11 +6426,6 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_options_strategy_definition_message_f
   -- Repeating: Strategy Leg Definition
   for strategy_leg_definition_index = 1, number_of_strategy_leg_definitions do
     index, strategy_leg_definition = ice_futures_mdf_impact_v1_1_51_dissect.strategy_leg_definition(buffer, index, packet, parent)
-
-    if strategy_leg_definition ~= nil then
-      local iteration = strategy_leg_definition:add(ice_futures_mdf_impact_v1_1_51.fields.strategy_leg_definition_index, strategy_leg_definition_index)
-      iteration:set_generated()
-    end
   end
 
   -- Number Of Hedge Definitions: Numeric
@@ -6421,11 +6434,6 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_options_strategy_definition_message_f
   -- Repeating: Hedge Definition
   for hedge_definition_index = 1, number_of_hedge_definitions do
     index, hedge_definition = ice_futures_mdf_impact_v1_1_51_dissect.hedge_definition(buffer, index, packet, parent)
-
-    if hedge_definition ~= nil then
-      local iteration = hedge_definition:add(ice_futures_mdf_impact_v1_1_51.fields.hedge_definition_index, hedge_definition_index)
-      iteration:set_generated()
-    end
   end
 
   -- Security Sub Type: Numeric
@@ -6488,11 +6496,6 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_options_strategy_definition_message_f
   -- Repeating: Extra Strategy Leg Definition
   for extra_strategy_leg_definition_index = 1, number_of_extra_strategy_leg_definitions do
     index, extra_strategy_leg_definition = ice_futures_mdf_impact_v1_1_51_dissect.extra_strategy_leg_definition(buffer, index, packet, parent)
-
-    if extra_strategy_leg_definition ~= nil then
-      local iteration = extra_strategy_leg_definition:add(ice_futures_mdf_impact_v1_1_51.fields.extra_strategy_leg_definition_index, extra_strategy_leg_definition_index)
-      iteration:set_generated()
-    end
   end
 
   -- Num Of Cycles: Numeric
@@ -7109,8 +7112,14 @@ ice_futures_mdf_impact_v1_1_51_display.special_field = function(packet, parent, 
 end
 
 -- Dissect Fields: Special Field
-ice_futures_mdf_impact_v1_1_51_dissect.special_field_fields = function(buffer, offset, packet, parent)
+ice_futures_mdf_impact_v1_1_51_dissect.special_field_fields = function(buffer, offset, packet, parent, special_field_index)
   local index = offset
+
+  -- TODO
+  if special_field_index ~= nil then
+    local iteration = parent:add(ice_futures_mdf_impact_v1_1_51.fields.special_field_index, special_field_index)
+    iteration:set_generated()
+  end
 
   -- Special Field Id: Numeric
   index, special_field_id = ice_futures_mdf_impact_v1_1_51_dissect.special_field_id(buffer, index, packet, parent)
@@ -7186,11 +7195,6 @@ ice_futures_mdf_impact_v1_1_51_dissect.special_field_message_fields = function(b
   -- Repeating: Special Field
   for special_field_index = 1, number_of_special_fields do
     index, special_field = ice_futures_mdf_impact_v1_1_51_dissect.special_field(buffer, index, packet, parent)
-
-    if special_field ~= nil then
-      local iteration = special_field:add(ice_futures_mdf_impact_v1_1_51.fields.special_field_index, special_field_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7979,8 +7983,14 @@ ice_futures_mdf_impact_v1_1_51_display.extra_leg_definition = function(packet, p
 end
 
 -- Dissect Fields: Extra Leg Definition
-ice_futures_mdf_impact_v1_1_51_dissect.extra_leg_definition_fields = function(buffer, offset, packet, parent)
+ice_futures_mdf_impact_v1_1_51_dissect.extra_leg_definition_fields = function(buffer, offset, packet, parent, extra_leg_definition_index)
   local index = offset
+
+  -- TODO
+  if extra_leg_definition_index ~= nil then
+    local iteration = parent:add(ice_futures_mdf_impact_v1_1_51.fields.extra_leg_definition_index, extra_leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
@@ -8264,8 +8274,14 @@ ice_futures_mdf_impact_v1_1_51_display.leg_definition = function(packet, parent,
 end
 
 -- Dissect Fields: Leg Definition
-ice_futures_mdf_impact_v1_1_51_dissect.leg_definition_fields = function(buffer, offset, packet, parent)
+ice_futures_mdf_impact_v1_1_51_dissect.leg_definition_fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
+
+  -- TODO
+  if leg_definition_index ~= nil then
+    local iteration = parent:add(ice_futures_mdf_impact_v1_1_51.fields.leg_definition_index, leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Leg Body Length: Numeric
   index, leg_body_length = ice_futures_mdf_impact_v1_1_51_dissect.leg_body_length(buffer, index, packet, parent)
@@ -8490,11 +8506,6 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_futures_strategy_definition_message_f
   -- Repeating: Leg Definition
   for leg_definition_index = 1, number_of_leg_definitions do
     index, leg_definition = ice_futures_mdf_impact_v1_1_51_dissect.leg_definition(buffer, index, packet, parent)
-
-    if leg_definition ~= nil then
-      local iteration = leg_definition:add(ice_futures_mdf_impact_v1_1_51.fields.leg_definition_index, leg_definition_index)
-      iteration:set_generated()
-    end
   end
 
   -- Security Sub Type: Numeric
@@ -8623,11 +8634,6 @@ ice_futures_mdf_impact_v1_1_51_dissect.new_futures_strategy_definition_message_f
   -- Repeating: Extra Leg Definition
   for extra_leg_definition_index = 1, number_of_extra_leg_definitions do
     index, extra_leg_definition = ice_futures_mdf_impact_v1_1_51_dissect.extra_leg_definition(buffer, index, packet, parent)
-
-    if extra_leg_definition ~= nil then
-      local iteration = extra_leg_definition:add(ice_futures_mdf_impact_v1_1_51.fields.extra_leg_definition_index, extra_leg_definition_index)
-      iteration:set_generated()
-    end
   end
 
   -- Num Of Cycles: Numeric
@@ -12365,8 +12371,14 @@ ice_futures_mdf_impact_v1_1_51_display.message = function(packet, parent, length
 end
 
 -- Dissect Fields: Message
-ice_futures_mdf_impact_v1_1_51_dissect.message_fields = function(buffer, offset, packet, parent)
+ice_futures_mdf_impact_v1_1_51_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(ice_futures_mdf_impact_v1_1_51.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = ice_futures_mdf_impact_v1_1_51_dissect.message_header(buffer, index, packet, parent)
@@ -12547,11 +12559,6 @@ ice_futures_mdf_impact_v1_1_51_dissect.packet = function(buffer, packet, parent)
   -- Repeating: Message
   for message_index = 1, number_of_msgs do
     index, message = ice_futures_mdf_impact_v1_1_51_dissect.message(buffer, index, packet, parent)
-
-    if message ~= nil then
-      local iteration = message:add(ice_futures_mdf_impact_v1_1_51.fields.message_index, message_index)
-      iteration:set_generated()
-    end
   end
 
   return index

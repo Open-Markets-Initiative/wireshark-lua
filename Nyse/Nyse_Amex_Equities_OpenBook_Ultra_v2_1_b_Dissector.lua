@@ -753,13 +753,13 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_message = function
 
   -- Optionally add group/struct element to protocol tree
   if show.delta_update_message then
-    local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message, buffer(offset, 0))
-    local current = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, element, size_of_delta_update_message)
-    element:set_len(size_of_delta_update_message)
-    local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.delta_update_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_update_message, buffer(offset, 0))
+    local current = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
+    parent:set_len(size_of_delta_update_message)
+    local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.delta_update_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
@@ -1035,13 +1035,13 @@ nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_message = function(
 
   -- Optionally add group/struct element to protocol tree
   if show.full_update_message then
-    local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message, buffer(offset, 0))
-    local current = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, element, size_of_full_update_message)
-    element:set_len(size_of_full_update_message)
-    local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.full_update_message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_update_message, buffer(offset, 0))
+    local current = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)
+    parent:set_len(size_of_full_update_message)
+    local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.full_update_message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)

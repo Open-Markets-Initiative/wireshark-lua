@@ -542,8 +542,14 @@ nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition = function(packet, pa
 end
 
 -- Dissect Fields: Leg Definition
-nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
+
+  -- TODO
+  if leg_definition_index ~= nil then
+    local iteration = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_index(buffer, index, packet, parent)
@@ -794,11 +800,6 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message_fi
   -- Repeating: Leg Definition
   for leg_definition_index = 1, no_of_legs do
     index, leg_definition = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition(buffer, index, packet, parent)
-
-    if leg_definition ~= nil then
-      local iteration = leg_definition:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2077,8 +2078,14 @@ nyse_options_complexfeed_xdp_v1_3_a_display.message = function(packet, parent, l
 end
 
 -- Dissect Fields: Message
-nyse_options_complexfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header(buffer, index, packet, parent)

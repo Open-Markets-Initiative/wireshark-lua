@@ -1013,8 +1013,14 @@ memx_options_memo_sbe_v1_3_display.allocations_group = function(packet, parent, 
 end
 
 -- Dissect Fields: Allocations Group
-memx_options_memo_sbe_v1_3_dissect.allocations_group_fields = function(buffer, offset, packet, parent)
+memx_options_memo_sbe_v1_3_dissect.allocations_group_fields = function(buffer, offset, packet, parent, allocations_group_index)
   local index = offset
+
+  -- TODO
+  if allocations_group_index ~= nil then
+    local iteration = parent:add(memx_options_memo_sbe_v1_3.fields.allocations_group_index, allocations_group_index)
+    iteration:set_generated()
+  end
 
   -- Alloc Qty: 4 Byte Unsigned Fixed Width Integer
   index, alloc_qty = memx_options_memo_sbe_v1_3_dissect.alloc_qty(buffer, index, packet, parent)
@@ -1164,11 +1170,6 @@ memx_options_memo_sbe_v1_3_dissect.allocations_groups_fields = function(buffer, 
   -- Repeating: Allocations Group
   for allocations_group_index = 1, num_in_group do
     index, allocations_group = memx_options_memo_sbe_v1_3_dissect.allocations_group(buffer, index, packet, parent)
-
-    if allocations_group ~= nil then
-      local iteration = allocations_group:add(memx_options_memo_sbe_v1_3.fields.allocations_group_index, allocations_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4085,8 +4086,14 @@ memx_options_memo_sbe_v1_3_display.parties_group = function(packet, parent, leng
 end
 
 -- Dissect Fields: Parties Group
-memx_options_memo_sbe_v1_3_dissect.parties_group_fields = function(buffer, offset, packet, parent)
+memx_options_memo_sbe_v1_3_dissect.parties_group_fields = function(buffer, offset, packet, parent, parties_group_index)
   local index = offset
+
+  -- TODO
+  if parties_group_index ~= nil then
+    local iteration = parent:add(memx_options_memo_sbe_v1_3.fields.parties_group_index, parties_group_index)
+    iteration:set_generated()
+  end
 
   -- Party Id: 16 Byte Ascii String
   index, party_id = memx_options_memo_sbe_v1_3_dissect.party_id(buffer, index, packet, parent)
@@ -4149,11 +4156,6 @@ memx_options_memo_sbe_v1_3_dissect.parties_groups_fields = function(buffer, offs
   -- Repeating: Parties Group
   for parties_group_index = 1, num_in_group do
     index, parties_group = memx_options_memo_sbe_v1_3_dissect.parties_group(buffer, index, packet, parent)
-
-    if parties_group ~= nil then
-      local iteration = parties_group:add(memx_options_memo_sbe_v1_3.fields.parties_group_index, parties_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6068,8 +6070,14 @@ memx_options_memo_sbe_v1_3_display.quotes_group = function(packet, parent, lengt
 end
 
 -- Dissect Fields: Quotes Group
-memx_options_memo_sbe_v1_3_dissect.quotes_group_fields = function(buffer, offset, packet, parent)
+memx_options_memo_sbe_v1_3_dissect.quotes_group_fields = function(buffer, offset, packet, parent, quotes_group_index)
   local index = offset
+
+  -- TODO
+  if quotes_group_index ~= nil then
+    local iteration = parent:add(memx_options_memo_sbe_v1_3.fields.quotes_group_index, quotes_group_index)
+    iteration:set_generated()
+  end
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
@@ -6141,11 +6149,6 @@ memx_options_memo_sbe_v1_3_dissect.quotes_groups_fields = function(buffer, offse
   -- Repeating: Quotes Group
   for quotes_group_index = 1, num_in_group do
     index, quotes_group = memx_options_memo_sbe_v1_3_dissect.quotes_group(buffer, index, packet, parent)
-
-    if quotes_group ~= nil then
-      local iteration = quotes_group:add(memx_options_memo_sbe_v1_3.fields.quotes_group_index, quotes_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index

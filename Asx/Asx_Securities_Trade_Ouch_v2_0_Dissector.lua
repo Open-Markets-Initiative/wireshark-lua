@@ -2806,13 +2806,13 @@ asx_securities_trade_ouch_v2_0_dissect.soup_bin_tcp_packet = function(buffer, of
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    local element = parent:add(asx_securities_trade_ouch_v2_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = asx_securities_trade_ouch_v2_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, element, size_of_soup_bin_tcp_packet)
-    element:set_len(size_of_soup_bin_tcp_packet)
-    local display = asx_securities_trade_ouch_v2_0_display.soup_bin_tcp_packet(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(asx_securities_trade_ouch_v2_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    local current = asx_securities_trade_ouch_v2_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    parent:set_len(size_of_soup_bin_tcp_packet)
+    local display = asx_securities_trade_ouch_v2_0_display.soup_bin_tcp_packet(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     asx_securities_trade_ouch_v2_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)

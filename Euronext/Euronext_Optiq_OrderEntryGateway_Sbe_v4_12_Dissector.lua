@@ -1328,11 +1328,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.not_used_group_1_groups_field
   -- Repeating: Not Used Group 1 Group
   for not_used_group_1_group_index = 1, num_in_group do
     index, not_used_group_1_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.not_used_group_1_group(buffer, index, packet, parent)
-
-    if not_used_group_1_group ~= nil then
-      local iteration = not_used_group_1_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.not_used_group_1_group_index, not_used_group_1_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -2173,11 +2168,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.not_used_group_2_groups_field
   -- Repeating: Not Used Group 2 Group
   for not_used_group_2_group_index = 1, num_in_group do
     index, not_used_group_2_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.not_used_group_2_group(buffer, index, packet, parent)
-
-    if not_used_group_2_group ~= nil then
-      local iteration = not_used_group_2_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.not_used_group_2_group_index, not_used_group_2_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5747,8 +5737,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.rfq_counterparts_group = func
 end
 
 -- Dissect Fields: Rfq Counterparts Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.rfq_counterparts_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.rfq_counterparts_group_fields = function(buffer, offset, packet, parent, rfq_counterparts_group_index)
   local index = offset
+
+  -- TODO
+  if rfq_counterparts_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.rfq_counterparts_group_index, rfq_counterparts_group_index)
+    iteration:set_generated()
+  end
 
   -- Order Origin: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, order_origin = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.order_origin(buffer, index, packet, parent)
@@ -5817,11 +5813,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.rfq_counterparts_groups_field
   -- Repeating: Rfq Counterparts Group
   for rfq_counterparts_group_index = 1, num_in_group do
     index, rfq_counterparts_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.rfq_counterparts_group(buffer, index, packet, parent)
-
-    if rfq_counterparts_group ~= nil then
-      local iteration = rfq_counterparts_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.rfq_counterparts_group_index, rfq_counterparts_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6175,8 +6166,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.strategy_fields_group = funct
 end
 
 -- Dissect Fields: Strategy Fields Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_fields_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_fields_group_fields = function(buffer, offset, packet, parent, strategy_fields_group_index)
   local index = offset
+
+  -- TODO
+  if strategy_fields_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.strategy_fields_group_index, strategy_fields_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_last_px = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.leg_last_px(buffer, index, packet, parent)
@@ -6245,11 +6242,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_fields_groups_fields
   -- Repeating: Strategy Fields Group
   for strategy_fields_group_index = 1, num_in_group do
     index, strategy_fields_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_fields_group(buffer, index, packet, parent)
-
-    if strategy_fields_group ~= nil then
-      local iteration = strategy_fields_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.strategy_fields_group_index, strategy_fields_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6519,8 +6511,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.clearing_fields_x_group = fun
 end
 
 -- Dissect Fields: Clearing Fields X Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_x_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_x_group_fields = function(buffer, offset, packet, parent, clearing_fields_x_group_index)
   local index = offset
+
+  -- TODO
+  if clearing_fields_x_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.clearing_fields_x_group_index, clearing_fields_x_group_index)
+    iteration:set_generated()
+  end
 
   -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_firm_id(buffer, index, packet, parent)
@@ -6598,11 +6596,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_x_groups_fiel
   -- Repeating: Clearing Fields X Group
   for clearing_fields_x_group_index = 1, num_in_group do
     index, clearing_fields_x_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_x_group(buffer, index, packet, parent)
-
-    if clearing_fields_x_group ~= nil then
-      local iteration = clearing_fields_x_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.clearing_fields_x_group_index, clearing_fields_x_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6665,8 +6658,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.mifid_short_codes_group = fun
 end
 
 -- Dissect Fields: Mifid Short Codes Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_short_codes_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_short_codes_group_fields = function(buffer, offset, packet, parent, mifid_short_codes_group_index)
   local index = offset
+
+  -- TODO
+  if mifid_short_codes_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mifid_short_codes_group_index, mifid_short_codes_group_index)
+    iteration:set_generated()
+  end
 
   -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, investment_decision_w_firm_short_code = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.investment_decision_w_firm_short_code(buffer, index, packet, parent)
@@ -6729,11 +6728,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_short_codes_groups_fiel
   -- Repeating: Mifid Short Codes Group
   for mifid_short_codes_group_index = 1, num_in_group do
     index, mifid_short_codes_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_short_codes_group(buffer, index, packet, parent)
-
-    if mifid_short_codes_group ~= nil then
-      local iteration = mifid_short_codes_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mifid_short_codes_group_index, mifid_short_codes_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -6767,8 +6761,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.free_text_section_group = fun
 end
 
 -- Dissect Fields: Free Text Section Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.free_text_section_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.free_text_section_group_fields = function(buffer, offset, packet, parent, free_text_section_group_index)
   local index = offset
+
+  -- TODO
+  if free_text_section_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.free_text_section_group_index, free_text_section_group_index)
+    iteration:set_generated()
+  end
 
   -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.free_text(buffer, index, packet, parent)
@@ -6825,11 +6825,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.free_text_section_groups_fiel
   -- Repeating: Free Text Section Group
   for free_text_section_group_index = 1, num_in_group do
     index, free_text_section_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.free_text_section_group(buffer, index, packet, parent)
-
-    if free_text_section_group ~= nil then
-      local iteration = free_text_section_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.free_text_section_group_index, free_text_section_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7283,8 +7278,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.wholesale_ack_clearing_rep_gr
 end
 
 -- Dissect Fields: Wholesale Ack Clearing Rep Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_clearing_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_clearing_rep_group_fields = function(buffer, offset, packet, parent, wholesale_ack_clearing_rep_group_index)
   local index = offset
+
+  -- TODO
+  if wholesale_ack_clearing_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_ack_clearing_rep_group_index, wholesale_ack_clearing_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
@@ -7356,11 +7357,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_clearing_rep_gr
   -- Repeating: Wholesale Ack Clearing Rep Group
   for wholesale_ack_clearing_rep_group_index = 1, num_in_group do
     index, wholesale_ack_clearing_rep_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_clearing_rep_group(buffer, index, packet, parent)
-
-    if wholesale_ack_clearing_rep_group ~= nil then
-      local iteration = wholesale_ack_clearing_rep_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_ack_clearing_rep_group_index, wholesale_ack_clearing_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7497,8 +7493,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.wholesale_ack_legs_rep_group 
 end
 
 -- Dissect Fields: Wholesale Ack Legs Rep Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_legs_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_legs_rep_group_fields = function(buffer, offset, packet, parent, wholesale_ack_legs_rep_group_index)
   local index = offset
+
+  -- TODO
+  if wholesale_ack_legs_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_ack_legs_rep_group_index, wholesale_ack_legs_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.leg_symbol_index(buffer, index, packet, parent)
@@ -7567,11 +7569,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_legs_rep_groups
   -- Repeating: Wholesale Ack Legs Rep Group
   for wholesale_ack_legs_rep_group_index = 1, num_in_group do
     index, wholesale_ack_legs_rep_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_ack_legs_rep_group(buffer, index, packet, parent)
-
-    if wholesale_ack_legs_rep_group ~= nil then
-      local iteration = wholesale_ack_legs_rep_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_ack_legs_rep_group_index, wholesale_ack_legs_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8238,8 +8235,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.wholesale_client_rep_group = 
 end
 
 -- Dissect Fields: Wholesale Client Rep Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_client_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_client_rep_group_fields = function(buffer, offset, packet, parent, wholesale_client_rep_group_index)
   local index = offset
+
+  -- TODO
+  if wholesale_client_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_client_rep_group_index, wholesale_client_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
@@ -8338,11 +8341,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_client_rep_groups_f
   -- Repeating: Wholesale Client Rep Group
   for wholesale_client_rep_group_index = 1, num_in_group do
     index, wholesale_client_rep_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_client_rep_group(buffer, index, packet, parent)
-
-    if wholesale_client_rep_group ~= nil then
-      local iteration = wholesale_client_rep_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_client_rep_group_index, wholesale_client_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -8610,8 +8608,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.wholesale_legs_rep_group = fu
 end
 
 -- Dissect Fields: Wholesale Legs Rep Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_legs_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_legs_rep_group_fields = function(buffer, offset, packet, parent, wholesale_legs_rep_group_index)
   local index = offset
+
+  -- TODO
+  if wholesale_legs_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_legs_rep_group_index, wholesale_legs_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.leg_symbol_index(buffer, index, packet, parent)
@@ -8695,11 +8699,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_legs_rep_groups_fie
   -- Repeating: Wholesale Legs Rep Group
   for wholesale_legs_rep_group_index = 1, num_in_group do
     index, wholesale_legs_rep_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.wholesale_legs_rep_group(buffer, index, packet, parent)
-
-    if wholesale_legs_rep_group ~= nil then
-      local iteration = wholesale_legs_rep_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.wholesale_legs_rep_group_index, wholesale_legs_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -9013,8 +9012,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.mmp_section2_group = function
 end
 
 -- Dissect Fields: Mmp Section2 Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section2_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section2_group_fields = function(buffer, offset, packet, parent, mmp_section2_group_index)
   local index = offset
+
+  -- TODO
+  if mmp_section2_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mmp_section2_group_index, mmp_section2_group_index)
+    iteration:set_generated()
+  end
 
   -- Protection Type Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, protection_type_optional = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.protection_type_optional(buffer, index, packet, parent)
@@ -9083,11 +9088,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section2_groups_fields = 
   -- Repeating: Mmp Section2 Group
   for mmp_section2_group_index = 1, num_in_group do
     index, mmp_section2_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section2_group(buffer, index, packet, parent)
-
-    if mmp_section2_group ~= nil then
-      local iteration = mmp_section2_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mmp_section2_group_index, mmp_section2_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -9312,8 +9312,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.mmp_section_group = function(
 end
 
 -- Dissect Fields: Mmp Section Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section_group_fields = function(buffer, offset, packet, parent, mmp_section_group_index)
   local index = offset
+
+  -- TODO
+  if mmp_section_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mmp_section_group_index, mmp_section_group_index)
+    iteration:set_generated()
+  end
 
   -- Protection Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, protection_type = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.protection_type(buffer, index, packet, parent)
@@ -9376,11 +9382,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section_groups_fields = f
   -- Repeating: Mmp Section Group
   for mmp_section_group_index = 1, num_in_group do
     index, mmp_section_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mmp_section_group(buffer, index, packet, parent)
-
-    if mmp_section_group ~= nil then
-      local iteration = mmp_section_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mmp_section_group_index, mmp_section_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -9719,8 +9720,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.strategy_legs_group = functio
 end
 
 -- Dissect Fields: Strategy Legs Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_legs_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_legs_group_fields = function(buffer, offset, packet, parent, strategy_legs_group_index)
   local index = offset
+
+  -- TODO
+  if strategy_legs_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.strategy_legs_group_index, strategy_legs_group_index)
+    iteration:set_generated()
+  end
 
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.leg_symbol_index(buffer, index, packet, parent)
@@ -9798,11 +9805,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_legs_groups_fields =
   -- Repeating: Strategy Legs Group
   for strategy_legs_group_index = 1, num_in_group do
     index, strategy_legs_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.strategy_legs_group(buffer, index, packet, parent)
-
-    if strategy_legs_group ~= nil then
-      local iteration = strategy_legs_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.strategy_legs_group_index, strategy_legs_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -10180,8 +10182,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.instrument_synchronization_se
 end
 
 -- Dissect Fields: Instrument Synchronization Section Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.instrument_synchronization_section_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.instrument_synchronization_section_group_fields = function(buffer, offset, packet, parent, instrument_synchronization_section_group_index)
   local index = offset
+
+  -- TODO
+  if instrument_synchronization_section_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.instrument_synchronization_section_group_index, instrument_synchronization_section_group_index)
+    iteration:set_generated()
+  end
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.symbol_index(buffer, index, packet, parent)
@@ -10241,11 +10249,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.instrument_synchronization_se
   -- Repeating: Instrument Synchronization Section Group
   for instrument_synchronization_section_group_index = 1, num_in_group do
     index, instrument_synchronization_section_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.instrument_synchronization_section_group(buffer, index, packet, parent)
-
-    if instrument_synchronization_section_group ~= nil then
-      local iteration = instrument_synchronization_section_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.instrument_synchronization_section_group_index, instrument_synchronization_section_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -12775,8 +12778,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.mifid_fields_group = function
 end
 
 -- Dissect Fields: Mifid Fields Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_fields_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_fields_group_fields = function(buffer, offset, packet, parent, mifid_fields_group_index)
   local index = offset
+
+  -- TODO
+  if mifid_fields_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mifid_fields_group_index, mifid_fields_group_index)
+    iteration:set_generated()
+  end
 
   -- Execution Instruction Optional: Struct of 8 fields
   index, execution_instruction_optional = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.execution_instruction_optional(buffer, index, packet, parent)
@@ -12839,11 +12848,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_fields_groups_fields = 
   -- Repeating: Mifid Fields Group
   for mifid_fields_group_index = 1, num_in_group do
     index, mifid_fields_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.mifid_fields_group(buffer, index, packet, parent)
-
-    if mifid_fields_group ~= nil then
-      local iteration = mifid_fields_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.mifid_fields_group_index, mifid_fields_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -13827,8 +13831,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.quote_acks_group = function(p
 end
 
 -- Dissect Fields: Quote Acks Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quote_acks_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quote_acks_group_fields = function(buffer, offset, packet, parent, quote_acks_group_index)
   local index = offset
+
+  -- TODO
+  if quote_acks_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.quote_acks_group_index, quote_acks_group_index)
+    iteration:set_generated()
+  end
 
   -- Bid Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_order_id = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.bid_order_id(buffer, index, packet, parent)
@@ -13906,11 +13916,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quote_acks_groups_fields = fu
   -- Repeating: Quote Acks Group
   for quote_acks_group_index = 1, num_in_group do
     index, quote_acks_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quote_acks_group(buffer, index, packet, parent)
-
-    if quote_acks_group ~= nil then
-      local iteration = quote_acks_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.quote_acks_group_index, quote_acks_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14191,8 +14196,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.quotes_rep_group = function(p
 end
 
 -- Dissect Fields: Quotes Rep Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quotes_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quotes_rep_group_fields = function(buffer, offset, packet, parent, quotes_rep_group_index)
   local index = offset
+
+  -- TODO
+  if quotes_rep_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.quotes_rep_group_index, quotes_rep_group_index)
+    iteration:set_generated()
+  end
 
   -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_size = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.bid_size(buffer, index, packet, parent)
@@ -14264,11 +14275,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quotes_rep_groups_fields = fu
   -- Repeating: Quotes Rep Group
   for quotes_rep_group_index = 1, num_in_group do
     index, quotes_rep_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.quotes_rep_group(buffer, index, packet, parent)
-
-    if quotes_rep_group ~= nil then
-      local iteration = quotes_rep_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.quotes_rep_group_index, quotes_rep_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14350,8 +14356,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.clearing_dataset_group = func
 end
 
 -- Dissect Fields: Clearing Dataset Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_dataset_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_dataset_group_fields = function(buffer, offset, packet, parent, clearing_dataset_group_index)
   local index = offset
+
+  -- TODO
+  if clearing_dataset_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.clearing_dataset_group_index, clearing_dataset_group_index)
+    iteration:set_generated()
+  end
 
   -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_firm_id(buffer, index, packet, parent)
@@ -14426,11 +14438,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_dataset_groups_field
   -- Repeating: Clearing Dataset Group
   for clearing_dataset_group_index = 1, num_in_group do
     index, clearing_dataset_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_dataset_group(buffer, index, packet, parent)
-
-    if clearing_dataset_group ~= nil then
-      local iteration = clearing_dataset_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.clearing_dataset_group_index, clearing_dataset_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14673,8 +14680,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.collar_fields_group = functio
 end
 
 -- Dissect Fields: Collar Fields Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.collar_fields_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.collar_fields_group_fields = function(buffer, offset, packet, parent, collar_fields_group_index)
   local index = offset
+
+  -- TODO
+  if collar_fields_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.collar_fields_group_index, collar_fields_group_index)
+    iteration:set_generated()
+  end
 
   -- Collar Rej Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, collar_rej_type = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.collar_rej_type(buffer, index, packet, parent)
@@ -14734,11 +14747,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.collar_fields_groups_fields =
   -- Repeating: Collar Fields Group
   for collar_fields_group_index = 1, num_in_group do
     index, collar_fields_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.collar_fields_group(buffer, index, packet, parent)
-
-    if collar_fields_group ~= nil then
-      local iteration = collar_fields_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.collar_fields_group_index, collar_fields_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -14935,8 +14943,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.additional_infos_group = func
 end
 
 -- Dissect Fields: Additional Infos Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.additional_infos_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.additional_infos_group_fields = function(buffer, offset, packet, parent, additional_infos_group_index)
   local index = offset
+
+  -- TODO
+  if additional_infos_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.additional_infos_group_index, additional_infos_group_index)
+    iteration:set_generated()
+  end
 
   -- Long Client Id: 16 Byte Ascii String Nullable
   index, long_client_id = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.long_client_id(buffer, index, packet, parent)
@@ -14993,11 +15007,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.additional_infos_groups_field
   -- Repeating: Additional Infos Group
   for additional_infos_group_index = 1, num_in_group do
     index, additional_infos_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.additional_infos_group(buffer, index, packet, parent)
-
-    if additional_infos_group ~= nil then
-      local iteration = additional_infos_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.additional_infos_group_index, additional_infos_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -15043,8 +15052,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.clearing_fields_group = funct
 end
 
 -- Dissect Fields: Clearing Fields Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_group_fields = function(buffer, offset, packet, parent, clearing_fields_group_index)
   local index = offset
+
+  -- TODO
+  if clearing_fields_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.clearing_fields_group_index, clearing_fields_group_index)
+    iteration:set_generated()
+  end
 
   -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_firm_id(buffer, index, packet, parent)
@@ -15119,11 +15134,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_groups_fields
   -- Repeating: Clearing Fields Group
   for clearing_fields_group_index = 1, num_in_group do
     index, clearing_fields_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.clearing_fields_group(buffer, index, packet, parent)
-
-    if clearing_fields_group ~= nil then
-      local iteration = clearing_fields_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.clearing_fields_group_index, clearing_fields_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -15488,8 +15498,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.optional_fields_group = funct
 end
 
 -- Dissect Fields: Optional Fields Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_group_fields = function(buffer, offset, packet, parent, optional_fields_group_index)
   local index = offset
+
+  -- TODO
+  if optional_fields_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.optional_fields_group_index, optional_fields_group_index)
+    iteration:set_generated()
+  end
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.stop_px(buffer, index, packet, parent)
@@ -15576,11 +15592,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_groups_fields
   -- Repeating: Optional Fields Group
   for optional_fields_group_index = 1, num_in_group do
     index, optional_fields_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_group(buffer, index, packet, parent)
-
-    if optional_fields_group ~= nil then
-      local iteration = optional_fields_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.optional_fields_group_index, optional_fields_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -16242,8 +16253,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.optional_fields_derivatives_g
 end
 
 -- Dissect Fields: Optional Fields Derivatives Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_derivatives_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_derivatives_group_fields = function(buffer, offset, packet, parent, optional_fields_derivatives_group_index)
   local index = offset
+
+  -- TODO
+  if optional_fields_derivatives_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.optional_fields_derivatives_group_index, optional_fields_derivatives_group_index)
+    iteration:set_generated()
+  end
 
   -- Evaluated Price: 8 Byte Signed Fixed Width Integer Nullable
   index, evaluated_price = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.evaluated_price(buffer, index, packet, parent)
@@ -16309,11 +16326,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_derivatives_g
   -- Repeating: Optional Fields Derivatives Group
   for optional_fields_derivatives_group_index = 1, num_in_group do
     index, optional_fields_derivatives_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_derivatives_group(buffer, index, packet, parent)
-
-    if optional_fields_derivatives_group ~= nil then
-      local iteration = optional_fields_derivatives_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.optional_fields_derivatives_group_index, optional_fields_derivatives_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -16439,8 +16451,14 @@ euronext_optiq_orderentrygateway_sbe_v4_12_display.optional_fields_fill_group = 
 end
 
 -- Dissect Fields: Optional Fields Fill Group
-euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_fill_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_fill_group_fields = function(buffer, offset, packet, parent, optional_fields_fill_group_index)
   local index = offset
+
+  -- TODO
+  if optional_fields_fill_group_index ~= nil then
+    local iteration = parent:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.optional_fields_fill_group_index, optional_fields_fill_group_index)
+    iteration:set_generated()
+  end
 
   -- Counterpart Firm Id: 8 Byte Ascii String Nullable
   index, counterpart_firm_id = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.counterpart_firm_id(buffer, index, packet, parent)
@@ -16506,11 +16524,6 @@ euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_fill_groups_f
   -- Repeating: Optional Fields Fill Group
   for optional_fields_fill_group_index = 1, num_in_group do
     index, optional_fields_fill_group = euronext_optiq_orderentrygateway_sbe_v4_12_dissect.optional_fields_fill_group(buffer, index, packet, parent)
-
-    if optional_fields_fill_group ~= nil then
-      local iteration = optional_fields_fill_group:add(euronext_optiq_orderentrygateway_sbe_v4_12.fields.optional_fields_fill_group_index, optional_fields_fill_group_index)
-      iteration:set_generated()
-    end
   end
 
   return index

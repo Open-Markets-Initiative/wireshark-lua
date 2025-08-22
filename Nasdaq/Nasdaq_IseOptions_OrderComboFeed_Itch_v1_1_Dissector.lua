@@ -271,8 +271,14 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.auction_response = function(p
 end
 
 -- Dissect Fields: Auction Response
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.auction_response_fields = function(buffer, offset, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.auction_response_fields = function(buffer, offset, packet, parent, auction_response_index)
   local index = offset
+
+  -- TODO
+  if auction_response_index ~= nil then
+    local iteration = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_response_index, auction_response_index)
+    iteration:set_generated()
+  end
 
   -- Response Price: 4 Byte Signed Fixed Width Integer
   index, response_price = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.response_price(buffer, index, packet, parent)
@@ -809,11 +815,6 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.complex_strategy_auction_mess
   -- Repeating: Auction Response
   for auction_response_index = 1, number_of_responses do
     index, auction_response = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.auction_response(buffer, index, packet, parent)
-
-    if auction_response ~= nil then
-      local iteration = auction_response:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_response_index, auction_response_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1343,8 +1344,14 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.leg_information = function(pa
 end
 
 -- Dissect Fields: Leg Information
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.leg_information_fields = function(buffer, offset, packet, parent)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.leg_information_fields = function(buffer, offset, packet, parent, leg_information_index)
   local index = offset
+
+  -- TODO
+  if leg_information_index ~= nil then
+    local iteration = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information_index, leg_information_index)
+    iteration:set_generated()
+  end
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.option_id(buffer, index, packet, parent)
@@ -1558,11 +1565,6 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.complex_strategy_directory_me
   -- Repeating: Leg Information
   for leg_information_index = 1, number_of_legs do
     index, leg_information = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.leg_information(buffer, index, packet, parent)
-
-    if leg_information ~= nil then
-      local iteration = leg_information:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information_index, leg_information_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1995,8 +1997,14 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message = function(packet, pa
 end
 
 -- Dissect Fields: Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_header(buffer, index, packet, parent)
@@ -2011,21 +2019,21 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_fields = function(buf
 end
 
 -- Dissect: Message
-nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message, buffer(offset, 0))
-    local current = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message, buffer(offset, 0))
+    local current = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nasdaq_iseoptions_ordercombofeed_itch_v1_1_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
@@ -2179,12 +2187,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.packet = function(buffer, pac
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message(buffer, index, packet, parent, size_of_message)
-
-    if message ~= nil then
-      local iteration = message:add(nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_index, message_index)
-      iteration:set_generated()
-    end
+    index, message = nasdaq_iseoptions_ordercombofeed_itch_v1_1_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index

@@ -774,11 +774,6 @@ currenex_forex_now_cbp_v10_0_dissect.depth_of_book_message_fields = function(buf
   -- Array Of: Level
   for level_index = 1, 20 do
     index, level = currenex_forex_now_cbp_v10_0_dissect.level(buffer, index, packet, parent)
-
-    if level ~= nil then
-      local iteration = level:add(currenex_forex_now_cbp_v10_0.fields.level_index, level_index)
-      iteration:set_generated()
-    end
   end
 
   return index

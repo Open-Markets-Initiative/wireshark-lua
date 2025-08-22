@@ -1332,8 +1332,14 @@ nyse_arca_options_complexfeed_pillar_v1_0_d_display.leg_definition = function(pa
 end
 
 -- Dissect Fields: Leg Definition
-nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.leg_definition_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.leg_definition_fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
+
+  -- TODO
+  if leg_definition_index ~= nil then
+    local iteration = parent:add(nyse_arca_options_complexfeed_pillar_v1_0_d.fields.leg_definition_index, leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, symbol_index = nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.symbol_index(buffer, index, packet, parent)
@@ -1471,11 +1477,6 @@ nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.complex_series_index_mapping
   -- Repeating: Leg Definition
   for leg_definition_index = 1, no_of_legs do
     index, leg_definition = nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.leg_definition(buffer, index, packet, parent)
-
-    if leg_definition ~= nil then
-      local iteration = leg_definition:add(nyse_arca_options_complexfeed_pillar_v1_0_d.fields.leg_definition_index, leg_definition_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4073,8 +4074,14 @@ nyse_arca_options_complexfeed_pillar_v1_0_d_display.message = function(packet, p
 end
 
 -- Dissect Fields: Message
-nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_header(buffer, index, packet, parent)
@@ -4089,21 +4096,21 @@ nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields = function(bu
 end
 
 -- Dissect: Message
-nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message, buffer(offset, 0))
-    local current = nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = nyse_arca_options_complexfeed_pillar_v1_0_d_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(nyse_arca_options_complexfeed_pillar_v1_0_d.fields.message, buffer(offset, 0))
+    local current = nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nyse_arca_options_complexfeed_pillar_v1_0_d_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    nyse_arca_options_complexfeed_pillar_v1_0_d_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end

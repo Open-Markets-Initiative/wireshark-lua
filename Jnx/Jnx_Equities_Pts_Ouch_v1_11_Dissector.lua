@@ -2688,13 +2688,13 @@ jnx_equities_pts_ouch_v1_11_dissect.soup_bin_tcp_packet = function(buffer, offse
 
   -- Optionally add group/struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    local element = parent:add(jnx_equities_pts_ouch_v1_11.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = jnx_equities_pts_ouch_v1_11_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, element, size_of_soup_bin_tcp_packet)
-    element:set_len(size_of_soup_bin_tcp_packet)
-    local display = jnx_equities_pts_ouch_v1_11_display.soup_bin_tcp_packet(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    local current = jnx_equities_pts_ouch_v1_11_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    parent:set_len(size_of_soup_bin_tcp_packet)
+    local display = jnx_equities_pts_ouch_v1_11_display.soup_bin_tcp_packet(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
     jnx_equities_pts_ouch_v1_11_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)

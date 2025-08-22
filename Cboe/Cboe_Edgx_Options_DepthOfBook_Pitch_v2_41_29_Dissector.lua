@@ -3550,8 +3550,14 @@ cboe_edgx_options_depthofbook_pitch_v2_41_29_display.message = function(packet, 
 end
 
 -- Dissect Fields: Message
-cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(cboe_edgx_options_depthofbook_pitch_v2_41_29.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_header(buffer, index, packet, parent)
@@ -3566,21 +3572,21 @@ cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_fields = function(b
 end
 
 -- Dissect: Message
-cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
-    local element = parent:add(cboe_edgx_options_depthofbook_pitch_v2_41_29.fields.message, buffer(offset, 0))
-    local current = cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, element, size_of_message)
-    element:set_len(size_of_message)
-    local display = cboe_edgx_options_depthofbook_pitch_v2_41_29_display.message(buffer, packet, element)
-    element:append_text(display)
+    parent = parent:add(cboe_edgx_options_depthofbook_pitch_v2_41_29.fields.message, buffer(offset, 0))
+    local current = cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_edgx_options_depthofbook_pitch_v2_41_29_display.message(buffer, packet, parent)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    cboe_edgx_options_depthofbook_pitch_v2_41_29_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end

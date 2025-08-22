@@ -1047,8 +1047,14 @@ tmx_mx_sola_multicast_hsvf_v1_14_display.tick_entry = function(packet, parent, l
 end
 
 -- Dissect Fields: Tick Entry
-tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_entry_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_entry_fields = function(buffer, offset, packet, parent, tick_entry_index)
   local index = offset
+
+  -- TODO
+  if tick_entry_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_entry_index, tick_entry_index)
+    iteration:set_generated()
+  end
 
   -- Min Price: N
   index, min_price = tmx_mx_sola_multicast_hsvf_v1_14_dissect.min_price(buffer, index, packet, parent)
@@ -1191,11 +1197,6 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_table_message_fields = function(bu
   -- Repeating: Tick Entry
   for tick_entry_index = 1, number_of_entries do
     index, tick_entry = tmx_mx_sola_multicast_hsvf_v1_14_dissect.tick_entry(buffer, index, packet, parent)
-
-    if tick_entry ~= nil then
-      local iteration = tick_entry:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_entry_index, tick_entry_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -1755,8 +1756,14 @@ tmx_mx_sola_multicast_hsvf_v1_14_display.bond_definition = function(packet, pare
 end
 
 -- Dissect Fields: Bond Definition
-tmx_mx_sola_multicast_hsvf_v1_14_dissect.bond_definition_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_14_dissect.bond_definition_fields = function(buffer, offset, packet, parent, bond_definition_index)
   local index = offset
+
+  -- TODO
+  if bond_definition_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.bond_definition_index, bond_definition_index)
+    iteration:set_generated()
+  end
 
   -- Maturity Date: A
   index, maturity_date = tmx_mx_sola_multicast_hsvf_v1_14_dissect.maturity_date(buffer, index, packet, parent)
@@ -2007,11 +2014,6 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_deliverables_message_fields = fu
   -- Repeating: Bond Definition
   for bond_definition_index = 1, number_of_bonds do
     index, bond_definition = tmx_mx_sola_multicast_hsvf_v1_14_dissect.bond_definition(buffer, index, packet, parent)
-
-    if bond_definition ~= nil then
-      local iteration = bond_definition:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.bond_definition_index, bond_definition_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -5493,8 +5495,14 @@ tmx_mx_sola_multicast_hsvf_v1_14_display.strategy_instrument_leg = function(pack
 end
 
 -- Dissect Fields: Strategy Instrument Leg
-tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_instrument_leg_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_instrument_leg_fields = function(buffer, offset, packet, parent, strategy_instrument_leg_index)
   local index = offset
+
+  -- TODO
+  if strategy_instrument_leg_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_instrument_leg_index, strategy_instrument_leg_index)
+    iteration:set_generated()
+  end
 
   -- Leg Group Instrument: X
   index, leg_group_instrument = tmx_mx_sola_multicast_hsvf_v1_14_dissect.leg_group_instrument(buffer, index, packet, parent)
@@ -6048,11 +6056,6 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_instrument_keys_message_fields
   -- Repeating: Strategy Instrument Leg
   for strategy_instrument_leg_index = 1, number_of_legs do
     index, strategy_instrument_leg = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_instrument_leg(buffer, index, packet, parent)
-
-    if strategy_instrument_leg ~= nil then
-      local iteration = strategy_instrument_leg:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_instrument_leg_index, strategy_instrument_leg_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7518,8 +7521,14 @@ tmx_mx_sola_multicast_hsvf_v1_14_display.strategy_market_depth_level = function(
 end
 
 -- Dissect Fields: Strategy Market Depth Level
-tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_market_depth_level_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_market_depth_level_fields = function(buffer, offset, packet, parent, strategy_market_depth_level_index)
   local index = offset
+
+  -- TODO
+  if strategy_market_depth_level_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_market_depth_level_index, strategy_market_depth_level_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_14_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -7697,11 +7706,6 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_market_depth_message_fields = 
   -- Repeating: Strategy Market Depth Level
   for strategy_market_depth_level_index = 1, number_of_levels do
     index, strategy_market_depth_level = tmx_mx_sola_multicast_hsvf_v1_14_dissect.strategy_market_depth_level(buffer, index, packet, parent)
-
-    if strategy_market_depth_level ~= nil then
-      local iteration = strategy_market_depth_level:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_market_depth_level_index, strategy_market_depth_level_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7751,8 +7755,14 @@ tmx_mx_sola_multicast_hsvf_v1_14_display.market_depth_level = function(packet, p
 end
 
 -- Dissect Fields: Market Depth Level
-tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_depth_level_fields = function(buffer, offset, packet, parent)
+tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_depth_level_fields = function(buffer, offset, packet, parent, market_depth_level_index)
   local index = offset
+
+  -- TODO
+  if market_depth_level_index ~= nil then
+    local iteration = parent:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level_index, market_depth_level_index)
+    iteration:set_generated()
+  end
 
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_14_dissect.level_of_market_depth(buffer, index, packet, parent)
@@ -7845,11 +7855,6 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.futures_market_depth_message_fields = f
   -- Repeating: Market Depth Level
   for market_depth_level_index = 1, number_of_levels do
     index, market_depth_level = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_depth_level(buffer, index, packet, parent)
-
-    if market_depth_level ~= nil then
-      local iteration = market_depth_level:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level_index, market_depth_level_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7911,11 +7916,6 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.future_options_market_depth_message_fie
   -- Repeating: Market Depth Level
   for market_depth_level_index = 1, number_of_levels do
     index, market_depth_level = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_depth_level(buffer, index, packet, parent)
-
-    if market_depth_level ~= nil then
-      local iteration = market_depth_level:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level_index, market_depth_level_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -7977,11 +7977,6 @@ tmx_mx_sola_multicast_hsvf_v1_14_dissect.option_market_depth_message_fields = fu
   -- Repeating: Market Depth Level
   for market_depth_level_index = 1, number_of_levels do
     index, market_depth_level = tmx_mx_sola_multicast_hsvf_v1_14_dissect.market_depth_level(buffer, index, packet, parent)
-
-    if market_depth_level ~= nil then
-      local iteration = market_depth_level:add(tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level_index, market_depth_level_index)
-      iteration:set_generated()
-    end
   end
 
   return index

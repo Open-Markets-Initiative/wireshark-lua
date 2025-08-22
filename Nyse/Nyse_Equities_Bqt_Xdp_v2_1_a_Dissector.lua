@@ -574,8 +574,14 @@ nyse_equities_bqt_xdp_v2_1_a_display.close_price = function(packet, parent, leng
 end
 
 -- Dissect Fields: Close Price
-nyse_equities_bqt_xdp_v2_1_a_dissect.close_price_fields = function(buffer, offset, packet, parent)
+nyse_equities_bqt_xdp_v2_1_a_dissect.close_price_fields = function(buffer, offset, packet, parent, close_price_index)
   local index = offset
+
+  -- TODO
+  if close_price_index ~= nil then
+    local iteration = parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.close_price_index, close_price_index)
+    iteration:set_generated()
+  end
 
   -- Market ID of the Close: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, market_id_of_the_close = nyse_equities_bqt_xdp_v2_1_a_dissect.market_id_of_the_close(buffer, index, packet, parent)
@@ -901,11 +907,6 @@ nyse_equities_bqt_xdp_v2_1_a_dissect.consolidated_stock_summary_message_fields =
   -- Repeating: Close Price
   for close_price_index = 1, number_of_close_prices do
     index, close_price = nyse_equities_bqt_xdp_v2_1_a_dissect.close_price(buffer, index, packet, parent)
-
-    if close_price ~= nil then
-      local iteration = close_price:add(nyse_equities_bqt_xdp_v2_1_a.fields.close_price_index, close_price_index)
-      iteration:set_generated()
-    end
   end
 
   return index
@@ -4289,8 +4290,14 @@ nyse_equities_bqt_xdp_v2_1_a_display.message = function(packet, parent, length)
 end
 
 -- Dissect Fields: Message
-nyse_equities_bqt_xdp_v2_1_a_dissect.message_fields = function(buffer, offset, packet, parent)
+nyse_equities_bqt_xdp_v2_1_a_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
+
+  -- TODO
+  if message_index ~= nil then
+    local iteration = parent:add(nyse_equities_bqt_xdp_v2_1_a.fields.message_index, message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_equities_bqt_xdp_v2_1_a_dissect.message_header(buffer, index, packet, parent)
