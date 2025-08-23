@@ -4638,6 +4638,9 @@ asx_securities_ntp_itch_v1_05_dissect.seconds_message_fields = function(buffer, 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
   index, seconds = asx_securities_ntp_itch_v1_05_dissect.seconds(buffer, index, packet, parent)
 
+  -- Store Seconds Value
+  asx_securities_ntp_itch_v1_05_store.seconds = seconds
+
   return index
 end
 
