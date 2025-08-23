@@ -440,17 +440,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.top_of_book_message = function(buffer, offset, packet, parent)
   if show.top_of_book_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.top_of_book_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.top_of_book_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.top_of_book_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.top_of_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.top_of_book_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.top_of_book_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.top_of_book_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -669,17 +669,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.statistics_message = function(buffer, offset, packet, parent)
   if show.statistics_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.statistics_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.statistics_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.statistics_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.statistics_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.statistics_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.statistics_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.statistics_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -833,17 +833,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.auction_info_message = function(buffer, offset, packet, parent)
   if show.auction_info_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.auction_info_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.auction_info_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.auction_info_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.auction_info_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.auction_info_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.auction_info_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.auction_info_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1001,17 +1001,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.auction_trade_message = function(buffer, offset, packet, parent)
   if show.auction_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.auction_trade_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.auction_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.auction_trade_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.auction_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.auction_trade_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1171,17 +1171,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.trade_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.trade_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.trade_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1310,17 +1310,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message = function(buffer, offset, packet, parent)
   if show.order_executed_with_price_size_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.order_executed_with_price_size_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1367,17 +1367,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_executed_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_executed_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.order_executed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.order_executed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1496,17 +1496,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_book_clear_message = function(buffer, offset, packet, parent)
   if show.order_book_clear_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_book_clear_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.order_book_clear_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.order_book_clear_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1598,17 +1598,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_modified_message = function(buffer, offset, packet, parent)
   if show.order_modified_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_modified_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_modified_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_modified_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_modified_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.order_modified_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.order_modified_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.order_modified_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1655,17 +1655,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_deleted_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_deleted_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.order_deleted_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.order_deleted_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.order_deleted_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1789,17 +1789,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message = function(buffer, offset, packet, parent)
   if show.add_attributed_order_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.add_attributed_order_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1896,17 +1896,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.add_order_message = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.add_order_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.add_order_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.add_order_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.add_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.add_order_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.add_order_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.add_order_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2176,17 +2176,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.symbol_status_message = function(buffer, offset, packet, parent)
   if show.symbol_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.symbol_status_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.symbol_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.symbol_status_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.symbol_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.symbol_status_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2431,17 +2431,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.symbol_directory_message = function(buffer, offset, packet, parent)
   if show.symbol_directory_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.symbol_directory_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.symbol_directory_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.symbol_directory_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.symbol_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.symbol_directory_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.symbol_directory_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.symbol_directory_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2505,17 +2505,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.system_event_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.system_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.system_event_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.system_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.system_event_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.system_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2567,17 +2567,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.time_message = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.time_message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.time_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.time_message, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.time_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.time_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.time_message_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.time_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2868,17 +2868,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.message_header, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.message_header, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.message_header_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3059,17 +3059,17 @@ end
 lseg_millennium_level2_mitch_v11_9_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_level2_mitch_v11_9.fields.unit_header, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9_dissect.unit_header_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_level2_mitch_v11_9.fields.unit_header, buffer(offset, 0))
+    local index = lseg_millennium_level2_mitch_v11_9_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_level2_mitch_v11_9_display.unit_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9_dissect.unit_header_fields(buffer, offset, packet, element)
+    return lseg_millennium_level2_mitch_v11_9_dissect.unit_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3085,7 +3085,7 @@ lseg_millennium_level2_mitch_v11_9_dissect.packet = function(buffer, packet, par
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = lseg_millennium_level2_mitch_v11_9_dissect.message(buffer, index, packet, parent)
+    index, message = lseg_millennium_level2_mitch_v11_9_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index

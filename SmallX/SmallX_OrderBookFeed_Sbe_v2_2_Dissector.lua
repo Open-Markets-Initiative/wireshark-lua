@@ -585,20 +585,20 @@ smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_l
 end
 
 -- Dissect: Multileg Definition Snapshot V 2 Message Leg Group
-smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group = function(buffer, offset, packet, parent, multileg_definition_snapshot_v_2_message_leg_group_index)
   if show.multileg_definition_snapshot_v_2_message_leg_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_snapshot_v_2_message_leg_group, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_snapshot_v_2_message_leg_group, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group_fields(buffer, offset, packet, parent, multileg_definition_snapshot_v_2_message_leg_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.multileg_definition_snapshot_v_2_message_leg_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group_fields(buffer, offset, packet, parent, multileg_definition_snapshot_v_2_message_leg_group_index)
   end
 end
 
@@ -675,17 +675,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.group_dimension = function(buffer, offset, packet, parent)
   if show.group_dimension then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.group_dimension, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.group_dimension_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.group_dimension, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.group_dimension_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.group_dimension(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.group_dimension_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.group_dimension_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -719,7 +719,7 @@ smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_l
 
   -- Repeating: Multileg Definition Snapshot V 2 Message Leg Group
   for multileg_definition_snapshot_v_2_message_leg_group_index = 1, num_in_group do
-    index, multileg_definition_snapshot_v_2_message_leg_group = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group(buffer, index, packet, parent)
+    index, multileg_definition_snapshot_v_2_message_leg_group = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_snapshot_v_2_message_leg_group(buffer, index, packet, parent, multileg_definition_snapshot_v_2_message_leg_group_index)
   end
 
   return index
@@ -2015,17 +2015,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_snapshot_v_2_message = function(buffer, offset, packet, parent)
   if show.single_instrument_definition_snapshot_v_2_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.single_instrument_definition_snapshot_v_2_message, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_snapshot_v_2_message_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.single_instrument_definition_snapshot_v_2_message, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_snapshot_v_2_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.single_instrument_definition_snapshot_v_2_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_snapshot_v_2_message_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_snapshot_v_2_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2080,20 +2080,20 @@ smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_messag
 end
 
 -- Dissect: Multileg Definition Incremental V 2 Message Leg Group
-smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group = function(buffer, offset, packet, parent, multileg_definition_incremental_v_2_message_leg_group_index)
   if show.multileg_definition_incremental_v_2_message_leg_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_incremental_v_2_message_leg_group, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.multileg_definition_incremental_v_2_message_leg_group, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group_fields(buffer, offset, packet, parent, multileg_definition_incremental_v_2_message_leg_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.multileg_definition_incremental_v_2_message_leg_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group_fields(buffer, offset, packet, parent, multileg_definition_incremental_v_2_message_leg_group_index)
   end
 end
 
@@ -2127,7 +2127,7 @@ smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_messag
 
   -- Repeating: Multileg Definition Incremental V 2 Message Leg Group
   for multileg_definition_incremental_v_2_message_leg_group_index = 1, num_in_group do
-    index, multileg_definition_incremental_v_2_message_leg_group = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group(buffer, index, packet, parent)
+    index, multileg_definition_incremental_v_2_message_leg_group = smallx_orderbookfeed_sbe_v2_2_dissect.multileg_definition_incremental_v_2_message_leg_group(buffer, index, packet, parent, multileg_definition_incremental_v_2_message_leg_group_index)
   end
 
   return index
@@ -2560,17 +2560,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_incremental_v_2_message = function(buffer, offset, packet, parent)
   if show.single_instrument_definition_incremental_v_2_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.single_instrument_definition_incremental_v_2_message, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_incremental_v_2_message_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.single_instrument_definition_incremental_v_2_message, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_incremental_v_2_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.single_instrument_definition_incremental_v_2_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_incremental_v_2_message_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.single_instrument_definition_incremental_v_2_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2858,17 +2858,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.index_value_snapshot_message = function(buffer, offset, packet, parent)
   if show.index_value_snapshot_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.index_value_snapshot_message, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.index_value_snapshot_message_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.index_value_snapshot_message, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.index_value_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.index_value_snapshot_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.index_value_snapshot_message_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.index_value_snapshot_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3231,17 +3231,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_snapshot_message = function(buffer, offset, packet, parent)
   if show.market_summary_snapshot_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.market_summary_snapshot_message, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_snapshot_message_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.market_summary_snapshot_message, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.market_summary_snapshot_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_snapshot_message_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_snapshot_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3555,20 +3555,20 @@ smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields = function(buffer, off
 end
 
 -- Dissect: Orders Group
-smallx_orderbookfeed_sbe_v2_2_dissect.orders_group = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.orders_group = function(buffer, offset, packet, parent, orders_group_index)
   if show.orders_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.orders_group, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.orders_group, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields(buffer, offset, packet, parent, orders_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.orders_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.orders_group_fields(buffer, offset, packet, parent, orders_group_index)
   end
 end
 
@@ -3602,7 +3602,7 @@ smallx_orderbookfeed_sbe_v2_2_dissect.orders_groups_fields = function(buffer, of
 
   -- Repeating: Orders Group
   for orders_group_index = 1, num_in_group do
-    index, orders_group = smallx_orderbookfeed_sbe_v2_2_dissect.orders_group(buffer, index, packet, parent)
+    index, orders_group = smallx_orderbookfeed_sbe_v2_2_dissect.orders_group(buffer, index, packet, parent, orders_group_index)
   end
 
   return index
@@ -3791,17 +3791,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_incremental_message = function(buffer, offset, packet, parent)
   if show.market_summary_incremental_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.market_summary_incremental_message, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_incremental_message_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.market_summary_incremental_message, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_incremental_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.market_summary_incremental_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_incremental_message_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.market_summary_incremental_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4108,20 +4108,20 @@ smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields = function(buffer, off
 end
 
 -- Dissect: Trades Group
-smallx_orderbookfeed_sbe_v2_2_dissect.trades_group = function(buffer, offset, packet, parent)
+smallx_orderbookfeed_sbe_v2_2_dissect.trades_group = function(buffer, offset, packet, parent, trades_group_index)
   if show.trades_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.trades_group, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.trades_group, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields(buffer, offset, packet, parent, trades_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.trades_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.trades_group_fields(buffer, offset, packet, parent, trades_group_index)
   end
 end
 
@@ -4155,7 +4155,7 @@ smallx_orderbookfeed_sbe_v2_2_dissect.trades_groups_fields = function(buffer, of
 
   -- Repeating: Trades Group
   for trades_group_index = 1, num_in_group do
-    index, trades_group = smallx_orderbookfeed_sbe_v2_2_dissect.trades_group(buffer, index, packet, parent)
+    index, trades_group = smallx_orderbookfeed_sbe_v2_2_dissect.trades_group(buffer, index, packet, parent, trades_group_index)
   end
 
   return index
@@ -4534,17 +4534,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.instrument_trading_status_incremental_message = function(buffer, offset, packet, parent)
   if show.instrument_trading_status_incremental_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.instrument_trading_status_incremental_message, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.instrument_trading_status_incremental_message_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.instrument_trading_status_incremental_message, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.instrument_trading_status_incremental_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.instrument_trading_status_incremental_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.instrument_trading_status_incremental_message_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.instrument_trading_status_incremental_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4832,17 +4832,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.message_header, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.message_header, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.message_header_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5117,17 +5117,17 @@ end
 smallx_orderbookfeed_sbe_v2_2_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.packet_header, buffer(offset, 0))
-    local index = smallx_orderbookfeed_sbe_v2_2_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_orderbookfeed_sbe_v2_2.fields.packet_header, buffer(offset, 0))
+    local index = smallx_orderbookfeed_sbe_v2_2_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_orderbookfeed_sbe_v2_2_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_orderbookfeed_sbe_v2_2_dissect.packet_header_fields(buffer, offset, packet, element)
+    return smallx_orderbookfeed_sbe_v2_2_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

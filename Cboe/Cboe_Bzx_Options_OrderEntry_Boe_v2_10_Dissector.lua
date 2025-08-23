@@ -20587,20 +20587,20 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields = functi
 end
 
 -- Dissect: Quote Result Group
-cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group = function(buffer, offset, packet, parent)
+cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group = function(buffer, offset, packet, parent, quote_result_group_index)
   if show.quote_result_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.quote_result_group, buffer(offset, 0))
-    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.quote_result_group, buffer(offset, 0))
+    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields(buffer, offset, packet, parent, quote_result_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_bzx_options_orderentry_boe_v2_10_display.quote_result_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields(buffer, offset, packet, element)
+    return cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group_fields(buffer, offset, packet, parent, quote_result_group_index)
   end
 end
 
@@ -20660,7 +20660,7 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update_acknowledgment_messag
 
   -- Repeating: Quote Result Group
   for quote_result_group_index = 1, number_of_quote_results do
-    index, quote_result_group = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group(buffer, index, packet, parent)
+    index, quote_result_group = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_result_group(buffer, index, packet, parent, quote_result_group_index)
   end
 
   return index
@@ -23387,20 +23387,20 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields = functi
 end
 
 -- Dissect: Short Quote Update
-cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update = function(buffer, offset, packet, parent)
+cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update = function(buffer, offset, packet, parent, short_quote_update_index)
   if show.short_quote_update then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.short_quote_update, buffer(offset, 0))
-    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.short_quote_update, buffer(offset, 0))
+    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields(buffer, offset, packet, parent, short_quote_update_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_bzx_options_orderentry_boe_v2_10_display.short_quote_update(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields(buffer, offset, packet, element)
+    return cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update_fields(buffer, offset, packet, parent, short_quote_update_index)
   end
 end
 
@@ -23548,7 +23548,7 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update_message_fields 
 
   -- Repeating: Short Quote Update
   for short_quote_update_index = 1, number_of_short_quote_updates do
-    index, short_quote_update = cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update(buffer, index, packet, parent)
+    index, short_quote_update = cboe_bzx_options_orderentry_boe_v2_10_dissect.short_quote_update(buffer, index, packet, parent, short_quote_update_index)
   end
 
   return index
@@ -23647,20 +23647,20 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update_fields = function(buf
 end
 
 -- Dissect: Quote Update
-cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update = function(buffer, offset, packet, parent)
+cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update = function(buffer, offset, packet, parent, quote_update_index)
   if show.quote_update then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.quote_update, buffer(offset, 0))
-    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.quote_update, buffer(offset, 0))
+    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update_fields(buffer, offset, packet, parent, quote_update_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_bzx_options_orderentry_boe_v2_10_display.quote_update(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update_fields(buffer, offset, packet, element)
+    return cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update_fields(buffer, offset, packet, parent, quote_update_index)
   end
 end
 
@@ -23761,7 +23761,7 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update_message_fields = func
 
   -- Repeating: Quote Update
   for quote_update_index = 1, number_of_quote_updates do
-    index, quote_update = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update(buffer, index, packet, parent)
+    index, quote_update = cboe_bzx_options_orderentry_boe_v2_10_dissect.quote_update(buffer, index, packet, parent, quote_update_index)
   end
 
   return index
@@ -25550,20 +25550,20 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields = function(bu
 end
 
 -- Dissect: Unit Sequence
-cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence = function(buffer, offset, packet, parent)
+cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence = function(buffer, offset, packet, parent, unit_sequence_index)
   if show.unit_sequence then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.unit_sequence, buffer(offset, 0))
-    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields(buffer, offset, packet, parent, unit_sequence_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_bzx_options_orderentry_boe_v2_10_display.unit_sequence(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields(buffer, offset, packet, element)
+    return cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence_fields(buffer, offset, packet, parent, unit_sequence_index)
   end
 end
 
@@ -25693,7 +25693,7 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.logout_message_fields = function(b
 
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence(buffer, index, packet, parent)
+    index, unit_sequence = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence(buffer, index, packet, parent, unit_sequence_index)
   end
 
   return index
@@ -29576,7 +29576,7 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequences_fields = function(b
 
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence(buffer, index, packet, parent)
+    index, unit_sequence = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence(buffer, index, packet, parent, unit_sequence_index)
   end
 
   return index
@@ -29728,17 +29728,17 @@ end
 cboe_bzx_options_orderentry_boe_v2_10_dissect.param_header = function(buffer, offset, packet, parent)
   if show.param_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.param_header, buffer(offset, 0))
-    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.param_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.param_header, buffer(offset, 0))
+    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.param_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_bzx_options_orderentry_boe_v2_10_display.param_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bzx_options_orderentry_boe_v2_10_dissect.param_header_fields(buffer, offset, packet, element)
+    return cboe_bzx_options_orderentry_boe_v2_10_dissect.param_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -29914,7 +29914,7 @@ cboe_bzx_options_orderentry_boe_v2_10_dissect.login_response_message_fields = fu
 
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence(buffer, index, packet, parent)
+    index, unit_sequence = cboe_bzx_options_orderentry_boe_v2_10_dissect.unit_sequence(buffer, index, packet, parent, unit_sequence_index)
   end
 
   -- Number Of Param Groups: 1 Byte Unsigned Fixed Width Integer
@@ -30574,17 +30574,17 @@ end
 cboe_bzx_options_orderentry_boe_v2_10_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.message_header, buffer(offset, 0))
-    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_bzx_options_orderentry_boe_v2_10.fields.message_header, buffer(offset, 0))
+    local index = cboe_bzx_options_orderentry_boe_v2_10_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_bzx_options_orderentry_boe_v2_10_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bzx_options_orderentry_boe_v2_10_dissect.message_header_fields(buffer, offset, packet, element)
+    return cboe_bzx_options_orderentry_boe_v2_10_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 

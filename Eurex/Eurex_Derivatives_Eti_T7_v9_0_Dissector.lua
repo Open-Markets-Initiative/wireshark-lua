@@ -2027,17 +2027,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.response_header_comp = function(buffer, offset, packet, parent)
   if show.response_header_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.response_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.response_header_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.response_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.response_header_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.response_header_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2189,17 +2189,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.request_header_comp = function(buffer, offset, packet, parent)
   if show.request_header_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.request_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.request_header_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.request_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.request_header_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.request_header_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2530,20 +2530,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp_fields = function
 end
 
 -- Dissect: Underlying Stip Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp = function(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
   if show.underlying_stip_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.underlying_stip_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.underlying_stip_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp_fields(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.underlying_stip_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp_fields(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
   end
 end
 
@@ -2675,20 +2675,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp_fields = fun
 end
 
 -- Dissect: Instrument Attribute Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp = function(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
   if show.instrument_attribute_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrument_attribute_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrument_attribute_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp_fields(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.instrument_attribute_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp_fields(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
   end
 end
 
@@ -2808,20 +2808,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp_fields = functio
 end
 
 -- Dissect: Instrument Event Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp = function(buffer, offset, packet, parent, instrument_event_grp_comp_index)
   if show.instrument_event_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrument_event_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrument_event_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp_fields(buffer, offset, packet, parent, instrument_event_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.instrument_event_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp_fields(buffer, offset, packet, parent, instrument_event_grp_comp_index)
   end
 end
 
@@ -2963,20 +2963,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp_fields = functio
 end
 
 -- Dissect: Trd Instrmnt Leg Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp = function(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
   if show.trd_instrmnt_leg_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.trd_instrmnt_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.trd_instrmnt_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp_fields(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.trd_instrmnt_leg_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp_fields(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
   end
 end
 
@@ -3993,20 +3993,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp_fields = function(
 end
 
 -- Dissect: Side Alloc Ext Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp = function(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
   if show.side_alloc_ext_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_alloc_ext_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_alloc_ext_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp_fields(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.side_alloc_ext_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp_fields(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
   end
 end
 
@@ -5202,27 +5202,27 @@ eurex_derivatives_eti_t7_v9_0_dissect.upload_tes_trade_request_fields = function
 
   -- Repeating: Side Alloc Ext Grp Comp
   for side_alloc_ext_grp_comp_index = 1, no_side_allocs do
-    index, side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent)
+    index, side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent, side_alloc_ext_grp_comp_index)
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
+    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
-    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
+    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent, instrument_event_grp_comp_index)
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
-    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
+    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
-    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
+    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent, underlying_stip_grp_comp_index)
   end
 
   return index
@@ -5766,17 +5766,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_me_comp = function(buffer, offset, packet, parent)
   if show.rbc_header_me_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.rbc_header_me_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.rbc_header_me_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.rbc_header_me_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7277,17 +7277,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_comp = function(buffer, offset, packet, parent)
   if show.rbc_header_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.rbc_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.rbc_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.rbc_header_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7631,17 +7631,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.notif_header_comp = function(buffer, offset, packet, parent)
   if show.notif_header_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.notif_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.notif_header_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.notif_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.notif_header_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.notif_header_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7984,27 +7984,27 @@ eurex_derivatives_eti_t7_v9_0_dissect.tes_upload_broadcast_fields = function(buf
 
   -- Repeating: Side Alloc Ext Grp Comp
   for side_alloc_ext_grp_comp_index = 1, no_side_allocs do
-    index, side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent)
+    index, side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_ext_grp_comp(buffer, index, packet, parent, side_alloc_ext_grp_comp_index)
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
+    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
-    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
+    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent, instrument_event_grp_comp_index)
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
-    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
+    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
-    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
+    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent, underlying_stip_grp_comp_index)
   end
 
   return index
@@ -8142,20 +8142,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp_fields = fu
 end
 
 -- Dissect: Srqs Related Trade Id Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp = function(buffer, offset, packet, parent, srqs_related_trade_id_grp_comp_index)
   if show.srqs_related_trade_id_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.srqs_related_trade_id_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.srqs_related_trade_id_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp_fields(buffer, offset, packet, parent, srqs_related_trade_id_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.srqs_related_trade_id_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp_fields(buffer, offset, packet, parent, srqs_related_trade_id_grp_comp_index)
   end
 end
 
@@ -8634,7 +8634,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.tes_trade_broadcast_fields = function(buff
 
   -- Repeating: Srqs Related Trade Id Grp Comp
   for srqs_related_trade_id_grp_comp_index = 1, no_srqs_related_trade_i_ds do
-    index, srqs_related_trade_id_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent)
+    index, srqs_related_trade_id_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.srqs_related_trade_id_grp_comp(buffer, index, packet, parent, srqs_related_trade_id_grp_comp_index)
   end
 
   return index
@@ -8756,20 +8756,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp_fields = function(b
 end
 
 -- Dissect: Side Alloc Grp Bc Comp
-eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp = function(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
   if show.side_alloc_grp_bc_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_alloc_grp_bc_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_alloc_grp_bc_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.side_alloc_grp_bc_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp_fields(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
   end
 end
 
@@ -8916,7 +8916,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.tes_reversal_broadcast_fields = function(b
 
   -- Repeating: Side Alloc Grp Bc Comp
   for side_alloc_grp_bc_comp_index = 1, no_side_allocs do
-    index, side_alloc_grp_bc_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
+    index, side_alloc_grp_bc_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent, side_alloc_grp_bc_comp_index)
   end
 
   return index
@@ -9718,27 +9718,27 @@ eurex_derivatives_eti_t7_v9_0_dissect.tes_broadcast_fields = function(buffer, of
 
   -- Repeating: Side Alloc Grp Bc Comp
   for side_alloc_grp_bc_comp_index = 1, no_side_allocs do
-    index, side_alloc_grp_bc_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent)
+    index, side_alloc_grp_bc_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_bc_comp(buffer, index, packet, parent, side_alloc_grp_bc_comp_index)
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
+    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
-    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
+    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent, instrument_event_grp_comp_index)
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
-    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
+    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
-    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
+    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent, underlying_stip_grp_comp_index)
   end
 
   -- Runtime Size Of: Var Text
@@ -10042,22 +10042,22 @@ eurex_derivatives_eti_t7_v9_0_dissect.tes_approve_broadcast_fields = function(bu
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
+    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
-    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
+    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent, instrument_event_grp_comp_index)
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
-    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
+    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
-    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
+    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent, underlying_stip_grp_comp_index)
   end
 
   -- Runtime Size Of: Var Text
@@ -10389,17 +10389,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.nrbc_header_comp = function(buffer, offset, packet, parent)
   if show.nrbc_header_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.nrbc_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.nrbc_header_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.nrbc_header_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11287,20 +11287,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp_fields = function(buff
 end
 
 -- Dissect: Target Parties Comp
-eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp = function(buffer, offset, packet, parent, target_parties_comp_index)
   if show.target_parties_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.target_parties_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.target_parties_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp_fields(buffer, offset, packet, parent, target_parties_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.target_parties_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp_fields(buffer, offset, packet, parent, target_parties_comp_index)
   end
 end
 
@@ -11763,7 +11763,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_update_negotiation_request_fields = f
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
-    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent)
+    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent, target_parties_comp_index)
   end
 
   return index
@@ -12609,20 +12609,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp_fields = function(b
 end
 
 -- Dissect: Quot Req Legs Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp = function(buffer, offset, packet, parent, quot_req_legs_grp_comp_index)
   if show.quot_req_legs_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quot_req_legs_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quot_req_legs_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp_fields(buffer, offset, packet, parent, quot_req_legs_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.quot_req_legs_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp_fields(buffer, offset, packet, parent, quot_req_legs_grp_comp_index)
   end
 end
 
@@ -13083,12 +13083,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_open_negotiation_requester_notificati
 
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
-    index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
+    index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent, quot_req_legs_grp_comp_index)
   end
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
-    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent)
+    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent, target_parties_comp_index)
   end
 
   return index
@@ -13250,12 +13250,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_open_negotiation_request_fields = fun
 
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
-    index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
+    index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent, quot_req_legs_grp_comp_index)
   end
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
-    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent)
+    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent, target_parties_comp_index)
   end
 
   return index
@@ -13438,7 +13438,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_open_negotiation_notification_fields 
 
   -- Repeating: Quot Req Legs Grp Comp
   for quot_req_legs_grp_comp_index = 1, no_legs do
-    index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent)
+    index, quot_req_legs_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quot_req_legs_grp_comp(buffer, index, packet, parent, quot_req_legs_grp_comp_index)
   end
 
   return index
@@ -13722,7 +13722,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_negotiation_requester_notification_fi
 
   -- Repeating: Target Parties Comp
   for target_parties_comp_index = 1, no_target_party_i_ds do
-    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent)
+    index, target_parties_comp = eurex_derivatives_eti_t7_v9_0_dissect.target_parties_comp(buffer, index, packet, parent, target_parties_comp_index)
   end
 
   return index
@@ -13965,20 +13965,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp_fields = funct
 end
 
 -- Dissect: Smart Party Detail Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp = function(buffer, offset, packet, parent, smart_party_detail_grp_comp_index)
   if show.smart_party_detail_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.smart_party_detail_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.smart_party_detail_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp_fields(buffer, offset, packet, parent, smart_party_detail_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.smart_party_detail_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp_fields(buffer, offset, packet, parent, smart_party_detail_grp_comp_index)
   end
 end
 
@@ -14043,7 +14043,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_inquire_smart_respondent_response_fie
 
   -- Repeating: Smart Party Detail Grp Comp
   for smart_party_detail_grp_comp_index = 1, no_party_details do
-    index, smart_party_detail_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp(buffer, index, packet, parent)
+    index, smart_party_detail_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.smart_party_detail_grp_comp(buffer, index, packet, parent, smart_party_detail_grp_comp_index)
   end
 
   return index
@@ -15240,20 +15240,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp_fields = function
 end
 
 -- Dissect: Order Book Item Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp = function(buffer, offset, packet, parent, order_book_item_grp_comp_index)
   if show.order_book_item_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.order_book_item_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.order_book_item_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent, order_book_item_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.order_book_item_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp_fields(buffer, offset, packet, parent, order_book_item_grp_comp_index)
   end
 end
 
@@ -15477,7 +15477,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.srqs_create_deal_notification_fields = fun
 
   -- Repeating: Order Book Item Grp Comp
   for order_book_item_grp_comp_index = 1, no_order_book_items do
-    index, order_book_item_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp(buffer, index, packet, parent)
+    index, order_book_item_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.order_book_item_grp_comp(buffer, index, packet, parent, order_book_item_grp_comp_index)
   end
 
   return index
@@ -16507,17 +16507,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.nr_response_header_me_comp = function(buffer, offset, packet, parent)
   if show.nr_response_header_me_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.nr_response_header_me_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.nr_response_header_me_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.nr_response_header_me_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -16922,20 +16922,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp_fields = function(
 end
 
 -- Dissect: Quote Leg Exec Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp = function(buffer, offset, packet, parent, quote_leg_exec_grp_comp_index)
   if show.quote_leg_exec_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_leg_exec_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_leg_exec_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp_fields(buffer, offset, packet, parent, quote_leg_exec_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.quote_leg_exec_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp_fields(buffer, offset, packet, parent, quote_leg_exec_grp_comp_index)
   end
 end
 
@@ -17305,20 +17305,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp_fields = function(buf
 end
 
 -- Dissect: Quote Event Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp = function(buffer, offset, packet, parent, quote_event_grp_comp_index)
   if show.quote_event_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_event_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_event_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent, quote_event_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.quote_event_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp_fields(buffer, offset, packet, parent, quote_event_grp_comp_index)
   end
 end
 
@@ -17414,12 +17414,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.quote_execution_report_fields = function(b
 
   -- Repeating: Quote Event Grp Comp
   for quote_event_grp_comp_index = 1, no_quote_events do
-    index, quote_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp(buffer, index, packet, parent)
+    index, quote_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_event_grp_comp(buffer, index, packet, parent, quote_event_grp_comp_index)
   end
 
   -- Repeating: Quote Leg Exec Grp Comp
   for quote_leg_exec_grp_comp_index = 1, no_leg_execs do
-    index, quote_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp(buffer, index, packet, parent)
+    index, quote_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_leg_exec_grp_comp(buffer, index, packet, parent, quote_leg_exec_grp_comp_index)
   end
 
   return index
@@ -17498,20 +17498,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp_fields = 
 end
 
 -- Dissect: Not Affected Securities Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp = function(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
   if show.not_affected_securities_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.not_affected_securities_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.not_affected_securities_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.not_affected_securities_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp_fields(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
   end
 end
 
@@ -17604,7 +17604,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.quote_activation_response_fields = functio
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
-    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
   end
 
   return index
@@ -17932,7 +17932,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.quote_activation_notification_fields = fun
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
-    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
   end
 
   return index
@@ -18062,20 +18062,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp_fields = function(
 end
 
 -- Dissect: Risk Limit Qty Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp = function(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
   if show.risk_limit_qty_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.risk_limit_qty_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.risk_limit_qty_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp_fields(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.risk_limit_qty_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp_fields(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
   end
 end
 
@@ -18210,7 +18210,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.pre_trade_risk_limits_definition_request_f
 
   -- Repeating: Risk Limit Qty Grp Comp
   for risk_limit_qty_grp_comp_index = 1, no_risk_limits_qty do
-    index, risk_limit_qty_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp(buffer, index, packet, parent)
+    index, risk_limit_qty_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.risk_limit_qty_grp_comp(buffer, index, packet, parent, risk_limit_qty_grp_comp_index)
   end
 
   return index
@@ -18434,20 +18434,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp_fields = function
 end
 
 -- Dissect: Risk Limits Rpt Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp = function(buffer, offset, packet, parent, risk_limits_rpt_grp_comp_index)
   if show.risk_limits_rpt_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.risk_limits_rpt_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.risk_limits_rpt_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp_fields(buffer, offset, packet, parent, risk_limits_rpt_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.risk_limits_rpt_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp_fields(buffer, offset, packet, parent, risk_limits_rpt_grp_comp_index)
   end
 end
 
@@ -18549,7 +18549,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.pre_trade_risk_limit_response_fields = fun
 
   -- Repeating: Risk Limits Rpt Grp Comp
   for risk_limits_rpt_grp_comp_index = 1, no_risk_limits do
-    index, risk_limits_rpt_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp(buffer, index, packet, parent)
+    index, risk_limits_rpt_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.risk_limits_rpt_grp_comp(buffer, index, packet, parent, risk_limits_rpt_grp_comp_index)
   end
 
   return index
@@ -18915,20 +18915,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp_fields = functi
 end
 
 -- Dissect: Instrmnt Leg Exec Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp = function(buffer, offset, packet, parent, instrmnt_leg_exec_grp_comp_index)
   if show.instrmnt_leg_exec_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrmnt_leg_exec_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrmnt_leg_exec_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp_fields(buffer, offset, packet, parent, instrmnt_leg_exec_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.instrmnt_leg_exec_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp_fields(buffer, offset, packet, parent, instrmnt_leg_exec_grp_comp_index)
   end
 end
 
@@ -19152,20 +19152,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp_fields = function(buffer, o
 end
 
 -- Dissect: Fills Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp = function(buffer, offset, packet, parent, fills_grp_comp_index)
   if show.fills_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.fills_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.fills_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent, fills_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.fills_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent, fills_grp_comp_index)
   end
 end
 
@@ -19674,17 +19674,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.response_header_me_comp = function(buffer, offset, packet, parent)
   if show.response_header_me_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.response_header_me_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.response_header_me_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.response_header_me_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.response_header_me_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.response_header_me_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -19778,12 +19778,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.order_exec_response_fields = function(buff
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
-    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent)
+    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent, fills_grp_comp_index)
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
-    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
+    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent, instrmnt_leg_exec_grp_comp_index)
   end
 
   return index
@@ -19912,20 +19912,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp_fields = function(buffer,
 end
 
 -- Dissect: Leg Ord Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp = function(buffer, offset, packet, parent, leg_ord_grp_comp_index)
   if show.leg_ord_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.leg_ord_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.leg_ord_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp_fields(buffer, offset, packet, parent, leg_ord_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.leg_ord_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp_fields(buffer, offset, packet, parent, leg_ord_grp_comp_index)
   end
 end
 
@@ -20377,17 +20377,17 @@ eurex_derivatives_eti_t7_v9_0_dissect.order_exec_report_broadcast_fields = funct
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
-    index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent)
+    index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent, leg_ord_grp_comp_index)
   end
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
-    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent)
+    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent, fills_grp_comp_index)
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
-    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
+    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent, instrmnt_leg_exec_grp_comp_index)
   end
 
   return index
@@ -20497,12 +20497,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.order_exec_notification_fields = function(
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
-    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent)
+    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent, fills_grp_comp_index)
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
-    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
+    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent, instrmnt_leg_exec_grp_comp_index)
   end
 
   return index
@@ -21463,7 +21463,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.new_order_complex_request_fields = functio
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
-    index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent)
+    index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent, leg_ord_grp_comp_index)
   end
 
   return index
@@ -21547,20 +21547,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp_fields = function(buff
 end
 
 -- Dissect: Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
   if show.side_alloc_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_alloc_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_alloc_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent, side_alloc_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.side_alloc_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent, side_alloc_grp_comp_index)
   end
 end
 
@@ -21639,12 +21639,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.modify_tes_trade_request_fields = function
 
   -- Repeating: Side Alloc Grp Comp
   for side_alloc_grp_comp_index = 1, no_side_allocs do
-    index, side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
+    index, side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp(buffer, index, packet, parent, side_alloc_grp_comp_index)
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
+    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
   end
 
   return index
@@ -22438,7 +22438,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.modify_order_complex_request_fields = func
 
   -- Repeating: Leg Ord Grp Comp
   for leg_ord_grp_comp_index = 1, no_legs do
-    index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent)
+    index, leg_ord_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.leg_ord_grp_comp(buffer, index, packet, parent, leg_ord_grp_comp_index)
   end
 
   return index
@@ -22587,20 +22587,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp_fields = functi
 end
 
 -- Dissect: Basket Side Alloc Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp = function(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
   if show.basket_side_alloc_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_side_alloc_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_side_alloc_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp_fields(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.basket_side_alloc_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp_fields(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
   end
 end
 
@@ -22790,20 +22790,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp_fields = funct
 end
 
 -- Dissect: Instrmt Match Side Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp = function(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
   if show.instrmt_match_side_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrmt_match_side_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrmt_match_side_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp_fields(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.instrmt_match_side_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp_fields(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
   end
 end
 
@@ -22941,20 +22941,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp_fields = functi
 end
 
 -- Dissect: Basket Root Party Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp = function(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
   if show.basket_root_party_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_root_party_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_root_party_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp_fields(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.basket_root_party_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp_fields(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
   end
 end
 
@@ -23177,17 +23177,17 @@ eurex_derivatives_eti_t7_v9_0_dissect.modify_basket_trade_request_fields = funct
 
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
-    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
+    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent, basket_root_party_grp_comp_index)
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
-    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
+    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
+    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
   end
 
   return index
@@ -23452,20 +23452,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp_fields = function
 end
 
 -- Dissect: Quote Entry Ack Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
   if show.quote_entry_ack_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.quote_entry_ack_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp_fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
   end
 end
 
@@ -23564,7 +23564,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.mass_quote_response_fields = function(buff
 
   -- Repeating: Quote Entry Ack Grp Comp
   for quote_entry_ack_grp_comp_index = 1, no_quote_side_entries do
-    index, quote_entry_ack_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp(buffer, index, packet, parent)
+    index, quote_entry_ack_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_ack_grp_comp(buffer, index, packet, parent, quote_entry_ack_grp_comp_index)
   end
 
   return index
@@ -23638,20 +23638,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp_fields = function(buf
 end
 
 -- Dissect: Quote Entry Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
   if show.quote_entry_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.quote_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent, quote_entry_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.quote_entry_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent, quote_entry_grp_comp_index)
   end
 end
 
@@ -23785,7 +23785,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.mass_quote_request_fields = function(buffe
 
   -- Repeating: Quote Entry Grp Comp
   for quote_entry_grp_comp_index = 1, no_quote_entries do
-    index, quote_entry_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp(buffer, index, packet, parent)
+    index, quote_entry_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.quote_entry_grp_comp(buffer, index, packet, parent, quote_entry_grp_comp_index)
   end
 
   return index
@@ -25053,20 +25053,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp_fields = function(b
 end
 
 -- Dissect: Party Details Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp = function(buffer, offset, packet, parent, party_details_grp_comp_index)
   if show.party_details_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.party_details_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.party_details_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp_fields(buffer, offset, packet, parent, party_details_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.party_details_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp_fields(buffer, offset, packet, parent, party_details_grp_comp_index)
   end
 end
 
@@ -25126,7 +25126,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.inquire_user_response_fields = function(bu
 
   -- Repeating: Party Details Grp Comp
   for party_details_grp_comp_index = 1, no_party_details do
-    index, party_details_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp(buffer, index, packet, parent)
+    index, party_details_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.party_details_grp_comp(buffer, index, packet, parent, party_details_grp_comp_index)
   end
 
   return index
@@ -25312,20 +25312,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp_fields = function(buffer
 end
 
 -- Dissect: Sessions Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp = function(buffer, offset, packet, parent, sessions_grp_comp_index)
   if show.sessions_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.sessions_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.sessions_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent, sessions_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.sessions_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent, sessions_grp_comp_index)
   end
 end
 
@@ -25387,7 +25387,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.inquire_session_list_response_fields = fun
 
   -- Repeating: Sessions Grp Comp
   for sessions_grp_comp_index = 1, no_sessions do
-    index, sessions_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp(buffer, index, packet, parent)
+    index, sessions_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.sessions_grp_comp(buffer, index, packet, parent, sessions_grp_comp_index)
   end
 
   return index
@@ -25602,20 +25602,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp_fields = function(bu
 end
 
 -- Dissect: Mm Parameter Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp = function(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
   if show.mm_parameter_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.mm_parameter_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.mm_parameter_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp_fields(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.mm_parameter_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp_fields(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
   end
 end
 
@@ -25711,7 +25711,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.inquire_mm_parameter_response_fields = fun
 
   -- Repeating: Mm Parameter Grp Comp
   for mm_parameter_grp_comp_index = 1, no_mm_parameters do
-    index, mm_parameter_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp(buffer, index, packet, parent)
+    index, mm_parameter_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.mm_parameter_grp_comp(buffer, index, packet, parent, mm_parameter_grp_comp_index)
   end
 
   return index
@@ -25896,20 +25896,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp_fields = functio
 end
 
 -- Dissect: Enrichment Rules Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
   if show.enrichment_rules_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.enrichment_rules_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.enrichment_rules_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.enrichment_rules_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp_fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
   end
 end
 
@@ -25974,7 +25974,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.inquire_enrichment_rule_id_list_response_f
 
   -- Repeating: Enrichment Rules Grp Comp
   for enrichment_rules_grp_comp_index = 1, no_enrichment_rules do
-    index, enrichment_rules_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp(buffer, index, packet, parent)
+    index, enrichment_rules_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.enrichment_rules_grp_comp(buffer, index, packet, parent, enrichment_rules_grp_comp_index)
   end
 
   return index
@@ -26407,27 +26407,27 @@ eurex_derivatives_eti_t7_v9_0_dissect.enter_tes_trade_request_fields = function(
 
   -- Repeating: Side Alloc Grp Comp
   for side_alloc_grp_comp_index = 1, no_side_allocs do
-    index, side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp(buffer, index, packet, parent)
+    index, side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_alloc_grp_comp(buffer, index, packet, parent, side_alloc_grp_comp_index)
   end
 
   -- Repeating: Trd Instrmnt Leg Grp Comp
   for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent)
+    index, trd_instrmnt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.trd_instrmnt_leg_grp_comp(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
   end
 
   -- Repeating: Instrument Event Grp Comp
   for instrument_event_grp_comp_index = 1, no_events do
-    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent)
+    index, instrument_event_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_event_grp_comp(buffer, index, packet, parent, instrument_event_grp_comp_index)
   end
 
   -- Repeating: Instrument Attribute Grp Comp
   for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
-    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent)
+    index, instrument_attribute_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrument_attribute_grp_comp(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
   end
 
   -- Repeating: Underlying Stip Grp Comp
   for underlying_stip_grp_comp_index = 1, no_underlying_stips do
-    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent)
+    index, underlying_stip_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.underlying_stip_grp_comp(buffer, index, packet, parent, underlying_stip_grp_comp_index)
   end
 
   return index
@@ -26526,20 +26526,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp_fields = function(
 end
 
 -- Dissect: Side Cross Leg Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp = function(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
   if show.side_cross_leg_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_cross_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.side_cross_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp_fields(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.side_cross_leg_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp_fields(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
   end
 end
 
@@ -26775,20 +26775,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp_fields = funct
 end
 
 -- Dissect: Cross Request Side Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp = function(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
   if show.cross_request_side_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.cross_request_side_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.cross_request_side_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp_fields(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.cross_request_side_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp_fields(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
   end
 end
 
@@ -26994,12 +26994,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.enter_clip_request_fields = function(buffe
 
   -- Repeating: Cross Request Side Grp Comp
   for cross_request_side_grp_comp_index = 1, no_sides do
-    index, cross_request_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp(buffer, index, packet, parent)
+    index, cross_request_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_side_grp_comp(buffer, index, packet, parent, cross_request_side_grp_comp_index)
   end
 
   -- Repeating: Side Cross Leg Grp Comp
   for side_cross_leg_grp_comp_index = 1, no_cross_legs do
-    index, side_cross_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp(buffer, index, packet, parent)
+    index, side_cross_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.side_cross_leg_grp_comp(buffer, index, packet, parent, side_cross_leg_grp_comp_index)
   end
 
   return index
@@ -27121,17 +27121,17 @@ eurex_derivatives_eti_t7_v9_0_dissect.enter_basket_trade_request_fields = functi
 
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
-    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
+    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent, basket_root_party_grp_comp_index)
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
-    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
+    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
+    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
   end
 
   return index
@@ -27850,7 +27850,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.delete_all_quote_response_fields = functio
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
-    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
   end
 
   return index
@@ -28027,7 +28027,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.delete_all_quote_broadcast_fields = functi
 
   -- Repeating: Not Affected Securities Grp Comp
   for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
-    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent)
+    index, not_affected_securities_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_securities_grp_comp(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
   end
 
   return index
@@ -28111,20 +28111,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp_fields = 
 end
 
 -- Dissect: Affected Order Requests Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp = function(buffer, offset, packet, parent, affected_order_requests_grp_comp_index)
   if show.affected_order_requests_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.affected_order_requests_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.affected_order_requests_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent, affected_order_requests_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.affected_order_requests_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp_fields(buffer, offset, packet, parent, affected_order_requests_grp_comp_index)
   end
 end
 
@@ -28214,20 +28214,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp_fields = func
 end
 
 -- Dissect: Not Affected Orders Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
   if show.not_affected_orders_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.not_affected_orders_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.not_affected_orders_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.not_affected_orders_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp_fields(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
   end
 end
 
@@ -28320,12 +28320,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.delete_all_order_response_fields = functio
 
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
-    index, not_affected_orders_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+    index, not_affected_orders_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent, not_affected_orders_grp_comp_index)
   end
 
   -- Repeating: Affected Order Requests Grp Comp
   for affected_order_requests_grp_comp_index = 1, no_affected_order_requests do
-    index, affected_order_requests_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
+    index, affected_order_requests_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent, affected_order_requests_grp_comp_index)
   end
 
   return index
@@ -28606,12 +28606,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.delete_all_order_broadcast_fields = functi
 
   -- Repeating: Not Affected Orders Grp Comp
   for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
-    index, not_affected_orders_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent)
+    index, not_affected_orders_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.not_affected_orders_grp_comp(buffer, index, packet, parent, not_affected_orders_grp_comp_index)
   end
 
   -- Repeating: Affected Order Requests Grp Comp
   for affected_order_requests_grp_comp_index = 1, no_affected_order_requests do
-    index, affected_order_requests_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent)
+    index, affected_order_requests_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.affected_order_requests_grp_comp(buffer, index, packet, parent, affected_order_requests_grp_comp_index)
   end
 
   return index
@@ -28788,20 +28788,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp_fields = f
 end
 
 -- Dissect: Cross Request Ack Side Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp = function(buffer, offset, packet, parent, cross_request_ack_side_grp_comp_index)
   if show.cross_request_ack_side_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.cross_request_ack_side_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.cross_request_ack_side_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp_fields(buffer, offset, packet, parent, cross_request_ack_side_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.cross_request_ack_side_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp_fields(buffer, offset, packet, parent, cross_request_ack_side_grp_comp_index)
   end
 end
 
@@ -28850,7 +28850,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.clip_response_fields = function(buffer, of
 
   -- Repeating: Cross Request Ack Side Grp Comp
   for cross_request_ack_side_grp_comp_index = 1, no_sides do
-    index, cross_request_ack_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp(buffer, index, packet, parent)
+    index, cross_request_ack_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.cross_request_ack_side_grp_comp(buffer, index, packet, parent, cross_request_ack_side_grp_comp_index)
   end
 
   return index
@@ -28948,12 +28948,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.clip_execution_notification_fields = funct
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
-    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent)
+    index, fills_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.fills_grp_comp(buffer, index, packet, parent, fills_grp_comp_index)
   end
 
   -- Repeating: Instrmnt Leg Exec Grp Comp
   for instrmnt_leg_exec_grp_comp_index = 1, no_leg_execs do
-    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent)
+    index, instrmnt_leg_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmnt_leg_exec_grp_comp(buffer, index, packet, parent, instrmnt_leg_exec_grp_comp_index)
   end
 
   return index
@@ -29265,20 +29265,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp_fields = function(buf
 end
 
 -- Dissect: Basket Exec Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp = function(buffer, offset, packet, parent, basket_exec_grp_comp_index)
   if show.basket_exec_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_exec_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_exec_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp_fields(buffer, offset, packet, parent, basket_exec_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.basket_exec_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp_fields(buffer, offset, packet, parent, basket_exec_grp_comp_index)
   end
 end
 
@@ -29342,7 +29342,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_execution_broadcast_fields = functi
 
   -- Repeating: Basket Exec Grp Comp
   for basket_exec_grp_comp_index = 1, no_instrmt_match_sides do
-    index, basket_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp(buffer, index, packet, parent)
+    index, basket_exec_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_exec_grp_comp(buffer, index, packet, parent, basket_exec_grp_comp_index)
   end
 
   return index
@@ -29537,17 +29537,17 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_broadcast_fields = function(buffer,
 
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps_bc do
-    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
+    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent, basket_root_party_grp_comp_index)
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
-    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
+    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
+    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
   end
 
   return index
@@ -29761,20 +29761,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp_fields =
 end
 
 -- Dissect: Basket Side Alloc Ext Bc Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp = function(buffer, offset, packet, parent, basket_side_alloc_ext_bc_grp_comp_index)
   if show.basket_side_alloc_ext_bc_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_side_alloc_ext_bc_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_side_alloc_ext_bc_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp_fields(buffer, offset, packet, parent, basket_side_alloc_ext_bc_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.basket_side_alloc_ext_bc_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp_fields(buffer, offset, packet, parent, basket_side_alloc_ext_bc_grp_comp_index)
   end
 end
 
@@ -29853,12 +29853,12 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_approve_broadcast_fields = function
 
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
-    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
+    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent, basket_root_party_grp_comp_index)
   end
 
   -- Repeating: Basket Side Alloc Ext Bc Grp Comp
   for basket_side_alloc_ext_bc_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_ext_bc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp(buffer, index, packet, parent)
+    index, basket_side_alloc_ext_bc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_bc_grp_comp(buffer, index, packet, parent, basket_side_alloc_ext_bc_grp_comp_index)
   end
 
   return index
@@ -30274,20 +30274,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp_fields = fu
 end
 
 -- Dissect: Basket Side Alloc Ext Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp = function(buffer, offset, packet, parent, basket_side_alloc_ext_grp_comp_index)
   if show.basket_side_alloc_ext_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_side_alloc_ext_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.basket_side_alloc_ext_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp_fields(buffer, offset, packet, parent, basket_side_alloc_ext_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.basket_side_alloc_ext_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp_fields(buffer, offset, packet, parent, basket_side_alloc_ext_grp_comp_index)
   end
 end
 
@@ -30354,7 +30354,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.approve_basket_trade_request_fields = func
 
   -- Repeating: Basket Side Alloc Ext Grp Comp
   for basket_side_alloc_ext_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp(buffer, index, packet, parent)
+    index, basket_side_alloc_ext_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_ext_grp_comp(buffer, index, packet, parent, basket_side_alloc_ext_grp_comp_index)
   end
 
   return index
@@ -30449,17 +30449,17 @@ eurex_derivatives_eti_t7_v9_0_dissect.amend_basket_trade_request_fields = functi
 
   -- Repeating: Basket Root Party Grp Comp
   for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
-    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent)
+    index, basket_root_party_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_root_party_grp_comp(buffer, index, packet, parent, basket_root_party_grp_comp_index)
   end
 
   -- Repeating: Instrmt Match Side Grp Comp
   for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
-    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent)
+    index, instrmt_match_side_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_match_side_grp_comp(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
   end
 
   -- Repeating: Basket Side Alloc Grp Comp
   for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent)
+    index, basket_side_alloc_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.basket_side_alloc_grp_comp(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
   end
 
   return index
@@ -30907,20 +30907,20 @@ eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp_fields = function(buf
 end
 
 -- Dissect: Instrmt Leg Grp Comp
-eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
   if show.instrmt_leg_grp_comp then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrmt_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.instrmt_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.instrmt_leg_grp_comp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp_fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
   end
 end
 
@@ -31144,7 +31144,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.add_complex_instrument_response_fields = f
 
   -- Repeating: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, no_legs do
-    index, instrmt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
+    index, instrmt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent, instrmt_leg_grp_comp_index)
   end
 
   return index
@@ -31215,7 +31215,7 @@ eurex_derivatives_eti_t7_v9_0_dissect.add_complex_instrument_request_fields = fu
 
   -- Repeating: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, no_legs do
-    index, instrmt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent)
+    index, instrmt_leg_grp_comp = eurex_derivatives_eti_t7_v9_0_dissect.instrmt_leg_grp_comp(buffer, index, packet, parent, instrmt_leg_grp_comp_index)
   end
 
   return index
@@ -32908,17 +32908,17 @@ end
 eurex_derivatives_eti_t7_v9_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v9_0.fields.message_header, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v9_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v9_0.fields.message_header, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v9_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v9_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v9_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v9_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 

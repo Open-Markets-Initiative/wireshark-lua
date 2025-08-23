@@ -573,17 +573,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message = function(buffer, offset, packet, parent)
   if show.outright_series_summary_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.outright_series_summary_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.outright_series_summary_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.outright_series_summary_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -899,17 +899,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message = function(buffer, offset, packet, parent)
   if show.series_rfq_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.series_rfq_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.series_rfq_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.series_rfq_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1313,17 +1313,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message = function(buffer, offset, packet, parent)
   if show.options_imbalance_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_imbalance_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_imbalance_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_imbalance_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1413,17 +1413,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition = function(buffer, offset, packet, parent)
   if show.correction_condition then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.correction_condition, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.correction_condition, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.correction_condition(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1575,17 +1575,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message = function(buffer, offset, packet, parent)
   if show.options_trade_correction_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_correction_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_correction_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_correction_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1637,17 +1637,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message = function(buffer, offset, packet, parent)
   if show.options_trade_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_cancel_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_cancel_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1830,17 +1830,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition = function(buffer, offset, packet, parent)
   if show.trade_condition then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.trade_condition, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.trade_condition, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.trade_condition(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1907,17 +1907,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message = function(buffer, offset, packet, parent)
   if show.options_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2170,17 +2170,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message = function(buffer, offset, packet, parent)
   if show.options_quote_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_quote_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_quote_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_quote_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2389,17 +2389,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message = function(buffer, offset, packet, parent)
   if show.options_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_status_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_status_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2770,17 +2770,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message = function(buffer, offset, packet, parent)
   if show.outright_series_index_mapping_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.outright_series_index_mapping_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.outright_series_index_mapping_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.outright_series_index_mapping_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2907,17 +2907,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.refresh_header_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3333,17 +3333,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.security_status_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.security_status_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.security_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3410,17 +3410,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_clear_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_clear_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_clear_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3547,17 +3547,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_unavailable_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message_unavailable_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3624,17 +3624,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.refresh_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3706,17 +3706,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index_mapping_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3748,17 +3748,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.heartbeat_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3891,17 +3891,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.request_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3953,17 +3953,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.retransmission_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4331,17 +4331,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index_mapping_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4403,17 +4403,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message = function(buffer, offset, packet, parent)
   if show.time_reference_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.time_reference_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.time_reference_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.time_reference_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4460,17 +4460,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.sequence_number_reset_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4816,17 +4816,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_header, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_header, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5085,17 +5085,17 @@ end
 nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.packet_header, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_arca_options_topfeed_pillar_v1_2_c.fields.packet_header, buffer(offset, 0))
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

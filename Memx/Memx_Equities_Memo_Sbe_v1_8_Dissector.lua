@@ -809,17 +809,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_reject_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_reject_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_reject_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_reject_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1025,17 +1025,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message = function(buffer, offset, packet, parent)
   if show.order_cancel_reject_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_reject_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_reject_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.order_cancel_reject_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_reject_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1359,17 +1359,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message = function(buffer, offset, packet, parent)
   if show.execution_report_restatement_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_restatement_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_restatement_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_restatement_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_restatement_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1481,17 +1481,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message = function(buffer, offset, packet, parent)
   if show.execution_report_trade_break_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_break_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_break_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_break_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_break_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1624,17 +1624,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message = function(buffer, offset, packet, parent)
   if show.execution_report_trade_correction_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_correction_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_correction_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_correction_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1965,17 +1965,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message = function(buffer, offset, packet, parent)
   if show.execution_report_replaced_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_replaced_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_replaced_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_replaced_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2082,17 +2082,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message = function(buffer, offset, packet, parent)
   if show.execution_report_pending_replace_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_replace_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_replace_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_replace_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_replace_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2129,17 +2129,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_done_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_done_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_done_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_done_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_done_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2300,17 +2300,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message = function(buffer, offset, packet, parent)
   if show.execution_report_canceled_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_canceled_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_canceled_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_canceled_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2377,17 +2377,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
   if show.pending_mass_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.pending_mass_cancel_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.pending_mass_cancel_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.pending_mass_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2464,17 +2464,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message = function(buffer, offset, packet, parent)
   if show.execution_report_pending_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_cancel_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_cancel_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2784,17 +2784,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message = function(buffer, offset, packet, parent)
   if show.execution_report_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_trade_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3163,17 +3163,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message = function(buffer, offset, packet, parent)
   if show.execution_report_rejected_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_rejected_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_rejected_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_rejected_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3935,17 +3935,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message = function(buffer, offset, packet, parent)
   if show.execution_report_new_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_new_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_new_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_new_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4137,17 +4137,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message = function(buffer, offset, packet, parent)
   if show.execution_report_pending_new_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_new_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.execution_report_pending_new_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.execution_report_pending_new_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4209,17 +4209,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
   if show.mass_cancel_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_request_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.mass_cancel_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.mass_cancel_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4296,17 +4296,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_request_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.order_cancel_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4419,17 +4419,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_replace_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_replace_request_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.order_cancel_replace_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4591,17 +4591,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.new_order_single_message = function(buffer, offset, packet, parent)
   if show.new_order_single_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.new_order_single_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.new_order_single_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.new_order_single_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.new_order_single_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.new_order_single_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.new_order_single_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4975,17 +4975,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.sbe_header, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.sbe_header_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.sbe_header, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.sbe_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.sbe_header_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.sbe_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5122,17 +5122,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.stream_complete_message = function(buffer, offset, packet, parent)
   if show.stream_complete_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_complete_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.stream_complete_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_complete_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.stream_complete_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.stream_complete_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.stream_complete_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5194,17 +5194,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message = function(buffer, offset, packet, parent)
   if show.stream_rejected_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_rejected_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.stream_rejected_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.stream_rejected_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5261,17 +5261,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.stream_begin_message = function(buffer, offset, packet, parent)
   if show.stream_begin_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_begin_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.stream_begin_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_begin_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.stream_begin_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.stream_begin_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.stream_begin_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5323,17 +5323,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.replay_complete_message = function(buffer, offset, packet, parent)
   if show.replay_complete_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_complete_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.replay_complete_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_complete_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.replay_complete_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.replay_complete_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.replay_complete_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5398,17 +5398,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message = function(buffer, offset, packet, parent)
   if show.replay_rejected_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_rejected_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.replay_rejected_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.replay_rejected_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5465,17 +5465,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.replay_begin_message = function(buffer, offset, packet, parent)
   if show.replay_begin_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_begin_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.replay_begin_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_begin_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.replay_begin_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.replay_begin_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.replay_begin_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5527,17 +5527,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.start_of_session_message = function(buffer, offset, packet, parent)
   if show.start_of_session_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.start_of_session_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.start_of_session_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.start_of_session_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.start_of_session_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.start_of_session_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.start_of_session_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5602,17 +5602,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.login_rejected_message = function(buffer, offset, packet, parent)
   if show.login_rejected_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.login_rejected_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.login_rejected_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_rejected_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.login_rejected_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.login_rejected_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.login_rejected_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5674,17 +5674,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.login_accepted_message = function(buffer, offset, packet, parent)
   if show.login_accepted_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.login_accepted_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.login_accepted_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_accepted_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.login_accepted_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.login_accepted_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.login_accepted_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5758,17 +5758,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.stream_request_message = function(buffer, offset, packet, parent)
   if show.stream_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_request_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.stream_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.stream_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.stream_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.stream_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.stream_request_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.stream_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5800,17 +5800,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message = function(buffer, offset, packet, parent)
   if show.replay_all_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_all_request_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_all_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.replay_all_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.replay_all_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5872,17 +5872,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.replay_request_message = function(buffer, offset, packet, parent)
   if show.replay_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_request_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.replay_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.replay_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.replay_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.replay_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.replay_request_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.replay_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5959,17 +5959,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.login_request_message = function(buffer, offset, packet, parent)
   if show.login_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.login_request_message, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.login_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.login_request_message, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.login_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.login_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.login_request_message_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.login_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6252,17 +6252,17 @@ end
 memx_equities_memo_sbe_v1_8_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memo_sbe_v1_8.fields.common_header, buffer(offset, 0))
-    local index = memx_equities_memo_sbe_v1_8_dissect.common_header_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memo_sbe_v1_8.fields.common_header, buffer(offset, 0))
+    local index = memx_equities_memo_sbe_v1_8_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memo_sbe_v1_8_display.common_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memo_sbe_v1_8_dissect.common_header_fields(buffer, offset, packet, element)
+    return memx_equities_memo_sbe_v1_8_dissect.common_header_fields(buffer, offset, packet, parent)
   end
 end
 

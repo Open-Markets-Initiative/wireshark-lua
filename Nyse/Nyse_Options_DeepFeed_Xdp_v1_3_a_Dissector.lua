@@ -327,17 +327,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.sequence_number_reset_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -414,17 +414,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.stream_id_message = function(buffer, offset, packet, parent)
   if show.stream_id_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.stream_id_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -846,17 +846,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
   if show.series_index_mapping_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.series_index_mapping_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.series_index_mapping_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.series_index_mapping_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1091,17 +1091,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message = function(buffer, offset, packet, parent)
   if show.underlying_index_mapping_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.underlying_index_mapping_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1444,17 +1444,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_sell_message = function(buffer, offset, packet, parent)
   if show.refresh_outright_market_depth_sell_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_sell_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.refresh_outright_market_depth_sell_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_sell_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1581,17 +1581,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_buy_message = function(buffer, offset, packet, parent)
   if show.refresh_outright_market_depth_buy_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_buy_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.refresh_outright_market_depth_buy_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_buy_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.refresh_outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1718,17 +1718,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_series_status_message = function(buffer, offset, packet, parent)
   if show.outright_series_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_series_status_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_series_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_series_status_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_series_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.outright_series_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_series_status_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_series_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1810,17 +1810,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_status_message = function(buffer, offset, packet, parent)
   if show.underlying_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_status_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_status_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.underlying_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_status_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.underlying_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1927,17 +1927,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_sell_message = function(buffer, offset, packet, parent)
   if show.outright_market_depth_sell_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_sell_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.outright_market_depth_sell_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_sell_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_sell_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2104,17 +2104,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_buy_message = function(buffer, offset, packet, parent)
   if show.outright_market_depth_buy_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_buy_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.outright_market_depth_buy_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_buy_message_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.outright_market_depth_buy_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2339,17 +2339,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2614,17 +2614,17 @@ end
 nyse_options_deepfeed_xdp_v1_3_a_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_deepfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_deepfeed_xdp_v1_3_a_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nyse_options_deepfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2640,7 +2640,7 @@ nyse_options_deepfeed_xdp_v1_3_a_dissect.packet = function(buffer, packet, paren
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = nyse_options_deepfeed_xdp_v1_3_a_dissect.message(buffer, index, packet, parent)
+    index, message = nyse_options_deepfeed_xdp_v1_3_a_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index

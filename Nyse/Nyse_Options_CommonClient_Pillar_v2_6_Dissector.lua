@@ -175,17 +175,17 @@ end
 nyse_options_commonclient_pillar_v2_6_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_commonclient_pillar_v2_6.fields.message_header, buffer(offset, 0))
-    local index = nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_commonclient_pillar_v2_6.fields.message_header, buffer(offset, 0))
+    local index = nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_commonclient_pillar_v2_6_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, element)
+    return nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -447,17 +447,17 @@ end
 nyse_options_commonclient_pillar_v2_6_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_commonclient_pillar_v2_6.fields.packet_header, buffer(offset, 0))
-    local index = nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_commonclient_pillar_v2_6.fields.packet_header, buffer(offset, 0))
+    local index = nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_commonclient_pillar_v2_6_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

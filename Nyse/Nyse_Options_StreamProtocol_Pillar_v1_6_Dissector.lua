@@ -260,17 +260,17 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header = function(buffer, offset, packet, parent)
   if show.seq_msg_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_header, buffer(offset, 0))
-    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_header, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_streamprotocol_pillar_v1_6_display.seq_msg_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header_fields(buffer, offset, packet, element)
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -452,17 +452,17 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id = function(buffer, offset, packet, parent)
   if show.stream_id then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.stream_id, buffer(offset, 0))
-    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.stream_id, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_streamprotocol_pillar_v1_6_display.stream_id(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id_fields(buffer, offset, packet, element)
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.stream_id_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -499,17 +499,17 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid = function(buffer, offset, packet, parent)
   if show.seqmsgid then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seqmsgid, buffer(offset, 0))
-    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.seqmsgid, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_streamprotocol_pillar_v1_6_display.seqmsgid(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid_fields(buffer, offset, packet, element)
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.seqmsgid_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -614,17 +614,17 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header = function(buffer, offset, packet, parent)
   if show.msg_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.msg_header, buffer(offset, 0))
-    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.msg_header, buffer(offset, 0))
+    local index = nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_streamprotocol_pillar_v1_6_display.msg_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header_fields(buffer, offset, packet, element)
+    return nyse_options_streamprotocol_pillar_v1_6_dissect.msg_header_fields(buffer, offset, packet, parent)
   end
 end
 

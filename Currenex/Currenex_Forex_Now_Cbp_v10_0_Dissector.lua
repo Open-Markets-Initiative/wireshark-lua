@@ -347,17 +347,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.reject_message = function(buffer, offset, packet, parent)
   if show.reject_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.reject_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.reject_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.reject_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.reject_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.reject_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.reject_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -447,17 +447,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.mid_activity_indicator_message = function(buffer, offset, packet, parent)
   if show.mid_activity_indicator_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.mid_activity_indicator_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.mid_activity_indicator_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.mid_activity_indicator_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.mid_activity_indicator_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.mid_activity_indicator_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.mid_activity_indicator_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.mid_activity_indicator_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -560,17 +560,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.wamr_with_confidence_factor_message = function(buffer, offset, packet, parent)
   if show.wamr_with_confidence_factor_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.wamr_with_confidence_factor_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.wamr_with_confidence_factor_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.wamr_with_confidence_factor_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.wamr_with_confidence_factor_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.wamr_with_confidence_factor_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.wamr_with_confidence_factor_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.wamr_with_confidence_factor_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -734,17 +734,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.paid_given_message = function(buffer, offset, packet, parent)
   if show.paid_given_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.paid_given_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.paid_given_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.paid_given_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.paid_given_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.paid_given_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.paid_given_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.paid_given_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -773,7 +773,7 @@ currenex_forex_now_cbp_v10_0_dissect.depth_of_book_message_fields = function(buf
 
   -- Array Of: Level
   for level_index = 1, 20 do
-    index, level = currenex_forex_now_cbp_v10_0_dissect.level(buffer, index, packet, parent)
+    index, level = currenex_forex_now_cbp_v10_0_dissect.level(buffer, index, packet, parent, level_index)
   end
 
   return index
@@ -783,17 +783,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.depth_of_book_message = function(buffer, offset, packet, parent)
   if show.depth_of_book_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.depth_of_book_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.depth_of_book_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.depth_of_book_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.depth_of_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.depth_of_book_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.depth_of_book_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.depth_of_book_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -868,17 +868,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.mass_subscription_reply_message = function(buffer, offset, packet, parent)
   if show.mass_subscription_reply_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.mass_subscription_reply_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.mass_subscription_reply_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.mass_subscription_reply_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.mass_subscription_reply_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.mass_subscription_reply_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.mass_subscription_reply_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.mass_subscription_reply_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -925,17 +925,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.subscription_reply_message = function(buffer, offset, packet, parent)
   if show.subscription_reply_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.subscription_reply_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.subscription_reply_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.subscription_reply_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.subscription_reply_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.subscription_reply_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.subscription_reply_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.subscription_reply_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1161,17 +1161,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.mass_subscription_request_message = function(buffer, offset, packet, parent)
   if show.mass_subscription_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.mass_subscription_request_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.mass_subscription_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.mass_subscription_request_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.mass_subscription_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.mass_subscription_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.mass_subscription_request_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.mass_subscription_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1233,17 +1233,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.subscription_request_message = function(buffer, offset, packet, parent)
   if show.subscription_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.subscription_request_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.subscription_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.subscription_request_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.subscription_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.subscription_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.subscription_request_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.subscription_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1280,17 +1280,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.instrument_info_ack_message = function(buffer, offset, packet, parent)
   if show.instrument_info_ack_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.instrument_info_ack_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.instrument_info_ack_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.instrument_info_ack_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.instrument_info_ack_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.instrument_info_ack_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.instrument_info_ack_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.instrument_info_ack_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1422,17 +1422,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.instrument_info = function(buffer, offset, packet, parent)
   if show.instrument_info then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.instrument_info, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.instrument_info_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.instrument_info, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.instrument_info(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.instrument_info_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.instrument_info_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1464,17 +1464,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.heart_beat_message = function(buffer, offset, packet, parent)
   if show.heart_beat_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.heart_beat_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.heart_beat_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.heart_beat_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.heart_beat_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.heart_beat_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.heart_beat_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.heart_beat_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1556,17 +1556,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.logout_message = function(buffer, offset, packet, parent)
   if show.logout_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.logout_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.logout_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.logout_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.logout_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.logout_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.logout_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.logout_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1628,17 +1628,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.logon_message = function(buffer, offset, packet, parent)
   if show.logon_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.logon_message, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.logon_message_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.logon_message, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.logon_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.logon_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.logon_message_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.logon_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1912,17 +1912,17 @@ end
 currenex_forex_now_cbp_v10_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(currenex_forex_now_cbp_v10_0.fields.message_header, buffer(offset, 0))
-    local index = currenex_forex_now_cbp_v10_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(currenex_forex_now_cbp_v10_0.fields.message_header, buffer(offset, 0))
+    local index = currenex_forex_now_cbp_v10_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = currenex_forex_now_cbp_v10_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return currenex_forex_now_cbp_v10_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return currenex_forex_now_cbp_v10_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 

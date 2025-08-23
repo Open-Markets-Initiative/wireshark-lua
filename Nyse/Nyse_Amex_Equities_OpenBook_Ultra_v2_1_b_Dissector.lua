@@ -198,17 +198,17 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.sequence_number_reset_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -480,17 +480,17 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_price_point = function(buffer, offset, packet, parent)
   if show.delta_price_point then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
-    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
+    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.delta_price_point(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, element)
+    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -879,17 +879,17 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_price_point = function(buffer, offset, packet, parent)
   if show.full_price_point then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
-    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
+    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.full_price_point(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, element)
+    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1397,17 +1397,17 @@ end
 nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
-    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
+    local index = nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_amex_equities_openbook_ultra_v2_1_b_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nyse_amex_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

@@ -393,17 +393,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.broken_trade_report_message = function(buffer, offset, packet, parent)
   if show.broken_trade_report_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.broken_trade_report_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.broken_trade_report_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.broken_trade_report_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.broken_trade_report_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -546,17 +546,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_report_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_report_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.trade_report_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.trade_report_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_report_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -664,17 +664,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_update_message = function(buffer, offset, packet, parent)
   if show.long_best_bid_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_update_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_update_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.long_best_bid_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_update_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -726,17 +726,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_ask_update_message = function(buffer, offset, packet, parent)
   if show.long_best_ask_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_ask_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.long_best_ask_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_ask_update_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_ask_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -834,17 +834,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_update_message = function(buffer, offset, packet, parent)
   if show.short_best_bid_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_update_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_update_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.short_best_bid_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_update_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -896,17 +896,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_ask_update_message = function(buffer, offset, packet, parent)
   if show.short_best_ask_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_ask_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.short_best_ask_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_ask_update_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_ask_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1060,17 +1060,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   if show.long_best_bid_and_ask_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.long_best_bid_and_ask_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1224,17 +1224,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   if show.short_best_bid_and_ask_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.short_best_bid_and_ask_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1303,17 +1303,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   if show.security_open_closed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.security_open_closed_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.security_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.security_open_closed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1382,17 +1382,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.trading_action_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.trading_action_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.trading_action_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.trading_action_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.trading_action_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1744,17 +1744,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.options_directory_message = function(buffer, offset, packet, parent)
   if show.options_directory_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.options_directory_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.options_directory_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.options_directory_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.options_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.options_directory_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.options_directory_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.options_directory_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1886,17 +1886,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.system_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.system_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.system_event_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.system_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1948,17 +1948,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.timestamp_message = function(buffer, offset, packet, parent)
   if show.timestamp_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.timestamp_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.timestamp_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.timestamp_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.timestamp_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.timestamp_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.timestamp_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2216,17 +2216,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2392,17 +2392,17 @@ end
 nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_topo_itch_v3_3.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_topo_itch_v3_3_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_topo_itch_v3_3_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

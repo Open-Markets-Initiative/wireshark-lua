@@ -872,17 +872,17 @@ end
 siac_cts_output_cta_v1_91_dissect.participant_data = function(buffer, offset, packet, parent)
   if show.participant_data then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.participant_data, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.participant_data_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.participant_data, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.participant_data_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.participant_data(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.participant_data_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.participant_data_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -944,17 +944,17 @@ end
 siac_cts_output_cta_v1_91_dissect.consolidated_data = function(buffer, offset, packet, parent)
   if show.consolidated_data then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.consolidated_data, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.consolidated_data_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.consolidated_data, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.consolidated_data_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.consolidated_data(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.consolidated_data_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.consolidated_data_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1217,17 +1217,17 @@ end
 siac_cts_output_cta_v1_91_dissect.timestamp_2 = function(buffer, offset, packet, parent)
   if show.timestamp_2 then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.timestamp_2, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.timestamp_2_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.timestamp_2, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.timestamp_2_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.timestamp_2(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.timestamp_2_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.timestamp_2_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1624,17 +1624,17 @@ end
 siac_cts_output_cta_v1_91_dissect.sale_conditions = function(buffer, offset, packet, parent)
   if show.sale_conditions then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.sale_conditions, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.sale_conditions_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.sale_conditions, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.sale_conditions_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.sale_conditions(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.sale_conditions_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.sale_conditions_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1784,17 +1784,17 @@ end
 siac_cts_output_cta_v1_91_dissect.timestamp_1 = function(buffer, offset, packet, parent)
   if show.timestamp_1 then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.timestamp_1, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.timestamp_1_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.timestamp_1, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.timestamp_1_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.timestamp_1(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.timestamp_1_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.timestamp_1_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2901,17 +2901,17 @@ end
 siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time = function(buffer, offset, packet, parent)
   if show.prior_day_trade_date_and_time then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.prior_day_trade_date_and_time, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.prior_day_trade_date_and_time, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.prior_day_trade_date_and_time(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2978,17 +2978,17 @@ end
 siac_cts_output_cta_v1_91_dissect.original_trade = function(buffer, offset, packet, parent)
   if show.original_trade then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.original_trade, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.original_trade_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.original_trade, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.original_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.original_trade(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.original_trade_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.original_trade_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3075,17 +3075,17 @@ end
 siac_cts_output_cta_v1_91_dissect.corrected_trade = function(buffer, offset, packet, parent)
   if show.corrected_trade then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.corrected_trade, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.corrected_trade_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.corrected_trade, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.corrected_trade_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.corrected_trade(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.corrected_trade_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.corrected_trade_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4635,20 +4635,20 @@ siac_cts_output_cta_v1_91_dissect.participants_fields = function(buffer, offset,
 end
 
 -- Dissect: Participants
-siac_cts_output_cta_v1_91_dissect.participants = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.participants = function(buffer, offset, packet, parent, participants_index)
   if show.participants then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.participants, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.participants_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.participants, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.participants_fields(buffer, offset, packet, parent, participants_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.participants(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.participants_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.participants_fields(buffer, offset, packet, parent, participants_index)
   end
 end
 
@@ -4691,7 +4691,7 @@ siac_cts_output_cta_v1_91_dissect.approximate_adjusted_volume_market_center_mess
 
   -- Repeating: Participants
   for participants_index = 1, number_of_participants do
-    index, participants = siac_cts_output_cta_v1_91_dissect.participants(buffer, index, packet, parent)
+    index, participants = siac_cts_output_cta_v1_91_dissect.participants(buffer, index, packet, parent, participants_index)
   end
 
   return index
@@ -6563,17 +6563,17 @@ end
 siac_cts_output_cta_v1_91_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.message_header, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.message_header, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6678,17 +6678,17 @@ end
 siac_cts_output_cta_v1_91_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   if show.sip_block_timestamp then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.sip_block_timestamp, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.sip_block_timestamp, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.sip_block_timestamp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6882,17 +6882,17 @@ end
 siac_cts_output_cta_v1_91_dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cts_output_cta_v1_91.fields.block_header, buffer(offset, 0))
-    local index = siac_cts_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cts_output_cta_v1_91.fields.block_header, buffer(offset, 0))
+    local index = siac_cts_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cts_output_cta_v1_91_display.block_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, element)
+    return siac_cts_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, parent)
   end
 end
 

@@ -257,17 +257,17 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message = function(buffer, offset, packet, parent)
   if show.market_at_close_book_entry_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message, buffer(offset, 0))
-    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields(buffer, offset, packet, element)
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = a2x_equities_snapshot_amd_v1_3_2_display.market_at_close_book_entry_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields(buffer, offset, packet, element)
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.market_at_close_book_entry_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -314,17 +314,17 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message = function(buffer, offset, packet, parent)
   if show.book_entry_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message, buffer(offset, 0))
-    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields(buffer, offset, packet, element)
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_entry_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = a2x_equities_snapshot_amd_v1_3_2_display.book_entry_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields(buffer, offset, packet, element)
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.book_entry_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -539,17 +539,17 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message = function(buffer, offset, packet, parent)
   if show.book_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_status_message, buffer(offset, 0))
-    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.book_status_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = a2x_equities_snapshot_amd_v1_3_2_display.book_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields(buffer, offset, packet, element)
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.book_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -651,17 +651,17 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message = function(buffer, offset, packet, parent)
   if show.snapshot_start_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.snapshot_start_message, buffer(offset, 0))
-    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields(buffer, offset, packet, element)
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.snapshot_start_message, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = a2x_equities_snapshot_amd_v1_3_2_display.snapshot_start_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields(buffer, offset, packet, element)
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.snapshot_start_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -855,17 +855,17 @@ end
 a2x_equities_snapshot_amd_v1_3_2_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.message_header, buffer(offset, 0))
-    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(a2x_equities_snapshot_amd_v1_3_2.fields.message_header, buffer(offset, 0))
+    local index = a2x_equities_snapshot_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = a2x_equities_snapshot_amd_v1_3_2_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return a2x_equities_snapshot_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, element)
+    return a2x_equities_snapshot_amd_v1_3_2_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 

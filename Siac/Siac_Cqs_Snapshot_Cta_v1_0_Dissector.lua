@@ -2526,17 +2526,17 @@ end
 siac_cqs_snapshot_cta_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_header, buffer(offset, 0))
-    local index = siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.message_header, buffer(offset, 0))
+    local index = siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cqs_snapshot_cta_v1_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return siac_cqs_snapshot_cta_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2681,17 +2681,17 @@ end
 siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   if show.sip_block_timestamp then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp, buffer(offset, 0))
-    local index = siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp, buffer(offset, 0))
+    local index = siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cqs_snapshot_cta_v1_0_display.sip_block_timestamp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, element)
+    return siac_cqs_snapshot_cta_v1_0_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2916,17 +2916,17 @@ end
 siac_cqs_snapshot_cta_v1_0_dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_header, buffer(offset, 0))
-    local index = siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_cqs_snapshot_cta_v1_0.fields.block_header, buffer(offset, 0))
+    local index = siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_cqs_snapshot_cta_v1_0_display.block_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, element)
+    return siac_cqs_snapshot_cta_v1_0_dissect.block_header_fields(buffer, offset, packet, parent)
   end
 end
 

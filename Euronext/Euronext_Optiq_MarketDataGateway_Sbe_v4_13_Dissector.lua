@@ -980,17 +980,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_snapshot_message = function(buffer, offset, packet, parent)
   if show.end_of_snapshot_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.end_of_snapshot_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_snapshot_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.end_of_snapshot_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.end_of_snapshot_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_snapshot_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_snapshot_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1027,17 +1027,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_snapshot_message = function(buffer, offset, packet, parent)
   if show.start_of_snapshot_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.start_of_snapshot_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_snapshot_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.start_of_snapshot_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_snapshot_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.start_of_snapshot_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_snapshot_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_snapshot_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1232,17 +1232,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_instrument_suspension_message = function(buffer, offset, packet, parent)
   if show.bf_instrument_suspension_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.bf_instrument_suspension_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_instrument_suspension_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.bf_instrument_suspension_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_instrument_suspension_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.bf_instrument_suspension_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_instrument_suspension_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_instrument_suspension_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1516,17 +1516,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bfnav_message = function(buffer, offset, packet, parent)
   if show.bfnav_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.bfnav_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bfnav_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.bfnav_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bfnav_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.bfnav_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bfnav_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bfnav_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2054,17 +2054,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_trade_message = function(buffer, offset, packet, parent)
   if show.bf_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.bf_trade_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.bf_trade_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.bf_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_trade_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.bf_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2124,20 +2124,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_gro
 end
 
 -- Dissect: Interest Payment Date Rep Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group = function(buffer, offset, packet, parent, interest_payment_date_rep_group_index)
   if show.interest_payment_date_rep_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.interest_payment_date_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.interest_payment_date_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group_fields(buffer, offset, packet, parent, interest_payment_date_rep_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.interest_payment_date_rep_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group_fields(buffer, offset, packet, parent, interest_payment_date_rep_group_index)
   end
 end
 
@@ -2214,17 +2214,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.group_size_encoding = function(buffer, offset, packet, parent)
   if show.group_size_encoding then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.group_size_encoding, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.group_size_encoding_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.group_size_encoding, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.group_size_encoding_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.group_size_encoding(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.group_size_encoding_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.group_size_encoding_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2258,7 +2258,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_gro
 
   -- Repeating: Interest Payment Date Rep Group
   for interest_payment_date_rep_group_index = 1, num_in_group do
-    index, interest_payment_date_rep_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group(buffer, index, packet, parent)
+    index, interest_payment_date_rep_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.interest_payment_date_rep_group(buffer, index, packet, parent, interest_payment_date_rep_group_index)
   end
 
   return index
@@ -5499,17 +5499,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_full_trade_information_message = function(buffer, offset, packet, parent)
   if show.apa_full_trade_information_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.apa_full_trade_information_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_full_trade_information_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.apa_full_trade_information_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_full_trade_information_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.apa_full_trade_information_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_full_trade_information_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_full_trade_information_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6076,17 +6076,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_standing_data_message = function(buffer, offset, packet, parent)
   if show.apa_standing_data_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.apa_standing_data_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_standing_data_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.apa_standing_data_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_standing_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.apa_standing_data_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_standing_data_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_standing_data_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6350,17 +6350,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_quotes_message = function(buffer, offset, packet, parent)
   if show.apa_quotes_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.apa_quotes_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_quotes_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.apa_quotes_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_quotes_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.apa_quotes_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_quotes_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.apa_quotes_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6500,20 +6500,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group_fiel
 end
 
 -- Dissect: Package Components Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group = function(buffer, offset, packet, parent, package_components_group_index)
   if show.package_components_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.package_components_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.package_components_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group_fields(buffer, offset, packet, parent, package_components_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.package_components_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group_fields(buffer, offset, packet, parent, package_components_group_index)
   end
 end
 
@@ -6547,7 +6547,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_groups_fie
 
   -- Repeating: Package Components Group
   for package_components_group_index = 1, num_in_group do
-    index, package_components_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group(buffer, index, packet, parent)
+    index, package_components_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.package_components_group(buffer, index, packet, parent, package_components_group_index)
   end
 
   return index
@@ -7200,20 +7200,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group_fields = functio
 end
 
 -- Dissect: Orders Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group = function(buffer, offset, packet, parent, orders_group_index)
   if show.orders_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.orders_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.orders_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group_fields(buffer, offset, packet, parent, orders_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.orders_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group_fields(buffer, offset, packet, parent, orders_group_index)
   end
 end
 
@@ -7247,7 +7247,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_groups_fields = functi
 
   -- Repeating: Orders Group
   for orders_group_index = 1, num_in_group do
-    index, orders_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group(buffer, index, packet, parent)
+    index, orders_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.orders_group(buffer, index, packet, parent, orders_group_index)
   end
 
   return index
@@ -7354,20 +7354,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group_fields = f
 end
 
 -- Dissect: Outright Rep Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group = function(buffer, offset, packet, parent, outright_rep_group_index)
   if show.outright_rep_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.outright_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.outright_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group_fields(buffer, offset, packet, parent, outright_rep_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.outright_rep_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group_fields(buffer, offset, packet, parent, outright_rep_group_index)
   end
 end
 
@@ -7401,7 +7401,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_groups_fields = 
 
   -- Repeating: Outright Rep Group
   for outright_rep_group_index = 1, num_in_group do
-    index, outright_rep_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group(buffer, index, packet, parent)
+    index, outright_rep_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.outright_rep_group(buffer, index, packet, parent, outright_rep_group_index)
   end
 
   return index
@@ -8549,20 +8549,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group
 end
 
 -- Dissect: Contract Emm Properties Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group = function(buffer, offset, packet, parent, contract_emm_properties_group_index)
   if show.contract_emm_properties_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.contract_emm_properties_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.contract_emm_properties_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group_fields(buffer, offset, packet, parent, contract_emm_properties_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.contract_emm_properties_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group_fields(buffer, offset, packet, parent, contract_emm_properties_group_index)
   end
 end
 
@@ -8596,7 +8596,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group
 
   -- Repeating: Contract Emm Properties Group
   for contract_emm_properties_group_index = 1, num_in_group do
-    index, contract_emm_properties_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group(buffer, index, packet, parent)
+    index, contract_emm_properties_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.contract_emm_properties_group(buffer, index, packet, parent, contract_emm_properties_group_index)
   end
 
   return index
@@ -10211,20 +10211,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_g
 end
 
 -- Dissect: Strategy Standing Datarep 1 Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group = function(buffer, offset, packet, parent, strategy_standing_datarep_1_group_index)
   if show.strategy_standing_datarep_1_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.strategy_standing_datarep_1_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.strategy_standing_datarep_1_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group_fields(buffer, offset, packet, parent, strategy_standing_datarep_1_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.strategy_standing_datarep_1_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group_fields(buffer, offset, packet, parent, strategy_standing_datarep_1_group_index)
   end
 end
 
@@ -10258,7 +10258,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_g
 
   -- Repeating: Strategy Standing Datarep 1 Group
   for strategy_standing_datarep_1_group_index = 1, num_in_group do
-    index, strategy_standing_datarep_1_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group(buffer, index, packet, parent)
+    index, strategy_standing_datarep_1_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.strategy_standing_datarep_1_group(buffer, index, packet, parent, strategy_standing_datarep_1_group_index)
   end
 
   return index
@@ -10793,17 +10793,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.index_summary_message = function(buffer, offset, packet, parent)
   if show.index_summary_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.index_summary_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.index_summary_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.index_summary_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.index_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.index_summary_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.index_summary_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.index_summary_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -10934,20 +10934,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group_fields = func
 end
 
 -- Dissect: New Stats Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group = function(buffer, offset, packet, parent, new_stats_group_index)
   if show.new_stats_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.new_stats_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.new_stats_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group_fields(buffer, offset, packet, parent, new_stats_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.new_stats_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group_fields(buffer, offset, packet, parent, new_stats_group_index)
   end
 end
 
@@ -10981,7 +10981,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_groups_fields = fun
 
   -- Repeating: New Stats Group
   for new_stats_group_index = 1, num_in_group do
-    index, new_stats_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group(buffer, index, packet, parent)
+    index, new_stats_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.new_stats_group(buffer, index, packet, parent, new_stats_group_index)
   end
 
   return index
@@ -11287,17 +11287,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.real_time_index_message = function(buffer, offset, packet, parent)
   if show.real_time_index_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.real_time_index_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.real_time_index_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.real_time_index_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.real_time_index_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.real_time_index_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.real_time_index_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.real_time_index_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11434,20 +11434,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group_fields
 end
 
 -- Dissect: Em M Pattern Rep Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group = function(buffer, offset, packet, parent, em_m_pattern_rep_group_index)
   if show.em_m_pattern_rep_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.em_m_pattern_rep_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.em_m_pattern_rep_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group_fields(buffer, offset, packet, parent, em_m_pattern_rep_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.em_m_pattern_rep_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group_fields(buffer, offset, packet, parent, em_m_pattern_rep_group_index)
   end
 end
 
@@ -11481,7 +11481,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_groups_field
 
   -- Repeating: Em M Pattern Rep Group
   for em_m_pattern_rep_group_index = 1, num_in_group do
-    index, em_m_pattern_rep_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group(buffer, index, packet, parent)
+    index, em_m_pattern_rep_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.em_m_pattern_rep_group(buffer, index, packet, parent, em_m_pattern_rep_group_index)
   end
 
   return index
@@ -13478,20 +13478,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group_fields = fun
 end
 
 -- Dissect: Timetables Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group = function(buffer, offset, packet, parent, timetables_group_index)
   if show.timetables_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.timetables_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.timetables_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group_fields(buffer, offset, packet, parent, timetables_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.timetables_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group_fields(buffer, offset, packet, parent, timetables_group_index)
   end
 end
 
@@ -13525,7 +13525,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_groups_fields = fu
 
   -- Repeating: Timetables Group
   for timetables_group_index = 1, num_in_group do
-    index, timetables_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group(buffer, index, packet, parent)
+    index, timetables_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.timetables_group(buffer, index, packet, parent, timetables_group_index)
   end
 
   return index
@@ -14123,20 +14123,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group_fields = 
 end
 
 -- Dissect: Market States Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group = function(buffer, offset, packet, parent, market_states_group_index)
   if show.market_states_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.market_states_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.market_states_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group_fields(buffer, offset, packet, parent, market_states_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.market_states_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group_fields(buffer, offset, packet, parent, market_states_group_index)
   end
 end
 
@@ -14170,7 +14170,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_groups_fields =
 
   -- Repeating: Market States Group
   for market_states_group_index = 1, num_in_group do
-    index, market_states_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group(buffer, index, packet, parent)
+    index, market_states_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_states_group(buffer, index, packet, parent, market_states_group_index)
   end
 
   return index
@@ -14271,7 +14271,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.not_used_group_1_groups_field
 
   -- Repeating: Not Used Group 1 Group
   for not_used_group_1_group_index = 1, num_in_group do
-    index, not_used_group_1_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.not_used_group_1_group(buffer, index, packet, parent)
+    index, not_used_group_1_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.not_used_group_1_group(buffer, index, packet, parent, not_used_group_1_group_index)
   end
 
   return index
@@ -15650,20 +15650,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group_fields = functio
 end
 
 -- Dissect: Prices Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group = function(buffer, offset, packet, parent, prices_group_index)
   if show.prices_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.prices_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.prices_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group_fields(buffer, offset, packet, parent, prices_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.prices_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group_fields(buffer, offset, packet, parent, prices_group_index)
   end
 end
 
@@ -15697,7 +15697,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_groups_fields = functi
 
   -- Repeating: Prices Group
   for prices_group_index = 1, num_in_group do
-    index, prices_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group(buffer, index, packet, parent)
+    index, prices_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.prices_group(buffer, index, packet, parent, prices_group_index)
   end
 
   return index
@@ -16194,20 +16194,20 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group_fields = functi
 end
 
 -- Dissect: Updates Group
-euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group = function(buffer, offset, packet, parent, updates_group_index)
   if show.updates_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.updates_group, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.updates_group, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group_fields(buffer, offset, packet, parent, updates_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.updates_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group_fields(buffer, offset, packet, parent, updates_group_index)
   end
 end
 
@@ -16241,7 +16241,7 @@ euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_groups_fields = funct
 
   -- Repeating: Updates Group
   for updates_group_index = 1, num_in_group do
-    index, updates_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group(buffer, index, packet, parent)
+    index, updates_group = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.updates_group(buffer, index, packet, parent, updates_group_index)
   end
 
   return index
@@ -16450,17 +16450,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.technical_notification_message = function(buffer, offset, packet, parent)
   if show.technical_notification_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.technical_notification_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.technical_notification_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.technical_notification_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.technical_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.technical_notification_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.technical_notification_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.technical_notification_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -16497,17 +16497,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.health_status_message = function(buffer, offset, packet, parent)
   if show.health_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.health_status_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.health_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.health_status_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.health_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.health_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.health_status_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.health_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -16564,17 +16564,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_day_message = function(buffer, offset, packet, parent)
   if show.end_of_day_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.end_of_day_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_day_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.end_of_day_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.end_of_day_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_day_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -16611,17 +16611,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_day_message = function(buffer, offset, packet, parent)
   if show.start_of_day_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.start_of_day_message, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_day_message_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.start_of_day_message, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.start_of_day_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_day_message_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -17094,17 +17094,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.message_header, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.message_header, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.message_header_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -17350,17 +17350,17 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_data_packet_header = function(buffer, offset, packet, parent)
   if show.market_data_packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.market_data_packet_header, buffer(offset, 0))
-    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_data_packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(euronext_optiq_marketdatagateway_sbe_v4_13.fields.market_data_packet_header, buffer(offset, 0))
+    local index = euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_data_packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = euronext_optiq_marketdatagateway_sbe_v4_13_display.market_data_packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_data_packet_header_fields(buffer, offset, packet, element)
+    return euronext_optiq_marketdatagateway_sbe_v4_13_dissect.market_data_packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

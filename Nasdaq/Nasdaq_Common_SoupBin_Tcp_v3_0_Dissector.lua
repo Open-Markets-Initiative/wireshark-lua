@@ -340,17 +340,17 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet, buffer(offset, 0))
-    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.login_request_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_common_soupbin_tcp_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, element)
+    return nasdaq_common_soupbin_tcp_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -489,17 +489,17 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet, buffer(offset, 0))
-    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.login_rejected_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_common_soupbin_tcp_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, element)
+    return nasdaq_common_soupbin_tcp_v3_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -576,17 +576,17 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet, buffer(offset, 0))
-    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.login_accepted_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_common_soupbin_tcp_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, element)
+    return nasdaq_common_soupbin_tcp_v3_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -638,17 +638,17 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet, buffer(offset, 0))
-    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.debug_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet, buffer(offset, 0))
+    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.debug_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_common_soupbin_tcp_v3_0_dissect.debug_packet_fields(buffer, offset, packet, element)
+    return nasdaq_common_soupbin_tcp_v3_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -841,17 +841,17 @@ end
 nasdaq_common_soupbin_tcp_v3_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_common_soupbin_tcp_v3_0.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_common_soupbin_tcp_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_common_soupbin_tcp_v3_0_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_common_soupbin_tcp_v3_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nasdaq_common_soupbin_tcp_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

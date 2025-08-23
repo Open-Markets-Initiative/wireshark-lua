@@ -778,17 +778,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message = function(buffer, offset, packet, parent)
   if show.trade_correct_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1069,17 +1069,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1177,17 +1177,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_report_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1270,17 +1270,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
   if show.trading_session_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1416,17 +1416,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
   if show.security_trading_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1495,17 +1495,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   if show.reg_sho_restriction_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1712,17 +1712,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1964,17 +1964,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sbe_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2342,17 +2342,17 @@ end
 n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.common_header, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, element)
+    parent = parent:add(n24x_equities_memoirlastsale_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = n24x_equities_memoirlastsale_sbe_v1_3_display.common_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, element)
+    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
   end
 end
 

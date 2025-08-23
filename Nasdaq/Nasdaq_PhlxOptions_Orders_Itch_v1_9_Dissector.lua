@@ -549,17 +549,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_auction_notification_message = function(buffer, offset, packet, parent)
   if show.complex_auction_notification_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_auction_notification_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_auction_notification_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_auction_notification_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_auction_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.complex_auction_notification_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_auction_notification_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_auction_notification_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -850,17 +850,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.auction_notification_message = function(buffer, offset, packet, parent)
   if show.auction_notification_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.auction_notification_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.auction_notification_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.auction_notification_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.auction_notification_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.auction_notification_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1010,20 +1010,20 @@ nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields = function(
 end
 
 -- Dissect: Complex Order Leg
-nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg = function(buffer, offset, packet, parent, complex_order_leg_index)
   if show.complex_order_leg then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields(buffer, offset, packet, parent, complex_order_leg_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.complex_order_leg(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg_fields(buffer, offset, packet, parent, complex_order_leg_index)
   end
 end
 
@@ -1414,7 +1414,7 @@ nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_message_fields = funct
 
   -- Repeating: Complex Order Leg
   for complex_order_leg_index = 1, number_of_legs do
-    index, complex_order_leg = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg(buffer, index, packet, parent)
+    index, complex_order_leg = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_leg(buffer, index, packet, parent, complex_order_leg_index)
   end
 
   return index
@@ -1611,17 +1611,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.simple_order_message = function(buffer, offset, packet, parent)
   if show.simple_order_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.simple_order_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.simple_order_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.simple_order_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.simple_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.simple_order_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.simple_order_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.simple_order_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1695,17 +1695,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.strategy_open_closed_message = function(buffer, offset, packet, parent)
   if show.strategy_open_closed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.strategy_open_closed_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.strategy_open_closed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.strategy_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.strategy_open_closed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.strategy_open_closed_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1772,17 +1772,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   if show.security_open_closed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.security_open_closed_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.security_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.security_open_closed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_open_closed_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1856,17 +1856,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_trading_action_message = function(buffer, offset, packet, parent)
   if show.complex_trading_action_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_trading_action_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_trading_action_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.complex_trading_action_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_trading_action_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_trading_action_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1933,17 +1933,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_trading_action_message = function(buffer, offset, packet, parent)
   if show.security_trading_action_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.security_trading_action_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_trading_action_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.security_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.security_trading_action_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_trading_action_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.security_trading_action_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2008,20 +2008,20 @@ nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields = 
 end
 
 -- Dissect: Complex Order Strategy Leg
-nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg = function(buffer, offset, packet, parent, complex_order_strategy_leg_index)
   if show.complex_order_strategy_leg then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields(buffer, offset, packet, parent, complex_order_strategy_leg_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.complex_order_strategy_leg(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields(buffer, offset, packet, parent, complex_order_strategy_leg_index)
   end
 end
 
@@ -2129,7 +2129,7 @@ nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_message_field
 
   -- Repeating: Complex Order Strategy Leg
   for complex_order_strategy_leg_index = 1, number_of_legs do
-    index, complex_order_strategy_leg = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg(buffer, index, packet, parent)
+    index, complex_order_strategy_leg = nasdaq_phlxoptions_orders_itch_v1_9_dissect.complex_order_strategy_leg(buffer, index, packet, parent, complex_order_strategy_leg_index)
   end
 
   return index
@@ -2283,17 +2283,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.options_directory_message = function(buffer, offset, packet, parent)
   if show.options_directory_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.options_directory_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.options_directory_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.options_directory_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.options_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.options_directory_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.options_directory_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.options_directory_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2405,17 +2405,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.system_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.system_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.system_event_message_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.system_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2651,17 +2651,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_header_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2817,17 +2817,17 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_phlxoptions_orders_itch_v1_9.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_phlxoptions_orders_itch_v1_9_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nasdaq_phlxoptions_orders_itch_v1_9_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2843,7 +2843,7 @@ nasdaq_phlxoptions_orders_itch_v1_9_dissect.packet = function(buffer, packet, pa
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = nasdaq_phlxoptions_orders_itch_v1_9_dissect.message(buffer, index, packet, parent)
+    index, message = nasdaq_phlxoptions_orders_itch_v1_9_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index

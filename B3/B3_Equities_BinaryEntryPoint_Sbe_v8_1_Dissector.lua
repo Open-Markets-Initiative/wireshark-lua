@@ -858,17 +858,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.investor_id = function(buffer, offset, packet, parent)
   if show.investor_id then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.investor_id, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.investor_id_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.investor_id, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.investor_id_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.investor_id(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.investor_id_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.investor_id_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1409,17 +1409,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.outbound_business_header = function(buffer, offset, packet, parent)
   if show.outbound_business_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.outbound_business_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.outbound_business_header_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.outbound_business_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.outbound_business_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.outbound_business_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.outbound_business_header_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.outbound_business_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1623,17 +1623,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.inbound_business_header = function(buffer, offset, packet, parent)
   if show.inbound_business_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.inbound_business_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.inbound_business_header_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.inbound_business_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.inbound_business_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.inbound_business_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.inbound_business_header_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.inbound_business_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1715,17 +1715,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.order_mass_action_request_message = function(buffer, offset, packet, parent)
   if show.order_mass_action_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.order_mass_action_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.order_mass_action_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.order_mass_action_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.order_mass_action_request_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.order_mass_action_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2213,17 +2213,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.allocation_report_message = function(buffer, offset, packet, parent)
   if show.allocation_report_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_report_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.allocation_report_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.allocation_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.allocation_report_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.allocation_report_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.allocation_report_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2747,20 +2747,20 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group_fields = functi
 end
 
 -- Dissect: No Positions Group
-b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group = function(buffer, offset, packet, parent)
+b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group = function(buffer, offset, packet, parent, no_positions_group_index)
   if show.no_positions_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.no_positions_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.no_positions_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group_fields(buffer, offset, packet, parent, no_positions_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.no_positions_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group_fields(buffer, offset, packet, parent, no_positions_group_index)
   end
 end
 
@@ -2837,17 +2837,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.group_size_encoding = function(buffer, offset, packet, parent)
   if show.group_size_encoding then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.group_size_encoding, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.group_size_encoding_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.group_size_encoding, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.group_size_encoding_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.group_size_encoding(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.group_size_encoding_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.group_size_encoding_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2881,7 +2881,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_groups_fields = funct
 
   -- Repeating: No Positions Group
   for no_positions_group_index = 1, num_in_group do
-    index, no_positions_group = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group(buffer, index, packet, parent)
+    index, no_positions_group = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_positions_group(buffer, index, packet, parent, no_positions_group_index)
   end
 
   return index
@@ -3601,17 +3601,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.position_maintenance_cancel_request_message = function(buffer, offset, packet, parent)
   if show.position_maintenance_cancel_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_cancel_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.position_maintenance_cancel_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_cancel_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.position_maintenance_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.position_maintenance_cancel_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.position_maintenance_cancel_request_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.position_maintenance_cancel_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3706,20 +3706,20 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group_fields = function(b
 end
 
 -- Dissect: No Sides Group
-b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group = function(buffer, offset, packet, parent)
+b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group = function(buffer, offset, packet, parent, no_sides_group_index)
   if show.no_sides_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.no_sides_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.no_sides_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group_fields(buffer, offset, packet, parent, no_sides_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.no_sides_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group_fields(buffer, offset, packet, parent, no_sides_group_index)
   end
 end
 
@@ -3753,7 +3753,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_groups_fields = function(
 
   -- Repeating: No Sides Group
   for no_sides_group_index = 1, num_in_group do
-    index, no_sides_group = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group(buffer, index, packet, parent)
+    index, no_sides_group = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_sides_group(buffer, index, packet, parent, no_sides_group_index)
   end
 
   return index
@@ -4119,17 +4119,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.bidirectional_business_header = function(buffer, offset, packet, parent)
   if show.bidirectional_business_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.bidirectional_business_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.bidirectional_business_header_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.bidirectional_business_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.bidirectional_business_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.bidirectional_business_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.bidirectional_business_header_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.bidirectional_business_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5400,17 +5400,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.security_definition_response_message = function(buffer, offset, packet, parent)
   if show.security_definition_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_response_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.security_definition_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_response_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.security_definition_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.security_definition_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.security_definition_response_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.security_definition_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5585,20 +5585,20 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group_fields = function(bu
 end
 
 -- Dissect: No Legs Group
-b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group = function(buffer, offset, packet, parent)
+b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group = function(buffer, offset, packet, parent, no_legs_group_index)
   if show.no_legs_group then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.no_legs_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.no_legs_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group_fields(buffer, offset, packet, parent, no_legs_group_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.no_legs_group(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group_fields(buffer, offset, packet, parent, no_legs_group_index)
   end
 end
 
@@ -5632,7 +5632,7 @@ b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_groups_fields = function(b
 
   -- Repeating: No Legs Group
   for no_legs_group_index = 1, num_in_group do
-    index, no_legs_group = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group(buffer, index, packet, parent)
+    index, no_legs_group = b3_equities_binaryentrypoint_sbe_v8_1_dissect.no_legs_group(buffer, index, packet, parent, no_legs_group_index)
   end
 
   return index
@@ -10730,17 +10730,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.custodian_info = function(buffer, offset, packet, parent)
   if show.custodian_info then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.custodian_info, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.custodian_info_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.custodian_info, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.custodian_info_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.custodian_info(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.custodian_info_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.custodian_info_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11660,17 +11660,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_reject_message = function(buffer, offset, packet, parent)
   if show.retransmit_reject_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_reject_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_reject_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.retransmit_reject_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_reject_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_reject_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11757,17 +11757,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmission_message = function(buffer, offset, packet, parent)
   if show.retransmission_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmission_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmission_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmission_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmission_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.retransmission_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmission_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmission_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11854,17 +11854,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_request_message = function(buffer, offset, packet, parent)
   if show.retransmit_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.retransmit_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_request_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.retransmit_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11896,17 +11896,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.sequence_message = function(buffer, offset, packet, parent)
   if show.sequence_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.sequence_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.sequence_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.sequence_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.sequence_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.sequence_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.sequence_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.sequence_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11943,17 +11943,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.not_applied_message = function(buffer, offset, packet, parent)
   if show.not_applied_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.not_applied_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.not_applied_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.not_applied_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.not_applied_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.not_applied_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.not_applied_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.not_applied_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12093,17 +12093,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.terminate_message = function(buffer, offset, packet, parent)
   if show.terminate_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.terminate_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.terminate_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.terminate_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.terminate_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.terminate_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.terminate_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.terminate_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12266,17 +12266,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_reject_message = function(buffer, offset, packet, parent)
   if show.establish_reject_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.establish_reject_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_reject_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.establish_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.establish_reject_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_reject_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_reject_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12373,17 +12373,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_ack_message = function(buffer, offset, packet, parent)
   if show.establish_ack_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.establish_ack_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_ack_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.establish_ack_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_ack_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.establish_ack_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_ack_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.establish_ack_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12774,17 +12774,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_reject_message = function(buffer, offset, packet, parent)
   if show.negotiate_reject_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiate_reject_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_reject_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiate_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.negotiate_reject_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_reject_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_reject_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12851,17 +12851,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_response_message = function(buffer, offset, packet, parent)
   if show.negotiate_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiate_response_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiate_response_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.negotiate_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_response_message_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.negotiate_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -13769,17 +13769,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.message_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.message_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.message_header_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -13856,17 +13856,17 @@ end
 b3_equities_binaryentrypoint_sbe_v8_1_dissect.simple_open_framing_header = function(buffer, offset, packet, parent)
   if show.simple_open_framing_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.simple_open_framing_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.simple_open_framing_header_fields(buffer, offset, packet, element)
+    parent = parent:add(b3_equities_binaryentrypoint_sbe_v8_1.fields.simple_open_framing_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1_dissect.simple_open_framing_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = b3_equities_binaryentrypoint_sbe_v8_1_display.simple_open_framing_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.simple_open_framing_header_fields(buffer, offset, packet, element)
+    return b3_equities_binaryentrypoint_sbe_v8_1_dissect.simple_open_framing_header_fields(buffer, offset, packet, parent)
   end
 end
 

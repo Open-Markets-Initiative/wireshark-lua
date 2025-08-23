@@ -305,17 +305,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.snapshot_complete_message = function(buffer, offset, packet, parent)
   if show.snapshot_complete_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.snapshot_complete_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.snapshot_complete_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.snapshot_complete_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.snapshot_complete_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.snapshot_complete_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.snapshot_complete_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -372,17 +372,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.clear_book_message = function(buffer, offset, packet, parent)
   if show.clear_book_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.clear_book_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.clear_book_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.clear_book_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.clear_book_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.clear_book_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.clear_book_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.clear_book_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -556,17 +556,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.corrected_trade_message = function(buffer, offset, packet, parent)
   if show.corrected_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.corrected_trade_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.corrected_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.corrected_trade_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.corrected_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.corrected_trade_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -618,17 +618,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.broken_trade_message = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.broken_trade_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.broken_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.broken_trade_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.broken_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.broken_trade_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -726,17 +726,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.trade_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.trade_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trade_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -813,17 +813,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_executed_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_executed_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.order_executed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_executed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -870,17 +870,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_reduced_message = function(buffer, offset, packet, parent)
   if show.order_reduced_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_reduced_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_reduced_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_reduced_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.order_reduced_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_reduced_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -922,17 +922,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_deleted_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_deleted_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_deleted_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.order_deleted_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_deleted_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1029,17 +1029,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_added_message = function(buffer, offset, packet, parent)
   if show.order_added_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_added_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_added_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.order_added_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_added_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.order_added_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_added_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.order_added_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1122,17 +1122,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
   if show.trading_session_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.trading_session_status_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.trading_session_status_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.trading_session_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trading_session_status_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1268,17 +1268,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
   if show.security_trading_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.security_trading_status_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.security_trading_status_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.security_trading_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1347,17 +1347,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   if show.reg_sho_restriction_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.reg_sho_restriction_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.reg_sho_restriction_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.reg_sho_restriction_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1589,17 +1589,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.instrument_directory_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.instrument_directory_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.instrument_directory_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1907,17 +1907,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.sbe_header = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.sbe_header, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.sbe_header_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.sbe_header, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.sbe_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.sbe_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.sbe_header_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.sbe_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2272,17 +2272,17 @@ end
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.common_header = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.common_header, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.common_header_fields(buffer, offset, packet, element)
+    parent = parent:add(memx_equities_memoirdepthfeed_sbe_v1_1.fields.common_header, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.common_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = memx_equities_memoirdepthfeed_sbe_v1_1_display.common_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.common_header_fields(buffer, offset, packet, element)
+    return memx_equities_memoirdepthfeed_sbe_v1_1_dissect.common_header_fields(buffer, offset, packet, parent)
   end
 end
 

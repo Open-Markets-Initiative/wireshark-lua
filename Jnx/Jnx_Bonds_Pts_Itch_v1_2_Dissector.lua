@@ -349,17 +349,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_replaced_message = function(buffer, offset, packet, parent)
   if show.order_replaced_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_replaced_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.order_replaced_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_replaced_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.order_replaced_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.order_replaced_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -416,17 +416,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   if show.order_deleted_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_deleted_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.order_deleted_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_deleted_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.order_deleted_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.order_deleted_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -513,17 +513,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_executed_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_executed_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.order_executed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.order_executed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -656,17 +656,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.order_added_message = function(buffer, offset, packet, parent)
   if show.order_added_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_added_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.order_added_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.order_added_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.order_added_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.order_added_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.order_added_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.order_added_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -740,17 +740,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.trading_state_message = function(buffer, offset, packet, parent)
   if show.trading_state_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.trading_state_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.trading_state_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.trading_state_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.trading_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.trading_state_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.trading_state_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.trading_state_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -954,17 +954,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.orderbook_directory_message = function(buffer, offset, packet, parent)
   if show.orderbook_directory_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.orderbook_directory_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.orderbook_directory_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.orderbook_directory_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.orderbook_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.orderbook_directory_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.orderbook_directory_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.orderbook_directory_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1057,17 +1057,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_message = function(buffer, offset, packet, parent)
   if show.price_tick_size_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.price_tick_size_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.price_tick_size_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.price_tick_size_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1129,17 +1129,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.system_event_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.system_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.system_event_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.system_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.system_event_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.system_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1191,17 +1191,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds_message = function(buffer, offset, packet, parent)
   if show.timestamp_seconds_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds_message, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds_message_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.timestamp_seconds_message, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.timestamp_seconds_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds_message_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.timestamp_seconds_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1415,17 +1415,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.message_header, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.message_header, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.message_header_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1591,17 +1591,17 @@ end
 jnx_bonds_pts_itch_v1_2_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(jnx_bonds_pts_itch_v1_2.fields.packet_header, buffer(offset, 0))
-    local index = jnx_bonds_pts_itch_v1_2_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(jnx_bonds_pts_itch_v1_2.fields.packet_header, buffer(offset, 0))
+    local index = jnx_bonds_pts_itch_v1_2_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = jnx_bonds_pts_itch_v1_2_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_bonds_pts_itch_v1_2_dissect.packet_header_fields(buffer, offset, packet, element)
+    return jnx_bonds_pts_itch_v1_2_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

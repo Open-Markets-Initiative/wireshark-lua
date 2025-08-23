@@ -421,17 +421,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status_message = function(buffer, offset, packet, parent)
   if show.trading_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trading_status_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.trading_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trading_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -483,17 +483,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.end_of_session = function(buffer, offset, packet, parent)
   if show.end_of_session then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.end_of_session(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.end_of_session_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -550,17 +550,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_break_message = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_break_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_break_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.trade_break_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_break_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -715,17 +715,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message = function(buffer, offset, packet, parent)
   if show.trade_expanded_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_expanded_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_expanded_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.trade_expanded_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_expanded_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -853,17 +853,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_short_message = function(buffer, offset, packet, parent)
   if show.trade_short_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_short_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_short_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.trade_short_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_short_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -925,17 +925,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_long_message = function(buffer, offset, packet, parent)
   if show.trade_long_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_long_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.trade_long_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.trade_long_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.trade_long_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -972,17 +972,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.delete_order_message = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.delete_order_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.delete_order_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.delete_order_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.delete_order_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1034,17 +1034,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   if show.modify_order_short_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_short_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_short_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.modify_order_short_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1096,17 +1096,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   if show.modify_order_long_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_long_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.modify_order_long_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.modify_order_long_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1168,17 +1168,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   if show.reduce_size_short_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_short_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.reduce_size_short_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1240,17 +1240,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
   if show.reduce_size_long_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.reduce_size_long_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1347,17 +1347,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
   if show.order_executed_at_price_size_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.order_executed_at_price_size_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1429,17 +1429,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.order_executed_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.order_executed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.order_executed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1590,17 +1590,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
   if show.add_order_expanded_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.add_order_expanded_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.add_order_expanded_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1662,17 +1662,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_short_message = function(buffer, offset, packet, parent)
   if show.add_order_short_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.add_order_short_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.add_order_short_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.add_order_short_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1734,17 +1734,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_long_message = function(buffer, offset, packet, parent)
   if show.add_order_long_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.add_order_long_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.add_order_long_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.add_order_long_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1776,17 +1776,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.unit_clear_message = function(buffer, offset, packet, parent)
   if show.unit_clear_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.unit_clear_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.unit_clear_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.unit_clear_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1838,17 +1838,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.time_message = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.time_message, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.time_message, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.time_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.time_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2161,17 +2161,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.message_header, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.message_header, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2346,17 +2346,17 @@ end
 cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.packet_header, buffer(offset, 0))
-    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.packet_header, buffer(offset, 0))
+    local index = cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_depthofbook_pitch_v2_41_29_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_depthofbook_pitch_v2_41_29_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

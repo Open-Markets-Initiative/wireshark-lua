@@ -1501,17 +1501,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header = function(buffer, offset, packet, parent)
   if show.seq_msg_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seq_msg_header, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.seq_msg_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1678,17 +1678,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert = function(buffer, offset, packet, parent)
   if show.risk_control_alert then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_alert, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_alert(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_alert_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2057,17 +2057,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement = function(buffer, offset, packet, parent)
   if show.risk_control_acknowledgement then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_control_acknowledgement, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_control_acknowledgement(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_control_acknowledgement_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2453,17 +2453,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id = function(buffer, offset, packet, parent)
   if show.manual_action_id then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_id, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_id(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_id_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2650,17 +2650,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request = function(buffer, offset, packet, parent)
   if show.manual_action_request then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_request, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_request(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_request_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2742,17 +2742,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request = function(buffer, offset, packet, parent)
   if show.auction_request then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_request, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_request, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.auction_request(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_request_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2994,17 +2994,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data = function(buffer, offset, packet, parent)
   if show.auction_price_data then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.auction_price_data, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.auction_price_data(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.auction_price_data_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3041,17 +3041,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end = function(buffer, offset, packet, parent)
   if show.gt_end then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_end, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_end, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.gt_end(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_end_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3088,17 +3088,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin = function(buffer, offset, packet, parent)
   if show.gt_begin then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.gt_begin, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.gt_begin(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.gt_begin_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3197,17 +3197,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement = function(buffer, offset, packet, parent)
   if show.symbol_subscription_acknowledgement then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_acknowledgement, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_acknowledgement(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_acknowledgement_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4380,17 +4380,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject = function(buffer, offset, packet, parent)
   if show.application_layer_reject then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.application_layer_reject, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.application_layer_reject(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.application_layer_reject_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4493,17 +4493,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id = function(buffer, offset, packet, parent)
   if show.ref_seq_msg_id then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.ref_seq_msg_id, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.ref_seq_msg_id(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.ref_seq_msg_id_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4610,17 +4610,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct = function(buffer, offset, packet, parent)
   if show.trade_bust_correct then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.trade_bust_correct, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.trade_bust_correct(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.trade_bust_correct_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4700,17 +4700,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header = function(buffer, offset, packet, parent)
   if show.sub_msg_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sub_msg_header, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.sub_msg_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.sub_msg_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4747,17 +4747,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on = function(buffer, offset, packet, parent)
   if show.optional_settlement_type_add_on then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_settlement_type_add_on, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.optional_settlement_type_add_on(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_settlement_type_add_on_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5046,17 +5046,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report = function(buffer, offset, packet, parent)
   if show.execution_report then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.execution_report, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.execution_report, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.execution_report(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.execution_report_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5323,17 +5323,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment = function(buffer, offset, packet, parent)
   if show.order_priority_update_acknowledgment then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_priority_update_acknowledgment, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.order_priority_update_acknowledgment(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_priority_update_acknowledgment_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5539,17 +5539,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout = function(buffer, offset, packet, parent)
   if show.order_modify_cancel_request_acknowledgment_and_urout then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_cancel_request_acknowledgment_and_urout, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.order_modify_cancel_request_acknowledgment_and_urout(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_cancel_request_acknowledgment_and_urout_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5801,17 +5801,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on = function(buffer, offset, packet, parent)
   if show.optional_order_add_on then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.optional_order_add_on, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.optional_order_add_on(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.optional_order_add_on_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6472,17 +6472,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message = function(buffer, offset, packet, parent)
   if show.session_configuration_acknowledgement_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_acknowledgement_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_acknowledgement_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_acknowledgement_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6559,17 +6559,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message = function(buffer, offset, packet, parent)
   if show.mmid_configuration_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mmid_configuration_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.mmid_configuration_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.mmid_configuration_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6676,17 +6676,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message = function(buffer, offset, packet, parent)
   if show.mpid_configuration_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpid_configuration_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.mpid_configuration_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.mpid_configuration_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6830,17 +6830,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition = function(buffer, offset, packet, parent)
   if show.mpv_level_definition then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.mpv_level_definition, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.mpv_level_definition(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.mpv_level_definition_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7015,17 +7015,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message = function(buffer, offset, packet, parent)
   if show.minimum_price_variant_class_reference_data_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.minimum_price_variant_class_reference_data_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.minimum_price_variant_class_reference_data_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.minimum_price_variant_class_reference_data_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7427,17 +7427,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message = function(buffer, offset, packet, parent)
   if show.dmm_symbol_reference_data_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.dmm_symbol_reference_data_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.dmm_symbol_reference_data_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.dmm_symbol_reference_data_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7614,17 +7614,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message = function(buffer, offset, packet, parent)
   if show.equities_symbol_reference_data_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.equities_symbol_reference_data_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.equities_symbol_reference_data_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.equities_symbol_reference_data_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7741,17 +7741,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message = function(buffer, offset, packet, parent)
   if show.risk_action_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_action_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_action_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_action_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7926,17 +7926,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message = function(buffer, offset, packet, parent)
   if show.risk_limit_update_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.risk_limit_update_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.risk_limit_update_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.risk_limit_update_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8149,17 +8149,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message = function(buffer, offset, packet, parent)
   if show.manual_action_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.manual_action_response_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.manual_action_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.manual_action_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8191,17 +8191,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message = function(buffer, offset, packet, parent)
   if show.tg_end_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_end_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.tg_end_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_end_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8233,17 +8233,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message = function(buffer, offset, packet, parent)
   if show.tg_begin_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.tg_begin_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.tg_begin_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.tg_begin_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8285,17 +8285,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message = function(buffer, offset, packet, parent)
   if show.symbol_subscription_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.symbol_subscription_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.symbol_subscription_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.symbol_subscription_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8422,17 +8422,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message = function(buffer, offset, packet, parent)
   if show.bulk_cancel_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.bulk_cancel_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.bulk_cancel_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.bulk_cancel_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8499,17 +8499,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message = function(buffer, offset, packet, parent)
   if show.order_modify_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_modify_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.order_modify_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_modify_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8561,17 +8561,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   if show.order_cancel_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.order_cancel_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8713,17 +8713,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message = function(buffer, offset, packet, parent)
   if show.sequenced_filler_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.sequenced_filler_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.sequenced_filler_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.sequenced_filler_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8790,17 +8790,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message = function(buffer, offset, packet, parent)
   if show.session_configuration_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.session_configuration_request_message, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.session_configuration_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.session_configuration_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9158,17 +9158,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid = function(buffer, offset, packet, parent)
   if show.seqmsgid then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.seqmsgid, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.seqmsgid(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.seqmsgid_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9273,17 +9273,17 @@ end
 nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header = function(buffer, offset, packet, parent)
   if show.msg_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.msg_header, buffer(offset, 0))
-    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_binarygateway_pillar_v5_8.fields.msg_header, buffer(offset, 0))
+    local index = nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_binarygateway_pillar_v5_8_display.msg_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, element)
+    return nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, parent)
   end
 end
 

@@ -173,17 +173,17 @@ end
 cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header, buffer(offset, 0))
-    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header, buffer(offset, 0))
+    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -361,17 +361,17 @@ end
 cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header, buffer(offset, 0))
-    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

@@ -25406,20 +25406,20 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence_fields = function(b
 end
 
 -- Dissect: Unit Sequence
-cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence = function(buffer, offset, packet, parent)
+cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence = function(buffer, offset, packet, parent, unit_sequence_index)
   if show.unit_sequence then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_orderentry_boe_v2_3.fields.unit_sequence, buffer(offset, 0))
-    local index = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_orderentry_boe_v2_3.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence_fields(buffer, offset, packet, parent, unit_sequence_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_orderentry_boe_v2_3_display.unit_sequence(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence_fields(buffer, offset, packet, parent, unit_sequence_index)
   end
 end
 
@@ -25549,7 +25549,7 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.logout_message_fields = function(
 
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent)
+    index, unit_sequence = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent, unit_sequence_index)
   end
 
   return index
@@ -28309,7 +28309,7 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequences_fields = function(
 
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent)
+    index, unit_sequence = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent, unit_sequence_index)
   end
 
   return index
@@ -28461,17 +28461,17 @@ end
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.param_header = function(buffer, offset, packet, parent)
   if show.param_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_orderentry_boe_v2_3.fields.param_header, buffer(offset, 0))
-    local index = cboe_edgx_equities_orderentry_boe_v2_3_dissect.param_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_orderentry_boe_v2_3.fields.param_header, buffer(offset, 0))
+    local index = cboe_edgx_equities_orderentry_boe_v2_3_dissect.param_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_orderentry_boe_v2_3_display.param_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_orderentry_boe_v2_3_dissect.param_header_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_orderentry_boe_v2_3_dissect.param_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -28647,7 +28647,7 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.login_response_message_fields = f
 
   -- Repeating: Unit Sequence
   for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent)
+    index, unit_sequence = cboe_edgx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent, unit_sequence_index)
   end
 
   -- Number Of Param Groups: 1 Byte Unsigned Fixed Width Integer
@@ -29208,17 +29208,17 @@ end
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_equities_orderentry_boe_v2_3.fields.message_header, buffer(offset, 0))
-    local index = cboe_edgx_equities_orderentry_boe_v2_3_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_equities_orderentry_boe_v2_3.fields.message_header, buffer(offset, 0))
+    local index = cboe_edgx_equities_orderentry_boe_v2_3_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_equities_orderentry_boe_v2_3_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_equities_orderentry_boe_v2_3_dissect.message_header_fields(buffer, offset, packet, element)
+    return cboe_edgx_equities_orderentry_boe_v2_3_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 

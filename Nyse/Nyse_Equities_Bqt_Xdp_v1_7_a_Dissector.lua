@@ -472,17 +472,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_volume_message = function(buffer, offset, packet, parent)
   if show.consolidated_volume_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_volume_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_volume_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_volume_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_volume_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_volume_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_volume_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_volume_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -846,17 +846,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_stock_summary_message = function(buffer, offset, packet, parent)
   if show.consolidated_stock_summary_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_stock_summary_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_stock_summary_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_stock_summary_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_stock_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_stock_summary_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_stock_summary_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_stock_summary_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1244,17 +1244,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_correction_message = function(buffer, offset, packet, parent)
   if show.consolidated_trade_correction_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_correction_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_correction_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_correction_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_trade_correction_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_correction_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_correction_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1311,17 +1311,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_cancel_message = function(buffer, offset, packet, parent)
   if show.consolidated_trade_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_cancel_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_cancel_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_trade_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_cancel_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1428,17 +1428,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_message = function(buffer, offset, packet, parent)
   if show.consolidated_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trade_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1601,17 +1601,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_single_sided_quote_message = function(buffer, offset, packet, parent)
   if show.consolidated_single_sided_quote_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_single_sided_quote_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_single_sided_quote_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_single_sided_quote_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_single_sided_quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_single_sided_quote_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_single_sided_quote_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_single_sided_quote_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1938,17 +1938,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.bqt_message = function(buffer, offset, packet, parent)
   if show.bqt_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.bqt_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.bqt_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.bqt_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.bqt_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.bqt_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.bqt_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.bqt_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2075,17 +2075,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_header_message = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_header_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.refresh_header_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_header_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2583,17 +2583,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_security_status_message = function(buffer, offset, packet, parent)
   if show.consolidated_security_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_security_status_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_security_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_security_status_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_security_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_security_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_security_status_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_security_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2670,17 +2670,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trading_session_change_message = function(buffer, offset, packet, parent)
   if show.consolidated_trading_session_change_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trading_session_change_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trading_session_change_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_trading_session_change_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trading_session_change_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_trading_session_change_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trading_session_change_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_trading_session_change_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2752,17 +2752,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_symbol_clear_message = function(buffer, offset, packet, parent)
   if show.consolidated_symbol_clear_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_symbol_clear_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_symbol_clear_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.consolidated_symbol_clear_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_symbol_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.consolidated_symbol_clear_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_symbol_clear_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.consolidated_symbol_clear_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2889,17 +2889,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_unavailable_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.message_unavailable_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.message_unavailable_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2966,17 +2966,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_request_message = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.refresh_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3052,17 +3052,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.symbol_index_mapping_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3094,17 +3094,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.heartbeat_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3237,17 +3237,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.request_response_message = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.request_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.request_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.request_response_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.request_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3299,17 +3299,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.retransmission_request_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.retransmission_request_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3767,17 +3767,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.symbol_index_mapping_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3824,17 +3824,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.sequence_number_reset_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4158,17 +4158,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_header, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.message_header, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.message_header_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4433,17 +4433,17 @@ end
 nyse_equities_bqt_xdp_v1_7_a_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.packet_header, buffer(offset, 0))
-    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_equities_bqt_xdp_v1_7_a.fields.packet_header, buffer(offset, 0))
+    local index = nyse_equities_bqt_xdp_v1_7_a_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_equities_bqt_xdp_v1_7_a_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_bqt_xdp_v1_7_a_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nyse_equities_bqt_xdp_v1_7_a_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4459,7 +4459,7 @@ nyse_equities_bqt_xdp_v1_7_a_dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = nyse_equities_bqt_xdp_v1_7_a_dissect.message(buffer, index, packet, parent)
+    index, message = nyse_equities_bqt_xdp_v1_7_a_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index

@@ -326,17 +326,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number_reset_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -413,17 +413,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message = function(buffer, offset, packet, parent)
   if show.stream_id_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.stream_id_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -567,20 +567,20 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields = function(buf
 end
 
 -- Dissect: Leg Definition
-nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition = function(buffer, offset, packet, parent, leg_definition_index)
   if show.leg_definition then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, parent, leg_definition_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, parent, leg_definition_index)
   end
 end
 
@@ -799,7 +799,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message_fi
 
   -- Repeating: Leg Definition
   for leg_definition_index = 1, no_of_legs do
-    index, leg_definition = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition(buffer, index, packet, parent)
+    index, leg_definition = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition(buffer, index, packet, parent, leg_definition_index)
   end
 
   return index
@@ -1031,17 +1031,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
   if show.refresh_complex_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1289,17 +1289,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
   if show.refresh_complex_quote_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_quote_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1426,17 +1426,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message = function(buffer, offset, packet, parent)
   if show.complex_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1543,17 +1543,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
   if show.complex_cube_rfq_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_cube_rfq_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1620,17 +1620,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
   if show.complex_crossing_rfq_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_crossing_rfq_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1707,17 +1707,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message = function(buffer, offset, packet, parent)
   if show.complex_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1809,17 +1809,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message = function(buffer, offset, packet, parent)
   if show.complex_quote_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_quote_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2044,17 +2044,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2319,17 +2319,17 @@ end
 nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
-    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
+    local index = nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nyse_options_complexfeed_xdp_v1_3_a_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2345,7 +2345,7 @@ nyse_options_complexfeed_xdp_v1_3_a_dissect.packet = function(buffer, packet, pa
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = nyse_options_complexfeed_xdp_v1_3_a_dissect.message(buffer, index, packet, parent)
+    index, message = nyse_options_complexfeed_xdp_v1_3_a_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index

@@ -419,17 +419,17 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_cancel_message, buffer(offset, 0))
-    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_cancel_message, buffer(offset, 0))
+    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.trade_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields(buffer, offset, packet, element)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -481,17 +481,17 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.last_sale_message = function(buffer, offset, packet, parent)
   if show.last_sale_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.last_sale_message, buffer(offset, 0))
-    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.last_sale_message_fields(buffer, offset, packet, element)
+    parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.last_sale_message, buffer(offset, 0))
+    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.last_sale_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.last_sale_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.last_sale_message_fields(buffer, offset, packet, element)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.last_sale_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -640,17 +640,17 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.best_bid_and_offer_message = function(buffer, offset, packet, parent)
   if show.best_bid_and_offer_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.best_bid_and_offer_message, buffer(offset, 0))
-    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.best_bid_and_offer_message_fields(buffer, offset, packet, element)
+    parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.best_bid_and_offer_message, buffer(offset, 0))
+    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.best_bid_and_offer_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.best_bid_and_offer_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.best_bid_and_offer_message_fields(buffer, offset, packet, element)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.best_bid_and_offer_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -769,17 +769,17 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message = function(buffer, offset, packet, parent)
   if show.instrument_trading_status_notification_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message, buffer(offset, 0))
-    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields(buffer, offset, packet, element)
+    parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message, buffer(offset, 0))
+    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.instrument_trading_status_notification_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields(buffer, offset, packet, element)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -899,17 +899,17 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.system_state_message = function(buffer, offset, packet, parent)
   if show.system_state_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_state_message, buffer(offset, 0))
-    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.system_state_message_fields(buffer, offset, packet, element)
+    parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_state_message, buffer(offset, 0))
+    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.system_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.system_state_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.system_state_message_fields(buffer, offset, packet, element)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.system_state_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1019,20 +1019,20 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields = functio
 end
 
 -- Dissect: Instrument Leg
-miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg = function(buffer, offset, packet, parent)
+miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg = function(buffer, offset, packet, parent, instrument_leg_index)
   if show.instrument_leg then
     -- Optionally add element to protocol tree
-    local element = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg, buffer(offset, 0))
-    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields(buffer, offset, packet, element)
+    parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg, buffer(offset, 0))
+    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields(buffer, offset, packet, parent, instrument_leg_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.instrument_leg(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields(buffer, offset, packet, element)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg_fields(buffer, offset, packet, parent, instrument_leg_index)
   end
 end
 
@@ -1629,7 +1629,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.complex_instrument_definition_m
 
   -- Repeating: Instrument Leg
   for instrument_leg_index = 1, number_of_legs do
-    index, instrument_leg = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg(buffer, index, packet, parent)
+    index, instrument_leg = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.instrument_leg(buffer, index, packet, parent, instrument_leg_index)
   end
 
   return index
@@ -1946,17 +1946,17 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message = function(buffer, offset, packet, parent)
   if show.simple_instrument_definition_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.simple_instrument_definition_message, buffer(offset, 0))
-    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields(buffer, offset, packet, element)
+    parent = parent:add(miax_onyxfutures_topofmarket_mach_v1_0_b.fields.simple_instrument_definition_message, buffer(offset, 0))
+    local index = miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = miax_onyxfutures_topofmarket_mach_v1_0_b_display.simple_instrument_definition_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields(buffer, offset, packet, element)
+    return miax_onyxfutures_topofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields(buffer, offset, packet, parent)
   end
 end
 

@@ -168,17 +168,17 @@ end
 otc_markets_headers_ats_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_headers_ats_v1_0.fields.message_header, buffer(offset, 0))
-    local index = otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_headers_ats_v1_0.fields.message_header, buffer(offset, 0))
+    local index = otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_headers_ats_v1_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -415,17 +415,17 @@ end
 otc_markets_headers_ats_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_headers_ats_v1_0.fields.packet_header, buffer(offset, 0))
-    local index = otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_headers_ats_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_headers_ats_v1_0_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    return otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

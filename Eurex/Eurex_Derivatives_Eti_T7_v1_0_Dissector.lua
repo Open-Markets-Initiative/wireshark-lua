@@ -159,17 +159,17 @@ end
 eurex_derivatives_eti_t7_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message_header, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(eurex_derivatives_eti_t7_v1_0.fields.message_header, buffer(offset, 0))
+    local index = eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = eurex_derivatives_eti_t7_v1_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 

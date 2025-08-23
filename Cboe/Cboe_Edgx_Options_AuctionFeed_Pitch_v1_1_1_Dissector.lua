@@ -206,17 +206,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message = function(buffer, offset, packet, parent)
   if show.end_of_session_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.end_of_session_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.end_of_session_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.end_of_session_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -318,17 +318,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message = function(buffer, offset, packet, parent)
   if show.symbol_mapping_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.symbol_mapping_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -486,17 +486,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message = function(buffer, offset, packet, parent)
   if show.auction_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_trade_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -533,17 +533,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message = function(buffer, offset, packet, parent)
   if show.auction_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -761,17 +761,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message = function(buffer, offset, packet, parent)
   if show.auction_notification_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.auction_notification_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.auction_notification_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -803,17 +803,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message = function(buffer, offset, packet, parent)
   if show.unit_clear_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.unit_clear_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -865,17 +865,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time_message, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.time_message, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.time_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.time_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1067,17 +1067,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.message_header, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.message_header, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1252,17 +1252,17 @@ end
 cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.packet_header, buffer(offset, 0))
-    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.packet_header, buffer(offset, 0))
+    local index = cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = cboe_edgx_options_auctionfeed_pitch_v1_1_1_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header_fields(buffer, offset, packet, element)
+    return cboe_edgx_options_auctionfeed_pitch_v1_1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

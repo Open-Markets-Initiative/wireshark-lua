@@ -619,17 +619,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1979,17 +1979,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message = function(buffer, offset, packet, parent)
   if show.reference_price_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.reference_price_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2221,17 +2221,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.reference_price_message = function(buffer, offset, packet, parent)
   if show.reference_price_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.reference_price_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2353,17 +2353,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.inside_update_message = function(buffer, offset, packet, parent)
   if show.inside_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.inside_update_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.inside_update_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.inside_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2445,17 +2445,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.market_open_message = function(buffer, offset, packet, parent)
   if show.market_open_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.market_open_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_open_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.market_open_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2667,17 +2667,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.quote_update_message = function(buffer, offset, packet, parent)
   if show.quote_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_update_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_update_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.quote_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2864,17 +2864,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.quote_message = function(buffer, offset, packet, parent)
   if show.quote_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.quote_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2951,17 +2951,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.security_message = function(buffer, offset, packet, parent)
   if show.security_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.security_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.security_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.security_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3043,17 +3043,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.market_close_message = function(buffer, offset, packet, parent)
   if show.market_close_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.market_close_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3195,17 +3195,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message = function(buffer, offset, packet, parent)
   if show.end_of_spin_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.end_of_spin_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3272,17 +3272,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message = function(buffer, offset, packet, parent)
   if show.start_of_spin_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.start_of_spin_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3508,17 +3508,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.message_header, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.message_header, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3758,17 +3758,17 @@ end
 otc_markets_multicast_ats_v4_5_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_header, buffer(offset, 0))
-    local index = otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_header, buffer(offset, 0))
+    local index = otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = otc_markets_multicast_ats_v4_5_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, element)
+    return otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

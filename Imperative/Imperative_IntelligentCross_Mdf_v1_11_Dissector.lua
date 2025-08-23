@@ -301,17 +301,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.trade_break_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.trade_break_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.trade_break_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -484,17 +484,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.trade_message = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.trade_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.trade_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -576,17 +576,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_executed_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_executed_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.order_executed_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -638,17 +638,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message = function(buffer, offset, packet, parent)
   if show.order_updated_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_updated_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_updated_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.order_updated_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -690,17 +690,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message = function(buffer, offset, packet, parent)
   if show.order_cancel_all_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.order_cancel_all_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -767,17 +767,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message = function(buffer, offset, packet, parent)
   if show.order_partial_cancel_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.order_partial_cancel_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -894,17 +894,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message = function(buffer, offset, packet, parent)
   if show.new_order_add_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.new_order_add_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1014,17 +1014,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message = function(buffer, offset, packet, parent)
   if show.symbol_state_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.symbol_state_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1140,17 +1140,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message = function(buffer, offset, packet, parent)
   if show.symbol_information_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.symbol_information_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1248,17 +1248,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.market_event_message = function(buffer, offset, packet, parent)
   if show.market_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.market_event_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.market_event_message, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.market_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1483,17 +1483,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.message_header, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.message_header, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1679,17 +1679,17 @@ end
 imperative_intelligentcross_mdf_v1_11_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(imperative_intelligentcross_mdf_v1_11.fields.packet_header, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(imperative_intelligentcross_mdf_v1_11.fields.packet_header, buffer(offset, 0))
+    local index = imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = imperative_intelligentcross_mdf_v1_11_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields(buffer, offset, packet, element)
+    return imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1705,7 +1705,7 @@ imperative_intelligentcross_mdf_v1_11_dissect.packet = function(buffer, packet, 
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = imperative_intelligentcross_mdf_v1_11_dissect.message(buffer, index, packet, parent)
+    index, message = imperative_intelligentcross_mdf_v1_11_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index

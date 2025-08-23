@@ -372,17 +372,17 @@ end
 smallx_headers_sbe_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(smallx_headers_sbe_v1_0.fields.packet_header, buffer(offset, 0))
-    local index = smallx_headers_sbe_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(smallx_headers_sbe_v1_0.fields.packet_header, buffer(offset, 0))
+    local index = smallx_headers_sbe_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = smallx_headers_sbe_v1_0_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return smallx_headers_sbe_v1_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    return smallx_headers_sbe_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

@@ -536,17 +536,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.modify_order_message = function(buffer, offset, packet, parent)
   if show.modify_order_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.modify_order_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.modify_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.modify_order_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.modify_order_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.modify_order_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -583,17 +583,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   if show.cancel_order_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_order_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.cancel_order_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_order_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1867,17 +1867,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_request_packet = function(buffer, offset, packet, parent)
   if show.login_request_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.login_request_packet, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_request_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.login_request_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_request_packet_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1954,17 +1954,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.account_query_response_message = function(buffer, offset, packet, parent)
   if show.account_query_response_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.account_query_response_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.account_query_response_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.account_query_response_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.account_query_response_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.account_query_response_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2337,17 +2337,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_modified_message = function(buffer, offset, packet, parent)
   if show.order_modified_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_modified_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_modified_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_modified_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_modified_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_modified_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2419,17 +2419,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_priority_update_message = function(buffer, offset, packet, parent)
   if show.order_priority_update_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_priority_update_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_priority_update_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.order_priority_update_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_priority_update_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.order_priority_update_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2466,17 +2466,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_reject_message = function(buffer, offset, packet, parent)
   if show.cancel_reject_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_reject_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_reject_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.cancel_reject_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_reject_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_reject_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2513,17 +2513,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_pending_message = function(buffer, offset, packet, parent)
   if show.cancel_pending_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_pending_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_pending_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.cancel_pending_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_pending_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.cancel_pending_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2684,17 +2684,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.rejected_order_message = function(buffer, offset, packet, parent)
   if show.rejected_order_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.rejected_order_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.rejected_order_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.rejected_order_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.rejected_order_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.rejected_order_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2898,17 +2898,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   if show.trade_correction_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.trade_correction_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.trade_correction_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.trade_correction_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2993,17 +2993,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.broken_trade_message = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.broken_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3388,17 +3388,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.aiq_canceled_message = function(buffer, offset, packet, parent)
   if show.aiq_canceled_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.aiq_canceled_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.aiq_canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.aiq_canceled_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.aiq_canceled_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.aiq_canceled_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3508,17 +3508,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.canceled_message = function(buffer, offset, packet, parent)
   if show.canceled_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.canceled_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.canceled_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.canceled_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.canceled_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.canceled_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3657,17 +3657,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.replaced_message = function(buffer, offset, packet, parent)
   if show.replaced_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.replaced_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.replaced_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.replaced_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.replaced_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.replaced_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4289,17 +4289,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.system_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.system_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.system_event_message_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4619,17 +4619,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   if show.login_rejected_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.login_rejected_packet, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_rejected_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.login_rejected_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.login_rejected_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_rejected_packet_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4706,17 +4706,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   if show.login_accepted_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.login_accepted_packet, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_accepted_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.login_accepted_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.login_accepted_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_accepted_packet_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4768,17 +4768,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.debug_packet = function(buffer, offset, packet, parent)
   if show.debug_packet then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.debug_packet, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.debug_packet_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.debug_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.debug_packet(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.debug_packet_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4971,17 +4971,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0_dissect.packet_header = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    parent = parent:add(nasdaq_nsmequities_orders_ouch_v5_0.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0_dissect.packet_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = nasdaq_nsmequities_orders_ouch_v5_0_display.packet_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.packet_header_fields(buffer, offset, packet, element)
+    return nasdaq_nsmequities_orders_ouch_v5_0_dissect.packet_header_fields(buffer, offset, packet, parent)
   end
 end
 

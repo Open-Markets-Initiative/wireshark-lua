@@ -535,17 +535,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.underlying_value_bid_and_offer_message = function(buffer, offset, packet, parent)
   if show.underlying_value_bid_and_offer_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.underlying_value_bid_and_offer_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.underlying_value_bid_and_offer_message_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.underlying_value_bid_and_offer_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.underlying_value_bid_and_offer_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.underlying_value_bid_and_offer_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.underlying_value_bid_and_offer_message_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.underlying_value_bid_and_offer_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -652,17 +652,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.underlying_value_last_sale_message = function(buffer, offset, packet, parent)
   if show.underlying_value_last_sale_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.underlying_value_last_sale_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.underlying_value_last_sale_message_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.underlying_value_last_sale_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.underlying_value_last_sale_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.underlying_value_last_sale_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.underlying_value_last_sale_message_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.underlying_value_last_sale_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1207,17 +1207,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.best_offer_appendage = function(buffer, offset, packet, parent)
   if show.best_offer_appendage then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.best_offer_appendage, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.best_offer_appendage_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.best_offer_appendage, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.best_offer_appendage_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.best_offer_appendage(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.best_offer_appendage_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.best_offer_appendage_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1264,17 +1264,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.best_bid_appendage = function(buffer, offset, packet, parent)
   if show.best_bid_appendage then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_appendage, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.best_bid_appendage_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_appendage, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.best_bid_appendage_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.best_bid_appendage(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.best_bid_appendage_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.best_bid_appendage_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1549,17 +1549,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.expiration_block = function(buffer, offset, packet, parent)
   if show.expiration_block then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.expiration_block, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.expiration_block_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.expiration_block, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.expiration_block_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.expiration_block(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.expiration_block_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.expiration_block_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2209,17 +2209,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.best_bid_and_offer_appendage = function(buffer, offset, packet, parent)
   if show.best_bid_and_offer_appendage then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_and_offer_appendage, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.best_bid_and_offer_appendage_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_and_offer_appendage, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.best_bid_and_offer_appendage_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.best_bid_and_offer_appendage(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.best_bid_and_offer_appendage_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.best_bid_and_offer_appendage_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2890,17 +2890,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.equity_and_index_end_of_day_summary_message = function(buffer, offset, packet, parent)
   if show.equity_and_index_end_of_day_summary_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.equity_and_index_end_of_day_summary_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.equity_and_index_end_of_day_summary_message_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.equity_and_index_end_of_day_summary_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.equity_and_index_end_of_day_summary_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.equity_and_index_end_of_day_summary_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.equity_and_index_end_of_day_summary_message_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.equity_and_index_end_of_day_summary_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2977,17 +2977,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.open_interest_message = function(buffer, offset, packet, parent)
   if show.open_interest_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.open_interest_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.open_interest_message_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.open_interest_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.open_interest_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.open_interest_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.open_interest_message_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.open_interest_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3211,17 +3211,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.equity_and_index_last_sale_message = function(buffer, offset, packet, parent)
   if show.equity_and_index_last_sale_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.equity_and_index_last_sale_message, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.equity_and_index_last_sale_message, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.equity_and_index_last_sale_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.equity_and_index_last_sale_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3520,17 +3520,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.block_timestamp = function(buffer, offset, packet, parent)
   if show.block_timestamp then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.block_timestamp, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.block_timestamp_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.block_timestamp, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.block_timestamp_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.block_timestamp(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.block_timestamp_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.block_timestamp_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3749,17 +3749,17 @@ end
 siac_opra_recipient_obi_v6_1_dissect.block_header = function(buffer, offset, packet, parent)
   if show.block_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(siac_opra_recipient_obi_v6_1.fields.block_header, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_1_dissect.block_header_fields(buffer, offset, packet, element)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.block_header, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v6_1_dissect.block_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = siac_opra_recipient_obi_v6_1_display.block_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return siac_opra_recipient_obi_v6_1_dissect.block_header_fields(buffer, offset, packet, element)
+    return siac_opra_recipient_obi_v6_1_dissect.block_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3775,7 +3775,7 @@ siac_opra_recipient_obi_v6_1_dissect.packet = function(buffer, packet, parent)
 
   -- Repeating: Message
   for message_index = 1, messages_in_block do
-    index, message = siac_opra_recipient_obi_v6_1_dissect.message(buffer, index, packet, parent)
+    index, message = siac_opra_recipient_obi_v6_1_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   -- Runtime optional field exists: Block Pad Byte

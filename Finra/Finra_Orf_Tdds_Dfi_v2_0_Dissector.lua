@@ -602,17 +602,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.datetime = function(buffer, offset, packet, parent)
   if show.datetime then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.datetime, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.datetime, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.datetime(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -769,17 +769,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.message_header, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.message_header, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -811,17 +811,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message = function(buffer, offset, packet, parent)
   if show.end_of_trade_reporting_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_trade_reporting_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_trade_reporting_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.end_of_trade_reporting_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -853,17 +853,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.sequence_number_reset_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -895,17 +895,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message = function(buffer, offset, packet, parent)
   if show.line_integrity_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.line_integrity_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.line_integrity_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.line_integrity_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -937,17 +937,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
   if show.end_of_transmissions_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_transmissions_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_transmissions_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.end_of_transmissions_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -979,17 +979,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message = function(buffer, offset, packet, parent)
   if show.end_of_retransmission_requests_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_retransmission_requests_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_retransmission_requests_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.end_of_retransmission_requests_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1021,17 +1021,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message = function(buffer, offset, packet, parent)
   if show.market_session_close_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_close_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_close_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.market_session_close_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1063,17 +1063,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message = function(buffer, offset, packet, parent)
   if show.market_session_open_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_open_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_open_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.market_session_open_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1105,17 +1105,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message = function(buffer, offset, packet, parent)
   if show.end_of_day_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_day_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_day_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.end_of_day_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1147,17 +1147,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message = function(buffer, offset, packet, parent)
   if show.start_of_day_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.start_of_day_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.start_of_day_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.start_of_day_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1441,17 +1441,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.action_datetime = function(buffer, offset, packet, parent)
   if show.action_datetime then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.action_datetime, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.action_datetime, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.action_datetime(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1531,17 +1531,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message = function(buffer, offset, packet, parent)
   if show.market_wide_circuit_breaker_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_event_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_event_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.market_wide_circuit_breaker_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1613,17 +1613,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.trading_action_message = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trading_action_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trading_action_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.trading_action_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2030,17 +2030,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message = function(buffer, offset, packet, parent)
   if show.closing_trade_summary_report_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_trade_summary_report_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_trade_summary_report_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.closing_trade_summary_report_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2097,17 +2097,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message = function(buffer, offset, packet, parent)
   if show.general_administrative_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.general_administrative_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.general_administrative_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.general_administrative_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2536,17 +2536,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information = function(buffer, offset, packet, parent)
   if show.trade_summary_information then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_summary_information, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_summary_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.trade_summary_information(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2752,17 +2752,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.execution_datetime = function(buffer, offset, packet, parent)
   if show.execution_datetime then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.execution_datetime, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.execution_datetime, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.execution_datetime(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2939,17 +2939,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information = function(buffer, offset, packet, parent)
   if show.corrected_trade_information then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.corrected_trade_information, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.corrected_trade_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.corrected_trade_information(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3031,17 +3031,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.original_trade_information = function(buffer, offset, packet, parent)
   if show.original_trade_information then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_trade_information, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_trade_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.original_trade_information(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3138,17 +3138,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date = function(buffer, offset, packet, parent)
   if show.original_dissemination_date then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_dissemination_date, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_dissemination_date, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.original_dissemination_date(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3215,17 +3215,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   if show.trade_correction_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_correction_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_correction_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.trade_correction_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3287,17 +3287,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
   if show.trade_cancel_error_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_cancel_error_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_cancel_error_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.trade_cancel_error_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3384,17 +3384,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.trade_information = function(buffer, offset, packet, parent)
   if show.trade_information then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_information, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_information, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.trade_information(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3441,17 +3441,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message = function(buffer, offset, packet, parent)
   if show.trade_report_long_form_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_long_form_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_long_form_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.trade_report_long_form_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3583,17 +3583,17 @@ end
 finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message = function(buffer, offset, packet, parent)
   if show.trade_report_short_form_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_short_form_message, buffer(offset, 0))
-    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, element)
+    parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_short_form_message, buffer(offset, 0))
+    local index = finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = finra_orf_tdds_dfi_v2_0_display.trade_report_short_form_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, element)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
   end
 end
 

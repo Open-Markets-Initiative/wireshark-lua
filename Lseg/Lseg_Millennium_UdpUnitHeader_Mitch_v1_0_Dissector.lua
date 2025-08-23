@@ -177,17 +177,17 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header, buffer(offset, 0))
-    local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header, buffer(offset, 0))
+    local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_udpunitheader_mitch_v1_0_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header_fields(buffer, offset, packet, element)
+    return lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -227,20 +227,20 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields = function(buffe
 end
 
 -- Dissect: Message
-lseg_millennium_udpunitheader_mitch_v1_0_dissect.message = function(buffer, offset, packet, parent)
+lseg_millennium_udpunitheader_mitch_v1_0_dissect.message = function(buffer, offset, packet, parent, message_index)
   if show.message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message, buffer(offset, 0))
-    local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.message, buffer(offset, 0))
+    local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields(buffer, offset, packet, parent, message_index)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_udpunitheader_mitch_v1_0_display.message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields(buffer, offset, packet, element)
+    return lseg_millennium_udpunitheader_mitch_v1_0_dissect.message_fields(buffer, offset, packet, parent, message_index)
   end
 end
 
@@ -367,17 +367,17 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header, buffer(offset, 0))
-    local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.unit_header_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header, buffer(offset, 0))
+    local index = lseg_millennium_udpunitheader_mitch_v1_0_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_millennium_udpunitheader_mitch_v1_0_display.unit_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_udpunitheader_mitch_v1_0_dissect.unit_header_fields(buffer, offset, packet, element)
+    return lseg_millennium_udpunitheader_mitch_v1_0_dissect.unit_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -393,7 +393,7 @@ lseg_millennium_udpunitheader_mitch_v1_0_dissect.packet = function(buffer, packe
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message(buffer, index, packet, parent)
+    index, message = lseg_millennium_udpunitheader_mitch_v1_0_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index

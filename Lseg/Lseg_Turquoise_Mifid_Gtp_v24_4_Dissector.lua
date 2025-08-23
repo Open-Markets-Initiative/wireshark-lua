@@ -1285,17 +1285,17 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_ii_trade_cross_message = function(buffer, offset, packet, parent)
   if show.mi_fid_ii_trade_cross_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message, buffer(offset, 0))
-    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_ii_trade_cross_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mi_fid_ii_trade_cross_message, buffer(offset, 0))
+    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_ii_trade_cross_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.mi_fid_ii_trade_cross_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_ii_trade_cross_message_fields(buffer, offset, packet, element)
+    return lseg_turquoise_mifid_gtp_v24_4_dissect.mi_fid_ii_trade_cross_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1634,17 +1634,17 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.mifid_ii_trade_message = function(buffer, offset, packet, parent)
   if show.mifid_ii_trade_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message, buffer(offset, 0))
-    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.mifid_ii_trade_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.mifid_ii_trade_message, buffer(offset, 0))
+    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.mifid_ii_trade_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.mifid_ii_trade_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_mifid_gtp_v24_4_dissect.mifid_ii_trade_message_fields(buffer, offset, packet, element)
+    return lseg_turquoise_mifid_gtp_v24_4_dissect.mifid_ii_trade_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1840,17 +1840,17 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_status_message = function(buffer, offset, packet, parent)
   if show.instrument_status_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
-    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_status_message, buffer(offset, 0))
+    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.instrument_status_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, element)
+    return lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_status_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2207,17 +2207,17 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
-    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.instrument_directory_message, buffer(offset, 0))
+    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.instrument_directory_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, element)
+    return lseg_turquoise_mifid_gtp_v24_4_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2286,17 +2286,17 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.system_event_message = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
-    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.system_event_message, buffer(offset, 0))
+    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.system_event_message(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_mifid_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, element)
+    return lseg_turquoise_mifid_gtp_v24_4_dissect.system_event_message_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2466,17 +2466,17 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
-    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
+    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.message_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, element)
+    return lseg_turquoise_mifid_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2657,17 +2657,17 @@ end
 lseg_turquoise_mifid_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
-    local element = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
-    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
+    parent = parent:add(lseg_turquoise_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
+    local index = lseg_turquoise_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
     local length = index - offset
-    element:set_len(length)
+    parent:set_len(length)
     local display = lseg_turquoise_mifid_gtp_v24_4_display.unit_header(packet, parent, length)
-    element:append_text(display)
+    parent:append_text(display)
 
-    return index, element
+    return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, element)
+    return lseg_turquoise_mifid_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2683,7 +2683,7 @@ lseg_turquoise_mifid_gtp_v24_4_dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = lseg_turquoise_mifid_gtp_v24_4_dissect.message(buffer, index, packet, parent)
+    index, message = lseg_turquoise_mifid_gtp_v24_4_dissect.message(buffer, index, packet, parent, message_index)
   end
 
   return index
