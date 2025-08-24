@@ -71,4 +71,7 @@ jobs:
       - name: Run Tmx Mx Sola Multicast Hsvf 1.14 Dissector Tests
         run: bash -x .github/tests/Tmx-Mx-Sola-Multicast-Hsvf-v1-14-Test.sh
 
+      - name: Run Tmx QuantumFeed TsxTsxvLevel2 Xmt 2.1 Dissector Tests
+        run: bash -x .github/tests/Tmx-QuantumFeed-TsxTsxvLevel2-Xmt-v2-1-Test.sh
+
 
