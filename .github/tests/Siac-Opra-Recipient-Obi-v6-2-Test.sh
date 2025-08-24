@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Siac/Opra.Recipient.v6.2/LongEquityAndIndexQuoteMessage.BestBidAppendage.k.pcap" \
+  -r "Data/Siac/Opra.Recipient.v6.2/LongEquityAndIndexQuoteMessage.pcap" \
   -X "lua_script:Siac/Siac_Opra_Recipient_Obi_v6_2_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["siac.opra.recipient.obi.v6.2.lua"]' \

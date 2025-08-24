@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Siac/Cts.Cta.v2.10/TradeCorrectionMessage.T.C.pcap" \
+  -r "Data/Siac/Cts.Cta.v2.10/TradeCorrectionMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_10_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["siac.cts.output.cta.v2.10.lua"]' \
