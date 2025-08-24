@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Eurex/Eti.T7.v10.0/OrderExecResponse.10103.pcap" \
+  -r "Data/Eurex/Eti.T7.v10.0/OrderExecResponse.pcap" \
   -X "lua_script:Eurex/Eurex_Derivatives_Eti_T7_v10_0_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["eurex.derivatives.eti.t7.v10.0.lua"]' \

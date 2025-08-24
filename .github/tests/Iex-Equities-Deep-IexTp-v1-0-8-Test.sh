@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessage.8.pcap" \
+  -r "Data/Iex/Deep.IexTp.v1.0/PriceLevelBuyUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_Equities_Deep_IexTp_v1_0_8_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["iex.equities.deep.iextp.v1.0.8.lua"]' \

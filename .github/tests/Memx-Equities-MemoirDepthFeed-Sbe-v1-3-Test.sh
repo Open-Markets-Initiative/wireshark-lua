@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Memx/Equities.MemiorDepth.v1.3/OrderExecutedMessage.13.pcap" \
+  -r "Data/Memx/Equities.MemiorDepth.v1.3/OrderExecutedMessage.pcap" \
   -X "lua_script:Memx/Memx_Equities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["memx.equities.memoirdepthfeed.sbe.v1.3.lua"]' \

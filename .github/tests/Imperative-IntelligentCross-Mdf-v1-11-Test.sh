@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Imperative/IntelligentCross.Mdf.v1.11/TradeMessage.K.pcap" \
+  -r "Data/Imperative/IntelligentCross.Mdf.v1.11/TradeMessage.pcap" \
   -X "lua_script:Imperative/Imperative_IntelligentCross_Mdf_v1_11_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["imperative.intelligentcross.mdf.v1.11.lua"]' \

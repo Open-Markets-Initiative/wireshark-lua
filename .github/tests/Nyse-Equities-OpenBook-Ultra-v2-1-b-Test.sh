@@ -2,7 +2,7 @@ set -o errexit
 set -o pipefail
 
 tshark \
-  -r "Data/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.230.pcap" \
+  -r "Data/Nyse/Nyse.Equities.OpenBook.Ultra.2.1.b/FullUpdateMessage.pcap" \
   -X "lua_script:Nyse/Nyse_Equities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
   | jq '.[0]._source.layers["nyse.equities.openbook.ultra.v2.1.b.lua"]' \
