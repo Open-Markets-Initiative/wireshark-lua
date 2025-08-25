@@ -1271,7 +1271,11 @@ cme_brokertec_ust_sbe_v10_1_size_of.sending_time = 8
 
 -- Display: Sending Time
 cme_brokertec_ust_sbe_v10_1_display.sending_time = function(value)
-  return "Sending Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
