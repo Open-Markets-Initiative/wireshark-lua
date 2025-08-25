@@ -1434,7 +1434,11 @@ cme_futures_settlements_sbe_v7_0_size_of.transact_time = 8
 
 -- Display: Transact Time
 cme_futures_settlements_sbe_v7_0_display.transact_time = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time

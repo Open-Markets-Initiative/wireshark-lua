@@ -1621,7 +1621,11 @@ cme_futures_mdp3_sbe_v1_10_size_of.transact_time = 8
 
 -- Display: Transact Time
 cme_futures_mdp3_sbe_v1_10_display.transact_time = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -3346,7 +3350,11 @@ cme_futures_mdp3_sbe_v1_10_size_of.event_time = 8
 
 -- Display: Event Time
 cme_futures_mdp3_sbe_v1_10_display.event_time = function(value)
-  return "Event Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Event Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Event Time
@@ -4537,7 +4545,11 @@ cme_futures_mdp3_sbe_v1_10_size_of.last_update_time = 8
 
 -- Display: Last Update Time
 cme_futures_mdp3_sbe_v1_10_display.last_update_time = function(value)
-  return "Last Update Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Last Update Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Last Update Time

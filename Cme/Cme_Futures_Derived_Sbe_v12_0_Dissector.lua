@@ -239,7 +239,11 @@ cme_futures_derived_sbe_v12_0_size_of.transact_time = 8
 
 -- Display: Transact Time
 cme_futures_derived_sbe_v12_0_display.transact_time = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -405,7 +409,11 @@ cme_futures_derived_sbe_v12_0_size_of.md_entry_time = 8
 
 -- Display: Md Entry Time
 cme_futures_derived_sbe_v12_0_display.md_entry_time = function(value)
-  return "Md Entry Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Md Entry Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Md Entry Time

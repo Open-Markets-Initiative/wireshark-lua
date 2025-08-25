@@ -2577,7 +2577,11 @@ cme_futures_streamlined_sbe_v5_9_size_of.transact_time = 8
 
 -- Display: Transact Time
 cme_futures_streamlined_sbe_v5_9_display.transact_time = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -3258,12 +3262,11 @@ cme_futures_streamlined_sbe_v5_9_size_of.transact_time_optional = 8
 
 -- Display: Transact Time Optional
 cme_futures_streamlined_sbe_v5_9_display.transact_time_optional = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Transact Time Optional: No Value"
-  end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Transact Time Optional: "..value
+  return "Transact Time Optional: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time Optional
@@ -3304,7 +3307,7 @@ end
 cme_futures_streamlined_sbe_v5_9_dissect.md_incremental_refresh_trade_blocks_365_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Transact Time Optional: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_optional = cme_futures_streamlined_sbe_v5_9_dissect.transact_time_optional(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -6375,7 +6378,7 @@ end
 cme_futures_streamlined_sbe_v5_9_dissect.md_incremental_refresh_trade_blocks_short_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Transact Time Optional: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_optional = cme_futures_streamlined_sbe_v5_9_dissect.transact_time_optional(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
@@ -7885,12 +7888,11 @@ cme_futures_streamlined_sbe_v5_9_size_of.orig_time = 8
 
 -- Display: Orig Time
 cme_futures_streamlined_sbe_v5_9_display.orig_time = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Orig Time: No Value"
-  end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
 
-  return "Orig Time: "..value
+  return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Orig Time
@@ -7970,7 +7972,7 @@ cme_futures_streamlined_sbe_v5_9_dissect.md_news_indices_fields = function(buffe
   -- Headline: 50 Byte Ascii String
   index, headline = cme_futures_streamlined_sbe_v5_9_dissect.headline(buffer, index, packet, parent)
 
-  -- Orig Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Orig Time: 8 Byte Unsigned Fixed Width Integer
   index, orig_time = cme_futures_streamlined_sbe_v5_9_dissect.orig_time(buffer, index, packet, parent)
 
   -- Md Feed Type: 2 Byte Ascii String
