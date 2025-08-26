@@ -14,6 +14,7 @@ local siac_opra_recipient_obi_v6_2_display = {}
 local siac_opra_recipient_obi_v6_2_dissect = {}
 local siac_opra_recipient_obi_v6_2_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -35,7 +36,7 @@ siac_opra_recipient_obi_v6_2.fields.best_offer_price = ProtoField.new("Best Offe
 siac_opra_recipient_obi_v6_2.fields.best_offer_size = ProtoField.new("Best Offer Size", "siac.opra.recipient.obi.v6.2.bestoffersize", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.opra.recipient.obi.v6.2.bidindexvalue", ftypes.INT32)
 siac_opra_recipient_obi_v6_2.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.recipient.obi.v6.2.bidprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v6.2.bidpriceshort", ftypes.INT16)
+siac_opra_recipient_obi_v6_2.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v6.2.bidpriceshort", ftypes.DOUBLE)
 siac_opra_recipient_obi_v6_2.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.recipient.obi.v6.2.bidsize", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.recipient.obi.v6.2.bidsizeshort", ftypes.UINT16)
 siac_opra_recipient_obi_v6_2.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.recipient.obi.v6.2.blockchecksum", ftypes.UINT16)
@@ -71,7 +72,7 @@ siac_opra_recipient_obi_v6_2.fields.nanoseconds = ProtoField.new("Nanoseconds", 
 siac_opra_recipient_obi_v6_2.fields.net_change = ProtoField.new("Net Change", "siac.opra.recipient.obi.v6.2.netchange", ftypes.INT32)
 siac_opra_recipient_obi_v6_2.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.recipient.obi.v6.2.offerindexvalue", ftypes.INT64)
 siac_opra_recipient_obi_v6_2.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.recipient.obi.v6.2.offerprice", ftypes.INT32)
-siac_opra_recipient_obi_v6_2.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.recipient.obi.v6.2.offerpriceshort", ftypes.INT16)
+siac_opra_recipient_obi_v6_2.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.recipient.obi.v6.2.offerpriceshort", ftypes.DOUBLE)
 siac_opra_recipient_obi_v6_2.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.recipient.obi.v6.2.offersize", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.opra.recipient.obi.v6.2.offersizeshort", ftypes.UINT16)
 siac_opra_recipient_obi_v6_2.fields.open_interest_message = ProtoField.new("Open Interest Message", "siac.opra.recipient.obi.v6.2.openinterestmessage", ftypes.STRING)
@@ -96,7 +97,7 @@ siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message = Proto
 siac_opra_recipient_obi_v6_2.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v6.2.size", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.recipient.obi.v6.2.strikeprice", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v6.2.strikepricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v6.2.strikepriceshort", ftypes.UINT16)
+siac_opra_recipient_obi_v6_2.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v6.2.strikepriceshort", ftypes.DOUBLE)
 siac_opra_recipient_obi_v6_2.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.recipient.obi.v6.2.tradeidentifier", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.opra.recipient.obi.v6.2.trademessagetype", ftypes.STRING)
 siac_opra_recipient_obi_v6_2.fields.transaction_id = ProtoField.new("Transaction Id", "siac.opra.recipient.obi.v6.2.transactionid", ftypes.UINT32)
@@ -1312,11 +1313,17 @@ siac_opra_recipient_obi_v6_2_display.offer_price_short = function(value)
   return "Offer Price Short: "..value
 end
 
+-- Translate: Offer Price Short
+translate.offer_price_short = function(raw)
+  return raw/100
+end
+
 -- Dissect: Offer Price Short
 siac_opra_recipient_obi_v6_2_dissect.offer_price_short = function(buffer, offset, packet, parent)
   local length = siac_opra_recipient_obi_v6_2_size_of.offer_price_short
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.offer_price_short(raw)
   local display = siac_opra_recipient_obi_v6_2_display.offer_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v6_2.fields.offer_price_short, range, value, display)
@@ -1352,11 +1359,17 @@ siac_opra_recipient_obi_v6_2_display.bid_price_short = function(value)
   return "Bid Price Short: "..value
 end
 
+-- Translate: Bid Price Short
+translate.bid_price_short = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price Short
 siac_opra_recipient_obi_v6_2_dissect.bid_price_short = function(buffer, offset, packet, parent)
   local length = siac_opra_recipient_obi_v6_2_size_of.bid_price_short
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.bid_price_short(raw)
   local display = siac_opra_recipient_obi_v6_2_display.bid_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v6_2.fields.bid_price_short, range, value, display)
@@ -1372,11 +1385,17 @@ siac_opra_recipient_obi_v6_2_display.strike_price_short = function(value)
   return "Strike Price Short: "..value
 end
 
+-- Translate: Strike Price Short
+translate.strike_price_short = function(raw)
+  return raw/10
+end
+
 -- Dissect: Strike Price Short
 siac_opra_recipient_obi_v6_2_dissect.strike_price_short = function(buffer, offset, packet, parent)
   local length = siac_opra_recipient_obi_v6_2_size_of.strike_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.strike_price_short(raw)
   local display = siac_opra_recipient_obi_v6_2_display.strike_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v6_2.fields.strike_price_short, range, value, display)
