@@ -2153,7 +2153,11 @@ cme_futures_ilink3_sbe_v8_3_size_of.sending_time_epoch = 8
 
 -- Display: Sending Time Epoch
 cme_futures_ilink3_sbe_v8_3_display.sending_time_epoch = function(value)
-  return "Sending Time Epoch: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time Epoch: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time Epoch
@@ -3426,7 +3430,11 @@ cme_futures_ilink3_sbe_v8_3_size_of.transact_time = 8
 
 -- Display: Transact Time
 cme_futures_ilink3_sbe_v8_3_display.transact_time = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -15167,7 +15175,11 @@ cme_futures_ilink3_sbe_v8_3_size_of.request_timestamp = 8
 
 -- Display: Request Timestamp
 cme_futures_ilink3_sbe_v8_3_display.request_timestamp = function(value)
-  return "Request Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Request Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Timestamp
