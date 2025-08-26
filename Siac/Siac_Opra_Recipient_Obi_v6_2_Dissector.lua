@@ -3887,8 +3887,8 @@ siac_opra_recipient_obi_v6_2:register_heuristic("udp", siac_opra_recipient_obi_v
 -- Protocol:
 --   Organization: Securities Industry Automation Corporation
 --   Version: 6.2
---   Date: Sunday, July 23, 2023
---   Specification: 64ada5cbd02ba50ea4a7a098_OPRA Pillar Output Specification.pdf
+--   Date: Friday, December 6, 2024
+--   Specification: OPRA_Pillar_Output_Specification.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
