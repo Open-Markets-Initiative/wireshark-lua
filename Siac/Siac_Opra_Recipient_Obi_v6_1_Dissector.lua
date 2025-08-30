@@ -504,28 +504,28 @@ end
 siac_opra_recipient_obi_v6_1_dissect.underlying_value_bid_and_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Indicator: 1 Byte Ascii String
+  -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_1_dissect.message_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = siac_opra_recipient_obi_v6_1_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: unsigned integer
   index, reserved_1 = siac_opra_recipient_obi_v6_1_dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Index Value Denominator Code: 1 Byte Ascii String Enum with 8 values
+  -- Index Value Denominator Code: alphabetic
   index, index_value_denominator_code = siac_opra_recipient_obi_v6_1_dissect.index_value_denominator_code(buffer, index, packet, parent)
 
-  -- Bid Index Value: 4 Byte Signed Fixed Width Integer
+  -- Bid Index Value: signed integer
   index, bid_index_value = siac_opra_recipient_obi_v6_1_dissect.bid_index_value(buffer, index, packet, parent)
 
-  -- Offer Index Value: 8 Byte Signed Fixed Width Integer
+  -- Offer Index Value: signed integer
   index, offer_index_value = siac_opra_recipient_obi_v6_1_dissect.offer_index_value(buffer, index, packet, parent)
 
   return index
@@ -621,28 +621,28 @@ end
 siac_opra_recipient_obi_v6_1_dissect.underlying_value_last_sale_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Indicator: 1 Byte Ascii String
+  -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_1_dissect.message_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = siac_opra_recipient_obi_v6_1_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: unsigned integer
   index, reserved_1 = siac_opra_recipient_obi_v6_1_dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Index Value Denominator Code: 1 Byte Ascii String Enum with 8 values
+  -- Index Value Denominator Code: alphabetic
   index, index_value_denominator_code = siac_opra_recipient_obi_v6_1_dissect.index_value_denominator_code(buffer, index, packet, parent)
 
-  -- Index Value: 4 Byte Signed Fixed Width Integer
+  -- Index Value: signed integer
   index, index_value = siac_opra_recipient_obi_v6_1_dissect.index_value(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: unsigned integer
   index, reserved_4 = siac_opra_recipient_obi_v6_1_dissect.reserved_4(buffer, index, packet, parent)
 
   return index
@@ -769,7 +769,7 @@ end
 siac_opra_recipient_obi_v6_1_dissect.underlying_value_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Value Message Type: 1 Byte Ascii String Enum with 2 values
+  -- Underlying Value Message Type: ASCII character
   index, underlying_value_message_type = siac_opra_recipient_obi_v6_1_dissect.underlying_value_message_type(buffer, index, packet, parent)
 
   -- Underlying Value Message Payload: Runtime Type with 2 branches
@@ -927,19 +927,19 @@ end
 siac_opra_recipient_obi_v6_1_dissect.control_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Control Message Type: 1 Byte Ascii String Enum with 15 values
+  -- Control Message Type: ASCII character
   index, control_message_type = siac_opra_recipient_obi_v6_1_dissect.control_message_type(buffer, index, packet, parent)
 
-  -- Message Indicator: 1 Byte Ascii String
+  -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_1_dissect.message_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Data Length: unsigned integer
   index, message_data_length = siac_opra_recipient_obi_v6_1_dissect.message_data_length(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Message Data
@@ -1007,19 +1007,19 @@ end
 siac_opra_recipient_obi_v6_1_dissect.administrative_message_fields = function(buffer, offset, packet, parent, size_of_administrative_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String
+  -- Message Type: ASCII character
   index, message_type = siac_opra_recipient_obi_v6_1_dissect.message_type(buffer, index, packet, parent)
 
-  -- Message Indicator: 1 Byte Ascii String
+  -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_1_dissect.message_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Data Length: unsigned integer
   index, message_data_length = siac_opra_recipient_obi_v6_1_dissect.message_data_length(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Message Data
@@ -1188,13 +1188,13 @@ end
 siac_opra_recipient_obi_v6_1_dissect.best_offer_appendage_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Participant Id: ASCII character
   index, participant_id = siac_opra_recipient_obi_v6_1_dissect.participant_id(buffer, index, packet, parent)
 
-  -- Denominator Code: 1 Byte Ascii String
+  -- Denominator Code: alphabetic
   index, denominator_code = siac_opra_recipient_obi_v6_1_dissect.denominator_code(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: unsigned integer
   index, price = siac_opra_recipient_obi_v6_1_dissect.price(buffer, index, packet, parent)
 
   -- Size
@@ -1245,13 +1245,13 @@ end
 siac_opra_recipient_obi_v6_1_dissect.best_bid_appendage_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Participant Id: ASCII character
   index, participant_id = siac_opra_recipient_obi_v6_1_dissect.participant_id(buffer, index, packet, parent)
 
-  -- Denominator Code: 1 Byte Ascii String
+  -- Denominator Code: alphabetic
   index, denominator_code = siac_opra_recipient_obi_v6_1_dissect.denominator_code(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: unsigned integer
   index, price = siac_opra_recipient_obi_v6_1_dissect.price(buffer, index, packet, parent)
 
   -- Size
@@ -1533,13 +1533,13 @@ end
 siac_opra_recipient_obi_v6_1_dissect.expiration_block_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Expiration Month: 1 Byte Ascii String Enum with 24 values
+  -- Expiration Month: alphabetic
   index, expiration_month = siac_opra_recipient_obi_v6_1_dissect.expiration_month(buffer, index, packet, parent)
 
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Day: unsigned integer
   index, expiration_day = siac_opra_recipient_obi_v6_1_dissect.expiration_day(buffer, index, packet, parent)
 
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Year: unsigned integer
   index, expiration_year = siac_opra_recipient_obi_v6_1_dissect.expiration_year(buffer, index, packet, parent)
 
   return index
@@ -1761,37 +1761,37 @@ end
 siac_opra_recipient_obi_v6_1_dissect.short_equity_and_index_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Message Type: 1 Byte Ascii String Enum with 11 values
+  -- Quote Message Type: ASCII character
   index, quote_message_type = siac_opra_recipient_obi_v6_1_dissect.quote_message_type(buffer, index, packet, parent)
 
-  -- Bbo Indicator: 1 Byte Ascii String Enum with 17 values
+  -- Bbo Indicator: alphabetic
   index, bbo_indicator = siac_opra_recipient_obi_v6_1_dissect.bbo_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Security Symbol Short: 4 Byte Ascii String
+  -- Security Symbol Short: Alphanumeric
   index, security_symbol_short = siac_opra_recipient_obi_v6_1_dissect.security_symbol_short(buffer, index, packet, parent)
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_recipient_obi_v6_1_dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Strike Price Short: unsigned integer
   index, strike_price_short = siac_opra_recipient_obi_v6_1_dissect.strike_price_short(buffer, index, packet, parent)
 
-  -- Bid Price Short: 2 Byte Signed Fixed Width Integer
+  -- Bid Price Short: signed integer
   index, bid_price_short = siac_opra_recipient_obi_v6_1_dissect.bid_price_short(buffer, index, packet, parent)
 
-  -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size Short: unsigned integer
   index, bid_size_short = siac_opra_recipient_obi_v6_1_dissect.bid_size_short(buffer, index, packet, parent)
 
-  -- Offer Price Short: 2 Byte Signed Fixed Width Integer
+  -- Offer Price Short: signed integer
   index, offer_price_short = siac_opra_recipient_obi_v6_1_dissect.offer_price_short(buffer, index, packet, parent)
 
-  -- Offer Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Size Short: unsigned integer
   index, offer_size_short = siac_opra_recipient_obi_v6_1_dissect.offer_size_short(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Best Bid Appendage
@@ -2178,28 +2178,28 @@ end
 siac_opra_recipient_obi_v6_1_dissect.best_bid_and_offer_appendage_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Best Bid Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Best Bid Participant Id: alphabetic
   index, best_bid_participant_id = siac_opra_recipient_obi_v6_1_dissect.best_bid_participant_id(buffer, index, packet, parent)
 
-  -- Best Bid Denominator Code: 1 Byte Ascii String Enum with 9 values
+  -- Best Bid Denominator Code: alphabetic
   index, best_bid_denominator_code = siac_opra_recipient_obi_v6_1_dissect.best_bid_denominator_code(buffer, index, packet, parent)
 
-  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Best Bid Price: signed integer
   index, best_bid_price = siac_opra_recipient_obi_v6_1_dissect.best_bid_price(buffer, index, packet, parent)
 
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Best Bid Size: unsigned integer
   index, best_bid_size = siac_opra_recipient_obi_v6_1_dissect.best_bid_size(buffer, index, packet, parent)
 
-  -- Best Offer Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Best Offer Participant Id: alphabetic
   index, best_offer_participant_id = siac_opra_recipient_obi_v6_1_dissect.best_offer_participant_id(buffer, index, packet, parent)
 
-  -- Best Offer Denominator Code: 1 Byte Ascii String Enum with 9 values
+  -- Best Offer Denominator Code: alphabetic
   index, best_offer_denominator_code = siac_opra_recipient_obi_v6_1_dissect.best_offer_denominator_code(buffer, index, packet, parent)
 
-  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
+  -- Best Offer Price: signed integer
   index, best_offer_price = siac_opra_recipient_obi_v6_1_dissect.best_offer_price(buffer, index, packet, parent)
 
-  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Best Offer Size: unsigned integer
   index, best_offer_size = siac_opra_recipient_obi_v6_1_dissect.best_offer_size(buffer, index, packet, parent)
 
   return index
@@ -2472,46 +2472,46 @@ end
 siac_opra_recipient_obi_v6_1_dissect.long_equity_and_index_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Quote Message Type: 1 Byte Ascii String Enum with 11 values
+  -- Quote Message Type: ASCII character
   index, quote_message_type = siac_opra_recipient_obi_v6_1_dissect.quote_message_type(buffer, index, packet, parent)
 
-  -- Bbo Indicator: 1 Byte Ascii String Enum with 17 values
+  -- Bbo Indicator: alphabetic
   index, bbo_indicator = siac_opra_recipient_obi_v6_1_dissect.bbo_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = siac_opra_recipient_obi_v6_1_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: unsigned integer
   index, reserved_1 = siac_opra_recipient_obi_v6_1_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_recipient_obi_v6_1_dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
+  -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: unsigned integer
   index, strike_price = siac_opra_recipient_obi_v6_1_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Premium Price Denominator Code: 1 Byte Ascii String Enum with 8 values
+  -- Premium Price Denominator Code: alphabetic
   index, premium_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: signed integer
   index, bid_price = siac_opra_recipient_obi_v6_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: unsigned integer
   index, bid_size = siac_opra_recipient_obi_v6_1_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Offer Price: 4 Byte Signed Fixed Width Integer
+  -- Offer Price: signed integer
   index, offer_price = siac_opra_recipient_obi_v6_1_dissect.offer_price(buffer, index, packet, parent)
 
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Offer Size: unsigned integer
   index, offer_size = siac_opra_recipient_obi_v6_1_dissect.offer_size(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Best Bid Appendage
@@ -2820,67 +2820,67 @@ end
 siac_opra_recipient_obi_v6_1_dissect.equity_and_index_end_of_day_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String
+  -- Message Type: ASCII character
   index, message_type = siac_opra_recipient_obi_v6_1_dissect.message_type(buffer, index, packet, parent)
 
-  -- Message Indicator: 1 Byte Ascii String
+  -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_1_dissect.message_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = siac_opra_recipient_obi_v6_1_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: unsigned integer
   index, reserved_1 = siac_opra_recipient_obi_v6_1_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_recipient_obi_v6_1_dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
+  -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: unsigned integer
   index, strike_price = siac_opra_recipient_obi_v6_1_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: unsigned integer
   index, volume = siac_opra_recipient_obi_v6_1_dissect.volume(buffer, index, packet, parent)
 
-  -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Open Interest Volume: unsigned integer
   index, open_interest_volume = siac_opra_recipient_obi_v6_1_dissect.open_interest_volume(buffer, index, packet, parent)
 
-  -- Premium Price Denominator Code: 1 Byte Ascii String Enum with 8 values
+  -- Premium Price Denominator Code: alphabetic
   index, premium_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
-  -- Open Price: 4 Byte Signed Fixed Width Integer
+  -- Open Price: signed integer
   index, open_price = siac_opra_recipient_obi_v6_1_dissect.open_price(buffer, index, packet, parent)
 
-  -- High Price: 4 Byte Signed Fixed Width Integer
+  -- High Price: signed integer
   index, high_price = siac_opra_recipient_obi_v6_1_dissect.high_price(buffer, index, packet, parent)
 
-  -- Low Price: 4 Byte Signed Fixed Width Integer
+  -- Low Price: signed integer
   index, low_price = siac_opra_recipient_obi_v6_1_dissect.low_price(buffer, index, packet, parent)
 
-  -- Last Price: 4 Byte Signed Fixed Width Integer
+  -- Last Price: signed integer
   index, last_price = siac_opra_recipient_obi_v6_1_dissect.last_price(buffer, index, packet, parent)
 
-  -- Net Change: 4 Byte Signed Fixed Width Integer
+  -- Net Change: signed integer
   index, net_change = siac_opra_recipient_obi_v6_1_dissect.net_change(buffer, index, packet, parent)
 
-  -- Underlying Price Denominator Code: 1 Byte Ascii String Enum with 9 values
+  -- Underlying Price Denominator Code: alphabetic
   index, underlying_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.underlying_price_denominator_code(buffer, index, packet, parent)
 
-  -- Underlying Price: 8 Byte Signed Fixed Width Integer
+  -- Underlying Price: signed integer
   index, underlying_price = siac_opra_recipient_obi_v6_1_dissect.underlying_price(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: signed integer
   index, bid_price = siac_opra_recipient_obi_v6_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Offer Price: 4 Byte Signed Fixed Width Integer
+  -- Offer Price: signed integer
   index, offer_price = siac_opra_recipient_obi_v6_1_dissect.offer_price(buffer, index, packet, parent)
 
   return index
@@ -2940,34 +2940,34 @@ end
 siac_opra_recipient_obi_v6_1_dissect.open_interest_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String
+  -- Message Type: ASCII character
   index, message_type = siac_opra_recipient_obi_v6_1_dissect.message_type(buffer, index, packet, parent)
 
-  -- Message Indicator: 1 Byte Ascii String
+  -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_1_dissect.message_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = siac_opra_recipient_obi_v6_1_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: unsigned integer
   index, reserved_1 = siac_opra_recipient_obi_v6_1_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_recipient_obi_v6_1_dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
+  -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: unsigned integer
   index, strike_price = siac_opra_recipient_obi_v6_1_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Open Interest Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Open Interest Volume: unsigned integer
   index, open_interest_volume = siac_opra_recipient_obi_v6_1_dissect.open_interest_volume(buffer, index, packet, parent)
 
   return index
@@ -3162,46 +3162,46 @@ end
 siac_opra_recipient_obi_v6_1_dissect.equity_and_index_last_sale_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trade Message Type: 1 Byte Ascii String Enum with 22 values
+  -- Trade Message Type: ASCII character
   index, trade_message_type = siac_opra_recipient_obi_v6_1_dissect.trade_message_type(buffer, index, packet, parent)
 
-  -- Message Indicator: 1 Byte Ascii String
+  -- Message Indicator: ASCII character
   index, message_indicator = siac_opra_recipient_obi_v6_1_dissect.message_indicator(buffer, index, packet, parent)
 
-  -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Transaction Id: unsigned integer
   index, transaction_id = siac_opra_recipient_obi_v6_1_dissect.transaction_id(buffer, index, packet, parent)
 
-  -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
+  -- Participant Reference Number: unsigned integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_1_dissect.participant_reference_number(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = siac_opra_recipient_obi_v6_1_dissect.security_symbol(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: unsigned integer
   index, reserved_1 = siac_opra_recipient_obi_v6_1_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Expiration Block: Struct of 3 fields
   index, expiration_block = siac_opra_recipient_obi_v6_1_dissect.expiration_block(buffer, index, packet, parent)
 
-  -- Strike Price Denominator Code: 1 Byte Ascii String Enum with 6 values
+  -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.strike_price_denominator_code(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: unsigned integer
   index, strike_price = siac_opra_recipient_obi_v6_1_dissect.strike_price(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: unsigned integer
   index, volume = siac_opra_recipient_obi_v6_1_dissect.volume(buffer, index, packet, parent)
 
-  -- Premium Price Denominator Code: 1 Byte Ascii String Enum with 8 values
+  -- Premium Price Denominator Code: alphabetic
   index, premium_price_denominator_code = siac_opra_recipient_obi_v6_1_dissect.premium_price_denominator_code(buffer, index, packet, parent)
 
-  -- Premium Price: 4 Byte Signed Fixed Width Integer
+  -- Premium Price: signed integer
   index, premium_price = siac_opra_recipient_obi_v6_1_dissect.premium_price(buffer, index, packet, parent)
 
-  -- Trade Identifier: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Identifier: unsigned integer
   index, trade_identifier = siac_opra_recipient_obi_v6_1_dissect.trade_identifier(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: unsigned integer
   index, reserved_4 = siac_opra_recipient_obi_v6_1_dissect.reserved_4(buffer, index, packet, parent)
 
   return index
@@ -3402,10 +3402,10 @@ siac_opra_recipient_obi_v6_1_dissect.message_fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
-  -- Participant Id: 1 Byte Ascii String Enum with 17 values
+  -- Participant Id: ASCII character
   index, participant_id = siac_opra_recipient_obi_v6_1_dissect.participant_id(buffer, index, packet, parent)
 
-  -- Message Category: 1 Byte Ascii String Enum with 8 values
+  -- Message Category: ASCII character
   index, message_category = siac_opra_recipient_obi_v6_1_dissect.message_category(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 8 branches
@@ -3507,10 +3507,10 @@ end
 siac_opra_recipient_obi_v6_1_dissect.block_timestamp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: unsigned integer
   index, seconds = siac_opra_recipient_obi_v6_1_dissect.seconds(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: unsigned integer
   index, nanoseconds = siac_opra_recipient_obi_v6_1_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
@@ -3715,31 +3715,31 @@ end
 siac_opra_recipient_obi_v6_1_dissect.block_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer Static
+  -- Version: unsigned integer
   index, version = siac_opra_recipient_obi_v6_1_dissect.version(buffer, index, packet, parent)
 
-  -- Block Size: 2 Byte Unsigned Fixed Width Integer
+  -- Block Size: unsigned integer
   index, block_size = siac_opra_recipient_obi_v6_1_dissect.block_size(buffer, index, packet, parent)
 
-  -- Data Feed Indicator: 1 Byte Ascii String
+  -- Data Feed Indicator: ASCII character
   index, data_feed_indicator = siac_opra_recipient_obi_v6_1_dissect.data_feed_indicator(buffer, index, packet, parent)
 
-  -- Retransmission Indicator: 1 Byte Ascii String
+  -- Retransmission Indicator: ASCII character
   index, retransmission_indicator = siac_opra_recipient_obi_v6_1_dissect.retransmission_indicator(buffer, index, packet, parent)
 
-  -- Session Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Session Indicator: unsigned integer
   index, session_indicator = siac_opra_recipient_obi_v6_1_dissect.session_indicator(buffer, index, packet, parent)
 
-  -- Block Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Block Sequence Number: unsigned integer
   index, block_sequence_number = siac_opra_recipient_obi_v6_1_dissect.block_sequence_number(buffer, index, packet, parent)
 
-  -- Messages In Block: 1 Byte Unsigned Fixed Width Integer
+  -- Messages In Block: unsigned integer
   index, messages_in_block = siac_opra_recipient_obi_v6_1_dissect.messages_in_block(buffer, index, packet, parent)
 
   -- Block Timestamp: Struct of 2 fields
   index, block_timestamp = siac_opra_recipient_obi_v6_1_dissect.block_timestamp(buffer, index, packet, parent)
 
-  -- Block Checksum: 2 Byte Unsigned Fixed Width Integer
+  -- Block Checksum: unsigned integer
   index, block_checksum = siac_opra_recipient_obi_v6_1_dissect.block_checksum(buffer, index, packet, parent)
 
   return index
