@@ -3524,8 +3524,15 @@ siac_opra_recipient_obi_v6_2_size_of.block_timestamp = function(buffer, offset)
 end
 
 -- Display: Block Timestamp
-siac_opra_recipient_obi_v6_2_display.block_timestamp = function(packet, parent, length)
-  return ""
+siac_opra_recipient_obi_v6_2_display.block_timestamp = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+  -- Parse unix timestamp
+  local seconds = math.floor(value:tonumber()/1000000000)
+  local nanoseconds = value:tonumber()%1000000000
+
+  return os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Block Timestamp
@@ -3538,7 +3545,10 @@ siac_opra_recipient_obi_v6_2_dissect.block_timestamp_fields = function(buffer, o
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
   index, nanoseconds = siac_opra_recipient_obi_v6_2_dissect.nanoseconds(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local block_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, block_timestamp
 end
 
 -- Dissect: Block Timestamp
@@ -3546,10 +3556,10 @@ siac_opra_recipient_obi_v6_2_dissect.block_timestamp = function(buffer, offset, 
   if show.block_timestamp then
     -- Optionally add element to protocol tree
     parent = parent:add(siac_opra_recipient_obi_v6_2.fields.block_timestamp, buffer(offset, 0))
-    local index = siac_opra_recipient_obi_v6_2_dissect.block_timestamp_fields(buffer, offset, packet, parent)
+    local index, value = siac_opra_recipient_obi_v6_2_dissect.block_timestamp_fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = siac_opra_recipient_obi_v6_2_display.block_timestamp(packet, parent, length)
+    local display = siac_opra_recipient_obi_v6_2_display.block_timestamp(packet, parent, value, length)
     parent:append_text(display)
 
     return index, parent
