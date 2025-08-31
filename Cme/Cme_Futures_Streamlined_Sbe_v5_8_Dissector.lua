@@ -869,7 +869,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.interpolation_factor_fields = function(
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Interpolation Factor
@@ -1135,7 +1135,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.previous_fixing_rate_fields = function(
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Previous Fixing Rate
@@ -3053,7 +3053,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.unit_of_measure_qty_decimal_fields = fu
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Unit Of Measure Qty Decimal
@@ -3172,7 +3172,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.strike_price_decimal_fields = function(
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Strike Price Decimal
@@ -3545,7 +3545,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.md_entry_size_fields = function(buffer,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Md Entry Size
@@ -4349,7 +4349,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.cal_fut_px_fields = function(buffer, of
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Cal Fut Px
@@ -4421,7 +4421,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.md_entry_px_decimal_fields = function(b
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Md Entry Px Decimal
@@ -5707,7 +5707,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.percent_trading_fields = function(buffe
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Percent Trading
@@ -5754,7 +5754,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.net_pct_chg_fields = function(buffer, o
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Net Pct Chg
@@ -5801,7 +5801,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.net_chg_prev_day_fields = function(buff
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Net Chg Prev Day
@@ -5848,7 +5848,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.yield_fields = function(buffer, offset,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Yield
@@ -7270,7 +7270,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.final_settlement_futures_price_fields =
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Final Settlement Futures Price
@@ -7317,7 +7317,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.settlement_npv_fields = function(buffer
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Settlement Npv
@@ -7364,7 +7364,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.d_v_01_fields = function(buffer, offset
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: D V 01
@@ -7411,7 +7411,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.p_v_01_fields = function(buffer, offset
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: P V 01
@@ -7483,7 +7483,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.leg_contract_multiplier_fields = functi
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Leg Contract Multiplier
@@ -7641,7 +7641,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.previous_eris_pai_fields = function(buf
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Previous Eris Pai
@@ -7713,7 +7713,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.next_floating_payment_amount_fields = f
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Next Floating Payment Amount
@@ -7760,7 +7760,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.next_fixed_payment_amount_fields = func
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Next Fixed Payment Amount
@@ -7832,7 +7832,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.floating_payment_fields = function(buff
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Floating Payment
@@ -7879,7 +7879,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.fixed_payment_fields = function(buffer,
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Fixed Payment
@@ -7926,7 +7926,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.min_price_increment_optional_fields = f
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Min Price Increment Optional
@@ -7973,7 +7973,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.fed_funds_rate_fields = function(buffer
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Fed Funds Rate
@@ -8020,7 +8020,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.eris_pai_fields = function(buffer, offs
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Eris Pai
@@ -8067,7 +8067,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.daily_incremental_eris_pai_fields = fun
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Daily Incremental Eris Pai
@@ -8114,7 +8114,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.accrued_coupons_fields = function(buffe
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Accrued Coupons
@@ -8161,7 +8161,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.npv_fields = function(buffer, offset, p
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Npv
@@ -8208,7 +8208,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.float_npv_fields = function(buffer, off
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Float Npv
@@ -8255,7 +8255,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.fixed_npv_fields = function(buffer, off
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Fixed Npv
@@ -8302,7 +8302,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.leg_purchase_rate_fields = function(buf
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Leg Purchase Rate
@@ -8349,7 +8349,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.fair_coupon_pct_fields = function(buffe
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Fair Coupon Pct
@@ -8421,7 +8421,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.coupon_rate_optional_fields = function(
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa_32, exponent
+  return index
 end
 
 -- Dissect: Coupon Rate Optional
@@ -8468,7 +8468,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.cal_fut_px_optional_fields = function(b
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Cal Fut Px Optional
@@ -8575,7 +8575,7 @@ cme_futures_streamlined_sbe_v5_8_dissect.md_entry_px_decimal_optional_fields = f
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_streamlined_sbe_v5_8_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Md Entry Px Decimal Optional

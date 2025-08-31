@@ -286,7 +286,7 @@ cme_brokertec_ust_sbe_v10_1_dissect.coupon_rate_fields = function(buffer, offset
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_brokertec_ust_sbe_v10_1_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa_int_32, exponent
+  return index
 end
 
 -- Dissect: Coupon Rate
@@ -563,7 +563,7 @@ cme_brokertec_ust_sbe_v10_1_dissect.md_entry_px_fields = function(buffer, offset
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_brokertec_ust_sbe_v10_1_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa_int_64, exponent
+  return index
 end
 
 -- Dissect: Md Entry Px

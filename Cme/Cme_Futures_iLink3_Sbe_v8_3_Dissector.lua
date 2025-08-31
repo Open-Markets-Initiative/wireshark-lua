@@ -1226,7 +1226,7 @@ cme_futures_ilink3_sbe_v8_3_dissect.leg_option_delta_fields = function(buffer, o
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_ilink3_sbe_v8_3_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa_32, exponent
+  return index
 end
 
 -- Dissect: Leg Option Delta

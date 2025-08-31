@@ -396,7 +396,7 @@ cme_futures_settlements_sbe_v7_0_dissect.high_px_fields = function(buffer, offse
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: High Px
@@ -486,7 +486,7 @@ cme_futures_settlements_sbe_v7_0_dissect.low_px_fields = function(buffer, offset
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Low Px
@@ -909,7 +909,7 @@ cme_futures_settlements_sbe_v7_0_dissect.strike_price_fields = function(buffer, 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Strike Price
@@ -1973,7 +1973,7 @@ cme_futures_settlements_sbe_v7_0_dissect.formatted_last_px_fields = function(buf
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = cme_futures_settlements_sbe_v7_0_dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa, exponent
+  return index
 end
 
 -- Dissect: Formatted Last Px

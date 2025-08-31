@@ -458,7 +458,7 @@ boats_equities_memoirtopofbook_sbe_v1_3_dissect.offer_price_short_price_type_fie
   -- Mantissa: 2 Byte Signed Fixed Width Integer
   index, mantissa = boats_equities_memoirtopofbook_sbe_v1_3_dissect.mantissa(buffer, index, packet, parent)
 
-  return index, exponent, mantissa
+  return index
 end
 
 -- Dissect: Offer Price Short Price Type
@@ -582,7 +582,7 @@ boats_equities_memoirtopofbook_sbe_v1_3_dissect.bid_price_short_price_type_field
   -- Mantissa: 2 Byte Signed Fixed Width Integer
   index, mantissa = boats_equities_memoirtopofbook_sbe_v1_3_dissect.mantissa(buffer, index, packet, parent)
 
-  return index, exponent, mantissa
+  return index
 end
 
 -- Dissect: Bid Price Short Price Type
