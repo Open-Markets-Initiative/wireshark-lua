@@ -7,12 +7,12 @@
 -- Cboe Europe DepthOfBook Pitch 6.49 Protocol
 local omi_cboe_europe_depthofbook_pitch_v6_49 = Proto("Cboe.Europe.DepthOfBook.Pitch.v6.49.Lua", "Cboe Europe DepthOfBook Pitch 6.49")
 
+-- Protocol table
+local cboe_europe_depthofbook_pitch_v6_49 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local cboe_europe_depthofbook_pitch_v6_49_display = {}
-local cboe_europe_depthofbook_pitch_v6_49_dissect = {}
-local cboe_europe_depthofbook_pitch_v6_49_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -321,11 +321,14 @@ end
 -- Dissect Cboe Europe DepthOfBook Pitch 6.49
 -----------------------------------------------------------------------
 
+-- Index Price
+cboe_europe_depthofbook_pitch_v6_49.index_price = {}
+
 -- Size: Index Price
-cboe_europe_depthofbook_pitch_v6_49_size_of.index_price = 8
+cboe_europe_depthofbook_pitch_v6_49.index_price.size = 8
 
 -- Display: Index Price
-cboe_europe_depthofbook_pitch_v6_49_display.index_price = function(value)
+cboe_europe_depthofbook_pitch_v6_49.index_price.display = function(value)
   return "Index Price: "..value
 end
 
@@ -335,115 +338,127 @@ translate.index_price = function(raw)
 end
 
 -- Dissect: Index Price
-cboe_europe_depthofbook_pitch_v6_49_dissect.index_price = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.index_price
+cboe_europe_depthofbook_pitch_v6_49.index_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.index_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.index_price(raw)
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.index_price(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.index_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.index_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Index Ticker
+cboe_europe_depthofbook_pitch_v6_49.index_ticker = {}
+
 -- Size: Index Ticker
-cboe_europe_depthofbook_pitch_v6_49_size_of.index_ticker = 10
+cboe_europe_depthofbook_pitch_v6_49.index_ticker.size = 10
 
 -- Display: Index Ticker
-cboe_europe_depthofbook_pitch_v6_49_display.index_ticker = function(value)
+cboe_europe_depthofbook_pitch_v6_49.index_ticker.display = function(value)
   return "Index Ticker: "..value
 end
 
 -- Dissect: Index Ticker
-cboe_europe_depthofbook_pitch_v6_49_dissect.index_ticker = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.index_ticker
+cboe_europe_depthofbook_pitch_v6_49.index_ticker.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.index_ticker.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.index_ticker(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.index_ticker.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.index_ticker, range, value, display)
 
   return offset + length, value
 end
 
+-- Time Offset
+cboe_europe_depthofbook_pitch_v6_49.time_offset = {}
+
 -- Size: Time Offset
-cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset = 4
+cboe_europe_depthofbook_pitch_v6_49.time_offset.size = 4
 
 -- Display: Time Offset
-cboe_europe_depthofbook_pitch_v6_49_display.time_offset = function(value)
+cboe_europe_depthofbook_pitch_v6_49.time_offset.display = function(value)
   return "Time Offset: "..value
 end
 
 -- Dissect: Time Offset
-cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.time_offset.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.time_offset(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.time_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.time_offset, range, value, display)
 
   return offset + length, value
 end
 
+-- Index Quote Edsp Message
+cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message = {}
+
 -- Calculate size of: Index Quote Edsp Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.index_quote_edsp_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.index_ticker
+  index = index + cboe_europe_depthofbook_pitch_v6_49.index_ticker.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.index_price
+  index = index + cboe_europe_depthofbook_pitch_v6_49.index_price.size
 
   return index
 end
 
 -- Display: Index Quote Edsp Message
-cboe_europe_depthofbook_pitch_v6_49_display.index_quote_edsp_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Index Quote Edsp Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_edsp_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Index Ticker: 10 Byte Ascii String
-  index, index_ticker = cboe_europe_depthofbook_pitch_v6_49_dissect.index_ticker(buffer, index, packet, parent)
+  index, index_ticker = cboe_europe_depthofbook_pitch_v6_49.index_ticker.dissect(buffer, index, packet, parent)
 
   -- Index Price: 8 Byte Unsigned Fixed Width Integer
-  index, index_price = cboe_europe_depthofbook_pitch_v6_49_dissect.index_price(buffer, index, packet, parent)
+  index, index_price = cboe_europe_depthofbook_pitch_v6_49.index_price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Index Quote Edsp Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_edsp_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.dissect = function(buffer, offset, packet, parent)
   if show.index_quote_edsp_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.index_quote_edsp_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_edsp_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.index_quote_edsp_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_edsp_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Index Status
+cboe_europe_depthofbook_pitch_v6_49.index_status = {}
+
 -- Size: Index Status
-cboe_europe_depthofbook_pitch_v6_49_size_of.index_status = 1
+cboe_europe_depthofbook_pitch_v6_49.index_status.size = 1
 
 -- Display: Index Status
-cboe_europe_depthofbook_pitch_v6_49_display.index_status = function(value)
+cboe_europe_depthofbook_pitch_v6_49.index_status.display = function(value)
   if value == "N" then
     return "Index Status: Normal (N)"
   end
@@ -458,99 +473,108 @@ cboe_europe_depthofbook_pitch_v6_49_display.index_status = function(value)
 end
 
 -- Dissect: Index Status
-cboe_europe_depthofbook_pitch_v6_49_dissect.index_status = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.index_status
+cboe_europe_depthofbook_pitch_v6_49.index_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.index_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.index_status(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.index_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.index_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Index Quote Message
+cboe_europe_depthofbook_pitch_v6_49.index_quote_message = {}
+
 -- Calculate size of: Index Quote Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.index_quote_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.index_ticker
+  index = index + cboe_europe_depthofbook_pitch_v6_49.index_ticker.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.index_price
+  index = index + cboe_europe_depthofbook_pitch_v6_49.index_price.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.index_status
+  index = index + cboe_europe_depthofbook_pitch_v6_49.index_status.size
 
   return index
 end
 
 -- Display: Index Quote Message
-cboe_europe_depthofbook_pitch_v6_49_display.index_quote_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Index Quote Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Index Ticker: 10 Byte Ascii String
-  index, index_ticker = cboe_europe_depthofbook_pitch_v6_49_dissect.index_ticker(buffer, index, packet, parent)
+  index, index_ticker = cboe_europe_depthofbook_pitch_v6_49.index_ticker.dissect(buffer, index, packet, parent)
 
   -- Index Price: 8 Byte Unsigned Fixed Width Integer
-  index, index_price = cboe_europe_depthofbook_pitch_v6_49_dissect.index_price(buffer, index, packet, parent)
+  index, index_price = cboe_europe_depthofbook_pitch_v6_49.index_price.dissect(buffer, index, packet, parent)
 
   -- Index Status: 1 Byte Ascii String Enum with 3 values
-  index, index_status = cboe_europe_depthofbook_pitch_v6_49_dissect.index_status(buffer, index, packet, parent)
+  index, index_status = cboe_europe_depthofbook_pitch_v6_49.index_status.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Index Quote Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.index_quote_message.dissect = function(buffer, offset, packet, parent)
   if show.index_quote_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.index_quote_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.index_quote_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.index_quote_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.index_quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.index_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Shares Binary 4
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_4 = {}
+
 -- Size: Shares Binary 4
-cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_4 = 4
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size = 4
 
 -- Display: Shares Binary 4
-cboe_europe_depthofbook_pitch_v6_49_display.shares_binary_4 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.display = function(value)
   return "Shares Binary 4: "..value
 end
 
 -- Dissect: Shares Binary 4
-cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_4 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_4
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.shares_binary_4(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.shares_binary_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Price Binary Long Price 8
+cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8 = {}
+
 -- Size: Price Binary Long Price 8
-cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8 = 8
+cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size = 8
 
 -- Display: Price Binary Long Price 8
-cboe_europe_depthofbook_pitch_v6_49_display.price_binary_long_price_8 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.display = function(value)
   return "Price Binary Long Price 8: "..value
 end
 
@@ -560,23 +584,26 @@ translate.price_binary_long_price_8 = function(raw)
 end
 
 -- Dissect: Price Binary Long Price 8
-cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.price_binary_long_price_8(raw)
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.price_binary_long_price_8(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.price_binary_long_price_8, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Type
+cboe_europe_depthofbook_pitch_v6_49.auction_type = {}
+
 -- Size: Auction Type
-cboe_europe_depthofbook_pitch_v6_49_size_of.auction_type = 1
+cboe_europe_depthofbook_pitch_v6_49.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_europe_depthofbook_pitch_v6_49_display.auction_type = function(value)
+cboe_europe_depthofbook_pitch_v6_49.auction_type.display = function(value)
   if value == "O" then
     return "Auction Type: Opening Auction (O)"
   end
@@ -600,104 +627,113 @@ cboe_europe_depthofbook_pitch_v6_49_display.auction_type = function(value)
 end
 
 -- Dissect: Auction Type
-cboe_europe_depthofbook_pitch_v6_49_dissect.auction_type = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.auction_type
+cboe_europe_depthofbook_pitch_v6_49.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.auction_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.auction_type(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Alphanumeric 8
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8 = {}
+
 -- Size: Symbol Alphanumeric 8
-cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8 = 8
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size = 8
 
 -- Display: Symbol Alphanumeric 8
-cboe_europe_depthofbook_pitch_v6_49_display.symbol_alphanumeric_8 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.display = function(value)
   return "Symbol Alphanumeric 8: "..value
 end
 
 -- Dissect: Symbol Alphanumeric 8
-cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.symbol_alphanumeric_8(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.symbol_alphanumeric_8, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Summary Message
+cboe_europe_depthofbook_pitch_v6_49.auction_summary_message = {}
+
 -- Calculate size of: Auction Summary Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.auction_summary_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.auction_type
+  index = index + cboe_europe_depthofbook_pitch_v6_49.auction_type.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_4
+  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size
 
   return index
 end
 
 -- Display: Auction Summary Message
-cboe_europe_depthofbook_pitch_v6_49_display.auction_summary_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Auction Summary Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.auction_summary_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 6 values
-  index, auction_type = cboe_europe_depthofbook_pitch_v6_49_dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = cboe_europe_depthofbook_pitch_v6_49.auction_type.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   -- Shares Binary 4: 4 Byte Unsigned Fixed Width Integer
-  index, shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_4(buffer, index, packet, parent)
+  index, shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Summary Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.auction_summary_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.dissect = function(buffer, offset, packet, parent)
   if show.auction_summary_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.auction_summary_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.auction_summary_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Includes Primary
+cboe_europe_depthofbook_pitch_v6_49.includes_primary = {}
+
 -- Size: Includes Primary
-cboe_europe_depthofbook_pitch_v6_49_size_of.includes_primary = 1
+cboe_europe_depthofbook_pitch_v6_49.includes_primary.size = 1
 
 -- Display: Includes Primary
-cboe_europe_depthofbook_pitch_v6_49_display.includes_primary = function(value)
+cboe_europe_depthofbook_pitch_v6_49.includes_primary.display = function(value)
   if value == "P" then
     return "Includes Primary: Includes Primary (P)"
   end
@@ -712,22 +748,25 @@ cboe_europe_depthofbook_pitch_v6_49_display.includes_primary = function(value)
 end
 
 -- Dissect: Includes Primary
-cboe_europe_depthofbook_pitch_v6_49_dissect.includes_primary = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.includes_primary
+cboe_europe_depthofbook_pitch_v6_49.includes_primary.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.includes_primary.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.includes_primary(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.includes_primary.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.includes_primary, range, value, display)
 
   return offset + length, value
 end
 
+-- Outside Tolerance
+cboe_europe_depthofbook_pitch_v6_49.outside_tolerance = {}
+
 -- Size: Outside Tolerance
-cboe_europe_depthofbook_pitch_v6_49_size_of.outside_tolerance = 1
+cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.size = 1
 
 -- Display: Outside Tolerance
-cboe_europe_depthofbook_pitch_v6_49_display.outside_tolerance = function(value)
+cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.display = function(value)
   if value == "O" then
     return "Outside Tolerance: Outside Tolerance (O)"
   end
@@ -742,42 +781,48 @@ cboe_europe_depthofbook_pitch_v6_49_display.outside_tolerance = function(value)
 end
 
 -- Dissect: Outside Tolerance
-cboe_europe_depthofbook_pitch_v6_49_dissect.outside_tolerance = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.outside_tolerance
+cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.outside_tolerance(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.outside_tolerance, range, value, display)
 
   return offset + length, value
 end
 
+-- Indicative Shares
+cboe_europe_depthofbook_pitch_v6_49.indicative_shares = {}
+
 -- Size: Indicative Shares
-cboe_europe_depthofbook_pitch_v6_49_size_of.indicative_shares = 4
+cboe_europe_depthofbook_pitch_v6_49.indicative_shares.size = 4
 
 -- Display: Indicative Shares
-cboe_europe_depthofbook_pitch_v6_49_display.indicative_shares = function(value)
+cboe_europe_depthofbook_pitch_v6_49.indicative_shares.display = function(value)
   return "Indicative Shares: "..value
 end
 
 -- Dissect: Indicative Shares
-cboe_europe_depthofbook_pitch_v6_49_dissect.indicative_shares = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.indicative_shares
+cboe_europe_depthofbook_pitch_v6_49.indicative_shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.indicative_shares.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.indicative_shares(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.indicative_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.indicative_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Indicative Price
+cboe_europe_depthofbook_pitch_v6_49.indicative_price = {}
+
 -- Size: Indicative Price
-cboe_europe_depthofbook_pitch_v6_49_size_of.indicative_price = 4
+cboe_europe_depthofbook_pitch_v6_49.indicative_price.size = 4
 
 -- Display: Indicative Price
-cboe_europe_depthofbook_pitch_v6_49_display.indicative_price = function(value)
+cboe_europe_depthofbook_pitch_v6_49.indicative_price.display = function(value)
   return "Indicative Price: "..value
 end
 
@@ -787,23 +832,26 @@ translate.indicative_price = function(raw)
 end
 
 -- Dissect: Indicative Price
-cboe_europe_depthofbook_pitch_v6_49_dissect.indicative_price = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.indicative_price
+cboe_europe_depthofbook_pitch_v6_49.indicative_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.indicative_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
   local value = translate.indicative_price(raw)
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.indicative_price(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.indicative_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Reference Price
+cboe_europe_depthofbook_pitch_v6_49.reference_price = {}
+
 -- Size: Reference Price
-cboe_europe_depthofbook_pitch_v6_49_size_of.reference_price = 8
+cboe_europe_depthofbook_pitch_v6_49.reference_price.size = 8
 
 -- Display: Reference Price
-cboe_europe_depthofbook_pitch_v6_49_display.reference_price = function(value)
+cboe_europe_depthofbook_pitch_v6_49.reference_price.display = function(value)
   return "Reference Price: "..value
 end
 
@@ -813,100 +861,106 @@ translate.reference_price = function(raw)
 end
 
 -- Dissect: Reference Price
-cboe_europe_depthofbook_pitch_v6_49_dissect.reference_price = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.reference_price
+cboe_europe_depthofbook_pitch_v6_49.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.reference_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.reference_price(raw)
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.reference_price(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.reference_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Update Message
+cboe_europe_depthofbook_pitch_v6_49.auction_update_message = {}
+
 -- Calculate size of: Auction Update Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.auction_update_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.auction_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.auction_type
+  index = index + cboe_europe_depthofbook_pitch_v6_49.auction_type.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.reference_price
+  index = index + cboe_europe_depthofbook_pitch_v6_49.reference_price.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.indicative_price
+  index = index + cboe_europe_depthofbook_pitch_v6_49.indicative_price.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.indicative_shares
+  index = index + cboe_europe_depthofbook_pitch_v6_49.indicative_shares.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.outside_tolerance
+  index = index + cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.includes_primary
+  index = index + cboe_europe_depthofbook_pitch_v6_49.includes_primary.size
 
   return index
 end
 
 -- Display: Auction Update Message
-cboe_europe_depthofbook_pitch_v6_49_display.auction_update_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.auction_update_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Auction Update Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.auction_update_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 6 values
-  index, auction_type = cboe_europe_depthofbook_pitch_v6_49_dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = cboe_europe_depthofbook_pitch_v6_49.auction_type.dissect(buffer, index, packet, parent)
 
   -- Reference Price: 8 Byte Unsigned Fixed Width Integer
-  index, reference_price = cboe_europe_depthofbook_pitch_v6_49_dissect.reference_price(buffer, index, packet, parent)
+  index, reference_price = cboe_europe_depthofbook_pitch_v6_49.reference_price.dissect(buffer, index, packet, parent)
 
   -- Indicative Price: 4 Byte Unsigned Fixed Width Integer
-  index, indicative_price = cboe_europe_depthofbook_pitch_v6_49_dissect.indicative_price(buffer, index, packet, parent)
+  index, indicative_price = cboe_europe_depthofbook_pitch_v6_49.indicative_price.dissect(buffer, index, packet, parent)
 
   -- Indicative Shares: 4 Byte Unsigned Fixed Width Integer
-  index, indicative_shares = cboe_europe_depthofbook_pitch_v6_49_dissect.indicative_shares(buffer, index, packet, parent)
+  index, indicative_shares = cboe_europe_depthofbook_pitch_v6_49.indicative_shares.dissect(buffer, index, packet, parent)
 
   -- Outside Tolerance: 1 Byte Ascii String Enum with 3 values
-  index, outside_tolerance = cboe_europe_depthofbook_pitch_v6_49_dissect.outside_tolerance(buffer, index, packet, parent)
+  index, outside_tolerance = cboe_europe_depthofbook_pitch_v6_49.outside_tolerance.dissect(buffer, index, packet, parent)
 
   -- Includes Primary: 1 Byte Ascii String Enum with 3 values
-  index, includes_primary = cboe_europe_depthofbook_pitch_v6_49_dissect.includes_primary(buffer, index, packet, parent)
+  index, includes_primary = cboe_europe_depthofbook_pitch_v6_49.includes_primary.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Update Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.auction_update_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.auction_update_message.dissect = function(buffer, offset, packet, parent)
   if show.auction_update_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.auction_update_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.auction_update_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.auction_update_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.auction_update_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.auction_update_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.auction_update_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.auction_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Price Determination
+cboe_europe_depthofbook_pitch_v6_49.price_determination = {}
+
 -- Size: Price Determination
-cboe_europe_depthofbook_pitch_v6_49_size_of.price_determination = 1
+cboe_europe_depthofbook_pitch_v6_49.price_determination.size = 1
 
 -- Display: Price Determination
-cboe_europe_depthofbook_pitch_v6_49_display.price_determination = function(value)
+cboe_europe_depthofbook_pitch_v6_49.price_determination.display = function(value)
   if value == "0" then
     return "Price Determination: Normal (0)"
   end
@@ -918,22 +972,25 @@ cboe_europe_depthofbook_pitch_v6_49_display.price_determination = function(value
 end
 
 -- Dissect: Price Determination
-cboe_europe_depthofbook_pitch_v6_49_dissect.price_determination = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.price_determination
+cboe_europe_depthofbook_pitch_v6_49.price_determination.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.price_determination.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.price_determination(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.price_determination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.price_determination, range, value, display)
 
   return offset + length, value
 end
 
+-- Statistic Type
+cboe_europe_depthofbook_pitch_v6_49.statistic_type = {}
+
 -- Size: Statistic Type
-cboe_europe_depthofbook_pitch_v6_49_size_of.statistic_type = 1
+cboe_europe_depthofbook_pitch_v6_49.statistic_type.size = 1
 
 -- Display: Statistic Type
-cboe_europe_depthofbook_pitch_v6_49_display.statistic_type = function(value)
+cboe_europe_depthofbook_pitch_v6_49.statistic_type.display = function(value)
   if value == "C" then
     return "Statistic Type: Closing Price (C)"
   end
@@ -954,104 +1011,113 @@ cboe_europe_depthofbook_pitch_v6_49_display.statistic_type = function(value)
 end
 
 -- Dissect: Statistic Type
-cboe_europe_depthofbook_pitch_v6_49_dissect.statistic_type = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.statistic_type
+cboe_europe_depthofbook_pitch_v6_49.statistic_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.statistic_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.statistic_type(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.statistic_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.statistic_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Statistics Message
+cboe_europe_depthofbook_pitch_v6_49.statistics_message = {}
+
 -- Calculate size of: Statistics Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.statistics_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.statistics_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.statistic_type
+  index = index + cboe_europe_depthofbook_pitch_v6_49.statistic_type.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_determination
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_determination.size
 
   return index
 end
 
 -- Display: Statistics Message
-cboe_europe_depthofbook_pitch_v6_49_display.statistics_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.statistics_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Statistics Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.statistics_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.statistics_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   -- Statistic Type: 1 Byte Ascii String Enum with 5 values
-  index, statistic_type = cboe_europe_depthofbook_pitch_v6_49_dissect.statistic_type(buffer, index, packet, parent)
+  index, statistic_type = cboe_europe_depthofbook_pitch_v6_49.statistic_type.dissect(buffer, index, packet, parent)
 
   -- Price Determination: 1 Byte Ascii String Enum with 2 values
-  index, price_determination = cboe_europe_depthofbook_pitch_v6_49_dissect.price_determination(buffer, index, packet, parent)
+  index, price_determination = cboe_europe_depthofbook_pitch_v6_49.price_determination.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Statistics Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.statistics_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.statistics_message.dissect = function(buffer, offset, packet, parent)
   if show.statistics_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.statistics_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.statistics_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.statistics_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.statistics_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.statistics_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.statistics_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.statistics_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reserved
+cboe_europe_depthofbook_pitch_v6_49.reserved = {}
+
 -- Size: Reserved
-cboe_europe_depthofbook_pitch_v6_49_size_of.reserved = 3
+cboe_europe_depthofbook_pitch_v6_49.reserved.size = 3
 
 -- Display: Reserved
-cboe_europe_depthofbook_pitch_v6_49_display.reserved = function(value)
+cboe_europe_depthofbook_pitch_v6_49.reserved.display = function(value)
   return "Reserved: "..value
 end
 
 -- Dissect: Reserved
-cboe_europe_depthofbook_pitch_v6_49_dissect.reserved = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.reserved
+cboe_europe_depthofbook_pitch_v6_49.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.reserved.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.reserved(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.reserved, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Status
+cboe_europe_depthofbook_pitch_v6_49.trading_status = {}
+
 -- Size: Trading Status
-cboe_europe_depthofbook_pitch_v6_49_size_of.trading_status = 1
+cboe_europe_depthofbook_pitch_v6_49.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_europe_depthofbook_pitch_v6_49_display.trading_status = function(value)
+cboe_europe_depthofbook_pitch_v6_49.trading_status.display = function(value)
   if value == "T" then
     return "Trading Status: Trading (T)"
   end
@@ -1093,163 +1159,178 @@ cboe_europe_depthofbook_pitch_v6_49_display.trading_status = function(value)
 end
 
 -- Dissect: Trading Status
-cboe_europe_depthofbook_pitch_v6_49_dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.trading_status
+cboe_europe_depthofbook_pitch_v6_49.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.trading_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.trading_status(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Status Message
+cboe_europe_depthofbook_pitch_v6_49.trading_status_message = {}
+
 -- Calculate size of: Trading Status Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.trading_status_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.trading_status_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trading_status
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trading_status.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.reserved
+  index = index + cboe_europe_depthofbook_pitch_v6_49.reserved.size
 
   return index
 end
 
 -- Display: Trading Status Message
-cboe_europe_depthofbook_pitch_v6_49_display.trading_status_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.trading_status_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trading Status Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 12 values
-  index, trading_status = cboe_europe_depthofbook_pitch_v6_49_dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = cboe_europe_depthofbook_pitch_v6_49.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved: 3 Byte Ascii String
-  index, reserved = cboe_europe_depthofbook_pitch_v6_49_dissect.reserved(buffer, index, packet, parent)
+  index, reserved = cboe_europe_depthofbook_pitch_v6_49.reserved.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Status Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trading_status_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trading_status_message.dissect = function(buffer, offset, packet, parent)
   if show.trading_status_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trading_status_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.trading_status_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.trading_status_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.trading_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trading_status_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trading_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Transaction Begin Message
+cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message = {}
+
 -- Calculate size of: Transaction Begin Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.transaction_begin_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
   return index
 end
 
 -- Display: Transaction Begin Message
-cboe_europe_depthofbook_pitch_v6_49_display.transaction_begin_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Transaction Begin Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_begin_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Transaction Begin Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_begin_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.dissect = function(buffer, offset, packet, parent)
   if show.transaction_begin_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.transaction_begin_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_begin_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.transaction_begin_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_begin_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- End Of Session
+cboe_europe_depthofbook_pitch_v6_49.end_of_session = {}
+
 -- Calculate size of: End Of Session
-cboe_europe_depthofbook_pitch_v6_49_size_of.end_of_session = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.end_of_session.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
   return index
 end
 
 -- Display: End Of Session
-cboe_europe_depthofbook_pitch_v6_49_display.end_of_session = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.end_of_session.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: End Of Session
-cboe_europe_depthofbook_pitch_v6_49_dissect.end_of_session_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.end_of_session.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Session
-cboe_europe_depthofbook_pitch_v6_49_dissect.end_of_session = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.end_of_session.dissect = function(buffer, offset, packet, parent)
   if show.end_of_session then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.end_of_session, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.end_of_session_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.end_of_session.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.end_of_session(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.end_of_session.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.end_of_session_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.end_of_session.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Extended Trade Flags
+cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags = {}
+
+-- Cboe Trade Flags
+cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags = {}
+
 -- Size: Cboe Trade Flags
-cboe_europe_depthofbook_pitch_v6_49_size_of.cboe_trade_flags = 1
+cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size = 1
 
 -- Display: Cboe Trade Flags
-cboe_europe_depthofbook_pitch_v6_49_display.cboe_trade_flags = function(value)
+cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.display = function(value)
   if value == "4" then
     return "Cboe Trade Flags: On Time In The Main Session (4)"
   end
@@ -1279,316 +1360,343 @@ cboe_europe_depthofbook_pitch_v6_49_display.cboe_trade_flags = function(value)
 end
 
 -- Dissect: Cboe Trade Flags
-cboe_europe_depthofbook_pitch_v6_49_dissect.cboe_trade_flags = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.cboe_trade_flags
+cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.cboe_trade_flags(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.cboe_trade_flags, range, value, display)
 
   return offset + length, value
 end
 
+-- Currency
+cboe_europe_depthofbook_pitch_v6_49.currency = {}
+
 -- Size: Currency
-cboe_europe_depthofbook_pitch_v6_49_size_of.currency = 3
+cboe_europe_depthofbook_pitch_v6_49.currency.size = 3
 
 -- Display: Currency
-cboe_europe_depthofbook_pitch_v6_49_display.currency = function(value)
+cboe_europe_depthofbook_pitch_v6_49.currency.display = function(value)
   return "Currency: "..value
 end
 
 -- Dissect: Currency
-cboe_europe_depthofbook_pitch_v6_49_dissect.currency = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.currency
+cboe_europe_depthofbook_pitch_v6_49.currency.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.currency.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.currency(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.currency, range, value, display)
 
   return offset + length, value
 end
 
+-- Execution Venue
+cboe_europe_depthofbook_pitch_v6_49.execution_venue = {}
+
 -- Size: Execution Venue
-cboe_europe_depthofbook_pitch_v6_49_size_of.execution_venue = 4
+cboe_europe_depthofbook_pitch_v6_49.execution_venue.size = 4
 
 -- Display: Execution Venue
-cboe_europe_depthofbook_pitch_v6_49_display.execution_venue = function(value)
+cboe_europe_depthofbook_pitch_v6_49.execution_venue.display = function(value)
   return "Execution Venue: "..value
 end
 
 -- Dissect: Execution Venue
-cboe_europe_depthofbook_pitch_v6_49_dissect.execution_venue = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.execution_venue
+cboe_europe_depthofbook_pitch_v6_49.execution_venue.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.execution_venue.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.execution_venue(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.execution_venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.execution_venue, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Timestamp
+cboe_europe_depthofbook_pitch_v6_49.trade_timestamp = {}
+
 -- Size: Trade Timestamp
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_timestamp = 8
+cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size = 8
 
 -- Display: Trade Timestamp
-cboe_europe_depthofbook_pitch_v6_49_display.trade_timestamp = function(value)
+cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.display = function(value)
   return "Trade Timestamp: "..value
 end
 
 -- Dissect: Trade Timestamp
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_timestamp = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.trade_timestamp
+cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_timestamp(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Id
+cboe_europe_depthofbook_pitch_v6_49.trade_id = {}
+
 -- Size: Trade Id
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_id = 8
+cboe_europe_depthofbook_pitch_v6_49.trade_id.size = 8
 
 -- Display: Trade Id
-cboe_europe_depthofbook_pitch_v6_49_display.trade_id = function(value)
+cboe_europe_depthofbook_pitch_v6_49.trade_id.display = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.trade_id
+cboe_europe_depthofbook_pitch_v6_49.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.trade_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_id(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Alphanumeric 12
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12 = {}
+
 -- Size: Symbol Alphanumeric 12
-cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_12 = 12
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.size = 12
 
 -- Display: Symbol Alphanumeric 12
-cboe_europe_depthofbook_pitch_v6_49_display.symbol_alphanumeric_12 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.display = function(value)
   return "Symbol Alphanumeric 12: "..value
 end
 
 -- Dissect: Symbol Alphanumeric 12
-cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_12 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_12
+cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.symbol_alphanumeric_12(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.symbol_alphanumeric_12, range, value, display)
 
   return offset + length, value
 end
 
+-- Shares Binary 8
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_8 = {}
+
 -- Size: Shares Binary 8
-cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_8 = 8
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size = 8
 
 -- Display: Shares Binary 8
-cboe_europe_depthofbook_pitch_v6_49_display.shares_binary_8 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.display = function(value)
   return "Shares Binary 8: "..value
 end
 
 -- Dissect: Shares Binary 8
-cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_8 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_8
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.shares_binary_8(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.shares_binary_8, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Unknown Symbol Message
+cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message = {}
+
 -- Calculate size of: Trade Unknown Symbol Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_unknown_symbol_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_12
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trade_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trade_timestamp
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_venue
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_venue.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.currency
+  index = index + cboe_europe_depthofbook_pitch_v6_49.currency.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.cboe_trade_flags
+  index = index + cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.extended_trade_flags
+  index = index + cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.size
 
   return index
 end
 
 -- Display: Trade Unknown Symbol Message
-cboe_europe_depthofbook_pitch_v6_49_display.trade_unknown_symbol_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Unknown Symbol Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_unknown_symbol_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Shares Binary 8: 8 Byte Unsigned Fixed Width Integer
-  index, shares_binary_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_8(buffer, index, packet, parent)
+  index, shares_binary_8 = cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 12: 12 Byte Ascii String
-  index, symbol_alphanumeric_12 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_12(buffer, index, packet, parent)
+  index, symbol_alphanumeric_12 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_12.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_id = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = cboe_europe_depthofbook_pitch_v6_49.trade_id.dissect(buffer, index, packet, parent)
 
   -- Trade Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, trade_timestamp = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_timestamp(buffer, index, packet, parent)
+  index, trade_timestamp = cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Venue: 4 Byte Ascii String
-  index, execution_venue = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_venue(buffer, index, packet, parent)
+  index, execution_venue = cboe_europe_depthofbook_pitch_v6_49.execution_venue.dissect(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = cboe_europe_depthofbook_pitch_v6_49_dissect.currency(buffer, index, packet, parent)
+  index, currency = cboe_europe_depthofbook_pitch_v6_49.currency.dissect(buffer, index, packet, parent)
 
   -- Cboe Trade Flags: 1 Byte Ascii String Enum with 8 values
-  index, cboe_trade_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.cboe_trade_flags(buffer, index, packet, parent)
+  index, cboe_trade_flags = cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.dissect(buffer, index, packet, parent)
 
   -- Extended Trade Flags
-  index, extended_trade_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.extended_trade_flags(buffer, index, packet, parent)
+  index, extended_trade_flags = cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Unknown Symbol Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_unknown_symbol_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_unknown_symbol_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_unknown_symbol_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_unknown_symbol_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_unknown_symbol_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_unknown_symbol_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Trade Extended Message
+cboe_europe_depthofbook_pitch_v6_49.trade_extended_message = {}
+
 -- Calculate size of: Trade Extended Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_extended_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trade_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trade_timestamp
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_venue
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_venue.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.currency
+  index = index + cboe_europe_depthofbook_pitch_v6_49.currency.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.cboe_trade_flags
+  index = index + cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.extended_trade_flags
+  index = index + cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.size
 
   return index
 end
 
 -- Display: Trade Extended Message
-cboe_europe_depthofbook_pitch_v6_49_display.trade_extended_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Extended Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_extended_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Shares Binary 8: 8 Byte Unsigned Fixed Width Integer
-  index, shares_binary_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_8(buffer, index, packet, parent)
+  index, shares_binary_8 = cboe_europe_depthofbook_pitch_v6_49.shares_binary_8.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_id = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = cboe_europe_depthofbook_pitch_v6_49.trade_id.dissect(buffer, index, packet, parent)
 
   -- Trade Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, trade_timestamp = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_timestamp(buffer, index, packet, parent)
+  index, trade_timestamp = cboe_europe_depthofbook_pitch_v6_49.trade_timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Venue: 4 Byte Ascii String
-  index, execution_venue = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_venue(buffer, index, packet, parent)
+  index, execution_venue = cboe_europe_depthofbook_pitch_v6_49.execution_venue.dissect(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = cboe_europe_depthofbook_pitch_v6_49_dissect.currency(buffer, index, packet, parent)
+  index, currency = cboe_europe_depthofbook_pitch_v6_49.currency.dissect(buffer, index, packet, parent)
 
   -- Cboe Trade Flags: 1 Byte Ascii String Enum with 8 values
-  index, cboe_trade_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.cboe_trade_flags(buffer, index, packet, parent)
+  index, cboe_trade_flags = cboe_europe_depthofbook_pitch_v6_49.cboe_trade_flags.dissect(buffer, index, packet, parent)
 
   -- Extended Trade Flags
-  index, extended_trade_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.extended_trade_flags(buffer, index, packet, parent)
+  index, extended_trade_flags = cboe_europe_depthofbook_pitch_v6_49.extended_trade_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Extended Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_extended_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_extended_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_extended_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_extended_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_extended_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_extended_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Algorithmic Trade
+cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade = {}
+
 -- Size: Algorithmic Trade
-cboe_europe_depthofbook_pitch_v6_49_size_of.algorithmic_trade = 1
+cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size = 1
 
 -- Display: Algorithmic Trade
-cboe_europe_depthofbook_pitch_v6_49_display.algorithmic_trade = function(value)
+cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.display = function(value)
   if value == "H" then
     return "Algorithmic Trade: Algorithmic Trade (H)"
   end
@@ -1600,42 +1708,48 @@ cboe_europe_depthofbook_pitch_v6_49_display.algorithmic_trade = function(value)
 end
 
 -- Dissect: Algorithmic Trade
-cboe_europe_depthofbook_pitch_v6_49_dissect.algorithmic_trade = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.algorithmic_trade
+cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.algorithmic_trade(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.algorithmic_trade, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Types
+cboe_europe_depthofbook_pitch_v6_49.trade_types = {}
+
 -- Size: Trade Types
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_types = 1
+cboe_europe_depthofbook_pitch_v6_49.trade_types.size = 1
 
 -- Display: Trade Types
-cboe_europe_depthofbook_pitch_v6_49_display.trade_types = function(value)
+cboe_europe_depthofbook_pitch_v6_49.trade_types.display = function(value)
   return "Trade Types: "..value
 end
 
 -- Dissect: Trade Types
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_types = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.trade_types
+cboe_europe_depthofbook_pitch_v6_49.trade_types.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.trade_types.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_types(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.trade_types.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_types, range, value, display)
 
   return offset + length, value
 end
 
+-- Transaction Category
+cboe_europe_depthofbook_pitch_v6_49.transaction_category = {}
+
 -- Size: Transaction Category
-cboe_europe_depthofbook_pitch_v6_49_size_of.transaction_category = 1
+cboe_europe_depthofbook_pitch_v6_49.transaction_category.size = 1
 
 -- Display: Transaction Category
-cboe_europe_depthofbook_pitch_v6_49_display.transaction_category = function(value)
+cboe_europe_depthofbook_pitch_v6_49.transaction_category.display = function(value)
   if value == "D" then
     return "Transaction Category: Dark Trade (D)"
   end
@@ -1680,22 +1794,25 @@ cboe_europe_depthofbook_pitch_v6_49_display.transaction_category = function(valu
 end
 
 -- Dissect: Transaction Category
-cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_category = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.transaction_category
+cboe_europe_depthofbook_pitch_v6_49.transaction_category.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.transaction_category.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.transaction_category(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.transaction_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.transaction_category, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Mode
+cboe_europe_depthofbook_pitch_v6_49.trading_mode = {}
+
 -- Size: Trading Mode
-cboe_europe_depthofbook_pitch_v6_49_size_of.trading_mode = 1
+cboe_europe_depthofbook_pitch_v6_49.trading_mode.size = 1
 
 -- Display: Trading Mode
-cboe_europe_depthofbook_pitch_v6_49_display.trading_mode = function(value)
+cboe_europe_depthofbook_pitch_v6_49.trading_mode.display = function(value)
   if value == "1" then
     return "Trading Mode: Undefined Auction (1)"
   end
@@ -1734,22 +1851,25 @@ cboe_europe_depthofbook_pitch_v6_49_display.trading_mode = function(value)
 end
 
 -- Dissect: Trading Mode
-cboe_europe_depthofbook_pitch_v6_49_dissect.trading_mode = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.trading_mode
+cboe_europe_depthofbook_pitch_v6_49.trading_mode.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.trading_mode.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.trading_mode(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.trading_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trading_mode, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Mechanism
+cboe_europe_depthofbook_pitch_v6_49.market_mechanism = {}
+
 -- Size: Market Mechanism
-cboe_europe_depthofbook_pitch_v6_49_size_of.market_mechanism = 1
+cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size = 1
 
 -- Display: Market Mechanism
-cboe_europe_depthofbook_pitch_v6_49_display.market_mechanism = function(value)
+cboe_europe_depthofbook_pitch_v6_49.market_mechanism.display = function(value)
   if value == "1" then
     return "Market Mechanism: Central Limit Order Book (1)"
   end
@@ -1776,104 +1896,113 @@ cboe_europe_depthofbook_pitch_v6_49_display.market_mechanism = function(value)
 end
 
 -- Dissect: Market Mechanism
-cboe_europe_depthofbook_pitch_v6_49_dissect.market_mechanism = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.market_mechanism
+cboe_europe_depthofbook_pitch_v6_49.market_mechanism.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.market_mechanism(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.market_mechanism.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.market_mechanism, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Flags
+cboe_europe_depthofbook_pitch_v6_49.trade_flags = {}
+
 -- Calculate size of: Trade Flags
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_flags = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.trade_flags.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.market_mechanism
+  index = index + cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trading_mode
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trading_mode.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.transaction_category
+  index = index + cboe_europe_depthofbook_pitch_v6_49.transaction_category.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trade_types
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_types.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.algorithmic_trade
+  index = index + cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size
 
   return index
 end
 
 -- Display: Trade Flags
-cboe_europe_depthofbook_pitch_v6_49_display.trade_flags = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.trade_flags.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Flags
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_flags_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_flags.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Market Mechanism: 1 Byte Ascii String Enum with 7 values
-  index, market_mechanism = cboe_europe_depthofbook_pitch_v6_49_dissect.market_mechanism(buffer, index, packet, parent)
+  index, market_mechanism = cboe_europe_depthofbook_pitch_v6_49.market_mechanism.dissect(buffer, index, packet, parent)
 
   -- Trading Mode: 1 Byte Ascii String Enum with 11 values
-  index, trading_mode = cboe_europe_depthofbook_pitch_v6_49_dissect.trading_mode(buffer, index, packet, parent)
+  index, trading_mode = cboe_europe_depthofbook_pitch_v6_49.trading_mode.dissect(buffer, index, packet, parent)
 
   -- Transaction Category: 1 Byte Ascii String Enum with 13 values
-  index, transaction_category = cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_category(buffer, index, packet, parent)
+  index, transaction_category = cboe_europe_depthofbook_pitch_v6_49.transaction_category.dissect(buffer, index, packet, parent)
 
   -- Trade Types: 1 Byte Ascii String
-  index, trade_types = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_types(buffer, index, packet, parent)
+  index, trade_types = cboe_europe_depthofbook_pitch_v6_49.trade_types.dissect(buffer, index, packet, parent)
 
   -- Algorithmic Trade: 1 Byte Ascii String Enum with 2 values
-  index, algorithmic_trade = cboe_europe_depthofbook_pitch_v6_49_dissect.algorithmic_trade(buffer, index, packet, parent)
+  index, algorithmic_trade = cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Flags
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_flags = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_flags.dissect = function(buffer, offset, packet, parent)
   if show.trade_flags then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_flags, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_flags_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.trade_flags.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_flags(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.trade_flags.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_flags_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_flags.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Execution Id
+cboe_europe_depthofbook_pitch_v6_49.execution_id = {}
+
 -- Size: Execution Id
-cboe_europe_depthofbook_pitch_v6_49_size_of.execution_id = 8
+cboe_europe_depthofbook_pitch_v6_49.execution_id.size = 8
 
 -- Display: Execution Id
-cboe_europe_depthofbook_pitch_v6_49_display.execution_id = function(value)
+cboe_europe_depthofbook_pitch_v6_49.execution_id.display = function(value)
   return "Execution Id: "..value
 end
 
 -- Dissect: Execution Id
-cboe_europe_depthofbook_pitch_v6_49_dissect.execution_id = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.execution_id
+cboe_europe_depthofbook_pitch_v6_49.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.execution_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.execution_id(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.execution_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Price Short
+cboe_europe_depthofbook_pitch_v6_49.price_short = {}
+
 -- Size: Price Short
-cboe_europe_depthofbook_pitch_v6_49_size_of.price_short = 2
+cboe_europe_depthofbook_pitch_v6_49.price_short.size = 2
 
 -- Display: Price Short
-cboe_europe_depthofbook_pitch_v6_49_display.price_short = function(value)
+cboe_europe_depthofbook_pitch_v6_49.price_short.display = function(value)
   return "Price Short: "..value
 end
 
@@ -1883,43 +2012,49 @@ translate.price_short = function(raw)
 end
 
 -- Dissect: Price Short
-cboe_europe_depthofbook_pitch_v6_49_dissect.price_short = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.price_short
+cboe_europe_depthofbook_pitch_v6_49.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
   local value = translate.price_short(raw)
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.price_short(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.price_short, range, value, display)
 
   return offset + length, value
 end
 
+-- Contracts Short
+cboe_europe_depthofbook_pitch_v6_49.contracts_short = {}
+
 -- Size: Contracts Short
-cboe_europe_depthofbook_pitch_v6_49_size_of.contracts_short = 2
+cboe_europe_depthofbook_pitch_v6_49.contracts_short.size = 2
 
 -- Display: Contracts Short
-cboe_europe_depthofbook_pitch_v6_49_display.contracts_short = function(value)
+cboe_europe_depthofbook_pitch_v6_49.contracts_short.display = function(value)
   return "Contracts Short: "..value
 end
 
 -- Dissect: Contracts Short
-cboe_europe_depthofbook_pitch_v6_49_dissect.contracts_short = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.contracts_short
+cboe_europe_depthofbook_pitch_v6_49.contracts_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.contracts_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.contracts_short(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.contracts_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.contracts_short, range, value, display)
 
   return offset + length, value
 end
 
+-- Side Indicator
+cboe_europe_depthofbook_pitch_v6_49.side_indicator = {}
+
 -- Size: Side Indicator
-cboe_europe_depthofbook_pitch_v6_49_size_of.side_indicator = 1
+cboe_europe_depthofbook_pitch_v6_49.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_europe_depthofbook_pitch_v6_49_display.side_indicator = function(value)
+cboe_europe_depthofbook_pitch_v6_49.side_indicator.display = function(value)
   if value == "B" then
     return "Side Indicator: Buy Order (B)"
   end
@@ -1931,243 +2066,258 @@ cboe_europe_depthofbook_pitch_v6_49_display.side_indicator = function(value)
 end
 
 -- Dissect: Side Indicator
-cboe_europe_depthofbook_pitch_v6_49_dissect.side_indicator = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.side_indicator
+cboe_europe_depthofbook_pitch_v6_49.side_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.side_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.side_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.side_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Id
+cboe_europe_depthofbook_pitch_v6_49.order_id = {}
+
 -- Size: Order Id
-cboe_europe_depthofbook_pitch_v6_49_size_of.order_id = 8
+cboe_europe_depthofbook_pitch_v6_49.order_id.size = 8
 
 -- Display: Order Id
-cboe_europe_depthofbook_pitch_v6_49_display.order_id = function(value)
+cboe_europe_depthofbook_pitch_v6_49.order_id.display = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-cboe_europe_depthofbook_pitch_v6_49_dissect.order_id = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+cboe_europe_depthofbook_pitch_v6_49.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.order_id(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Short Message
+cboe_europe_depthofbook_pitch_v6_49.trade_short_message = {}
+
 -- Calculate size of: Trade Short Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_short_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.trade_short_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.side_indicator
+  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.contracts_short
+  index = index + cboe_europe_depthofbook_pitch_v6_49.contracts_short.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_short
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_short.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trade_flags(buffer, offset + index)
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_flags.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Short Message
-cboe_europe_depthofbook_pitch_v6_49_display.trade_short_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.trade_short_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49_dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49.side_indicator.dissect(buffer, index, packet, parent)
 
   -- Contracts Short: 2 Byte Unsigned Fixed Width Integer
-  index, contracts_short = cboe_europe_depthofbook_pitch_v6_49_dissect.contracts_short(buffer, index, packet, parent)
+  index, contracts_short = cboe_europe_depthofbook_pitch_v6_49.contracts_short.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Price Short: 2 Byte Unsigned Fixed Width Integer
-  index, price_short = cboe_europe_depthofbook_pitch_v6_49_dissect.price_short(buffer, index, packet, parent)
+  index, price_short = cboe_europe_depthofbook_pitch_v6_49.price_short.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_europe_depthofbook_pitch_v6_49.execution_id.dissect(buffer, index, packet, parent)
 
   -- Trade Flags: Struct of 5 fields
-  index, trade_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_flags(buffer, index, packet, parent)
+  index, trade_flags = cboe_europe_depthofbook_pitch_v6_49.trade_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_short_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_short_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_short_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_short_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_short_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.trade_short_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_short_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.trade_short_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_short_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Trade Long Message
+cboe_europe_depthofbook_pitch_v6_49.trade_long_message = {}
+
 -- Calculate size of: Trade Long Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.trade_long_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.trade_long_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.side_indicator
+  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_4
+  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trade_flags(buffer, offset + index)
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trade_flags.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Long Message
-cboe_europe_depthofbook_pitch_v6_49_display.trade_long_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.trade_long_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49_dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49.side_indicator.dissect(buffer, index, packet, parent)
 
   -- Shares Binary 4: 4 Byte Unsigned Fixed Width Integer
-  index, shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_4(buffer, index, packet, parent)
+  index, shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_europe_depthofbook_pitch_v6_49.execution_id.dissect(buffer, index, packet, parent)
 
   -- Trade Flags: Struct of 5 fields
-  index, trade_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_flags(buffer, index, packet, parent)
+  index, trade_flags = cboe_europe_depthofbook_pitch_v6_49.trade_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.trade_long_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.trade_long_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_long_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.trade_long_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.trade_long_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.trade_long_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.trade_long_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.trade_long_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_long_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Delete Order Message
+cboe_europe_depthofbook_pitch_v6_49.delete_order_message = {}
+
 -- Calculate size of: Delete Order Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.delete_order_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.delete_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
   return index
 end
 
 -- Display: Delete Order Message
-cboe_europe_depthofbook_pitch_v6_49_display.delete_order_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.delete_order_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Delete Order Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Delete Order Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.delete_order_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.delete_order_message.dissect = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.delete_order_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.delete_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.delete_order_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.delete_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.delete_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Price Binary Short Price 2
+cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2 = {}
+
 -- Size: Price Binary Short Price 2
-cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_short_price_2 = 2
+cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.size = 2
 
 -- Display: Price Binary Short Price 2
-cboe_europe_depthofbook_pitch_v6_49_display.price_binary_short_price_2 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.display = function(value)
   return "Price Binary Short Price 2: "..value
 end
 
@@ -2177,301 +2327,325 @@ translate.price_binary_short_price_2 = function(raw)
 end
 
 -- Dissect: Price Binary Short Price 2
-cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_short_price_2 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_short_price_2
+cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
   local value = translate.price_binary_short_price_2(raw)
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.price_binary_short_price_2(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.price_binary_short_price_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Shares Binary 2
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_2 = {}
+
 -- Size: Shares Binary 2
-cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_2 = 2
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.size = 2
 
 -- Display: Shares Binary 2
-cboe_europe_depthofbook_pitch_v6_49_display.shares_binary_2 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.display = function(value)
   return "Shares Binary 2: "..value
 end
 
 -- Dissect: Shares Binary 2
-cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_2 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_2
+cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.shares_binary_2(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.shares_binary_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Modify Order Short Message
+cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message = {}
+
 -- Calculate size of: Modify Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.modify_order_short_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_2
+  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_short_price_2
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.size
 
   return index
 end
 
 -- Display: Modify Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_display.modify_order_short_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Modify Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_short_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Shares Binary 2: 2 Byte Unsigned Fixed Width Integer
-  index, shares_binary_2 = cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_2(buffer, index, packet, parent)
+  index, shares_binary_2 = cboe_europe_depthofbook_pitch_v6_49.shares_binary_2.dissect(buffer, index, packet, parent)
 
   -- Price Binary Short Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, price_binary_short_price_2 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_short_price_2(buffer, index, packet, parent)
+  index, price_binary_short_price_2 = cboe_europe_depthofbook_pitch_v6_49.price_binary_short_price_2.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_short_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.dissect = function(buffer, offset, packet, parent)
   if show.modify_order_short_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.modify_order_short_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.modify_order_short_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Modify Order Long Message
+cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message = {}
+
 -- Calculate size of: Modify Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.modify_order_long_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.shares_binary_4
+  index = index + cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
   return index
 end
 
 -- Display: Modify Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_display.modify_order_long_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Modify Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_long_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Shares Binary 4: 4 Byte Unsigned Fixed Width Integer
-  index, shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49_dissect.shares_binary_4(buffer, index, packet, parent)
+  index, shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49.shares_binary_4.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_long_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.dissect = function(buffer, offset, packet, parent)
   if show.modify_order_long_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.modify_order_long_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.modify_order_long_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Canceled Shares Binary 2
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2 = {}
+
 -- Size: Canceled Shares Binary 2
-cboe_europe_depthofbook_pitch_v6_49_size_of.canceled_shares_binary_2 = 2
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.size = 2
 
 -- Display: Canceled Shares Binary 2
-cboe_europe_depthofbook_pitch_v6_49_display.canceled_shares_binary_2 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.display = function(value)
   return "Canceled Shares Binary 2: "..value
 end
 
 -- Dissect: Canceled Shares Binary 2
-cboe_europe_depthofbook_pitch_v6_49_dissect.canceled_shares_binary_2 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.canceled_shares_binary_2
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.canceled_shares_binary_2(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.canceled_shares_binary_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Reduce Size Short Message
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message = {}
+
 -- Calculate size of: Reduce Size Short Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.reduce_size_short_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.canceled_shares_binary_2
+  index = index + cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.size
 
   return index
 end
 
 -- Display: Reduce Size Short Message
-cboe_europe_depthofbook_pitch_v6_49_display.reduce_size_short_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Reduce Size Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_short_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Canceled Shares Binary 2: 2 Byte Unsigned Fixed Width Integer
-  index, canceled_shares_binary_2 = cboe_europe_depthofbook_pitch_v6_49_dissect.canceled_shares_binary_2(buffer, index, packet, parent)
+  index, canceled_shares_binary_2 = cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_2.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reduce Size Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.dissect = function(buffer, offset, packet, parent)
   if show.reduce_size_short_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.reduce_size_short_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.reduce_size_short_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Canceled Shares Binary 4
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4 = {}
+
 -- Size: Canceled Shares Binary 4
-cboe_europe_depthofbook_pitch_v6_49_size_of.canceled_shares_binary_4 = 4
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.size = 4
 
 -- Display: Canceled Shares Binary 4
-cboe_europe_depthofbook_pitch_v6_49_display.canceled_shares_binary_4 = function(value)
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.display = function(value)
   return "Canceled Shares Binary 4: "..value
 end
 
 -- Dissect: Canceled Shares Binary 4
-cboe_europe_depthofbook_pitch_v6_49_dissect.canceled_shares_binary_4 = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.canceled_shares_binary_4
+cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.canceled_shares_binary_4(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.canceled_shares_binary_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Reduce Size Long Message
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message = {}
+
 -- Calculate size of: Reduce Size Long Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.reduce_size_long_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.canceled_shares_binary_4
+  index = index + cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.size
 
   return index
 end
 
 -- Display: Reduce Size Long Message
-cboe_europe_depthofbook_pitch_v6_49_display.reduce_size_long_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Reduce Size Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_long_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Canceled Shares Binary 4: 4 Byte Unsigned Fixed Width Integer
-  index, canceled_shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49_dissect.canceled_shares_binary_4(buffer, index, packet, parent)
+  index, canceled_shares_binary_4 = cboe_europe_depthofbook_pitch_v6_49.canceled_shares_binary_4.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reduce Size Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.dissect = function(buffer, offset, packet, parent)
   if show.reduce_size_long_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.reduce_size_long_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.reduce_size_long_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Ex Cum Dividend
+cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend = {}
+
 -- Size: Ex Cum Dividend
-cboe_europe_depthofbook_pitch_v6_49_size_of.ex_cum_dividend = 1
+cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.size = 1
 
 -- Display: Ex Cum Dividend
-cboe_europe_depthofbook_pitch_v6_49_display.ex_cum_dividend = function(value)
+cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.display = function(value)
   if value == "E" then
     return "Ex Cum Dividend: Ex Cum Special Dividend If Optionally Set By Reporting Party (E)"
   end
@@ -2483,885 +2657,939 @@ cboe_europe_depthofbook_pitch_v6_49_display.ex_cum_dividend = function(value)
 end
 
 -- Dissect: Ex Cum Dividend
-cboe_europe_depthofbook_pitch_v6_49_dissect.ex_cum_dividend = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.ex_cum_dividend
+cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.ex_cum_dividend(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.ex_cum_dividend, range, value, display)
 
   return offset + length, value
 end
 
+-- Execution Flags
+cboe_europe_depthofbook_pitch_v6_49.execution_flags = {}
+
 -- Calculate size of: Execution Flags
-cboe_europe_depthofbook_pitch_v6_49_size_of.execution_flags = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.execution_flags.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.market_mechanism
+  index = index + cboe_europe_depthofbook_pitch_v6_49.market_mechanism.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.trading_mode
+  index = index + cboe_europe_depthofbook_pitch_v6_49.trading_mode.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.ex_cum_dividend
+  index = index + cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.algorithmic_trade
+  index = index + cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.size
 
   return index
 end
 
 -- Display: Execution Flags
-cboe_europe_depthofbook_pitch_v6_49_display.execution_flags = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.execution_flags.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Execution Flags
-cboe_europe_depthofbook_pitch_v6_49_dissect.execution_flags_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.execution_flags.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Market Mechanism: 1 Byte Ascii String Enum with 7 values
-  index, market_mechanism = cboe_europe_depthofbook_pitch_v6_49_dissect.market_mechanism(buffer, index, packet, parent)
+  index, market_mechanism = cboe_europe_depthofbook_pitch_v6_49.market_mechanism.dissect(buffer, index, packet, parent)
 
   -- Trading Mode: 1 Byte Ascii String Enum with 11 values
-  index, trading_mode = cboe_europe_depthofbook_pitch_v6_49_dissect.trading_mode(buffer, index, packet, parent)
+  index, trading_mode = cboe_europe_depthofbook_pitch_v6_49.trading_mode.dissect(buffer, index, packet, parent)
 
   -- Ex Cum Dividend: 1 Byte Ascii String Enum with 2 values
-  index, ex_cum_dividend = cboe_europe_depthofbook_pitch_v6_49_dissect.ex_cum_dividend(buffer, index, packet, parent)
+  index, ex_cum_dividend = cboe_europe_depthofbook_pitch_v6_49.ex_cum_dividend.dissect(buffer, index, packet, parent)
 
   -- Algorithmic Trade: 1 Byte Ascii String Enum with 2 values
-  index, algorithmic_trade = cboe_europe_depthofbook_pitch_v6_49_dissect.algorithmic_trade(buffer, index, packet, parent)
+  index, algorithmic_trade = cboe_europe_depthofbook_pitch_v6_49.algorithmic_trade.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Execution Flags
-cboe_europe_depthofbook_pitch_v6_49_dissect.execution_flags = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.execution_flags.dissect = function(buffer, offset, packet, parent)
   if show.execution_flags then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.execution_flags, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_flags_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.execution_flags.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.execution_flags(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.execution_flags.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.execution_flags_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.execution_flags.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Remaining Shares
+cboe_europe_depthofbook_pitch_v6_49.remaining_shares = {}
+
 -- Size: Remaining Shares
-cboe_europe_depthofbook_pitch_v6_49_size_of.remaining_shares = 4
+cboe_europe_depthofbook_pitch_v6_49.remaining_shares.size = 4
 
 -- Display: Remaining Shares
-cboe_europe_depthofbook_pitch_v6_49_display.remaining_shares = function(value)
+cboe_europe_depthofbook_pitch_v6_49.remaining_shares.display = function(value)
   return "Remaining Shares: "..value
 end
 
 -- Dissect: Remaining Shares
-cboe_europe_depthofbook_pitch_v6_49_dissect.remaining_shares = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.remaining_shares
+cboe_europe_depthofbook_pitch_v6_49.remaining_shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.remaining_shares.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.remaining_shares(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.remaining_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.remaining_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Executed Shares
+cboe_europe_depthofbook_pitch_v6_49.executed_shares = {}
+
 -- Size: Executed Shares
-cboe_europe_depthofbook_pitch_v6_49_size_of.executed_shares = 4
+cboe_europe_depthofbook_pitch_v6_49.executed_shares.size = 4
 
 -- Display: Executed Shares
-cboe_europe_depthofbook_pitch_v6_49_display.executed_shares = function(value)
+cboe_europe_depthofbook_pitch_v6_49.executed_shares.display = function(value)
   return "Executed Shares: "..value
 end
 
 -- Dissect: Executed Shares
-cboe_europe_depthofbook_pitch_v6_49_dissect.executed_shares = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.executed_shares
+cboe_europe_depthofbook_pitch_v6_49.executed_shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.executed_shares.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.executed_shares(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.executed_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.executed_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Executed At Price Size Message
+cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message = {}
+
 -- Calculate size of: Order Executed At Price Size Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.order_executed_at_price_size_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.executed_shares
+  index = index + cboe_europe_depthofbook_pitch_v6_49.executed_shares.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.remaining_shares
+  index = index + cboe_europe_depthofbook_pitch_v6_49.remaining_shares.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_flags(buffer, offset + index)
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_flags.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Executed At Price Size Message
-cboe_europe_depthofbook_pitch_v6_49_display.order_executed_at_price_size_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Executed At Price Size Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_at_price_size_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
-  index, executed_shares = cboe_europe_depthofbook_pitch_v6_49_dissect.executed_shares(buffer, index, packet, parent)
+  index, executed_shares = cboe_europe_depthofbook_pitch_v6_49.executed_shares.dissect(buffer, index, packet, parent)
 
   -- Remaining Shares: 4 Byte Unsigned Fixed Width Integer
-  index, remaining_shares = cboe_europe_depthofbook_pitch_v6_49_dissect.remaining_shares(buffer, index, packet, parent)
+  index, remaining_shares = cboe_europe_depthofbook_pitch_v6_49.remaining_shares.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_europe_depthofbook_pitch_v6_49.execution_id.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   -- Execution Flags: Struct of 4 fields
-  index, execution_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_flags(buffer, index, packet, parent)
+  index, execution_flags = cboe_europe_depthofbook_pitch_v6_49.execution_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed At Price Size Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.dissect = function(buffer, offset, packet, parent)
   if show.order_executed_at_price_size_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.order_executed_at_price_size_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.order_executed_at_price_size_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Executed Message
+cboe_europe_depthofbook_pitch_v6_49.order_executed_message = {}
+
 -- Calculate size of: Order Executed Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.order_executed_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.executed_shares
+  index = index + cboe_europe_depthofbook_pitch_v6_49.executed_shares.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.execution_flags(buffer, offset + index)
+  index = index + cboe_europe_depthofbook_pitch_v6_49.execution_flags.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Executed Message
-cboe_europe_depthofbook_pitch_v6_49_display.order_executed_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Executed Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
-  index, executed_shares = cboe_europe_depthofbook_pitch_v6_49_dissect.executed_shares(buffer, index, packet, parent)
+  index, executed_shares = cboe_europe_depthofbook_pitch_v6_49.executed_shares.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_europe_depthofbook_pitch_v6_49.execution_id.dissect(buffer, index, packet, parent)
 
   -- Execution Flags: Struct of 4 fields
-  index, execution_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.execution_flags(buffer, index, packet, parent)
+  index, execution_flags = cboe_europe_depthofbook_pitch_v6_49.execution_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.order_executed_message.dissect = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.order_executed_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.order_executed_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.order_executed_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.order_executed_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.order_executed_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Participant Id
+cboe_europe_depthofbook_pitch_v6_49.participant_id = {}
+
 -- Size: Participant Id
-cboe_europe_depthofbook_pitch_v6_49_size_of.participant_id = 4
+cboe_europe_depthofbook_pitch_v6_49.participant_id.size = 4
 
 -- Display: Participant Id
-cboe_europe_depthofbook_pitch_v6_49_display.participant_id = function(value)
+cboe_europe_depthofbook_pitch_v6_49.participant_id.display = function(value)
   return "Participant Id: "..value
 end
 
 -- Dissect: Participant Id
-cboe_europe_depthofbook_pitch_v6_49_dissect.participant_id = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.participant_id
+cboe_europe_depthofbook_pitch_v6_49.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.participant_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.participant_id(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Add Order Flags
+cboe_europe_depthofbook_pitch_v6_49.add_order_flags = {}
+
+-- Quantity
+cboe_europe_depthofbook_pitch_v6_49.quantity = {}
+
 -- Size: Quantity
-cboe_europe_depthofbook_pitch_v6_49_size_of.quantity = 4
+cboe_europe_depthofbook_pitch_v6_49.quantity.size = 4
 
 -- Display: Quantity
-cboe_europe_depthofbook_pitch_v6_49_display.quantity = function(value)
+cboe_europe_depthofbook_pitch_v6_49.quantity.display = function(value)
   return "Quantity: "..value
 end
 
 -- Dissect: Quantity
-cboe_europe_depthofbook_pitch_v6_49_dissect.quantity = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.quantity
+cboe_europe_depthofbook_pitch_v6_49.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.quantity(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.quantity, range, value, display)
 
   return offset + length, value
 end
 
+-- Add Order Expanded Message
+cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message = {}
+
 -- Calculate size of: Add Order Expanded Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.add_order_expanded_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.side_indicator
+  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.quantity
+  index = index + cboe_europe_depthofbook_pitch_v6_49.quantity.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.add_order_flags
+  index = index + cboe_europe_depthofbook_pitch_v6_49.add_order_flags.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.participant_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.participant_id.size
 
   return index
 end
 
 -- Display: Add Order Expanded Message
-cboe_europe_depthofbook_pitch_v6_49_display.add_order_expanded_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order Expanded Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_expanded_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49_dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49.side_indicator.dissect(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = cboe_europe_depthofbook_pitch_v6_49_dissect.quantity(buffer, index, packet, parent)
+  index, quantity = cboe_europe_depthofbook_pitch_v6_49.quantity.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   -- Add Order Flags
-  index, add_order_flags = cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_flags(buffer, index, packet, parent)
+  index, add_order_flags = cboe_europe_depthofbook_pitch_v6_49.add_order_flags.dissect(buffer, index, packet, parent)
 
   -- Participant Id: 4 Byte Ascii String
-  index, participant_id = cboe_europe_depthofbook_pitch_v6_49_dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = cboe_europe_depthofbook_pitch_v6_49.participant_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Expanded Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.dissect = function(buffer, offset, packet, parent)
   if show.add_order_expanded_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.add_order_expanded_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.add_order_expanded_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Symbol Short
+cboe_europe_depthofbook_pitch_v6_49.symbol_short = {}
+
 -- Size: Symbol Short
-cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_short = 6
+cboe_europe_depthofbook_pitch_v6_49.symbol_short.size = 6
 
 -- Display: Symbol Short
-cboe_europe_depthofbook_pitch_v6_49_display.symbol_short = function(value)
+cboe_europe_depthofbook_pitch_v6_49.symbol_short.display = function(value)
   return "Symbol Short: "..value
 end
 
 -- Dissect: Symbol Short
-cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_short = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_short
+cboe_europe_depthofbook_pitch_v6_49.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.symbol_short.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.symbol_short(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
 
+-- Quantity Short
+cboe_europe_depthofbook_pitch_v6_49.quantity_short = {}
+
 -- Size: Quantity Short
-cboe_europe_depthofbook_pitch_v6_49_size_of.quantity_short = 2
+cboe_europe_depthofbook_pitch_v6_49.quantity_short.size = 2
 
 -- Display: Quantity Short
-cboe_europe_depthofbook_pitch_v6_49_display.quantity_short = function(value)
+cboe_europe_depthofbook_pitch_v6_49.quantity_short.display = function(value)
   return "Quantity Short: "..value
 end
 
 -- Dissect: Quantity Short
-cboe_europe_depthofbook_pitch_v6_49_dissect.quantity_short = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.quantity_short
+cboe_europe_depthofbook_pitch_v6_49.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.quantity_short(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.quantity_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
 
+-- Add Order Short Message
+cboe_europe_depthofbook_pitch_v6_49.add_order_short_message = {}
+
 -- Calculate size of: Add Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.add_order_short_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.side_indicator
+  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.quantity_short
+  index = index + cboe_europe_depthofbook_pitch_v6_49.quantity_short.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_short
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_short.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_short
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_short.size
 
   return index
 end
 
 -- Display: Add Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_display.add_order_short_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_short_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49_dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49.side_indicator.dissect(buffer, index, packet, parent)
 
   -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
-  index, quantity_short = cboe_europe_depthofbook_pitch_v6_49_dissect.quantity_short(buffer, index, packet, parent)
+  index, quantity_short = cboe_europe_depthofbook_pitch_v6_49.quantity_short.dissect(buffer, index, packet, parent)
 
   -- Symbol Short: 6 Byte Ascii String
-  index, symbol_short = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_short(buffer, index, packet, parent)
+  index, symbol_short = cboe_europe_depthofbook_pitch_v6_49.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: 2 Byte Unsigned Fixed Width Integer
-  index, price_short = cboe_europe_depthofbook_pitch_v6_49_dissect.price_short(buffer, index, packet, parent)
+  index, price_short = cboe_europe_depthofbook_pitch_v6_49.price_short.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Short Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_short_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.dissect = function(buffer, offset, packet, parent)
   if show.add_order_short_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.add_order_short_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.add_order_short_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Add Order Long Message
+cboe_europe_depthofbook_pitch_v6_49.add_order_long_message = {}
+
 -- Calculate size of: Add Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.add_order_long_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.order_id
+  index = index + cboe_europe_depthofbook_pitch_v6_49.order_id.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.side_indicator
+  index = index + cboe_europe_depthofbook_pitch_v6_49.side_indicator.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.quantity
+  index = index + cboe_europe_depthofbook_pitch_v6_49.quantity.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.symbol_alphanumeric_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.price_binary_long_price_8
+  index = index + cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.size
 
   return index
 end
 
 -- Display: Add Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_display.add_order_long_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = cboe_europe_depthofbook_pitch_v6_49_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_europe_depthofbook_pitch_v6_49.order_id.dissect(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49_dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_europe_depthofbook_pitch_v6_49.side_indicator.dissect(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = cboe_europe_depthofbook_pitch_v6_49_dissect.quantity(buffer, index, packet, parent)
+  index, quantity = cboe_europe_depthofbook_pitch_v6_49.quantity.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: 8 Byte Ascii String
-  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.symbol_alphanumeric_8(buffer, index, packet, parent)
+  index, symbol_alphanumeric_8 = cboe_europe_depthofbook_pitch_v6_49.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
   -- Price Binary Long Price 8: 8 Byte Unsigned Fixed Width Integer
-  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49_dissect.price_binary_long_price_8(buffer, index, packet, parent)
+  index, price_binary_long_price_8 = cboe_europe_depthofbook_pitch_v6_49.price_binary_long_price_8.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Long Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_long_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.dissect = function(buffer, offset, packet, parent)
   if show.add_order_long_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.add_order_long_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.add_order_long_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Unit Clear Message
+cboe_europe_depthofbook_pitch_v6_49.unit_clear_message = {}
+
 -- Calculate size of: Unit Clear Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.unit_clear_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time_offset
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time_offset.size
 
   return index
 end
 
 -- Display: Unit Clear Message
-cboe_europe_depthofbook_pitch_v6_49_display.unit_clear_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Unit Clear Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.unit_clear_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = cboe_europe_depthofbook_pitch_v6_49_dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_europe_depthofbook_pitch_v6_49.time_offset.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unit Clear Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.unit_clear_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.dissect = function(buffer, offset, packet, parent)
   if show.unit_clear_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.unit_clear_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.unit_clear_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Time
+cboe_europe_depthofbook_pitch_v6_49.time = {}
+
 -- Size: Time
-cboe_europe_depthofbook_pitch_v6_49_size_of.time = 4
+cboe_europe_depthofbook_pitch_v6_49.time.size = 4
 
 -- Display: Time
-cboe_europe_depthofbook_pitch_v6_49_display.time = function(value)
+cboe_europe_depthofbook_pitch_v6_49.time.display = function(value)
   return "Time: "..value
 end
 
 -- Dissect: Time
-cboe_europe_depthofbook_pitch_v6_49_dissect.time = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.time
+cboe_europe_depthofbook_pitch_v6_49.time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.time(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.time, range, value, display)
 
   return offset + length, value
 end
 
+-- Time Message
+cboe_europe_depthofbook_pitch_v6_49.time_message = {}
+
 -- Calculate size of: Time Message
-cboe_europe_depthofbook_pitch_v6_49_size_of.time_message = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.time_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.time
+  index = index + cboe_europe_depthofbook_pitch_v6_49.time.size
 
   return index
 end
 
 -- Display: Time Message
-cboe_europe_depthofbook_pitch_v6_49_display.time_message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.time_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Time Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.time_message_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
-  index, time = cboe_europe_depthofbook_pitch_v6_49_dissect.time(buffer, index, packet, parent)
+  index, time = cboe_europe_depthofbook_pitch_v6_49.time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Time Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.time_message = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.time_message.dissect = function(buffer, offset, packet, parent)
   if show.time_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.time_message, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.time_message_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.time_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.time_message(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.time_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.time_message_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.time_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Payload
+cboe_europe_depthofbook_pitch_v6_49.payload = {}
+
 -- Calculate runtime size of: Payload
-cboe_europe_depthofbook_pitch_v6_49_size_of.payload = function(buffer, offset, message_type)
+cboe_europe_depthofbook_pitch_v6_49.payload.size = function(buffer, offset, message_type)
   -- Size of Time Message
   if message_type == 0x20 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.time_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.time_message.size(buffer, offset)
   end
   -- Size of Unit Clear Message
   if message_type == 0x97 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.unit_clear_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.size(buffer, offset)
   end
   -- Size of Add Order Long Message
   if message_type == 0x40 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.add_order_long_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.size(buffer, offset)
   end
   -- Size of Add Order Short Message
   if message_type == 0x22 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.add_order_short_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.size(buffer, offset)
   end
   -- Size of Add Order Expanded Message
   if message_type == 0x2f then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.add_order_expanded_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.size(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == 0x23 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.order_executed_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.order_executed_message.size(buffer, offset)
   end
   -- Size of Order Executed At Price Size Message
   if message_type == 0x24 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.order_executed_at_price_size_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.size(buffer, offset)
   end
   -- Size of Reduce Size Long Message
   if message_type == 0x25 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.reduce_size_long_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.size(buffer, offset)
   end
   -- Size of Reduce Size Short Message
   if message_type == 0x26 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.reduce_size_short_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.size(buffer, offset)
   end
   -- Size of Modify Order Long Message
   if message_type == 0x27 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.modify_order_long_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.size(buffer, offset)
   end
   -- Size of Modify Order Short Message
   if message_type == 0x28 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.modify_order_short_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.size(buffer, offset)
   end
   -- Size of Delete Order Message
   if message_type == 0x29 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.delete_order_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.delete_order_message.size(buffer, offset)
   end
   -- Size of Trade Long Message
   if message_type == 0x41 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.trade_long_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_long_message.size(buffer, offset)
   end
   -- Size of Trade Short Message
   if message_type == 0x2B then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.trade_short_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_short_message.size(buffer, offset)
   end
   -- Size of Trade Extended Message
   if message_type == 0x32 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.trade_extended_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.size(buffer, offset)
   end
   -- Size of Trade Unknown Symbol Message
   if message_type == 0x35 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.trade_unknown_symbol_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.size(buffer, offset)
   end
   -- Size of End Of Session
   if message_type == 0x2D then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.end_of_session(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.end_of_session.size(buffer, offset)
   end
   -- Size of Transaction Begin Message
   if message_type == 0xBC then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.transaction_begin_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.size(buffer, offset)
   end
   -- Size of Transaction Begin Message
   if message_type == 0xBD then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.transaction_begin_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.size(buffer, offset)
   end
   -- Size of Trading Status Message
   if message_type == 0x31 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.trading_status_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.trading_status_message.size(buffer, offset)
   end
   -- Size of Statistics Message
   if message_type == 0x34 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.statistics_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.statistics_message.size(buffer, offset)
   end
   -- Size of Auction Update Message
   if message_type == 0xAC then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.auction_update_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.auction_update_message.size(buffer, offset)
   end
   -- Size of Auction Summary Message
   if message_type == 0x96 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.auction_summary_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.size(buffer, offset)
   end
   -- Size of Index Quote Message
   if message_type == 0xD8 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.index_quote_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.index_quote_message.size(buffer, offset)
   end
   -- Size of Index Quote Edsp Message
   if message_type == 0xD9 then
-    return cboe_europe_depthofbook_pitch_v6_49_size_of.index_quote_edsp_message(buffer, offset)
+    return cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-cboe_europe_depthofbook_pitch_v6_49_display.payload = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-cboe_europe_depthofbook_pitch_v6_49_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+cboe_europe_depthofbook_pitch_v6_49.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
   if message_type == 0x20 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.time_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.time_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unit Clear Message
   if message_type == 0x97 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.unit_clear_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.unit_clear_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Long Message
   if message_type == 0x40 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_long_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_long_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Short Message
   if message_type == 0x22 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_short_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_short_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Expanded Message
   if message_type == 0x2f then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.add_order_expanded_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.add_order_expanded_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == 0x23 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.order_executed_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed At Price Size Message
   if message_type == 0x24 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.order_executed_at_price_size_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Long Message
   if message_type == 0x25 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_long_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.reduce_size_long_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Short Message
   if message_type == 0x26 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.reduce_size_short_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.reduce_size_short_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Long Message
   if message_type == 0x27 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_long_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.modify_order_long_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Short Message
   if message_type == 0x28 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.modify_order_short_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.modify_order_short_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
   if message_type == 0x29 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.delete_order_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.delete_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Long Message
   if message_type == 0x41 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_long_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_long_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Short Message
   if message_type == 0x2B then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_short_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_short_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Extended Message
   if message_type == 0x32 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_extended_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_extended_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Unknown Symbol Message
   if message_type == 0x35 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trade_unknown_symbol_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trade_unknown_symbol_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
   if message_type == 0x2D then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.end_of_session(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Transaction Begin Message
   if message_type == 0xBC then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_begin_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Transaction Begin Message
   if message_type == 0xBD then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.transaction_begin_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.transaction_begin_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
   if message_type == 0x31 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.trading_status_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.trading_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Statistics Message
   if message_type == 0x34 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.statistics_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.statistics_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Auction Update Message
   if message_type == 0xAC then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.auction_update_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.auction_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Auction Summary Message
   if message_type == 0x96 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.auction_summary_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.auction_summary_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Index Quote Message
   if message_type == 0xD8 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.index_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Index Quote Edsp Message
   if message_type == 0xD9 then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.index_quote_edsp_message(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.index_quote_edsp_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-cboe_europe_depthofbook_pitch_v6_49_dissect.payload = function(buffer, offset, packet, parent, message_type)
+cboe_europe_depthofbook_pitch_v6_49.payload.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return cboe_europe_depthofbook_pitch_v6_49.payload.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = cboe_europe_depthofbook_pitch_v6_49_size_of.payload(buffer, offset, message_type)
+  local size = cboe_europe_depthofbook_pitch_v6_49.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.payload(buffer, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.payload.display(buffer, packet, parent)
   local element = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.payload, range, display)
 
-  return cboe_europe_depthofbook_pitch_v6_49_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return cboe_europe_depthofbook_pitch_v6_49.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Message Type
+cboe_europe_depthofbook_pitch_v6_49.message_type = {}
+
 -- Size: Message Type
-cboe_europe_depthofbook_pitch_v6_49_size_of.message_type = 1
+cboe_europe_depthofbook_pitch_v6_49.message_type.size = 1
 
 -- Display: Message Type
-cboe_europe_depthofbook_pitch_v6_49_display.message_type = function(value)
+cboe_europe_depthofbook_pitch_v6_49.message_type.display = function(value)
   if value == 0x20 then
     return "Message Type: Time Message (0x20)"
   end
@@ -3442,91 +3670,100 @@ cboe_europe_depthofbook_pitch_v6_49_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-cboe_europe_depthofbook_pitch_v6_49_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.message_type
+cboe_europe_depthofbook_pitch_v6_49.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.message_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.message_type(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Length
+cboe_europe_depthofbook_pitch_v6_49.message_length = {}
+
 -- Size: Message Length
-cboe_europe_depthofbook_pitch_v6_49_size_of.message_length = 1
+cboe_europe_depthofbook_pitch_v6_49.message_length.size = 1
 
 -- Display: Message Length
-cboe_europe_depthofbook_pitch_v6_49_display.message_length = function(value)
+cboe_europe_depthofbook_pitch_v6_49.message_length.display = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-cboe_europe_depthofbook_pitch_v6_49_dissect.message_length = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.message_length
+cboe_europe_depthofbook_pitch_v6_49.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.message_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.message_length(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.message_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+cboe_europe_depthofbook_pitch_v6_49.message_header = {}
+
 -- Calculate size of: Message Header
-cboe_europe_depthofbook_pitch_v6_49_size_of.message_header = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.message_length
+  index = index + cboe_europe_depthofbook_pitch_v6_49.message_length.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.message_type
+  index = index + cboe_europe_depthofbook_pitch_v6_49.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-cboe_europe_depthofbook_pitch_v6_49_display.message_header = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-cboe_europe_depthofbook_pitch_v6_49_dissect.message_header_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
-  index, message_length = cboe_europe_depthofbook_pitch_v6_49_dissect.message_length(buffer, index, packet, parent)
+  index, message_length = cboe_europe_depthofbook_pitch_v6_49.message_length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 25 values
-  index, message_type = cboe_europe_depthofbook_pitch_v6_49_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = cboe_europe_depthofbook_pitch_v6_49.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-cboe_europe_depthofbook_pitch_v6_49_dissect.message_header = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.message_header, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.message_header(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+cboe_europe_depthofbook_pitch_v6_49.message = {}
+
 -- Display: Message
-cboe_europe_depthofbook_pitch_v6_49_display.message = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+cboe_europe_depthofbook_pitch_v6_49.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -3536,181 +3773,199 @@ cboe_europe_depthofbook_pitch_v6_49_dissect.message_fields = function(buffer, of
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = cboe_europe_depthofbook_pitch_v6_49_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cboe_europe_depthofbook_pitch_v6_49.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
   -- Payload: Runtime Type with 25 branches
-  index = cboe_europe_depthofbook_pitch_v6_49_dissect.payload(buffer, index, packet, parent, message_type)
+  index = cboe_europe_depthofbook_pitch_v6_49.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-cboe_europe_depthofbook_pitch_v6_49_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+cboe_europe_depthofbook_pitch_v6_49.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.message, buffer(offset, 0))
-    local current = cboe_europe_depthofbook_pitch_v6_49_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = cboe_europe_depthofbook_pitch_v6_49.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.message(buffer, packet, parent)
+    local display = cboe_europe_depthofbook_pitch_v6_49.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    cboe_europe_depthofbook_pitch_v6_49_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    cboe_europe_depthofbook_pitch_v6_49.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Sequence
+cboe_europe_depthofbook_pitch_v6_49.sequence = {}
+
 -- Size: Sequence
-cboe_europe_depthofbook_pitch_v6_49_size_of.sequence = 4
+cboe_europe_depthofbook_pitch_v6_49.sequence.size = 4
 
 -- Display: Sequence
-cboe_europe_depthofbook_pitch_v6_49_display.sequence = function(value)
+cboe_europe_depthofbook_pitch_v6_49.sequence.display = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-cboe_europe_depthofbook_pitch_v6_49_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.sequence
+cboe_europe_depthofbook_pitch_v6_49.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.sequence.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.sequence(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.sequence.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.sequence, range, value, display)
 
   return offset + length, value
 end
 
+-- Unit
+cboe_europe_depthofbook_pitch_v6_49.unit = {}
+
 -- Size: Unit
-cboe_europe_depthofbook_pitch_v6_49_size_of.unit = 1
+cboe_europe_depthofbook_pitch_v6_49.unit.size = 1
 
 -- Display: Unit
-cboe_europe_depthofbook_pitch_v6_49_display.unit = function(value)
+cboe_europe_depthofbook_pitch_v6_49.unit.display = function(value)
   return "Unit: "..value
 end
 
 -- Dissect: Unit
-cboe_europe_depthofbook_pitch_v6_49_dissect.unit = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.unit
+cboe_europe_depthofbook_pitch_v6_49.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.unit.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.unit(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.unit, range, value, display)
 
   return offset + length, value
 end
 
+-- Count
+cboe_europe_depthofbook_pitch_v6_49.count = {}
+
 -- Size: Count
-cboe_europe_depthofbook_pitch_v6_49_size_of.count = 1
+cboe_europe_depthofbook_pitch_v6_49.count.size = 1
 
 -- Display: Count
-cboe_europe_depthofbook_pitch_v6_49_display.count = function(value)
+cboe_europe_depthofbook_pitch_v6_49.count.display = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-cboe_europe_depthofbook_pitch_v6_49_dissect.count = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.count
+cboe_europe_depthofbook_pitch_v6_49.count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.count(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.count, range, value, display)
 
   return offset + length, value
 end
 
+-- Length
+cboe_europe_depthofbook_pitch_v6_49.length = {}
+
 -- Size: Length
-cboe_europe_depthofbook_pitch_v6_49_size_of.length = 2
+cboe_europe_depthofbook_pitch_v6_49.length.size = 2
 
 -- Display: Length
-cboe_europe_depthofbook_pitch_v6_49_display.length = function(value)
+cboe_europe_depthofbook_pitch_v6_49.length.display = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-cboe_europe_depthofbook_pitch_v6_49_dissect.length = function(buffer, offset, packet, parent)
-  local length = cboe_europe_depthofbook_pitch_v6_49_size_of.length
+cboe_europe_depthofbook_pitch_v6_49.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_europe_depthofbook_pitch_v6_49.length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_europe_depthofbook_pitch_v6_49_display.length(value, buffer, offset, packet, parent)
+  local display = cboe_europe_depthofbook_pitch_v6_49.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.length, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+cboe_europe_depthofbook_pitch_v6_49.packet_header = {}
+
 -- Calculate size of: Packet Header
-cboe_europe_depthofbook_pitch_v6_49_size_of.packet_header = function(buffer, offset)
+cboe_europe_depthofbook_pitch_v6_49.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.length
+  index = index + cboe_europe_depthofbook_pitch_v6_49.length.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.count
+  index = index + cboe_europe_depthofbook_pitch_v6_49.count.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.unit
+  index = index + cboe_europe_depthofbook_pitch_v6_49.unit.size
 
-  index = index + cboe_europe_depthofbook_pitch_v6_49_size_of.sequence
+  index = index + cboe_europe_depthofbook_pitch_v6_49.sequence.size
 
   return index
 end
 
 -- Display: Packet Header
-cboe_europe_depthofbook_pitch_v6_49_display.packet_header = function(packet, parent, length)
+cboe_europe_depthofbook_pitch_v6_49.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-cboe_europe_depthofbook_pitch_v6_49_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = cboe_europe_depthofbook_pitch_v6_49_dissect.length(buffer, index, packet, parent)
+  index, length = cboe_europe_depthofbook_pitch_v6_49.length.dissect(buffer, index, packet, parent)
 
   -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_europe_depthofbook_pitch_v6_49_dissect.count(buffer, index, packet, parent)
+  index, count = cboe_europe_depthofbook_pitch_v6_49.count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
-  index, unit = cboe_europe_depthofbook_pitch_v6_49_dissect.unit(buffer, index, packet, parent)
+  index, unit = cboe_europe_depthofbook_pitch_v6_49.unit.dissect(buffer, index, packet, parent)
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, sequence = cboe_europe_depthofbook_pitch_v6_49_dissect.sequence(buffer, index, packet, parent)
+  index, sequence = cboe_europe_depthofbook_pitch_v6_49.sequence.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-cboe_europe_depthofbook_pitch_v6_49_dissect.packet_header = function(buffer, offset, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49.fields.packet_header, buffer(offset, 0))
-    local index = cboe_europe_depthofbook_pitch_v6_49_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = cboe_europe_depthofbook_pitch_v6_49.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_europe_depthofbook_pitch_v6_49_display.packet_header(packet, parent, length)
+    local display = cboe_europe_depthofbook_pitch_v6_49.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_europe_depthofbook_pitch_v6_49_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return cboe_europe_depthofbook_pitch_v6_49.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+cboe_europe_depthofbook_pitch_v6_49.packet = {}
+
 -- Dissect Packet
-cboe_europe_depthofbook_pitch_v6_49_dissect.packet = function(buffer, packet, parent)
+cboe_europe_depthofbook_pitch_v6_49.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 4 fields
-  index, packet_header = cboe_europe_depthofbook_pitch_v6_49_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = cboe_europe_depthofbook_pitch_v6_49.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -3722,7 +3977,7 @@ cboe_europe_depthofbook_pitch_v6_49_dissect.packet = function(buffer, packet, pa
     local message_length = buffer(index, 1):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = cboe_europe_depthofbook_pitch_v6_49_dissect.message(buffer, index, packet, parent, message_length)
+    index, message = cboe_europe_depthofbook_pitch_v6_49.message.dissect(buffer, index, packet, parent, message_length)
   end
 
   return index
@@ -3745,7 +4000,7 @@ function omi_cboe_europe_depthofbook_pitch_v6_49.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(omi_cboe_europe_depthofbook_pitch_v6_49, buffer(), omi_cboe_europe_depthofbook_pitch_v6_49.description, "("..buffer:len().." Bytes)")
-  return cboe_europe_depthofbook_pitch_v6_49_dissect.packet(buffer, packet, protocol)
+  return cboe_europe_depthofbook_pitch_v6_49.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

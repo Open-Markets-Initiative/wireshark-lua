@@ -7,12 +7,12 @@
 -- 24X Equities MemoirLastSale Sbe 1.3 Protocol
 local omi_n24x_equities_memoirlastsale_sbe_v1_3 = Proto("24X.Equities.MemoirLastSale.Sbe.v1.3.Lua", "24X Equities MemoirLastSale Sbe 1.3")
 
+-- Protocol table
+local n24x_equities_memoirlastsale_sbe_v1_3 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local n24x_equities_memoirlastsale_sbe_v1_3_display = {}
-local n24x_equities_memoirlastsale_sbe_v1_3_dissect = {}
-local n24x_equities_memoirlastsale_sbe_v1_3_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -198,11 +198,14 @@ end
 -- Dissect 24X Equities MemoirLastSale Sbe 1.3
 -----------------------------------------------------------------------
 
+-- Corrected Sale Condition 4
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4 = {}
+
 -- Size: Corrected Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_4 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size = 1
 
 -- Display: Corrected Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_4 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Corrected Sale Condition 4: No Value"
@@ -225,8 +228,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_4 = funct
 end
 
 -- Dissect: Corrected Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_4 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_4
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -237,18 +240,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_4 = funct
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_4(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Corrected Sale Condition 3
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3 = {}
+
 -- Size: Corrected Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_3 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size = 1
 
 -- Display: Corrected Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_3 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Corrected Sale Condition 3: No Value"
@@ -265,8 +271,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_3 = funct
 end
 
 -- Dissect: Corrected Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_3 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_3
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -277,18 +283,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_3 = funct
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_3(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_3, range, value, display)
 
   return offset + length, value
 end
 
+-- Corrected Sale Condition 2
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2 = {}
+
 -- Size: Corrected Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_2 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.size = 1
 
 -- Display: Corrected Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_2 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Corrected Sale Condition 2: No Value"
@@ -305,8 +314,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_2 = funct
 end
 
 -- Dissect: Corrected Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_2 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_2
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -317,18 +326,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_2 = funct
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_2(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Corrected Sale Condition 1
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1 = {}
+
 -- Size: Corrected Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_1 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size = 1
 
 -- Display: Corrected Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_1 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Corrected Sale Condition 1: No Value"
@@ -342,8 +354,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_1 = funct
 end
 
 -- Dissect: Corrected Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_1 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_1
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -354,18 +366,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_1 = funct
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_sale_condition_1(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Corrected Trade Price
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price = {}
+
 -- Size: Corrected Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_price = 8
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.size = 8
 
 -- Display: Corrected Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_price = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.display = function(value)
   return "Corrected Trade Price: "..value
 end
 
@@ -375,43 +390,49 @@ translate.corrected_trade_price = function(raw)
 end
 
 -- Dissect: Corrected Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_price = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_price
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
   local value = translate.corrected_trade_price(raw)
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_price(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Corrected Trade Qty
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty = {}
+
 -- Size: Corrected Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_qty = 4
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.size = 4
 
 -- Display: Corrected Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_qty = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.display = function(value)
   return "Corrected Trade Qty: "..value
 end
 
 -- Dissect: Corrected Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_qty = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_qty
+n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_qty(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Sale Condition 4
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4 = {}
+
 -- Size: Original Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_4 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size = 1
 
 -- Display: Original Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_4 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Original Sale Condition 4: No Value"
@@ -434,8 +455,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_4 = functi
 end
 
 -- Dissect: Original Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_4 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_4
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -446,18 +467,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_4 = functi
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_4(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Sale Condition 3
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3 = {}
+
 -- Size: Original Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_3 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size = 1
 
 -- Display: Original Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_3 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Original Sale Condition 3: No Value"
@@ -474,8 +498,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_3 = functi
 end
 
 -- Dissect: Original Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_3 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_3
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -486,18 +510,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_3 = functi
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_3(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_3, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Sale Condition 2
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2 = {}
+
 -- Size: Original Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_2 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.size = 1
 
 -- Display: Original Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_2 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Original Sale Condition 2: No Value"
@@ -514,8 +541,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_2 = functi
 end
 
 -- Dissect: Original Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_2 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_2
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -526,18 +553,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_2 = functi
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_2(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Sale Condition 1
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1 = {}
+
 -- Size: Original Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_1 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size = 1
 
 -- Display: Original Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_1 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Original Sale Condition 1: No Value"
@@ -551,8 +581,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_1 = functi
 end
 
 -- Dissect: Original Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_1 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_1
+n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -563,18 +593,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_1 = functi
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.original_sale_condition_1(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Trade Price
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price = {}
+
 -- Size: Original Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_price = 8
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.size = 8
 
 -- Display: Original Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_display.original_trade_price = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.display = function(value)
   return "Original Trade Price: "..value
 end
 
@@ -584,83 +617,95 @@ translate.original_trade_price = function(raw)
 end
 
 -- Dissect: Original Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_price = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_price
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
   local value = translate.original_trade_price(raw)
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.original_trade_price(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.original_trade_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Trade Qty
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty = {}
+
 -- Size: Original Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_qty = 4
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.size = 4
 
 -- Display: Original Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_display.original_trade_qty = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.display = function(value)
   return "Original Trade Qty: "..value
 end
 
 -- Dissect: Original Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_qty = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_qty
+n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.original_trade_qty(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.original_trade_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Id
+n24x_equities_memoirlastsale_sbe_v1_3.trade_id = {}
+
 -- Size: Trade Id
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_id = 8
+n24x_equities_memoirlastsale_sbe_v1_3.trade_id.size = 8
 
 -- Display: Trade Id
-n24x_equities_memoirlastsale_sbe_v1_3_display.trade_id = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_id.display = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_id
+n24x_equities_memoirlastsale_sbe_v1_3.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_id(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Id
+n24x_equities_memoirlastsale_sbe_v1_3.security_id = {}
+
 -- Size: Security Id
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id = 2
+n24x_equities_memoirlastsale_sbe_v1_3.security_id.size = 2
 
 -- Display: Security Id
-n24x_equities_memoirlastsale_sbe_v1_3_display.security_id = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.security_id.display = function(value)
   return "Security Id: "..value
 end
 
 -- Dissect: Security Id
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_id = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id
+n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.security_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.security_id(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.security_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.security_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+n24x_equities_memoirlastsale_sbe_v1_3.timestamp = {}
+
 -- Size: Timestamp
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp = 8
+n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size = 8
 
 -- Display: Timestamp
-n24x_equities_memoirlastsale_sbe_v1_3_display.timestamp = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.timestamp.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -669,134 +714,140 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.timestamp = function(value)
 end
 
 -- Dissect: Timestamp
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.timestamp(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Correct Message
+n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message = {}
+
 -- Calculate size of: Trade Correct Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_correct_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.trade_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_qty
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_price
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_1
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_2
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_3
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.original_sale_condition_4
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_qty
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_price
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_1
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_2
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_3
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.corrected_sale_condition_4
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size
 
   return index
 end
 
 -- Display: Trade Correct Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Correct Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
-  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
   -- Original Trade Qty: 4 Byte Unsigned Fixed Width Integer
-  index, original_trade_qty = n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_qty(buffer, index, packet, parent)
+  index, original_trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_qty.dissect(buffer, index, packet, parent)
 
   -- Original Trade Price: 8 Byte Signed Fixed Width Integer
-  index, original_trade_price = n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_price(buffer, index, packet, parent)
+  index, original_trade_price = n24x_equities_memoirlastsale_sbe_v1_3.original_trade_price.dissect(buffer, index, packet, parent)
 
   -- Original Sale Condition 1: 1 Byte Ascii String Enum with 1 values
-  index, original_sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_1(buffer, index, packet, parent)
+  index, original_sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.dissect(buffer, index, packet, parent)
 
   -- Original Sale Condition 2: 1 Byte Ascii String Enum with 2 values
-  index, original_sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_2(buffer, index, packet, parent)
+  index, original_sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.dissect(buffer, index, packet, parent)
 
   -- Original Sale Condition 3: 1 Byte Ascii String Enum with 2 values
-  index, original_sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_3(buffer, index, packet, parent)
+  index, original_sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.dissect(buffer, index, packet, parent)
 
   -- Original Sale Condition 4: 1 Byte Ascii String Enum with 4 values
-  index, original_sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.original_sale_condition_4(buffer, index, packet, parent)
+  index, original_sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.dissect(buffer, index, packet, parent)
 
   -- Corrected Trade Qty: 4 Byte Unsigned Fixed Width Integer
-  index, corrected_trade_qty = n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_qty(buffer, index, packet, parent)
+  index, corrected_trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.dissect(buffer, index, packet, parent)
 
   -- Corrected Trade Price: 8 Byte Signed Fixed Width Integer
-  index, corrected_trade_price = n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_price(buffer, index, packet, parent)
+  index, corrected_trade_price = n24x_equities_memoirlastsale_sbe_v1_3.corrected_trade_price.dissect(buffer, index, packet, parent)
 
   -- Corrected Sale Condition 1: 1 Byte Ascii String Enum with 1 values
-  index, corrected_sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_1(buffer, index, packet, parent)
+  index, corrected_sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.dissect(buffer, index, packet, parent)
 
   -- Corrected Sale Condition 2: 1 Byte Ascii String Enum with 2 values
-  index, corrected_sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_2(buffer, index, packet, parent)
+  index, corrected_sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.dissect(buffer, index, packet, parent)
 
   -- Corrected Sale Condition 3: 1 Byte Ascii String Enum with 2 values
-  index, corrected_sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_3(buffer, index, packet, parent)
+  index, corrected_sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.dissect(buffer, index, packet, parent)
 
   -- Corrected Sale Condition 4: 1 Byte Ascii String Enum with 4 values
-  index, corrected_sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.corrected_sale_condition_4(buffer, index, packet, parent)
+  index, corrected_sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correct Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_correct_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_correct_message(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Sale Condition 4
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4 = {}
+
 -- Size: Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_4 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size = 1
 
 -- Display: Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_4 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Sale Condition 4: No Value"
@@ -819,8 +870,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_4 = function(value)
 end
 
 -- Dissect: Sale Condition 4
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_4 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_4
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -831,18 +882,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_4 = function(buffer
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_4(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Sale Condition 3
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3 = {}
+
 -- Size: Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_3 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size = 1
 
 -- Display: Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_3 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Sale Condition 3: No Value"
@@ -859,8 +913,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_3 = function(value)
 end
 
 -- Dissect: Sale Condition 3
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_3 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_3
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -871,18 +925,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_3 = function(buffer
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_3(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_3, range, value, display)
 
   return offset + length, value
 end
 
+-- Sale Condition 2
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2 = {}
+
 -- Size: Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_2 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size = 1
 
 -- Display: Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_2 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Sale Condition 2: No Value"
@@ -899,8 +956,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_2 = function(value)
 end
 
 -- Dissect: Sale Condition 2
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_2 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_2
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -911,18 +968,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_2 = function(buffer
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_2(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Sale Condition 1
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1 = {}
+
 -- Size: Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_1 = 1
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size = 1
 
 -- Display: Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_1 = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Sale Condition 1: No Value"
@@ -936,8 +996,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_1 = function(value)
 end
 
 -- Dissect: Sale Condition 1
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_1 = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_1
+n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -948,18 +1008,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_1 = function(buffer
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sale_condition_1(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Last Price
+n24x_equities_memoirlastsale_sbe_v1_3.last_price = {}
+
 -- Size: Last Price
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.last_price = 8
+n24x_equities_memoirlastsale_sbe_v1_3.last_price.size = 8
 
 -- Display: Last Price
-n24x_equities_memoirlastsale_sbe_v1_3_display.last_price = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.last_price.display = function(value)
   return "Last Price: "..value
 end
 
@@ -969,125 +1032,134 @@ translate.last_price = function(raw)
 end
 
 -- Dissect: Last Price
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.last_price = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.last_price
+n24x_equities_memoirlastsale_sbe_v1_3.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.last_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
   local value = translate.last_price(raw)
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.last_price(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.last_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Qty
+n24x_equities_memoirlastsale_sbe_v1_3.trade_qty = {}
+
 -- Size: Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_qty = 4
+n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.size = 4
 
 -- Display: Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_display.trade_qty = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.display = function(value)
   return "Trade Qty: "..value
 end
 
 -- Dissect: Trade Qty
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_qty = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_qty
+n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_qty(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Cancel Message
+n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message = {}
+
 -- Calculate size of: Trade Cancel Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_cancel_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.trade_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_qty
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.last_price
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.last_price.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_1
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_2
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_3
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_4
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
 
   return index
 end
 
 -- Display: Trade Cancel Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
-  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
   -- Trade Qty: 4 Byte Unsigned Fixed Width Integer
-  index, trade_qty = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_qty(buffer, index, packet, parent)
+  index, trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect(buffer, index, packet, parent)
 
   -- Last Price: 8 Byte Signed Fixed Width Integer
-  index, last_price = n24x_equities_memoirlastsale_sbe_v1_3_dissect.last_price(buffer, index, packet, parent)
+  index, last_price = n24x_equities_memoirlastsale_sbe_v1_3.last_price.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 1: 1 Byte Ascii String Enum with 1 values
-  index, sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_1(buffer, index, packet, parent)
+  index, sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 2: 1 Byte Ascii String Enum with 2 values
-  index, sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_2(buffer, index, packet, parent)
+  index, sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 3: 1 Byte Ascii String Enum with 2 values
-  index, sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_3(buffer, index, packet, parent)
+  index, sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 4: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_4(buffer, index, packet, parent)
+  index, sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancel Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_cancel_message(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Trade Price
+n24x_equities_memoirlastsale_sbe_v1_3.trade_price = {}
+
 -- Size: Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_price = 8
+n24x_equities_memoirlastsale_sbe_v1_3.trade_price.size = 8
 
 -- Display: Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_display.trade_price = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
@@ -1097,105 +1169,111 @@ translate.trade_price = function(raw)
 end
 
 -- Dissect: Trade Price
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_price = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_price
+n24x_equities_memoirlastsale_sbe_v1_3.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.trade_price.size
   local range = buffer(offset, length)
   local raw = range:int64()
   local value = translate.trade_price(raw)
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_price(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Report Message
+n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message = {}
+
 -- Calculate size of: Trade Report Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_report_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.trade_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_qty
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_price
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.trade_price.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_1
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_2
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_3
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sale_condition_4
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
 
   return index
 end
 
 -- Display: Trade Report Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.trade_report_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Report Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
-  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = n24x_equities_memoirlastsale_sbe_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
   -- Trade Qty: 4 Byte Unsigned Fixed Width Integer
-  index, trade_qty = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_qty(buffer, index, packet, parent)
+  index, trade_qty = n24x_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect(buffer, index, packet, parent)
 
   -- Trade Price: 8 Byte Signed Fixed Width Integer
-  index, trade_price = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = n24x_equities_memoirlastsale_sbe_v1_3.trade_price.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 1: 1 Byte Ascii String Enum with 1 values
-  index, sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_1(buffer, index, packet, parent)
+  index, sale_condition_1 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_1.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 2: 1 Byte Ascii String Enum with 2 values
-  index, sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_2(buffer, index, packet, parent)
+  index, sale_condition_2 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_2.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 3: 1 Byte Ascii String Enum with 2 values
-  index, sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_3(buffer, index, packet, parent)
+  index, sale_condition_3 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_3.dissect(buffer, index, packet, parent)
 
   -- Sale Condition 4: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sale_condition_4(buffer, index, packet, parent)
+  index, sale_condition_4 = n24x_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_report_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trade_report_message(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Trading Session
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session = {}
+
 -- Size: Trading Session
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trading_session = 1
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session.size = 1
 
 -- Display: Trading Session
-n24x_equities_memoirlastsale_sbe_v1_3_display.trading_session = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Trading Session: No Value"
@@ -1218,8 +1296,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.trading_session = function(value)
 end
 
 -- Dissect: Trading Session
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.trading_session
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.trading_session.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1230,65 +1308,71 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session = function(buffer,
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trading_session(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trading_session, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Session Status Message
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message = {}
+
 -- Calculate size of: Trading Session Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.trading_session_status_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.trading_session
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.trading_session.size
 
   return index
 end
 
 -- Display: Trading Session Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trading Session Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trading Session: 1 Byte Ascii String Enum with 4 values
-  index, trading_session = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session(buffer, index, packet, parent)
+  index, trading_session = n24x_equities_memoirlastsale_sbe_v1_3.trading_session.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Session Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.dissect = function(buffer, offset, packet, parent)
   if show.trading_session_status_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.trading_session_status_message(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Security Trading Status Reason
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason = {}
+
 -- Size: Security Trading Status Reason
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_reason = 1
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size = 1
 
 -- Display: Security Trading Status Reason
-n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_reason = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Security Trading Status Reason: No Value"
@@ -1308,8 +1392,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_reason = f
 end
 
 -- Dissect: Security Trading Status Reason
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_reason = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_reason
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1320,18 +1404,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_reason = f
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_reason(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Trading Status
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status = {}
+
 -- Size: Security Trading Status
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status = 1
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Security Trading Status: No Value"
@@ -1354,8 +1441,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status = function
 end
 
 -- Dissect: Security Trading Status
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1366,75 +1453,81 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status = function
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Trading Status Message
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message = {}
+
 -- Calculate size of: Security Trading Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_reason
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size
 
   return index
 end
 
 -- Display: Security Trading Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Security Trading Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
-  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Ascii String Enum with 4 values
-  index, security_trading_status = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status.dissect(buffer, index, packet, parent)
 
   -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
-  index, security_trading_status_reason = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_reason(buffer, index, packet, parent)
+  index, security_trading_status_reason = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Security Trading Status Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.dissect = function(buffer, offset, packet, parent)
   if show.security_trading_status_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.security_trading_status_message(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Short Sale Restriction
+n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction = {}
+
 -- Size: Short Sale Restriction
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.short_sale_restriction = 1
+n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
-n24x_equities_memoirlastsale_sbe_v1_3_display.short_sale_restriction = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.display = function(value)
   if value == 0 then
     return "Short Sale Restriction: False (0)"
   end
@@ -1446,74 +1539,80 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.short_sale_restriction = function(
 end
 
 -- Dissect: Short Sale Restriction
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.short_sale_restriction = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.short_sale_restriction
+n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.short_sale_restriction(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.short_sale_restriction, range, value, display)
 
   return offset + length, value
 end
 
+-- Reg Sho Restriction Message
+n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message = {}
+
 -- Calculate size of: Reg Sho Restriction Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.reg_sho_restriction_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.short_sale_restriction
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size
 
   return index
 end
 
 -- Display: Reg Sho Restriction Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Reg Sho Restriction Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
-  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
   -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, short_sale_restriction = n24x_equities_memoirlastsale_sbe_v1_3_dissect.short_sale_restriction(buffer, index, packet, parent)
+  index, short_sale_restriction = n24x_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reg Sho Restriction Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.dissect = function(buffer, offset, packet, parent)
   if show.reg_sho_restriction_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.reg_sho_restriction_message(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Mpv
+n24x_equities_memoirlastsale_sbe_v1_3.mpv = {}
+
 -- Size: Mpv
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.mpv = 8
+n24x_equities_memoirlastsale_sbe_v1_3.mpv.size = 8
 
 -- Display: Mpv
-n24x_equities_memoirlastsale_sbe_v1_3_display.mpv = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.mpv.display = function(value)
   return "Mpv: "..value
 end
 
@@ -1523,23 +1622,26 @@ translate.mpv = function(raw)
 end
 
 -- Dissect: Mpv
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.mpv = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.mpv
+n24x_equities_memoirlastsale_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.mpv.size
   local range = buffer(offset, length)
   local raw = range:int64()
   local value = translate.mpv(raw)
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.mpv, range, value, display)
 
   return offset + length, value
 end
 
+-- Is Test Symbol
+n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol = {}
+
 -- Size: Is Test Symbol
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.is_test_symbol = 1
+n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
-n24x_equities_memoirlastsale_sbe_v1_3_display.is_test_symbol = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.display = function(value)
   if value == 0 then
     return "Is Test Symbol: False (0)"
   end
@@ -1551,42 +1653,48 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.is_test_symbol = function(value)
 end
 
 -- Dissect: Is Test Symbol
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.is_test_symbol = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.is_test_symbol
+n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.is_test_symbol(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.is_test_symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Round Lot
+n24x_equities_memoirlastsale_sbe_v1_3.round_lot = {}
+
 -- Size: Round Lot
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.round_lot = 4
+n24x_equities_memoirlastsale_sbe_v1_3.round_lot.size = 4
 
 -- Display: Round Lot
-n24x_equities_memoirlastsale_sbe_v1_3_display.round_lot = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.round_lot.display = function(value)
   return "Round Lot: "..value
 end
 
 -- Dissect: Round Lot
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.round_lot = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.round_lot
+n24x_equities_memoirlastsale_sbe_v1_3.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.round_lot.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.round_lot(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Sfx
+n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx = {}
+
 -- Size: Symbol Sfx
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.symbol_sfx = 6
+n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size = 6
 
 -- Display: Symbol Sfx
-n24x_equities_memoirlastsale_sbe_v1_3_display.symbol_sfx = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Symbol Sfx: No Value"
@@ -1596,8 +1704,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.symbol_sfx = function(value)
 end
 
 -- Dissect: Symbol Sfx
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.symbol_sfx = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.symbol_sfx
+n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1611,18 +1719,21 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.symbol_sfx = function(buffer, offs
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.symbol_sfx(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.symbol_sfx, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol
+n24x_equities_memoirlastsale_sbe_v1_3.symbol = {}
+
 -- Size: Symbol
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.symbol = 6
+n24x_equities_memoirlastsale_sbe_v1_3.symbol.size = 6
 
 -- Display: Symbol
-n24x_equities_memoirlastsale_sbe_v1_3_display.symbol = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.symbol.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Symbol: No Value"
@@ -1632,8 +1743,8 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.symbol = function(value)
 end
 
 -- Dissect: Symbol
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.symbol = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.symbol
+n24x_equities_memoirlastsale_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.symbol.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1647,223 +1758,238 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.symbol = function(buffer, offset, 
     value = range:string()
   end
 
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.symbol(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Directory Message
+n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message = {}
+
 -- Calculate size of: Instrument Directory Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.instrument_directory_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.timestamp
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.timestamp.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.security_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.symbol
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.symbol.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.symbol_sfx
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.round_lot
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.round_lot.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.is_test_symbol
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.mpv
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.mpv.size
 
   return index
 end
 
 -- Display: Instrument Directory Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Instrument Directory Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = n24x_equities_memoirlastsale_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
-  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = n24x_equities_memoirlastsale_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = n24x_equities_memoirlastsale_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = n24x_equities_memoirlastsale_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
-  index, symbol_sfx = n24x_equities_memoirlastsale_sbe_v1_3_dissect.symbol_sfx(buffer, index, packet, parent)
+  index, symbol_sfx = n24x_equities_memoirlastsale_sbe_v1_3.symbol_sfx.dissect(buffer, index, packet, parent)
 
   -- Round Lot: 4 Byte Unsigned Fixed Width Integer
-  index, round_lot = n24x_equities_memoirlastsale_sbe_v1_3_dissect.round_lot(buffer, index, packet, parent)
+  index, round_lot = n24x_equities_memoirlastsale_sbe_v1_3.round_lot.dissect(buffer, index, packet, parent)
 
   -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, is_test_symbol = n24x_equities_memoirlastsale_sbe_v1_3_dissect.is_test_symbol(buffer, index, packet, parent)
+  index, is_test_symbol = n24x_equities_memoirlastsale_sbe_v1_3.is_test_symbol.dissect(buffer, index, packet, parent)
 
   -- Mpv: 8 Byte Signed Fixed Width Integer
-  index, mpv = n24x_equities_memoirlastsale_sbe_v1_3_dissect.mpv(buffer, index, packet, parent)
+  index, mpv = n24x_equities_memoirlastsale_sbe_v1_3.mpv.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Directory Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
   if show.instrument_directory_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.instrument_directory_message(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Payload
+n24x_equities_memoirlastsale_sbe_v1_3.payload = {}
+
 -- Calculate runtime size of: Payload
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.payload = function(buffer, offset, template_id)
+n24x_equities_memoirlastsale_sbe_v1_3.payload.size = function(buffer, offset, template_id)
   -- Size of Instrument Directory Message
   if template_id == 1 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.instrument_directory_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.size(buffer, offset)
   end
   -- Size of Reg Sho Restriction Message
   if template_id == 2 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.reg_sho_restriction_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.size(buffer, offset)
   end
   -- Size of Security Trading Status Message
   if template_id == 3 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.security_trading_status_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.size(buffer, offset)
   end
   -- Size of Trading Session Status Message
   if template_id == 5 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.trading_session_status_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.size(buffer, offset)
   end
   -- Size of Trade Report Message
   if template_id == 10 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_report_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.size(buffer, offset)
   end
   -- Size of Trade Cancel Message
   if template_id == 11 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_cancel_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.size(buffer, offset)
   end
   -- Size of Trade Correct Message
   if template_id == 12 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.trade_correct_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-n24x_equities_memoirlastsale_sbe_v1_3_display.payload = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
+n24x_equities_memoirlastsale_sbe_v1_3.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Instrument Directory Message
   if template_id == 1 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.instrument_directory_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reg Sho Restriction Message
   if template_id == 2 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.reg_sho_restriction_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Security Trading Status Message
   if template_id == 3 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.security_trading_status_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Session Status Message
   if template_id == 5 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trading_session_status_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report Message
   if template_id == 10 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_report_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_report_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
   if template_id == 11 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_cancel_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Correct Message
   if template_id == 12 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.trade_correct_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.trade_correct_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.payload = function(buffer, offset, packet, parent, template_id)
+n24x_equities_memoirlastsale_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+    return n24x_equities_memoirlastsale_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = n24x_equities_memoirlastsale_sbe_v1_3_size_of.payload(buffer, offset, template_id)
+  local size = n24x_equities_memoirlastsale_sbe_v1_3.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.payload(buffer, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.payload.display(buffer, packet, parent)
   local element = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.payload, range, display)
 
-  return n24x_equities_memoirlastsale_sbe_v1_3_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+  return n24x_equities_memoirlastsale_sbe_v1_3.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
+-- Version
+n24x_equities_memoirlastsale_sbe_v1_3.version = {}
+
 -- Size: Version
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.version = 2
+n24x_equities_memoirlastsale_sbe_v1_3.version.size = 2
 
 -- Display: Version
-n24x_equities_memoirlastsale_sbe_v1_3_display.version = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.version.display = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.version = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.version
+n24x_equities_memoirlastsale_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.version(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.version, range, value, display)
 
   return offset + length, value
 end
 
+-- Schema Id
+n24x_equities_memoirlastsale_sbe_v1_3.schema_id = {}
+
 -- Size: Schema Id
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.schema_id = 1
+n24x_equities_memoirlastsale_sbe_v1_3.schema_id.size = 1
 
 -- Display: Schema Id
-n24x_equities_memoirlastsale_sbe_v1_3_display.schema_id = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.schema_id.display = function(value)
   return "Schema Id: "..value
 end
 
 -- Dissect: Schema Id
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.schema_id = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.schema_id
+n24x_equities_memoirlastsale_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.schema_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.schema_id(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Template Id
+n24x_equities_memoirlastsale_sbe_v1_3.template_id = {}
+
 -- Size: Template Id
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.template_id = 1
+n24x_equities_memoirlastsale_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
-n24x_equities_memoirlastsale_sbe_v1_3_display.template_id = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.template_id.display = function(value)
   if value == 1 then
     return "Template Id: Instrument Directory Message (1)"
   end
@@ -1890,163 +2016,178 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.template_id = function(value)
 end
 
 -- Dissect: Template Id
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.template_id = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.template_id
+n24x_equities_memoirlastsale_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.template_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.template_id(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.template_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Block Length
+n24x_equities_memoirlastsale_sbe_v1_3.block_length = {}
+
 -- Size: Block Length
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.block_length = 2
+n24x_equities_memoirlastsale_sbe_v1_3.block_length.size = 2
 
 -- Display: Block Length
-n24x_equities_memoirlastsale_sbe_v1_3_display.block_length = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.block_length.display = function(value)
   return "Block Length: "..value
 end
 
 -- Dissect: Block Length
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.block_length = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.block_length
+n24x_equities_memoirlastsale_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.block_length.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.block_length(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.block_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Sbe Header
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_header = {}
+
 -- Calculate size of: Sbe Header
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sbe_header = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.block_length
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.block_length.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.template_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.template_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.schema_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.schema_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.version
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.version.size
 
   return index
 end
 
 -- Display: Sbe Header
-n24x_equities_memoirlastsale_sbe_v1_3_display.sbe_header = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sbe Header
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index, block_length = n24x_equities_memoirlastsale_sbe_v1_3_dissect.block_length(buffer, index, packet, parent)
+  index, block_length = n24x_equities_memoirlastsale_sbe_v1_3.block_length.dissect(buffer, index, packet, parent)
 
   -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, template_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.template_id(buffer, index, packet, parent)
+  index, template_id = n24x_equities_memoirlastsale_sbe_v1_3.template_id.dissect(buffer, index, packet, parent)
 
   -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
-  index, schema_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.schema_id(buffer, index, packet, parent)
+  index, schema_id = n24x_equities_memoirlastsale_sbe_v1_3.schema_id.dissect(buffer, index, packet, parent)
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index, version = n24x_equities_memoirlastsale_sbe_v1_3_dissect.version(buffer, index, packet, parent)
+  index, version = n24x_equities_memoirlastsale_sbe_v1_3.version.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sbe Header
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.dissect = function(buffer, offset, packet, parent)
   if show.sbe_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sbe_header(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Sbe Message
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_message = {}
+
 -- Display: Sbe Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.sbe_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sbe Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sbe_message)
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
-  index, sbe_header = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_header(buffer, index, packet, parent)
+  index, sbe_header = n24x_equities_memoirlastsale_sbe_v1_3.sbe_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
   local template_id = buffer(index - 4, 1):uint()
 
   -- Payload: Runtime Type with 7 branches
-  index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.payload(buffer, index, packet, parent, template_id)
+  index = n24x_equities_memoirlastsale_sbe_v1_3.payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
 -- Dissect: Sbe Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_message)
+n24x_equities_memoirlastsale_sbe_v1_3.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
   if show.sbe_message then
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
-    local current = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local current = n24x_equities_memoirlastsale_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sbe_message(buffer, packet, parent)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
+    n24x_equities_memoirlastsale_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
 
     return index
   end
 end
 
+-- Message Length
+n24x_equities_memoirlastsale_sbe_v1_3.message_length = {}
+
 -- Size: Message Length
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_length = 2
+n24x_equities_memoirlastsale_sbe_v1_3.message_length.size = 2
 
 -- Display: Message Length
-n24x_equities_memoirlastsale_sbe_v1_3_display.message_length = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.message_length.display = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_length = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_length
+n24x_equities_memoirlastsale_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.message_length.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.message_length(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message
+n24x_equities_memoirlastsale_sbe_v1_3.message = {}
+
 -- Display: Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+n24x_equities_memoirlastsale_sbe_v1_3.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -2056,7 +2197,7 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, 
   end
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_length(buffer, index, packet, parent)
+  index, message_length = n24x_equities_memoirlastsale_sbe_v1_3.message_length.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Block Length
   local block_length = buffer(index, 2):uint()
@@ -2065,57 +2206,63 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields = function(buffer, 
   local size_of_sbe_message = block_length + 6
 
   -- Sbe Message: Struct of 2 fields
-  index, sbe_message = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
+  index, sbe_message = n24x_equities_memoirlastsale_sbe_v1_3.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
 
   return index
 end
 
 -- Dissect: Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+n24x_equities_memoirlastsale_sbe_v1_3.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.message, buffer(offset, 0))
-    local current = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = n24x_equities_memoirlastsale_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.message(buffer, packet, parent)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    n24x_equities_memoirlastsale_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Message Count
+n24x_equities_memoirlastsale_sbe_v1_3.message_count = {}
+
 -- Size: Message Count
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_count = 2
+n24x_equities_memoirlastsale_sbe_v1_3.message_count.size = 2
 
 -- Display: Message Count
-n24x_equities_memoirlastsale_sbe_v1_3_display.message_count = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_count
+n24x_equities_memoirlastsale_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.message_count.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.message_count(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequenced Message
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message = {}
+
 -- Calculate size of: Sequenced Message
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequenced_message = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_count
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.message_count.size
 
   -- Parse runtime size of: Message
   index = index + buffer(offset + index - 0, 2):uint()
@@ -2124,16 +2271,16 @@ n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequenced_message = function(buffe
 end
 
 -- Display: Sequenced Message
-n24x_equities_memoirlastsale_sbe_v1_3_display.sequenced_message = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sequenced Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
-  index, message_count = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = n24x_equities_memoirlastsale_sbe_v1_3.message_count.dissect(buffer, index, packet, parent)
 
   -- Repeating: Message
   for message_index = 1, message_count do
@@ -2145,135 +2292,150 @@ n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message_fields = functio
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
+    index, message = n24x_equities_memoirlastsale_sbe_v1_3.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
 end
 
 -- Dissect: Sequenced Message
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.sequenced_message then
-    local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequenced_message(buffer, offset)
+    local length = n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sequenced_message(buffer, packet, parent)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.display(buffer, packet, parent)
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sequenced_message, range, display)
   end
 
-  return n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message_fields(buffer, offset, packet, parent)
+  return n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.fields(buffer, offset, packet, parent)
 end
 
+-- Sequenced Messages
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages = {}
+
 -- Calculate runtime size of: Sequenced Messages
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequenced_messages = function(buffer, offset, message_type)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.size = function(buffer, offset, message_type)
   -- Size of Sequenced Message
   if message_type == 2 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequenced_message(buffer, offset)
+    return n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Sequenced Messages
-n24x_equities_memoirlastsale_sbe_v1_3_display.sequenced_messages = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Sequenced Messages
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_messages_branches = function(buffer, offset, packet, parent, message_type)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequenced Message
   if message_type == 2 then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_message(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Sequenced Messages
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_messages = function(buffer, offset, packet, parent, message_type)
+n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.sequenced_messages then
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_messages_branches(buffer, offset, packet, parent, message_type)
+    return n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequenced_messages(buffer, offset, message_type)
+  local size = n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sequenced_messages(buffer, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.display(buffer, packet, parent)
   local element = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sequenced_messages, range, display)
 
-  return n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_messages_branches(buffer, offset, packet, parent, message_type)
+  return n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Sequence Number
+n24x_equities_memoirlastsale_sbe_v1_3.sequence_number = {}
+
 -- Size: Sequence Number
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequence_number = 8
+n24x_equities_memoirlastsale_sbe_v1_3.sequence_number.size = 8
 
 -- Display: Sequence Number
-n24x_equities_memoirlastsale_sbe_v1_3_display.sequence_number = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequence_number
+n24x_equities_memoirlastsale_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Id
+n24x_equities_memoirlastsale_sbe_v1_3.session_id = {}
+
 -- Size: Session Id
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.session_id = 8
+n24x_equities_memoirlastsale_sbe_v1_3.session_id.size = 8
 
 -- Display: Session Id
-n24x_equities_memoirlastsale_sbe_v1_3_display.session_id = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.session_id.display = function(value)
   return "Session Id: "..value
 end
 
 -- Dissect: Session Id
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.session_id = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.session_id
+n24x_equities_memoirlastsale_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.session_id.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.session_id(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Header Length
+n24x_equities_memoirlastsale_sbe_v1_3.header_length = {}
+
 -- Size: Header Length
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.header_length = 1
+n24x_equities_memoirlastsale_sbe_v1_3.header_length.size = 1
 
 -- Display: Header Length
-n24x_equities_memoirlastsale_sbe_v1_3_display.header_length = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.header_length.display = function(value)
   return "Header Length: "..value
 end
 
 -- Dissect: Header Length
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.header_length = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.header_length
+n24x_equities_memoirlastsale_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.header_length.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.header_length(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.header_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Type
+n24x_equities_memoirlastsale_sbe_v1_3.message_type = {}
+
 -- Size: Message Type
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_type = 1
+n24x_equities_memoirlastsale_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
-n24x_equities_memoirlastsale_sbe_v1_3_display.message_type = function(value)
+n24x_equities_memoirlastsale_sbe_v1_3.message_type.display = function(value)
   if value == 0 then
     return "Message Type: Heartbeat Message (0)"
   end
@@ -2288,86 +2450,92 @@ n24x_equities_memoirlastsale_sbe_v1_3_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_type
+n24x_equities_memoirlastsale_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirlastsale_sbe_v1_3.message_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_equities_memoirlastsale_sbe_v1_3_display.message_type(value, buffer, offset, packet, parent)
+  local display = n24x_equities_memoirlastsale_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Common Header
+n24x_equities_memoirlastsale_sbe_v1_3.common_header = {}
+
 -- Calculate size of: Common Header
-n24x_equities_memoirlastsale_sbe_v1_3_size_of.common_header = function(buffer, offset)
+n24x_equities_memoirlastsale_sbe_v1_3.common_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.message_type
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.message_type.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.header_length
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.header_length.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.session_id
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.session_id.size
 
-  index = index + n24x_equities_memoirlastsale_sbe_v1_3_size_of.sequence_number
+  index = index + n24x_equities_memoirlastsale_sbe_v1_3.sequence_number.size
 
   return index
 end
 
 -- Display: Common Header
-n24x_equities_memoirlastsale_sbe_v1_3_display.common_header = function(packet, parent, length)
+n24x_equities_memoirlastsale_sbe_v1_3.common_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Common Header
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.common_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, message_type = n24x_equities_memoirlastsale_sbe_v1_3_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = n24x_equities_memoirlastsale_sbe_v1_3.message_type.dissect(buffer, index, packet, parent)
 
   -- Header Length: 1 Byte Unsigned Fixed Width Integer
-  index, header_length = n24x_equities_memoirlastsale_sbe_v1_3_dissect.header_length(buffer, index, packet, parent)
+  index, header_length = n24x_equities_memoirlastsale_sbe_v1_3.header_length.dissect(buffer, index, packet, parent)
 
   -- Session Id: 8 Byte Unsigned Fixed Width Integer
-  index, session_id = n24x_equities_memoirlastsale_sbe_v1_3_dissect.session_id(buffer, index, packet, parent)
+  index, session_id = n24x_equities_memoirlastsale_sbe_v1_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = n24x_equities_memoirlastsale_sbe_v1_3.sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Common Header
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header = function(buffer, offset, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
   if show.common_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3.fields.common_header, buffer(offset, 0))
-    local index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    local index = n24x_equities_memoirlastsale_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = n24x_equities_memoirlastsale_sbe_v1_3_display.common_header(packet, parent, length)
+    local display = n24x_equities_memoirlastsale_sbe_v1_3.common_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header_fields(buffer, offset, packet, parent)
+    return n24x_equities_memoirlastsale_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+n24x_equities_memoirlastsale_sbe_v1_3.packet = {}
+
 -- Dissect Packet
-n24x_equities_memoirlastsale_sbe_v1_3_dissect.packet = function(buffer, packet, parent)
+n24x_equities_memoirlastsale_sbe_v1_3.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Common Header: Struct of 4 fields
-  index, common_header = n24x_equities_memoirlastsale_sbe_v1_3_dissect.common_header(buffer, index, packet, parent)
+  index, common_header = n24x_equities_memoirlastsale_sbe_v1_3.common_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 18, 1):uint()
 
   -- Sequenced Messages: Runtime Type with 1 branches
-  index = n24x_equities_memoirlastsale_sbe_v1_3_dissect.sequenced_messages(buffer, index, packet, parent, message_type)
+  index = n24x_equities_memoirlastsale_sbe_v1_3.sequenced_messages.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -2389,7 +2557,7 @@ function omi_n24x_equities_memoirlastsale_sbe_v1_3.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(omi_n24x_equities_memoirlastsale_sbe_v1_3, buffer(), omi_n24x_equities_memoirlastsale_sbe_v1_3.description, "("..buffer:len().." Bytes)")
-  return n24x_equities_memoirlastsale_sbe_v1_3_dissect.packet(buffer, packet, protocol)
+  return n24x_equities_memoirlastsale_sbe_v1_3.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

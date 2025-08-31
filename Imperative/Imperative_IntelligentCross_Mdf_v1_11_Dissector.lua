@@ -7,12 +7,12 @@
 -- Imperative IntelligentCross Mdf 1.11 Protocol
 local omi_imperative_intelligentcross_mdf_v1_11 = Proto("Imperative.IntelligentCross.Mdf.v1.11.Lua", "Imperative IntelligentCross Mdf 1.11")
 
+-- Protocol table
+local imperative_intelligentcross_mdf_v1_11 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local imperative_intelligentcross_mdf_v1_11_display = {}
-local imperative_intelligentcross_mdf_v1_11_dissect = {}
-local imperative_intelligentcross_mdf_v1_11_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -199,31 +199,37 @@ end
 -- Dissect Imperative IntelligentCross Mdf 1.11
 -----------------------------------------------------------------------
 
+-- Execution Id
+imperative_intelligentcross_mdf_v1_11.execution_id = {}
+
 -- Size: Execution Id
-imperative_intelligentcross_mdf_v1_11_size_of.execution_id = 8
+imperative_intelligentcross_mdf_v1_11.execution_id.size = 8
 
 -- Display: Execution Id
-imperative_intelligentcross_mdf_v1_11_display.execution_id = function(value)
+imperative_intelligentcross_mdf_v1_11.execution_id.display = function(value)
   return "Execution Id: "..value
 end
 
 -- Dissect: Execution Id
-imperative_intelligentcross_mdf_v1_11_dissect.execution_id = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.execution_id
+imperative_intelligentcross_mdf_v1_11.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.execution_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = imperative_intelligentcross_mdf_v1_11_display.execution_id(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.execution_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+imperative_intelligentcross_mdf_v1_11.timestamp = {}
+
 -- Size: Timestamp
-imperative_intelligentcross_mdf_v1_11_size_of.timestamp = 8
+imperative_intelligentcross_mdf_v1_11.timestamp.size = 8
 
 -- Display: Timestamp
-imperative_intelligentcross_mdf_v1_11_display.timestamp = function(value)
+imperative_intelligentcross_mdf_v1_11.timestamp.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -232,94 +238,103 @@ imperative_intelligentcross_mdf_v1_11_display.timestamp = function(value)
 end
 
 -- Dissect: Timestamp
-imperative_intelligentcross_mdf_v1_11_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+imperative_intelligentcross_mdf_v1_11.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = imperative_intelligentcross_mdf_v1_11_display.timestamp(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Id
+imperative_intelligentcross_mdf_v1_11.symbol_id = {}
+
 -- Size: Symbol Id
-imperative_intelligentcross_mdf_v1_11_size_of.symbol_id = 2
+imperative_intelligentcross_mdf_v1_11.symbol_id.size = 2
 
 -- Display: Symbol Id
-imperative_intelligentcross_mdf_v1_11_display.symbol_id = function(value)
+imperative_intelligentcross_mdf_v1_11.symbol_id.display = function(value)
   return "Symbol Id: "..value
 end
 
 -- Dissect: Symbol Id
-imperative_intelligentcross_mdf_v1_11_dissect.symbol_id = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+imperative_intelligentcross_mdf_v1_11.symbol_id.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.symbol_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = imperative_intelligentcross_mdf_v1_11_display.symbol_id(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.symbol_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Break Message
+imperative_intelligentcross_mdf_v1_11.trade_break_message = {}
+
 -- Calculate size of: Trade Break Message
-imperative_intelligentcross_mdf_v1_11_size_of.trade_break_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.trade_break_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.execution_id
+  index = index + imperative_intelligentcross_mdf_v1_11.execution_id.size
 
   return index
 end
 
 -- Display: Trade Break Message
-imperative_intelligentcross_mdf_v1_11_display.trade_break_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.trade_break_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Break Message
-imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.trade_break_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = imperative_intelligentcross_mdf_v1_11_dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = imperative_intelligentcross_mdf_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Break Message
-imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.trade_break_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_break_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.trade_break_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.trade_break_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.trade_break_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.trade_break_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.trade_break_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Price
+imperative_intelligentcross_mdf_v1_11.price = {}
+
 -- Size: Price
-imperative_intelligentcross_mdf_v1_11_size_of.price = 8
+imperative_intelligentcross_mdf_v1_11.price.size = 8
 
 -- Display: Price
-imperative_intelligentcross_mdf_v1_11_display.price = function(value)
+imperative_intelligentcross_mdf_v1_11.price.display = function(value)
   return "Price: "..value
 end
 
@@ -329,483 +344,522 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-imperative_intelligentcross_mdf_v1_11_dissect.price = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.price
+imperative_intelligentcross_mdf_v1_11.price.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.price(raw)
-  local display = imperative_intelligentcross_mdf_v1_11_display.price(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.price, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol
+imperative_intelligentcross_mdf_v1_11.symbol = {}
+
 -- Size: Symbol
-imperative_intelligentcross_mdf_v1_11_size_of.symbol = 11
+imperative_intelligentcross_mdf_v1_11.symbol.size = 11
 
 -- Display: Symbol
-imperative_intelligentcross_mdf_v1_11_display.symbol = function(value)
+imperative_intelligentcross_mdf_v1_11.symbol.display = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-imperative_intelligentcross_mdf_v1_11_dissect.symbol = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.symbol
+imperative_intelligentcross_mdf_v1_11.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.symbol.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = imperative_intelligentcross_mdf_v1_11_display.symbol(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Shares
+imperative_intelligentcross_mdf_v1_11.shares = {}
+
 -- Size: Shares
-imperative_intelligentcross_mdf_v1_11_size_of.shares = 4
+imperative_intelligentcross_mdf_v1_11.shares.size = 4
 
 -- Display: Shares
-imperative_intelligentcross_mdf_v1_11_display.shares = function(value)
+imperative_intelligentcross_mdf_v1_11.shares.display = function(value)
   return "Shares: "..value
 end
 
 -- Dissect: Shares
-imperative_intelligentcross_mdf_v1_11_dissect.shares = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.shares
+imperative_intelligentcross_mdf_v1_11.shares.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.shares.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = imperative_intelligentcross_mdf_v1_11_display.shares(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 1
+imperative_intelligentcross_mdf_v1_11.reserved_1 = {}
+
 -- Size: Reserved 1
-imperative_intelligentcross_mdf_v1_11_size_of.reserved_1 = 1
+imperative_intelligentcross_mdf_v1_11.reserved_1.size = 1
 
 -- Display: Reserved 1
-imperative_intelligentcross_mdf_v1_11_display.reserved_1 = function(value)
+imperative_intelligentcross_mdf_v1_11.reserved_1.display = function(value)
   return "Reserved 1: "..value
 end
 
 -- Dissect: Reserved 1
-imperative_intelligentcross_mdf_v1_11_dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.reserved_1
+imperative_intelligentcross_mdf_v1_11.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.reserved_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = imperative_intelligentcross_mdf_v1_11_display.reserved_1(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 8
+imperative_intelligentcross_mdf_v1_11.reserved_8 = {}
+
 -- Size: Reserved 8
-imperative_intelligentcross_mdf_v1_11_size_of.reserved_8 = 8
+imperative_intelligentcross_mdf_v1_11.reserved_8.size = 8
 
 -- Display: Reserved 8
-imperative_intelligentcross_mdf_v1_11_display.reserved_8 = function(value)
+imperative_intelligentcross_mdf_v1_11.reserved_8.display = function(value)
   return "Reserved 8: "..value
 end
 
 -- Dissect: Reserved 8
-imperative_intelligentcross_mdf_v1_11_dissect.reserved_8 = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.reserved_8
+imperative_intelligentcross_mdf_v1_11.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.reserved_8.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = imperative_intelligentcross_mdf_v1_11_display.reserved_8(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Message
+imperative_intelligentcross_mdf_v1_11.trade_message = {}
+
 -- Calculate size of: Trade Message
-imperative_intelligentcross_mdf_v1_11_size_of.trade_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.reserved_8
+  index = index + imperative_intelligentcross_mdf_v1_11.reserved_8.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.reserved_1
+  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.shares
+  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.price
+  index = index + imperative_intelligentcross_mdf_v1_11.price.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.execution_id
+  index = index + imperative_intelligentcross_mdf_v1_11.execution_id.size
 
   return index
 end
 
 -- Display: Trade Message
-imperative_intelligentcross_mdf_v1_11_display.trade_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.trade_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Message
-imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: 8 Byte Unsigned Fixed Width Integer
-  index, reserved_8 = imperative_intelligentcross_mdf_v1_11_dissect.reserved_8(buffer, index, packet, parent)
+  index, reserved_8 = imperative_intelligentcross_mdf_v1_11.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte Ascii String
-  index, reserved_1 = imperative_intelligentcross_mdf_v1_11_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = imperative_intelligentcross_mdf_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = imperative_intelligentcross_mdf_v1_11_dissect.shares(buffer, index, packet, parent)
+  index, shares = imperative_intelligentcross_mdf_v1_11.shares.dissect(buffer, index, packet, parent)
 
   -- Symbol: 11 Byte Ascii String
-  index, symbol = imperative_intelligentcross_mdf_v1_11_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = imperative_intelligentcross_mdf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = imperative_intelligentcross_mdf_v1_11_dissect.price(buffer, index, packet, parent)
+  index, price = imperative_intelligentcross_mdf_v1_11.price.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = imperative_intelligentcross_mdf_v1_11_dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = imperative_intelligentcross_mdf_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Message
-imperative_intelligentcross_mdf_v1_11_dissect.trade_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.trade_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.trade_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.trade_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Id
+imperative_intelligentcross_mdf_v1_11.order_id = {}
+
 -- Size: Order Id
-imperative_intelligentcross_mdf_v1_11_size_of.order_id = 8
+imperative_intelligentcross_mdf_v1_11.order_id.size = 8
 
 -- Display: Order Id
-imperative_intelligentcross_mdf_v1_11_display.order_id = function(value)
+imperative_intelligentcross_mdf_v1_11.order_id.display = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-imperative_intelligentcross_mdf_v1_11_dissect.order_id = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.order_id
+imperative_intelligentcross_mdf_v1_11.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = imperative_intelligentcross_mdf_v1_11_display.order_id(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Executed Message
+imperative_intelligentcross_mdf_v1_11.order_executed_message = {}
+
 -- Calculate size of: Order Executed Message
-imperative_intelligentcross_mdf_v1_11_size_of.order_executed_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.order_executed_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.order_id
+  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.shares
+  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.execution_id
+  index = index + imperative_intelligentcross_mdf_v1_11.execution_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.reserved_1
+  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.price
+  index = index + imperative_intelligentcross_mdf_v1_11.price.size
 
   return index
 end
 
 -- Display: Order Executed Message
-imperative_intelligentcross_mdf_v1_11_display.order_executed_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.order_executed_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Executed Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = imperative_intelligentcross_mdf_v1_11_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = imperative_intelligentcross_mdf_v1_11.order_id.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = imperative_intelligentcross_mdf_v1_11_dissect.shares(buffer, index, packet, parent)
+  index, shares = imperative_intelligentcross_mdf_v1_11.shares.dissect(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = imperative_intelligentcross_mdf_v1_11_dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = imperative_intelligentcross_mdf_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte Ascii String
-  index, reserved_1 = imperative_intelligentcross_mdf_v1_11_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = imperative_intelligentcross_mdf_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = imperative_intelligentcross_mdf_v1_11_dissect.price(buffer, index, packet, parent)
+  index, price = imperative_intelligentcross_mdf_v1_11.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_executed_message.dissect = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_executed_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.order_executed_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.order_executed_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.order_executed_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_executed_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Updated Message
+imperative_intelligentcross_mdf_v1_11.order_updated_message = {}
+
 -- Calculate size of: Order Updated Message
-imperative_intelligentcross_mdf_v1_11_size_of.order_updated_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.order_updated_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.order_id
+  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.shares
+  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.price
+  index = index + imperative_intelligentcross_mdf_v1_11.price.size
 
   return index
 end
 
 -- Display: Order Updated Message
-imperative_intelligentcross_mdf_v1_11_display.order_updated_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.order_updated_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Updated Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_updated_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = imperative_intelligentcross_mdf_v1_11_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = imperative_intelligentcross_mdf_v1_11.order_id.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = imperative_intelligentcross_mdf_v1_11_dissect.shares(buffer, index, packet, parent)
+  index, shares = imperative_intelligentcross_mdf_v1_11.shares.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = imperative_intelligentcross_mdf_v1_11_dissect.price(buffer, index, packet, parent)
+  index, price = imperative_intelligentcross_mdf_v1_11.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Updated Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_updated_message.dissect = function(buffer, offset, packet, parent)
   if show.order_updated_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_updated_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.order_updated_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.order_updated_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.order_updated_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_updated_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Cancel All Message
+imperative_intelligentcross_mdf_v1_11.order_cancel_all_message = {}
+
 -- Calculate size of: Order Cancel All Message
-imperative_intelligentcross_mdf_v1_11_size_of.order_cancel_all_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.order_id
+  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
 
   return index
 end
 
 -- Display: Order Cancel All Message
-imperative_intelligentcross_mdf_v1_11_display.order_cancel_all_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Cancel All Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = imperative_intelligentcross_mdf_v1_11_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = imperative_intelligentcross_mdf_v1_11.order_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancel All Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.dissect = function(buffer, offset, packet, parent)
   if show.order_cancel_all_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_cancel_all_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.order_cancel_all_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Shares Canceled
+imperative_intelligentcross_mdf_v1_11.shares_canceled = {}
+
 -- Size: Shares Canceled
-imperative_intelligentcross_mdf_v1_11_size_of.shares_canceled = 4
+imperative_intelligentcross_mdf_v1_11.shares_canceled.size = 4
 
 -- Display: Shares Canceled
-imperative_intelligentcross_mdf_v1_11_display.shares_canceled = function(value)
+imperative_intelligentcross_mdf_v1_11.shares_canceled.display = function(value)
   return "Shares Canceled: "..value
 end
 
 -- Dissect: Shares Canceled
-imperative_intelligentcross_mdf_v1_11_dissect.shares_canceled = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.shares_canceled
+imperative_intelligentcross_mdf_v1_11.shares_canceled.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.shares_canceled.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = imperative_intelligentcross_mdf_v1_11_display.shares_canceled(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.shares_canceled.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.shares_canceled, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Partial Cancel Message
+imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message = {}
+
 -- Calculate size of: Order Partial Cancel Message
-imperative_intelligentcross_mdf_v1_11_size_of.order_partial_cancel_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.order_id
+  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.shares_canceled
+  index = index + imperative_intelligentcross_mdf_v1_11.shares_canceled.size
 
   return index
 end
 
 -- Display: Order Partial Cancel Message
-imperative_intelligentcross_mdf_v1_11_display.order_partial_cancel_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Partial Cancel Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = imperative_intelligentcross_mdf_v1_11_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = imperative_intelligentcross_mdf_v1_11.order_id.dissect(buffer, index, packet, parent)
 
   -- Shares Canceled: 4 Byte Unsigned Fixed Width Integer
-  index, shares_canceled = imperative_intelligentcross_mdf_v1_11_dissect.shares_canceled(buffer, index, packet, parent)
+  index, shares_canceled = imperative_intelligentcross_mdf_v1_11.shares_canceled.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Partial Cancel Message
-imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.dissect = function(buffer, offset, packet, parent)
   if show.order_partial_cancel_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.order_partial_cancel_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.order_partial_cancel_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reserved 4
+imperative_intelligentcross_mdf_v1_11.reserved_4 = {}
+
 -- Size: Reserved 4
-imperative_intelligentcross_mdf_v1_11_size_of.reserved_4 = 4
+imperative_intelligentcross_mdf_v1_11.reserved_4.size = 4
 
 -- Display: Reserved 4
-imperative_intelligentcross_mdf_v1_11_display.reserved_4 = function(value)
+imperative_intelligentcross_mdf_v1_11.reserved_4.display = function(value)
   return "Reserved 4: "..value
 end
 
 -- Dissect: Reserved 4
-imperative_intelligentcross_mdf_v1_11_dissect.reserved_4 = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.reserved_4
+imperative_intelligentcross_mdf_v1_11.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.reserved_4.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = imperative_intelligentcross_mdf_v1_11_display.reserved_4(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Side
+imperative_intelligentcross_mdf_v1_11.side = {}
+
 -- Size: Side
-imperative_intelligentcross_mdf_v1_11_size_of.side = 1
+imperative_intelligentcross_mdf_v1_11.side.size = 1
 
 -- Display: Side
-imperative_intelligentcross_mdf_v1_11_display.side = function(value)
+imperative_intelligentcross_mdf_v1_11.side.display = function(value)
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -820,119 +874,128 @@ imperative_intelligentcross_mdf_v1_11_display.side = function(value)
 end
 
 -- Dissect: Side
-imperative_intelligentcross_mdf_v1_11_dissect.side = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.side
+imperative_intelligentcross_mdf_v1_11.side.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = imperative_intelligentcross_mdf_v1_11_display.side(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.side, range, value, display)
 
   return offset + length, value
 end
 
+-- New Order Add Message
+imperative_intelligentcross_mdf_v1_11.new_order_add_message = {}
+
 -- Calculate size of: New Order Add Message
-imperative_intelligentcross_mdf_v1_11_size_of.new_order_add_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.new_order_add_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.order_id
+  index = index + imperative_intelligentcross_mdf_v1_11.order_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.side
+  index = index + imperative_intelligentcross_mdf_v1_11.side.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.shares
+  index = index + imperative_intelligentcross_mdf_v1_11.shares.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.price
+  index = index + imperative_intelligentcross_mdf_v1_11.price.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.reserved_4
+  index = index + imperative_intelligentcross_mdf_v1_11.reserved_4.size
 
   return index
 end
 
 -- Display: New Order Add Message
-imperative_intelligentcross_mdf_v1_11_display.new_order_add_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.new_order_add_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: New Order Add Message
-imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.new_order_add_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = imperative_intelligentcross_mdf_v1_11_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = imperative_intelligentcross_mdf_v1_11.order_id.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 3 values
-  index, side = imperative_intelligentcross_mdf_v1_11_dissect.side(buffer, index, packet, parent)
+  index, side = imperative_intelligentcross_mdf_v1_11.side.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = imperative_intelligentcross_mdf_v1_11_dissect.shares(buffer, index, packet, parent)
+  index, shares = imperative_intelligentcross_mdf_v1_11.shares.dissect(buffer, index, packet, parent)
 
   -- Symbol: 11 Byte Ascii String
-  index, symbol = imperative_intelligentcross_mdf_v1_11_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = imperative_intelligentcross_mdf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = imperative_intelligentcross_mdf_v1_11_dissect.price(buffer, index, packet, parent)
+  index, price = imperative_intelligentcross_mdf_v1_11.price.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte Ascii String
-  index, reserved_4 = imperative_intelligentcross_mdf_v1_11_dissect.reserved_4(buffer, index, packet, parent)
+  index, reserved_4 = imperative_intelligentcross_mdf_v1_11.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: New Order Add Message
-imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.new_order_add_message.dissect = function(buffer, offset, packet, parent)
   if show.new_order_add_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.new_order_add_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.new_order_add_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.new_order_add_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.new_order_add_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.new_order_add_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Info
+imperative_intelligentcross_mdf_v1_11.info = {}
+
 -- Size: Info
-imperative_intelligentcross_mdf_v1_11_size_of.info = 4
+imperative_intelligentcross_mdf_v1_11.info.size = 4
 
 -- Display: Info
-imperative_intelligentcross_mdf_v1_11_display.info = function(value)
+imperative_intelligentcross_mdf_v1_11.info.display = function(value)
   return "Info: "..value
 end
 
 -- Dissect: Info
-imperative_intelligentcross_mdf_v1_11_dissect.info = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.info
+imperative_intelligentcross_mdf_v1_11.info.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.info.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = imperative_intelligentcross_mdf_v1_11_display.info(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.info.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.info, range, value, display)
 
   return offset + length, value
 end
 
+-- State
+imperative_intelligentcross_mdf_v1_11.state = {}
+
 -- Size: State
-imperative_intelligentcross_mdf_v1_11_size_of.state = 1
+imperative_intelligentcross_mdf_v1_11.state.size = 1
 
 -- Display: State
-imperative_intelligentcross_mdf_v1_11_display.state = function(value)
+imperative_intelligentcross_mdf_v1_11.state.display = function(value)
   if value == "I" then
     return "State: Inactive (I)"
   end
@@ -950,109 +1013,118 @@ imperative_intelligentcross_mdf_v1_11_display.state = function(value)
 end
 
 -- Dissect: State
-imperative_intelligentcross_mdf_v1_11_dissect.state = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.state
+imperative_intelligentcross_mdf_v1_11.state.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.state.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = imperative_intelligentcross_mdf_v1_11_display.state(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.state, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol State Message
+imperative_intelligentcross_mdf_v1_11.symbol_state_message = {}
+
 -- Calculate size of: Symbol State Message
-imperative_intelligentcross_mdf_v1_11_size_of.symbol_state_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.symbol_state_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.state
+  index = index + imperative_intelligentcross_mdf_v1_11.state.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.reserved_1
+  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.info
+  index = index + imperative_intelligentcross_mdf_v1_11.info.size
 
   return index
 end
 
 -- Display: Symbol State Message
-imperative_intelligentcross_mdf_v1_11_display.symbol_state_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.symbol_state_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Symbol State Message
-imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.symbol_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: 11 Byte Ascii String
-  index, symbol = imperative_intelligentcross_mdf_v1_11_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = imperative_intelligentcross_mdf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- State: 1 Byte Ascii String Enum with 4 values
-  index, state = imperative_intelligentcross_mdf_v1_11_dissect.state(buffer, index, packet, parent)
+  index, state = imperative_intelligentcross_mdf_v1_11.state.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte Ascii String
-  index, reserved_1 = imperative_intelligentcross_mdf_v1_11_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = imperative_intelligentcross_mdf_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Info: 4 Byte Ascii String
-  index, info = imperative_intelligentcross_mdf_v1_11_dissect.info(buffer, index, packet, parent)
+  index, info = imperative_intelligentcross_mdf_v1_11.info.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol State Message
-imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.symbol_state_message.dissect = function(buffer, offset, packet, parent)
   if show.symbol_state_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_state_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.symbol_state_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.symbol_state_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.symbol_state_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.symbol_state_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Round Lot Size
+imperative_intelligentcross_mdf_v1_11.round_lot_size = {}
+
 -- Size: Round Lot Size
-imperative_intelligentcross_mdf_v1_11_size_of.round_lot_size = 4
+imperative_intelligentcross_mdf_v1_11.round_lot_size.size = 4
 
 -- Display: Round Lot Size
-imperative_intelligentcross_mdf_v1_11_display.round_lot_size = function(value)
+imperative_intelligentcross_mdf_v1_11.round_lot_size.display = function(value)
   return "Round Lot Size: "..value
 end
 
 -- Dissect: Round Lot Size
-imperative_intelligentcross_mdf_v1_11_dissect.round_lot_size = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.round_lot_size
+imperative_intelligentcross_mdf_v1_11.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.round_lot_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = imperative_intelligentcross_mdf_v1_11_display.round_lot_size(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.round_lot_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Listing Market
+imperative_intelligentcross_mdf_v1_11.listing_market = {}
+
 -- Size: Listing Market
-imperative_intelligentcross_mdf_v1_11_size_of.listing_market = 1
+imperative_intelligentcross_mdf_v1_11.listing_market.size = 1
 
 -- Display: Listing Market
-imperative_intelligentcross_mdf_v1_11_display.listing_market = function(value)
+imperative_intelligentcross_mdf_v1_11.listing_market.display = function(value)
   if value == "N" then
     return "Listing Market: Nyse (N)"
   end
@@ -1076,89 +1148,95 @@ imperative_intelligentcross_mdf_v1_11_display.listing_market = function(value)
 end
 
 -- Dissect: Listing Market
-imperative_intelligentcross_mdf_v1_11_dissect.listing_market = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.listing_market
+imperative_intelligentcross_mdf_v1_11.listing_market.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.listing_market.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = imperative_intelligentcross_mdf_v1_11_display.listing_market(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.listing_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.listing_market, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Information Message
+imperative_intelligentcross_mdf_v1_11.symbol_information_message = {}
+
 -- Calculate size of: Symbol Information Message
-imperative_intelligentcross_mdf_v1_11_size_of.symbol_information_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.symbol_information_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol_id
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol_id.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.symbol
+  index = index + imperative_intelligentcross_mdf_v1_11.symbol.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.listing_market
+  index = index + imperative_intelligentcross_mdf_v1_11.listing_market.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.reserved_1
+  index = index + imperative_intelligentcross_mdf_v1_11.reserved_1.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.round_lot_size
+  index = index + imperative_intelligentcross_mdf_v1_11.round_lot_size.size
 
   return index
 end
 
 -- Display: Symbol Information Message
-imperative_intelligentcross_mdf_v1_11_display.symbol_information_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.symbol_information_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Symbol Information Message
-imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.symbol_information_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
-  index, symbol_id = imperative_intelligentcross_mdf_v1_11_dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = imperative_intelligentcross_mdf_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol: 11 Byte Ascii String
-  index, symbol = imperative_intelligentcross_mdf_v1_11_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = imperative_intelligentcross_mdf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 6 values
-  index, listing_market = imperative_intelligentcross_mdf_v1_11_dissect.listing_market(buffer, index, packet, parent)
+  index, listing_market = imperative_intelligentcross_mdf_v1_11.listing_market.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte Ascii String
-  index, reserved_1 = imperative_intelligentcross_mdf_v1_11_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = imperative_intelligentcross_mdf_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
-  index, round_lot_size = imperative_intelligentcross_mdf_v1_11_dissect.round_lot_size(buffer, index, packet, parent)
+  index, round_lot_size = imperative_intelligentcross_mdf_v1_11.round_lot_size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Information Message
-imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.symbol_information_message.dissect = function(buffer, offset, packet, parent)
   if show.symbol_information_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.symbol_information_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.symbol_information_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.symbol_information_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.symbol_information_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.symbol_information_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Event
+imperative_intelligentcross_mdf_v1_11.event = {}
+
 -- Size: Event
-imperative_intelligentcross_mdf_v1_11_size_of.event = 1
+imperative_intelligentcross_mdf_v1_11.event.size = 1
 
 -- Display: Event
-imperative_intelligentcross_mdf_v1_11_display.event = function(value)
+imperative_intelligentcross_mdf_v1_11.event.display = function(value)
   if value == "O" then
     return "Event: Start Of Session (O)"
   end
@@ -1179,211 +1257,223 @@ imperative_intelligentcross_mdf_v1_11_display.event = function(value)
 end
 
 -- Dissect: Event
-imperative_intelligentcross_mdf_v1_11_dissect.event = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.event
+imperative_intelligentcross_mdf_v1_11.event.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.event.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = imperative_intelligentcross_mdf_v1_11_display.event(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.event, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 2
+imperative_intelligentcross_mdf_v1_11.reserved_2 = {}
+
 -- Size: Reserved 2
-imperative_intelligentcross_mdf_v1_11_size_of.reserved_2 = 2
+imperative_intelligentcross_mdf_v1_11.reserved_2.size = 2
 
 -- Display: Reserved 2
-imperative_intelligentcross_mdf_v1_11_display.reserved_2 = function(value)
+imperative_intelligentcross_mdf_v1_11.reserved_2.display = function(value)
   return "Reserved 2: "..value
 end
 
 -- Dissect: Reserved 2
-imperative_intelligentcross_mdf_v1_11_dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.reserved_2
+imperative_intelligentcross_mdf_v1_11.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.reserved_2.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = imperative_intelligentcross_mdf_v1_11_display.reserved_2(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Event Message
+imperative_intelligentcross_mdf_v1_11.market_event_message = {}
+
 -- Calculate size of: Market Event Message
-imperative_intelligentcross_mdf_v1_11_size_of.market_event_message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.market_event_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.reserved_2
+  index = index + imperative_intelligentcross_mdf_v1_11.reserved_2.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.timestamp
+  index = index + imperative_intelligentcross_mdf_v1_11.timestamp.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.event
+  index = index + imperative_intelligentcross_mdf_v1_11.event.size
 
   return index
 end
 
 -- Display: Market Event Message
-imperative_intelligentcross_mdf_v1_11_display.market_event_message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.market_event_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Market Event Message
-imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.market_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Reserved 2: 2 Byte Ascii String
-  index, reserved_2 = imperative_intelligentcross_mdf_v1_11_dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = imperative_intelligentcross_mdf_v1_11.reserved_2.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = imperative_intelligentcross_mdf_v1_11_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = imperative_intelligentcross_mdf_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event: 1 Byte Ascii String Enum with 5 values
-  index, event = imperative_intelligentcross_mdf_v1_11_dissect.event(buffer, index, packet, parent)
+  index, event = imperative_intelligentcross_mdf_v1_11.event.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Event Message
-imperative_intelligentcross_mdf_v1_11_dissect.market_event_message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.market_event_message.dissect = function(buffer, offset, packet, parent)
   if show.market_event_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.market_event_message, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.market_event_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.market_event_message(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.market_event_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.market_event_message_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.market_event_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Payload
+imperative_intelligentcross_mdf_v1_11.payload = {}
+
 -- Calculate runtime size of: Payload
-imperative_intelligentcross_mdf_v1_11_size_of.payload = function(buffer, offset, message_type)
+imperative_intelligentcross_mdf_v1_11.payload.size = function(buffer, offset, message_type)
   -- Size of Market Event Message
   if message_type == "A" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.market_event_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.market_event_message.size(buffer, offset)
   end
   -- Size of Symbol Information Message
   if message_type == "B" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.symbol_information_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.symbol_information_message.size(buffer, offset)
   end
   -- Size of Symbol State Message
   if message_type == "C" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.symbol_state_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.symbol_state_message.size(buffer, offset)
   end
   -- Size of New Order Add Message
   if message_type == "D" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.new_order_add_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.new_order_add_message.size(buffer, offset)
   end
   -- Size of Order Partial Cancel Message
   if message_type == "F" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.order_partial_cancel_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.size(buffer, offset)
   end
   -- Size of Order Cancel All Message
   if message_type == "G" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.order_cancel_all_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.size(buffer, offset)
   end
   -- Size of Order Updated Message
   if message_type == "G" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.order_updated_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.order_updated_message.size(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == "J" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.order_executed_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.order_executed_message.size(buffer, offset)
   end
   -- Size of Trade Message
   if message_type == "K" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.trade_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.trade_message.size(buffer, offset)
   end
   -- Size of Trade Break Message
   if message_type == "M" then
-    return imperative_intelligentcross_mdf_v1_11_size_of.trade_break_message(buffer, offset)
+    return imperative_intelligentcross_mdf_v1_11.trade_break_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-imperative_intelligentcross_mdf_v1_11_display.payload = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-imperative_intelligentcross_mdf_v1_11_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+imperative_intelligentcross_mdf_v1_11.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Market Event Message
   if message_type == "A" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.market_event_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.market_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Information Message
   if message_type == "B" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_information_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.symbol_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol State Message
   if message_type == "C" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.symbol_state_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.symbol_state_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Add Message
   if message_type == "D" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.new_order_add_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.new_order_add_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Partial Cancel Message
   if message_type == "F" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_partial_cancel_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_partial_cancel_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel All Message
   if message_type == "G" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_cancel_all_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_cancel_all_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Updated Message
   if message_type == "G" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_updated_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_updated_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == "J" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.order_executed_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.order_executed_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
   if message_type == "K" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.trade_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Break Message
   if message_type == "M" then
-    return imperative_intelligentcross_mdf_v1_11_dissect.trade_break_message(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.trade_break_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-imperative_intelligentcross_mdf_v1_11_dissect.payload = function(buffer, offset, packet, parent, message_type)
+imperative_intelligentcross_mdf_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return imperative_intelligentcross_mdf_v1_11_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return imperative_intelligentcross_mdf_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = imperative_intelligentcross_mdf_v1_11_size_of.payload(buffer, offset, message_type)
+  local size = imperative_intelligentcross_mdf_v1_11.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = imperative_intelligentcross_mdf_v1_11_display.payload(buffer, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.payload.display(buffer, packet, parent)
   local element = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.payload, range, display)
 
-  return imperative_intelligentcross_mdf_v1_11_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return imperative_intelligentcross_mdf_v1_11.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Message Type
+imperative_intelligentcross_mdf_v1_11.message_type = {}
+
 -- Size: Message Type
-imperative_intelligentcross_mdf_v1_11_size_of.message_type = 1
+imperative_intelligentcross_mdf_v1_11.message_type.size = 1
 
 -- Display: Message Type
-imperative_intelligentcross_mdf_v1_11_display.message_type = function(value)
+imperative_intelligentcross_mdf_v1_11.message_type.display = function(value)
   if value == "A" then
     return "Message Type: Market Event Message (A)"
   end
@@ -1419,105 +1509,114 @@ imperative_intelligentcross_mdf_v1_11_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-imperative_intelligentcross_mdf_v1_11_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.message_type
+imperative_intelligentcross_mdf_v1_11.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = imperative_intelligentcross_mdf_v1_11_display.message_type(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Length
+imperative_intelligentcross_mdf_v1_11.length = {}
+
 -- Size: Length
-imperative_intelligentcross_mdf_v1_11_size_of.length = 2
+imperative_intelligentcross_mdf_v1_11.length.size = 2
 
 -- Display: Length
-imperative_intelligentcross_mdf_v1_11_display.length = function(value)
+imperative_intelligentcross_mdf_v1_11.length.display = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-imperative_intelligentcross_mdf_v1_11_dissect.length = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.length
+imperative_intelligentcross_mdf_v1_11.length.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = imperative_intelligentcross_mdf_v1_11_display.length(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+imperative_intelligentcross_mdf_v1_11.message_header = {}
+
 -- Calculate size of: Message Header
-imperative_intelligentcross_mdf_v1_11_size_of.message_header = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.length
+  index = index + imperative_intelligentcross_mdf_v1_11.length.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.message_type
+  index = index + imperative_intelligentcross_mdf_v1_11.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-imperative_intelligentcross_mdf_v1_11_display.message_header = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = imperative_intelligentcross_mdf_v1_11_dissect.length(buffer, index, packet, parent)
+  index, length = imperative_intelligentcross_mdf_v1_11.length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 10 values
-  index, message_type = imperative_intelligentcross_mdf_v1_11_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = imperative_intelligentcross_mdf_v1_11.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-imperative_intelligentcross_mdf_v1_11_dissect.message_header = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message_header, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.message_header(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.message_header_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+imperative_intelligentcross_mdf_v1_11.message = {}
+
 -- Calculate size of: Message
-imperative_intelligentcross_mdf_v1_11_size_of.message = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.message_header(buffer, offset + index)
+  index = index + imperative_intelligentcross_mdf_v1_11.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.payload(buffer, payload_offset, payload_type)
+  index = index + imperative_intelligentcross_mdf_v1_11.payload.size(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-imperative_intelligentcross_mdf_v1_11_display.message = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-imperative_intelligentcross_mdf_v1_11_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
+imperative_intelligentcross_mdf_v1_11.message.fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -1527,101 +1626,113 @@ imperative_intelligentcross_mdf_v1_11_dissect.message_fields = function(buffer, 
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = imperative_intelligentcross_mdf_v1_11_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = imperative_intelligentcross_mdf_v1_11.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 10 branches
-  index = imperative_intelligentcross_mdf_v1_11_dissect.payload(buffer, index, packet, parent, message_type)
+  index = imperative_intelligentcross_mdf_v1_11.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-imperative_intelligentcross_mdf_v1_11_dissect.message = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = imperative_intelligentcross_mdf_v1_11_size_of.message(buffer, offset)
+    local length = imperative_intelligentcross_mdf_v1_11.message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.message(buffer, packet, parent)
+    local display = imperative_intelligentcross_mdf_v1_11.message.display(buffer, packet, parent)
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.message, range, display)
   end
 
-  return imperative_intelligentcross_mdf_v1_11_dissect.message_fields(buffer, offset, packet, parent)
+  return imperative_intelligentcross_mdf_v1_11.message.fields(buffer, offset, packet, parent)
 end
 
+-- Count
+imperative_intelligentcross_mdf_v1_11.count = {}
+
 -- Size: Count
-imperative_intelligentcross_mdf_v1_11_size_of.count = 2
+imperative_intelligentcross_mdf_v1_11.count.size = 2
 
 -- Display: Count
-imperative_intelligentcross_mdf_v1_11_display.count = function(value)
+imperative_intelligentcross_mdf_v1_11.count.display = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-imperative_intelligentcross_mdf_v1_11_dissect.count = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.count
+imperative_intelligentcross_mdf_v1_11.count.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = imperative_intelligentcross_mdf_v1_11_display.count(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.count, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence
+imperative_intelligentcross_mdf_v1_11.sequence = {}
+
 -- Size: Sequence
-imperative_intelligentcross_mdf_v1_11_size_of.sequence = 8
+imperative_intelligentcross_mdf_v1_11.sequence.size = 8
 
 -- Display: Sequence
-imperative_intelligentcross_mdf_v1_11_display.sequence = function(value)
+imperative_intelligentcross_mdf_v1_11.sequence.display = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-imperative_intelligentcross_mdf_v1_11_dissect.sequence = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.sequence
+imperative_intelligentcross_mdf_v1_11.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.sequence.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = imperative_intelligentcross_mdf_v1_11_display.sequence(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.sequence.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.sequence, range, value, display)
 
   return offset + length, value
 end
 
+-- Feed Identifier
+imperative_intelligentcross_mdf_v1_11.feed_identifier = {}
+
 -- Size: Feed Identifier
-imperative_intelligentcross_mdf_v1_11_size_of.feed_identifier = 1
+imperative_intelligentcross_mdf_v1_11.feed_identifier.size = 1
 
 -- Display: Feed Identifier
-imperative_intelligentcross_mdf_v1_11_display.feed_identifier = function(value)
+imperative_intelligentcross_mdf_v1_11.feed_identifier.display = function(value)
   return "Feed Identifier: "..value
 end
 
 -- Dissect: Feed Identifier
-imperative_intelligentcross_mdf_v1_11_dissect.feed_identifier = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.feed_identifier
+imperative_intelligentcross_mdf_v1_11.feed_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.feed_identifier.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = imperative_intelligentcross_mdf_v1_11_display.feed_identifier(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.feed_identifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.feed_identifier, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Day Identifier
+imperative_intelligentcross_mdf_v1_11.market_day_identifier = {}
+
 -- Size: Market Day Identifier
-imperative_intelligentcross_mdf_v1_11_size_of.market_day_identifier = 9
+imperative_intelligentcross_mdf_v1_11.market_day_identifier.size = 9
 
 -- Display: Market Day Identifier
-imperative_intelligentcross_mdf_v1_11_display.market_day_identifier = function(value)
+imperative_intelligentcross_mdf_v1_11.market_day_identifier.display = function(value)
   return "Market Day Identifier: "..value
 end
 
 -- Dissect: Market Day Identifier
-imperative_intelligentcross_mdf_v1_11_dissect.market_day_identifier = function(buffer, offset, packet, parent)
-  local length = imperative_intelligentcross_mdf_v1_11_size_of.market_day_identifier
+imperative_intelligentcross_mdf_v1_11.market_day_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = imperative_intelligentcross_mdf_v1_11.market_day_identifier.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1629,83 +1740,89 @@ imperative_intelligentcross_mdf_v1_11_dissect.market_day_identifier = function(b
     value =  "Not Applicable"
   end
 
-  local display = imperative_intelligentcross_mdf_v1_11_display.market_day_identifier(value, buffer, offset, packet, parent)
+  local display = imperative_intelligentcross_mdf_v1_11.market_day_identifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.market_day_identifier, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+imperative_intelligentcross_mdf_v1_11.packet_header = {}
+
 -- Calculate size of: Packet Header
-imperative_intelligentcross_mdf_v1_11_size_of.packet_header = function(buffer, offset)
+imperative_intelligentcross_mdf_v1_11.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.market_day_identifier
+  index = index + imperative_intelligentcross_mdf_v1_11.market_day_identifier.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.feed_identifier
+  index = index + imperative_intelligentcross_mdf_v1_11.feed_identifier.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.sequence
+  index = index + imperative_intelligentcross_mdf_v1_11.sequence.size
 
-  index = index + imperative_intelligentcross_mdf_v1_11_size_of.count
+  index = index + imperative_intelligentcross_mdf_v1_11.count.size
 
   return index
 end
 
 -- Display: Packet Header
-imperative_intelligentcross_mdf_v1_11_display.packet_header = function(packet, parent, length)
+imperative_intelligentcross_mdf_v1_11.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Market Day Identifier: 9 Byte Ascii String
-  index, market_day_identifier = imperative_intelligentcross_mdf_v1_11_dissect.market_day_identifier(buffer, index, packet, parent)
+  index, market_day_identifier = imperative_intelligentcross_mdf_v1_11.market_day_identifier.dissect(buffer, index, packet, parent)
 
   -- Feed Identifier: 1 Byte Ascii String
-  index, feed_identifier = imperative_intelligentcross_mdf_v1_11_dissect.feed_identifier(buffer, index, packet, parent)
+  index, feed_identifier = imperative_intelligentcross_mdf_v1_11.feed_identifier.dissect(buffer, index, packet, parent)
 
   -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = imperative_intelligentcross_mdf_v1_11_dissect.sequence(buffer, index, packet, parent)
+  index, sequence = imperative_intelligentcross_mdf_v1_11.sequence.dissect(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = imperative_intelligentcross_mdf_v1_11_dissect.count(buffer, index, packet, parent)
+  index, count = imperative_intelligentcross_mdf_v1_11.count.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-imperative_intelligentcross_mdf_v1_11_dissect.packet_header = function(buffer, offset, packet, parent)
+imperative_intelligentcross_mdf_v1_11.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_mdf_v1_11.fields.packet_header, buffer(offset, 0))
-    local index = imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = imperative_intelligentcross_mdf_v1_11.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = imperative_intelligentcross_mdf_v1_11_display.packet_header(packet, parent, length)
+    local display = imperative_intelligentcross_mdf_v1_11.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return imperative_intelligentcross_mdf_v1_11_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return imperative_intelligentcross_mdf_v1_11.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+imperative_intelligentcross_mdf_v1_11.packet = {}
+
 -- Dissect Packet
-imperative_intelligentcross_mdf_v1_11_dissect.packet = function(buffer, packet, parent)
+imperative_intelligentcross_mdf_v1_11.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 4 fields
-  index, packet_header = imperative_intelligentcross_mdf_v1_11_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = imperative_intelligentcross_mdf_v1_11.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = imperative_intelligentcross_mdf_v1_11_dissect.message(buffer, index, packet, parent, message_index)
+    index, message = imperative_intelligentcross_mdf_v1_11.message.dissect(buffer, index, packet, parent, message_index)
   end
 
   return index
@@ -1728,7 +1845,7 @@ function omi_imperative_intelligentcross_mdf_v1_11.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(omi_imperative_intelligentcross_mdf_v1_11, buffer(), omi_imperative_intelligentcross_mdf_v1_11.description, "("..buffer:len().." Bytes)")
-  return imperative_intelligentcross_mdf_v1_11_dissect.packet(buffer, packet, protocol)
+  return imperative_intelligentcross_mdf_v1_11.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

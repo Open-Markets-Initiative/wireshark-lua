@@ -7,12 +7,12 @@
 -- Otc Markets Headers Ats 1.0 Protocol
 local omi_otc_markets_headers_ats_v1_0 = Proto("Otc.Markets.Headers.Ats.v1.0.Lua", "Otc Markets Headers Ats 1.0")
 
+-- Protocol table
+local otc_markets_headers_ats_v1_0 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local otc_markets_headers_ats_v1_0_display = {}
-local otc_markets_headers_ats_v1_0_dissect = {}
-local otc_markets_headers_ats_v1_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -95,100 +95,115 @@ end
 -- Dissect Otc Markets Headers Ats 1.0
 -----------------------------------------------------------------------
 
+-- Payload
+otc_markets_headers_ats_v1_0.payload = {}
+
+-- Message Type
+otc_markets_headers_ats_v1_0.message_type = {}
+
 -- Size: Message Type
-otc_markets_headers_ats_v1_0_size_of.message_type = 1
+otc_markets_headers_ats_v1_0.message_type.size = 1
 
 -- Display: Message Type
-otc_markets_headers_ats_v1_0_display.message_type = function(value)
+otc_markets_headers_ats_v1_0.message_type.display = function(value)
   return "Message Type: "..value
 end
 
 -- Dissect: Message Type
-otc_markets_headers_ats_v1_0_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0_size_of.message_type
+otc_markets_headers_ats_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.message_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0_display.message_type(value, buffer, offset, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Size
+otc_markets_headers_ats_v1_0.message_size = {}
+
 -- Size: Message Size
-otc_markets_headers_ats_v1_0_size_of.message_size = 2
+otc_markets_headers_ats_v1_0.message_size.size = 2
 
 -- Display: Message Size
-otc_markets_headers_ats_v1_0_display.message_size = function(value)
+otc_markets_headers_ats_v1_0.message_size.display = function(value)
   return "Message Size: "..value
 end
 
 -- Dissect: Message Size
-otc_markets_headers_ats_v1_0_dissect.message_size = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0_size_of.message_size
+otc_markets_headers_ats_v1_0.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.message_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0_display.message_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.message_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+otc_markets_headers_ats_v1_0.message_header = {}
+
 -- Calculate size of: Message Header
-otc_markets_headers_ats_v1_0_size_of.message_header = function(buffer, offset)
+otc_markets_headers_ats_v1_0.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + otc_markets_headers_ats_v1_0_size_of.message_size
+  index = index + otc_markets_headers_ats_v1_0.message_size.size
 
-  index = index + otc_markets_headers_ats_v1_0_size_of.message_type
+  index = index + otc_markets_headers_ats_v1_0.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-otc_markets_headers_ats_v1_0_display.message_header = function(packet, parent, length)
+otc_markets_headers_ats_v1_0.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-otc_markets_headers_ats_v1_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
+otc_markets_headers_ats_v1_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = otc_markets_headers_ats_v1_0_dissect.message_size(buffer, index, packet, parent)
+  index, message_size = otc_markets_headers_ats_v1_0.message_size.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer
-  index, message_type = otc_markets_headers_ats_v1_0_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = otc_markets_headers_ats_v1_0.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-otc_markets_headers_ats_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
+otc_markets_headers_ats_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_header, buffer(offset, 0))
-    local index = otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = otc_markets_headers_ats_v1_0.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = otc_markets_headers_ats_v1_0_display.message_header(packet, parent, length)
+    local display = otc_markets_headers_ats_v1_0.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_headers_ats_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return otc_markets_headers_ats_v1_0.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+otc_markets_headers_ats_v1_0.message = {}
+
 -- Display: Message
-otc_markets_headers_ats_v1_0_display.message = function(packet, parent, length)
+otc_markets_headers_ats_v1_0.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-otc_markets_headers_ats_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+otc_markets_headers_ats_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -198,80 +213,104 @@ otc_markets_headers_ats_v1_0_dissect.message_fields = function(buffer, offset, p
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = otc_markets_headers_ats_v1_0_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = otc_markets_headers_ats_v1_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Payload
-  index, payload = otc_markets_headers_ats_v1_0_dissect.payload(buffer, index, packet, parent)
+  index, payload = otc_markets_headers_ats_v1_0.payload.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message
-otc_markets_headers_ats_v1_0_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+otc_markets_headers_ats_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_otc_markets_headers_ats_v1_0.fields.message, buffer(offset, 0))
-    local current = otc_markets_headers_ats_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = otc_markets_headers_ats_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = otc_markets_headers_ats_v1_0_display.message(buffer, packet, parent)
+    local display = otc_markets_headers_ats_v1_0.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    otc_markets_headers_ats_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    otc_markets_headers_ats_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Packet Milli
+otc_markets_headers_ats_v1_0.packet_milli = {}
+
 -- Size: Packet Milli
-otc_markets_headers_ats_v1_0_size_of.packet_milli = 4
+otc_markets_headers_ats_v1_0.packet_milli.size = 4
 
 -- Display: Packet Milli
-otc_markets_headers_ats_v1_0_display.packet_milli = function(value)
+otc_markets_headers_ats_v1_0.packet_milli.display = function(value)
   return "Packet Milli: "..value
 end
 
 -- Dissect: Packet Milli
-otc_markets_headers_ats_v1_0_dissect.packet_milli = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0_size_of.packet_milli
+otc_markets_headers_ats_v1_0.packet_milli.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.packet_milli.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0_display.packet_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.packet_milli.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_milli, range, value, display)
 
   return offset + length, value
 end
 
+-- Messages
+otc_markets_headers_ats_v1_0.messages = {}
+
 -- Size: Messages
-otc_markets_headers_ats_v1_0_size_of.messages = 1
+otc_markets_headers_ats_v1_0.messages.size = 1
 
 -- Display: Messages
-otc_markets_headers_ats_v1_0_display.messages = function(value)
+otc_markets_headers_ats_v1_0.messages.display = function(value)
   return "Messages: "..value
 end
 
 -- Dissect: Messages
-otc_markets_headers_ats_v1_0_dissect.messages = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0_size_of.messages
+otc_markets_headers_ats_v1_0.messages.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.messages.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0_display.messages(value, buffer, offset, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.messages.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otc_markets_headers_ats_v1_0.fields.messages, range, value, display)
 
   return offset + length, value
 end
 
+-- Heartbeat
+otc_markets_headers_ats_v1_0.heartbeat = {}
+
+-- Seq Num Reset
+otc_markets_headers_ats_v1_0.seq_num_reset = {}
+
+-- Reserved Packet Flags
+otc_markets_headers_ats_v1_0.reserved_packet_flags = {}
+
+-- Replay
+otc_markets_headers_ats_v1_0.replay = {}
+
+-- Test
+otc_markets_headers_ats_v1_0.test = {}
+
+-- Packet Flag
+otc_markets_headers_ats_v1_0.packet_flag = {}
+
 -- Size: Packet Flag
-otc_markets_headers_ats_v1_0_size_of.packet_flag = 1
+otc_markets_headers_ats_v1_0.packet_flag.size = 1
 
 -- Display: Packet Flag
-otc_markets_headers_ats_v1_0_display.packet_flag = function(buffer, packet, parent)
+otc_markets_headers_ats_v1_0.packet_flag.display = function(buffer, packet, parent)
   local display = ""
 
   -- Is Test flag set?
@@ -295,7 +334,7 @@ otc_markets_headers_ats_v1_0_display.packet_flag = function(buffer, packet, pare
 end
 
 -- Dissect Bit Fields: Packet Flag
-otc_markets_headers_ats_v1_0_dissect.packet_flag_bits = function(buffer, offset, packet, parent)
+otc_markets_headers_ats_v1_0.packet_flag.bits = function(buffer, offset, packet, parent)
 
   -- Test: 1 Bit
   parent:add(omi_otc_markets_headers_ats_v1_0.fields.test, buffer(offset, 1))
@@ -314,127 +353,139 @@ otc_markets_headers_ats_v1_0_dissect.packet_flag_bits = function(buffer, offset,
 end
 
 -- Dissect: Packet Flag
-otc_markets_headers_ats_v1_0_dissect.packet_flag = function(buffer, offset, packet, parent)
+otc_markets_headers_ats_v1_0.packet_flag.dissect = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = otc_markets_headers_ats_v1_0_display.packet_flag(range, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.packet_flag.display(range, packet, parent)
   local element = parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_flag, range, display)
 
   if show.packet_flag then
-    otc_markets_headers_ats_v1_0_dissect.packet_flag_bits(buffer, offset, packet, element)
+    otc_markets_headers_ats_v1_0.packet_flag.bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
+-- Seq Num
+otc_markets_headers_ats_v1_0.seq_num = {}
+
 -- Size: Seq Num
-otc_markets_headers_ats_v1_0_size_of.seq_num = 4
+otc_markets_headers_ats_v1_0.seq_num.size = 4
 
 -- Display: Seq Num
-otc_markets_headers_ats_v1_0_display.seq_num = function(value)
+otc_markets_headers_ats_v1_0.seq_num.display = function(value)
   return "Seq Num: "..value
 end
 
 -- Dissect: Seq Num
-otc_markets_headers_ats_v1_0_dissect.seq_num = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0_size_of.seq_num
+otc_markets_headers_ats_v1_0.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.seq_num.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0_display.seq_num(value, buffer, offset, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otc_markets_headers_ats_v1_0.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Size
+otc_markets_headers_ats_v1_0.packet_size = {}
+
 -- Size: Packet Size
-otc_markets_headers_ats_v1_0_size_of.packet_size = 2
+otc_markets_headers_ats_v1_0.packet_size.size = 2
 
 -- Display: Packet Size
-otc_markets_headers_ats_v1_0_display.packet_size = function(value)
+otc_markets_headers_ats_v1_0.packet_size.display = function(value)
   return "Packet Size: "..value
 end
 
 -- Dissect: Packet Size
-otc_markets_headers_ats_v1_0_dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0_size_of.packet_size
+otc_markets_headers_ats_v1_0.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.packet_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0_display.packet_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.packet_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+otc_markets_headers_ats_v1_0.packet_header = {}
+
 -- Calculate size of: Packet Header
-otc_markets_headers_ats_v1_0_size_of.packet_header = function(buffer, offset)
+otc_markets_headers_ats_v1_0.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + otc_markets_headers_ats_v1_0_size_of.packet_size
+  index = index + otc_markets_headers_ats_v1_0.packet_size.size
 
-  index = index + otc_markets_headers_ats_v1_0_size_of.seq_num
+  index = index + otc_markets_headers_ats_v1_0.seq_num.size
 
-  index = index + otc_markets_headers_ats_v1_0_size_of.packet_flag
+  index = index + otc_markets_headers_ats_v1_0.packet_flag.size
 
-  index = index + otc_markets_headers_ats_v1_0_size_of.messages
+  index = index + otc_markets_headers_ats_v1_0.messages.size
 
-  index = index + otc_markets_headers_ats_v1_0_size_of.packet_milli
+  index = index + otc_markets_headers_ats_v1_0.packet_milli.size
 
   return index
 end
 
 -- Display: Packet Header
-otc_markets_headers_ats_v1_0_display.packet_header = function(packet, parent, length)
+otc_markets_headers_ats_v1_0.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-otc_markets_headers_ats_v1_0_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+otc_markets_headers_ats_v1_0.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = otc_markets_headers_ats_v1_0_dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = otc_markets_headers_ats_v1_0.packet_size.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, seq_num = otc_markets_headers_ats_v1_0_dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = otc_markets_headers_ats_v1_0.seq_num.dissect(buffer, index, packet, parent)
 
   -- Packet Flag: Struct of 5 fields
-  index, packet_flag = otc_markets_headers_ats_v1_0_dissect.packet_flag(buffer, index, packet, parent)
+  index, packet_flag = otc_markets_headers_ats_v1_0.packet_flag.dissect(buffer, index, packet, parent)
 
   -- Messages: 1 Byte Unsigned Fixed Width Integer
-  index, messages = otc_markets_headers_ats_v1_0_dissect.messages(buffer, index, packet, parent)
+  index, messages = otc_markets_headers_ats_v1_0.messages.dissect(buffer, index, packet, parent)
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
-  index, packet_milli = otc_markets_headers_ats_v1_0_dissect.packet_milli(buffer, index, packet, parent)
+  index, packet_milli = otc_markets_headers_ats_v1_0.packet_milli.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-otc_markets_headers_ats_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
+otc_markets_headers_ats_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_header, buffer(offset, 0))
-    local index = otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = otc_markets_headers_ats_v1_0.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = otc_markets_headers_ats_v1_0_display.packet_header(packet, parent, length)
+    local display = otc_markets_headers_ats_v1_0.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return otc_markets_headers_ats_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return otc_markets_headers_ats_v1_0.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+otc_markets_headers_ats_v1_0.packet = {}
+
 -- Dissect Packet
-otc_markets_headers_ats_v1_0_dissect.packet = function(buffer, packet, parent)
+otc_markets_headers_ats_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 5 fields
-  index, packet_header = otc_markets_headers_ats_v1_0_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = otc_markets_headers_ats_v1_0.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -446,7 +497,7 @@ otc_markets_headers_ats_v1_0_dissect.packet = function(buffer, packet, parent)
     local message_size = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
-    index, message = otc_markets_headers_ats_v1_0_dissect.message(buffer, index, packet, parent, message_size)
+    index, message = otc_markets_headers_ats_v1_0.message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index
@@ -469,7 +520,7 @@ function omi_otc_markets_headers_ats_v1_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_otc_markets_headers_ats_v1_0, buffer(), omi_otc_markets_headers_ats_v1_0.description, "("..buffer:len().." Bytes)")
-  return otc_markets_headers_ats_v1_0_dissect.packet(buffer, packet, protocol)
+  return otc_markets_headers_ats_v1_0.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

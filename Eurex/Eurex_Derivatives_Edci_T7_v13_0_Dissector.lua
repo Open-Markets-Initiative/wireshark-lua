@@ -7,12 +7,12 @@
 -- Eurex Derivatives Edci T7 13.0 Protocol
 local omi_eurex_derivatives_edci_t7_v13_0 = Proto("Eurex.Derivatives.Edci.T7.v13.0.Lua", "Eurex Derivatives Edci T7 13.0")
 
+-- Protocol table
+local eurex_derivatives_edci_t7_v13_0 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local eurex_derivatives_edci_t7_v13_0_display = {}
-local eurex_derivatives_edci_t7_v13_0_dissect = {}
-local eurex_derivatives_edci_t7_v13_0_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -331,31 +331,37 @@ end
 -- Dissect Eurex Derivatives Edci T7 13.0
 -----------------------------------------------------------------------
 
+-- Pad 7
+eurex_derivatives_edci_t7_v13_0.pad_7 = {}
+
 -- Size: Pad 7
-eurex_derivatives_edci_t7_v13_0_size_of.pad_7 = 7
+eurex_derivatives_edci_t7_v13_0.pad_7.size = 7
 
 -- Display: Pad 7
-eurex_derivatives_edci_t7_v13_0_display.pad_7 = function(value)
+eurex_derivatives_edci_t7_v13_0.pad_7.display = function(value)
   return "Pad 7: "..value
 end
 
 -- Dissect: Pad 7
-eurex_derivatives_edci_t7_v13_0_dissect.pad_7 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.pad_7
+eurex_derivatives_edci_t7_v13_0.pad_7.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.pad_7.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_edci_t7_v13_0_display.pad_7(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.pad_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.pad_7, range, value, display)
 
   return offset + length, value
 end
 
+-- Trad Ses Event
+eurex_derivatives_edci_t7_v13_0.trad_ses_event = {}
+
 -- Size: Trad Ses Event
-eurex_derivatives_edci_t7_v13_0_size_of.trad_ses_event = 1
+eurex_derivatives_edci_t7_v13_0.trad_ses_event.size = 1
 
 -- Display: Trad Ses Event
-eurex_derivatives_edci_t7_v13_0_display.trad_ses_event = function(value)
+eurex_derivatives_edci_t7_v13_0.trad_ses_event.display = function(value)
   if value == 103 then
     return "Trad Ses Event: Endof Restatement (103)"
   end
@@ -379,22 +385,25 @@ eurex_derivatives_edci_t7_v13_0_display.trad_ses_event = function(value)
 end
 
 -- Dissect: Trad Ses Event
-eurex_derivatives_edci_t7_v13_0_dissect.trad_ses_event = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.trad_ses_event
+eurex_derivatives_edci_t7_v13_0.trad_ses_event.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.trad_ses_event.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.trad_ses_event(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.trad_ses_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.trad_ses_event, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Segment Id
+eurex_derivatives_edci_t7_v13_0.market_segment_id = {}
+
 -- Size: Market Segment Id
-eurex_derivatives_edci_t7_v13_0_size_of.market_segment_id = 4
+eurex_derivatives_edci_t7_v13_0.market_segment_id.size = 4
 
 -- Display: Market Segment Id
-eurex_derivatives_edci_t7_v13_0_display.market_segment_id = function(value)
+eurex_derivatives_edci_t7_v13_0.market_segment_id.display = function(value)
   -- Check if field has value
   if value == 0x80000000 then
     return "Market Segment Id: No Value"
@@ -404,22 +413,25 @@ eurex_derivatives_edci_t7_v13_0_display.market_segment_id = function(value)
 end
 
 -- Dissect: Market Segment Id
-eurex_derivatives_edci_t7_v13_0_dissect.market_segment_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.market_segment_id
+eurex_derivatives_edci_t7_v13_0.market_segment_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.market_segment_id.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = eurex_derivatives_edci_t7_v13_0_display.market_segment_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.market_segment_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.market_segment_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Date
+eurex_derivatives_edci_t7_v13_0.trade_date = {}
+
 -- Size: Trade Date
-eurex_derivatives_edci_t7_v13_0_size_of.trade_date = 4
+eurex_derivatives_edci_t7_v13_0.trade_date.size = 4
 
 -- Display: Trade Date
-eurex_derivatives_edci_t7_v13_0_display.trade_date = function(value)
+eurex_derivatives_edci_t7_v13_0.trade_date.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Trade Date: No Value"
@@ -429,22 +441,25 @@ eurex_derivatives_edci_t7_v13_0_display.trade_date = function(value)
 end
 
 -- Dissect: Trade Date
-eurex_derivatives_edci_t7_v13_0_dissect.trade_date = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.trade_date
+eurex_derivatives_edci_t7_v13_0.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.trade_date.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.trade_date(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.trade_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
 
+-- Last Fragment
+eurex_derivatives_edci_t7_v13_0.last_fragment = {}
+
 -- Size: Last Fragment
-eurex_derivatives_edci_t7_v13_0_size_of.last_fragment = 1
+eurex_derivatives_edci_t7_v13_0.last_fragment.size = 1
 
 -- Display: Last Fragment
-eurex_derivatives_edci_t7_v13_0_display.last_fragment = function(value)
+eurex_derivatives_edci_t7_v13_0.last_fragment.display = function(value)
   if value == 0 then
     return "Last Fragment: Not Last Message (0)"
   end
@@ -459,22 +474,25 @@ eurex_derivatives_edci_t7_v13_0_display.last_fragment = function(value)
 end
 
 -- Dissect: Last Fragment
-eurex_derivatives_edci_t7_v13_0_dissect.last_fragment = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.last_fragment
+eurex_derivatives_edci_t7_v13_0.last_fragment.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.last_fragment.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.last_fragment(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.last_fragment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.last_fragment, range, value, display)
 
   return offset + length, value
 end
 
+-- Appl Id
+eurex_derivatives_edci_t7_v13_0.appl_id = {}
+
 -- Size: Appl Id
-eurex_derivatives_edci_t7_v13_0_size_of.appl_id = 1
+eurex_derivatives_edci_t7_v13_0.appl_id.size = 1
 
 -- Display: Appl Id
-eurex_derivatives_edci_t7_v13_0_display.appl_id = function(value)
+eurex_derivatives_edci_t7_v13_0.appl_id.display = function(value)
   if value == 12 then
     return "Appl Id: Order Drop Copy (12)"
   end
@@ -486,22 +504,25 @@ eurex_derivatives_edci_t7_v13_0_display.appl_id = function(value)
 end
 
 -- Dissect: Appl Id
-eurex_derivatives_edci_t7_v13_0_dissect.appl_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.appl_id
+eurex_derivatives_edci_t7_v13_0.appl_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.appl_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.appl_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.appl_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.appl_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Partition Id
+eurex_derivatives_edci_t7_v13_0.partition_id = {}
+
 -- Size: Partition Id
-eurex_derivatives_edci_t7_v13_0_size_of.partition_id = 2
+eurex_derivatives_edci_t7_v13_0.partition_id.size = 2
 
 -- Display: Partition Id
-eurex_derivatives_edci_t7_v13_0_display.partition_id = function(value)
+eurex_derivatives_edci_t7_v13_0.partition_id.display = function(value)
   -- Check if field has value
   if value == 0xFFFF then
     return "Partition Id: No Value"
@@ -511,22 +532,25 @@ eurex_derivatives_edci_t7_v13_0_display.partition_id = function(value)
 end
 
 -- Dissect: Partition Id
-eurex_derivatives_edci_t7_v13_0_dissect.partition_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.partition_id
+eurex_derivatives_edci_t7_v13_0.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.partition_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.partition_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.partition_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.partition_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Party Id Executing Unit
+eurex_derivatives_edci_t7_v13_0.party_id_executing_unit = {}
+
 -- Size: Party Id Executing Unit
-eurex_derivatives_edci_t7_v13_0_size_of.party_id_executing_unit = 4
+eurex_derivatives_edci_t7_v13_0.party_id_executing_unit.size = 4
 
 -- Display: Party Id Executing Unit
-eurex_derivatives_edci_t7_v13_0_display.party_id_executing_unit = function(value)
+eurex_derivatives_edci_t7_v13_0.party_id_executing_unit.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Party Id Executing Unit: No Value"
@@ -536,22 +560,25 @@ eurex_derivatives_edci_t7_v13_0_display.party_id_executing_unit = function(value
 end
 
 -- Dissect: Party Id Executing Unit
-eurex_derivatives_edci_t7_v13_0_dissect.party_id_executing_unit = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_id_executing_unit
+eurex_derivatives_edci_t7_v13_0.party_id_executing_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_id_executing_unit.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_id_executing_unit(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_id_executing_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_id_executing_unit, range, value, display)
 
   return offset + length, value
 end
 
+-- Sending Time
+eurex_derivatives_edci_t7_v13_0.sending_time = {}
+
 -- Size: Sending Time
-eurex_derivatives_edci_t7_v13_0_size_of.sending_time = 8
+eurex_derivatives_edci_t7_v13_0.sending_time.size = 8
 
 -- Display: Sending Time
-eurex_derivatives_edci_t7_v13_0_display.sending_time = function(value)
+eurex_derivatives_edci_t7_v13_0.sending_time.display = function(value)
   -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Sending Time: No Value"
@@ -564,101 +591,110 @@ eurex_derivatives_edci_t7_v13_0_display.sending_time = function(value)
 end
 
 -- Dissect: Sending Time
-eurex_derivatives_edci_t7_v13_0_dissect.sending_time = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.sending_time
+eurex_derivatives_edci_t7_v13_0.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.sending_time(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.sending_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Rbc Header Comp
+eurex_derivatives_edci_t7_v13_0.rbc_header_comp = {}
+
 -- Calculate size of: Rbc Header Comp
-eurex_derivatives_edci_t7_v13_0_size_of.rbc_header_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.rbc_header_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.sending_time
+  index = index + eurex_derivatives_edci_t7_v13_0.sending_time.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.party_id_executing_unit
+  index = index + eurex_derivatives_edci_t7_v13_0.party_id_executing_unit.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.partition_id
+  index = index + eurex_derivatives_edci_t7_v13_0.partition_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.appl_id
+  index = index + eurex_derivatives_edci_t7_v13_0.appl_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.last_fragment
+  index = index + eurex_derivatives_edci_t7_v13_0.last_fragment.size
 
   return index
 end
 
 -- Display: Rbc Header Comp
-eurex_derivatives_edci_t7_v13_0_display.rbc_header_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.rbc_header_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Rbc Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.rbc_header_comp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, sending_time = eurex_derivatives_edci_t7_v13_0_dissect.sending_time(buffer, index, packet, parent)
+  index, sending_time = eurex_derivatives_edci_t7_v13_0.sending_time.dissect(buffer, index, packet, parent)
 
   -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_executing_unit = eurex_derivatives_edci_t7_v13_0_dissect.party_id_executing_unit(buffer, index, packet, parent)
+  index, party_id_executing_unit = eurex_derivatives_edci_t7_v13_0.party_id_executing_unit.dissect(buffer, index, packet, parent)
 
   -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_derivatives_edci_t7_v13_0_dissect.partition_id(buffer, index, packet, parent)
+  index, partition_id = eurex_derivatives_edci_t7_v13_0.partition_id.dissect(buffer, index, packet, parent)
 
   -- Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, appl_id = eurex_derivatives_edci_t7_v13_0_dissect.appl_id(buffer, index, packet, parent)
+  index, appl_id = eurex_derivatives_edci_t7_v13_0.appl_id.dissect(buffer, index, packet, parent)
 
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, last_fragment = eurex_derivatives_edci_t7_v13_0_dissect.last_fragment(buffer, index, packet, parent)
+  index, last_fragment = eurex_derivatives_edci_t7_v13_0.last_fragment.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Rbc Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.rbc_header_comp.dissect = function(buffer, offset, packet, parent)
   if show.rbc_header_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.rbc_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    local index = eurex_derivatives_edci_t7_v13_0.rbc_header_comp.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.rbc_header_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.rbc_header_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.rbc_header_comp.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Pad 2
+eurex_derivatives_edci_t7_v13_0.pad_2 = {}
+
 -- Size: Pad 2
-eurex_derivatives_edci_t7_v13_0_size_of.pad_2 = 2
+eurex_derivatives_edci_t7_v13_0.pad_2.size = 2
 
 -- Display: Pad 2
-eurex_derivatives_edci_t7_v13_0_display.pad_2 = function(value)
+eurex_derivatives_edci_t7_v13_0.pad_2.display = function(value)
   return "Pad 2: "..value
 end
 
 -- Dissect: Pad 2
-eurex_derivatives_edci_t7_v13_0_dissect.pad_2 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.pad_2
+eurex_derivatives_edci_t7_v13_0.pad_2.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.pad_2.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_edci_t7_v13_0_display.pad_2(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.pad_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.pad_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Status Broadcast
+eurex_derivatives_edci_t7_v13_0.session_status_broadcast = {}
+
 -- Read runtime size of: Session Status Broadcast
-eurex_derivatives_edci_t7_v13_0_size_of.session_status_broadcast = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.session_status_broadcast.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -668,77 +704,83 @@ eurex_derivatives_edci_t7_v13_0_size_of.session_status_broadcast = function(buff
 end
 
 -- Display: Session Status Broadcast
-eurex_derivatives_edci_t7_v13_0_display.session_status_broadcast = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.session_status_broadcast.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Session Status Broadcast
-eurex_derivatives_edci_t7_v13_0_dissect.session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_session_status_broadcast)
+eurex_derivatives_edci_t7_v13_0.session_status_broadcast.fields = function(buffer, offset, packet, parent, size_of_session_status_broadcast)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 5 fields
-  index, rbc_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp(buffer, index, packet, parent)
+  index, rbc_header_comp = eurex_derivatives_edci_t7_v13_0.rbc_header_comp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, trade_date = eurex_derivatives_edci_t7_v13_0_dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = eurex_derivatives_edci_t7_v13_0.trade_date.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_derivatives_edci_t7_v13_0_dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = eurex_derivatives_edci_t7_v13_0.market_segment_id.dissect(buffer, index, packet, parent)
 
   -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, trad_ses_event = eurex_derivatives_edci_t7_v13_0_dissect.trad_ses_event(buffer, index, packet, parent)
+  index, trad_ses_event = eurex_derivatives_edci_t7_v13_0.trad_ses_event.dissect(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
-  index, pad_7 = eurex_derivatives_edci_t7_v13_0_dissect.pad_7(buffer, index, packet, parent)
+  index, pad_7 = eurex_derivatives_edci_t7_v13_0.pad_7.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Session Status Broadcast
-eurex_derivatives_edci_t7_v13_0_dissect.session_status_broadcast = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.session_status_broadcast.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_session_status_broadcast = eurex_derivatives_edci_t7_v13_0_size_of.session_status_broadcast(buffer, offset)
+  local size_of_session_status_broadcast = eurex_derivatives_edci_t7_v13_0.session_status_broadcast.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.session_status_broadcast then
     local range = buffer(offset, size_of_session_status_broadcast)
-    local display = eurex_derivatives_edci_t7_v13_0_display.session_status_broadcast(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.session_status_broadcast.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.session_status_broadcast, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.session_status_broadcast_fields(buffer, offset, packet, parent, size_of_session_status_broadcast)
+  eurex_derivatives_edci_t7_v13_0.session_status_broadcast.fields(buffer, offset, packet, parent, size_of_session_status_broadcast)
 
   return offset + size_of_session_status_broadcast
 end
 
+-- Pad 6
+eurex_derivatives_edci_t7_v13_0.pad_6 = {}
+
 -- Size: Pad 6
-eurex_derivatives_edci_t7_v13_0_size_of.pad_6 = 6
+eurex_derivatives_edci_t7_v13_0.pad_6.size = 6
 
 -- Display: Pad 6
-eurex_derivatives_edci_t7_v13_0_display.pad_6 = function(value)
+eurex_derivatives_edci_t7_v13_0.pad_6.display = function(value)
   return "Pad 6: "..value
 end
 
 -- Dissect: Pad 6
-eurex_derivatives_edci_t7_v13_0_dissect.pad_6 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.pad_6
+eurex_derivatives_edci_t7_v13_0.pad_6.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.pad_6.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_edci_t7_v13_0_display.pad_6(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.pad_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.pad_6, range, value, display)
 
   return offset + length, value
 end
 
+-- Party Executing Firm
+eurex_derivatives_edci_t7_v13_0.party_executing_firm = {}
+
 -- Size: Party Executing Firm
-eurex_derivatives_edci_t7_v13_0_size_of.party_executing_firm = 5
+eurex_derivatives_edci_t7_v13_0.party_executing_firm.size = 5
 
 -- Display: Party Executing Firm
-eurex_derivatives_edci_t7_v13_0_display.party_executing_firm = function(value)
+eurex_derivatives_edci_t7_v13_0.party_executing_firm.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Party Executing Firm: No Value"
@@ -748,22 +790,25 @@ eurex_derivatives_edci_t7_v13_0_display.party_executing_firm = function(value)
 end
 
 -- Dissect: Party Executing Firm
-eurex_derivatives_edci_t7_v13_0_dissect.party_executing_firm = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_executing_firm
+eurex_derivatives_edci_t7_v13_0.party_executing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_executing_firm.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_executing_firm(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_executing_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_executing_firm, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Mode
+eurex_derivatives_edci_t7_v13_0.session_mode = {}
+
 -- Size: Session Mode
-eurex_derivatives_edci_t7_v13_0_size_of.session_mode = 1
+eurex_derivatives_edci_t7_v13_0.session_mode.size = 1
 
 -- Display: Session Mode
-eurex_derivatives_edci_t7_v13_0_display.session_mode = function(value)
+eurex_derivatives_edci_t7_v13_0.session_mode.display = function(value)
   if value == 1 then
     return "Session Mode: Etihf (1)"
   end
@@ -784,22 +829,25 @@ eurex_derivatives_edci_t7_v13_0_display.session_mode = function(value)
 end
 
 -- Dissect: Session Mode
-eurex_derivatives_edci_t7_v13_0_dissect.session_mode = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.session_mode
+eurex_derivatives_edci_t7_v13_0.session_mode.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.session_mode.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.session_mode(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.session_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.session_mode, range, value, display)
 
   return offset + length, value
 end
 
+-- Party Id Session Id
+eurex_derivatives_edci_t7_v13_0.party_id_session_id = {}
+
 -- Size: Party Id Session Id
-eurex_derivatives_edci_t7_v13_0_size_of.party_id_session_id = 4
+eurex_derivatives_edci_t7_v13_0.party_id_session_id.size = 4
 
 -- Display: Party Id Session Id
-eurex_derivatives_edci_t7_v13_0_display.party_id_session_id = function(value)
+eurex_derivatives_edci_t7_v13_0.party_id_session_id.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Party Id Session Id: No Value"
@@ -809,39 +857,42 @@ eurex_derivatives_edci_t7_v13_0_display.party_id_session_id = function(value)
 end
 
 -- Dissect: Party Id Session Id
-eurex_derivatives_edci_t7_v13_0_dissect.party_id_session_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_id_session_id
+eurex_derivatives_edci_t7_v13_0.party_id_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_id_session_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_id_session_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_id_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_id_session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Sessions Grp Comp
+eurex_derivatives_edci_t7_v13_0.sessions_grp_comp = {}
+
 -- Calculate size of: Sessions Grp Comp
-eurex_derivatives_edci_t7_v13_0_size_of.sessions_grp_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.party_id_session_id
+  index = index + eurex_derivatives_edci_t7_v13_0.party_id_session_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.session_mode
+  index = index + eurex_derivatives_edci_t7_v13_0.session_mode.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.party_executing_firm
+  index = index + eurex_derivatives_edci_t7_v13_0.party_executing_firm.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.pad_6
+  index = index + eurex_derivatives_edci_t7_v13_0.pad_6.size
 
   return index
 end
 
 -- Display: Sessions Grp Comp
-eurex_derivatives_edci_t7_v13_0_display.sessions_grp_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sessions Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
   local index = offset
 
   -- Implicit Sessions Grp Comp Index
@@ -851,43 +902,46 @@ eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields = function(buff
   end
 
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0_dissect.party_id_session_id(buffer, index, packet, parent)
+  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0.party_id_session_id.dissect(buffer, index, packet, parent)
 
   -- Session Mode: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, session_mode = eurex_derivatives_edci_t7_v13_0_dissect.session_mode(buffer, index, packet, parent)
+  index, session_mode = eurex_derivatives_edci_t7_v13_0.session_mode.dissect(buffer, index, packet, parent)
 
   -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_derivatives_edci_t7_v13_0_dissect.party_executing_firm(buffer, index, packet, parent)
+  index, party_executing_firm = eurex_derivatives_edci_t7_v13_0.party_executing_firm.dissect(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index, pad_6 = eurex_derivatives_edci_t7_v13_0_dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = eurex_derivatives_edci_t7_v13_0.pad_6.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sessions Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp = function(buffer, offset, packet, parent, sessions_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.dissect = function(buffer, offset, packet, parent, sessions_grp_comp_index)
   if show.sessions_grp_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.sessions_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent, sessions_grp_comp_index)
+    local index = eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.sessions_grp_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp_fields(buffer, offset, packet, parent, sessions_grp_comp_index)
+    return eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
   end
 end
 
+-- No Sessions
+eurex_derivatives_edci_t7_v13_0.no_sessions = {}
+
 -- Size: No Sessions
-eurex_derivatives_edci_t7_v13_0_size_of.no_sessions = 2
+eurex_derivatives_edci_t7_v13_0.no_sessions.size = 2
 
 -- Display: No Sessions
-eurex_derivatives_edci_t7_v13_0_display.no_sessions = function(value)
+eurex_derivatives_edci_t7_v13_0.no_sessions.display = function(value)
   -- Check if field has value
   if value == 0xFFFF then
     return "No Sessions: No Value"
@@ -897,61 +951,67 @@ eurex_derivatives_edci_t7_v13_0_display.no_sessions = function(value)
 end
 
 -- Dissect: No Sessions
-eurex_derivatives_edci_t7_v13_0_dissect.no_sessions = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.no_sessions
+eurex_derivatives_edci_t7_v13_0.no_sessions.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.no_sessions.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.no_sessions(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.no_sessions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.no_sessions, range, value, display)
 
   return offset + length, value
 end
 
+-- Notif Header Comp
+eurex_derivatives_edci_t7_v13_0.notif_header_comp = {}
+
 -- Calculate size of: Notif Header Comp
-eurex_derivatives_edci_t7_v13_0_size_of.notif_header_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.notif_header_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.sending_time
+  index = index + eurex_derivatives_edci_t7_v13_0.sending_time.size
 
   return index
 end
 
 -- Display: Notif Header Comp
-eurex_derivatives_edci_t7_v13_0_display.notif_header_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.notif_header_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Notif Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.notif_header_comp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, sending_time = eurex_derivatives_edci_t7_v13_0_dissect.sending_time(buffer, index, packet, parent)
+  index, sending_time = eurex_derivatives_edci_t7_v13_0.sending_time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Notif Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.notif_header_comp.dissect = function(buffer, offset, packet, parent)
   if show.notif_header_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.notif_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    local index = eurex_derivatives_edci_t7_v13_0.notif_header_comp.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.notif_header_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.notif_header_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.notif_header_comp.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Session List Notification
+eurex_derivatives_edci_t7_v13_0.session_list_notification = {}
+
 -- Read runtime size of: Session List Notification
-eurex_derivatives_edci_t7_v13_0_size_of.session_list_notification = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.session_list_notification.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -961,88 +1021,97 @@ eurex_derivatives_edci_t7_v13_0_size_of.session_list_notification = function(buf
 end
 
 -- Display: Session List Notification
-eurex_derivatives_edci_t7_v13_0_display.session_list_notification = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.session_list_notification.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Session List Notification
-eurex_derivatives_edci_t7_v13_0_dissect.session_list_notification_fields = function(buffer, offset, packet, parent, size_of_session_list_notification)
+eurex_derivatives_edci_t7_v13_0.session_list_notification.fields = function(buffer, offset, packet, parent, size_of_session_list_notification)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
-  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp(buffer, index, packet, parent)
+  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0.notif_header_comp.dissect(buffer, index, packet, parent)
 
   -- No Sessions: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_sessions = eurex_derivatives_edci_t7_v13_0_dissect.no_sessions(buffer, index, packet, parent)
+  index, no_sessions = eurex_derivatives_edci_t7_v13_0.no_sessions.dissect(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index, pad_6 = eurex_derivatives_edci_t7_v13_0_dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = eurex_derivatives_edci_t7_v13_0.pad_6.dissect(buffer, index, packet, parent)
 
   -- Repeating: Sessions Grp Comp
   for sessions_grp_comp_index = 1, no_sessions do
-    index, sessions_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.sessions_grp_comp(buffer, index, packet, parent, sessions_grp_comp_index)
+    index, sessions_grp_comp = eurex_derivatives_edci_t7_v13_0.sessions_grp_comp.dissect(buffer, index, packet, parent, sessions_grp_comp_index)
   end
 
   return index
 end
 
 -- Dissect: Session List Notification
-eurex_derivatives_edci_t7_v13_0_dissect.session_list_notification = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.session_list_notification.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_session_list_notification = eurex_derivatives_edci_t7_v13_0_size_of.session_list_notification(buffer, offset)
+  local size_of_session_list_notification = eurex_derivatives_edci_t7_v13_0.session_list_notification.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.session_list_notification then
     local range = buffer(offset, size_of_session_list_notification)
-    local display = eurex_derivatives_edci_t7_v13_0_display.session_list_notification(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.session_list_notification.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.session_list_notification, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.session_list_notification_fields(buffer, offset, packet, parent, size_of_session_list_notification)
+  eurex_derivatives_edci_t7_v13_0.session_list_notification.fields(buffer, offset, packet, parent, size_of_session_list_notification)
 
   return offset + size_of_session_list_notification
 end
 
+-- Alignment Padding
+eurex_derivatives_edci_t7_v13_0.alignment_padding = {}
+
 -- Display: Alignment Padding
-eurex_derivatives_edci_t7_v13_0_display.alignment_padding = function(value)
+eurex_derivatives_edci_t7_v13_0.alignment_padding.display = function(value)
   return "Alignment Padding: "..value
 end
 
 -- Dissect runtime sized field: Alignment Padding
-eurex_derivatives_edci_t7_v13_0_dissect.alignment_padding = function(buffer, offset, packet, parent, size)
+eurex_derivatives_edci_t7_v13_0.alignment_padding.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_edci_t7_v13_0_display.alignment_padding(value, buffer, offset, packet, parent, size)
+  local display = eurex_derivatives_edci_t7_v13_0.alignment_padding.display(value, buffer, offset, packet, parent, size)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.alignment_padding, range, value, display)
 
   return offset + size
 end
 
+-- Var Text
+eurex_derivatives_edci_t7_v13_0.var_text = {}
+
 -- Display: Var Text
-eurex_derivatives_edci_t7_v13_0_display.var_text = function(value)
+eurex_derivatives_edci_t7_v13_0.var_text.display = function(value)
   return "Var Text: "..value
 end
 
 -- Dissect runtime sized field: Var Text
-eurex_derivatives_edci_t7_v13_0_dissect.var_text = function(buffer, offset, packet, parent, size)
+eurex_derivatives_edci_t7_v13_0.var_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = eurex_derivatives_edci_t7_v13_0_display.var_text(value, buffer, offset, packet, parent, size)
+  local display = eurex_derivatives_edci_t7_v13_0.var_text.display(value, buffer, offset, packet, parent, size)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.var_text, range, value, display)
 
   return offset + size
 end
 
+-- Session Status
+eurex_derivatives_edci_t7_v13_0.session_status = {}
+
 -- Size: Session Status
-eurex_derivatives_edci_t7_v13_0_size_of.session_status = 1
+eurex_derivatives_edci_t7_v13_0.session_status.size = 1
 
 -- Display: Session Status
-eurex_derivatives_edci_t7_v13_0_display.session_status = function(value)
+eurex_derivatives_edci_t7_v13_0.session_status.display = function(value)
   if value == 0 then
     return "Session Status: Active (0)"
   end
@@ -1057,22 +1126,25 @@ eurex_derivatives_edci_t7_v13_0_display.session_status = function(value)
 end
 
 -- Dissect: Session Status
-eurex_derivatives_edci_t7_v13_0_dissect.session_status = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.session_status
+eurex_derivatives_edci_t7_v13_0.session_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.session_status.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.session_status(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.session_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Var Text Len
+eurex_derivatives_edci_t7_v13_0.var_text_len = {}
+
 -- Size: Var Text Len
-eurex_derivatives_edci_t7_v13_0_size_of.var_text_len = 2
+eurex_derivatives_edci_t7_v13_0.var_text_len.size = 2
 
 -- Display: Var Text Len
-eurex_derivatives_edci_t7_v13_0_display.var_text_len = function(value)
+eurex_derivatives_edci_t7_v13_0.var_text_len.display = function(value)
   -- Check if field has value
   if value == 0xFFFF then
     return "Var Text Len: No Value"
@@ -1082,22 +1154,25 @@ eurex_derivatives_edci_t7_v13_0_display.var_text_len = function(value)
 end
 
 -- Dissect: Var Text Len
-eurex_derivatives_edci_t7_v13_0_dissect.var_text_len = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.var_text_len
+eurex_derivatives_edci_t7_v13_0.var_text_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.var_text_len.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.var_text_len(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.var_text_len.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.var_text_len, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Reject Reason
+eurex_derivatives_edci_t7_v13_0.session_reject_reason = {}
+
 -- Size: Session Reject Reason
-eurex_derivatives_edci_t7_v13_0_size_of.session_reject_reason = 4
+eurex_derivatives_edci_t7_v13_0.session_reject_reason.size = 4
 
 -- Display: Session Reject Reason
-eurex_derivatives_edci_t7_v13_0_display.session_reject_reason = function(value)
+eurex_derivatives_edci_t7_v13_0.session_reject_reason.display = function(value)
   if value == 1 then
     return "Session Reject Reason: Required Tag Missing (1)"
   end
@@ -1151,42 +1226,48 @@ eurex_derivatives_edci_t7_v13_0_display.session_reject_reason = function(value)
 end
 
 -- Dissect: Session Reject Reason
-eurex_derivatives_edci_t7_v13_0_dissect.session_reject_reason = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.session_reject_reason
+eurex_derivatives_edci_t7_v13_0.session_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.session_reject_reason.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.session_reject_reason(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.session_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.session_reject_reason, range, value, display)
 
   return offset + length, value
 end
 
+-- Pad 3
+eurex_derivatives_edci_t7_v13_0.pad_3 = {}
+
 -- Size: Pad 3
-eurex_derivatives_edci_t7_v13_0_size_of.pad_3 = 3
+eurex_derivatives_edci_t7_v13_0.pad_3.size = 3
 
 -- Display: Pad 3
-eurex_derivatives_edci_t7_v13_0_display.pad_3 = function(value)
+eurex_derivatives_edci_t7_v13_0.pad_3.display = function(value)
   return "Pad 3: "..value
 end
 
 -- Dissect: Pad 3
-eurex_derivatives_edci_t7_v13_0_dissect.pad_3 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.pad_3
+eurex_derivatives_edci_t7_v13_0.pad_3.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.pad_3.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_edci_t7_v13_0_display.pad_3(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.pad_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.pad_3, range, value, display)
 
   return offset + length, value
 end
 
+-- Msg Seq Num
+eurex_derivatives_edci_t7_v13_0.msg_seq_num = {}
+
 -- Size: Msg Seq Num
-eurex_derivatives_edci_t7_v13_0_size_of.msg_seq_num = 4
+eurex_derivatives_edci_t7_v13_0.msg_seq_num.size = 4
 
 -- Display: Msg Seq Num
-eurex_derivatives_edci_t7_v13_0_display.msg_seq_num = function(value)
+eurex_derivatives_edci_t7_v13_0.msg_seq_num.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Msg Seq Num: No Value"
@@ -1196,22 +1277,25 @@ eurex_derivatives_edci_t7_v13_0_display.msg_seq_num = function(value)
 end
 
 -- Dissect: Msg Seq Num
-eurex_derivatives_edci_t7_v13_0_dissect.msg_seq_num = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.msg_seq_num
+eurex_derivatives_edci_t7_v13_0.msg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.msg_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.msg_seq_num(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.msg_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.msg_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Request Time
+eurex_derivatives_edci_t7_v13_0.request_time = {}
+
 -- Size: Request Time
-eurex_derivatives_edci_t7_v13_0_size_of.request_time = 8
+eurex_derivatives_edci_t7_v13_0.request_time.size = 8
 
 -- Display: Request Time
-eurex_derivatives_edci_t7_v13_0_display.request_time = function(value)
+eurex_derivatives_edci_t7_v13_0.request_time.display = function(value)
   -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Request Time: No Value"
@@ -1224,81 +1308,87 @@ eurex_derivatives_edci_t7_v13_0_display.request_time = function(value)
 end
 
 -- Dissect: Request Time
-eurex_derivatives_edci_t7_v13_0_dissect.request_time = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.request_time
+eurex_derivatives_edci_t7_v13_0.request_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.request_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.request_time(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.request_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.request_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Response Header Comp
+eurex_derivatives_edci_t7_v13_0.response_header_comp = {}
+
 -- Calculate size of: Response Header Comp
-eurex_derivatives_edci_t7_v13_0_size_of.response_header_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.response_header_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.request_time
+  index = index + eurex_derivatives_edci_t7_v13_0.request_time.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.sending_time
+  index = index + eurex_derivatives_edci_t7_v13_0.sending_time.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.msg_seq_num
+  index = index + eurex_derivatives_edci_t7_v13_0.msg_seq_num.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.last_fragment
+  index = index + eurex_derivatives_edci_t7_v13_0.last_fragment.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.pad_3
+  index = index + eurex_derivatives_edci_t7_v13_0.pad_3.size
 
   return index
 end
 
 -- Display: Response Header Comp
-eurex_derivatives_edci_t7_v13_0_display.response_header_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.response_header_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Response Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.response_header_comp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, request_time = eurex_derivatives_edci_t7_v13_0_dissect.request_time(buffer, index, packet, parent)
+  index, request_time = eurex_derivatives_edci_t7_v13_0.request_time.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, sending_time = eurex_derivatives_edci_t7_v13_0_dissect.sending_time(buffer, index, packet, parent)
+  index, sending_time = eurex_derivatives_edci_t7_v13_0.sending_time.dissect(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, msg_seq_num = eurex_derivatives_edci_t7_v13_0_dissect.msg_seq_num(buffer, index, packet, parent)
+  index, msg_seq_num = eurex_derivatives_edci_t7_v13_0.msg_seq_num.dissect(buffer, index, packet, parent)
 
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, last_fragment = eurex_derivatives_edci_t7_v13_0_dissect.last_fragment(buffer, index, packet, parent)
+  index, last_fragment = eurex_derivatives_edci_t7_v13_0.last_fragment.dissect(buffer, index, packet, parent)
 
   -- Pad 3: 3 Byte
-  index, pad_3 = eurex_derivatives_edci_t7_v13_0_dissect.pad_3(buffer, index, packet, parent)
+  index, pad_3 = eurex_derivatives_edci_t7_v13_0.pad_3.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Response Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.response_header_comp.dissect = function(buffer, offset, packet, parent)
   if show.response_header_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.response_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    local index = eurex_derivatives_edci_t7_v13_0.response_header_comp.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.response_header_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.response_header_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.response_header_comp.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reject
+eurex_derivatives_edci_t7_v13_0.reject = {}
+
 -- Read runtime size of: Reject
-eurex_derivatives_edci_t7_v13_0_size_of.reject = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.reject.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -1308,31 +1398,31 @@ eurex_derivatives_edci_t7_v13_0_size_of.reject = function(buffer, offset)
 end
 
 -- Display: Reject
-eurex_derivatives_edci_t7_v13_0_display.reject = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.reject.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Reject
-eurex_derivatives_edci_t7_v13_0_dissect.reject_fields = function(buffer, offset, packet, parent, size_of_reject)
+eurex_derivatives_edci_t7_v13_0.reject.fields = function(buffer, offset, packet, parent, size_of_reject)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 5 fields
-  index, response_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp(buffer, index, packet, parent)
+  index, response_header_comp = eurex_derivatives_edci_t7_v13_0.response_header_comp.dissect(buffer, index, packet, parent)
 
   -- Session Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, session_reject_reason = eurex_derivatives_edci_t7_v13_0_dissect.session_reject_reason(buffer, index, packet, parent)
+  index, session_reject_reason = eurex_derivatives_edci_t7_v13_0.session_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, var_text_len = eurex_derivatives_edci_t7_v13_0_dissect.var_text_len(buffer, index, packet, parent)
+  index, var_text_len = eurex_derivatives_edci_t7_v13_0.var_text_len.dissect(buffer, index, packet, parent)
 
   -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, session_status = eurex_derivatives_edci_t7_v13_0_dissect.session_status(buffer, index, packet, parent)
+  index, session_status = eurex_derivatives_edci_t7_v13_0.session_status.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Var Text
-  index, var_text = eurex_derivatives_edci_t7_v13_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  index, var_text = eurex_derivatives_edci_t7_v13_0.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -1347,47 +1437,50 @@ eurex_derivatives_edci_t7_v13_0_dissect.reject_fields = function(buffer, offset,
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index, alignment_padding = eurex_derivatives_edci_t7_v13_0_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_derivatives_edci_t7_v13_0.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
 end
 
 -- Dissect: Reject
-eurex_derivatives_edci_t7_v13_0_dissect.reject = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.reject.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_reject = eurex_derivatives_edci_t7_v13_0_size_of.reject(buffer, offset)
+  local size_of_reject = eurex_derivatives_edci_t7_v13_0.reject.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.reject then
     local range = buffer(offset, size_of_reject)
-    local display = eurex_derivatives_edci_t7_v13_0_display.reject(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.reject.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.reject, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.reject_fields(buffer, offset, packet, parent, size_of_reject)
+  eurex_derivatives_edci_t7_v13_0.reject.fields(buffer, offset, packet, parent, size_of_reject)
 
   return offset + size_of_reject
 end
 
+-- Partition Grp Comp
+eurex_derivatives_edci_t7_v13_0.partition_grp_comp = {}
+
 -- Calculate size of: Partition Grp Comp
-eurex_derivatives_edci_t7_v13_0_size_of.partition_grp_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.partition_grp_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.partition_id
+  index = index + eurex_derivatives_edci_t7_v13_0.partition_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.pad_6
+  index = index + eurex_derivatives_edci_t7_v13_0.pad_6.size
 
   return index
 end
 
 -- Display: Partition Grp Comp
-eurex_derivatives_edci_t7_v13_0_display.partition_grp_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.partition_grp_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Partition Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields = function(buffer, offset, packet, parent, partition_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.partition_grp_comp.fields = function(buffer, offset, packet, parent, partition_grp_comp_index)
   local index = offset
 
   -- Implicit Partition Grp Comp Index
@@ -1397,37 +1490,40 @@ eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields = function(buf
   end
 
   -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_derivatives_edci_t7_v13_0_dissect.partition_id(buffer, index, packet, parent)
+  index, partition_id = eurex_derivatives_edci_t7_v13_0.partition_id.dissect(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index, pad_6 = eurex_derivatives_edci_t7_v13_0_dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = eurex_derivatives_edci_t7_v13_0.pad_6.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Partition Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp = function(buffer, offset, packet, parent, partition_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.partition_grp_comp.dissect = function(buffer, offset, packet, parent, partition_grp_comp_index)
   if show.partition_grp_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.partition_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields(buffer, offset, packet, parent, partition_grp_comp_index)
+    local index = eurex_derivatives_edci_t7_v13_0.partition_grp_comp.fields(buffer, offset, packet, parent, partition_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.partition_grp_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.partition_grp_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp_fields(buffer, offset, packet, parent, partition_grp_comp_index)
+    return eurex_derivatives_edci_t7_v13_0.partition_grp_comp.fields(buffer, offset, packet, parent, partition_grp_comp_index)
   end
 end
 
+-- No Partitions
+eurex_derivatives_edci_t7_v13_0.no_partitions = {}
+
 -- Size: No Partitions
-eurex_derivatives_edci_t7_v13_0_size_of.no_partitions = 1
+eurex_derivatives_edci_t7_v13_0.no_partitions.size = 1
 
 -- Display: No Partitions
-eurex_derivatives_edci_t7_v13_0_display.no_partitions = function(value)
+eurex_derivatives_edci_t7_v13_0.no_partitions.display = function(value)
   -- Check if field has value
   if value == 0xFF then
     return "No Partitions: No Value"
@@ -1437,19 +1533,22 @@ eurex_derivatives_edci_t7_v13_0_display.no_partitions = function(value)
 end
 
 -- Dissect: No Partitions
-eurex_derivatives_edci_t7_v13_0_dissect.no_partitions = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.no_partitions
+eurex_derivatives_edci_t7_v13_0.no_partitions.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.no_partitions.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.no_partitions(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.no_partitions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.no_partitions, range, value, display)
 
   return offset + length, value
 end
 
+-- Partition List Notification
+eurex_derivatives_edci_t7_v13_0.partition_list_notification = {}
+
 -- Read runtime size of: Partition List Notification
-eurex_derivatives_edci_t7_v13_0_size_of.partition_list_notification = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.partition_list_notification.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -1459,56 +1558,59 @@ eurex_derivatives_edci_t7_v13_0_size_of.partition_list_notification = function(b
 end
 
 -- Display: Partition List Notification
-eurex_derivatives_edci_t7_v13_0_display.partition_list_notification = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.partition_list_notification.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Partition List Notification
-eurex_derivatives_edci_t7_v13_0_dissect.partition_list_notification_fields = function(buffer, offset, packet, parent, size_of_partition_list_notification)
+eurex_derivatives_edci_t7_v13_0.partition_list_notification.fields = function(buffer, offset, packet, parent, size_of_partition_list_notification)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
-  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp(buffer, index, packet, parent)
+  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0.notif_header_comp.dissect(buffer, index, packet, parent)
 
   -- No Partitions: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_partitions = eurex_derivatives_edci_t7_v13_0_dissect.no_partitions(buffer, index, packet, parent)
+  index, no_partitions = eurex_derivatives_edci_t7_v13_0.no_partitions.dissect(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
-  index, pad_7 = eurex_derivatives_edci_t7_v13_0_dissect.pad_7(buffer, index, packet, parent)
+  index, pad_7 = eurex_derivatives_edci_t7_v13_0.pad_7.dissect(buffer, index, packet, parent)
 
   -- Repeating: Partition Grp Comp
   for partition_grp_comp_index = 1, no_partitions do
-    index, partition_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.partition_grp_comp(buffer, index, packet, parent, partition_grp_comp_index)
+    index, partition_grp_comp = eurex_derivatives_edci_t7_v13_0.partition_grp_comp.dissect(buffer, index, packet, parent, partition_grp_comp_index)
   end
 
   return index
 end
 
 -- Dissect: Partition List Notification
-eurex_derivatives_edci_t7_v13_0_dissect.partition_list_notification = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.partition_list_notification.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_partition_list_notification = eurex_derivatives_edci_t7_v13_0_size_of.partition_list_notification(buffer, offset)
+  local size_of_partition_list_notification = eurex_derivatives_edci_t7_v13_0.partition_list_notification.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.partition_list_notification then
     local range = buffer(offset, size_of_partition_list_notification)
-    local display = eurex_derivatives_edci_t7_v13_0_display.partition_list_notification(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.partition_list_notification.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.partition_list_notification, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.partition_list_notification_fields(buffer, offset, packet, parent, size_of_partition_list_notification)
+  eurex_derivatives_edci_t7_v13_0.partition_list_notification.fields(buffer, offset, packet, parent, size_of_partition_list_notification)
 
   return offset + size_of_partition_list_notification
 end
 
+-- Fill Exec Id
+eurex_derivatives_edci_t7_v13_0.fill_exec_id = {}
+
 -- Size: Fill Exec Id
-eurex_derivatives_edci_t7_v13_0_size_of.fill_exec_id = 4
+eurex_derivatives_edci_t7_v13_0.fill_exec_id.size = 4
 
 -- Display: Fill Exec Id
-eurex_derivatives_edci_t7_v13_0_display.fill_exec_id = function(value)
+eurex_derivatives_edci_t7_v13_0.fill_exec_id.display = function(value)
   -- Check if field has value
   if value == 0x80000000 then
     return "Fill Exec Id: No Value"
@@ -1518,22 +1620,25 @@ eurex_derivatives_edci_t7_v13_0_display.fill_exec_id = function(value)
 end
 
 -- Dissect: Fill Exec Id
-eurex_derivatives_edci_t7_v13_0_dissect.fill_exec_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.fill_exec_id
+eurex_derivatives_edci_t7_v13_0.fill_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.fill_exec_id.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = eurex_derivatives_edci_t7_v13_0_display.fill_exec_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.fill_exec_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.fill_exec_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Fill Match Id
+eurex_derivatives_edci_t7_v13_0.fill_match_id = {}
+
 -- Size: Fill Match Id
-eurex_derivatives_edci_t7_v13_0_size_of.fill_match_id = 4
+eurex_derivatives_edci_t7_v13_0.fill_match_id.size = 4
 
 -- Display: Fill Match Id
-eurex_derivatives_edci_t7_v13_0_display.fill_match_id = function(value)
+eurex_derivatives_edci_t7_v13_0.fill_match_id.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Fill Match Id: No Value"
@@ -1543,22 +1648,25 @@ eurex_derivatives_edci_t7_v13_0_display.fill_match_id = function(value)
 end
 
 -- Dissect: Fill Match Id
-eurex_derivatives_edci_t7_v13_0_dissect.fill_match_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.fill_match_id
+eurex_derivatives_edci_t7_v13_0.fill_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.fill_match_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.fill_match_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.fill_match_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.fill_match_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Fill Qty
+eurex_derivatives_edci_t7_v13_0.fill_qty = {}
+
 -- Size: Fill Qty
-eurex_derivatives_edci_t7_v13_0_size_of.fill_qty = 8
+eurex_derivatives_edci_t7_v13_0.fill_qty.size = 8
 
 -- Display: Fill Qty
-eurex_derivatives_edci_t7_v13_0_display.fill_qty = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.fill_qty.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Fill Qty: No Value"
@@ -1578,23 +1686,26 @@ translate.fill_qty = function(raw)
 end
 
 -- Dissect: Fill Qty
-eurex_derivatives_edci_t7_v13_0_dissect.fill_qty = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.fill_qty
+eurex_derivatives_edci_t7_v13_0.fill_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.fill_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.fill_qty(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.fill_qty(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.fill_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.fill_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Fill Px
+eurex_derivatives_edci_t7_v13_0.fill_px = {}
+
 -- Size: Fill Px
-eurex_derivatives_edci_t7_v13_0_size_of.fill_px = 8
+eurex_derivatives_edci_t7_v13_0.fill_px.size = 8
 
 -- Display: Fill Px
-eurex_derivatives_edci_t7_v13_0_display.fill_px = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.fill_px.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Fill Px: No Value"
@@ -1614,40 +1725,43 @@ translate.fill_px = function(raw)
 end
 
 -- Dissect: Fill Px
-eurex_derivatives_edci_t7_v13_0_dissect.fill_px = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.fill_px
+eurex_derivatives_edci_t7_v13_0.fill_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.fill_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.fill_px(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.fill_px(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.fill_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.fill_px, range, value, display)
 
   return offset + length, value
 end
 
+-- Fills Grp Comp
+eurex_derivatives_edci_t7_v13_0.fills_grp_comp = {}
+
 -- Calculate size of: Fills Grp Comp
-eurex_derivatives_edci_t7_v13_0_size_of.fills_grp_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.fills_grp_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.fill_px
+  index = index + eurex_derivatives_edci_t7_v13_0.fill_px.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.fill_qty
+  index = index + eurex_derivatives_edci_t7_v13_0.fill_qty.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.fill_match_id
+  index = index + eurex_derivatives_edci_t7_v13_0.fill_match_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.fill_exec_id
+  index = index + eurex_derivatives_edci_t7_v13_0.fill_exec_id.size
 
   return index
 end
 
 -- Display: Fills Grp Comp
-eurex_derivatives_edci_t7_v13_0_display.fills_grp_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.fills_grp_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Fills Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields = function(buffer, offset, packet, parent, fills_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.fills_grp_comp.fields = function(buffer, offset, packet, parent, fills_grp_comp_index)
   local index = offset
 
   -- Implicit Fills Grp Comp Index
@@ -1657,43 +1771,46 @@ eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields = function(buffer,
   end
 
   -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, fill_px = eurex_derivatives_edci_t7_v13_0_dissect.fill_px(buffer, index, packet, parent)
+  index, fill_px = eurex_derivatives_edci_t7_v13_0.fill_px.dissect(buffer, index, packet, parent)
 
   -- Fill Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, fill_qty = eurex_derivatives_edci_t7_v13_0_dissect.fill_qty(buffer, index, packet, parent)
+  index, fill_qty = eurex_derivatives_edci_t7_v13_0.fill_qty.dissect(buffer, index, packet, parent)
 
   -- Fill Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, fill_match_id = eurex_derivatives_edci_t7_v13_0_dissect.fill_match_id(buffer, index, packet, parent)
+  index, fill_match_id = eurex_derivatives_edci_t7_v13_0.fill_match_id.dissect(buffer, index, packet, parent)
 
   -- Fill Exec Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, fill_exec_id = eurex_derivatives_edci_t7_v13_0_dissect.fill_exec_id(buffer, index, packet, parent)
+  index, fill_exec_id = eurex_derivatives_edci_t7_v13_0.fill_exec_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Fills Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp = function(buffer, offset, packet, parent, fills_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.fills_grp_comp.dissect = function(buffer, offset, packet, parent, fills_grp_comp_index)
   if show.fills_grp_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.fills_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent, fills_grp_comp_index)
+    local index = eurex_derivatives_edci_t7_v13_0.fills_grp_comp.fields(buffer, offset, packet, parent, fills_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.fills_grp_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.fills_grp_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp_fields(buffer, offset, packet, parent, fills_grp_comp_index)
+    return eurex_derivatives_edci_t7_v13_0.fills_grp_comp.fields(buffer, offset, packet, parent, fills_grp_comp_index)
   end
 end
 
+-- Party End Client Identification
+eurex_derivatives_edci_t7_v13_0.party_end_client_identification = {}
+
 -- Size: Party End Client Identification
-eurex_derivatives_edci_t7_v13_0_size_of.party_end_client_identification = 20
+eurex_derivatives_edci_t7_v13_0.party_end_client_identification.size = 20
 
 -- Display: Party End Client Identification
-eurex_derivatives_edci_t7_v13_0_display.party_end_client_identification = function(value)
+eurex_derivatives_edci_t7_v13_0.party_end_client_identification.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Party End Client Identification: No Value"
@@ -1703,22 +1820,25 @@ eurex_derivatives_edci_t7_v13_0_display.party_end_client_identification = functi
 end
 
 -- Dissect: Party End Client Identification
-eurex_derivatives_edci_t7_v13_0_dissect.party_end_client_identification = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_end_client_identification
+eurex_derivatives_edci_t7_v13_0.party_end_client_identification.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_end_client_identification.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_end_client_identification(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_end_client_identification.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_end_client_identification, range, value, display)
 
   return offset + length, value
 end
 
+-- Fix Orig Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.fix_orig_cl_ord_id = {}
+
 -- Size: Fix Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.fix_orig_cl_ord_id = 20
+eurex_derivatives_edci_t7_v13_0.fix_orig_cl_ord_id.size = 20
 
 -- Display: Fix Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.fix_orig_cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.fix_orig_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Fix Orig Cl Ord Id: No Value"
@@ -1728,22 +1848,25 @@ eurex_derivatives_edci_t7_v13_0_display.fix_orig_cl_ord_id = function(value)
 end
 
 -- Dissect: Fix Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.fix_orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.fix_orig_cl_ord_id
+eurex_derivatives_edci_t7_v13_0.fix_orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.fix_orig_cl_ord_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.fix_orig_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.fix_orig_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.fix_orig_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Fix Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.fix_cl_ord_id = {}
+
 -- Size: Fix Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.fix_cl_ord_id = 20
+eurex_derivatives_edci_t7_v13_0.fix_cl_ord_id.size = 20
 
 -- Display: Fix Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.fix_cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.fix_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Fix Cl Ord Id: No Value"
@@ -1753,22 +1876,25 @@ eurex_derivatives_edci_t7_v13_0_display.fix_cl_ord_id = function(value)
 end
 
 -- Dissect: Fix Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.fix_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.fix_cl_ord_id
+eurex_derivatives_edci_t7_v13_0.fix_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.fix_cl_ord_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.fix_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.fix_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.fix_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Free Text 3
+eurex_derivatives_edci_t7_v13_0.free_text_3 = {}
+
 -- Size: Free Text 3
-eurex_derivatives_edci_t7_v13_0_size_of.free_text_3 = 12
+eurex_derivatives_edci_t7_v13_0.free_text_3.size = 12
 
 -- Display: Free Text 3
-eurex_derivatives_edci_t7_v13_0_display.free_text_3 = function(value)
+eurex_derivatives_edci_t7_v13_0.free_text_3.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Free Text 3: No Value"
@@ -1778,22 +1904,25 @@ eurex_derivatives_edci_t7_v13_0_display.free_text_3 = function(value)
 end
 
 -- Dissect: Free Text 3
-eurex_derivatives_edci_t7_v13_0_dissect.free_text_3 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.free_text_3
+eurex_derivatives_edci_t7_v13_0.free_text_3.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.free_text_3.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.free_text_3(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.free_text_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.free_text_3, range, value, display)
 
   return offset + length, value
 end
 
+-- Free Text 2
+eurex_derivatives_edci_t7_v13_0.free_text_2 = {}
+
 -- Size: Free Text 2
-eurex_derivatives_edci_t7_v13_0_size_of.free_text_2 = 12
+eurex_derivatives_edci_t7_v13_0.free_text_2.size = 12
 
 -- Display: Free Text 2
-eurex_derivatives_edci_t7_v13_0_display.free_text_2 = function(value)
+eurex_derivatives_edci_t7_v13_0.free_text_2.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Free Text 2: No Value"
@@ -1803,22 +1932,25 @@ eurex_derivatives_edci_t7_v13_0_display.free_text_2 = function(value)
 end
 
 -- Dissect: Free Text 2
-eurex_derivatives_edci_t7_v13_0_dissect.free_text_2 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.free_text_2
+eurex_derivatives_edci_t7_v13_0.free_text_2.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.free_text_2.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.free_text_2(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.free_text_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.free_text_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Free Text 1
+eurex_derivatives_edci_t7_v13_0.free_text_1 = {}
+
 -- Size: Free Text 1
-eurex_derivatives_edci_t7_v13_0_size_of.free_text_1 = 12
+eurex_derivatives_edci_t7_v13_0.free_text_1.size = 12
 
 -- Display: Free Text 1
-eurex_derivatives_edci_t7_v13_0_display.free_text_1 = function(value)
+eurex_derivatives_edci_t7_v13_0.free_text_1.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Free Text 1: No Value"
@@ -1828,22 +1960,25 @@ eurex_derivatives_edci_t7_v13_0_display.free_text_1 = function(value)
 end
 
 -- Dissect: Free Text 1
-eurex_derivatives_edci_t7_v13_0_dissect.free_text_1 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.free_text_1
+eurex_derivatives_edci_t7_v13_0.free_text_1.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.free_text_1.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.free_text_1(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.free_text_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.free_text_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Cust Order Handling Inst
+eurex_derivatives_edci_t7_v13_0.cust_order_handling_inst = {}
+
 -- Size: Cust Order Handling Inst
-eurex_derivatives_edci_t7_v13_0_size_of.cust_order_handling_inst = 1
+eurex_derivatives_edci_t7_v13_0.cust_order_handling_inst.size = 1
 
 -- Display: Cust Order Handling Inst
-eurex_derivatives_edci_t7_v13_0_display.cust_order_handling_inst = function(value)
+eurex_derivatives_edci_t7_v13_0.cust_order_handling_inst.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Cust Order Handling Inst: No Value"
@@ -1872,8 +2007,8 @@ eurex_derivatives_edci_t7_v13_0_display.cust_order_handling_inst = function(valu
 end
 
 -- Dissect: Cust Order Handling Inst
-eurex_derivatives_edci_t7_v13_0_dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.cust_order_handling_inst
+eurex_derivatives_edci_t7_v13_0.cust_order_handling_inst.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.cust_order_handling_inst.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1884,18 +2019,21 @@ eurex_derivatives_edci_t7_v13_0_dissect.cust_order_handling_inst = function(buff
     value = range:string()
   end
 
-  local display = eurex_derivatives_edci_t7_v13_0_display.cust_order_handling_inst(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.cust_order_handling_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.cust_order_handling_inst, range, value, display)
 
   return offset + length, value
 end
 
+-- Crossed Indicator
+eurex_derivatives_edci_t7_v13_0.crossed_indicator = {}
+
 -- Size: Crossed Indicator
-eurex_derivatives_edci_t7_v13_0_size_of.crossed_indicator = 1
+eurex_derivatives_edci_t7_v13_0.crossed_indicator.size = 1
 
 -- Display: Crossed Indicator
-eurex_derivatives_edci_t7_v13_0_display.crossed_indicator = function(value)
+eurex_derivatives_edci_t7_v13_0.crossed_indicator.display = function(value)
   if value == 0 then
     return "Crossed Indicator: Nocrossing (0)"
   end
@@ -1910,22 +2048,25 @@ eurex_derivatives_edci_t7_v13_0_display.crossed_indicator = function(value)
 end
 
 -- Dissect: Crossed Indicator
-eurex_derivatives_edci_t7_v13_0_dissect.crossed_indicator = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.crossed_indicator
+eurex_derivatives_edci_t7_v13_0.crossed_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.crossed_indicator.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.crossed_indicator(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.crossed_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.crossed_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- No Fills
+eurex_derivatives_edci_t7_v13_0.no_fills = {}
+
 -- Size: No Fills
-eurex_derivatives_edci_t7_v13_0_size_of.no_fills = 1
+eurex_derivatives_edci_t7_v13_0.no_fills.size = 1
 
 -- Display: No Fills
-eurex_derivatives_edci_t7_v13_0_display.no_fills = function(value)
+eurex_derivatives_edci_t7_v13_0.no_fills.display = function(value)
   -- Check if field has value
   if value == 0xFF then
     return "No Fills: No Value"
@@ -1935,22 +2076,25 @@ eurex_derivatives_edci_t7_v13_0_display.no_fills = function(value)
 end
 
 -- Dissect: No Fills
-eurex_derivatives_edci_t7_v13_0_dissect.no_fills = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.no_fills
+eurex_derivatives_edci_t7_v13_0.no_fills.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.no_fills.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.no_fills(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.no_fills.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.no_fills, range, value, display)
 
   return offset + length, value
 end
 
+-- Executing Trader Qualifier
+eurex_derivatives_edci_t7_v13_0.executing_trader_qualifier = {}
+
 -- Size: Executing Trader Qualifier
-eurex_derivatives_edci_t7_v13_0_size_of.executing_trader_qualifier = 1
+eurex_derivatives_edci_t7_v13_0.executing_trader_qualifier.size = 1
 
 -- Display: Executing Trader Qualifier
-eurex_derivatives_edci_t7_v13_0_display.executing_trader_qualifier = function(value)
+eurex_derivatives_edci_t7_v13_0.executing_trader_qualifier.display = function(value)
   if value == 22 then
     return "Executing Trader Qualifier: Algo (22)"
   end
@@ -1965,22 +2109,25 @@ eurex_derivatives_edci_t7_v13_0_display.executing_trader_qualifier = function(va
 end
 
 -- Dissect: Executing Trader Qualifier
-eurex_derivatives_edci_t7_v13_0_dissect.executing_trader_qualifier = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.executing_trader_qualifier
+eurex_derivatives_edci_t7_v13_0.executing_trader_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.executing_trader_qualifier.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.executing_trader_qualifier(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.executing_trader_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.executing_trader_qualifier, range, value, display)
 
   return offset + length, value
 end
 
+-- Party Id Investment Decision Maker Qualifier
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker_qualifier = {}
+
 -- Size: Party Id Investment Decision Maker Qualifier
-eurex_derivatives_edci_t7_v13_0_size_of.party_id_investment_decision_maker_qualifier = 1
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker_qualifier.size = 1
 
 -- Display: Party Id Investment Decision Maker Qualifier
-eurex_derivatives_edci_t7_v13_0_display.party_id_investment_decision_maker_qualifier = function(value)
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker_qualifier.display = function(value)
   if value == 22 then
     return "Party Id Investment Decision Maker Qualifier: Algo (22)"
   end
@@ -1995,22 +2142,25 @@ eurex_derivatives_edci_t7_v13_0_display.party_id_investment_decision_maker_quali
 end
 
 -- Dissect: Party Id Investment Decision Maker Qualifier
-eurex_derivatives_edci_t7_v13_0_dissect.party_id_investment_decision_maker_qualifier = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_id_investment_decision_maker_qualifier
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker_qualifier.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_id_investment_decision_maker_qualifier(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_id_investment_decision_maker_qualifier, range, value, display)
 
   return offset + length, value
 end
 
+-- Appl Seq Indicator
+eurex_derivatives_edci_t7_v13_0.appl_seq_indicator = {}
+
 -- Size: Appl Seq Indicator
-eurex_derivatives_edci_t7_v13_0_size_of.appl_seq_indicator = 1
+eurex_derivatives_edci_t7_v13_0.appl_seq_indicator.size = 1
 
 -- Display: Appl Seq Indicator
-eurex_derivatives_edci_t7_v13_0_display.appl_seq_indicator = function(value)
+eurex_derivatives_edci_t7_v13_0.appl_seq_indicator.display = function(value)
   if value == 0 then
     return "Appl Seq Indicator: No Recovery Required (0)"
   end
@@ -2025,22 +2175,25 @@ eurex_derivatives_edci_t7_v13_0_display.appl_seq_indicator = function(value)
 end
 
 -- Dissect: Appl Seq Indicator
-eurex_derivatives_edci_t7_v13_0_dissect.appl_seq_indicator = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.appl_seq_indicator
+eurex_derivatives_edci_t7_v13_0.appl_seq_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.appl_seq_indicator.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.appl_seq_indicator(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.appl_seq_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.appl_seq_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Session Sub Id
+eurex_derivatives_edci_t7_v13_0.trading_session_sub_id = {}
+
 -- Size: Trading Session Sub Id
-eurex_derivatives_edci_t7_v13_0_size_of.trading_session_sub_id = 1
+eurex_derivatives_edci_t7_v13_0.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
-eurex_derivatives_edci_t7_v13_0_display.trading_session_sub_id = function(value)
+eurex_derivatives_edci_t7_v13_0.trading_session_sub_id.display = function(value)
   if value == 2 then
     return "Trading Session Sub Id: Openingauction (2)"
   end
@@ -2058,22 +2211,25 @@ eurex_derivatives_edci_t7_v13_0_display.trading_session_sub_id = function(value)
 end
 
 -- Dissect: Trading Session Sub Id
-eurex_derivatives_edci_t7_v13_0_dissect.trading_session_sub_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.trading_session_sub_id
+eurex_derivatives_edci_t7_v13_0.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.trading_session_sub_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.trading_session_sub_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.trading_session_sub_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Triggered
+eurex_derivatives_edci_t7_v13_0.triggered = {}
+
 -- Size: Triggered
-eurex_derivatives_edci_t7_v13_0_size_of.triggered = 1
+eurex_derivatives_edci_t7_v13_0.triggered.size = 1
 
 -- Display: Triggered
-eurex_derivatives_edci_t7_v13_0_display.triggered = function(value)
+eurex_derivatives_edci_t7_v13_0.triggered.display = function(value)
   if value == 0 then
     return "Triggered: Nottriggered (0)"
   end
@@ -2091,22 +2247,25 @@ eurex_derivatives_edci_t7_v13_0_display.triggered = function(value)
 end
 
 -- Dissect: Triggered
-eurex_derivatives_edci_t7_v13_0_dissect.triggered = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.triggered
+eurex_derivatives_edci_t7_v13_0.triggered.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.triggered.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.triggered(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.triggered.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.triggered, range, value, display)
 
   return offset + length, value
 end
 
+-- Exec Inst
+eurex_derivatives_edci_t7_v13_0.exec_inst = {}
+
 -- Size: Exec Inst
-eurex_derivatives_edci_t7_v13_0_size_of.exec_inst = 1
+eurex_derivatives_edci_t7_v13_0.exec_inst.size = 1
 
 -- Display: Exec Inst
-eurex_derivatives_edci_t7_v13_0_display.exec_inst = function(value)
+eurex_derivatives_edci_t7_v13_0.exec_inst.display = function(value)
   if value == 1 then
     return "Exec Inst: H (1)"
   end
@@ -2130,22 +2289,25 @@ eurex_derivatives_edci_t7_v13_0_display.exec_inst = function(value)
 end
 
 -- Dissect: Exec Inst
-eurex_derivatives_edci_t7_v13_0_dissect.exec_inst = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.exec_inst
+eurex_derivatives_edci_t7_v13_0.exec_inst.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.exec_inst.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.exec_inst(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.exec_inst, range, value, display)
 
   return offset + length, value
 end
 
+-- Time In Force
+eurex_derivatives_edci_t7_v13_0.time_in_force = {}
+
 -- Size: Time In Force
-eurex_derivatives_edci_t7_v13_0_size_of.time_in_force = 1
+eurex_derivatives_edci_t7_v13_0.time_in_force.size = 1
 
 -- Display: Time In Force
-eurex_derivatives_edci_t7_v13_0_display.time_in_force = function(value)
+eurex_derivatives_edci_t7_v13_0.time_in_force.display = function(value)
   if value == 0 then
     return "Time In Force: Day (0)"
   end
@@ -2169,22 +2331,25 @@ eurex_derivatives_edci_t7_v13_0_display.time_in_force = function(value)
 end
 
 -- Dissect: Time In Force
-eurex_derivatives_edci_t7_v13_0_dissect.time_in_force = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.time_in_force
+eurex_derivatives_edci_t7_v13_0.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.time_in_force.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.time_in_force(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.time_in_force, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Capacity
+eurex_derivatives_edci_t7_v13_0.trading_capacity = {}
+
 -- Size: Trading Capacity
-eurex_derivatives_edci_t7_v13_0_size_of.trading_capacity = 1
+eurex_derivatives_edci_t7_v13_0.trading_capacity.size = 1
 
 -- Display: Trading Capacity
-eurex_derivatives_edci_t7_v13_0_display.trading_capacity = function(value)
+eurex_derivatives_edci_t7_v13_0.trading_capacity.display = function(value)
   if value == 1 then
     return "Trading Capacity: Customer (1)"
   end
@@ -2202,22 +2367,25 @@ eurex_derivatives_edci_t7_v13_0_display.trading_capacity = function(value)
 end
 
 -- Dissect: Trading Capacity
-eurex_derivatives_edci_t7_v13_0_dissect.trading_capacity = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.trading_capacity
+eurex_derivatives_edci_t7_v13_0.trading_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.trading_capacity.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.trading_capacity(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.trading_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.trading_capacity, range, value, display)
 
   return offset + length, value
 end
 
+-- Match Type
+eurex_derivatives_edci_t7_v13_0.match_type = {}
+
 -- Size: Match Type
-eurex_derivatives_edci_t7_v13_0_size_of.match_type = 1
+eurex_derivatives_edci_t7_v13_0.match_type.size = 1
 
 -- Display: Match Type
-eurex_derivatives_edci_t7_v13_0_display.match_type = function(value)
+eurex_derivatives_edci_t7_v13_0.match_type.display = function(value)
   if value == 4 then
     return "Match Type: Automatchincoming (4)"
   end
@@ -2241,22 +2409,25 @@ eurex_derivatives_edci_t7_v13_0_display.match_type = function(value)
 end
 
 -- Dissect: Match Type
-eurex_derivatives_edci_t7_v13_0_dissect.match_type = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.match_type
+eurex_derivatives_edci_t7_v13_0.match_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.match_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.match_type(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.match_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.match_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Ord Type
+eurex_derivatives_edci_t7_v13_0.ord_type = {}
+
 -- Size: Ord Type
-eurex_derivatives_edci_t7_v13_0_size_of.ord_type = 1
+eurex_derivatives_edci_t7_v13_0.ord_type.size = 1
 
 -- Display: Ord Type
-eurex_derivatives_edci_t7_v13_0_display.ord_type = function(value)
+eurex_derivatives_edci_t7_v13_0.ord_type.display = function(value)
   if value == 1 then
     return "Ord Type: Market (1)"
   end
@@ -2277,22 +2448,25 @@ eurex_derivatives_edci_t7_v13_0_display.ord_type = function(value)
 end
 
 -- Dissect: Ord Type
-eurex_derivatives_edci_t7_v13_0_dissect.ord_type = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.ord_type
+eurex_derivatives_edci_t7_v13_0.ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.ord_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.ord_type(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.ord_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.ord_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Side
+eurex_derivatives_edci_t7_v13_0.side = {}
+
 -- Size: Side
-eurex_derivatives_edci_t7_v13_0_size_of.side = 1
+eurex_derivatives_edci_t7_v13_0.side.size = 1
 
 -- Display: Side
-eurex_derivatives_edci_t7_v13_0_display.side = function(value)
+eurex_derivatives_edci_t7_v13_0.side.display = function(value)
   if value == 1 then
     return "Side: Buy (1)"
   end
@@ -2307,22 +2481,25 @@ eurex_derivatives_edci_t7_v13_0_display.side = function(value)
 end
 
 -- Dissect: Side
-eurex_derivatives_edci_t7_v13_0_dissect.side = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.side
+eurex_derivatives_edci_t7_v13_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.side.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.side(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.side, range, value, display)
 
   return offset + length, value
 end
 
+-- Exec Type
+eurex_derivatives_edci_t7_v13_0.exec_type = {}
+
 -- Size: Exec Type
-eurex_derivatives_edci_t7_v13_0_size_of.exec_type = 1
+eurex_derivatives_edci_t7_v13_0.exec_type.size = 1
 
 -- Display: Exec Type
-eurex_derivatives_edci_t7_v13_0_display.exec_type = function(value)
+eurex_derivatives_edci_t7_v13_0.exec_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Exec Type: No Value"
@@ -2357,8 +2534,8 @@ eurex_derivatives_edci_t7_v13_0_display.exec_type = function(value)
 end
 
 -- Dissect: Exec Type
-eurex_derivatives_edci_t7_v13_0_dissect.exec_type = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.exec_type
+eurex_derivatives_edci_t7_v13_0.exec_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.exec_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -2369,18 +2546,21 @@ eurex_derivatives_edci_t7_v13_0_dissect.exec_type = function(buffer, offset, pac
     value = range:string()
   end
 
-  local display = eurex_derivatives_edci_t7_v13_0_display.exec_type(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.exec_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.exec_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Ord Status
+eurex_derivatives_edci_t7_v13_0.ord_status = {}
+
 -- Size: Ord Status
-eurex_derivatives_edci_t7_v13_0_size_of.ord_status = 1
+eurex_derivatives_edci_t7_v13_0.ord_status.size = 1
 
 -- Display: Ord Status
-eurex_derivatives_edci_t7_v13_0_display.ord_status = function(value)
+eurex_derivatives_edci_t7_v13_0.ord_status.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Ord Status: No Value"
@@ -2409,8 +2589,8 @@ eurex_derivatives_edci_t7_v13_0_display.ord_status = function(value)
 end
 
 -- Dissect: Ord Status
-eurex_derivatives_edci_t7_v13_0_dissect.ord_status = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.ord_status
+eurex_derivatives_edci_t7_v13_0.ord_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.ord_status.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -2421,18 +2601,21 @@ eurex_derivatives_edci_t7_v13_0_dissect.ord_status = function(buffer, offset, pa
     value = range:string()
   end
 
-  local display = eurex_derivatives_edci_t7_v13_0_display.ord_status(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.ord_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.ord_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Product Complex
+eurex_derivatives_edci_t7_v13_0.product_complex = {}
+
 -- Size: Product Complex
-eurex_derivatives_edci_t7_v13_0_size_of.product_complex = 1
+eurex_derivatives_edci_t7_v13_0.product_complex.size = 1
 
 -- Display: Product Complex
-eurex_derivatives_edci_t7_v13_0_display.product_complex = function(value)
+eurex_derivatives_edci_t7_v13_0.product_complex.display = function(value)
   if value == 1 then
     return "Product Complex: Simpleinstrument (1)"
   end
@@ -2471,22 +2654,25 @@ eurex_derivatives_edci_t7_v13_0_display.product_complex = function(value)
 end
 
 -- Dissect: Product Complex
-eurex_derivatives_edci_t7_v13_0_dissect.product_complex = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.product_complex
+eurex_derivatives_edci_t7_v13_0.product_complex.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.product_complex.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.product_complex(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.product_complex.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.product_complex, range, value, display)
 
   return offset + length, value
 end
 
+-- Party Id Executing Trader
+eurex_derivatives_edci_t7_v13_0.party_id_executing_trader = {}
+
 -- Size: Party Id Executing Trader
-eurex_derivatives_edci_t7_v13_0_size_of.party_id_executing_trader = 4
+eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.size = 4
 
 -- Display: Party Id Executing Trader
-eurex_derivatives_edci_t7_v13_0_display.party_id_executing_trader = function(value)
+eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Party Id Executing Trader: No Value"
@@ -2496,22 +2682,25 @@ eurex_derivatives_edci_t7_v13_0_display.party_id_executing_trader = function(val
 end
 
 -- Dissect: Party Id Executing Trader
-eurex_derivatives_edci_t7_v13_0_dissect.party_id_executing_trader = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_id_executing_trader
+eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_id_executing_trader(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_id_executing_trader, range, value, display)
 
   return offset + length, value
 end
 
+-- Expire Date
+eurex_derivatives_edci_t7_v13_0.expire_date = {}
+
 -- Size: Expire Date
-eurex_derivatives_edci_t7_v13_0_size_of.expire_date = 4
+eurex_derivatives_edci_t7_v13_0.expire_date.size = 4
 
 -- Display: Expire Date
-eurex_derivatives_edci_t7_v13_0_display.expire_date = function(value)
+eurex_derivatives_edci_t7_v13_0.expire_date.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Expire Date: No Value"
@@ -2521,22 +2710,25 @@ eurex_derivatives_edci_t7_v13_0_display.expire_date = function(value)
 end
 
 -- Dissect: Expire Date
-eurex_derivatives_edci_t7_v13_0_dissect.expire_date = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.expire_date
+eurex_derivatives_edci_t7_v13_0.expire_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.expire_date.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.expire_date(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.expire_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.expire_date, range, value, display)
 
   return offset + length, value
 end
 
+-- Executing Trader
+eurex_derivatives_edci_t7_v13_0.executing_trader = {}
+
 -- Size: Executing Trader
-eurex_derivatives_edci_t7_v13_0_size_of.executing_trader = 8
+eurex_derivatives_edci_t7_v13_0.executing_trader.size = 8
 
 -- Display: Executing Trader
-eurex_derivatives_edci_t7_v13_0_display.executing_trader = function(value)
+eurex_derivatives_edci_t7_v13_0.executing_trader.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Executing Trader: No Value"
@@ -2546,22 +2738,25 @@ eurex_derivatives_edci_t7_v13_0_display.executing_trader = function(value)
 end
 
 -- Dissect: Executing Trader
-eurex_derivatives_edci_t7_v13_0_dissect.executing_trader = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.executing_trader
+eurex_derivatives_edci_t7_v13_0.executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.executing_trader.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.executing_trader(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.executing_trader.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.executing_trader, range, value, display)
 
   return offset + length, value
 end
 
+-- Party Id Investment Decision Maker
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker = {}
+
 -- Size: Party Id Investment Decision Maker
-eurex_derivatives_edci_t7_v13_0_size_of.party_id_investment_decision_maker = 8
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker.size = 8
 
 -- Display: Party Id Investment Decision Maker
-eurex_derivatives_edci_t7_v13_0_display.party_id_investment_decision_maker = function(value)
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Party Id Investment Decision Maker: No Value"
@@ -2571,22 +2766,25 @@ eurex_derivatives_edci_t7_v13_0_display.party_id_investment_decision_maker = fun
 end
 
 -- Dissect: Party Id Investment Decision Maker
-eurex_derivatives_edci_t7_v13_0_dissect.party_id_investment_decision_maker = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_id_investment_decision_maker
+eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_id_investment_decision_maker(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_id_investment_decision_maker, range, value, display)
 
   return offset + length, value
 end
 
+-- Party Id Client Id
+eurex_derivatives_edci_t7_v13_0.party_id_client_id = {}
+
 -- Size: Party Id Client Id
-eurex_derivatives_edci_t7_v13_0_size_of.party_id_client_id = 8
+eurex_derivatives_edci_t7_v13_0.party_id_client_id.size = 8
 
 -- Display: Party Id Client Id
-eurex_derivatives_edci_t7_v13_0_display.party_id_client_id = function(value)
+eurex_derivatives_edci_t7_v13_0.party_id_client_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Party Id Client Id: No Value"
@@ -2596,22 +2794,25 @@ eurex_derivatives_edci_t7_v13_0_display.party_id_client_id = function(value)
 end
 
 -- Dissect: Party Id Client Id
-eurex_derivatives_edci_t7_v13_0_dissect.party_id_client_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.party_id_client_id
+eurex_derivatives_edci_t7_v13_0.party_id_client_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.party_id_client_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.party_id_client_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.party_id_client_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.party_id_client_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Qty
+eurex_derivatives_edci_t7_v13_0.order_qty = {}
+
 -- Size: Order Qty
-eurex_derivatives_edci_t7_v13_0_size_of.order_qty = 8
+eurex_derivatives_edci_t7_v13_0.order_qty.size = 8
 
 -- Display: Order Qty
-eurex_derivatives_edci_t7_v13_0_display.order_qty = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.order_qty.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Order Qty: No Value"
@@ -2631,23 +2832,26 @@ translate.order_qty = function(raw)
 end
 
 -- Dissect: Order Qty
-eurex_derivatives_edci_t7_v13_0_dissect.order_qty = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.order_qty
+eurex_derivatives_edci_t7_v13_0.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.order_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.order_qty(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.order_qty(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.order_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Cxl Qty
+eurex_derivatives_edci_t7_v13_0.cxl_qty = {}
+
 -- Size: Cxl Qty
-eurex_derivatives_edci_t7_v13_0_size_of.cxl_qty = 8
+eurex_derivatives_edci_t7_v13_0.cxl_qty.size = 8
 
 -- Display: Cxl Qty
-eurex_derivatives_edci_t7_v13_0_display.cxl_qty = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.cxl_qty.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Cxl Qty: No Value"
@@ -2667,23 +2871,26 @@ translate.cxl_qty = function(raw)
 end
 
 -- Dissect: Cxl Qty
-eurex_derivatives_edci_t7_v13_0_dissect.cxl_qty = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.cxl_qty
+eurex_derivatives_edci_t7_v13_0.cxl_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.cxl_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.cxl_qty(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.cxl_qty(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.cxl_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.cxl_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Cum Qty
+eurex_derivatives_edci_t7_v13_0.cum_qty = {}
+
 -- Size: Cum Qty
-eurex_derivatives_edci_t7_v13_0_size_of.cum_qty = 8
+eurex_derivatives_edci_t7_v13_0.cum_qty.size = 8
 
 -- Display: Cum Qty
-eurex_derivatives_edci_t7_v13_0_display.cum_qty = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.cum_qty.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Cum Qty: No Value"
@@ -2703,23 +2910,26 @@ translate.cum_qty = function(raw)
 end
 
 -- Dissect: Cum Qty
-eurex_derivatives_edci_t7_v13_0_dissect.cum_qty = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.cum_qty
+eurex_derivatives_edci_t7_v13_0.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.cum_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.cum_qty(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.cum_qty(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.cum_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Leaves Qty
+eurex_derivatives_edci_t7_v13_0.leaves_qty = {}
+
 -- Size: Leaves Qty
-eurex_derivatives_edci_t7_v13_0_size_of.leaves_qty = 8
+eurex_derivatives_edci_t7_v13_0.leaves_qty.size = 8
 
 -- Display: Leaves Qty
-eurex_derivatives_edci_t7_v13_0_display.leaves_qty = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.leaves_qty.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Leaves Qty: No Value"
@@ -2739,23 +2949,26 @@ translate.leaves_qty = function(raw)
 end
 
 -- Dissect: Leaves Qty
-eurex_derivatives_edci_t7_v13_0_dissect.leaves_qty = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.leaves_qty
+eurex_derivatives_edci_t7_v13_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.leaves_qty.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.leaves_qty(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.leaves_qty(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.leaves_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Stop Px
+eurex_derivatives_edci_t7_v13_0.stop_px = {}
+
 -- Size: Stop Px
-eurex_derivatives_edci_t7_v13_0_size_of.stop_px = 8
+eurex_derivatives_edci_t7_v13_0.stop_px.size = 8
 
 -- Display: Stop Px
-eurex_derivatives_edci_t7_v13_0_display.stop_px = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.stop_px.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Stop Px: No Value"
@@ -2775,23 +2988,26 @@ translate.stop_px = function(raw)
 end
 
 -- Dissect: Stop Px
-eurex_derivatives_edci_t7_v13_0_dissect.stop_px = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.stop_px
+eurex_derivatives_edci_t7_v13_0.stop_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.stop_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.stop_px(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.stop_px(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.stop_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.stop_px, range, value, display)
 
   return offset + length, value
 end
 
+-- Price
+eurex_derivatives_edci_t7_v13_0.price = {}
+
 -- Size: Price
-eurex_derivatives_edci_t7_v13_0_size_of.price = 8
+eurex_derivatives_edci_t7_v13_0.price.size = 8
 
 -- Display: Price
-eurex_derivatives_edci_t7_v13_0_display.price = function(raw, value)
+eurex_derivatives_edci_t7_v13_0.price.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return "Price: No Value"
@@ -2811,23 +3027,26 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-eurex_derivatives_edci_t7_v13_0_dissect.price = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.price
+eurex_derivatives_edci_t7_v13_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.price(raw)
-  local display = eurex_derivatives_edci_t7_v13_0_display.price(raw, value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.price, range, value, display)
 
   return offset + length, value
 end
 
+-- Exec Id
+eurex_derivatives_edci_t7_v13_0.exec_id = {}
+
 -- Size: Exec Id
-eurex_derivatives_edci_t7_v13_0_size_of.exec_id = 8
+eurex_derivatives_edci_t7_v13_0.exec_id.size = 8
 
 -- Display: Exec Id
-eurex_derivatives_edci_t7_v13_0_display.exec_id = function(value)
+eurex_derivatives_edci_t7_v13_0.exec_id.display = function(value)
   -- Check null sentinel value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Exec Id: No Value"
@@ -2840,22 +3059,25 @@ eurex_derivatives_edci_t7_v13_0_display.exec_id = function(value)
 end
 
 -- Dissect: Exec Id
-eurex_derivatives_edci_t7_v13_0_dissect.exec_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.exec_id
+eurex_derivatives_edci_t7_v13_0.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.exec_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.exec_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.exec_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Id
+eurex_derivatives_edci_t7_v13_0.security_id = {}
+
 -- Size: Security Id
-eurex_derivatives_edci_t7_v13_0_size_of.security_id = 8
+eurex_derivatives_edci_t7_v13_0.security_id.size = 8
 
 -- Display: Security Id
-eurex_derivatives_edci_t7_v13_0_display.security_id = function(value)
+eurex_derivatives_edci_t7_v13_0.security_id.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Security Id: No Value"
@@ -2865,22 +3087,25 @@ eurex_derivatives_edci_t7_v13_0_display.security_id = function(value)
 end
 
 -- Dissect: Security Id
-eurex_derivatives_edci_t7_v13_0_dissect.security_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.security_id
+eurex_derivatives_edci_t7_v13_0.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.security_id.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.security_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.security_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.security_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Orig Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.orig_cl_ord_id = {}
+
 -- Size: Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.orig_cl_ord_id = 8
+eurex_derivatives_edci_t7_v13_0.orig_cl_ord_id.size = 8
 
 -- Display: Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.orig_cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.orig_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Orig Cl Ord Id: No Value"
@@ -2890,22 +3115,25 @@ eurex_derivatives_edci_t7_v13_0_display.orig_cl_ord_id = function(value)
 end
 
 -- Dissect: Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.orig_cl_ord_id
+eurex_derivatives_edci_t7_v13_0.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.orig_cl_ord_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.orig_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.cl_ord_id = {}
+
 -- Size: Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.cl_ord_id = 8
+eurex_derivatives_edci_t7_v13_0.cl_ord_id.size = 8
 
 -- Display: Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.cl_ord_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Cl Ord Id: No Value"
@@ -2915,22 +3143,25 @@ eurex_derivatives_edci_t7_v13_0_display.cl_ord_id = function(value)
 end
 
 -- Dissect: Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.cl_ord_id
+eurex_derivatives_edci_t7_v13_0.cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.cl_ord_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Id
+eurex_derivatives_edci_t7_v13_0.order_id = {}
+
 -- Size: Order Id
-eurex_derivatives_edci_t7_v13_0_size_of.order_id = 8
+eurex_derivatives_edci_t7_v13_0.order_id.size = 8
 
 -- Display: Order Id
-eurex_derivatives_edci_t7_v13_0_display.order_id = function(value)
+eurex_derivatives_edci_t7_v13_0.order_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Order Id: No Value"
@@ -2940,19 +3171,22 @@ eurex_derivatives_edci_t7_v13_0_display.order_id = function(value)
 end
 
 -- Dissect: Order Id
-eurex_derivatives_edci_t7_v13_0_dissect.order_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.order_id
+eurex_derivatives_edci_t7_v13_0.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.order_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Exec Report Broadcast
+eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast = {}
+
 -- Read runtime size of: Order Exec Report Broadcast
-eurex_derivatives_edci_t7_v13_0_size_of.order_exec_report_broadcast = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -2962,173 +3196,176 @@ eurex_derivatives_edci_t7_v13_0_size_of.order_exec_report_broadcast = function(b
 end
 
 -- Display: Order Exec Report Broadcast
-eurex_derivatives_edci_t7_v13_0_display.order_exec_report_broadcast = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Exec Report Broadcast
-eurex_derivatives_edci_t7_v13_0_dissect.order_exec_report_broadcast_fields = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
+eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.fields = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 5 fields
-  index, rbc_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp(buffer, index, packet, parent)
+  index, rbc_header_comp = eurex_derivatives_edci_t7_v13_0.rbc_header_comp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_derivatives_edci_t7_v13_0_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = eurex_derivatives_edci_t7_v13_0.order_id.dissect(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = eurex_derivatives_edci_t7_v13_0.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  index, orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0.orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_derivatives_edci_t7_v13_0_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = eurex_derivatives_edci_t7_v13_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_derivatives_edci_t7_v13_0_dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = eurex_derivatives_edci_t7_v13_0.exec_id.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_derivatives_edci_t7_v13_0_dissect.price(buffer, index, packet, parent)
+  index, price = eurex_derivatives_edci_t7_v13_0.price.dissect(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, stop_px = eurex_derivatives_edci_t7_v13_0_dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = eurex_derivatives_edci_t7_v13_0.stop_px.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, leaves_qty = eurex_derivatives_edci_t7_v13_0_dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = eurex_derivatives_edci_t7_v13_0.leaves_qty.dissect(buffer, index, packet, parent)
 
   -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cum_qty = eurex_derivatives_edci_t7_v13_0_dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = eurex_derivatives_edci_t7_v13_0.cum_qty.dissect(buffer, index, packet, parent)
 
   -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cxl_qty = eurex_derivatives_edci_t7_v13_0_dissect.cxl_qty(buffer, index, packet, parent)
+  index, cxl_qty = eurex_derivatives_edci_t7_v13_0.cxl_qty.dissect(buffer, index, packet, parent)
 
   -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_derivatives_edci_t7_v13_0_dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = eurex_derivatives_edci_t7_v13_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_derivatives_edci_t7_v13_0_dissect.party_id_client_id(buffer, index, packet, parent)
+  index, party_id_client_id = eurex_derivatives_edci_t7_v13_0.party_id_client_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_derivatives_edci_t7_v13_0_dissect.party_id_investment_decision_maker(buffer, index, packet, parent)
+  index, party_id_investment_decision_maker = eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
 
   -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_derivatives_edci_t7_v13_0_dissect.executing_trader(buffer, index, packet, parent)
+  index, executing_trader = eurex_derivatives_edci_t7_v13_0.executing_trader.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_derivatives_edci_t7_v13_0_dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = eurex_derivatives_edci_t7_v13_0.market_segment_id.dissect(buffer, index, packet, parent)
 
   -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, expire_date = eurex_derivatives_edci_t7_v13_0_dissect.expire_date(buffer, index, packet, parent)
+  index, expire_date = eurex_derivatives_edci_t7_v13_0.expire_date.dissect(buffer, index, packet, parent)
 
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0_dissect.party_id_session_id(buffer, index, packet, parent)
+  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0.party_id_session_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_executing_trader = eurex_derivatives_edci_t7_v13_0_dissect.party_id_executing_trader(buffer, index, packet, parent)
+  index, party_id_executing_trader = eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.dissect(buffer, index, packet, parent)
 
   -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, product_complex = eurex_derivatives_edci_t7_v13_0_dissect.product_complex(buffer, index, packet, parent)
+  index, product_complex = eurex_derivatives_edci_t7_v13_0.product_complex.dissect(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_derivatives_edci_t7_v13_0_dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = eurex_derivatives_edci_t7_v13_0.ord_status.dissect(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_derivatives_edci_t7_v13_0_dissect.exec_type(buffer, index, packet, parent)
+  index, exec_type = eurex_derivatives_edci_t7_v13_0.exec_type.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_derivatives_edci_t7_v13_0_dissect.side(buffer, index, packet, parent)
+  index, side = eurex_derivatives_edci_t7_v13_0.side.dissect(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, ord_type = eurex_derivatives_edci_t7_v13_0_dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = eurex_derivatives_edci_t7_v13_0.ord_type.dissect(buffer, index, packet, parent)
 
   -- Match Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, match_type = eurex_derivatives_edci_t7_v13_0_dissect.match_type(buffer, index, packet, parent)
+  index, match_type = eurex_derivatives_edci_t7_v13_0.match_type.dissect(buffer, index, packet, parent)
 
   -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_derivatives_edci_t7_v13_0_dissect.trading_capacity(buffer, index, packet, parent)
+  index, trading_capacity = eurex_derivatives_edci_t7_v13_0.trading_capacity.dissect(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, time_in_force = eurex_derivatives_edci_t7_v13_0_dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = eurex_derivatives_edci_t7_v13_0.time_in_force.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exec_inst = eurex_derivatives_edci_t7_v13_0_dissect.exec_inst(buffer, index, packet, parent)
+  index, exec_inst = eurex_derivatives_edci_t7_v13_0.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Triggered: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, triggered = eurex_derivatives_edci_t7_v13_0_dissect.triggered(buffer, index, packet, parent)
+  index, triggered = eurex_derivatives_edci_t7_v13_0.triggered.dissect(buffer, index, packet, parent)
 
   -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_session_sub_id = eurex_derivatives_edci_t7_v13_0_dissect.trading_session_sub_id(buffer, index, packet, parent)
+  index, trading_session_sub_id = eurex_derivatives_edci_t7_v13_0.trading_session_sub_id.dissect(buffer, index, packet, parent)
 
   -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, appl_seq_indicator = eurex_derivatives_edci_t7_v13_0_dissect.appl_seq_indicator(buffer, index, packet, parent)
+  index, appl_seq_indicator = eurex_derivatives_edci_t7_v13_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_derivatives_edci_t7_v13_0_dissect.party_id_investment_decision_maker_qualifier(buffer, index, packet, parent)
+  index, party_id_investment_decision_maker_qualifier = eurex_derivatives_edci_t7_v13_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
 
   -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_derivatives_edci_t7_v13_0_dissect.executing_trader_qualifier(buffer, index, packet, parent)
+  index, executing_trader_qualifier = eurex_derivatives_edci_t7_v13_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
 
   -- No Fills: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_fills = eurex_derivatives_edci_t7_v13_0_dissect.no_fills(buffer, index, packet, parent)
+  index, no_fills = eurex_derivatives_edci_t7_v13_0.no_fills.dissect(buffer, index, packet, parent)
 
   -- Crossed Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, crossed_indicator = eurex_derivatives_edci_t7_v13_0_dissect.crossed_indicator(buffer, index, packet, parent)
+  index, crossed_indicator = eurex_derivatives_edci_t7_v13_0.crossed_indicator.dissect(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_derivatives_edci_t7_v13_0_dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = eurex_derivatives_edci_t7_v13_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
 
   -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_derivatives_edci_t7_v13_0_dissect.free_text_1(buffer, index, packet, parent)
+  index, free_text_1 = eurex_derivatives_edci_t7_v13_0.free_text_1.dissect(buffer, index, packet, parent)
 
   -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_derivatives_edci_t7_v13_0_dissect.free_text_2(buffer, index, packet, parent)
+  index, free_text_2 = eurex_derivatives_edci_t7_v13_0.free_text_2.dissect(buffer, index, packet, parent)
 
   -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_derivatives_edci_t7_v13_0_dissect.free_text_3(buffer, index, packet, parent)
+  index, free_text_3 = eurex_derivatives_edci_t7_v13_0.free_text_3.dissect(buffer, index, packet, parent)
 
   -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
-  index, fix_cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.fix_cl_ord_id(buffer, index, packet, parent)
+  index, fix_cl_ord_id = eurex_derivatives_edci_t7_v13_0.fix_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Fix Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, fix_orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.fix_orig_cl_ord_id(buffer, index, packet, parent)
+  index, fix_orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0.fix_orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Party End Client Identification: 20 Byte Ascii String Nullable
-  index, party_end_client_identification = eurex_derivatives_edci_t7_v13_0_dissect.party_end_client_identification(buffer, index, packet, parent)
+  index, party_end_client_identification = eurex_derivatives_edci_t7_v13_0.party_end_client_identification.dissect(buffer, index, packet, parent)
 
   -- Pad 7: 7 Byte
-  index, pad_7 = eurex_derivatives_edci_t7_v13_0_dissect.pad_7(buffer, index, packet, parent)
+  index, pad_7 = eurex_derivatives_edci_t7_v13_0.pad_7.dissect(buffer, index, packet, parent)
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
-    index, fills_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.fills_grp_comp(buffer, index, packet, parent, fills_grp_comp_index)
+    index, fills_grp_comp = eurex_derivatives_edci_t7_v13_0.fills_grp_comp.dissect(buffer, index, packet, parent, fills_grp_comp_index)
   end
 
   return index
 end
 
 -- Dissect: Order Exec Report Broadcast
-eurex_derivatives_edci_t7_v13_0_dissect.order_exec_report_broadcast = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_order_exec_report_broadcast = eurex_derivatives_edci_t7_v13_0_size_of.order_exec_report_broadcast(buffer, offset)
+  local size_of_order_exec_report_broadcast = eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_report_broadcast then
     local range = buffer(offset, size_of_order_exec_report_broadcast)
-    local display = eurex_derivatives_edci_t7_v13_0_display.order_exec_report_broadcast(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.order_exec_report_broadcast, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.order_exec_report_broadcast_fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
+  eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
 
   return offset + size_of_order_exec_report_broadcast
 end
 
+-- Logout Response
+eurex_derivatives_edci_t7_v13_0.logout_response = {}
+
 -- Read runtime size of: Logout Response
-eurex_derivatives_edci_t7_v13_0_size_of.logout_response = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.logout_response.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -3138,109 +3375,118 @@ eurex_derivatives_edci_t7_v13_0_size_of.logout_response = function(buffer, offse
 end
 
 -- Display: Logout Response
-eurex_derivatives_edci_t7_v13_0_display.logout_response = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.logout_response.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Logout Response
-eurex_derivatives_edci_t7_v13_0_dissect.logout_response_fields = function(buffer, offset, packet, parent, size_of_logout_response)
+eurex_derivatives_edci_t7_v13_0.logout_response.fields = function(buffer, offset, packet, parent, size_of_logout_response)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 5 fields
-  index, response_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp(buffer, index, packet, parent)
+  index, response_header_comp = eurex_derivatives_edci_t7_v13_0.response_header_comp.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Logout Response
-eurex_derivatives_edci_t7_v13_0_dissect.logout_response = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.logout_response.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_logout_response = eurex_derivatives_edci_t7_v13_0_size_of.logout_response(buffer, offset)
+  local size_of_logout_response = eurex_derivatives_edci_t7_v13_0.logout_response.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logout_response then
     local range = buffer(offset, size_of_logout_response)
-    local display = eurex_derivatives_edci_t7_v13_0_display.logout_response(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.logout_response.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.logout_response, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.logout_response_fields(buffer, offset, packet, parent, size_of_logout_response)
+  eurex_derivatives_edci_t7_v13_0.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
 
   return offset + size_of_logout_response
 end
 
+-- Pad 4
+eurex_derivatives_edci_t7_v13_0.pad_4 = {}
+
 -- Size: Pad 4
-eurex_derivatives_edci_t7_v13_0_size_of.pad_4 = 4
+eurex_derivatives_edci_t7_v13_0.pad_4.size = 4
 
 -- Display: Pad 4
-eurex_derivatives_edci_t7_v13_0_display.pad_4 = function(value)
+eurex_derivatives_edci_t7_v13_0.pad_4.display = function(value)
   return "Pad 4: "..value
 end
 
 -- Dissect: Pad 4
-eurex_derivatives_edci_t7_v13_0_dissect.pad_4 = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.pad_4
+eurex_derivatives_edci_t7_v13_0.pad_4.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.pad_4.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_edci_t7_v13_0_display.pad_4(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.pad_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.pad_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Request Header Comp
+eurex_derivatives_edci_t7_v13_0.request_header_comp = {}
+
 -- Calculate size of: Request Header Comp
-eurex_derivatives_edci_t7_v13_0_size_of.request_header_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.request_header_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.msg_seq_num
+  index = index + eurex_derivatives_edci_t7_v13_0.msg_seq_num.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.pad_4
+  index = index + eurex_derivatives_edci_t7_v13_0.pad_4.size
 
   return index
 end
 
 -- Display: Request Header Comp
-eurex_derivatives_edci_t7_v13_0_display.request_header_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.request_header_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Request Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.request_header_comp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, msg_seq_num = eurex_derivatives_edci_t7_v13_0_dissect.msg_seq_num(buffer, index, packet, parent)
+  index, msg_seq_num = eurex_derivatives_edci_t7_v13_0.msg_seq_num.dissect(buffer, index, packet, parent)
 
   -- Pad 4: 4 Byte
-  index, pad_4 = eurex_derivatives_edci_t7_v13_0_dissect.pad_4(buffer, index, packet, parent)
+  index, pad_4 = eurex_derivatives_edci_t7_v13_0.pad_4.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Request Header Comp
-eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.request_header_comp.dissect = function(buffer, offset, packet, parent)
   if show.request_header_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.request_header_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    local index = eurex_derivatives_edci_t7_v13_0.request_header_comp.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.request_header_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.request_header_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.request_header_comp.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Logout Request
+eurex_derivatives_edci_t7_v13_0.logout_request = {}
+
 -- Read runtime size of: Logout Request
-eurex_derivatives_edci_t7_v13_0_size_of.logout_request = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.logout_request.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -3250,45 +3496,48 @@ eurex_derivatives_edci_t7_v13_0_size_of.logout_request = function(buffer, offset
 end
 
 -- Display: Logout Request
-eurex_derivatives_edci_t7_v13_0_display.logout_request = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.logout_request.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Logout Request
-eurex_derivatives_edci_t7_v13_0_dissect.logout_request_fields = function(buffer, offset, packet, parent, size_of_logout_request)
+eurex_derivatives_edci_t7_v13_0.logout_request.fields = function(buffer, offset, packet, parent, size_of_logout_request)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp(buffer, index, packet, parent)
+  index, request_header_comp = eurex_derivatives_edci_t7_v13_0.request_header_comp.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Logout Request
-eurex_derivatives_edci_t7_v13_0_dissect.logout_request = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.logout_request.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_logout_request = eurex_derivatives_edci_t7_v13_0_size_of.logout_request(buffer, offset)
+  local size_of_logout_request = eurex_derivatives_edci_t7_v13_0.logout_request.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logout_request then
     local range = buffer(offset, size_of_logout_request)
-    local display = eurex_derivatives_edci_t7_v13_0_display.logout_request(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.logout_request.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.logout_request, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.logout_request_fields(buffer, offset, packet, parent, size_of_logout_request)
+  eurex_derivatives_edci_t7_v13_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
 
   return offset + size_of_logout_request
 end
 
+-- Default Cstm Appl Ver Sub Id
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_sub_id = {}
+
 -- Size: Default Cstm Appl Ver Sub Id
-eurex_derivatives_edci_t7_v13_0_size_of.default_cstm_appl_ver_sub_id = 5
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_sub_id.size = 5
 
 -- Display: Default Cstm Appl Ver Sub Id
-eurex_derivatives_edci_t7_v13_0_display.default_cstm_appl_ver_sub_id = function(value)
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_sub_id.display = function(value)
   if value == "D0001" then
     return "Default Cstm Appl Ver Sub Id: Derivatives (D0001)"
   end
@@ -3297,22 +3546,25 @@ eurex_derivatives_edci_t7_v13_0_display.default_cstm_appl_ver_sub_id = function(
 end
 
 -- Dissect: Default Cstm Appl Ver Sub Id
-eurex_derivatives_edci_t7_v13_0_dissect.default_cstm_appl_ver_sub_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.default_cstm_appl_ver_sub_id
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_sub_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.default_cstm_appl_ver_sub_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.default_cstm_appl_ver_sub_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Default Cstm Appl Ver Id
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id = {}
+
 -- Size: Default Cstm Appl Ver Id
-eurex_derivatives_edci_t7_v13_0_size_of.default_cstm_appl_ver_id = 30
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id.size = 30
 
 -- Display: Default Cstm Appl Ver Id
-eurex_derivatives_edci_t7_v13_0_display.default_cstm_appl_ver_id = function(value)
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Default Cstm Appl Ver Id: No Value"
@@ -3322,8 +3574,8 @@ eurex_derivatives_edci_t7_v13_0_display.default_cstm_appl_ver_id = function(valu
 end
 
 -- Dissect: Default Cstm Appl Ver Id
-eurex_derivatives_edci_t7_v13_0_dissect.default_cstm_appl_ver_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.default_cstm_appl_ver_id
+eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3337,18 +3589,21 @@ eurex_derivatives_edci_t7_v13_0_dissect.default_cstm_appl_ver_id = function(buff
     value = range:string()
   end
 
-  local display = eurex_derivatives_edci_t7_v13_0_display.default_cstm_appl_ver_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.default_cstm_appl_ver_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Trad Ses Mode
+eurex_derivatives_edci_t7_v13_0.trad_ses_mode = {}
+
 -- Size: Trad Ses Mode
-eurex_derivatives_edci_t7_v13_0_size_of.trad_ses_mode = 1
+eurex_derivatives_edci_t7_v13_0.trad_ses_mode.size = 1
 
 -- Display: Trad Ses Mode
-eurex_derivatives_edci_t7_v13_0_display.trad_ses_mode = function(value)
+eurex_derivatives_edci_t7_v13_0.trad_ses_mode.display = function(value)
   if value == 1 then
     return "Trad Ses Mode: Testing (1)"
   end
@@ -3372,22 +3627,25 @@ eurex_derivatives_edci_t7_v13_0_display.trad_ses_mode = function(value)
 end
 
 -- Dissect: Trad Ses Mode
-eurex_derivatives_edci_t7_v13_0_dissect.trad_ses_mode = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.trad_ses_mode
+eurex_derivatives_edci_t7_v13_0.trad_ses_mode.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.trad_ses_mode.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.trad_ses_mode(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.trad_ses_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.trad_ses_mode, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Id
+eurex_derivatives_edci_t7_v13_0.market_id = {}
+
 -- Size: Market Id
-eurex_derivatives_edci_t7_v13_0_size_of.market_id = 2
+eurex_derivatives_edci_t7_v13_0.market_id.size = 2
 
 -- Display: Market Id
-eurex_derivatives_edci_t7_v13_0_display.market_id = function(value)
+eurex_derivatives_edci_t7_v13_0.market_id.display = function(value)
   if value == 1 then
     return "Market Id: Xeur (1)"
   end
@@ -3402,22 +3660,25 @@ eurex_derivatives_edci_t7_v13_0_display.market_id = function(value)
 end
 
 -- Dissect: Market Id
-eurex_derivatives_edci_t7_v13_0_dissect.market_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.market_id
+eurex_derivatives_edci_t7_v13_0.market_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.market_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.market_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.market_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.market_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Instance Id
+eurex_derivatives_edci_t7_v13_0.session_instance_id = {}
+
 -- Size: Session Instance Id
-eurex_derivatives_edci_t7_v13_0_size_of.session_instance_id = 4
+eurex_derivatives_edci_t7_v13_0.session_instance_id.size = 4
 
 -- Display: Session Instance Id
-eurex_derivatives_edci_t7_v13_0_display.session_instance_id = function(value)
+eurex_derivatives_edci_t7_v13_0.session_instance_id.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Session Instance Id: No Value"
@@ -3427,22 +3688,25 @@ eurex_derivatives_edci_t7_v13_0_display.session_instance_id = function(value)
 end
 
 -- Dissect: Session Instance Id
-eurex_derivatives_edci_t7_v13_0_dissect.session_instance_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.session_instance_id
+eurex_derivatives_edci_t7_v13_0.session_instance_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.session_instance_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.session_instance_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.session_instance_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.session_instance_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Heart Bt Int
+eurex_derivatives_edci_t7_v13_0.heart_bt_int = {}
+
 -- Size: Heart Bt Int
-eurex_derivatives_edci_t7_v13_0_size_of.heart_bt_int = 4
+eurex_derivatives_edci_t7_v13_0.heart_bt_int.size = 4
 
 -- Display: Heart Bt Int
-eurex_derivatives_edci_t7_v13_0_display.heart_bt_int = function(value)
+eurex_derivatives_edci_t7_v13_0.heart_bt_int.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Heart Bt Int: No Value"
@@ -3452,19 +3716,22 @@ eurex_derivatives_edci_t7_v13_0_display.heart_bt_int = function(value)
 end
 
 -- Dissect: Heart Bt Int
-eurex_derivatives_edci_t7_v13_0_dissect.heart_bt_int = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.heart_bt_int
+eurex_derivatives_edci_t7_v13_0.heart_bt_int.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.heart_bt_int.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.heart_bt_int(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.heart_bt_int.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.heart_bt_int, range, value, display)
 
   return offset + length, value
 end
 
+-- Logon Response
+eurex_derivatives_edci_t7_v13_0.logon_response = {}
+
 -- Read runtime size of: Logon Response
-eurex_derivatives_edci_t7_v13_0_size_of.logon_response = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.logon_response.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -3474,66 +3741,69 @@ eurex_derivatives_edci_t7_v13_0_size_of.logon_response = function(buffer, offset
 end
 
 -- Display: Logon Response
-eurex_derivatives_edci_t7_v13_0_display.logon_response = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.logon_response.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Logon Response
-eurex_derivatives_edci_t7_v13_0_dissect.logon_response_fields = function(buffer, offset, packet, parent, size_of_logon_response)
+eurex_derivatives_edci_t7_v13_0.logon_response.fields = function(buffer, offset, packet, parent, size_of_logon_response)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 5 fields
-  index, response_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.response_header_comp(buffer, index, packet, parent)
+  index, response_header_comp = eurex_derivatives_edci_t7_v13_0.response_header_comp.dissect(buffer, index, packet, parent)
 
   -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, heart_bt_int = eurex_derivatives_edci_t7_v13_0_dissect.heart_bt_int(buffer, index, packet, parent)
+  index, heart_bt_int = eurex_derivatives_edci_t7_v13_0.heart_bt_int.dissect(buffer, index, packet, parent)
 
   -- Session Instance Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, session_instance_id = eurex_derivatives_edci_t7_v13_0_dissect.session_instance_id(buffer, index, packet, parent)
+  index, session_instance_id = eurex_derivatives_edci_t7_v13_0.session_instance_id.dissect(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, market_id = eurex_derivatives_edci_t7_v13_0_dissect.market_id(buffer, index, packet, parent)
+  index, market_id = eurex_derivatives_edci_t7_v13_0.market_id.dissect(buffer, index, packet, parent)
 
   -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, trad_ses_mode = eurex_derivatives_edci_t7_v13_0_dissect.trad_ses_mode(buffer, index, packet, parent)
+  index, trad_ses_mode = eurex_derivatives_edci_t7_v13_0.trad_ses_mode.dissect(buffer, index, packet, parent)
 
   -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
-  index, default_cstm_appl_ver_id = eurex_derivatives_edci_t7_v13_0_dissect.default_cstm_appl_ver_id(buffer, index, packet, parent)
+  index, default_cstm_appl_ver_id = eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
 
   -- Default Cstm Appl Ver Sub Id: 5 Byte Ascii String Enum with 1 values
-  index, default_cstm_appl_ver_sub_id = eurex_derivatives_edci_t7_v13_0_dissect.default_cstm_appl_ver_sub_id(buffer, index, packet, parent)
+  index, default_cstm_appl_ver_sub_id = eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_sub_id.dissect(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Logon Response
-eurex_derivatives_edci_t7_v13_0_dissect.logon_response = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.logon_response.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_logon_response = eurex_derivatives_edci_t7_v13_0_size_of.logon_response(buffer, offset)
+  local size_of_logon_response = eurex_derivatives_edci_t7_v13_0.logon_response.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logon_response then
     local range = buffer(offset, size_of_logon_response)
-    local display = eurex_derivatives_edci_t7_v13_0_display.logon_response(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.logon_response.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.logon_response, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.logon_response_fields(buffer, offset, packet, parent, size_of_logon_response)
+  eurex_derivatives_edci_t7_v13_0.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
 
   return offset + size_of_logon_response
 end
 
+-- Password
+eurex_derivatives_edci_t7_v13_0.password = {}
+
 -- Size: Password
-eurex_derivatives_edci_t7_v13_0_size_of.password = 32
+eurex_derivatives_edci_t7_v13_0.password.size = 32
 
 -- Display: Password
-eurex_derivatives_edci_t7_v13_0_display.password = function(value)
+eurex_derivatives_edci_t7_v13_0.password.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Password: No Value"
@@ -3543,8 +3813,8 @@ eurex_derivatives_edci_t7_v13_0_display.password = function(value)
 end
 
 -- Dissect: Password
-eurex_derivatives_edci_t7_v13_0_dissect.password = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.password
+eurex_derivatives_edci_t7_v13_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.password.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3558,15 +3828,18 @@ eurex_derivatives_edci_t7_v13_0_dissect.password = function(buffer, offset, pack
     value = range:string()
   end
 
-  local display = eurex_derivatives_edci_t7_v13_0_display.password(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.password, range, value, display)
 
   return offset + length, value
 end
 
+-- Logon Request
+eurex_derivatives_edci_t7_v13_0.logon_request = {}
+
 -- Read runtime size of: Logon Request
-eurex_derivatives_edci_t7_v13_0_size_of.logon_request = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.logon_request.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -3576,57 +3849,60 @@ eurex_derivatives_edci_t7_v13_0_size_of.logon_request = function(buffer, offset)
 end
 
 -- Display: Logon Request
-eurex_derivatives_edci_t7_v13_0_display.logon_request = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.logon_request.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Logon Request
-eurex_derivatives_edci_t7_v13_0_dissect.logon_request_fields = function(buffer, offset, packet, parent, size_of_logon_request)
+eurex_derivatives_edci_t7_v13_0.logon_request.fields = function(buffer, offset, packet, parent, size_of_logon_request)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.request_header_comp(buffer, index, packet, parent)
+  index, request_header_comp = eurex_derivatives_edci_t7_v13_0.request_header_comp.dissect(buffer, index, packet, parent)
 
   -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, heart_bt_int = eurex_derivatives_edci_t7_v13_0_dissect.heart_bt_int(buffer, index, packet, parent)
+  index, heart_bt_int = eurex_derivatives_edci_t7_v13_0.heart_bt_int.dissect(buffer, index, packet, parent)
 
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0_dissect.party_id_session_id(buffer, index, packet, parent)
+  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0.party_id_session_id.dissect(buffer, index, packet, parent)
 
   -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
-  index, default_cstm_appl_ver_id = eurex_derivatives_edci_t7_v13_0_dissect.default_cstm_appl_ver_id(buffer, index, packet, parent)
+  index, default_cstm_appl_ver_id = eurex_derivatives_edci_t7_v13_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
 
   -- Password: 32 Byte Ascii String Nullable
-  index, password = eurex_derivatives_edci_t7_v13_0_dissect.password(buffer, index, packet, parent)
+  index, password = eurex_derivatives_edci_t7_v13_0.password.dissect(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Logon Request
-eurex_derivatives_edci_t7_v13_0_dissect.logon_request = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.logon_request.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_logon_request = eurex_derivatives_edci_t7_v13_0_size_of.logon_request(buffer, offset)
+  local size_of_logon_request = eurex_derivatives_edci_t7_v13_0.logon_request.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logon_request then
     local range = buffer(offset, size_of_logon_request)
-    local display = eurex_derivatives_edci_t7_v13_0_display.logon_request(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.logon_request.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.logon_request, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.logon_request_fields(buffer, offset, packet, parent, size_of_logon_request)
+  eurex_derivatives_edci_t7_v13_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
 
   return offset + size_of_logon_request
 end
 
+-- Heartbeat Notification
+eurex_derivatives_edci_t7_v13_0.heartbeat_notification = {}
+
 -- Read runtime size of: Heartbeat Notification
-eurex_derivatives_edci_t7_v13_0_size_of.heartbeat_notification = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.heartbeat_notification.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -3636,42 +3912,45 @@ eurex_derivatives_edci_t7_v13_0_size_of.heartbeat_notification = function(buffer
 end
 
 -- Display: Heartbeat Notification
-eurex_derivatives_edci_t7_v13_0_display.heartbeat_notification = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.heartbeat_notification.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Heartbeat Notification
-eurex_derivatives_edci_t7_v13_0_dissect.heartbeat_notification_fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
+eurex_derivatives_edci_t7_v13_0.heartbeat_notification.fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
-  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp(buffer, index, packet, parent)
+  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0.notif_header_comp.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Heartbeat Notification
-eurex_derivatives_edci_t7_v13_0_dissect.heartbeat_notification = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.heartbeat_notification.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_heartbeat_notification = eurex_derivatives_edci_t7_v13_0_size_of.heartbeat_notification(buffer, offset)
+  local size_of_heartbeat_notification = eurex_derivatives_edci_t7_v13_0.heartbeat_notification.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat_notification then
     local range = buffer(offset, size_of_heartbeat_notification)
-    local display = eurex_derivatives_edci_t7_v13_0_display.heartbeat_notification(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.heartbeat_notification.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.heartbeat_notification, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.heartbeat_notification_fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
+  eurex_derivatives_edci_t7_v13_0.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
 
   return offset + size_of_heartbeat_notification
 end
 
+-- Heartbeat
+eurex_derivatives_edci_t7_v13_0.heartbeat = {}
+
 -- Read runtime size of: Heartbeat
-eurex_derivatives_edci_t7_v13_0_size_of.heartbeat = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.heartbeat.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -3681,39 +3960,42 @@ eurex_derivatives_edci_t7_v13_0_size_of.heartbeat = function(buffer, offset)
 end
 
 -- Display: Heartbeat
-eurex_derivatives_edci_t7_v13_0_display.heartbeat = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.heartbeat.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Heartbeat
-eurex_derivatives_edci_t7_v13_0_dissect.heartbeat_fields = function(buffer, offset, packet, parent, size_of_heartbeat)
+eurex_derivatives_edci_t7_v13_0.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Heartbeat
-eurex_derivatives_edci_t7_v13_0_dissect.heartbeat = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.heartbeat.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_heartbeat = eurex_derivatives_edci_t7_v13_0_size_of.heartbeat(buffer, offset)
+  local size_of_heartbeat = eurex_derivatives_edci_t7_v13_0.heartbeat.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat then
     local range = buffer(offset, size_of_heartbeat)
-    local display = eurex_derivatives_edci_t7_v13_0_display.heartbeat(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.heartbeat.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.heartbeat, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.heartbeat_fields(buffer, offset, packet, parent, size_of_heartbeat)
+  eurex_derivatives_edci_t7_v13_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
 
   return offset + size_of_heartbeat
 end
 
+-- Forced Logout Notification
+eurex_derivatives_edci_t7_v13_0.forced_logout_notification = {}
+
 -- Read runtime size of: Forced Logout Notification
-eurex_derivatives_edci_t7_v13_0_size_of.forced_logout_notification = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.forced_logout_notification.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -3723,25 +4005,25 @@ eurex_derivatives_edci_t7_v13_0_size_of.forced_logout_notification = function(bu
 end
 
 -- Display: Forced Logout Notification
-eurex_derivatives_edci_t7_v13_0_display.forced_logout_notification = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.forced_logout_notification.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Forced Logout Notification
-eurex_derivatives_edci_t7_v13_0_dissect.forced_logout_notification_fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
+eurex_derivatives_edci_t7_v13_0.forced_logout_notification.fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
-  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.notif_header_comp(buffer, index, packet, parent)
+  index, notif_header_comp = eurex_derivatives_edci_t7_v13_0.notif_header_comp.dissect(buffer, index, packet, parent)
 
   -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, var_text_len = eurex_derivatives_edci_t7_v13_0_dissect.var_text_len(buffer, index, packet, parent)
+  index, var_text_len = eurex_derivatives_edci_t7_v13_0.var_text_len.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Var Text
-  index, var_text = eurex_derivatives_edci_t7_v13_0_dissect.var_text(buffer, index, packet, parent, var_text_len)
+  index, var_text = eurex_derivatives_edci_t7_v13_0.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
   -- Dependency element: Body Len
   local body_len = buffer(offset - 6, 4):le_uint()
@@ -3756,34 +4038,37 @@ eurex_derivatives_edci_t7_v13_0_dissect.forced_logout_notification_fields = func
     local size_of_alignment_padding = body_len - index
 
     -- Alignment Padding: 0 Byte
-    index, alignment_padding = eurex_derivatives_edci_t7_v13_0_dissect.alignment_padding(buffer, index, packet, parent, size_of_alignment_padding)
+    index, alignment_padding = eurex_derivatives_edci_t7_v13_0.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
 end
 
 -- Dissect: Forced Logout Notification
-eurex_derivatives_edci_t7_v13_0_dissect.forced_logout_notification = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.forced_logout_notification.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_forced_logout_notification = eurex_derivatives_edci_t7_v13_0_size_of.forced_logout_notification(buffer, offset)
+  local size_of_forced_logout_notification = eurex_derivatives_edci_t7_v13_0.forced_logout_notification.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.forced_logout_notification then
     local range = buffer(offset, size_of_forced_logout_notification)
-    local display = eurex_derivatives_edci_t7_v13_0_display.forced_logout_notification(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.forced_logout_notification.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.forced_logout_notification, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.forced_logout_notification_fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
+  eurex_derivatives_edci_t7_v13_0.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
 
   return offset + size_of_forced_logout_notification
 end
 
+-- Affected Fix Orig Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id = {}
+
 -- Size: Affected Fix Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.affected_fix_orig_cl_ord_id = 20
+eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id.size = 20
 
 -- Display: Affected Fix Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.affected_fix_orig_cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Affected Fix Orig Cl Ord Id: No Value"
@@ -3793,22 +4078,25 @@ eurex_derivatives_edci_t7_v13_0_display.affected_fix_orig_cl_ord_id = function(v
 end
 
 -- Dissect: Affected Fix Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.affected_fix_orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.affected_fix_orig_cl_ord_id
+eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.affected_fix_orig_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.affected_fix_orig_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Affected Fix Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id = {}
+
 -- Size: Affected Fix Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.affected_fix_cl_ord_id = 20
+eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id.size = 20
 
 -- Display: Affected Fix Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.affected_fix_cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Affected Fix Cl Ord Id: No Value"
@@ -3818,22 +4106,25 @@ eurex_derivatives_edci_t7_v13_0_display.affected_fix_cl_ord_id = function(value)
 end
 
 -- Dissect: Affected Fix Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.affected_fix_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.affected_fix_cl_ord_id
+eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_edci_t7_v13_0_display.affected_fix_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.affected_fix_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Affected Orig Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id = {}
+
 -- Size: Affected Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.affected_orig_cl_ord_id = 8
+eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id.size = 8
 
 -- Display: Affected Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.affected_orig_cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Affected Orig Cl Ord Id: No Value"
@@ -3843,22 +4134,25 @@ eurex_derivatives_edci_t7_v13_0_display.affected_orig_cl_ord_id = function(value
 end
 
 -- Dissect: Affected Orig Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.affected_orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.affected_orig_cl_ord_id
+eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.affected_orig_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.affected_orig_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Affected Cl Ord Id
+eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id = {}
+
 -- Size: Affected Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_size_of.affected_cl_ord_id = 8
+eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id.size = 8
 
 -- Display: Affected Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_display.affected_cl_ord_id = function(value)
+eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Affected Cl Ord Id: No Value"
@@ -3868,22 +4162,25 @@ eurex_derivatives_edci_t7_v13_0_display.affected_cl_ord_id = function(value)
 end
 
 -- Dissect: Affected Cl Ord Id
-eurex_derivatives_edci_t7_v13_0_dissect.affected_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.affected_cl_ord_id
+eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.affected_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.affected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Affected Order Id
+eurex_derivatives_edci_t7_v13_0.affected_order_id = {}
+
 -- Size: Affected Order Id
-eurex_derivatives_edci_t7_v13_0_size_of.affected_order_id = 8
+eurex_derivatives_edci_t7_v13_0.affected_order_id.size = 8
 
 -- Display: Affected Order Id
-eurex_derivatives_edci_t7_v13_0_display.affected_order_id = function(value)
+eurex_derivatives_edci_t7_v13_0.affected_order_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Affected Order Id: No Value"
@@ -3893,53 +4190,56 @@ eurex_derivatives_edci_t7_v13_0_display.affected_order_id = function(value)
 end
 
 -- Dissect: Affected Order Id
-eurex_derivatives_edci_t7_v13_0_dissect.affected_order_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.affected_order_id
+eurex_derivatives_edci_t7_v13_0.affected_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.affected_order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_edci_t7_v13_0_display.affected_order_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.affected_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.affected_order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Affected Ord Grp Comp
+eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp = {}
+
 -- Calculate size of: Affected Ord Grp Comp
-eurex_derivatives_edci_t7_v13_0_size_of.affected_ord_grp_comp = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.affected_order_id
+  index = index + eurex_derivatives_edci_t7_v13_0.affected_order_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.affected_cl_ord_id
+  index = index + eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.affected_orig_cl_ord_id
+  index = index + eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.security_id
+  index = index + eurex_derivatives_edci_t7_v13_0.security_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.party_id_session_id
+  index = index + eurex_derivatives_edci_t7_v13_0.party_id_session_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.party_id_executing_trader
+  index = index + eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.ord_status
+  index = index + eurex_derivatives_edci_t7_v13_0.ord_status.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.exec_type
+  index = index + eurex_derivatives_edci_t7_v13_0.exec_type.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.affected_fix_cl_ord_id
+  index = index + eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.affected_fix_orig_cl_ord_id
+  index = index + eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.pad_6
+  index = index + eurex_derivatives_edci_t7_v13_0.pad_6.size
 
   return index
 end
 
 -- Display: Affected Ord Grp Comp
-eurex_derivatives_edci_t7_v13_0_display.affected_ord_grp_comp = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Affected Ord Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.fields = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
   local index = offset
 
   -- Implicit Affected Ord Grp Comp Index
@@ -3949,64 +4249,67 @@ eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields = function(
   end
 
   -- Affected Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, affected_order_id = eurex_derivatives_edci_t7_v13_0_dissect.affected_order_id(buffer, index, packet, parent)
+  index, affected_order_id = eurex_derivatives_edci_t7_v13_0.affected_order_id.dissect(buffer, index, packet, parent)
 
   -- Affected Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, affected_cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.affected_cl_ord_id(buffer, index, packet, parent)
+  index, affected_cl_ord_id = eurex_derivatives_edci_t7_v13_0.affected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Affected Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, affected_orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.affected_orig_cl_ord_id(buffer, index, packet, parent)
+  index, affected_orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0.affected_orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_derivatives_edci_t7_v13_0_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = eurex_derivatives_edci_t7_v13_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0_dissect.party_id_session_id(buffer, index, packet, parent)
+  index, party_id_session_id = eurex_derivatives_edci_t7_v13_0.party_id_session_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_executing_trader = eurex_derivatives_edci_t7_v13_0_dissect.party_id_executing_trader(buffer, index, packet, parent)
+  index, party_id_executing_trader = eurex_derivatives_edci_t7_v13_0.party_id_executing_trader.dissect(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_derivatives_edci_t7_v13_0_dissect.ord_status(buffer, index, packet, parent)
+  index, ord_status = eurex_derivatives_edci_t7_v13_0.ord_status.dissect(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_derivatives_edci_t7_v13_0_dissect.exec_type(buffer, index, packet, parent)
+  index, exec_type = eurex_derivatives_edci_t7_v13_0.exec_type.dissect(buffer, index, packet, parent)
 
   -- Affected Fix Cl Ord Id: 20 Byte Ascii String Nullable
-  index, affected_fix_cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.affected_fix_cl_ord_id(buffer, index, packet, parent)
+  index, affected_fix_cl_ord_id = eurex_derivatives_edci_t7_v13_0.affected_fix_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Affected Fix Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, affected_fix_orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0_dissect.affected_fix_orig_cl_ord_id(buffer, index, packet, parent)
+  index, affected_fix_orig_cl_ord_id = eurex_derivatives_edci_t7_v13_0.affected_fix_orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Pad 6: 6 Byte
-  index, pad_6 = eurex_derivatives_edci_t7_v13_0_dissect.pad_6(buffer, index, packet, parent)
+  index, pad_6 = eurex_derivatives_edci_t7_v13_0.pad_6.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Affected Ord Grp Comp
-eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
+eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.dissect = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
   if show.affected_ord_grp_comp then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.affected_ord_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent, affected_ord_grp_comp_index)
+    local index = eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.fields(buffer, offset, packet, parent, affected_ord_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.affected_ord_grp_comp(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp_fields(buffer, offset, packet, parent, affected_ord_grp_comp_index)
+    return eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.fields(buffer, offset, packet, parent, affected_ord_grp_comp_index)
   end
 end
 
+-- No Affected Orders
+eurex_derivatives_edci_t7_v13_0.no_affected_orders = {}
+
 -- Size: No Affected Orders
-eurex_derivatives_edci_t7_v13_0_size_of.no_affected_orders = 2
+eurex_derivatives_edci_t7_v13_0.no_affected_orders.size = 2
 
 -- Display: No Affected Orders
-eurex_derivatives_edci_t7_v13_0_display.no_affected_orders = function(value)
+eurex_derivatives_edci_t7_v13_0.no_affected_orders.display = function(value)
   -- Check if field has value
   if value == 0xFFFF then
     return "No Affected Orders: No Value"
@@ -4016,19 +4319,22 @@ eurex_derivatives_edci_t7_v13_0_display.no_affected_orders = function(value)
 end
 
 -- Dissect: No Affected Orders
-eurex_derivatives_edci_t7_v13_0_dissect.no_affected_orders = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.no_affected_orders
+eurex_derivatives_edci_t7_v13_0.no_affected_orders.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.no_affected_orders.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.no_affected_orders(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.no_affected_orders.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.no_affected_orders, range, value, display)
 
   return offset + length, value
 end
 
+-- Delete Order Broadcast
+eurex_derivatives_edci_t7_v13_0.delete_order_broadcast = {}
+
 -- Read runtime size of: Delete Order Broadcast
-eurex_derivatives_edci_t7_v13_0_size_of.delete_order_broadcast = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Body Len
@@ -4038,203 +4344,209 @@ eurex_derivatives_edci_t7_v13_0_size_of.delete_order_broadcast = function(buffer
 end
 
 -- Display: Delete Order Broadcast
-eurex_derivatives_edci_t7_v13_0_display.delete_order_broadcast = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Delete Order Broadcast
-eurex_derivatives_edci_t7_v13_0_dissect.delete_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
   local index = offset
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 5 fields
-  index, rbc_header_comp = eurex_derivatives_edci_t7_v13_0_dissect.rbc_header_comp(buffer, index, packet, parent)
+  index, rbc_header_comp = eurex_derivatives_edci_t7_v13_0.rbc_header_comp.dissect(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_derivatives_edci_t7_v13_0_dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = eurex_derivatives_edci_t7_v13_0.exec_id.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_derivatives_edci_t7_v13_0_dissect.market_segment_id(buffer, index, packet, parent)
+  index, market_segment_id = eurex_derivatives_edci_t7_v13_0.market_segment_id.dissect(buffer, index, packet, parent)
 
   -- No Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_affected_orders = eurex_derivatives_edci_t7_v13_0_dissect.no_affected_orders(buffer, index, packet, parent)
+  index, no_affected_orders = eurex_derivatives_edci_t7_v13_0.no_affected_orders.dissect(buffer, index, packet, parent)
 
   -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_edci_t7_v13_0_dissect.pad_2(buffer, index, packet, parent)
+  index, pad_2 = eurex_derivatives_edci_t7_v13_0.pad_2.dissect(buffer, index, packet, parent)
 
   -- Repeating: Affected Ord Grp Comp
   for affected_ord_grp_comp_index = 1, no_affected_orders do
-    index, affected_ord_grp_comp = eurex_derivatives_edci_t7_v13_0_dissect.affected_ord_grp_comp(buffer, index, packet, parent, affected_ord_grp_comp_index)
+    index, affected_ord_grp_comp = eurex_derivatives_edci_t7_v13_0.affected_ord_grp_comp.dissect(buffer, index, packet, parent, affected_ord_grp_comp_index)
   end
 
   return index
 end
 
 -- Dissect: Delete Order Broadcast
-eurex_derivatives_edci_t7_v13_0_dissect.delete_order_broadcast = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_delete_order_broadcast = eurex_derivatives_edci_t7_v13_0_size_of.delete_order_broadcast(buffer, offset)
+  local size_of_delete_order_broadcast = eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_broadcast then
     local range = buffer(offset, size_of_delete_order_broadcast)
-    local display = eurex_derivatives_edci_t7_v13_0_display.delete_order_broadcast(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.display(buffer, packet, parent)
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.delete_order_broadcast, range, display)
   end
 
-  eurex_derivatives_edci_t7_v13_0_dissect.delete_order_broadcast_fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+  eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
 
   return offset + size_of_delete_order_broadcast
 end
 
+-- Payload
+eurex_derivatives_edci_t7_v13_0.payload = {}
+
 -- Calculate runtime size of: Payload
-eurex_derivatives_edci_t7_v13_0_size_of.payload = function(buffer, offset, template_id)
+eurex_derivatives_edci_t7_v13_0.payload.size = function(buffer, offset, template_id)
   -- Size of Delete Order Broadcast
   if template_id == 10902 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.delete_order_broadcast(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.size(buffer, offset)
   end
   -- Size of Forced Logout Notification
   if template_id == 10012 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.forced_logout_notification(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.forced_logout_notification.size(buffer, offset)
   end
   -- Size of Heartbeat
   if template_id == 10011 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.heartbeat(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.heartbeat.size(buffer, offset)
   end
   -- Size of Heartbeat Notification
   if template_id == 10023 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.heartbeat_notification(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.heartbeat_notification.size(buffer, offset)
   end
   -- Size of Logon Request
   if template_id == 10000 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.logon_request(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.logon_request.size(buffer, offset)
   end
   -- Size of Logon Response
   if template_id == 10001 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.logon_response(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.logon_response.size(buffer, offset)
   end
   -- Size of Logout Request
   if template_id == 10002 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.logout_request(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.logout_request.size(buffer, offset)
   end
   -- Size of Logout Response
   if template_id == 10003 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.logout_response(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.logout_response.size(buffer, offset)
   end
   -- Size of Order Exec Report Broadcast
   if template_id == 10901 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.order_exec_report_broadcast(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.size(buffer, offset)
   end
   -- Size of Partition List Notification
   if template_id == 10037 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.partition_list_notification(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.partition_list_notification.size(buffer, offset)
   end
   -- Size of Reject
   if template_id == 10010 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.reject(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.reject.size(buffer, offset)
   end
   -- Size of Session List Notification
   if template_id == 10036 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.session_list_notification(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.session_list_notification.size(buffer, offset)
   end
   -- Size of Session Status Broadcast
   if template_id == 10903 then
-    return eurex_derivatives_edci_t7_v13_0_size_of.session_status_broadcast(buffer, offset)
+    return eurex_derivatives_edci_t7_v13_0.session_status_broadcast.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-eurex_derivatives_edci_t7_v13_0_display.payload = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-eurex_derivatives_edci_t7_v13_0_dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
+eurex_derivatives_edci_t7_v13_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Delete Order Broadcast
   if template_id == 10902 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.delete_order_broadcast(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Forced Logout Notification
   if template_id == 10012 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.forced_logout_notification(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat
   if template_id == 10011 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.heartbeat(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Notification
   if template_id == 10023 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.heartbeat_notification(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logon Request
   if template_id == 10000 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.logon_request(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.logon_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logon Response
   if template_id == 10001 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.logon_response(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.logon_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
   if template_id == 10002 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.logout_request(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Response
   if template_id == 10003 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.logout_response(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.logout_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Exec Report Broadcast
   if template_id == 10901 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.order_exec_report_broadcast(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Partition List Notification
   if template_id == 10037 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.partition_list_notification(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.partition_list_notification.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject
   if template_id == 10010 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.reject(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.reject.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Session List Notification
   if template_id == 10036 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.session_list_notification(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.session_list_notification.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Session Status Broadcast
   if template_id == 10903 then
-    return eurex_derivatives_edci_t7_v13_0_dissect.session_status_broadcast(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.session_status_broadcast.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-eurex_derivatives_edci_t7_v13_0_dissect.payload = function(buffer, offset, packet, parent, template_id)
+eurex_derivatives_edci_t7_v13_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return eurex_derivatives_edci_t7_v13_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+    return eurex_derivatives_edci_t7_v13_0.payload.branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = eurex_derivatives_edci_t7_v13_0_size_of.payload(buffer, offset, template_id)
+  local size = eurex_derivatives_edci_t7_v13_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = eurex_derivatives_edci_t7_v13_0_display.payload(buffer, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.payload.display(buffer, packet, parent)
   local element = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.payload, range, display)
 
-  return eurex_derivatives_edci_t7_v13_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+  return eurex_derivatives_edci_t7_v13_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
+-- Template Id
+eurex_derivatives_edci_t7_v13_0.template_id = {}
+
 -- Size: Template Id
-eurex_derivatives_edci_t7_v13_0_size_of.template_id = 2
+eurex_derivatives_edci_t7_v13_0.template_id.size = 2
 
 -- Display: Template Id
-eurex_derivatives_edci_t7_v13_0_display.template_id = function(value)
+eurex_derivatives_edci_t7_v13_0.template_id.display = function(value)
   if value == 0xFFFF then
     return "Template Id: No Value"
   end
@@ -4282,22 +4594,25 @@ eurex_derivatives_edci_t7_v13_0_display.template_id = function(value)
 end
 
 -- Dissect: Template Id
-eurex_derivatives_edci_t7_v13_0_dissect.template_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.template_id
+eurex_derivatives_edci_t7_v13_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.template_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.template_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.template_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.template_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Body Len
+eurex_derivatives_edci_t7_v13_0.body_len = {}
+
 -- Size: Body Len
-eurex_derivatives_edci_t7_v13_0_size_of.body_len = 4
+eurex_derivatives_edci_t7_v13_0.body_len.size = 4
 
 -- Display: Body Len
-eurex_derivatives_edci_t7_v13_0_display.body_len = function(value)
+eurex_derivatives_edci_t7_v13_0.body_len.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
     return "Body Len: No Value"
@@ -4307,101 +4622,107 @@ eurex_derivatives_edci_t7_v13_0_display.body_len = function(value)
 end
 
 -- Dissect: Body Len
-eurex_derivatives_edci_t7_v13_0_dissect.body_len = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_edci_t7_v13_0_size_of.body_len
+eurex_derivatives_edci_t7_v13_0.body_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_edci_t7_v13_0.body_len.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_edci_t7_v13_0_display.body_len(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_edci_t7_v13_0.body_len.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.body_len, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+eurex_derivatives_edci_t7_v13_0.message_header = {}
+
 -- Calculate size of: Message Header
-eurex_derivatives_edci_t7_v13_0_size_of.message_header = function(buffer, offset)
+eurex_derivatives_edci_t7_v13_0.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.body_len
+  index = index + eurex_derivatives_edci_t7_v13_0.body_len.size
 
-  index = index + eurex_derivatives_edci_t7_v13_0_size_of.template_id
+  index = index + eurex_derivatives_edci_t7_v13_0.template_id.size
 
   return index
 end
 
 -- Display: Message Header
-eurex_derivatives_edci_t7_v13_0_display.message_header = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-eurex_derivatives_edci_t7_v13_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Body Len: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, body_len = eurex_derivatives_edci_t7_v13_0_dissect.body_len(buffer, index, packet, parent)
+  index, body_len = eurex_derivatives_edci_t7_v13_0.body_len.dissect(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 14 values
-  index, template_id = eurex_derivatives_edci_t7_v13_0_dissect.template_id(buffer, index, packet, parent)
+  index, template_id = eurex_derivatives_edci_t7_v13_0.template_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-eurex_derivatives_edci_t7_v13_0_dissect.message_header = function(buffer, offset, packet, parent)
+eurex_derivatives_edci_t7_v13_0.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.message_header, buffer(offset, 0))
-    local index = eurex_derivatives_edci_t7_v13_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = eurex_derivatives_edci_t7_v13_0.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_edci_t7_v13_0_display.message_header(packet, parent, length)
+    local display = eurex_derivatives_edci_t7_v13_0.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_edci_t7_v13_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_edci_t7_v13_0.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+eurex_derivatives_edci_t7_v13_0.message = {}
+
 -- Display: Message
-eurex_derivatives_edci_t7_v13_0_display.message = function(packet, parent, length)
+eurex_derivatives_edci_t7_v13_0.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-eurex_derivatives_edci_t7_v13_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+eurex_derivatives_edci_t7_v13_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = eurex_derivatives_edci_t7_v13_0_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = eurex_derivatives_edci_t7_v13_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
   local template_id = buffer(index - 2, 2):le_uint()
 
   -- Payload: Runtime Type with 13 branches
-  index = eurex_derivatives_edci_t7_v13_0_dissect.payload(buffer, index, packet, parent, template_id)
+  index = eurex_derivatives_edci_t7_v13_0.payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
 -- Dissect: Message
-eurex_derivatives_edci_t7_v13_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+eurex_derivatives_edci_t7_v13_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_eurex_derivatives_edci_t7_v13_0.fields.message, buffer(offset, 0))
-    local current = eurex_derivatives_edci_t7_v13_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    local current = eurex_derivatives_edci_t7_v13_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
-    local display = eurex_derivatives_edci_t7_v13_0_display.message(buffer, packet, parent)
+    local display = eurex_derivatives_edci_t7_v13_0.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_derivatives_edci_t7_v13_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    eurex_derivatives_edci_t7_v13_0.message.fields(buffer, offset, packet, parent, size_of_message)
 
     return index
   end
@@ -4413,7 +4734,7 @@ local message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < eurex_derivatives_edci_t7_v13_0_size_of.message_header(buffer, index) then
+  if remaining < eurex_derivatives_edci_t7_v13_0.message_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -4428,8 +4749,11 @@ local message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
+-- Packet
+eurex_derivatives_edci_t7_v13_0.packet = {}
+
 -- Dissect Packet
-eurex_derivatives_edci_t7_v13_0_dissect.packet = function(buffer, packet, parent)
+eurex_derivatives_edci_t7_v13_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Message
@@ -4442,7 +4766,7 @@ eurex_derivatives_edci_t7_v13_0_dissect.packet = function(buffer, packet, parent
     local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = eurex_derivatives_edci_t7_v13_0_dissect.message(buffer, index, packet, parent, size_of_message)
+      index = eurex_derivatives_edci_t7_v13_0.message.dissect(buffer, index, packet, parent, size_of_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -4472,7 +4796,7 @@ function omi_eurex_derivatives_edci_t7_v13_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_eurex_derivatives_edci_t7_v13_0, buffer(), omi_eurex_derivatives_edci_t7_v13_0.description, "("..buffer:len().." Bytes)")
-  return eurex_derivatives_edci_t7_v13_0_dissect.packet(buffer, packet, protocol)
+  return eurex_derivatives_edci_t7_v13_0.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

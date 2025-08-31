@@ -7,12 +7,12 @@
 -- Nyse Equities OpenBook Ultra 2.1.b Protocol
 local omi_nyse_equities_openbook_ultra_v2_1_b = Proto("Nyse.Equities.OpenBook.Ultra.v2.1.b.Lua", "Nyse Equities OpenBook Ultra 2.1.b")
 
+-- Protocol table
+local nyse_equities_openbook_ultra_v2_1_b = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local nyse_equities_openbook_ultra_v2_1_b_display = {}
-local nyse_equities_openbook_ultra_v2_1_b_dissect = {}
-local nyse_equities_openbook_ultra_v2_1_b_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -150,133 +150,154 @@ end
 -- Dissect Nyse Equities OpenBook Ultra 2.1.b
 -----------------------------------------------------------------------
 
+-- Heartbeat Message
+nyse_equities_openbook_ultra_v2_1_b.heartbeat_message = {}
+
+-- Next Sequence Number
+nyse_equities_openbook_ultra_v2_1_b.next_sequence_number = {}
+
 -- Size: Next Sequence Number
-nyse_equities_openbook_ultra_v2_1_b_size_of.next_sequence_number = 4
+nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size = 4
 
 -- Display: Next Sequence Number
-nyse_equities_openbook_ultra_v2_1_b_display.next_sequence_number = function(value)
+nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.display = function(value)
   return "Next Sequence Number: "..value
 end
 
 -- Dissect: Next Sequence Number
-nyse_equities_openbook_ultra_v2_1_b_dissect.next_sequence_number = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.next_sequence_number
+nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.next_sequence_number(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.next_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number Reset Message
+nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message = {}
+
 -- Calculate size of: Sequence Number Reset Message
-nyse_equities_openbook_ultra_v2_1_b_size_of.sequence_number_reset_message = function(buffer, offset)
+nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.next_sequence_number
+  index = index + nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.size
 
   return index
 end
 
 -- Display: Sequence Number Reset Message
-nyse_equities_openbook_ultra_v2_1_b_display.sequence_number_reset_message = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sequence Number Reset Message
-nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Next Sequence Number: 4 Byte Signed Fixed Width Integer
-  index, next_sequence_number = nyse_equities_openbook_ultra_v2_1_b_dissect.next_sequence_number(buffer, index, packet, parent)
+  index, next_sequence_number = nyse_equities_openbook_ultra_v2_1_b.next_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sequence Number Reset Message
-nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local index = nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.sequence_number_reset_message(packet, parent, length)
+    local display = nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Link Id 3
+nyse_equities_openbook_ultra_v2_1_b.link_id_3 = {}
+
 -- Size: Link Id 3
-nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_3 = 4
+nyse_equities_openbook_ultra_v2_1_b.link_id_3.size = 4
 
 -- Display: Link Id 3
-nyse_equities_openbook_ultra_v2_1_b_display.link_id_3 = function(value)
+nyse_equities_openbook_ultra_v2_1_b.link_id_3.display = function(value)
   return "Link Id 3: "..value
 end
 
 -- Dissect: Link Id 3
-nyse_equities_openbook_ultra_v2_1_b_dissect.link_id_3 = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_3
+nyse_equities_openbook_ultra_v2_1_b.link_id_3.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.link_id_3.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.link_id_3(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.link_id_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.link_id_3, range, value, display)
 
   return offset + length, value
 end
 
+-- Link Id 2
+nyse_equities_openbook_ultra_v2_1_b.link_id_2 = {}
+
 -- Size: Link Id 2
-nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_2 = 4
+nyse_equities_openbook_ultra_v2_1_b.link_id_2.size = 4
 
 -- Display: Link Id 2
-nyse_equities_openbook_ultra_v2_1_b_display.link_id_2 = function(value)
+nyse_equities_openbook_ultra_v2_1_b.link_id_2.display = function(value)
   return "Link Id 2: "..value
 end
 
 -- Dissect: Link Id 2
-nyse_equities_openbook_ultra_v2_1_b_dissect.link_id_2 = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_2
+nyse_equities_openbook_ultra_v2_1_b.link_id_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.link_id_2.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.link_id_2(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.link_id_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.link_id_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Link Id 1
+nyse_equities_openbook_ultra_v2_1_b.link_id_1 = {}
+
 -- Size: Link Id 1
-nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_1 = 4
+nyse_equities_openbook_ultra_v2_1_b.link_id_1.size = 4
 
 -- Display: Link Id 1
-nyse_equities_openbook_ultra_v2_1_b_display.link_id_1 = function(value)
+nyse_equities_openbook_ultra_v2_1_b.link_id_1.display = function(value)
   return "Link Id 1: "..value
 end
 
 -- Dissect: Link Id 1
-nyse_equities_openbook_ultra_v2_1_b_dissect.link_id_1 = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_1
+nyse_equities_openbook_ultra_v2_1_b.link_id_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.link_id_1.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.link_id_1(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.link_id_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.link_id_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Reason Code
+nyse_equities_openbook_ultra_v2_1_b.reason_code = {}
+
 -- Size: Reason Code
-nyse_equities_openbook_ultra_v2_1_b_size_of.reason_code = 1
+nyse_equities_openbook_ultra_v2_1_b.reason_code.size = 1
 
 -- Display: Reason Code
-nyse_equities_openbook_ultra_v2_1_b_display.reason_code = function(value)
+nyse_equities_openbook_ultra_v2_1_b.reason_code.display = function(value)
   if value == "O" then
     return "Reason Code: New Orderadditional Interest Added (O)"
   end
@@ -294,22 +315,25 @@ nyse_equities_openbook_ultra_v2_1_b_display.reason_code = function(value)
 end
 
 -- Dissect: Reason Code
-nyse_equities_openbook_ultra_v2_1_b_dissect.reason_code = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.reason_code
+nyse_equities_openbook_ultra_v2_1_b.reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.reason_code.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.reason_code(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
 
+-- Side
+nyse_equities_openbook_ultra_v2_1_b.side = {}
+
 -- Size: Side
-nyse_equities_openbook_ultra_v2_1_b_size_of.side = 1
+nyse_equities_openbook_ultra_v2_1_b.side.size = 1
 
 -- Display: Side
-nyse_equities_openbook_ultra_v2_1_b_display.side = function(value)
+nyse_equities_openbook_ultra_v2_1_b.side.display = function(value)
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -321,204 +345,225 @@ nyse_equities_openbook_ultra_v2_1_b_display.side = function(value)
 end
 
 -- Dissect: Side
-nyse_equities_openbook_ultra_v2_1_b_dissect.side = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.side
+nyse_equities_openbook_ultra_v2_1_b.side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.side(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.side, range, value, display)
 
   return offset + length, value
 end
 
+-- Num Orders
+nyse_equities_openbook_ultra_v2_1_b.num_orders = {}
+
 -- Size: Num Orders
-nyse_equities_openbook_ultra_v2_1_b_size_of.num_orders = 2
+nyse_equities_openbook_ultra_v2_1_b.num_orders.size = 2
 
 -- Display: Num Orders
-nyse_equities_openbook_ultra_v2_1_b_display.num_orders = function(value)
+nyse_equities_openbook_ultra_v2_1_b.num_orders.display = function(value)
   return "Num Orders: "..value
 end
 
 -- Dissect: Num Orders
-nyse_equities_openbook_ultra_v2_1_b_dissect.num_orders = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.num_orders
+nyse_equities_openbook_ultra_v2_1_b.num_orders.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.num_orders.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.num_orders(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.num_orders.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.num_orders, range, value, display)
 
   return offset + length, value
 end
 
+-- Chg Qty
+nyse_equities_openbook_ultra_v2_1_b.chg_qty = {}
+
 -- Size: Chg Qty
-nyse_equities_openbook_ultra_v2_1_b_size_of.chg_qty = 4
+nyse_equities_openbook_ultra_v2_1_b.chg_qty.size = 4
 
 -- Display: Chg Qty
-nyse_equities_openbook_ultra_v2_1_b_display.chg_qty = function(value)
+nyse_equities_openbook_ultra_v2_1_b.chg_qty.display = function(value)
   return "Chg Qty: "..value
 end
 
 -- Dissect: Chg Qty
-nyse_equities_openbook_ultra_v2_1_b_dissect.chg_qty = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.chg_qty
+nyse_equities_openbook_ultra_v2_1_b.chg_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.chg_qty.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.chg_qty(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.chg_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.chg_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Volume
+nyse_equities_openbook_ultra_v2_1_b.volume = {}
+
 -- Size: Volume
-nyse_equities_openbook_ultra_v2_1_b_size_of.volume = 4
+nyse_equities_openbook_ultra_v2_1_b.volume.size = 4
 
 -- Display: Volume
-nyse_equities_openbook_ultra_v2_1_b_display.volume = function(value)
+nyse_equities_openbook_ultra_v2_1_b.volume.display = function(value)
   return "Volume: "..value
 end
 
 -- Dissect: Volume
-nyse_equities_openbook_ultra_v2_1_b_dissect.volume = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.volume
+nyse_equities_openbook_ultra_v2_1_b.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.volume.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.volume(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Price Numerator
+nyse_equities_openbook_ultra_v2_1_b.price_numerator = {}
+
 -- Size: Price Numerator
-nyse_equities_openbook_ultra_v2_1_b_size_of.price_numerator = 4
+nyse_equities_openbook_ultra_v2_1_b.price_numerator.size = 4
 
 -- Display: Price Numerator
-nyse_equities_openbook_ultra_v2_1_b_display.price_numerator = function(value)
+nyse_equities_openbook_ultra_v2_1_b.price_numerator.display = function(value)
   return "Price Numerator: "..value
 end
 
 -- Dissect: Price Numerator
-nyse_equities_openbook_ultra_v2_1_b_dissect.price_numerator = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.price_numerator
+nyse_equities_openbook_ultra_v2_1_b.price_numerator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.price_numerator.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.price_numerator(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.price_numerator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.price_numerator, range, value, display)
 
   return offset + length, value
 end
 
+-- Delta Price Point
+nyse_equities_openbook_ultra_v2_1_b.delta_price_point = {}
+
 -- Calculate size of: Delta Price Point
-nyse_equities_openbook_ultra_v2_1_b_size_of.delta_price_point = function(buffer, offset)
+nyse_equities_openbook_ultra_v2_1_b.delta_price_point.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.price_numerator
+  index = index + nyse_equities_openbook_ultra_v2_1_b.price_numerator.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.volume
+  index = index + nyse_equities_openbook_ultra_v2_1_b.volume.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.chg_qty
+  index = index + nyse_equities_openbook_ultra_v2_1_b.chg_qty.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.num_orders
+  index = index + nyse_equities_openbook_ultra_v2_1_b.num_orders.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.side
+  index = index + nyse_equities_openbook_ultra_v2_1_b.side.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.reason_code
+  index = index + nyse_equities_openbook_ultra_v2_1_b.reason_code.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_1
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_1.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_2
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_2.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.link_id_3
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_id_3.size
 
   return index
 end
 
 -- Display: Delta Price Point
-nyse_equities_openbook_ultra_v2_1_b_display.delta_price_point = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.delta_price_point.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Delta Price Point
-nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.delta_price_point.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Price Numerator: 4 Byte Signed Fixed Width Integer
-  index, price_numerator = nyse_equities_openbook_ultra_v2_1_b_dissect.price_numerator(buffer, index, packet, parent)
+  index, price_numerator = nyse_equities_openbook_ultra_v2_1_b.price_numerator.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Signed Fixed Width Integer
-  index, volume = nyse_equities_openbook_ultra_v2_1_b_dissect.volume(buffer, index, packet, parent)
+  index, volume = nyse_equities_openbook_ultra_v2_1_b.volume.dissect(buffer, index, packet, parent)
 
   -- Chg Qty: 4 Byte Signed Fixed Width Integer
-  index, chg_qty = nyse_equities_openbook_ultra_v2_1_b_dissect.chg_qty(buffer, index, packet, parent)
+  index, chg_qty = nyse_equities_openbook_ultra_v2_1_b.chg_qty.dissect(buffer, index, packet, parent)
 
   -- Num Orders: 2 Byte Signed Fixed Width Integer
-  index, num_orders = nyse_equities_openbook_ultra_v2_1_b_dissect.num_orders(buffer, index, packet, parent)
+  index, num_orders = nyse_equities_openbook_ultra_v2_1_b.num_orders.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = nyse_equities_openbook_ultra_v2_1_b_dissect.side(buffer, index, packet, parent)
+  index, side = nyse_equities_openbook_ultra_v2_1_b.side.dissect(buffer, index, packet, parent)
 
   -- Reason Code: 1 Byte Ascii String Enum with 4 values
-  index, reason_code = nyse_equities_openbook_ultra_v2_1_b_dissect.reason_code(buffer, index, packet, parent)
+  index, reason_code = nyse_equities_openbook_ultra_v2_1_b.reason_code.dissect(buffer, index, packet, parent)
 
   -- Link Id 1: 4 Byte Signed Fixed Width Integer
-  index, link_id_1 = nyse_equities_openbook_ultra_v2_1_b_dissect.link_id_1(buffer, index, packet, parent)
+  index, link_id_1 = nyse_equities_openbook_ultra_v2_1_b.link_id_1.dissect(buffer, index, packet, parent)
 
   -- Link Id 2: 4 Byte Signed Fixed Width Integer
-  index, link_id_2 = nyse_equities_openbook_ultra_v2_1_b_dissect.link_id_2(buffer, index, packet, parent)
+  index, link_id_2 = nyse_equities_openbook_ultra_v2_1_b.link_id_2.dissect(buffer, index, packet, parent)
 
   -- Link Id 3: 4 Byte Signed Fixed Width Integer
-  index, link_id_3 = nyse_equities_openbook_ultra_v2_1_b_dissect.link_id_3(buffer, index, packet, parent)
+  index, link_id_3 = nyse_equities_openbook_ultra_v2_1_b.link_id_3.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Delta Price Point
-nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.delta_price_point.dissect = function(buffer, offset, packet, parent)
   if show.delta_price_point then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, parent)
+    local index = nyse_equities_openbook_ultra_v2_1_b.delta_price_point.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.delta_price_point(packet, parent, length)
+    local display = nyse_equities_openbook_ultra_v2_1_b.delta_price_point.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b.delta_price_point.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Price Scale Code
+nyse_equities_openbook_ultra_v2_1_b.price_scale_code = {}
+
 -- Size: Price Scale Code
-nyse_equities_openbook_ultra_v2_1_b_size_of.price_scale_code = 1
+nyse_equities_openbook_ultra_v2_1_b.price_scale_code.size = 1
 
 -- Display: Price Scale Code
-nyse_equities_openbook_ultra_v2_1_b_display.price_scale_code = function(value)
+nyse_equities_openbook_ultra_v2_1_b.price_scale_code.display = function(value)
   return "Price Scale Code: "..value
 end
 
 -- Dissect: Price Scale Code
-nyse_equities_openbook_ultra_v2_1_b_dissect.price_scale_code = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.price_scale_code
+nyse_equities_openbook_ultra_v2_1_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.price_scale_code.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.price_scale_code(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.price_scale_code, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Status
+nyse_equities_openbook_ultra_v2_1_b.trading_status = {}
+
 -- Size: Trading Status
-nyse_equities_openbook_ultra_v2_1_b_size_of.trading_status = 1
+nyse_equities_openbook_ultra_v2_1_b.trading_status.size = 1
 
 -- Display: Trading Status
-nyse_equities_openbook_ultra_v2_1_b_display.trading_status = function(value)
+nyse_equities_openbook_ultra_v2_1_b.trading_status.display = function(value)
   if value == "P" then
     return "Trading Status: Pre Opening (P)"
   end
@@ -536,22 +581,25 @@ nyse_equities_openbook_ultra_v2_1_b_display.trading_status = function(value)
 end
 
 -- Dissect: Trading Status
-nyse_equities_openbook_ultra_v2_1_b_dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.trading_status
+nyse_equities_openbook_ultra_v2_1_b.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.trading_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.trading_status(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Quote Condition
+nyse_equities_openbook_ultra_v2_1_b.quote_condition = {}
+
 -- Size: Quote Condition
-nyse_equities_openbook_ultra_v2_1_b_size_of.quote_condition = 1
+nyse_equities_openbook_ultra_v2_1_b.quote_condition.size = 1
 
 -- Display: Quote Condition
-nyse_equities_openbook_ultra_v2_1_b_display.quote_condition = function(value)
+nyse_equities_openbook_ultra_v2_1_b.quote_condition.display = function(value)
   if value == " " then
     return "Quote Condition: No Special Quote Condition (<whitespace>)"
   end
@@ -563,217 +611,241 @@ nyse_equities_openbook_ultra_v2_1_b_display.quote_condition = function(value)
 end
 
 -- Dissect: Quote Condition
-nyse_equities_openbook_ultra_v2_1_b_dissect.quote_condition = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.quote_condition
+nyse_equities_openbook_ultra_v2_1_b.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.quote_condition.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.quote_condition(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
 
+-- Source Session Id
+nyse_equities_openbook_ultra_v2_1_b.source_session_id = {}
+
 -- Size: Source Session Id
-nyse_equities_openbook_ultra_v2_1_b_size_of.source_session_id = 1
+nyse_equities_openbook_ultra_v2_1_b.source_session_id.size = 1
 
 -- Display: Source Session Id
-nyse_equities_openbook_ultra_v2_1_b_display.source_session_id = function(value)
+nyse_equities_openbook_ultra_v2_1_b.source_session_id.display = function(value)
   return "Source Session Id: "..value
 end
 
 -- Dissect: Source Session Id
-nyse_equities_openbook_ultra_v2_1_b_dissect.source_session_id = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.source_session_id
+nyse_equities_openbook_ultra_v2_1_b.source_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.source_session_id.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.source_session_id(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.source_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.source_session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Source Seq Num
+nyse_equities_openbook_ultra_v2_1_b.source_seq_num = {}
+
 -- Size: Source Seq Num
-nyse_equities_openbook_ultra_v2_1_b_size_of.source_seq_num = 4
+nyse_equities_openbook_ultra_v2_1_b.source_seq_num.size = 4
 
 -- Display: Source Seq Num
-nyse_equities_openbook_ultra_v2_1_b_display.source_seq_num = function(value)
+nyse_equities_openbook_ultra_v2_1_b.source_seq_num.display = function(value)
   return "Source Seq Num: "..value
 end
 
 -- Dissect: Source Seq Num
-nyse_equities_openbook_ultra_v2_1_b_dissect.source_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.source_seq_num
+nyse_equities_openbook_ultra_v2_1_b.source_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.source_seq_num.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.source_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.source_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.source_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Source Time Micro Secs
+nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs = {}
+
 -- Size: Source Time Micro Secs
-nyse_equities_openbook_ultra_v2_1_b_size_of.source_time_micro_secs = 2
+nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.size = 2
 
 -- Display: Source Time Micro Secs
-nyse_equities_openbook_ultra_v2_1_b_display.source_time_micro_secs = function(value)
+nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.display = function(value)
   return "Source Time Micro Secs: "..value
 end
 
 -- Dissect: Source Time Micro Secs
-nyse_equities_openbook_ultra_v2_1_b_dissect.source_time_micro_secs = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.source_time_micro_secs
+nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.source_time_micro_secs(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs, range, value, display)
 
   return offset + length, value
 end
 
+-- Source Time
+nyse_equities_openbook_ultra_v2_1_b.source_time = {}
+
 -- Size: Source Time
-nyse_equities_openbook_ultra_v2_1_b_size_of.source_time = 4
+nyse_equities_openbook_ultra_v2_1_b.source_time.size = 4
 
 -- Display: Source Time
-nyse_equities_openbook_ultra_v2_1_b_display.source_time = function(value)
+nyse_equities_openbook_ultra_v2_1_b.source_time.display = function(value)
   return "Source Time: "..value
 end
 
 -- Dissect: Source Time
-nyse_equities_openbook_ultra_v2_1_b_dissect.source_time = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.source_time
+nyse_equities_openbook_ultra_v2_1_b.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.source_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.source_time(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.source_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.source_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Index
+nyse_equities_openbook_ultra_v2_1_b.symbol_index = {}
+
 -- Size: Symbol Index
-nyse_equities_openbook_ultra_v2_1_b_size_of.symbol_index = 4
+nyse_equities_openbook_ultra_v2_1_b.symbol_index.size = 4
 
 -- Display: Symbol Index
-nyse_equities_openbook_ultra_v2_1_b_display.symbol_index = function(value)
+nyse_equities_openbook_ultra_v2_1_b.symbol_index.display = function(value)
   return "Symbol Index: "..value
 end
 
 -- Dissect: Symbol Index
-nyse_equities_openbook_ultra_v2_1_b_dissect.symbol_index = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.symbol_index
+nyse_equities_openbook_ultra_v2_1_b.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.symbol_index.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.symbol_index(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.symbol_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
 
+-- Delta Size
+nyse_equities_openbook_ultra_v2_1_b.delta_size = {}
+
 -- Size: Delta Size
-nyse_equities_openbook_ultra_v2_1_b_size_of.delta_size = 2
+nyse_equities_openbook_ultra_v2_1_b.delta_size.size = 2
 
 -- Display: Delta Size
-nyse_equities_openbook_ultra_v2_1_b_display.delta_size = function(value)
+nyse_equities_openbook_ultra_v2_1_b.delta_size.display = function(value)
   return "Delta Size: "..value
 end
 
 -- Dissect: Delta Size
-nyse_equities_openbook_ultra_v2_1_b_dissect.delta_size = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.delta_size
+nyse_equities_openbook_ultra_v2_1_b.delta_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.delta_size.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.delta_size(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.delta_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.delta_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Delta Update Message
+nyse_equities_openbook_ultra_v2_1_b.delta_update_message = {}
+
 -- Display: Delta Update Message
-nyse_equities_openbook_ultra_v2_1_b_display.delta_update_message = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.delta_update_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Delta Update Message
-nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields = function(buffer, offset, packet, parent, size_of_delta_update_message)
+nyse_equities_openbook_ultra_v2_1_b.delta_update_message.fields = function(buffer, offset, packet, parent, size_of_delta_update_message)
   local index = offset
 
   -- Delta Size: 2 Byte Signed Fixed Width Integer
-  index, delta_size = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_size(buffer, index, packet, parent)
+  index, delta_size = nyse_equities_openbook_ultra_v2_1_b.delta_size.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Signed Fixed Width Integer
-  index, symbol_index = nyse_equities_openbook_ultra_v2_1_b_dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_equities_openbook_ultra_v2_1_b.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Time: 4 Byte Signed Fixed Width Integer
-  index, source_time = nyse_equities_openbook_ultra_v2_1_b_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_equities_openbook_ultra_v2_1_b.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Micro Secs: 2 Byte Signed Fixed Width Integer
-  index, source_time_micro_secs = nyse_equities_openbook_ultra_v2_1_b_dissect.source_time_micro_secs(buffer, index, packet, parent)
+  index, source_time_micro_secs = nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.dissect(buffer, index, packet, parent)
 
   -- Source Seq Num: 4 Byte Signed Fixed Width Integer
-  index, source_seq_num = nyse_equities_openbook_ultra_v2_1_b_dissect.source_seq_num(buffer, index, packet, parent)
+  index, source_seq_num = nyse_equities_openbook_ultra_v2_1_b.source_seq_num.dissect(buffer, index, packet, parent)
 
   -- Source Session Id: 1 Byte Signed Fixed Width Integer
-  index, source_session_id = nyse_equities_openbook_ultra_v2_1_b_dissect.source_session_id(buffer, index, packet, parent)
+  index, source_session_id = nyse_equities_openbook_ultra_v2_1_b.source_session_id.dissect(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 2 values
-  index, quote_condition = nyse_equities_openbook_ultra_v2_1_b_dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nyse_equities_openbook_ultra_v2_1_b.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 4 values
-  index, trading_status = nyse_equities_openbook_ultra_v2_1_b_dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = nyse_equities_openbook_ultra_v2_1_b.trading_status.dissect(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
-  index, price_scale_code = nyse_equities_openbook_ultra_v2_1_b_dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = nyse_equities_openbook_ultra_v2_1_b.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Dependency for Delta Price Point
   local end_of_payload = offset + delta_size - (index - offset)
 
   -- Delta Price Point: Struct of 9 fields
   while index < end_of_payload do
-    index, delta_price_point = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_price_point(buffer, index, packet, parent)
+    index, delta_price_point = nyse_equities_openbook_ultra_v2_1_b.delta_price_point.dissect(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Delta Update Message
-nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message = function(buffer, offset, packet, parent, size_of_delta_update_message)
+nyse_equities_openbook_ultra_v2_1_b.delta_update_message.dissect = function(buffer, offset, packet, parent, size_of_delta_update_message)
   local index = offset + size_of_delta_update_message
 
   -- Optionally add group/struct element to protocol tree
   if show.delta_update_message then
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.delta_update_message, buffer(offset, 0))
-    local current = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
+    local current = nyse_equities_openbook_ultra_v2_1_b.delta_update_message.fields(buffer, offset, packet, parent, size_of_delta_update_message)
     parent:set_len(size_of_delta_update_message)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.delta_update_message(buffer, packet, parent)
+    local display = nyse_equities_openbook_ultra_v2_1_b.delta_update_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message_fields(buffer, offset, packet, parent, size_of_delta_update_message)
+    nyse_equities_openbook_ultra_v2_1_b.delta_update_message.fields(buffer, offset, packet, parent, size_of_delta_update_message)
 
     return index
   end
 end
 
+-- Delta Update Messages
+nyse_equities_openbook_ultra_v2_1_b.delta_update_messages = {}
+
 -- Size Of: Delta Update Messages
-nyse_equities_openbook_ultra_v2_1_b_size_of.delta_update_messages = function(buffer, offset)
+nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.size = function(buffer, offset)
   return buffer:len() - offset
 end
 
 -- Display: Delta Update Messages
-nyse_equities_openbook_ultra_v2_1_b_display.delta_update_messages = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Delta Update Messages
-nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages_fields = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency for Delta Update Message
@@ -786,276 +858,300 @@ nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages_fields = funct
     local delta_size = buffer(index, 2):int()
 
     -- Runtime Size Of: Delta Update Message
-    index, delta_update_message = nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_message(buffer, index, packet, parent, delta_size)
+    index, delta_update_message = nyse_equities_openbook_ultra_v2_1_b.delta_update_message.dissect(buffer, index, packet, parent, delta_size)
   end
 
   return index
 end
 
 -- Dissect: Delta Update Messages
-nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.delta_update_messages then
-    local length = nyse_equities_openbook_ultra_v2_1_b_size_of.delta_update_messages(buffer, offset)
+    local length = nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.delta_update_messages(buffer, packet, parent)
+    local display = nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.display(buffer, packet, parent)
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.delta_update_messages, range, display)
   end
 
-  return nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages_fields(buffer, offset, packet, parent)
+  return nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.fields(buffer, offset, packet, parent)
 end
 
+-- Reserved 1
+nyse_equities_openbook_ultra_v2_1_b.reserved_1 = {}
+
 -- Size: Reserved 1
-nyse_equities_openbook_ultra_v2_1_b_size_of.reserved_1 = 1
+nyse_equities_openbook_ultra_v2_1_b.reserved_1.size = 1
 
 -- Display: Reserved 1
-nyse_equities_openbook_ultra_v2_1_b_display.reserved_1 = function(value)
+nyse_equities_openbook_ultra_v2_1_b.reserved_1.display = function(value)
   return "Reserved 1: "..value
 end
 
 -- Dissect: Reserved 1
-nyse_equities_openbook_ultra_v2_1_b_dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.reserved_1
+nyse_equities_openbook_ultra_v2_1_b.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.reserved_1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.reserved_1(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Full Price Point
+nyse_equities_openbook_ultra_v2_1_b.full_price_point = {}
+
 -- Calculate size of: Full Price Point
-nyse_equities_openbook_ultra_v2_1_b_size_of.full_price_point = function(buffer, offset)
+nyse_equities_openbook_ultra_v2_1_b.full_price_point.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.price_numerator
+  index = index + nyse_equities_openbook_ultra_v2_1_b.price_numerator.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.volume
+  index = index + nyse_equities_openbook_ultra_v2_1_b.volume.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.num_orders
+  index = index + nyse_equities_openbook_ultra_v2_1_b.num_orders.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.side
+  index = index + nyse_equities_openbook_ultra_v2_1_b.side.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.reserved_1
+  index = index + nyse_equities_openbook_ultra_v2_1_b.reserved_1.size
 
   return index
 end
 
 -- Display: Full Price Point
-nyse_equities_openbook_ultra_v2_1_b_display.full_price_point = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.full_price_point.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Full Price Point
-nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.full_price_point.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Price Numerator: 4 Byte Signed Fixed Width Integer
-  index, price_numerator = nyse_equities_openbook_ultra_v2_1_b_dissect.price_numerator(buffer, index, packet, parent)
+  index, price_numerator = nyse_equities_openbook_ultra_v2_1_b.price_numerator.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Signed Fixed Width Integer
-  index, volume = nyse_equities_openbook_ultra_v2_1_b_dissect.volume(buffer, index, packet, parent)
+  index, volume = nyse_equities_openbook_ultra_v2_1_b.volume.dissect(buffer, index, packet, parent)
 
   -- Num Orders: 2 Byte Signed Fixed Width Integer
-  index, num_orders = nyse_equities_openbook_ultra_v2_1_b_dissect.num_orders(buffer, index, packet, parent)
+  index, num_orders = nyse_equities_openbook_ultra_v2_1_b.num_orders.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = nyse_equities_openbook_ultra_v2_1_b_dissect.side(buffer, index, packet, parent)
+  index, side = nyse_equities_openbook_ultra_v2_1_b.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = nyse_equities_openbook_ultra_v2_1_b_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_equities_openbook_ultra_v2_1_b.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Full Price Point
-nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.full_price_point.dissect = function(buffer, offset, packet, parent)
   if show.full_price_point then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, parent)
+    local index = nyse_equities_openbook_ultra_v2_1_b.full_price_point.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.full_price_point(packet, parent, length)
+    local display = nyse_equities_openbook_ultra_v2_1_b.full_price_point.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b.full_price_point.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Mpv
+nyse_equities_openbook_ultra_v2_1_b.mpv = {}
+
 -- Size: Mpv
-nyse_equities_openbook_ultra_v2_1_b_size_of.mpv = 2
+nyse_equities_openbook_ultra_v2_1_b.mpv.size = 2
 
 -- Display: Mpv
-nyse_equities_openbook_ultra_v2_1_b_display.mpv = function(value)
+nyse_equities_openbook_ultra_v2_1_b.mpv.display = function(value)
   return "Mpv: "..value
 end
 
 -- Dissect: Mpv
-nyse_equities_openbook_ultra_v2_1_b_dissect.mpv = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.mpv
+nyse_equities_openbook_ultra_v2_1_b.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.mpv.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.mpv(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.mpv, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol
+nyse_equities_openbook_ultra_v2_1_b.symbol = {}
+
 -- Size: Symbol
-nyse_equities_openbook_ultra_v2_1_b_size_of.symbol = 11
+nyse_equities_openbook_ultra_v2_1_b.symbol.size = 11
 
 -- Display: Symbol
-nyse_equities_openbook_ultra_v2_1_b_display.symbol = function(value)
+nyse_equities_openbook_ultra_v2_1_b.symbol.display = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-nyse_equities_openbook_ultra_v2_1_b_dissect.symbol = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.symbol
+nyse_equities_openbook_ultra_v2_1_b.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.symbol.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.symbol(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Seq Num
+nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num = {}
+
 -- Size: Symbol Seq Num
-nyse_equities_openbook_ultra_v2_1_b_size_of.symbol_seq_num = 4
+nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
-nyse_equities_openbook_ultra_v2_1_b_display.symbol_seq_num = function(value)
+nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num.display = function(value)
   return "Symbol Seq Num: "..value
 end
 
 -- Dissect: Symbol Seq Num
-nyse_equities_openbook_ultra_v2_1_b_dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.symbol_seq_num
+nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.symbol_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Update Size
+nyse_equities_openbook_ultra_v2_1_b.update_size = {}
+
 -- Size: Update Size
-nyse_equities_openbook_ultra_v2_1_b_size_of.update_size = 2
+nyse_equities_openbook_ultra_v2_1_b.update_size.size = 2
 
 -- Display: Update Size
-nyse_equities_openbook_ultra_v2_1_b_display.update_size = function(value)
+nyse_equities_openbook_ultra_v2_1_b.update_size.display = function(value)
   return "Update Size: "..value
 end
 
 -- Dissect: Update Size
-nyse_equities_openbook_ultra_v2_1_b_dissect.update_size = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.update_size
+nyse_equities_openbook_ultra_v2_1_b.update_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.update_size.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.update_size(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.update_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.update_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Full Update Message
+nyse_equities_openbook_ultra_v2_1_b.full_update_message = {}
+
 -- Display: Full Update Message
-nyse_equities_openbook_ultra_v2_1_b_display.full_update_message = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.full_update_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Full Update Message
-nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields = function(buffer, offset, packet, parent, size_of_full_update_message)
+nyse_equities_openbook_ultra_v2_1_b.full_update_message.fields = function(buffer, offset, packet, parent, size_of_full_update_message)
   local index = offset
 
   -- Update Size: 2 Byte Signed Fixed Width Integer
-  index, update_size = nyse_equities_openbook_ultra_v2_1_b_dissect.update_size(buffer, index, packet, parent)
+  index, update_size = nyse_equities_openbook_ultra_v2_1_b.update_size.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Signed Fixed Width Integer
-  index, symbol_index = nyse_equities_openbook_ultra_v2_1_b_dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_equities_openbook_ultra_v2_1_b.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Time: 4 Byte Signed Fixed Width Integer
-  index, source_time = nyse_equities_openbook_ultra_v2_1_b_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_equities_openbook_ultra_v2_1_b.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Micro Secs: 2 Byte Signed Fixed Width Integer
-  index, source_time_micro_secs = nyse_equities_openbook_ultra_v2_1_b_dissect.source_time_micro_secs(buffer, index, packet, parent)
+  index, source_time_micro_secs = nyse_equities_openbook_ultra_v2_1_b.source_time_micro_secs.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Signed Fixed Width Integer
-  index, symbol_seq_num = nyse_equities_openbook_ultra_v2_1_b_dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_equities_openbook_ultra_v2_1_b.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Source Session Id: 1 Byte Signed Fixed Width Integer
-  index, source_session_id = nyse_equities_openbook_ultra_v2_1_b_dissect.source_session_id(buffer, index, packet, parent)
+  index, source_session_id = nyse_equities_openbook_ultra_v2_1_b.source_session_id.dissect(buffer, index, packet, parent)
 
   -- Symbol: 11 Byte Ascii String
-  index, symbol = nyse_equities_openbook_ultra_v2_1_b_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = nyse_equities_openbook_ultra_v2_1_b.symbol.dissect(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
-  index, price_scale_code = nyse_equities_openbook_ultra_v2_1_b_dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = nyse_equities_openbook_ultra_v2_1_b.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 2 values
-  index, quote_condition = nyse_equities_openbook_ultra_v2_1_b_dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nyse_equities_openbook_ultra_v2_1_b.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 4 values
-  index, trading_status = nyse_equities_openbook_ultra_v2_1_b_dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = nyse_equities_openbook_ultra_v2_1_b.trading_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = nyse_equities_openbook_ultra_v2_1_b_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_equities_openbook_ultra_v2_1_b.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Mpv: 2 Byte Signed Fixed Width Integer
-  index, mpv = nyse_equities_openbook_ultra_v2_1_b_dissect.mpv(buffer, index, packet, parent)
+  index, mpv = nyse_equities_openbook_ultra_v2_1_b.mpv.dissect(buffer, index, packet, parent)
 
   -- Dependency for Full Price Point
   local end_of_payload = offset + update_size - (index - offset)
 
   -- Full Price Point: Struct of 5 fields
   while index < end_of_payload do
-    index, full_price_point = nyse_equities_openbook_ultra_v2_1_b_dissect.full_price_point(buffer, index, packet, parent)
+    index, full_price_point = nyse_equities_openbook_ultra_v2_1_b.full_price_point.dissect(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Full Update Message
-nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message = function(buffer, offset, packet, parent, size_of_full_update_message)
+nyse_equities_openbook_ultra_v2_1_b.full_update_message.dissect = function(buffer, offset, packet, parent, size_of_full_update_message)
   local index = offset + size_of_full_update_message
 
   -- Optionally add group/struct element to protocol tree
   if show.full_update_message then
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.full_update_message, buffer(offset, 0))
-    local current = nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)
+    local current = nyse_equities_openbook_ultra_v2_1_b.full_update_message.fields(buffer, offset, packet, parent, size_of_full_update_message)
     parent:set_len(size_of_full_update_message)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.full_update_message(buffer, packet, parent)
+    local display = nyse_equities_openbook_ultra_v2_1_b.full_update_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message_fields(buffer, offset, packet, parent, size_of_full_update_message)
+    nyse_equities_openbook_ultra_v2_1_b.full_update_message.fields(buffer, offset, packet, parent, size_of_full_update_message)
 
     return index
   end
 end
 
+-- Full Update Messages
+nyse_equities_openbook_ultra_v2_1_b.full_update_messages = {}
+
 -- Size Of: Full Update Messages
-nyse_equities_openbook_ultra_v2_1_b_size_of.full_update_messages = function(buffer, offset)
+nyse_equities_openbook_ultra_v2_1_b.full_update_messages.size = function(buffer, offset)
   return buffer:len() - offset
 end
 
 -- Display: Full Update Messages
-nyse_equities_openbook_ultra_v2_1_b_display.full_update_messages = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.full_update_messages.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Full Update Messages
-nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_messages_fields = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.full_update_messages.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency for Full Update Message
@@ -1068,38 +1164,41 @@ nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_messages_fields = functi
     local update_size = buffer(index, 2):int()
 
     -- Runtime Size Of: Full Update Message
-    index, full_update_message = nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_message(buffer, index, packet, parent, update_size)
+    index, full_update_message = nyse_equities_openbook_ultra_v2_1_b.full_update_message.dissect(buffer, index, packet, parent, update_size)
   end
 
   return index
 end
 
 -- Dissect: Full Update Messages
-nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_messages = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.full_update_messages.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.full_update_messages then
-    local length = nyse_equities_openbook_ultra_v2_1_b_size_of.full_update_messages(buffer, offset)
+    local length = nyse_equities_openbook_ultra_v2_1_b.full_update_messages.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.full_update_messages(buffer, packet, parent)
+    local display = nyse_equities_openbook_ultra_v2_1_b.full_update_messages.display(buffer, packet, parent)
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.full_update_messages, range, display)
   end
 
-  return nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_messages_fields(buffer, offset, packet, parent)
+  return nyse_equities_openbook_ultra_v2_1_b.full_update_messages.fields(buffer, offset, packet, parent)
 end
 
+-- Payload
+nyse_equities_openbook_ultra_v2_1_b.payload = {}
+
 -- Calculate runtime size of: Payload
-nyse_equities_openbook_ultra_v2_1_b_size_of.payload = function(buffer, offset, message_type)
+nyse_equities_openbook_ultra_v2_1_b.payload.size = function(buffer, offset, message_type)
   -- Size of Full Update Messages
   if message_type == 230 then
-    return nyse_equities_openbook_ultra_v2_1_b_size_of.full_update_messages(buffer, offset)
+    return nyse_equities_openbook_ultra_v2_1_b.full_update_messages.size(buffer, offset)
   end
   -- Size of Delta Update Messages
   if message_type == 231 then
-    return nyse_equities_openbook_ultra_v2_1_b_size_of.delta_update_messages(buffer, offset)
+    return nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.size(buffer, offset)
   end
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return nyse_equities_openbook_ultra_v2_1_b_size_of.sequence_number_reset_message(buffer, offset)
+    return nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size(buffer, offset)
   end
   -- Size of Heartbeat Message
   if message_type == 2 then
@@ -1110,23 +1209,23 @@ nyse_equities_openbook_ultra_v2_1_b_size_of.payload = function(buffer, offset, m
 end
 
 -- Display: Payload
-nyse_equities_openbook_ultra_v2_1_b_display.payload = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-nyse_equities_openbook_ultra_v2_1_b_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nyse_equities_openbook_ultra_v2_1_b.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Full Update Messages
   if message_type == 230 then
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.full_update_messages(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b.full_update_messages.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delta Update Messages
   if message_type == 231 then
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.delta_update_messages(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b.delta_update_messages.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number_reset_message(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Message
   if message_type == 2 then
@@ -1136,150 +1235,171 @@ nyse_equities_openbook_ultra_v2_1_b_dissect.payload_branches = function(buffer, 
 end
 
 -- Dissect: Payload
-nyse_equities_openbook_ultra_v2_1_b_dissect.payload = function(buffer, offset, packet, parent, message_type)
+nyse_equities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nyse_equities_openbook_ultra_v2_1_b.payload.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = nyse_equities_openbook_ultra_v2_1_b_size_of.payload(buffer, offset, message_type)
+  local size = nyse_equities_openbook_ultra_v2_1_b.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.payload(buffer, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.payload.display(buffer, packet, parent)
   local element = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.payload, range, display)
 
-  return nyse_equities_openbook_ultra_v2_1_b_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nyse_equities_openbook_ultra_v2_1_b.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Link Flag
+nyse_equities_openbook_ultra_v2_1_b.link_flag = {}
+
 -- Size: Link Flag
-nyse_equities_openbook_ultra_v2_1_b_size_of.link_flag = 1
+nyse_equities_openbook_ultra_v2_1_b.link_flag.size = 1
 
 -- Display: Link Flag
-nyse_equities_openbook_ultra_v2_1_b_display.link_flag = function(value)
+nyse_equities_openbook_ultra_v2_1_b.link_flag.display = function(value)
   return "Link Flag: "..value
 end
 
 -- Dissect: Link Flag
-nyse_equities_openbook_ultra_v2_1_b_dissect.link_flag = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.link_flag
+nyse_equities_openbook_ultra_v2_1_b.link_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.link_flag.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.link_flag(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.link_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.link_flag, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Count
+nyse_equities_openbook_ultra_v2_1_b.message_count = {}
+
 -- Size: Message Count
-nyse_equities_openbook_ultra_v2_1_b_size_of.message_count = 1
+nyse_equities_openbook_ultra_v2_1_b.message_count.size = 1
 
 -- Display: Message Count
-nyse_equities_openbook_ultra_v2_1_b_display.message_count = function(value)
+nyse_equities_openbook_ultra_v2_1_b.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-nyse_equities_openbook_ultra_v2_1_b_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.message_count
+nyse_equities_openbook_ultra_v2_1_b.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.message_count.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.message_count(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Retransmission Flag
+nyse_equities_openbook_ultra_v2_1_b.retransmission_flag = {}
+
 -- Size: Retransmission Flag
-nyse_equities_openbook_ultra_v2_1_b_size_of.retransmission_flag = 1
+nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size = 1
 
 -- Display: Retransmission Flag
-nyse_equities_openbook_ultra_v2_1_b_display.retransmission_flag = function(value)
+nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.display = function(value)
   return "Retransmission Flag: "..value
 end
 
 -- Dissect: Retransmission Flag
-nyse_equities_openbook_ultra_v2_1_b_dissect.retransmission_flag = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.retransmission_flag
+nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.retransmission_flag(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.retransmission_flag, range, value, display)
 
   return offset + length, value
 end
 
+-- Product Id
+nyse_equities_openbook_ultra_v2_1_b.product_id = {}
+
 -- Size: Product Id
-nyse_equities_openbook_ultra_v2_1_b_size_of.product_id = 1
+nyse_equities_openbook_ultra_v2_1_b.product_id.size = 1
 
 -- Display: Product Id
-nyse_equities_openbook_ultra_v2_1_b_display.product_id = function(value)
+nyse_equities_openbook_ultra_v2_1_b.product_id.display = function(value)
   return "Product Id: "..value
 end
 
 -- Dissect: Product Id
-nyse_equities_openbook_ultra_v2_1_b_dissect.product_id = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.product_id
+nyse_equities_openbook_ultra_v2_1_b.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.product_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.product_id(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.product_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+nyse_equities_openbook_ultra_v2_1_b.timestamp = {}
+
 -- Size: Timestamp
-nyse_equities_openbook_ultra_v2_1_b_size_of.timestamp = 4
+nyse_equities_openbook_ultra_v2_1_b.timestamp.size = 4
 
 -- Display: Timestamp
-nyse_equities_openbook_ultra_v2_1_b_display.timestamp = function(value)
+nyse_equities_openbook_ultra_v2_1_b.timestamp.display = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-nyse_equities_openbook_ultra_v2_1_b_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.timestamp
+nyse_equities_openbook_ultra_v2_1_b.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.timestamp(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number
+nyse_equities_openbook_ultra_v2_1_b.sequence_number = {}
+
 -- Size: Sequence Number
-nyse_equities_openbook_ultra_v2_1_b_size_of.sequence_number = 4
+nyse_equities_openbook_ultra_v2_1_b.sequence_number.size = 4
 
 -- Display: Sequence Number
-nyse_equities_openbook_ultra_v2_1_b_display.sequence_number = function(value)
+nyse_equities_openbook_ultra_v2_1_b.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.sequence_number
+nyse_equities_openbook_ultra_v2_1_b.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Type
+nyse_equities_openbook_ultra_v2_1_b.message_type = {}
+
 -- Size: Message Type
-nyse_equities_openbook_ultra_v2_1_b_size_of.message_type = 2
+nyse_equities_openbook_ultra_v2_1_b.message_type.size = 2
 
 -- Display: Message Type
-nyse_equities_openbook_ultra_v2_1_b_display.message_type = function(value)
+nyse_equities_openbook_ultra_v2_1_b.message_type.display = function(value)
   if value == 230 then
     return "Message Type: Full Update Message (230)"
   end
@@ -1297,126 +1417,135 @@ nyse_equities_openbook_ultra_v2_1_b_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-nyse_equities_openbook_ultra_v2_1_b_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.message_type
+nyse_equities_openbook_ultra_v2_1_b.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.message_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.message_type(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Size
+nyse_equities_openbook_ultra_v2_1_b.packet_size = {}
+
 -- Size: Packet Size
-nyse_equities_openbook_ultra_v2_1_b_size_of.packet_size = 2
+nyse_equities_openbook_ultra_v2_1_b.packet_size.size = 2
 
 -- Display: Packet Size
-nyse_equities_openbook_ultra_v2_1_b_display.packet_size = function(value)
+nyse_equities_openbook_ultra_v2_1_b.packet_size.display = function(value)
   return "Packet Size: "..value
 end
 
 -- Dissect: Packet Size
-nyse_equities_openbook_ultra_v2_1_b_dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = nyse_equities_openbook_ultra_v2_1_b_size_of.packet_size
+nyse_equities_openbook_ultra_v2_1_b.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_openbook_ultra_v2_1_b.packet_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nyse_equities_openbook_ultra_v2_1_b_display.packet_size(value, buffer, offset, packet, parent)
+  local display = nyse_equities_openbook_ultra_v2_1_b.packet_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+nyse_equities_openbook_ultra_v2_1_b.packet_header = {}
+
 -- Calculate size of: Packet Header
-nyse_equities_openbook_ultra_v2_1_b_size_of.packet_header = function(buffer, offset)
+nyse_equities_openbook_ultra_v2_1_b.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.packet_size
+  index = index + nyse_equities_openbook_ultra_v2_1_b.packet_size.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.message_type
+  index = index + nyse_equities_openbook_ultra_v2_1_b.message_type.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.sequence_number
+  index = index + nyse_equities_openbook_ultra_v2_1_b.sequence_number.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.timestamp
+  index = index + nyse_equities_openbook_ultra_v2_1_b.timestamp.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.product_id
+  index = index + nyse_equities_openbook_ultra_v2_1_b.product_id.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.retransmission_flag
+  index = index + nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.message_count
+  index = index + nyse_equities_openbook_ultra_v2_1_b.message_count.size
 
-  index = index + nyse_equities_openbook_ultra_v2_1_b_size_of.link_flag
+  index = index + nyse_equities_openbook_ultra_v2_1_b.link_flag.size
 
   return index
 end
 
 -- Display: Packet Header
-nyse_equities_openbook_ultra_v2_1_b_display.packet_header = function(packet, parent, length)
+nyse_equities_openbook_ultra_v2_1_b.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = nyse_equities_openbook_ultra_v2_1_b_dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = nyse_equities_openbook_ultra_v2_1_b.packet_size.dissect(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, message_type = nyse_equities_openbook_ultra_v2_1_b_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nyse_equities_openbook_ultra_v2_1_b.message_type.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nyse_equities_openbook_ultra_v2_1_b_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = nyse_equities_openbook_ultra_v2_1_b.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_equities_openbook_ultra_v2_1_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nyse_equities_openbook_ultra_v2_1_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer Static
-  index, product_id = nyse_equities_openbook_ultra_v2_1_b_dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_equities_openbook_ultra_v2_1_b.product_id.dissect(buffer, index, packet, parent)
 
   -- Retransmission Flag: 1 Byte Unsigned Fixed Width Integer
-  index, retransmission_flag = nyse_equities_openbook_ultra_v2_1_b_dissect.retransmission_flag(buffer, index, packet, parent)
+  index, retransmission_flag = nyse_equities_openbook_ultra_v2_1_b.retransmission_flag.dissect(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = nyse_equities_openbook_ultra_v2_1_b_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = nyse_equities_openbook_ultra_v2_1_b.message_count.dissect(buffer, index, packet, parent)
 
   -- Link Flag: 1 Byte Unsigned Fixed Width Integer
-  index, link_flag = nyse_equities_openbook_ultra_v2_1_b_dissect.link_flag(buffer, index, packet, parent)
+  index, link_flag = nyse_equities_openbook_ultra_v2_1_b.link_flag.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header = function(buffer, offset, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
-    local index = nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = nyse_equities_openbook_ultra_v2_1_b.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_equities_openbook_ultra_v2_1_b_display.packet_header(packet, parent, length)
+    local display = nyse_equities_openbook_ultra_v2_1_b.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nyse_equities_openbook_ultra_v2_1_b.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+nyse_equities_openbook_ultra_v2_1_b.packet = {}
+
 -- Dissect Packet
-nyse_equities_openbook_ultra_v2_1_b_dissect.packet = function(buffer, packet, parent)
+nyse_equities_openbook_ultra_v2_1_b.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 8 fields
-  index, packet_header = nyse_equities_openbook_ultra_v2_1_b_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nyse_equities_openbook_ultra_v2_1_b.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 14, 2):uint()
 
   -- Payload: Runtime Type with 4 branches
-  index = nyse_equities_openbook_ultra_v2_1_b_dissect.payload(buffer, index, packet, parent, message_type)
+  index = nyse_equities_openbook_ultra_v2_1_b.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -1438,7 +1567,7 @@ function omi_nyse_equities_openbook_ultra_v2_1_b.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_equities_openbook_ultra_v2_1_b, buffer(), omi_nyse_equities_openbook_ultra_v2_1_b.description, "("..buffer:len().." Bytes)")
-  return nyse_equities_openbook_ultra_v2_1_b_dissect.packet(buffer, packet, protocol)
+  return nyse_equities_openbook_ultra_v2_1_b.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

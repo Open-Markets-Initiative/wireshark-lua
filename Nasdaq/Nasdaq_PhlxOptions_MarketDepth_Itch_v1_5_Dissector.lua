@@ -7,12 +7,12 @@
 -- Nasdaq PhlxOptions MarketDepth Itch 1.5 Protocol
 local omi_nasdaq_phlxoptions_marketdepth_itch_v1_5 = Proto("Nasdaq.PhlxOptions.MarketDepth.Itch.v1.5.Lua", "Nasdaq PhlxOptions MarketDepth Itch 1.5")
 
+-- Protocol table
+local nasdaq_phlxoptions_marketdepth_itch_v1_5 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local nasdaq_phlxoptions_marketdepth_itch_v1_5_display = {}
-local nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect = {}
-local nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -358,31 +358,37 @@ end
 -- Dissect Nasdaq PhlxOptions MarketDepth Itch 1.5
 -----------------------------------------------------------------------
 
+-- Reserved
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved = {}
+
 -- Size: Reserved
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reserved = 3
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.size = 3
 
 -- Display: Reserved
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.reserved = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.display = function(value)
   return "Reserved: "..value
 end
 
 -- Dissect: Reserved
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reserved = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reserved
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.reserved(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.reserved, range, value, display)
 
   return offset + length, value
 end
 
+-- Customer Indicator
+nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator = {}
+
 -- Size: Customer Indicator
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.customer_indicator = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.customer_indicator = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.display = function(value)
   if value == "C" then
     return "Customer Indicator: Customer (C)"
   end
@@ -403,42 +409,48 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.customer_indicator = function(v
 end
 
 -- Dissect: Customer Indicator
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.customer_indicator = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.customer_indicator
+nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.customer_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.customer_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- Imbalance Volume
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume = {}
+
 -- Size: Imbalance Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_volume = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.size = 4
 
 -- Display: Imbalance Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.imbalance_volume = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.display = function(value)
   return "Imbalance Volume: "..value
 end
 
 -- Dissect: Imbalance Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.imbalance_volume = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_volume
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.imbalance_volume(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Imbalance Price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price = {}
+
 -- Size: Imbalance Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_price = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.size = 4
 
 -- Display: Imbalance Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.imbalance_price = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.display = function(value)
   return "Imbalance Price: "..value
 end
 
@@ -448,43 +460,49 @@ translate.imbalance_price = function(raw)
 end
 
 -- Dissect: Imbalance Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.imbalance_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.size
   local range = buffer(offset, length)
   local raw = range:int()
   local value = translate.imbalance_price(raw)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.imbalance_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.imbalance_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Option Id
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id = {}
+
 -- Size: Option Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size = 4
 
 -- Display: Option Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_id = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.display = function(value)
   return "Option Id: "..value
 end
 
 -- Dissect: Option Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.option_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Imbalance Direction
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction = {}
+
 -- Size: Imbalance Direction
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_direction = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.imbalance_direction = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.display = function(value)
   if value == "B" then
     return "Imbalance Direction: Buy (B)"
   end
@@ -496,42 +514,48 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.imbalance_direction = function(
 end
 
 -- Dissect: Imbalance Direction
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.imbalance_direction = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_direction
+nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.imbalance_direction(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.imbalance_direction, range, value, display)
 
   return offset + length, value
 end
 
+-- Paired Contracts
+nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts = {}
+
 -- Size: Paired Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.paired_contracts = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.size = 4
 
 -- Display: Paired Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.paired_contracts = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.display = function(value)
   return "Paired Contracts: "..value
 end
 
 -- Dissect: Paired Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.paired_contracts = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.paired_contracts
+nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.paired_contracts(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.paired_contracts, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type = {}
+
 -- Size: Auction Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_type = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_type = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.display = function(value)
   if value == "O" then
     return "Auction Type: Opening (O)"
   end
@@ -546,261 +570,285 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_type = function(value)
 end
 
 -- Dissect: Auction Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Id
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id = {}
+
 -- Size: Auction Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_id = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.size = 4
 
 -- Display: Auction Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_id = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.display = function(value)
   return "Auction Id: "..value
 end
 
 -- Dissect: Auction Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_id = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_id
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp = {}
+
 -- Size: Timestamp
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size = 4
 
 -- Display: Timestamp
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.timestamp = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.display = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.timestamp(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Notification Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message = {}
+
 -- Calculate size of: Auction Notification Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_notification_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_type
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.paired_contracts
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_direction
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.imbalance_volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.customer_indicator
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reserved
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.size
 
   return index
 end
 
 -- Display: Auction Notification Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_notification_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Auction Notification Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 4 Byte Unsigned Fixed Width Integer
-  index, auction_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_id.dissect(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 3 values
-  index, auction_type = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_type.dissect(buffer, index, packet, parent)
 
   -- Paired Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, paired_contracts = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.paired_contracts(buffer, index, packet, parent)
+  index, paired_contracts = nasdaq_phlxoptions_marketdepth_itch_v1_5.paired_contracts.dissect(buffer, index, packet, parent)
 
   -- Imbalance Direction: 1 Byte Ascii String Enum with 2 values
-  index, imbalance_direction = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.imbalance_direction(buffer, index, packet, parent)
+  index, imbalance_direction = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_direction.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Imbalance Price: 4 Byte Signed Fixed Width Integer
-  index, imbalance_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.imbalance_price(buffer, index, packet, parent)
+  index, imbalance_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_price.dissect(buffer, index, packet, parent)
 
   -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
-  index, imbalance_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.imbalance_volume(buffer, index, packet, parent)
+  index, imbalance_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.imbalance_volume.dissect(buffer, index, packet, parent)
 
   -- Customer Indicator: 1 Byte Ascii String Enum with 5 values
-  index, customer_indicator = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.customer_indicator(buffer, index, packet, parent)
+  index, customer_indicator = nasdaq_phlxoptions_marketdepth_itch_v1_5.customer_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved: 3 Byte Unsigned Fixed Width Integer
-  index, reserved = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reserved(buffer, index, packet, parent)
+  index, reserved = nasdaq_phlxoptions_marketdepth_itch_v1_5.reserved.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Notification Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.dissect = function(buffer, offset, packet, parent)
   if show.auction_notification_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.auction_notification_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.auction_notification_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Match Number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number = {}
+
 -- Size: Match Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.match_number = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size = 4
 
 -- Display: Match Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.match_number = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.display = function(value)
   return "Match Number: "..value
 end
 
 -- Dissect: Match Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.match_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.match_number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.match_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.match_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Cross Number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number = {}
+
 -- Size: Cross Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_number = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size = 4
 
 -- Display: Cross Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cross_number = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.display = function(value)
   return "Cross Number: "..value
 end
 
 -- Dissect: Cross Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cross_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.cross_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Broken Trade Order Execution Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message = {}
+
 -- Calculate size of: Broken Trade Order Execution Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.broken_trade_order_execution_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.match_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
 
   return index
 end
 
 -- Display: Broken Trade Order Execution Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.broken_trade_order_execution_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Broken Trade Order Execution Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Cross Number: 4 Byte Unsigned Fixed Width Integer
-  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_number(buffer, index, packet, parent)
+  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Broken Trade Order Execution Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.dissect = function(buffer, offset, packet, parent)
   if show.broken_trade_order_execution_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.broken_trade_order_execution_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.broken_trade_order_execution_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Volume
+nasdaq_phlxoptions_marketdepth_itch_v1_5.volume = {}
+
 -- Size: Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size = 4
 
 -- Display: Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.volume = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.display = function(value)
   return "Volume: "..value
 end
 
 -- Dissect: Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.volume(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.price = {}
+
 -- Size: Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size = 4
 
 -- Display: Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.price = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.price.display = function(value)
   return "Price: "..value
 end
 
@@ -810,23 +858,26 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
   local range = buffer(offset, length)
   local raw = range:int()
   local value = translate.price(raw)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.price, range, value, display)
 
   return offset + length, value
 end
 
+-- Cross Type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type = {}
+
 -- Size: Cross Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_type = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cross_type = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.display = function(value)
   if value == "O" then
     return "Cross Type: Opening Reopening (O)"
   end
@@ -835,94 +886,100 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cross_type = function(value)
 end
 
 -- Dissect: Cross Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cross_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Options Cross Trade Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message = {}
+
 -- Calculate size of: Options Cross Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.options_cross_trade_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.match_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_type
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
   return index
 end
 
 -- Display: Options Cross Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_cross_trade_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Options Cross Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Cross Number: 4 Byte Unsigned Fixed Width Integer
-  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_number(buffer, index, packet, parent)
+  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 1 values
-  index, cross_type = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_type.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Cross Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.dissect = function(buffer, offset, packet, parent)
   if show.options_cross_trade_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.options_cross_trade_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_cross_trade_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Trade Indicator
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator = {}
+
 -- Size: Trade Indicator
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.trade_indicator = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.size = 1
 
 -- Display: Trade Indicator
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trade_indicator = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.display = function(value)
   if value == "O" then
     return "Trade Indicator: Non Displayable (O)"
   end
@@ -937,136 +994,148 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trade_indicator = function(valu
 end
 
 -- Dissect: Trade Indicator
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trade_indicator = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.trade_indicator
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trade_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.trade_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- Non Auction Options Trade Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message = {}
+
 -- Calculate size of: Non Auction Options Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.non_auction_options_trade_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.trade_indicator
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.match_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
   return index
 end
 
 -- Display: Non Auction Options Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.non_auction_options_trade_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Non Auction Options Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Indicator: 1 Byte Ascii String Enum with 3 values
-  index, trade_indicator = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trade_indicator(buffer, index, packet, parent)
+  index, trade_indicator = nasdaq_phlxoptions_marketdepth_itch_v1_5.trade_indicator.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Cross Number: 4 Byte Unsigned Fixed Width Integer
-  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_number(buffer, index, packet, parent)
+  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Non Auction Options Trade Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.dissect = function(buffer, offset, packet, parent)
   if show.non_auction_options_trade_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.non_auction_options_trade_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.non_auction_options_trade_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Cancelled Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_reference_number_delta = {}
+
 -- Size: Cancelled Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cancelled_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_reference_number_delta.size = 4
 
 -- Display: Cancelled Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cancelled_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_reference_number_delta.display = function(value)
   return "Cancelled Reference Number Delta: "..value
 end
 
 -- Dissect: Cancelled Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cancelled_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cancelled_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cancelled_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.cancelled_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Number Of Reference Number Deltas
+nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas = {}
+
 -- Size: Number Of Reference Number Deltas
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.number_of_reference_number_deltas = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas.size = 2
 
 -- Display: Number Of Reference Number Deltas
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.number_of_reference_number_deltas = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas.display = function(value)
   return "Number Of Reference Number Deltas: "..value
 end
 
 -- Dissect: Number Of Reference Number Deltas
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.number_of_reference_number_deltas = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.number_of_reference_number_deltas
+nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.number_of_reference_number_deltas(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.number_of_reference_number_deltas, range, value, display)
 
   return offset + length, value
 end
 
+-- Block Delete Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message = {}
+
 -- Calculate size of: Block Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.block_delete_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.number_of_reference_number_deltas
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas.size
 
   -- Calculate field size from count
   local cancelled_reference_number_delta_count = buffer(offset + index - 2, 2):uint()
@@ -1076,360 +1145,396 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.block_delete_message = function
 end
 
 -- Display: Block Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.block_delete_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Block Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.block_delete_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Number Of Reference Number Deltas: 2 Byte Unsigned Fixed Width Integer
-  index, number_of_reference_number_deltas = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.number_of_reference_number_deltas(buffer, index, packet, parent)
+  index, number_of_reference_number_deltas = nasdaq_phlxoptions_marketdepth_itch_v1_5.number_of_reference_number_deltas.dissect(buffer, index, packet, parent)
 
   -- Repeating: Cancelled Reference Number Delta
   for cancelled_reference_number_delta_index = 1, number_of_reference_number_deltas do
-    index, cancelled_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cancelled_reference_number_delta(buffer, index, packet, parent, cancelled_reference_number_delta_index)
+    index, cancelled_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_reference_number_delta.dissect(buffer, index, packet, parent, cancelled_reference_number_delta_index)
   end
 
   return index
 end
 
 -- Dissect: Block Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.block_delete_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.block_delete_message then
-    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.block_delete_message(buffer, offset)
+    local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.block_delete_message(buffer, packet, parent)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.display(buffer, packet, parent)
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.block_delete_message, range, display)
   end
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.block_delete_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.fields(buffer, offset, packet, parent)
 end
 
+-- Ask Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta = {}
+
 -- Size: Ask Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size = 4
 
 -- Display: Ask Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.display = function(value)
   return "Ask Reference Number Delta: "..value
 end
 
 -- Dissect: Ask Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.ask_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Bid Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta = {}
+
 -- Size: Bid Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size = 4
 
 -- Display: Bid Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.display = function(value)
   return "Bid Reference Number Delta: "..value
 end
 
 -- Dissect: Bid Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.bid_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Quote Delete Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message = {}
+
 -- Calculate size of: Quote Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_delete_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
 
   return index
 end
 
 -- Display: Quote Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_delete_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Quote Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_reference_number_delta(buffer, index, packet, parent)
+  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_reference_number_delta(buffer, index, packet, parent)
+  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.dissect = function(buffer, offset, packet, parent)
   if show.quote_delete_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_delete_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_delete_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Ask Size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size = {}
+
 -- Size: Ask Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_size = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size = 4
 
 -- Display: Ask Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask_size = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.display = function(value)
   return "Ask Size: "..value
 end
 
 -- Dissect: Ask Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_size = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask_size(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Ask
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask = {}
+
 -- Size: Ask
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size = 4
 
 -- Display: Ask
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.display = function(value)
   return "Ask: "..value
 end
 
 -- Dissect: Ask
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.ask, range, value, display)
 
   return offset + length, value
 end
 
+-- Bid Size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size = {}
+
 -- Size: Bid Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_size = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size = 4
 
 -- Display: Bid Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid_size = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.display = function(value)
   return "Bid Size: "..value
 end
 
 -- Dissect: Bid Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_size = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid_size(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Bid
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid = {}
+
 -- Size: Bid
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size = 4
 
 -- Display: Bid
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.display = function(value)
   return "Bid: "..value
 end
 
 -- Dissect: Bid
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.bid, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Ask Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta = {}
+
 -- Size: Original Ask Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_ask_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size = 4
 
 -- Display: Original Ask Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.original_ask_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.display = function(value)
   return "Original Ask Reference Number Delta: "..value
 end
 
 -- Dissect: Original Ask Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_ask_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_ask_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.original_ask_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.original_ask_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Bid Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta = {}
+
 -- Size: Original Bid Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_bid_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size = 4
 
 -- Display: Original Bid Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.original_bid_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.display = function(value)
   return "Original Bid Reference Number Delta: "..value
 end
 
 -- Dissect: Original Bid Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_bid_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_bid_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.original_bid_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.original_bid_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Quote Replace Long Form Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message = {}
+
 -- Calculate size of: Quote Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_long_form_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_bid_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_ask_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size
 
   return index
 end
 
 -- Display: Quote Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_long_form_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Quote Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_bid_reference_number_delta(buffer, index, packet, parent)
+  index, original_bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_reference_number_delta(buffer, index, packet, parent)
+  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Original Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_ask_reference_number_delta(buffer, index, packet, parent)
+  index, original_ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_reference_number_delta(buffer, index, packet, parent)
+  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Bid: 4 Byte Unsigned Fixed Width Integer
-  index, bid = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid(buffer, index, packet, parent)
+  index, bid = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.dissect(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask: 4 Byte Unsigned Fixed Width Integer
-  index, ask = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask(buffer, index, packet, parent)
+  index, ask = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.dissect(buffer, index, packet, parent)
 
   -- Ask Size: 4 Byte Unsigned Fixed Width Integer
-  index, ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_size(buffer, index, packet, parent)
+  index, ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.dissect = function(buffer, offset, packet, parent)
   if show.quote_replace_long_form_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_replace_long_form_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_long_form_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Short Ask Size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size = {}
+
 -- Size: Short Ask Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_ask_size = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size = 2
 
 -- Display: Short Ask Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_ask_size = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.display = function(value)
   return "Short Ask Size: "..value
 end
 
 -- Dissect: Short Ask Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_ask_size = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_ask_size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_ask_size(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.short_ask_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Ask Price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price = {}
+
 -- Size: Ask Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_price = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size = 2
 
 -- Display: Ask Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask_price = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.display = function(value)
   return "Ask Price: "..value
 end
 
@@ -1439,43 +1544,49 @@ translate.ask_price = function(raw)
 end
 
 -- Dissect: Ask Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size
   local range = buffer(offset, length)
   local raw = range:int()
   local value = translate.ask_price(raw)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.ask_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Short Bid Size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size = {}
+
 -- Size: Short Bid Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_bid_size = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size = 2
 
 -- Display: Short Bid Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_bid_size = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.display = function(value)
   return "Short Bid Size: "..value
 end
 
 -- Dissect: Short Bid Size
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_bid_size = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_bid_size
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_bid_size(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.short_bid_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Bid Price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price = {}
+
 -- Size: Bid Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_price = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size = 2
 
 -- Display: Bid Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid_price = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.display = function(value)
   return "Bid Price: "..value
 end
 
@@ -1485,105 +1596,111 @@ translate.bid_price = function(raw)
 end
 
 -- Dissect: Bid Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size
   local range = buffer(offset, length)
   local raw = range:int()
   local value = translate.bid_price(raw)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.bid_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Quote Replace Short Form Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message = {}
+
 -- Calculate size of: Quote Replace Short Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_short_form_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_bid_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_ask_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_bid_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_ask_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size
 
   return index
 end
 
 -- Display: Quote Replace Short Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_short_form_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Quote Replace Short Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_bid_reference_number_delta(buffer, index, packet, parent)
+  index, original_bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_reference_number_delta(buffer, index, packet, parent)
+  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Original Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_ask_reference_number_delta(buffer, index, packet, parent)
+  index, original_ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_reference_number_delta(buffer, index, packet, parent)
+  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Bid Price: 2 Byte Signed Fixed Width Integer
-  index, bid_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.dissect(buffer, index, packet, parent)
 
   -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index, short_bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_bid_size(buffer, index, packet, parent)
+  index, short_bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price: 2 Byte Signed Fixed Width Integer
-  index, ask_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.dissect(buffer, index, packet, parent)
 
   -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
-  index, short_ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_ask_size(buffer, index, packet, parent)
+  index, short_ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Replace Short Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.dissect = function(buffer, offset, packet, parent)
   if show.quote_replace_short_form_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.quote_replace_short_form_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.quote_replace_short_form_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Change Reason
+nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason = {}
+
 -- Size: Change Reason
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.change_reason = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.size = 1
 
 -- Display: Change Reason
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.change_reason = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.display = function(value)
   if value == "U" then
     return "Change Reason: User (U)"
   end
@@ -1601,298 +1718,325 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.change_reason = function(value)
 end
 
 -- Dissect: Change Reason
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.change_reason = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.change_reason
+nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.change_reason(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.change_reason, range, value, display)
 
   return offset + length, value
 end
 
+-- Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta = {}
+
 -- Size: Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size = 4
 
 -- Display: Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.display = function(value)
   return "Reference Number Delta: "..value
 end
 
 -- Dissect: Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Single Side Update Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message = {}
+
 -- Calculate size of: Single Side Update Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_update_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.change_reason
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
   return index
 end
 
 -- Display: Single Side Update Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_update_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Update Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reference_number_delta(buffer, index, packet, parent)
+  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Change Reason: 1 Byte Ascii String Enum with 4 values
-  index, change_reason = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.change_reason(buffer, index, packet, parent)
+  index, change_reason = nasdaq_phlxoptions_marketdepth_itch_v1_5.change_reason.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Update Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.dissect = function(buffer, offset, packet, parent)
   if show.single_side_update_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_update_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_update_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Single Side Delete Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message = {}
+
 -- Calculate size of: Single Side Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_delete_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
 
   return index
 end
 
 -- Display: Single Side Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_delete_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reference_number_delta(buffer, index, packet, parent)
+  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Delete Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.dissect = function(buffer, offset, packet, parent)
   if show.single_side_delete_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_delete_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_delete_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Id
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id = {}
+
 -- Size: Order Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_id = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size = 4
 
 -- Display: Order Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_id = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.display = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_id = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_id
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- New Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta = {}
+
 -- Size: New Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.new_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size = 4
 
 -- Display: New Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.new_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.display = function(value)
   return "New Reference Number Delta: "..value
 end
 
 -- Dissect: New Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.new_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.new_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.new_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.new_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta = {}
+
 -- Size: Original Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size = 4
 
 -- Display: Original Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.original_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.display = function(value)
   return "Original Reference Number Delta: "..value
 end
 
 -- Dissect: Original Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.original_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.original_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Single Side Replace Long Form Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message = {}
+
 -- Calculate size of: Single Side Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_long_form_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.new_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
   return index
 end
 
 -- Display: Single Side Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_long_form_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_reference_number_delta(buffer, index, packet, parent)
+  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.new_reference_number_delta(buffer, index, packet, parent)
+  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Replace Long Form Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.dissect = function(buffer, offset, packet, parent)
   if show.single_side_replace_long_form_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_long_form_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_long_form_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Short Volume
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume = {}
+
 -- Size: Short Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_volume = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size = 2
 
 -- Display: Short Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_volume = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.display = function(value)
   return "Short Volume: "..value
 end
 
 -- Dissect: Short Volume
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_volume = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_volume
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_volume(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.short_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Short Price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price = {}
+
 -- Size: Short Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_price = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size = 2
 
 -- Display: Short Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_price = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.display = function(value)
   return "Short Price: "..value
 end
 
@@ -1902,286 +2046,304 @@ translate.short_price = function(raw)
 end
 
 -- Dissect: Short Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size
   local range = buffer(offset, length)
   local raw = range:int()
   local value = translate.short_price(raw)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.short_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.short_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Replace Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form = {}
+
 -- Calculate size of: Order Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_replace_message_short_form = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.new_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
   return index
 end
 
 -- Display: Order Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_replace_message_short_form = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_reference_number_delta(buffer, index, packet, parent)
+  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.new_reference_number_delta(buffer, index, packet, parent)
+  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Signed Fixed Width Integer
-  index, short_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_price(buffer, index, packet, parent)
+  index, short_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.dissect(buffer, index, packet, parent)
 
   -- Short Volume: 2 Byte Unsigned Fixed Width Integer
-  index, short_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_volume(buffer, index, packet, parent)
+  index, short_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.dissect(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.dissect = function(buffer, offset, packet, parent)
   if show.order_replace_message_short_form then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.order_replace_message_short_form, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_replace_message_short_form(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Single Side Replace Message Long Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form = {}
+
 -- Calculate size of: Single Side Replace Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_long_form = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.new_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
   return index
 end
 
 -- Display: Single Side Replace Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_long_form = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Replace Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_reference_number_delta(buffer, index, packet, parent)
+  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.new_reference_number_delta(buffer, index, packet, parent)
+  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Replace Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.dissect = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_long_form then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_message_long_form, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_long_form(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Single Side Replace Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form = {}
+
 -- Calculate size of: Single Side Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_short_form = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.original_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.new_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
 
   return index
 end
 
 -- Display: Single Side Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_short_form = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.original_reference_number_delta(buffer, index, packet, parent)
+  index, original_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.new_reference_number_delta(buffer, index, packet, parent)
+  index, new_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Signed Fixed Width Integer
-  index, short_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_price(buffer, index, packet, parent)
+  index, short_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.dissect(buffer, index, packet, parent)
 
   -- Short Volume: 2 Byte Unsigned Fixed Width Integer
-  index, short_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_volume(buffer, index, packet, parent)
+  index, short_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Replace Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.dissect = function(buffer, offset, packet, parent)
   if show.single_side_replace_message_short_form then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_replace_message_short_form, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_replace_message_short_form(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Cancelled Contracts
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts = {}
+
 -- Size: Cancelled Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cancelled_contracts = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.size = 4
 
 -- Display: Cancelled Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cancelled_contracts = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.display = function(value)
   return "Cancelled Contracts: "..value
 end
 
 -- Dissect: Cancelled Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cancelled_contracts = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cancelled_contracts
+nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.cancelled_contracts(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.cancelled_contracts, range, value, display)
 
   return offset + length, value
 end
 
+-- Single Side Cancel Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message = {}
+
 -- Calculate size of: Single Side Cancel Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_cancel_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cancelled_contracts
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.size
 
   return index
 end
 
 -- Display: Single Side Cancel Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_cancel_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Cancel Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reference_number_delta(buffer, index, packet, parent)
+  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Cancelled Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, cancelled_contracts = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cancelled_contracts(buffer, index, packet, parent)
+  index, cancelled_contracts = nasdaq_phlxoptions_marketdepth_itch_v1_5.cancelled_contracts.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Cancel Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.dissect = function(buffer, offset, packet, parent)
   if show.single_side_cancel_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_cancel_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_cancel_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Printable
+nasdaq_phlxoptions_marketdepth_itch_v1_5.printable = {}
+
 -- Size: Printable
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.printable = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.size = 1
 
 -- Display: Printable
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.printable = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.display = function(value)
   if value == "N" then
     return "Printable: Nonprintable (N)"
   end
@@ -2193,330 +2355,348 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.printable = function(value)
 end
 
 -- Dissect: Printable
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.printable = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.printable
+nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.printable(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.printable, range, value, display)
 
   return offset + length, value
 end
 
+-- Single Side Executed With Price Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message = {}
+
 -- Calculate size of: Single Side Executed With Price Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_with_price_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.match_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.printable
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
   return index
 end
 
 -- Display: Single Side Executed With Price Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_with_price_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Executed With Price Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reference_number_delta(buffer, index, packet, parent)
+  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Cross Number: 4 Byte Unsigned Fixed Width Integer
-  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_number(buffer, index, packet, parent)
+  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index, printable = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.printable(buffer, index, packet, parent)
+  index, printable = nasdaq_phlxoptions_marketdepth_itch_v1_5.printable.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Executed With Price Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.dissect = function(buffer, offset, packet, parent)
   if show.single_side_executed_with_price_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_executed_with_price_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_with_price_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Executed Contracts
+nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts = {}
+
 -- Size: Executed Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.executed_contracts = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.size = 4
 
 -- Display: Executed Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.executed_contracts = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.display = function(value)
   return "Executed Contracts: "..value
 end
 
 -- Dissect: Executed Contracts
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.executed_contracts = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.executed_contracts
+nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.executed_contracts(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.executed_contracts, range, value, display)
 
   return offset + length, value
 end
 
+-- Single Side Executed Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message = {}
+
 -- Calculate size of: Single Side Executed Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.executed_contracts
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.cross_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.match_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.size
 
   return index
 end
 
 -- Display: Single Side Executed Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Single Side Executed Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.reference_number_delta(buffer, index, packet, parent)
+  index, reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Executed Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, executed_contracts = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.executed_contracts(buffer, index, packet, parent)
+  index, executed_contracts = nasdaq_phlxoptions_marketdepth_itch_v1_5.executed_contracts.dissect(buffer, index, packet, parent)
 
   -- Cross Number: 4 Byte Unsigned Fixed Width Integer
-  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.cross_number(buffer, index, packet, parent)
+  index, cross_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Single Side Executed Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.dissect = function(buffer, offset, packet, parent)
   if show.single_side_executed_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.single_side_executed_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.single_side_executed_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Add Quote Message Long Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form = {}
+
 -- Calculate size of: Add Quote Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_long_form = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.size
 
   return index
 end
 
 -- Display: Add Quote Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_long_form = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Quote Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_reference_number_delta(buffer, index, packet, parent)
+  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_reference_number_delta(buffer, index, packet, parent)
+  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Bid: 4 Byte Unsigned Fixed Width Integer
-  index, bid = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid(buffer, index, packet, parent)
+  index, bid = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid.dissect(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask: 4 Byte Unsigned Fixed Width Integer
-  index, ask = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask(buffer, index, packet, parent)
+  index, ask = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask.dissect(buffer, index, packet, parent)
 
   -- Ask Size: 4 Byte Unsigned Fixed Width Integer
-  index, ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_size(buffer, index, packet, parent)
+  index, ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Quote Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.dissect = function(buffer, offset, packet, parent)
   if show.add_quote_message_long_form then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_quote_message_long_form, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_long_form(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Add Quote Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form = {}
+
 -- Calculate size of: Add Quote Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_short_form = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.bid_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_bid_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.ask_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_ask_size
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.size
 
   return index
 end
 
 -- Display: Add Quote Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_short_form = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Quote Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_reference_number_delta(buffer, index, packet, parent)
+  index, bid_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_reference_number_delta(buffer, index, packet, parent)
+  index, ask_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Bid Price: 2 Byte Signed Fixed Width Integer
-  index, bid_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.bid_price.dissect(buffer, index, packet, parent)
 
   -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index, short_bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_bid_size(buffer, index, packet, parent)
+  index, short_bid_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price: 2 Byte Signed Fixed Width Integer
-  index, ask_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.ask_price.dissect(buffer, index, packet, parent)
 
   -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
-  index, short_ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_ask_size(buffer, index, packet, parent)
+  index, short_ask_size = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_ask_size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Quote Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.dissect = function(buffer, offset, packet, parent)
   if show.add_quote_message_short_form then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_quote_message_short_form, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_quote_message_short_form(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Market Side
+nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side = {}
+
 -- Size: Market Side
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.market_side = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size = 1
 
 -- Display: Market Side
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.market_side = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.display = function(value)
   if value == "B" then
     return "Market Side: Buy (B)"
   end
@@ -2540,186 +2720,198 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.market_side = function(value)
 end
 
 -- Dissect: Market Side
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.market_side = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.market_side
+nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.market_side(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.market_side, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Reference Number Delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta = {}
+
 -- Size: Order Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_reference_number_delta = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size = 4
 
 -- Display: Order Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_reference_number_delta = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.display = function(value)
   return "Order Reference Number Delta: "..value
 end
 
 -- Dissect: Order Reference Number Delta
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_reference_number_delta = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_reference_number_delta
+nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.order_reference_number_delta(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.order_reference_number_delta, range, value, display)
 
   return offset + length, value
 end
 
+-- Add Order Message Long Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form = {}
+
 -- Calculate size of: Add Order Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_long_form = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.market_side
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
   return index
 end
 
 -- Display: Add Order Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_long_form = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, order_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_reference_number_delta(buffer, index, packet, parent)
+  index, order_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Market Side: 1 Byte Ascii String Enum with 6 values
-  index, market_side = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.market_side(buffer, index, packet, parent)
+  index, market_side = nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_phlxoptions_marketdepth_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Message Long Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.dissect = function(buffer, offset, packet, parent)
   if show.add_order_message_long_form then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_order_message_long_form, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_long_form(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Add Order Message Short Form
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form = {}
+
 -- Calculate size of: Add Order Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_short_form = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_reference_number_delta
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.market_side
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.short_volume
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.size
 
   return index
 end
 
 -- Display: Add Order Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_short_form = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
-  index, order_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_reference_number_delta(buffer, index, packet, parent)
+  index, order_reference_number_delta = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_reference_number_delta.dissect(buffer, index, packet, parent)
 
   -- Market Side: 1 Byte Ascii String Enum with 6 values
-  index, market_side = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.market_side(buffer, index, packet, parent)
+  index, market_side = nasdaq_phlxoptions_marketdepth_itch_v1_5.market_side.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Signed Fixed Width Integer
-  index, short_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_price(buffer, index, packet, parent)
+  index, short_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_price.dissect(buffer, index, packet, parent)
 
   -- Short Volume: 2 Byte Unsigned Fixed Width Integer
-  index, short_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.short_volume(buffer, index, packet, parent)
+  index, short_volume = nasdaq_phlxoptions_marketdepth_itch_v1_5.short_volume.dissect(buffer, index, packet, parent)
 
   -- Order Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Message Short Form
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.dissect = function(buffer, offset, packet, parent)
   if show.add_order_message_short_form then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.add_order_message_short_form, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.add_order_message_short_form(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Open State
+nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state = {}
+
 -- Size: Open State
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.open_state = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.size = 1
 
 -- Display: Open State
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.open_state = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.display = function(value)
   if value == "Y" then
     return "Open State: Open (Y)"
   end
@@ -2731,74 +2923,80 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.open_state = function(value)
 end
 
 -- Dissect: Open State
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.open_state = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.open_state
+nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.open_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.open_state, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Open Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message = {}
+
 -- Calculate size of: Security Open Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.security_open_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.open_state
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.size
 
   return index
 end
 
 -- Display: Security Open Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_open_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Security Open Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Open State: 1 Byte Ascii String Enum with 2 values
-  index, open_state = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.open_state(buffer, index, packet, parent)
+  index, open_state = nasdaq_phlxoptions_marketdepth_itch_v1_5.open_state.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Security Open Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.dissect = function(buffer, offset, packet, parent)
   if show.security_open_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.security_open_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_open_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Current Trading State
+nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state = {}
+
 -- Size: Current Trading State
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.current_trading_state = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.current_trading_state = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.display = function(value)
   if value == "H" then
     return "Current Trading State: Halt (H)"
   end
@@ -2816,74 +3014,80 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.current_trading_state = functio
 end
 
 -- Dissect: Current Trading State
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.current_trading_state = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.current_trading_state
+nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.current_trading_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Action Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message = {}
+
 -- Calculate size of: Trading Action Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.trading_action_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.current_trading_state
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.size
 
   return index
 end
 
 -- Display: Trading Action Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trading_action_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trading Action Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Current Trading State: 1 Byte Ascii String Enum with 4 values
-  index, current_trading_state = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.current_trading_state(buffer, index, packet, parent)
+  index, current_trading_state = nasdaq_phlxoptions_marketdepth_itch_v1_5.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Action Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.dissect = function(buffer, offset, packet, parent)
   if show.trading_action_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.trading_action_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.trading_action_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Mpv
+nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv = {}
+
 -- Size: Mpv
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.mpv = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.mpv = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.display = function(value)
   if value == "E" then
     return "Mpv: Everywhere (E)"
   end
@@ -2898,22 +3102,25 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.mpv = function(value)
 end
 
 -- Dissect: Mpv
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.mpv = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.mpv
+nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.mpv(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.mpv, range, value, display)
 
   return offset + length, value
 end
 
+-- Tradable
+nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable = {}
+
 -- Size: Tradable
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.tradable = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.tradable = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.display = function(value)
   if value == "Y" then
     return "Tradable: Tradable (Y)"
   end
@@ -2925,22 +3132,25 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.tradable = function(value)
 end
 
 -- Dissect: Tradable
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.tradable = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.tradable
+nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.tradable(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.tradable, range, value, display)
 
   return offset + length, value
 end
 
+-- Options Closing Type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type = {}
+
 -- Size: Options Closing Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.options_closing_type = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.size = 1
 
 -- Display: Options Closing Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_closing_type = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.display = function(value)
   if value == "N" then
     return "Options Closing Type: Normal (N)"
   end
@@ -2955,62 +3165,71 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_closing_type = function
 end
 
 -- Dissect: Options Closing Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_closing_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.options_closing_type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.options_closing_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.options_closing_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Underlying Symbol
+nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol = {}
+
 -- Size: Underlying Symbol
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.underlying_symbol = 13
+nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.size = 13
 
 -- Display: Underlying Symbol
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.underlying_symbol = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.display = function(value)
   return "Underlying Symbol: "..value
 end
 
 -- Dissect: Underlying Symbol
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.underlying_symbol
+nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.underlying_symbol(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Source
+nasdaq_phlxoptions_marketdepth_itch_v1_5.source = {}
+
 -- Size: Source
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.source = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.source.size = 1
 
 -- Display: Source
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.source = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.source.display = function(value)
   return "Source: "..value
 end
 
 -- Dissect: Source
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.source = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.source
+nasdaq_phlxoptions_marketdepth_itch_v1_5.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.source.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.source(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.source, range, value, display)
 
   return offset + length, value
 end
 
+-- Option Type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type = {}
+
 -- Size: Option Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_type = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_type = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.display = function(value)
   if value == "C" then
     return "Option Type: Call (C)"
   end
@@ -3022,22 +3241,25 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_type = function(value)
 end
 
 -- Dissect: Option Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.option_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Explicit Strike Price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price = {}
+
 -- Size: Explicit Strike Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.explicit_strike_price = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.size = 4
 
 -- Display: Explicit Strike Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.explicit_strike_price = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.display = function(value)
   return "Explicit Strike Price: "..value
 end
 
@@ -3047,654 +3269,693 @@ translate.explicit_strike_price = function(raw)
 end
 
 -- Dissect: Explicit Strike Price
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.explicit_strike_price
+nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.size
   local range = buffer(offset, length)
   local raw = range:int()
   local value = translate.explicit_strike_price(raw)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.explicit_strike_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.explicit_strike_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Expiration Date
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date = {}
+
 -- Size: Expiration Date
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_date = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.size = 1
 
 -- Display: Expiration Date
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.expiration_date = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.display = function(value)
   return "Expiration Date: "..value
 end
 
 -- Dissect: Expiration Date
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.expiration_date = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_date
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.expiration_date(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.expiration_date, range, value, display)
 
   return offset + length, value
 end
 
+-- Expiration Month
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month = {}
+
 -- Size: Expiration Month
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_month = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.size = 1
 
 -- Display: Expiration Month
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.expiration_month = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.display = function(value)
   return "Expiration Month: "..value
 end
 
 -- Dissect: Expiration Month
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.expiration_month = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_month
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.expiration_month(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.expiration_month, range, value, display)
 
   return offset + length, value
 end
 
+-- Expiration Year
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year = {}
+
 -- Size: Expiration Year
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_year = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.size = 1
 
 -- Display: Expiration Year
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.expiration_year = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.display = function(value)
   return "Expiration Year: "..value
 end
 
 -- Dissect: Expiration Year
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.expiration_year = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_year
+nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.expiration_year(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Symbol
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol = {}
+
 -- Size: Security Symbol
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.security_symbol = 6
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.size = 6
 
 -- Display: Security Symbol
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_symbol = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.display = function(value)
   return "Security Symbol: "..value
 end
 
 -- Dissect: Security Symbol
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_symbol = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.security_symbol
+nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.security_symbol(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.security_symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Option Directory Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message = {}
+
 -- Calculate size of: Option Directory Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_directory_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_id
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.security_symbol
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_year
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_month
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.expiration_date
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.explicit_strike_price
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_type
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.source
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.source.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.underlying_symbol
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.options_closing_type
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.tradable
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.mpv
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.size
 
   return index
 end
 
 -- Display: Option Directory Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_directory_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Option Directory Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
   -- Security Symbol: 6 Byte Ascii String
-  index, security_symbol = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = nasdaq_phlxoptions_marketdepth_itch_v1_5.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_year.dissect(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_month = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_month.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_date = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.expiration_date(buffer, index, packet, parent)
+  index, expiration_date = nasdaq_phlxoptions_marketdepth_itch_v1_5.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
-  index, explicit_strike_price = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = nasdaq_phlxoptions_marketdepth_itch_v1_5.explicit_strike_price.dissect(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values
-  index, option_type = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_type(buffer, index, packet, parent)
+  index, option_type = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_type.dissect(buffer, index, packet, parent)
 
   -- Source: 1 Byte Unsigned Fixed Width Integer
-  index, source = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.source(buffer, index, packet, parent)
+  index, source = nasdaq_phlxoptions_marketdepth_itch_v1_5.source.dissect(buffer, index, packet, parent)
 
   -- Underlying Symbol: 13 Byte Ascii String
-  index, underlying_symbol = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = nasdaq_phlxoptions_marketdepth_itch_v1_5.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Options Closing Type: 1 Byte Ascii String Enum with 3 values
-  index, options_closing_type = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_closing_type(buffer, index, packet, parent)
+  index, options_closing_type = nasdaq_phlxoptions_marketdepth_itch_v1_5.options_closing_type.dissect(buffer, index, packet, parent)
 
   -- Tradable: 1 Byte Ascii String Enum with 2 values
-  index, tradable = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.tradable(buffer, index, packet, parent)
+  index, tradable = nasdaq_phlxoptions_marketdepth_itch_v1_5.tradable.dissect(buffer, index, packet, parent)
 
   -- Mpv: 1 Byte Ascii String Enum with 3 values
-  index, mpv = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.mpv(buffer, index, packet, parent)
+  index, mpv = nasdaq_phlxoptions_marketdepth_itch_v1_5.mpv.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Option Directory Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.dissect = function(buffer, offset, packet, parent)
   if show.option_directory_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.option_directory_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.option_directory_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Base Reference Number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number = {}
+
 -- Size: Base Reference Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.base_reference_number = 8
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.size = 8
 
 -- Display: Base Reference Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_number = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.display = function(value)
   return "Base Reference Number: "..value
 end
 
 -- Dissect: Base Reference Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.base_reference_number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.base_reference_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Base Reference Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message = {}
+
 -- Calculate size of: Base Reference Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.base_reference_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.base_reference_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.size
 
   return index
 end
 
 -- Display: Base Reference Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Base Reference Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Base Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, base_reference_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_number(buffer, index, packet, parent)
+  index, base_reference_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Base Reference Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.dissect = function(buffer, offset, packet, parent)
   if show.base_reference_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.base_reference_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.base_reference_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Event Code
+nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code = {}
+
 -- Size: Event Code
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.event_code = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.event_code = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.display = function(value)
   return "Event Code: "..value
 end
 
 -- Dissect: Event Code
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.event_code = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.event_code
+nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.event_code(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.event_code, range, value, display)
 
   return offset + length, value
 end
 
+-- System Event Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message = {}
+
 -- Calculate size of: System Event Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.system_event_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.timestamp
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.event_code
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.size
 
   return index
 end
 
 -- Display: System Event Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.system_event_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: System Event Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_phlxoptions_marketdepth_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String
-  index, event_code = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.event_code(buffer, index, packet, parent)
+  index, event_code = nasdaq_phlxoptions_marketdepth_itch_v1_5.event_code.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Event Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.dissect = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.system_event_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Second
+nasdaq_phlxoptions_marketdepth_itch_v1_5.second = {}
+
 -- Size: Second
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.second = 4
+nasdaq_phlxoptions_marketdepth_itch_v1_5.second.size = 4
 
 -- Display: Second
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.second = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.second.display = function(value)
   return "Second: "..value
 end
 
 -- Dissect: Second
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.second = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.second
+nasdaq_phlxoptions_marketdepth_itch_v1_5.second.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.second(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.second.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.second, range, value, display)
 
   return offset + length, value
 end
 
+-- Seconds Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message = {}
+
 -- Calculate size of: Seconds Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.seconds_message = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.second
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.second.size
 
   return index
 end
 
 -- Display: Seconds Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.seconds_message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Seconds Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Second: 4 Byte Unsigned Fixed Width Integer
-  index, second = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.second(buffer, index, packet, parent)
+  index, second = nasdaq_phlxoptions_marketdepth_itch_v1_5.second.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Seconds Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.dissect = function(buffer, offset, packet, parent)
   if show.seconds_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.seconds_message, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.seconds_message(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Payload
+nasdaq_phlxoptions_marketdepth_itch_v1_5.payload = {}
+
 -- Calculate runtime size of: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.payload = function(buffer, offset, message_type)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.size = function(buffer, offset, message_type)
   -- Size of Seconds Message
   if message_type == "T" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.seconds_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.size(buffer, offset)
   end
   -- Size of System Event Message
   if message_type == "S" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.system_event_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.size(buffer, offset)
   end
   -- Size of Base Reference Message
   if message_type == "L" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.base_reference_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.size(buffer, offset)
   end
   -- Size of Option Directory Message
   if message_type == "R" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.option_directory_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.size(buffer, offset)
   end
   -- Size of Trading Action Message
   if message_type == "H" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.trading_action_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.size(buffer, offset)
   end
   -- Size of Security Open Message
   if message_type == "O" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.security_open_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.size(buffer, offset)
   end
   -- Size of Add Order Message Short Form
   if message_type == "a" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_short_form(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.size(buffer, offset)
   end
   -- Size of Add Order Message Long Form
   if message_type == "A" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_order_message_long_form(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.size(buffer, offset)
   end
   -- Size of Add Quote Message Short Form
   if message_type == "j" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_short_form(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.size(buffer, offset)
   end
   -- Size of Add Quote Message Long Form
   if message_type == "J" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.add_quote_message_long_form(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.size(buffer, offset)
   end
   -- Size of Single Side Executed Message
   if message_type == "E" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.size(buffer, offset)
   end
   -- Size of Single Side Executed With Price Message
   if message_type == "C" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_executed_with_price_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.size(buffer, offset)
   end
   -- Size of Single Side Cancel Message
   if message_type == "X" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_cancel_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.size(buffer, offset)
   end
   -- Size of Single Side Replace Message Short Form
   if message_type == "u" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_short_form(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.size(buffer, offset)
   end
   -- Size of Single Side Replace Message Long Form
   if message_type == "U" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_message_long_form(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.size(buffer, offset)
   end
   -- Size of Order Replace Message Short Form
   if message_type == "v" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.order_replace_message_short_form(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.size(buffer, offset)
   end
   -- Size of Single Side Replace Long Form Message
   if message_type == "V" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_replace_long_form_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.size(buffer, offset)
   end
   -- Size of Single Side Delete Message
   if message_type == "D" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_delete_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.size(buffer, offset)
   end
   -- Size of Single Side Update Message
   if message_type == "G" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.single_side_update_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.size(buffer, offset)
   end
   -- Size of Quote Replace Short Form Message
   if message_type == "k" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_short_form_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.size(buffer, offset)
   end
   -- Size of Quote Replace Long Form Message
   if message_type == "K" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_replace_long_form_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.size(buffer, offset)
   end
   -- Size of Quote Delete Message
   if message_type == "Y" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.quote_delete_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.size(buffer, offset)
   end
   -- Size of Block Delete Message
   if message_type == "Z" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.block_delete_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.size(buffer, offset)
   end
   -- Size of Non Auction Options Trade Message
   if message_type == "P" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.non_auction_options_trade_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.size(buffer, offset)
   end
   -- Size of Options Cross Trade Message
   if message_type == "Q" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.options_cross_trade_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.size(buffer, offset)
   end
   -- Size of Broken Trade Order Execution Message
   if message_type == "B" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.broken_trade_order_execution_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.size(buffer, offset)
   end
   -- Size of Auction Notification Message
   if message_type == "I" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.auction_notification_message(buffer, offset)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.payload = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Seconds Message
   if message_type == "T" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.seconds_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.seconds_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
   if message_type == "S" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.system_event_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.system_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Base Reference Message
   if message_type == "L" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.base_reference_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.base_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Option Directory Message
   if message_type == "R" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.option_directory_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.option_directory_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Action Message
   if message_type == "H" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.trading_action_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.trading_action_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Security Open Message
   if message_type == "O" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.security_open_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.security_open_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message Short Form
   if message_type == "a" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_short_form(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_short_form.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message Long Form
   if message_type == "A" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_order_message_long_form(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_order_message_long_form.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Quote Message Short Form
   if message_type == "j" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_short_form(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_short_form.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Quote Message Long Form
   if message_type == "J" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.add_quote_message_long_form(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.add_quote_message_long_form.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Executed Message
   if message_type == "E" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Executed With Price Message
   if message_type == "C" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_executed_with_price_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_executed_with_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Cancel Message
   if message_type == "X" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_cancel_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_cancel_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Replace Message Short Form
   if message_type == "u" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_short_form(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_short_form.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Replace Message Long Form
   if message_type == "U" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_message_long_form(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_message_long_form.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Replace Message Short Form
   if message_type == "v" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.order_replace_message_short_form(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.order_replace_message_short_form.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Replace Long Form Message
   if message_type == "V" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_replace_long_form_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_replace_long_form_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Delete Message
   if message_type == "D" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_delete_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_delete_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Single Side Update Message
   if message_type == "G" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.single_side_update_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.single_side_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Replace Short Form Message
   if message_type == "k" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_short_form_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_short_form_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Replace Long Form Message
   if message_type == "K" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_replace_long_form_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_replace_long_form_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Delete Message
   if message_type == "Y" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.quote_delete_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.quote_delete_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Block Delete Message
   if message_type == "Z" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.block_delete_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.block_delete_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Non Auction Options Trade Message
   if message_type == "P" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.non_auction_options_trade_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.non_auction_options_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Cross Trade Message
   if message_type == "Q" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.options_cross_trade_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.options_cross_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Order Execution Message
   if message_type == "B" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.broken_trade_order_execution_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.broken_trade_order_execution_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Auction Notification Message
   if message_type == "I" then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.auction_notification_message(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.auction_notification_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.payload = function(buffer, offset, packet, parent, message_type)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.payload(buffer, offset, message_type)
+  local size = nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.payload(buffer, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.display(buffer, packet, parent)
   local element = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.payload, range, display)
 
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Message Type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type = {}
+
 -- Size: Message Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_type = 1
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_type = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.display = function(value)
   if value == "T" then
     return "Message Type: Seconds Message (T)"
   end
@@ -3781,91 +4042,100 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_type
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Length
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length = {}
+
 -- Size: Message Length
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_length = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.size = 2
 
 -- Display: Message Length
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_length = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.display = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_length = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_length
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_length(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header = {}
+
 -- Calculate size of: Message Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_header = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_length
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_type
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_header = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_length(buffer, index, packet, parent)
+  index, message_length = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 27 values
-  index, message_type = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_header(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message = {}
+
 -- Display: Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -3875,83 +4145,92 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_fields = function(buffe
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 27 branches
-  index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.payload(buffer, index, packet, parent, message_type)
+  index = nasdaq_phlxoptions_marketdepth_itch_v1_5.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message, buffer(offset, 0))
-    local current = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = nasdaq_phlxoptions_marketdepth_itch_v1_5.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message(buffer, packet, parent)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    nasdaq_phlxoptions_marketdepth_itch_v1_5.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Message Count
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count = {}
+
 -- Size: Message Count
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_count = 2
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.size = 2
 
 -- Display: Message Count
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_count = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_count
+nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.message_count(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number = {}
+
 -- Size: Sequence Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.sequence_number = 8
+nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.size = 8
 
 -- Display: Sequence Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.sequence_number = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.sequence_number
+nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Session
+nasdaq_phlxoptions_marketdepth_itch_v1_5.session = {}
+
 -- Size: Session
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.session = 10
+nasdaq_phlxoptions_marketdepth_itch_v1_5.session.size = 10
 
 -- Display: Session
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.session = function(value)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.session.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Session: No Value"
@@ -3961,8 +4240,8 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_display.session = function(value)
 end
 
 -- Dissect: Session
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.session = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.session
+nasdaq_phlxoptions_marketdepth_itch_v1_5.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_marketdepth_itch_v1_5.session.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3976,71 +4255,77 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.session = function(buffer, offs
     value = range:string()
   end
 
-  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.session(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.session, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header = {}
+
 -- Calculate size of: Packet Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.packet_header = function(buffer, offset)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.session
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.session.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.sequence_number
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.size
 
-  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5_size_of.message_count
+  index = index + nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.size
 
   return index
 end
 
 -- Display: Packet Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_display.packet_header = function(packet, parent, length)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index, session = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.session(buffer, index, packet, parent)
+  index, session = nasdaq_phlxoptions_marketdepth_itch_v1_5.session.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = nasdaq_phlxoptions_marketdepth_itch_v1_5.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
-  index, message_count = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = nasdaq_phlxoptions_marketdepth_itch_v1_5.message_count.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header = function(buffer, offset, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5_display.packet_header(packet, parent, length)
+    local display = nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet = {}
+
 -- Dissect Packet
-nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet = function(buffer, packet, parent)
+nasdaq_phlxoptions_marketdepth_itch_v1_5.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index, packet_header = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nasdaq_phlxoptions_marketdepth_itch_v1_5.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):uint()
@@ -4055,7 +4340,7 @@ nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet = function(buffer, packe
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
+    index, message = nasdaq_phlxoptions_marketdepth_itch_v1_5.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
@@ -4078,7 +4363,7 @@ function omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.dissector(buffer, packet, 
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_phlxoptions_marketdepth_itch_v1_5, buffer(), omi_nasdaq_phlxoptions_marketdepth_itch_v1_5.description, "("..buffer:len().." Bytes)")
-  return nasdaq_phlxoptions_marketdepth_itch_v1_5_dissect.packet(buffer, packet, protocol)
+  return nasdaq_phlxoptions_marketdepth_itch_v1_5.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

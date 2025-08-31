@@ -7,12 +7,12 @@
 -- Eurex Derivatives Eti T7 1.0 Protocol
 local omi_eurex_derivatives_eti_t7_v1_0 = Proto("Eurex.Derivatives.Eti.T7.v1.0.Lua", "Eurex Derivatives Eti T7 1.0")
 
+-- Protocol table
+local eurex_derivatives_eti_t7_v1_0 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local eurex_derivatives_eti_t7_v1_0_display = {}
-local eurex_derivatives_eti_t7_v1_0_dissect = {}
-local eurex_derivatives_eti_t7_v1_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -70,120 +70,135 @@ end
 -- Dissect Eurex Derivatives Eti T7 1.0
 -----------------------------------------------------------------------
 
+-- Payload
+eurex_derivatives_eti_t7_v1_0.payload = {}
+
 -- Display: Payload
-eurex_derivatives_eti_t7_v1_0_display.payload = function(value)
+eurex_derivatives_eti_t7_v1_0.payload.display = function(value)
   return "Payload: "..value
 end
 
 -- Dissect runtime sized field: Payload
-eurex_derivatives_eti_t7_v1_0_dissect.payload = function(buffer, offset, packet, parent, size)
+eurex_derivatives_eti_t7_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eti_t7_v1_0_display.payload(value, buffer, offset, packet, parent, size)
+  local display = eurex_derivatives_eti_t7_v1_0.payload.display(value, buffer, offset, packet, parent, size)
 
   parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.payload, range, value, display)
 
   return offset + size
 end
 
+-- Template Id
+eurex_derivatives_eti_t7_v1_0.template_id = {}
+
 -- Size: Template Id
-eurex_derivatives_eti_t7_v1_0_size_of.template_id = 2
+eurex_derivatives_eti_t7_v1_0.template_id.size = 2
 
 -- Display: Template Id
-eurex_derivatives_eti_t7_v1_0_display.template_id = function(value)
+eurex_derivatives_eti_t7_v1_0.template_id.display = function(value)
   return "Template Id: "..value
 end
 
 -- Dissect: Template Id
-eurex_derivatives_eti_t7_v1_0_dissect.template_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eti_t7_v1_0_size_of.template_id
+eurex_derivatives_eti_t7_v1_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eti_t7_v1_0.template_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_eti_t7_v1_0_display.template_id(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v1_0.template_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.template_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Body Len
+eurex_derivatives_eti_t7_v1_0.body_len = {}
+
 -- Size: Body Len
-eurex_derivatives_eti_t7_v1_0_size_of.body_len = 4
+eurex_derivatives_eti_t7_v1_0.body_len.size = 4
 
 -- Display: Body Len
-eurex_derivatives_eti_t7_v1_0_display.body_len = function(value)
+eurex_derivatives_eti_t7_v1_0.body_len.display = function(value)
   return "Body Len: "..value
 end
 
 -- Dissect: Body Len
-eurex_derivatives_eti_t7_v1_0_dissect.body_len = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eti_t7_v1_0_size_of.body_len
+eurex_derivatives_eti_t7_v1_0.body_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eti_t7_v1_0.body_len.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_eti_t7_v1_0_display.body_len(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eti_t7_v1_0.body_len.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.body_len, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+eurex_derivatives_eti_t7_v1_0.message_header = {}
+
 -- Calculate size of: Message Header
-eurex_derivatives_eti_t7_v1_0_size_of.message_header = function(buffer, offset)
+eurex_derivatives_eti_t7_v1_0.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + eurex_derivatives_eti_t7_v1_0_size_of.body_len
+  index = index + eurex_derivatives_eti_t7_v1_0.body_len.size
 
-  index = index + eurex_derivatives_eti_t7_v1_0_size_of.template_id
+  index = index + eurex_derivatives_eti_t7_v1_0.template_id.size
 
   return index
 end
 
 -- Display: Message Header
-eurex_derivatives_eti_t7_v1_0_display.message_header = function(packet, parent, length)
+eurex_derivatives_eti_t7_v1_0.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v1_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Body Len: 4 Byte Unsigned Fixed Width Integer
-  index, body_len = eurex_derivatives_eti_t7_v1_0_dissect.body_len(buffer, index, packet, parent)
+  index, body_len = eurex_derivatives_eti_t7_v1_0.body_len.dissect(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer
-  index, template_id = eurex_derivatives_eti_t7_v1_0_dissect.template_id(buffer, index, packet, parent)
+  index, template_id = eurex_derivatives_eti_t7_v1_0.template_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-eurex_derivatives_eti_t7_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
+eurex_derivatives_eti_t7_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.message_header, buffer(offset, 0))
-    local index = eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = eurex_derivatives_eti_t7_v1_0.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_derivatives_eti_t7_v1_0_display.message_header(packet, parent, length)
+    local display = eurex_derivatives_eti_t7_v1_0.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_derivatives_eti_t7_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return eurex_derivatives_eti_t7_v1_0.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+eurex_derivatives_eti_t7_v1_0.message = {}
+
 -- Display: Message
-eurex_derivatives_eti_t7_v1_0_display.message = function(packet, parent, length)
+eurex_derivatives_eti_t7_v1_0.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-eurex_derivatives_eti_t7_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+eurex_derivatives_eti_t7_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = eurex_derivatives_eti_t7_v1_0_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = eurex_derivatives_eti_t7_v1_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Body Len
   local body_len = buffer(index - 6, 4):le_uint()
@@ -192,27 +207,27 @@ eurex_derivatives_eti_t7_v1_0_dissect.message_fields = function(buffer, offset, 
   local size_of_payload = body_len - 6
 
   -- Payload: 0 Byte
-  index, payload = eurex_derivatives_eti_t7_v1_0_dissect.payload(buffer, index, packet, parent, size_of_payload)
+  index, payload = eurex_derivatives_eti_t7_v1_0.payload.dissect(buffer, index, packet, parent, size_of_payload)
 
   return index
 end
 
 -- Dissect: Message
-eurex_derivatives_eti_t7_v1_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+eurex_derivatives_eti_t7_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.message, buffer(offset, 0))
-    local current = eurex_derivatives_eti_t7_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    local current = eurex_derivatives_eti_t7_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
-    local display = eurex_derivatives_eti_t7_v1_0_display.message(buffer, packet, parent)
+    local display = eurex_derivatives_eti_t7_v1_0.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_derivatives_eti_t7_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+    eurex_derivatives_eti_t7_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
 
     return index
   end
@@ -224,7 +239,7 @@ local message_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < eurex_derivatives_eti_t7_v1_0_size_of.message_header(buffer, index) then
+  if remaining < eurex_derivatives_eti_t7_v1_0.message_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -239,8 +254,11 @@ local message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
+-- Packet
+eurex_derivatives_eti_t7_v1_0.packet = {}
+
 -- Dissect Packet
-eurex_derivatives_eti_t7_v1_0_dissect.packet = function(buffer, packet, parent)
+eurex_derivatives_eti_t7_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Message
@@ -253,7 +271,7 @@ eurex_derivatives_eti_t7_v1_0_dissect.packet = function(buffer, packet, parent)
     local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = eurex_derivatives_eti_t7_v1_0_dissect.message(buffer, index, packet, parent, size_of_message)
+      index = eurex_derivatives_eti_t7_v1_0.message.dissect(buffer, index, packet, parent, size_of_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -283,7 +301,7 @@ function omi_eurex_derivatives_eti_t7_v1_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_eurex_derivatives_eti_t7_v1_0, buffer(), omi_eurex_derivatives_eti_t7_v1_0.description, "("..buffer:len().." Bytes)")
-  return eurex_derivatives_eti_t7_v1_0_dissect.packet(buffer, packet, protocol)
+  return eurex_derivatives_eti_t7_v1_0.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

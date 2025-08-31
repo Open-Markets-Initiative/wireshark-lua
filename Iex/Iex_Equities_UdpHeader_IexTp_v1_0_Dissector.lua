@@ -7,12 +7,12 @@
 -- Iex Equities UdpHeader IexTp 1.0 Protocol
 local omi_iex_equities_udpheader_iextp_v1_0 = Proto("Iex.Equities.UdpHeader.IexTp.v1.0.Lua", "Iex Equities UdpHeader IexTp 1.0")
 
+-- Protocol table
+local iex_equities_udpheader_iextp_v1_0 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local iex_equities_udpheader_iextp_v1_0_display = {}
-local iex_equities_udpheader_iextp_v1_0_dissect = {}
-local iex_equities_udpheader_iextp_v1_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -90,116 +90,131 @@ end
 -- Dissect Iex Equities UdpHeader IexTp 1.0
 -----------------------------------------------------------------------
 
+-- Message Data
+iex_equities_udpheader_iextp_v1_0.message_data = {}
+
 -- Display: Message Data
-iex_equities_udpheader_iextp_v1_0_display.message_data = function(value)
+iex_equities_udpheader_iextp_v1_0.message_data.display = function(value)
   return "Message Data: "..value
 end
 
 -- Dissect runtime sized field: Message Data
-iex_equities_udpheader_iextp_v1_0_dissect.message_data = function(buffer, offset, packet, parent, size)
+iex_equities_udpheader_iextp_v1_0.message_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = iex_equities_udpheader_iextp_v1_0_display.message_data(value, buffer, offset, packet, parent, size)
+  local display = iex_equities_udpheader_iextp_v1_0.message_data.display(value, buffer, offset, packet, parent, size)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_data, range, value, display)
 
   return offset + size
 end
 
+-- Message Type
+iex_equities_udpheader_iextp_v1_0.message_type = {}
+
 -- Size: Message Type
-iex_equities_udpheader_iextp_v1_0_size_of.message_type = 1
+iex_equities_udpheader_iextp_v1_0.message_type.size = 1
 
 -- Display: Message Type
-iex_equities_udpheader_iextp_v1_0_display.message_type = function(value)
+iex_equities_udpheader_iextp_v1_0.message_type.display = function(value)
   return "Message Type: "..value
 end
 
 -- Dissect: Message Type
-iex_equities_udpheader_iextp_v1_0_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.message_type
+iex_equities_udpheader_iextp_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = iex_equities_udpheader_iextp_v1_0_display.message_type(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Length
+iex_equities_udpheader_iextp_v1_0.message_length = {}
+
 -- Size: Message Length
-iex_equities_udpheader_iextp_v1_0_size_of.message_length = 2
+iex_equities_udpheader_iextp_v1_0.message_length.size = 2
 
 -- Display: Message Length
-iex_equities_udpheader_iextp_v1_0_display.message_length = function(value)
+iex_equities_udpheader_iextp_v1_0.message_length.display = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-iex_equities_udpheader_iextp_v1_0_dissect.message_length = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.message_length
+iex_equities_udpheader_iextp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.message_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0_display.message_length(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+iex_equities_udpheader_iextp_v1_0.message_header = {}
+
 -- Calculate size of: Message Header
-iex_equities_udpheader_iextp_v1_0_size_of.message_header = function(buffer, offset)
+iex_equities_udpheader_iextp_v1_0.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.message_length
+  index = index + iex_equities_udpheader_iextp_v1_0.message_length.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.message_type
+  index = index + iex_equities_udpheader_iextp_v1_0.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-iex_equities_udpheader_iextp_v1_0_display.message_header = function(packet, parent, length)
+iex_equities_udpheader_iextp_v1_0.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
+iex_equities_udpheader_iextp_v1_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = iex_equities_udpheader_iextp_v1_0_dissect.message_length(buffer, index, packet, parent)
+  index, message_length = iex_equities_udpheader_iextp_v1_0.message_length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String
-  index, message_type = iex_equities_udpheader_iextp_v1_0_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = iex_equities_udpheader_iextp_v1_0.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-iex_equities_udpheader_iextp_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
+iex_equities_udpheader_iextp_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_header, buffer(offset, 0))
-    local index = iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = iex_equities_udpheader_iextp_v1_0.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_equities_udpheader_iextp_v1_0_display.message_header(packet, parent, length)
+    local display = iex_equities_udpheader_iextp_v1_0.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_equities_udpheader_iextp_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return iex_equities_udpheader_iextp_v1_0.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+iex_equities_udpheader_iextp_v1_0.message = {}
+
 -- Display: Message
-iex_equities_udpheader_iextp_v1_0_display.message = function(packet, parent, length)
+iex_equities_udpheader_iextp_v1_0.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-iex_equities_udpheader_iextp_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+iex_equities_udpheader_iextp_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -209,7 +224,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_fields = function(buffer, offs
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = iex_equities_udpheader_iextp_v1_0_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = iex_equities_udpheader_iextp_v1_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(index - 3, 2):le_uint()
@@ -218,37 +233,40 @@ iex_equities_udpheader_iextp_v1_0_dissect.message_fields = function(buffer, offs
   local size_of_message_data = message_length - 1
 
   -- Message Data: 0 Byte
-  index, message_data = iex_equities_udpheader_iextp_v1_0_dissect.message_data(buffer, index, packet, parent, size_of_message_data)
+  index, message_data = iex_equities_udpheader_iextp_v1_0.message_data.dissect(buffer, index, packet, parent, size_of_message_data)
 
   return index
 end
 
 -- Dissect: Message
-iex_equities_udpheader_iextp_v1_0_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+iex_equities_udpheader_iextp_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message, buffer(offset, 0))
-    local current = iex_equities_udpheader_iextp_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = iex_equities_udpheader_iextp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = iex_equities_udpheader_iextp_v1_0_display.message(buffer, packet, parent)
+    local display = iex_equities_udpheader_iextp_v1_0.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_equities_udpheader_iextp_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    iex_equities_udpheader_iextp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Send Time
+iex_equities_udpheader_iextp_v1_0.send_time = {}
+
 -- Size: Send Time
-iex_equities_udpheader_iextp_v1_0_size_of.send_time = 8
+iex_equities_udpheader_iextp_v1_0.send_time.size = 8
 
 -- Display: Send Time
-iex_equities_udpheader_iextp_v1_0_display.send_time = function(value)
+iex_equities_udpheader_iextp_v1_0.send_time.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -257,290 +275,323 @@ iex_equities_udpheader_iextp_v1_0_display.send_time = function(value)
 end
 
 -- Dissect: Send Time
-iex_equities_udpheader_iextp_v1_0_dissect.send_time = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.send_time
+iex_equities_udpheader_iextp_v1_0.send_time.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_equities_udpheader_iextp_v1_0_display.send_time(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.send_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.send_time, range, value, display)
 
   return offset + length, value
 end
 
+-- First Message Sequence Number
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number = {}
+
 -- Size: First Message Sequence Number
-iex_equities_udpheader_iextp_v1_0_size_of.first_message_sequence_number = 8
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size = 8
 
 -- Display: First Message Sequence Number
-iex_equities_udpheader_iextp_v1_0_display.first_message_sequence_number = function(value)
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.display = function(value)
   return "First Message Sequence Number: "..value
 end
 
 -- Dissect: First Message Sequence Number
-iex_equities_udpheader_iextp_v1_0_dissect.first_message_sequence_number = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.first_message_sequence_number
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_equities_udpheader_iextp_v1_0_display.first_message_sequence_number(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Stream Offset
+iex_equities_udpheader_iextp_v1_0.stream_offset = {}
+
 -- Size: Stream Offset
-iex_equities_udpheader_iextp_v1_0_size_of.stream_offset = 8
+iex_equities_udpheader_iextp_v1_0.stream_offset.size = 8
 
 -- Display: Stream Offset
-iex_equities_udpheader_iextp_v1_0_display.stream_offset = function(value)
+iex_equities_udpheader_iextp_v1_0.stream_offset.display = function(value)
   return "Stream Offset: "..value
 end
 
 -- Dissect: Stream Offset
-iex_equities_udpheader_iextp_v1_0_dissect.stream_offset = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.stream_offset
+iex_equities_udpheader_iextp_v1_0.stream_offset.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.stream_offset.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_equities_udpheader_iextp_v1_0_display.stream_offset(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.stream_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.stream_offset, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Count
+iex_equities_udpheader_iextp_v1_0.message_count = {}
+
 -- Size: Message Count
-iex_equities_udpheader_iextp_v1_0_size_of.message_count = 2
+iex_equities_udpheader_iextp_v1_0.message_count.size = 2
 
 -- Display: Message Count
-iex_equities_udpheader_iextp_v1_0_display.message_count = function(value)
+iex_equities_udpheader_iextp_v1_0.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-iex_equities_udpheader_iextp_v1_0_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.message_count
+iex_equities_udpheader_iextp_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.message_count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0_display.message_count(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Payload Length
+iex_equities_udpheader_iextp_v1_0.payload_length = {}
+
 -- Size: Payload Length
-iex_equities_udpheader_iextp_v1_0_size_of.payload_length = 2
+iex_equities_udpheader_iextp_v1_0.payload_length.size = 2
 
 -- Display: Payload Length
-iex_equities_udpheader_iextp_v1_0_display.payload_length = function(value)
+iex_equities_udpheader_iextp_v1_0.payload_length.display = function(value)
   return "Payload Length: "..value
 end
 
 -- Dissect: Payload Length
-iex_equities_udpheader_iextp_v1_0_dissect.payload_length = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.payload_length
+iex_equities_udpheader_iextp_v1_0.payload_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.payload_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0_display.payload_length(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.payload_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.payload_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Id
+iex_equities_udpheader_iextp_v1_0.session_id = {}
+
 -- Size: Session Id
-iex_equities_udpheader_iextp_v1_0_size_of.session_id = 4
+iex_equities_udpheader_iextp_v1_0.session_id.size = 4
 
 -- Display: Session Id
-iex_equities_udpheader_iextp_v1_0_display.session_id = function(value)
+iex_equities_udpheader_iextp_v1_0.session_id.display = function(value)
   return "Session Id: "..value
 end
 
 -- Dissect: Session Id
-iex_equities_udpheader_iextp_v1_0_dissect.session_id = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.session_id
+iex_equities_udpheader_iextp_v1_0.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.session_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0_display.session_id(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Channel Id
+iex_equities_udpheader_iextp_v1_0.channel_id = {}
+
 -- Size: Channel Id
-iex_equities_udpheader_iextp_v1_0_size_of.channel_id = 4
+iex_equities_udpheader_iextp_v1_0.channel_id.size = 4
 
 -- Display: Channel Id
-iex_equities_udpheader_iextp_v1_0_display.channel_id = function(value)
+iex_equities_udpheader_iextp_v1_0.channel_id.display = function(value)
   return "Channel Id: "..value
 end
 
 -- Dissect: Channel Id
-iex_equities_udpheader_iextp_v1_0_dissect.channel_id = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.channel_id
+iex_equities_udpheader_iextp_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.channel_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0_display.channel_id(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Protocol Id
+iex_equities_udpheader_iextp_v1_0.message_protocol_id = {}
+
 -- Size: Message Protocol Id
-iex_equities_udpheader_iextp_v1_0_size_of.message_protocol_id = 2
+iex_equities_udpheader_iextp_v1_0.message_protocol_id.size = 2
 
 -- Display: Message Protocol Id
-iex_equities_udpheader_iextp_v1_0_display.message_protocol_id = function(value)
+iex_equities_udpheader_iextp_v1_0.message_protocol_id.display = function(value)
   return "Message Protocol Id: "..value
 end
 
 -- Dissect: Message Protocol Id
-iex_equities_udpheader_iextp_v1_0_dissect.message_protocol_id = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.message_protocol_id
+iex_equities_udpheader_iextp_v1_0.message_protocol_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.message_protocol_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0_display.message_protocol_id(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.message_protocol_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved
+iex_equities_udpheader_iextp_v1_0.reserved = {}
+
 -- Size: Reserved
-iex_equities_udpheader_iextp_v1_0_size_of.reserved = 1
+iex_equities_udpheader_iextp_v1_0.reserved.size = 1
 
 -- Display: Reserved
-iex_equities_udpheader_iextp_v1_0_display.reserved = function(value)
+iex_equities_udpheader_iextp_v1_0.reserved.display = function(value)
   return "Reserved: "..value
 end
 
 -- Dissect: Reserved
-iex_equities_udpheader_iextp_v1_0_dissect.reserved = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.reserved
+iex_equities_udpheader_iextp_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.reserved.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = iex_equities_udpheader_iextp_v1_0_display.reserved(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.reserved, range, value, display)
 
   return offset + length, value
 end
 
+-- Version
+iex_equities_udpheader_iextp_v1_0.version = {}
+
 -- Size: Version
-iex_equities_udpheader_iextp_v1_0_size_of.version = 1
+iex_equities_udpheader_iextp_v1_0.version.size = 1
 
 -- Display: Version
-iex_equities_udpheader_iextp_v1_0_display.version = function(value)
+iex_equities_udpheader_iextp_v1_0.version.display = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-iex_equities_udpheader_iextp_v1_0_dissect.version = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0_size_of.version
+iex_equities_udpheader_iextp_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.version.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0_display.version(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.version, range, value, display)
 
   return offset + length, value
 end
 
+-- Iex Tp Header
+iex_equities_udpheader_iextp_v1_0.iex_tp_header = {}
+
 -- Calculate size of: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0_size_of.iex_tp_header = function(buffer, offset)
+iex_equities_udpheader_iextp_v1_0.iex_tp_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.version
+  index = index + iex_equities_udpheader_iextp_v1_0.version.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.reserved
+  index = index + iex_equities_udpheader_iextp_v1_0.reserved.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.message_protocol_id
+  index = index + iex_equities_udpheader_iextp_v1_0.message_protocol_id.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.channel_id
+  index = index + iex_equities_udpheader_iextp_v1_0.channel_id.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.session_id
+  index = index + iex_equities_udpheader_iextp_v1_0.session_id.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.payload_length
+  index = index + iex_equities_udpheader_iextp_v1_0.payload_length.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.message_count
+  index = index + iex_equities_udpheader_iextp_v1_0.message_count.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.stream_offset
+  index = index + iex_equities_udpheader_iextp_v1_0.stream_offset.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.first_message_sequence_number
+  index = index + iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size
 
-  index = index + iex_equities_udpheader_iextp_v1_0_size_of.send_time
+  index = index + iex_equities_udpheader_iextp_v1_0.send_time.size
 
   return index
 end
 
 -- Display: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0_display.iex_tp_header = function(packet, parent, length)
+iex_equities_udpheader_iextp_v1_0.iex_tp_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields = function(buffer, offset, packet, parent)
+iex_equities_udpheader_iextp_v1_0.iex_tp_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index, version = iex_equities_udpheader_iextp_v1_0_dissect.version(buffer, index, packet, parent)
+  index, version = iex_equities_udpheader_iextp_v1_0.version.dissect(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte
-  index, reserved = iex_equities_udpheader_iextp_v1_0_dissect.reserved(buffer, index, packet, parent)
+  index, reserved = iex_equities_udpheader_iextp_v1_0.reserved.dissect(buffer, index, packet, parent)
 
   -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer
-  index, message_protocol_id = iex_equities_udpheader_iextp_v1_0_dissect.message_protocol_id(buffer, index, packet, parent)
+  index, message_protocol_id = iex_equities_udpheader_iextp_v1_0.message_protocol_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 4 Byte Unsigned Fixed Width Integer
-  index, channel_id = iex_equities_udpheader_iextp_v1_0_dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = iex_equities_udpheader_iextp_v1_0.channel_id.dissect(buffer, index, packet, parent)
 
   -- Session Id: 4 Byte Unsigned Fixed Width Integer
-  index, session_id = iex_equities_udpheader_iextp_v1_0_dissect.session_id(buffer, index, packet, parent)
+  index, session_id = iex_equities_udpheader_iextp_v1_0.session_id.dissect(buffer, index, packet, parent)
 
   -- Payload Length: 2 Byte Unsigned Fixed Width Integer
-  index, payload_length = iex_equities_udpheader_iextp_v1_0_dissect.payload_length(buffer, index, packet, parent)
+  index, payload_length = iex_equities_udpheader_iextp_v1_0.payload_length.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
-  index, message_count = iex_equities_udpheader_iextp_v1_0_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = iex_equities_udpheader_iextp_v1_0.message_count.dissect(buffer, index, packet, parent)
 
   -- Stream Offset: 8 Byte Unsigned Fixed Width Integer
-  index, stream_offset = iex_equities_udpheader_iextp_v1_0_dissect.stream_offset(buffer, index, packet, parent)
+  index, stream_offset = iex_equities_udpheader_iextp_v1_0.stream_offset.dissect(buffer, index, packet, parent)
 
   -- First Message Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, first_message_sequence_number = iex_equities_udpheader_iextp_v1_0_dissect.first_message_sequence_number(buffer, index, packet, parent)
+  index, first_message_sequence_number = iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Send Time: 8 Byte Unsigned Fixed Width Integer
-  index, send_time = iex_equities_udpheader_iextp_v1_0_dissect.send_time(buffer, index, packet, parent)
+  index, send_time = iex_equities_udpheader_iextp_v1_0.send_time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Iex Tp Header
-iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header = function(buffer, offset, packet, parent)
+iex_equities_udpheader_iextp_v1_0.iex_tp_header.dissect = function(buffer, offset, packet, parent)
   if show.iex_tp_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.iex_tp_header, buffer(offset, 0))
-    local index = iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    local index = iex_equities_udpheader_iextp_v1_0.iex_tp_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_equities_udpheader_iextp_v1_0_display.iex_tp_header(packet, parent, length)
+    local display = iex_equities_udpheader_iextp_v1_0.iex_tp_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header_fields(buffer, offset, packet, parent)
+    return iex_equities_udpheader_iextp_v1_0.iex_tp_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+iex_equities_udpheader_iextp_v1_0.packet = {}
+
 -- Dissect Packet
-iex_equities_udpheader_iextp_v1_0_dissect.packet = function(buffer, packet, parent)
+iex_equities_udpheader_iextp_v1_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Iex Tp Header: Struct of 10 fields
-  index, iex_tp_header = iex_equities_udpheader_iextp_v1_0_dissect.iex_tp_header(buffer, index, packet, parent)
+  index, iex_tp_header = iex_equities_udpheader_iextp_v1_0.iex_tp_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 26, 2):le_uint()
@@ -555,7 +606,7 @@ iex_equities_udpheader_iextp_v1_0_dissect.packet = function(buffer, packet, pare
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = iex_equities_udpheader_iextp_v1_0_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
+    index, message = iex_equities_udpheader_iextp_v1_0.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
@@ -578,7 +629,7 @@ function omi_iex_equities_udpheader_iextp_v1_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_iex_equities_udpheader_iextp_v1_0, buffer(), omi_iex_equities_udpheader_iextp_v1_0.description, "("..buffer:len().." Bytes)")
-  return iex_equities_udpheader_iextp_v1_0_dissect.packet(buffer, packet, protocol)
+  return iex_equities_udpheader_iextp_v1_0.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

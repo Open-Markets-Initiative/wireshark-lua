@@ -7,12 +7,12 @@
 -- Nasdaq NsmEquities TotalView Itch 4.1 Protocol
 local omi_nasdaq_nsmequities_totalview_itch_v4_1 = Proto("Nasdaq.NsmEquities.TotalView.Itch.v4.1.Lua", "Nasdaq NsmEquities TotalView Itch 4.1")
 
+-- Protocol table
+local nasdaq_nsmequities_totalview_itch_v4_1 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local nasdaq_nsmequities_totalview_itch_v4_1_display = {}
-local nasdaq_nsmequities_totalview_itch_v4_1_dissect = {}
-local nasdaq_nsmequities_totalview_itch_v4_1_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -264,11 +264,14 @@ end
 -- Dissect Nasdaq NsmEquities TotalView Itch 4.1
 -----------------------------------------------------------------------
 
+-- Interest Flag
+nasdaq_nsmequities_totalview_itch_v4_1.interest_flag = {}
+
 -- Size: Interest Flag
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.interest_flag = 1
+nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.size = 1
 
 -- Display: Interest Flag
-nasdaq_nsmequities_totalview_itch_v4_1_display.interest_flag = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.display = function(value)
   if value == "B" then
     return "Interest Flag: Rpi Buy (B)"
   end
@@ -286,114 +289,126 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.interest_flag = function(value)
 end
 
 -- Dissect: Interest Flag
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.interest_flag = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.interest_flag
+nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.interest_flag(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.interest_flag, range, value, display)
 
   return offset + length, value
 end
 
+-- Stock
+nasdaq_nsmequities_totalview_itch_v4_1.stock = {}
+
 -- Size: Stock
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock = 8
+nasdaq_nsmequities_totalview_itch_v4_1.stock.size = 8
 
 -- Display: Stock
-nasdaq_nsmequities_totalview_itch_v4_1_display.stock = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.stock.display = function(value)
   return "Stock: "..value
 end
 
 -- Dissect: Stock
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.stock.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.stock(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.stock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp = {}
+
 -- Size: Timestamp
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp = 4
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size = 4
 
 -- Display: Timestamp
-nasdaq_nsmequities_totalview_itch_v4_1_display.timestamp = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp.display = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.timestamp(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Retail Price Improvement Indicator Message
+nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message = {}
+
 -- Calculate size of: Retail Price Improvement Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.retail_price_improvement_indicator_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.interest_flag
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.size
 
   return index
 end
 
 -- Display: Retail Price Improvement Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.retail_price_improvement_indicator_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Retail Price Improvement Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.retail_price_improvement_indicator_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Interest Flag: 1 Byte Ascii String Enum with 4 values
-  index, interest_flag = nasdaq_nsmequities_totalview_itch_v4_1_dissect.interest_flag(buffer, index, packet, parent)
+  index, interest_flag = nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Retail Price Improvement Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.retail_price_improvement_indicator_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.dissect = function(buffer, offset, packet, parent)
   if show.retail_price_improvement_indicator_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.retail_price_improvement_indicator_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.retail_price_improvement_indicator_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.retail_price_improvement_indicator_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.retail_price_improvement_indicator_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Price Variation Indicator
+nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator = {}
+
 -- Size: Price Variation Indicator
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.price_variation_indicator = 1
+nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.size = 1
 
 -- Display: Price Variation Indicator
-nasdaq_nsmequities_totalview_itch_v4_1_display.price_variation_indicator = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.display = function(value)
   if value == "L" then
     return "Price Variation Indicator: Less (L)"
   end
@@ -441,22 +456,25 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.price_variation_indicator = funct
 end
 
 -- Dissect: Price Variation Indicator
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.price_variation_indicator = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.price_variation_indicator
+nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.price_variation_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.price_variation_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- Cross Type
+nasdaq_nsmequities_totalview_itch_v4_1.cross_type = {}
+
 -- Size: Cross Type
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_type = 1
+nasdaq_nsmequities_totalview_itch_v4_1.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nsmequities_totalview_itch_v4_1_display.cross_type = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.cross_type.display = function(value)
   if value == "O" then
     return "Cross Type: Opening (O)"
   end
@@ -474,22 +492,25 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.cross_type = function(value)
 end
 
 -- Dissect: Cross Type
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_type
+nasdaq_nsmequities_totalview_itch_v4_1.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.cross_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.cross_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Current Reference Price
+nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price = {}
+
 -- Size: Current Reference Price
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.current_reference_price = 4
+nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.size = 4
 
 -- Display: Current Reference Price
-nasdaq_nsmequities_totalview_itch_v4_1_display.current_reference_price = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.display = function(value)
   return "Current Reference Price: "..value
 end
 
@@ -499,23 +520,26 @@ translate.current_reference_price = function(raw)
 end
 
 -- Dissect: Current Reference Price
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.current_reference_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.current_reference_price
+nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.current_reference_price(raw)
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.current_reference_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.current_reference_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Near Price
+nasdaq_nsmequities_totalview_itch_v4_1.near_price = {}
+
 -- Size: Near Price
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.near_price = 4
+nasdaq_nsmequities_totalview_itch_v4_1.near_price.size = 4
 
 -- Display: Near Price
-nasdaq_nsmequities_totalview_itch_v4_1_display.near_price = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.near_price.display = function(value)
   return "Near Price: "..value
 end
 
@@ -525,23 +549,26 @@ translate.near_price = function(raw)
 end
 
 -- Dissect: Near Price
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.near_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.near_price
+nasdaq_nsmequities_totalview_itch_v4_1.near_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.near_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.near_price(raw)
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.near_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.near_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.near_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Far Price
+nasdaq_nsmequities_totalview_itch_v4_1.far_price = {}
+
 -- Size: Far Price
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.far_price = 4
+nasdaq_nsmequities_totalview_itch_v4_1.far_price.size = 4
 
 -- Display: Far Price
-nasdaq_nsmequities_totalview_itch_v4_1_display.far_price = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.far_price.display = function(value)
   return "Far Price: "..value
 end
 
@@ -551,23 +578,26 @@ translate.far_price = function(raw)
 end
 
 -- Dissect: Far Price
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.far_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.far_price
+nasdaq_nsmequities_totalview_itch_v4_1.far_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.far_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.far_price(raw)
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.far_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.far_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.far_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Imbalance Direction
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction = {}
+
 -- Size: Imbalance Direction
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.imbalance_direction = 1
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_nsmequities_totalview_itch_v4_1_display.imbalance_direction = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.display = function(value)
   if value == "B" then
     return "Imbalance Direction: Buy (B)"
   end
@@ -585,216 +615,234 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.imbalance_direction = function(va
 end
 
 -- Dissect: Imbalance Direction
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.imbalance_direction = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.imbalance_direction
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.imbalance_direction(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.imbalance_direction, range, value, display)
 
   return offset + length, value
 end
 
+-- Imbalance Shares
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares = {}
+
 -- Size: Imbalance Shares
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.imbalance_shares = 8
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.size = 8
 
 -- Display: Imbalance Shares
-nasdaq_nsmequities_totalview_itch_v4_1_display.imbalance_shares = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.display = function(value)
   return "Imbalance Shares: "..value
 end
 
 -- Dissect: Imbalance Shares
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.imbalance_shares = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.imbalance_shares
+nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.imbalance_shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.imbalance_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Paired Shares
+nasdaq_nsmequities_totalview_itch_v4_1.paired_shares = {}
+
 -- Size: Paired Shares
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.paired_shares = 8
+nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.size = 8
 
 -- Display: Paired Shares
-nasdaq_nsmequities_totalview_itch_v4_1_display.paired_shares = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.display = function(value)
   return "Paired Shares: "..value
 end
 
 -- Dissect: Paired Shares
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.paired_shares = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.paired_shares
+nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.paired_shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.paired_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Net Order Imbalance Indicator Message
+nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message = {}
+
 -- Calculate size of: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.net_order_imbalance_indicator_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.paired_shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.imbalance_shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.imbalance_direction
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.far_price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.far_price.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.near_price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.near_price.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.current_reference_price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_type
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.cross_type.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.price_variation_indicator
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.size
 
   return index
 end
 
 -- Display: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.net_order_imbalance_indicator_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.net_order_imbalance_indicator_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Paired Shares: 8 Byte Unsigned Fixed Width Integer
-  index, paired_shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.paired_shares(buffer, index, packet, parent)
+  index, paired_shares = nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.dissect(buffer, index, packet, parent)
 
   -- Imbalance Shares: 8 Byte Unsigned Fixed Width Integer
-  index, imbalance_shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.imbalance_shares(buffer, index, packet, parent)
+  index, imbalance_shares = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.dissect(buffer, index, packet, parent)
 
   -- Imbalance Direction: 1 Byte Ascii String Enum with 4 values
-  index, imbalance_direction = nasdaq_nsmequities_totalview_itch_v4_1_dissect.imbalance_direction(buffer, index, packet, parent)
+  index, imbalance_direction = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Far Price: 4 Byte Unsigned Fixed Width Integer
-  index, far_price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.far_price(buffer, index, packet, parent)
+  index, far_price = nasdaq_nsmequities_totalview_itch_v4_1.far_price.dissect(buffer, index, packet, parent)
 
   -- Near Price: 4 Byte Unsigned Fixed Width Integer
-  index, near_price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.near_price(buffer, index, packet, parent)
+  index, near_price = nasdaq_nsmequities_totalview_itch_v4_1.near_price.dissect(buffer, index, packet, parent)
 
   -- Current Reference Price: 4 Byte Unsigned Fixed Width Integer
-  index, current_reference_price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.current_reference_price(buffer, index, packet, parent)
+  index, current_reference_price = nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.dissect(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 4 values
-  index, cross_type = nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = nasdaq_nsmequities_totalview_itch_v4_1.cross_type.dissect(buffer, index, packet, parent)
 
   -- Price Variation Indicator: 1 Byte Ascii String Enum with 14 values
-  index, price_variation_indicator = nasdaq_nsmequities_totalview_itch_v4_1_dissect.price_variation_indicator(buffer, index, packet, parent)
+  index, price_variation_indicator = nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.net_order_imbalance_indicator_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.dissect = function(buffer, offset, packet, parent)
   if show.net_order_imbalance_indicator_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.net_order_imbalance_indicator_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.net_order_imbalance_indicator_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Match Number
+nasdaq_nsmequities_totalview_itch_v4_1.match_number = {}
+
 -- Size: Match Number
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.match_number = 8
+nasdaq_nsmequities_totalview_itch_v4_1.match_number.size = 8
 
 -- Display: Match Number
-nasdaq_nsmequities_totalview_itch_v4_1_display.match_number = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.match_number.display = function(value)
   return "Match Number: "..value
 end
 
 -- Dissect: Match Number
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.match_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.match_number
+nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.match_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.match_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.match_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.match_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Broken Trade Message
+nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message = {}
+
 -- Calculate size of: Broken Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.broken_trade_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.match_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.match_number.size
 
   return index
 end
 
 -- Display: Broken Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.broken_trade_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Broken Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.broken_trade_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Broken Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.broken_trade_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.dissect = function(buffer, offset, packet, parent)
   if show.broken_trade_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.broken_trade_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.broken_trade_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Cross Price
+nasdaq_nsmequities_totalview_itch_v4_1.cross_price = {}
+
 -- Size: Cross Price
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_price = 4
+nasdaq_nsmequities_totalview_itch_v4_1.cross_price.size = 4
 
 -- Display: Cross Price
-nasdaq_nsmequities_totalview_itch_v4_1_display.cross_price = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.cross_price.display = function(value)
   return "Cross Price: "..value
 end
 
@@ -804,110 +852,119 @@ translate.cross_price = function(raw)
 end
 
 -- Dissect: Cross Price
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_price
+nasdaq_nsmequities_totalview_itch_v4_1.cross_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.cross_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.cross_price(raw)
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.cross_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.cross_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.cross_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Cross Shares
+nasdaq_nsmequities_totalview_itch_v4_1.cross_shares = {}
+
 -- Size: Cross Shares
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_shares = 8
+nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.size = 8
 
 -- Display: Cross Shares
-nasdaq_nsmequities_totalview_itch_v4_1_display.cross_shares = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.display = function(value)
   return "Cross Shares: "..value
 end
 
 -- Dissect: Cross Shares
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_shares = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_shares
+nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.cross_shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.cross_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Cross Trade Message
+nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message = {}
+
 -- Calculate size of: Cross Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_trade_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.cross_price.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.match_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.match_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_type
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.cross_type.size
 
   return index
 end
 
 -- Display: Cross Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.cross_trade_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Cross Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_trade_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Cross Shares: 8 Byte Unsigned Fixed Width Integer
-  index, cross_shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_shares(buffer, index, packet, parent)
+  index, cross_shares = nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Cross Price: 4 Byte Unsigned Fixed Width Integer
-  index, cross_price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_price(buffer, index, packet, parent)
+  index, cross_price = nasdaq_nsmequities_totalview_itch_v4_1.cross_price.dissect(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 4 values
-  index, cross_type = nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = nasdaq_nsmequities_totalview_itch_v4_1.cross_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cross Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_trade_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.dissect = function(buffer, offset, packet, parent)
   if show.cross_trade_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.cross_trade_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.cross_trade_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Price
+nasdaq_nsmequities_totalview_itch_v4_1.price = {}
+
 -- Size: Price
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.price = 4
+nasdaq_nsmequities_totalview_itch_v4_1.price.size = 4
 
 -- Display: Price
-nasdaq_nsmequities_totalview_itch_v4_1_display.price = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.price.display = function(value)
   return "Price: "..value
 end
 
@@ -917,43 +974,49 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.price = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.price
+nasdaq_nsmequities_totalview_itch_v4_1.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.price.size
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.price(raw)
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.price(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.price, range, value, display)
 
   return offset + length, value
 end
 
+-- Shares
+nasdaq_nsmequities_totalview_itch_v4_1.shares = {}
+
 -- Size: Shares
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.shares = 4
+nasdaq_nsmequities_totalview_itch_v4_1.shares.size = 4
 
 -- Display: Shares
-nasdaq_nsmequities_totalview_itch_v4_1_display.shares = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.shares.display = function(value)
   return "Shares: "..value
 end
 
 -- Dissect: Shares
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.shares = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.shares
+nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.shares.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Side
+nasdaq_nsmequities_totalview_itch_v4_1.side = {}
+
 -- Size: Side
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.side = 1
+nasdaq_nsmequities_totalview_itch_v4_1.side.size = 1
 
 -- Display: Side
-nasdaq_nsmequities_totalview_itch_v4_1_display.side = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.side.display = function(value)
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -965,355 +1028,385 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.side = function(value)
 end
 
 -- Dissect: Side
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.side = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.side
+nasdaq_nsmequities_totalview_itch_v4_1.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.side(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.side, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Reference Number
+nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number = {}
+
 -- Size: Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number = 8
+nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size = 8
 
 -- Display: Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_display.order_reference_number = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.display = function(value)
   return "Order Reference Number: "..value
 end
 
 -- Dissect: Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.order_reference_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_reference_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Message
+nasdaq_nsmequities_totalview_itch_v4_1.trade_message = {}
+
 -- Calculate size of: Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.trade_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.side
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.side.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.price.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.match_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.match_number.size
 
   return index
 end
 
 -- Display: Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.trade_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.trade_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.trade_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = nasdaq_nsmequities_totalview_itch_v4_1_dissect.side(buffer, index, packet, parent)
+  index, side = nasdaq_nsmequities_totalview_itch_v4_1.side.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.shares(buffer, index, packet, parent)
+  index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.trade_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.trade_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.trade_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.trade_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.trade_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.trade_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- New Order Reference Number
+nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number = {}
+
 -- Size: New Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.new_order_reference_number = 8
+nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.size = 8
 
 -- Display: New Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_display.new_order_reference_number = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.display = function(value)
   return "New Order Reference Number: "..value
 end
 
 -- Dissect: New Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.new_order_reference_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.new_order_reference_number
+nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.new_order_reference_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.new_order_reference_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Order Reference Number
+nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number = {}
+
 -- Size: Original Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.original_order_reference_number = 8
+nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.size = 8
 
 -- Display: Original Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_display.original_order_reference_number = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.display = function(value)
   return "Original Order Reference Number: "..value
 end
 
 -- Dissect: Original Order Reference Number
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.original_order_reference_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.original_order_reference_number
+nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.original_order_reference_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.original_order_reference_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp Nanoseconds
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds = {}
+
 -- Size: Timestamp Nanoseconds
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp_nanoseconds = 4
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds.size = 4
 
 -- Display: Timestamp Nanoseconds
-nasdaq_nsmequities_totalview_itch_v4_1_display.timestamp_nanoseconds = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds.display = function(value)
   return "Timestamp Nanoseconds: "..value
 end
 
 -- Dissect: Timestamp Nanoseconds
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp_nanoseconds = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp_nanoseconds
+nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.timestamp_nanoseconds(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.timestamp_nanoseconds, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Replace Message
+nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message = {}
+
 -- Calculate size of: Order Replace Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_replace_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp_nanoseconds
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.original_order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.new_order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.price.size
 
   return index
 end
 
 -- Display: Order Replace Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.order_replace_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Replace Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_replace_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp_nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp_nanoseconds(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Original Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, original_order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.original_order_reference_number(buffer, index, packet, parent)
+  index, original_order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.dissect(buffer, index, packet, parent)
 
   -- New Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, new_order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.new_order_reference_number(buffer, index, packet, parent)
+  index, new_order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.shares(buffer, index, packet, parent)
+  index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Replace Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_replace_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.dissect = function(buffer, offset, packet, parent)
   if show.order_replace_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_replace_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_replace_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.order_replace_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_replace_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Delete Message
+nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message = {}
+
 -- Calculate size of: Order Delete Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_delete_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
 
   return index
 end
 
 -- Display: Order Delete Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.order_delete_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Delete Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_delete_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Delete Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_delete_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.dissect = function(buffer, offset, packet, parent)
   if show.order_delete_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_delete_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.order_delete_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_delete_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Canceled Shares
+nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares = {}
+
 -- Size: Canceled Shares
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.canceled_shares = 4
+nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.size = 4
 
 -- Display: Canceled Shares
-nasdaq_nsmequities_totalview_itch_v4_1_display.canceled_shares = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.display = function(value)
   return "Canceled Shares: "..value
 end
 
 -- Dissect: Canceled Shares
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.canceled_shares = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.canceled_shares
+nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.canceled_shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.canceled_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Cancel Message
+nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message = {}
+
 -- Calculate size of: Order Cancel Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_cancel_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.canceled_shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.size
 
   return index
 end
 
 -- Display: Order Cancel Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.order_cancel_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Cancel Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_cancel_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   -- Canceled Shares: 4 Byte Unsigned Fixed Width Integer
-  index, canceled_shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.canceled_shares(buffer, index, packet, parent)
+  index, canceled_shares = nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancel Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_cancel_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.dissect = function(buffer, offset, packet, parent)
   if show.order_cancel_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_cancel_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.order_cancel_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_cancel_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Execution Price
+nasdaq_nsmequities_totalview_itch_v4_1.execution_price = {}
+
 -- Size: Execution Price
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.execution_price = 4
+nasdaq_nsmequities_totalview_itch_v4_1.execution_price.size = 4
 
 -- Display: Execution Price
-nasdaq_nsmequities_totalview_itch_v4_1_display.execution_price = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.execution_price.display = function(value)
   return "Execution Price: "..value
 end
 
@@ -1323,23 +1416,26 @@ translate.execution_price = function(raw)
 end
 
 -- Dissect: Execution Price
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.execution_price = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.execution_price
+nasdaq_nsmequities_totalview_itch_v4_1.execution_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.execution_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.execution_price(raw)
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.execution_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.execution_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.execution_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Printable
+nasdaq_nsmequities_totalview_itch_v4_1.printable = {}
+
 -- Size: Printable
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.printable = 1
+nasdaq_nsmequities_totalview_itch_v4_1.printable.size = 1
 
 -- Display: Printable
-nasdaq_nsmequities_totalview_itch_v4_1_display.printable = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.printable.display = function(value)
   if value == "N" then
     return "Printable: Nonprintable (N)"
   end
@@ -1351,325 +1447,346 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.printable = function(value)
 end
 
 -- Dissect: Printable
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.printable = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.printable
+nasdaq_nsmequities_totalview_itch_v4_1.printable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.printable.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.printable(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.printable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.printable, range, value, display)
 
   return offset + length, value
 end
 
+-- Executed Shares
+nasdaq_nsmequities_totalview_itch_v4_1.executed_shares = {}
+
 -- Size: Executed Shares
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.executed_shares = 4
+nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.size = 4
 
 -- Display: Executed Shares
-nasdaq_nsmequities_totalview_itch_v4_1_display.executed_shares = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.display = function(value)
   return "Executed Shares: "..value
 end
 
 -- Dissect: Executed Shares
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.executed_shares = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.executed_shares
+nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.executed_shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.executed_shares, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Executed With Price Message
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message = {}
+
 -- Calculate size of: Order Executed With Price Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_executed_with_price_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.executed_shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.match_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.match_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.printable
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.printable.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.execution_price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.execution_price.size
 
   return index
 end
 
 -- Display: Order Executed With Price Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.order_executed_with_price_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Executed With Price Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_with_price_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
-  index, executed_shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.executed_shares(buffer, index, packet, parent)
+  index, executed_shares = nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.dissect(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index, printable = nasdaq_nsmequities_totalview_itch_v4_1_dissect.printable(buffer, index, packet, parent)
+  index, printable = nasdaq_nsmequities_totalview_itch_v4_1.printable.dissect(buffer, index, packet, parent)
 
   -- Execution Price: 4 Byte Unsigned Fixed Width Integer
-  index, execution_price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.execution_price(buffer, index, packet, parent)
+  index, execution_price = nasdaq_nsmequities_totalview_itch_v4_1.execution_price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed With Price Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_with_price_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.dissect = function(buffer, offset, packet, parent)
   if show.order_executed_with_price_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_executed_with_price_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.order_executed_with_price_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_with_price_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Executed Message
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message = {}
+
 -- Calculate size of: Order Executed Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_executed_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.executed_shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.match_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.match_number.size
 
   return index
 end
 
 -- Display: Order Executed Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.order_executed_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Executed Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
-  index, executed_shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.executed_shares(buffer, index, packet, parent)
+  index, executed_shares = nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.dissect(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.dissect = function(buffer, offset, packet, parent)
   if show.order_executed_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_executed_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.order_executed_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Attribution
+nasdaq_nsmequities_totalview_itch_v4_1.attribution = {}
+
 -- Size: Attribution
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.attribution = 4
+nasdaq_nsmequities_totalview_itch_v4_1.attribution.size = 4
 
 -- Display: Attribution
-nasdaq_nsmequities_totalview_itch_v4_1_display.attribution = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.attribution.display = function(value)
   return "Attribution: "..value
 end
 
 -- Dissect: Attribution
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.attribution = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.attribution
+nasdaq_nsmequities_totalview_itch_v4_1.attribution.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.attribution.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.attribution(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.attribution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.attribution, range, value, display)
 
   return offset + length, value
 end
 
+-- Add Order With Mpid Message
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message = {}
+
 -- Calculate size of: Add Order With Mpid Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.add_order_with_mpid_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.side
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.side.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.price.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.attribution
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.attribution.size
 
   return index
 end
 
 -- Display: Add Order With Mpid Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.add_order_with_mpid_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order With Mpid Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_with_mpid_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = nasdaq_nsmequities_totalview_itch_v4_1_dissect.side(buffer, index, packet, parent)
+  index, side = nasdaq_nsmequities_totalview_itch_v4_1.side.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.shares(buffer, index, packet, parent)
+  index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
   -- Attribution: 4 Byte Ascii String
-  index, attribution = nasdaq_nsmequities_totalview_itch_v4_1_dissect.attribution(buffer, index, packet, parent)
+  index, attribution = nasdaq_nsmequities_totalview_itch_v4_1.attribution.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order With Mpid Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_with_mpid_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.dissect = function(buffer, offset, packet, parent)
   if show.add_order_with_mpid_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.add_order_with_mpid_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_with_mpid_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.add_order_with_mpid_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_with_mpid_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Add Order Message
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_message = {}
+
 -- Calculate size of: Add Order Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.add_order_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_reference_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.side
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.side.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.shares
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.shares.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.price
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.price.size
 
   return index
 end
 
 -- Display: Add Order Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.add_order_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_reference_number(buffer, index, packet, parent)
+  index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = nasdaq_nsmequities_totalview_itch_v4_1_dissect.side(buffer, index, packet, parent)
+  index, side = nasdaq_nsmequities_totalview_itch_v4_1.side.dissect(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_nsmequities_totalview_itch_v4_1_dissect.shares(buffer, index, packet, parent)
+  index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = nasdaq_nsmequities_totalview_itch_v4_1_dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.dissect = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.add_order_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.add_order_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Market Participant State
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state = {}
+
 -- Size: Market Participant State
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_participant_state = 1
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.size = 1
 
 -- Display: Market Participant State
-nasdaq_nsmequities_totalview_itch_v4_1_display.market_participant_state = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.display = function(value)
   if value == "A" then
     return "Market Participant State: Active (A)"
   end
@@ -1690,22 +1807,25 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.market_participant_state = functi
 end
 
 -- Dissect: Market Participant State
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_participant_state = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_participant_state
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.market_participant_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.market_participant_state, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Maker Mode
+nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode = {}
+
 -- Size: Market Maker Mode
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_maker_mode = 1
+nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.size = 1
 
 -- Display: Market Maker Mode
-nasdaq_nsmequities_totalview_itch_v4_1_display.market_maker_mode = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.display = function(value)
   if value == "N" then
     return "Market Maker Mode: Normal (N)"
   end
@@ -1723,22 +1843,25 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.market_maker_mode = function(valu
 end
 
 -- Dissect: Market Maker Mode
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_maker_mode = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_maker_mode
+nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.market_maker_mode(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.market_maker_mode, range, value, display)
 
   return offset + length, value
 end
 
+-- Primary Market Maker
+nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker = {}
+
 -- Size: Primary Market Maker
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.primary_market_maker = 1
+nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.size = 1
 
 -- Display: Primary Market Maker
-nasdaq_nsmequities_totalview_itch_v4_1_display.primary_market_maker = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.display = function(value)
   if value == "Y" then
     return "Primary Market Maker: Primary (Y)"
   end
@@ -1750,109 +1873,118 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.primary_market_maker = function(v
 end
 
 -- Dissect: Primary Market Maker
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.primary_market_maker = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.primary_market_maker
+nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.primary_market_maker(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.primary_market_maker, range, value, display)
 
   return offset + length, value
 end
 
+-- Mpid
+nasdaq_nsmequities_totalview_itch_v4_1.mpid = {}
+
 -- Size: Mpid
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.mpid = 4
+nasdaq_nsmequities_totalview_itch_v4_1.mpid.size = 4
 
 -- Display: Mpid
-nasdaq_nsmequities_totalview_itch_v4_1_display.mpid = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.mpid.display = function(value)
   return "Mpid: "..value
 end
 
 -- Dissect: Mpid
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.mpid = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.mpid
+nasdaq_nsmequities_totalview_itch_v4_1.mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.mpid.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.mpid(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.mpid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.mpid, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Participant Position Message
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message = {}
+
 -- Calculate size of: Market Participant Position Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_participant_position_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.mpid
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.mpid.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.primary_market_maker
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_maker_mode
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_participant_state
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.size
 
   return index
 end
 
 -- Display: Market Participant Position Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.market_participant_position_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Market Participant Position Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_participant_position_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Mpid: 4 Byte Ascii String
-  index, mpid = nasdaq_nsmequities_totalview_itch_v4_1_dissect.mpid(buffer, index, packet, parent)
+  index, mpid = nasdaq_nsmequities_totalview_itch_v4_1.mpid.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Primary Market Maker: 1 Byte Ascii String Enum with 2 values
-  index, primary_market_maker = nasdaq_nsmequities_totalview_itch_v4_1_dissect.primary_market_maker(buffer, index, packet, parent)
+  index, primary_market_maker = nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.dissect(buffer, index, packet, parent)
 
   -- Market Maker Mode: 1 Byte Ascii String Enum with 4 values
-  index, market_maker_mode = nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_maker_mode(buffer, index, packet, parent)
+  index, market_maker_mode = nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.dissect(buffer, index, packet, parent)
 
   -- Market Participant State: 1 Byte Ascii String Enum with 5 values
-  index, market_participant_state = nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_participant_state(buffer, index, packet, parent)
+  index, market_participant_state = nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Participant Position Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_participant_position_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.dissect = function(buffer, offset, packet, parent)
   if show.market_participant_position_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.market_participant_position_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.market_participant_position_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reg Sho Action
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action = {}
+
 -- Size: Reg Sho Action
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.reg_sho_action = 1
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_nsmequities_totalview_itch_v4_1_display.reg_sho_action = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.display = function(value)
   if value == "0" then
     return "Reg Sho Action: No Price (0)"
   end
@@ -1867,74 +1999,80 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.reg_sho_action = function(value)
 end
 
 -- Dissect: Reg Sho Action
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.reg_sho_action = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.reg_sho_action
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.reg_sho_action(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reg_sho_action, range, value, display)
 
   return offset + length, value
 end
 
+-- Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message = {}
+
 -- Calculate size of: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.reg_sho_action
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.size
 
   return index
 end
 
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.reg_sho_short_sale_price_test_restricted_indicator_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
-  index, reg_sho_action = nasdaq_nsmequities_totalview_itch_v4_1_dissect.reg_sho_action(buffer, index, packet, parent)
+  index, reg_sho_action = nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
   if show.reg_sho_short_sale_price_test_restricted_indicator_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.reg_sho_short_sale_price_test_restricted_indicator_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Financial Status Indicator
+nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator = {}
+
 -- Size: Financial Status Indicator
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.financial_status_indicator = 1
+nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
-nasdaq_nsmequities_totalview_itch_v4_1_display.financial_status_indicator = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.display = function(value)
   if value == "D" then
     return "Financial Status Indicator: Delinquent (D)"
   end
@@ -1964,22 +2102,25 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.financial_status_indicator = func
 end
 
 -- Dissect: Financial Status Indicator
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.financial_status_indicator = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.financial_status_indicator
+nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.financial_status_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.financial_status_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Category
+nasdaq_nsmequities_totalview_itch_v4_1.market_category = {}
+
 -- Size: Market Category
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_category = 1
+nasdaq_nsmequities_totalview_itch_v4_1.market_category.size = 1
 
 -- Display: Market Category
-nasdaq_nsmequities_totalview_itch_v4_1_display.market_category = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.market_category.display = function(value)
   if value == "N" then
     return "Market Category: Nyse (N)"
   end
@@ -2006,79 +2147,85 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.market_category = function(value)
 end
 
 -- Dissect: Market Category
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_category = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_category
+nasdaq_nsmequities_totalview_itch_v4_1.market_category.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.market_category.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.market_category(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.market_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.market_category, range, value, display)
 
   return offset + length, value
 end
 
+-- Stock Directory Message
+nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message = {}
+
 -- Calculate size of: Stock Directory Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock_directory_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.stock.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_category
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.market_category.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.financial_status_indicator
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.size
 
   return index
 end
 
 -- Display: Stock Directory Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.stock_directory_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Stock Directory Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock_directory_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
   -- Market Category: 1 Byte Ascii String Enum with 7 values
-  index, market_category = nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_category(buffer, index, packet, parent)
+  index, market_category = nasdaq_nsmequities_totalview_itch_v4_1.market_category.dissect(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 8 values
-  index, financial_status_indicator = nasdaq_nsmequities_totalview_itch_v4_1_dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Stock Directory Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock_directory_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.dissect = function(buffer, offset, packet, parent)
   if show.stock_directory_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock_directory_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.stock_directory_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Event Code
+nasdaq_nsmequities_totalview_itch_v4_1.event_code = {}
+
 -- Size: Event Code
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.event_code = 1
+nasdaq_nsmequities_totalview_itch_v4_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_totalview_itch_v4_1_display.event_code = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.event_code.display = function(value)
   if value == "O" then
     return "Event Code: Start Of Messages (O)"
   end
@@ -2111,304 +2258,319 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.event_code = function(value)
 end
 
 -- Dissect: Event Code
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.event_code = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.event_code
+nasdaq_nsmequities_totalview_itch_v4_1.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.event_code.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.event_code(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.event_code, range, value, display)
 
   return offset + length, value
 end
 
+-- System Event Message
+nasdaq_nsmequities_totalview_itch_v4_1.system_event_message = {}
+
 -- Calculate size of: System Event Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.system_event_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.timestamp
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.timestamp.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.event_code
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.event_code.size
 
   return index
 end
 
 -- Display: System Event Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.system_event_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: System Event Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 9 values
-  index, event_code = nasdaq_nsmequities_totalview_itch_v4_1_dissect.event_code(buffer, index, packet, parent)
+  index, event_code = nasdaq_nsmequities_totalview_itch_v4_1.event_code.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Event Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.system_event_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.dissect = function(buffer, offset, packet, parent)
   if show.system_event_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.system_event_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.system_event_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Second
+nasdaq_nsmequities_totalview_itch_v4_1.second = {}
+
 -- Size: Second
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.second = 4
+nasdaq_nsmequities_totalview_itch_v4_1.second.size = 4
 
 -- Display: Second
-nasdaq_nsmequities_totalview_itch_v4_1_display.second = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.second.display = function(value)
   return "Second: "..value
 end
 
 -- Dissect: Second
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.second = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.second
+nasdaq_nsmequities_totalview_itch_v4_1.second.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.second(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.second.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.second, range, value, display)
 
   return offset + length, value
 end
 
+-- Time Stamp Message
+nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message = {}
+
 -- Calculate size of: Time Stamp Message
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.time_stamp_message = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.second
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.second.size
 
   return index
 end
 
 -- Display: Time Stamp Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.time_stamp_message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Time Stamp Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.time_stamp_message_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Second: 4 Byte Unsigned Fixed Width Integer
-  index, second = nasdaq_nsmequities_totalview_itch_v4_1_dissect.second(buffer, index, packet, parent)
+  index, second = nasdaq_nsmequities_totalview_itch_v4_1.second.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Time Stamp Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.time_stamp_message = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.dissect = function(buffer, offset, packet, parent)
   if show.time_stamp_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.time_stamp_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.time_stamp_message_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.time_stamp_message(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.time_stamp_message_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Payload
+nasdaq_nsmequities_totalview_itch_v4_1.payload = {}
+
 -- Calculate runtime size of: Payload
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.payload = function(buffer, offset, message_type)
+nasdaq_nsmequities_totalview_itch_v4_1.payload.size = function(buffer, offset, message_type)
   -- Size of Time Stamp Message
   if message_type == "T" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.time_stamp_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.size(buffer, offset)
   end
   -- Size of System Event Message
   if message_type == "S" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.system_event_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.size(buffer, offset)
   end
   -- Size of Stock Directory Message
   if message_type == "R" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.stock_directory_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.size(buffer, offset)
   end
   -- Size of Reg Sho Short Sale Price Test Restricted Indicator Message
   if message_type == "Y" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.size(buffer, offset)
   end
   -- Size of Market Participant Position Message
   if message_type == "L" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.market_participant_position_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.size(buffer, offset)
   end
   -- Size of Add Order Message
   if message_type == "A" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.add_order_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.size(buffer, offset)
   end
   -- Size of Add Order With Mpid Message
   if message_type == "F" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.add_order_with_mpid_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.size(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == "E" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_executed_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.size(buffer, offset)
   end
   -- Size of Order Executed With Price Message
   if message_type == "C" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_executed_with_price_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.size(buffer, offset)
   end
   -- Size of Order Cancel Message
   if message_type == "X" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_cancel_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.size(buffer, offset)
   end
   -- Size of Order Delete Message
   if message_type == "D" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_delete_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.size(buffer, offset)
   end
   -- Size of Order Replace Message
   if message_type == "U" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.order_replace_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.size(buffer, offset)
   end
   -- Size of Trade Message
   if message_type == "P" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.trade_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.trade_message.size(buffer, offset)
   end
   -- Size of Cross Trade Message
   if message_type == "Q" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.cross_trade_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.size(buffer, offset)
   end
   -- Size of Broken Trade Message
   if message_type == "B" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.broken_trade_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.size(buffer, offset)
   end
   -- Size of Net Order Imbalance Indicator Message
   if message_type == "I" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.net_order_imbalance_indicator_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.size(buffer, offset)
   end
   -- Size of Retail Price Improvement Indicator Message
   if message_type == "N" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_size_of.retail_price_improvement_indicator_message(buffer, offset)
+    return nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-nasdaq_nsmequities_totalview_itch_v4_1_display.payload = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nasdaq_nsmequities_totalview_itch_v4_1.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Stamp Message
   if message_type == "T" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.time_stamp_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.time_stamp_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
   if message_type == "S" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.system_event_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Stock Directory Message
   if message_type == "R" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.stock_directory_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
   if message_type == "Y" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.reg_sho_short_sale_price_test_restricted_indicator_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Participant Position Message
   if message_type == "L" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.market_participant_position_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message
   if message_type == "A" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order With Mpid Message
   if message_type == "F" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.add_order_with_mpid_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == "E" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed With Price Message
   if message_type == "C" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_executed_with_price_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancel Message
   if message_type == "X" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_cancel_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Delete Message
   if message_type == "D" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_delete_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Replace Message
   if message_type == "U" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.order_replace_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
   if message_type == "P" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.trade_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Cross Trade Message
   if message_type == "Q" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.cross_trade_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Message
   if message_type == "B" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.broken_trade_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Net Order Imbalance Indicator Message
   if message_type == "I" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.net_order_imbalance_indicator_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retail Price Improvement Indicator Message
   if message_type == "N" then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.retail_price_improvement_indicator_message(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.payload = function(buffer, offset, packet, parent, message_type)
+nasdaq_nsmequities_totalview_itch_v4_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nasdaq_nsmequities_totalview_itch_v4_1.payload.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = nasdaq_nsmequities_totalview_itch_v4_1_size_of.payload(buffer, offset, message_type)
+  local size = nasdaq_nsmequities_totalview_itch_v4_1.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.payload(buffer, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.payload.display(buffer, packet, parent)
   local element = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.payload, range, display)
 
-  return nasdaq_nsmequities_totalview_itch_v4_1_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nasdaq_nsmequities_totalview_itch_v4_1.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Message Type
+nasdaq_nsmequities_totalview_itch_v4_1.message_type = {}
+
 -- Size: Message Type
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_type = 1
+nasdaq_nsmequities_totalview_itch_v4_1.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nsmequities_totalview_itch_v4_1_display.message_type = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.message_type.display = function(value)
   if value == "T" then
     return "Message Type: Time Stamp Message (T)"
   end
@@ -2465,91 +2627,100 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_type
+nasdaq_nsmequities_totalview_itch_v4_1.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.message_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Length
+nasdaq_nsmequities_totalview_itch_v4_1.message_length = {}
+
 -- Size: Message Length
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_length = 2
+nasdaq_nsmequities_totalview_itch_v4_1.message_length.size = 2
 
 -- Display: Message Length
-nasdaq_nsmequities_totalview_itch_v4_1_display.message_length = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.message_length.display = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_length = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_length
+nasdaq_nsmequities_totalview_itch_v4_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.message_length.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.message_length(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+nasdaq_nsmequities_totalview_itch_v4_1.message_header = {}
+
 -- Calculate size of: Message Header
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_header = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_length
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.message_length.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_type
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-nasdaq_nsmequities_totalview_itch_v4_1_display.message_header = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_header_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_length(buffer, index, packet, parent)
+  index, message_length = nasdaq_nsmequities_totalview_itch_v4_1.message_length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 17 values
-  index, message_type = nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nasdaq_nsmequities_totalview_itch_v4_1.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_header = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.message_header(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+nasdaq_nsmequities_totalview_itch_v4_1.message = {}
+
 -- Display: Message
-nasdaq_nsmequities_totalview_itch_v4_1_display.message = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+nasdaq_nsmequities_totalview_itch_v4_1.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -2559,83 +2730,92 @@ nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_fields = function(buffer,
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nasdaq_nsmequities_totalview_itch_v4_1.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 17 branches
-  index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.payload(buffer, index, packet, parent, message_type)
+  index = nasdaq_nsmequities_totalview_itch_v4_1.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+nasdaq_nsmequities_totalview_itch_v4_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message, buffer(offset, 0))
-    local current = nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = nasdaq_nsmequities_totalview_itch_v4_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.message(buffer, packet, parent)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    nasdaq_nsmequities_totalview_itch_v4_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Message Count
+nasdaq_nsmequities_totalview_itch_v4_1.message_count = {}
+
 -- Size: Message Count
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_count = 2
+nasdaq_nsmequities_totalview_itch_v4_1.message_count.size = 2
 
 -- Display: Message Count
-nasdaq_nsmequities_totalview_itch_v4_1_display.message_count = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_count
+nasdaq_nsmequities_totalview_itch_v4_1.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.message_count.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.message_count(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number
+nasdaq_nsmequities_totalview_itch_v4_1.sequence_number = {}
+
 -- Size: Sequence Number
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.sequence_number = 8
+nasdaq_nsmequities_totalview_itch_v4_1.sequence_number.size = 8
 
 -- Display: Sequence Number
-nasdaq_nsmequities_totalview_itch_v4_1_display.sequence_number = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.sequence_number
+nasdaq_nsmequities_totalview_itch_v4_1.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Session
+nasdaq_nsmequities_totalview_itch_v4_1.session = {}
+
 -- Size: Session
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.session = 10
+nasdaq_nsmequities_totalview_itch_v4_1.session.size = 10
 
 -- Display: Session
-nasdaq_nsmequities_totalview_itch_v4_1_display.session = function(value)
+nasdaq_nsmequities_totalview_itch_v4_1.session.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Session: No Value"
@@ -2645,8 +2825,8 @@ nasdaq_nsmequities_totalview_itch_v4_1_display.session = function(value)
 end
 
 -- Dissect: Session
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.session = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_1_size_of.session
+nasdaq_nsmequities_totalview_itch_v4_1.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.session.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2660,71 +2840,77 @@ nasdaq_nsmequities_totalview_itch_v4_1_dissect.session = function(buffer, offset
     value = range:string()
   end
 
-  local display = nasdaq_nsmequities_totalview_itch_v4_1_display.session(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.session, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+nasdaq_nsmequities_totalview_itch_v4_1.packet_header = {}
+
 -- Calculate size of: Packet Header
-nasdaq_nsmequities_totalview_itch_v4_1_size_of.packet_header = function(buffer, offset)
+nasdaq_nsmequities_totalview_itch_v4_1.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.session
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.session.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.sequence_number
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.sequence_number.size
 
-  index = index + nasdaq_nsmequities_totalview_itch_v4_1_size_of.message_count
+  index = index + nasdaq_nsmequities_totalview_itch_v4_1.message_count.size
 
   return index
 end
 
 -- Display: Packet Header
-nasdaq_nsmequities_totalview_itch_v4_1_display.packet_header = function(packet, parent, length)
+nasdaq_nsmequities_totalview_itch_v4_1.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index, session = nasdaq_nsmequities_totalview_itch_v4_1_dissect.session(buffer, index, packet, parent)
+  index, session = nasdaq_nsmequities_totalview_itch_v4_1.session.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nasdaq_nsmequities_totalview_itch_v4_1_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = nasdaq_nsmequities_totalview_itch_v4_1.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
-  index, message_count = nasdaq_nsmequities_totalview_itch_v4_1_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = nasdaq_nsmequities_totalview_itch_v4_1.message_count.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet_header = function(buffer, offset, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v4_1_display.packet_header(packet, parent, length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_totalview_itch_v4_1.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+nasdaq_nsmequities_totalview_itch_v4_1.packet = {}
+
 -- Dissect Packet
-nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet = function(buffer, packet, parent)
+nasdaq_nsmequities_totalview_itch_v4_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index, packet_header = nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nasdaq_nsmequities_totalview_itch_v4_1.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):uint()
@@ -2739,7 +2925,7 @@ nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet = function(buffer, packet,
     local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
-    index, message = nasdaq_nsmequities_totalview_itch_v4_1_dissect.message(buffer, index, packet, parent, size_of_message, message_index)
+    index, message = nasdaq_nsmequities_totalview_itch_v4_1.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
@@ -2762,7 +2948,7 @@ function omi_nasdaq_nsmequities_totalview_itch_v4_1.dissector(buffer, packet, pa
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1, buffer(), omi_nasdaq_nsmequities_totalview_itch_v4_1.description, "("..buffer:len().." Bytes)")
-  return nasdaq_nsmequities_totalview_itch_v4_1_dissect.packet(buffer, packet, protocol)
+  return nasdaq_nsmequities_totalview_itch_v4_1.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

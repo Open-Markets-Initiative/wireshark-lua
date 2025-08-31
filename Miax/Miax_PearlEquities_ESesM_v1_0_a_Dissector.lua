@@ -7,12 +7,12 @@
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Protocol
 local omi_miax_pearlequities_esesm_v1_0_a = Proto("Miax.PearlEquities.ESesM.v1.0.a.Lua", "Miax PearlEquities HeaderOnly ESesM 1.0.a")
 
+-- Protocol table
+local miax_pearlequities_esesm_v1_0_a = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local miax_pearlequities_esesm_v1_0_a_display = {}
-local miax_pearlequities_esesm_v1_0_a_dissect = {}
-local miax_pearlequities_esesm_v1_0_a_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -178,24 +178,30 @@ end
 -- Dissect Miax PearlEquities HeaderOnly ESesM 1.0.a
 -----------------------------------------------------------------------
 
+-- Test Text
+miax_pearlequities_esesm_v1_0_a.test_text = {}
+
 -- Display: Test Text
-miax_pearlequities_esesm_v1_0_a_display.test_text = function(value)
+miax_pearlequities_esesm_v1_0_a.test_text.display = function(value)
   return "Test Text: "..value
 end
 
 -- Dissect runtime sized field: Test Text
-miax_pearlequities_esesm_v1_0_a_dissect.test_text = function(buffer, offset, packet, parent, size)
+miax_pearlequities_esesm_v1_0_a.test_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.test_text(value, buffer, offset, packet, parent, size)
+  local display = miax_pearlequities_esesm_v1_0_a.test_text.display(value, buffer, offset, packet, parent, size)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.test_text, range, value, display)
 
   return offset + size
 end
 
+-- Test Packet
+miax_pearlequities_esesm_v1_0_a.test_packet = {}
+
 -- Calculate size of: Test Packet
-miax_pearlequities_esesm_v1_0_a_size_of.test_packet = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.test_packet.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Test Text
@@ -205,12 +211,12 @@ miax_pearlequities_esesm_v1_0_a_size_of.test_packet = function(buffer, offset)
 end
 
 -- Display: Test Packet
-miax_pearlequities_esesm_v1_0_a_display.test_packet = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.test_packet.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Test Packet
-miax_pearlequities_esesm_v1_0_a_dissect.test_packet_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.test_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency element: Packet Length
@@ -220,45 +226,60 @@ miax_pearlequities_esesm_v1_0_a_dissect.test_packet_fields = function(buffer, of
   local size_of_test_text = packet_length - 1
 
   -- Test Text: 0 Byte Ascii String
-  index, test_text = miax_pearlequities_esesm_v1_0_a_dissect.test_text(buffer, index, packet, parent, size_of_test_text)
+  index, test_text = miax_pearlequities_esesm_v1_0_a.test_text.dissect(buffer, index, packet, parent, size_of_test_text)
 
   return index
 end
 
 -- Dissect: Test Packet
-miax_pearlequities_esesm_v1_0_a_dissect.test_packet = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.test_packet.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.test_packet then
-    local length = miax_pearlequities_esesm_v1_0_a_size_of.test_packet(buffer, offset)
+    local length = miax_pearlequities_esesm_v1_0_a.test_packet.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.test_packet(buffer, packet, parent)
+    local display = miax_pearlequities_esesm_v1_0_a.test_packet.display(buffer, packet, parent)
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.test_packet, range, display)
   end
 
-  return miax_pearlequities_esesm_v1_0_a_dissect.test_packet_fields(buffer, offset, packet, parent)
+  return miax_pearlequities_esesm_v1_0_a.test_packet.fields(buffer, offset, packet, parent)
 end
 
+-- Client Heartbeat
+miax_pearlequities_esesm_v1_0_a.client_heartbeat = {}
+
+-- Server Heartbeat
+miax_pearlequities_esesm_v1_0_a.server_heartbeat = {}
+
+-- Trading Session Update
+miax_pearlequities_esesm_v1_0_a.trading_session_update = {}
+
+-- Logout Text
+miax_pearlequities_esesm_v1_0_a.logout_text = {}
+
 -- Display: Logout Text
-miax_pearlequities_esesm_v1_0_a_display.logout_text = function(value)
+miax_pearlequities_esesm_v1_0_a.logout_text.display = function(value)
   return "Logout Text: "..value
 end
 
 -- Dissect runtime sized field: Logout Text
-miax_pearlequities_esesm_v1_0_a_dissect.logout_text = function(buffer, offset, packet, parent, size)
+miax_pearlequities_esesm_v1_0_a.logout_text.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.logout_text(value, buffer, offset, packet, parent, size)
+  local display = miax_pearlequities_esesm_v1_0_a.logout_text.display(value, buffer, offset, packet, parent, size)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.logout_text, range, value, display)
 
   return offset + size
 end
 
+-- Logout Reason
+miax_pearlequities_esesm_v1_0_a.logout_reason = {}
+
 -- Size: Logout Reason
-miax_pearlequities_esesm_v1_0_a_size_of.logout_reason = 1
+miax_pearlequities_esesm_v1_0_a.logout_reason.size = 1
 
 -- Display: Logout Reason
-miax_pearlequities_esesm_v1_0_a_display.logout_reason = function(value)
+miax_pearlequities_esesm_v1_0_a.logout_reason.display = function(value)
   if value == "" then
     return "Logout Reason: Graceful Logout (<whitespace>)"
   end
@@ -276,22 +297,25 @@ miax_pearlequities_esesm_v1_0_a_display.logout_reason = function(value)
 end
 
 -- Dissect: Logout Reason
-miax_pearlequities_esesm_v1_0_a_dissect.logout_reason = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.logout_reason
+miax_pearlequities_esesm_v1_0_a.logout_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.logout_reason.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.logout_reason(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.logout_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.logout_reason, range, value, display)
 
   return offset + length, value
 end
 
+-- Goodbye Packet
+miax_pearlequities_esesm_v1_0_a.goodbye_packet = {}
+
 -- Calculate size of: Goodbye Packet
-miax_pearlequities_esesm_v1_0_a_size_of.goodbye_packet = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.goodbye_packet.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.logout_reason
+  index = index + miax_pearlequities_esesm_v1_0_a.logout_reason.size
 
   -- Parse runtime size of: Logout Text
   index = index + buffer(offset + index - 4, 2):le_uint()
@@ -300,16 +324,16 @@ miax_pearlequities_esesm_v1_0_a_size_of.goodbye_packet = function(buffer, offset
 end
 
 -- Display: Goodbye Packet
-miax_pearlequities_esesm_v1_0_a_display.goodbye_packet = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.goodbye_packet.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Goodbye Packet
-miax_pearlequities_esesm_v1_0_a_dissect.goodbye_packet_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.goodbye_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
-  index, logout_reason = miax_pearlequities_esesm_v1_0_a_dissect.logout_reason(buffer, index, packet, parent)
+  index, logout_reason = miax_pearlequities_esesm_v1_0_a.logout_reason.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):le_uint()
@@ -318,29 +342,32 @@ miax_pearlequities_esesm_v1_0_a_dissect.goodbye_packet_fields = function(buffer,
   local size_of_logout_text = packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
-  index, logout_text = miax_pearlequities_esesm_v1_0_a_dissect.logout_text(buffer, index, packet, parent, size_of_logout_text)
+  index, logout_text = miax_pearlequities_esesm_v1_0_a.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
 
   return index
 end
 
 -- Dissect: Goodbye Packet
-miax_pearlequities_esesm_v1_0_a_dissect.goodbye_packet = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.goodbye_packet.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.goodbye_packet then
-    local length = miax_pearlequities_esesm_v1_0_a_size_of.goodbye_packet(buffer, offset)
+    local length = miax_pearlequities_esesm_v1_0_a.goodbye_packet.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.goodbye_packet(buffer, packet, parent)
+    local display = miax_pearlequities_esesm_v1_0_a.goodbye_packet.display(buffer, packet, parent)
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.goodbye_packet, range, display)
   end
 
-  return miax_pearlequities_esesm_v1_0_a_dissect.goodbye_packet_fields(buffer, offset, packet, parent)
+  return miax_pearlequities_esesm_v1_0_a.goodbye_packet.fields(buffer, offset, packet, parent)
 end
 
+-- Logout Request
+miax_pearlequities_esesm_v1_0_a.logout_request = {}
+
 -- Calculate size of: Logout Request
-miax_pearlequities_esesm_v1_0_a_size_of.logout_request = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.logout_request.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.logout_reason
+  index = index + miax_pearlequities_esesm_v1_0_a.logout_reason.size
 
   -- Parse runtime size of: Logout Text
   index = index + buffer(offset + index - 4, 2):le_uint()
@@ -349,16 +376,16 @@ miax_pearlequities_esesm_v1_0_a_size_of.logout_request = function(buffer, offset
 end
 
 -- Display: Logout Request
-miax_pearlequities_esesm_v1_0_a_display.logout_request = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.logout_request.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Logout Request
-miax_pearlequities_esesm_v1_0_a_dissect.logout_request_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.logout_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
-  index, logout_reason = miax_pearlequities_esesm_v1_0_a_dissect.logout_reason(buffer, index, packet, parent)
+  index, logout_reason = miax_pearlequities_esesm_v1_0_a.logout_reason.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):le_uint()
@@ -367,218 +394,242 @@ miax_pearlequities_esesm_v1_0_a_dissect.logout_request_fields = function(buffer,
   local size_of_logout_text = packet_length - 2
 
   -- Logout Text: 0 Byte Ascii String
-  index, logout_text = miax_pearlequities_esesm_v1_0_a_dissect.logout_text(buffer, index, packet, parent, size_of_logout_text)
+  index, logout_text = miax_pearlequities_esesm_v1_0_a.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
 
   return index
 end
 
 -- Dissect: Logout Request
-miax_pearlequities_esesm_v1_0_a_dissect.logout_request = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.logout_request.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.logout_request then
-    local length = miax_pearlequities_esesm_v1_0_a_size_of.logout_request(buffer, offset)
+    local length = miax_pearlequities_esesm_v1_0_a.logout_request.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.logout_request(buffer, packet, parent)
+    local display = miax_pearlequities_esesm_v1_0_a.logout_request.display(buffer, packet, parent)
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.logout_request, range, display)
   end
 
-  return miax_pearlequities_esesm_v1_0_a_dissect.logout_request_fields(buffer, offset, packet, parent)
+  return miax_pearlequities_esesm_v1_0_a.logout_request.fields(buffer, offset, packet, parent)
 end
 
+-- End Sequence Number
+miax_pearlequities_esesm_v1_0_a.end_sequence_number = {}
+
 -- Size: End Sequence Number
-miax_pearlequities_esesm_v1_0_a_size_of.end_sequence_number = 8
+miax_pearlequities_esesm_v1_0_a.end_sequence_number.size = 8
 
 -- Display: End Sequence Number
-miax_pearlequities_esesm_v1_0_a_display.end_sequence_number = function(value)
+miax_pearlequities_esesm_v1_0_a.end_sequence_number.display = function(value)
   return "End Sequence Number: "..value
 end
 
 -- Dissect: End Sequence Number
-miax_pearlequities_esesm_v1_0_a_dissect.end_sequence_number = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.end_sequence_number
+miax_pearlequities_esesm_v1_0_a.end_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.end_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_pearlequities_esesm_v1_0_a_display.end_sequence_number(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.end_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.end_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Start Sequence Number
+miax_pearlequities_esesm_v1_0_a.start_sequence_number = {}
+
 -- Size: Start Sequence Number
-miax_pearlequities_esesm_v1_0_a_size_of.start_sequence_number = 8
+miax_pearlequities_esesm_v1_0_a.start_sequence_number.size = 8
 
 -- Display: Start Sequence Number
-miax_pearlequities_esesm_v1_0_a_display.start_sequence_number = function(value)
+miax_pearlequities_esesm_v1_0_a.start_sequence_number.display = function(value)
   return "Start Sequence Number: "..value
 end
 
 -- Dissect: Start Sequence Number
-miax_pearlequities_esesm_v1_0_a_dissect.start_sequence_number = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.start_sequence_number
+miax_pearlequities_esesm_v1_0_a.start_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.start_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_pearlequities_esesm_v1_0_a_display.start_sequence_number(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.start_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.start_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Retransmission Request
+miax_pearlequities_esesm_v1_0_a.retransmission_request = {}
+
 -- Calculate size of: Retransmission Request
-miax_pearlequities_esesm_v1_0_a_size_of.retransmission_request = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.retransmission_request.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.start_sequence_number
+  index = index + miax_pearlequities_esesm_v1_0_a.start_sequence_number.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.end_sequence_number
+  index = index + miax_pearlequities_esesm_v1_0_a.end_sequence_number.size
 
   return index
 end
 
 -- Display: Retransmission Request
-miax_pearlequities_esesm_v1_0_a_display.retransmission_request = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.retransmission_request.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Retransmission Request
-miax_pearlequities_esesm_v1_0_a_dissect.retransmission_request_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.retransmission_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Start Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, start_sequence_number = miax_pearlequities_esesm_v1_0_a_dissect.start_sequence_number(buffer, index, packet, parent)
+  index, start_sequence_number = miax_pearlequities_esesm_v1_0_a.start_sequence_number.dissect(buffer, index, packet, parent)
 
   -- End Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, end_sequence_number = miax_pearlequities_esesm_v1_0_a_dissect.end_sequence_number(buffer, index, packet, parent)
+  index, end_sequence_number = miax_pearlequities_esesm_v1_0_a.end_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Retransmission Request
-miax_pearlequities_esesm_v1_0_a_dissect.retransmission_request = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.retransmission_request.dissect = function(buffer, offset, packet, parent)
   if show.retransmission_request then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.retransmission_request, buffer(offset, 0))
-    local index = miax_pearlequities_esesm_v1_0_a_dissect.retransmission_request_fields(buffer, offset, packet, parent)
+    local index = miax_pearlequities_esesm_v1_0_a.retransmission_request.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.retransmission_request(packet, parent, length)
+    local display = miax_pearlequities_esesm_v1_0_a.retransmission_request.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_esesm_v1_0_a_dissect.retransmission_request_fields(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.retransmission_request.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Number Of Matching Engines
+miax_pearlequities_esesm_v1_0_a.number_of_matching_engines = {}
+
 -- Size: Number Of Matching Engines
-miax_pearlequities_esesm_v1_0_a_size_of.number_of_matching_engines = 1
+miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size = 1
 
 -- Display: Number Of Matching Engines
-miax_pearlequities_esesm_v1_0_a_display.number_of_matching_engines = function(value)
+miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.display = function(value)
   return "Number Of Matching Engines: "..value
 end
 
 -- Dissect: Number Of Matching Engines
-miax_pearlequities_esesm_v1_0_a_dissect.number_of_matching_engines = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.number_of_matching_engines
+miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_pearlequities_esesm_v1_0_a_display.number_of_matching_engines(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.number_of_matching_engines, range, value, display)
 
   return offset + length, value
 end
 
+-- Synchronization Complete
+miax_pearlequities_esesm_v1_0_a.synchronization_complete = {}
+
 -- Calculate size of: Synchronization Complete
-miax_pearlequities_esesm_v1_0_a_size_of.synchronization_complete = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.synchronization_complete.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.number_of_matching_engines
+  index = index + miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
 
   return index
 end
 
 -- Display: Synchronization Complete
-miax_pearlequities_esesm_v1_0_a_display.synchronization_complete = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.synchronization_complete.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Synchronization Complete
-miax_pearlequities_esesm_v1_0_a_dissect.synchronization_complete_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.synchronization_complete.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_matching_engines = miax_pearlequities_esesm_v1_0_a_dissect.number_of_matching_engines(buffer, index, packet, parent)
+  index, number_of_matching_engines = miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Synchronization Complete
-miax_pearlequities_esesm_v1_0_a_dissect.synchronization_complete = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.synchronization_complete.dissect = function(buffer, offset, packet, parent)
   if show.synchronization_complete then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.synchronization_complete, buffer(offset, 0))
-    local index = miax_pearlequities_esesm_v1_0_a_dissect.synchronization_complete_fields(buffer, offset, packet, parent)
+    local index = miax_pearlequities_esesm_v1_0_a.synchronization_complete.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.synchronization_complete(packet, parent, length)
+    local display = miax_pearlequities_esesm_v1_0_a.synchronization_complete.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_esesm_v1_0_a_dissect.synchronization_complete_fields(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.synchronization_complete.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Highest Sequence Number
+miax_pearlequities_esesm_v1_0_a.highest_sequence_number = {}
+
 -- Size: Highest Sequence Number
-miax_pearlequities_esesm_v1_0_a_size_of.highest_sequence_number = 8
+miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size = 8
 
 -- Display: Highest Sequence Number
-miax_pearlequities_esesm_v1_0_a_display.highest_sequence_number = function(value)
+miax_pearlequities_esesm_v1_0_a.highest_sequence_number.display = function(value)
   return "Highest Sequence Number: "..value
 end
 
 -- Dissect: Highest Sequence Number
-miax_pearlequities_esesm_v1_0_a_dissect.highest_sequence_number = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.highest_sequence_number
+miax_pearlequities_esesm_v1_0_a.highest_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_pearlequities_esesm_v1_0_a_display.highest_sequence_number(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.highest_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.highest_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Session Id
+miax_pearlequities_esesm_v1_0_a.trading_session_id = {}
+
 -- Size: Trading Session Id
-miax_pearlequities_esesm_v1_0_a_size_of.trading_session_id = 1
+miax_pearlequities_esesm_v1_0_a.trading_session_id.size = 1
 
 -- Display: Trading Session Id
-miax_pearlequities_esesm_v1_0_a_display.trading_session_id = function(value)
+miax_pearlequities_esesm_v1_0_a.trading_session_id.display = function(value)
   return "Trading Session Id: "..value
 end
 
 -- Dissect: Trading Session Id
-miax_pearlequities_esesm_v1_0_a_dissect.trading_session_id = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.trading_session_id
+miax_pearlequities_esesm_v1_0_a.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.trading_session_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_pearlequities_esesm_v1_0_a_display.trading_session_id(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.trading_session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Login Status
+miax_pearlequities_esesm_v1_0_a.login_status = {}
+
 -- Size: Login Status
-miax_pearlequities_esesm_v1_0_a_size_of.login_status = 1
+miax_pearlequities_esesm_v1_0_a.login_status.size = 1
 
 -- Display: Login Status
-miax_pearlequities_esesm_v1_0_a_display.login_status = function(value)
+miax_pearlequities_esesm_v1_0_a.login_status.display = function(value)
   if value == "" then
     return "Login Status: Successful (<whitespace>)"
   end
@@ -611,303 +662,336 @@ miax_pearlequities_esesm_v1_0_a_display.login_status = function(value)
 end
 
 -- Dissect: Login Status
-miax_pearlequities_esesm_v1_0_a_dissect.login_status = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.login_status
+miax_pearlequities_esesm_v1_0_a.login_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.login_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.login_status(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.login_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.login_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Login Response
+miax_pearlequities_esesm_v1_0_a.login_response = {}
+
 -- Calculate size of: Login Response
-miax_pearlequities_esesm_v1_0_a_size_of.login_response = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.login_response.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.number_of_matching_engines
+  index = index + miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.login_status
+  index = index + miax_pearlequities_esesm_v1_0_a.login_status.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.trading_session_id
+  index = index + miax_pearlequities_esesm_v1_0_a.trading_session_id.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.highest_sequence_number
+  index = index + miax_pearlequities_esesm_v1_0_a.highest_sequence_number.size
 
   return index
 end
 
 -- Display: Login Response
-miax_pearlequities_esesm_v1_0_a_display.login_response = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.login_response.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Login Response
-miax_pearlequities_esesm_v1_0_a_dissect.login_response_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.login_response.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_matching_engines = miax_pearlequities_esesm_v1_0_a_dissect.number_of_matching_engines(buffer, index, packet, parent)
+  index, number_of_matching_engines = miax_pearlequities_esesm_v1_0_a.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
   -- Login Status: 1 Byte Ascii String Enum with 9 values
-  index, login_status = miax_pearlequities_esesm_v1_0_a_dissect.login_status(buffer, index, packet, parent)
+  index, login_status = miax_pearlequities_esesm_v1_0_a.login_status.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, trading_session_id = miax_pearlequities_esesm_v1_0_a_dissect.trading_session_id(buffer, index, packet, parent)
+  index, trading_session_id = miax_pearlequities_esesm_v1_0_a.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, highest_sequence_number = miax_pearlequities_esesm_v1_0_a_dissect.highest_sequence_number(buffer, index, packet, parent)
+  index, highest_sequence_number = miax_pearlequities_esesm_v1_0_a.highest_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Login Response
-miax_pearlequities_esesm_v1_0_a_dissect.login_response = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.login_response.dissect = function(buffer, offset, packet, parent)
   if show.login_response then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.login_response, buffer(offset, 0))
-    local index = miax_pearlequities_esesm_v1_0_a_dissect.login_response_fields(buffer, offset, packet, parent)
+    local index = miax_pearlequities_esesm_v1_0_a.login_response.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.login_response(packet, parent, length)
+    local display = miax_pearlequities_esesm_v1_0_a.login_response.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_esesm_v1_0_a_dissect.login_response_fields(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.login_response.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Requested Sequence Number
+miax_pearlequities_esesm_v1_0_a.requested_sequence_number = {}
+
 -- Size: Requested Sequence Number
-miax_pearlequities_esesm_v1_0_a_size_of.requested_sequence_number = 8
+miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size = 8
 
 -- Display: Requested Sequence Number
-miax_pearlequities_esesm_v1_0_a_display.requested_sequence_number = function(value)
+miax_pearlequities_esesm_v1_0_a.requested_sequence_number.display = function(value)
   return "Requested Sequence Number: "..value
 end
 
 -- Dissect: Requested Sequence Number
-miax_pearlequities_esesm_v1_0_a_dissect.requested_sequence_number = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.requested_sequence_number
+miax_pearlequities_esesm_v1_0_a.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_pearlequities_esesm_v1_0_a_display.requested_sequence_number(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.requested_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Requested Trading Session Id
+miax_pearlequities_esesm_v1_0_a.requested_trading_session_id = {}
+
 -- Size: Requested Trading Session Id
-miax_pearlequities_esesm_v1_0_a_size_of.requested_trading_session_id = 1
+miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size = 1
 
 -- Display: Requested Trading Session Id
-miax_pearlequities_esesm_v1_0_a_display.requested_trading_session_id = function(value)
+miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.display = function(value)
   return "Requested Trading Session Id: "..value
 end
 
 -- Dissect: Requested Trading Session Id
-miax_pearlequities_esesm_v1_0_a_dissect.requested_trading_session_id = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.requested_trading_session_id
+miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_pearlequities_esesm_v1_0_a_display.requested_trading_session_id(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.requested_trading_session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Application Protocol
+miax_pearlequities_esesm_v1_0_a.application_protocol = {}
+
 -- Size: Application Protocol
-miax_pearlequities_esesm_v1_0_a_size_of.application_protocol = 8
+miax_pearlequities_esesm_v1_0_a.application_protocol.size = 8
 
 -- Display: Application Protocol
-miax_pearlequities_esesm_v1_0_a_display.application_protocol = function(value)
+miax_pearlequities_esesm_v1_0_a.application_protocol.display = function(value)
   return "Application Protocol: "..value
 end
 
 -- Dissect: Application Protocol
-miax_pearlequities_esesm_v1_0_a_dissect.application_protocol = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.application_protocol
+miax_pearlequities_esesm_v1_0_a.application_protocol.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.application_protocol.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_esesm_v1_0_a_display.application_protocol(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.application_protocol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.application_protocol, range, value, display)
 
   return offset + length, value
 end
 
+-- Computer Id
+miax_pearlequities_esesm_v1_0_a.computer_id = {}
+
 -- Size: Computer Id
-miax_pearlequities_esesm_v1_0_a_size_of.computer_id = 8
+miax_pearlequities_esesm_v1_0_a.computer_id.size = 8
 
 -- Display: Computer Id
-miax_pearlequities_esesm_v1_0_a_display.computer_id = function(value)
+miax_pearlequities_esesm_v1_0_a.computer_id.display = function(value)
   return "Computer Id: "..value
 end
 
 -- Dissect: Computer Id
-miax_pearlequities_esesm_v1_0_a_dissect.computer_id = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.computer_id
+miax_pearlequities_esesm_v1_0_a.computer_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.computer_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_esesm_v1_0_a_display.computer_id(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.computer_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.computer_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Username
+miax_pearlequities_esesm_v1_0_a.username = {}
+
 -- Size: Username
-miax_pearlequities_esesm_v1_0_a_size_of.username = 5
+miax_pearlequities_esesm_v1_0_a.username.size = 5
 
 -- Display: Username
-miax_pearlequities_esesm_v1_0_a_display.username = function(value)
+miax_pearlequities_esesm_v1_0_a.username.display = function(value)
   return "Username: "..value
 end
 
 -- Dissect: Username
-miax_pearlequities_esesm_v1_0_a_dissect.username = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.username
+miax_pearlequities_esesm_v1_0_a.username.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.username.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_esesm_v1_0_a_display.username(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.username, range, value, display)
 
   return offset + length, value
 end
 
+-- Esesm Version
+miax_pearlequities_esesm_v1_0_a.esesm_version = {}
+
 -- Size: Esesm Version
-miax_pearlequities_esesm_v1_0_a_size_of.esesm_version = 5
+miax_pearlequities_esesm_v1_0_a.esesm_version.size = 5
 
 -- Display: Esesm Version
-miax_pearlequities_esesm_v1_0_a_display.esesm_version = function(value)
+miax_pearlequities_esesm_v1_0_a.esesm_version.display = function(value)
   return "Esesm Version: "..value
 end
 
 -- Dissect: Esesm Version
-miax_pearlequities_esesm_v1_0_a_dissect.esesm_version = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.esesm_version
+miax_pearlequities_esesm_v1_0_a.esesm_version.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.esesm_version.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.esesm_version(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.esesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.esesm_version, range, value, display)
 
   return offset + length, value
 end
 
+-- Login Request
+miax_pearlequities_esesm_v1_0_a.login_request = {}
+
 -- Calculate size of: Login Request
-miax_pearlequities_esesm_v1_0_a_size_of.login_request = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.login_request.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.esesm_version
+  index = index + miax_pearlequities_esesm_v1_0_a.esesm_version.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.username
+  index = index + miax_pearlequities_esesm_v1_0_a.username.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.computer_id
+  index = index + miax_pearlequities_esesm_v1_0_a.computer_id.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.application_protocol
+  index = index + miax_pearlequities_esesm_v1_0_a.application_protocol.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.requested_trading_session_id
+  index = index + miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.requested_sequence_number
+  index = index + miax_pearlequities_esesm_v1_0_a.requested_sequence_number.size
 
   return index
 end
 
 -- Display: Login Request
-miax_pearlequities_esesm_v1_0_a_display.login_request = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.login_request.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Login Request
-miax_pearlequities_esesm_v1_0_a_dissect.login_request_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.login_request.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Esesm Version: 5 Byte Ascii String
-  index, esesm_version = miax_pearlequities_esesm_v1_0_a_dissect.esesm_version(buffer, index, packet, parent)
+  index, esesm_version = miax_pearlequities_esesm_v1_0_a.esesm_version.dissect(buffer, index, packet, parent)
 
   -- Username: 5 Byte Ascii String
-  index, username = miax_pearlequities_esesm_v1_0_a_dissect.username(buffer, index, packet, parent)
+  index, username = miax_pearlequities_esesm_v1_0_a.username.dissect(buffer, index, packet, parent)
 
   -- Computer Id: 8 Byte Ascii String
-  index, computer_id = miax_pearlequities_esesm_v1_0_a_dissect.computer_id(buffer, index, packet, parent)
+  index, computer_id = miax_pearlequities_esesm_v1_0_a.computer_id.dissect(buffer, index, packet, parent)
 
   -- Application Protocol: 8 Byte Ascii String
-  index, application_protocol = miax_pearlequities_esesm_v1_0_a_dissect.application_protocol(buffer, index, packet, parent)
+  index, application_protocol = miax_pearlequities_esesm_v1_0_a.application_protocol.dissect(buffer, index, packet, parent)
 
   -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, requested_trading_session_id = miax_pearlequities_esesm_v1_0_a_dissect.requested_trading_session_id(buffer, index, packet, parent)
+  index, requested_trading_session_id = miax_pearlequities_esesm_v1_0_a.requested_trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, requested_sequence_number = miax_pearlequities_esesm_v1_0_a_dissect.requested_sequence_number(buffer, index, packet, parent)
+  index, requested_sequence_number = miax_pearlequities_esesm_v1_0_a.requested_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Login Request
-miax_pearlequities_esesm_v1_0_a_dissect.login_request = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.login_request.dissect = function(buffer, offset, packet, parent)
   if show.login_request then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.login_request, buffer(offset, 0))
-    local index = miax_pearlequities_esesm_v1_0_a_dissect.login_request_fields(buffer, offset, packet, parent)
+    local index = miax_pearlequities_esesm_v1_0_a.login_request.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.login_request(packet, parent, length)
+    local display = miax_pearlequities_esesm_v1_0_a.login_request.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_esesm_v1_0_a_dissect.login_request_fields(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.login_request.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Unsequenced Message
+miax_pearlequities_esesm_v1_0_a.unsequenced_message = {}
+
 -- Size: Unsequenced Message
-miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_message = 0
+miax_pearlequities_esesm_v1_0_a.unsequenced_message.size = 0
 
 -- Display: Unsequenced Message
-miax_pearlequities_esesm_v1_0_a_display.unsequenced_message = function(value)
+miax_pearlequities_esesm_v1_0_a.unsequenced_message.display = function(value)
   return "Unsequenced Message: "..value
 end
 
 -- Dissect: Unsequenced Message
-miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_message
+miax_pearlequities_esesm_v1_0_a.unsequenced_message.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.unsequenced_message.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = miax_pearlequities_esesm_v1_0_a_display.unsequenced_message(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.unsequenced_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.unsequenced_message, range, value, display)
 
   return offset + length, value
 end
 
+-- Unsequenced Message Type
+miax_pearlequities_esesm_v1_0_a.unsequenced_message_type = {}
+
 -- Size: Unsequenced Message Type
-miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_message_type = 2
+miax_pearlequities_esesm_v1_0_a.unsequenced_message_type.size = 2
 
 -- Display: Unsequenced Message Type
-miax_pearlequities_esesm_v1_0_a_display.unsequenced_message_type = function(value)
+miax_pearlequities_esesm_v1_0_a.unsequenced_message_type.display = function(value)
   return "Unsequenced Message Type: "..value
 end
 
 -- Dissect: Unsequenced Message Type
-miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message_type = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_message_type
+miax_pearlequities_esesm_v1_0_a.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.unsequenced_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.unsequenced_message_type(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.unsequenced_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Unsequenced Data Packet
+miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet = {}
+
 -- Read runtime size of: Unsequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_data_packet = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Packet Length
@@ -917,122 +1001,137 @@ miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_data_packet = function(buffe
 end
 
 -- Display: Unsequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_display.unsequenced_data_packet = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Unsequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
   -- Unsequenced Message Type: 2 Byte Ascii String
-  index, unsequenced_message_type = miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message_type(buffer, index, packet, parent)
+  index, unsequenced_message_type = miax_pearlequities_esesm_v1_0_a.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Unsequenced Message: 0 Byte
-  index, unsequenced_message = miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_message(buffer, index, packet, parent)
+  index, unsequenced_message = miax_pearlequities_esesm_v1_0_a.unsequenced_message.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unsequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_unsequenced_data_packet = miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_data_packet(buffer, offset)
+  local size_of_unsequenced_data_packet = miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.unsequenced_data_packet then
     local range = buffer(offset, size_of_unsequenced_data_packet)
-    local display = miax_pearlequities_esesm_v1_0_a_display.unsequenced_data_packet(buffer, packet, parent)
+    local display = miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.display(buffer, packet, parent)
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.unsequenced_data_packet, range, display)
   end
 
-  miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
 
   return offset + size_of_unsequenced_data_packet
 end
 
+-- Sequenced Message
+miax_pearlequities_esesm_v1_0_a.sequenced_message = {}
+
 -- Size: Sequenced Message
-miax_pearlequities_esesm_v1_0_a_size_of.sequenced_message = 0
+miax_pearlequities_esesm_v1_0_a.sequenced_message.size = 0
 
 -- Display: Sequenced Message
-miax_pearlequities_esesm_v1_0_a_display.sequenced_message = function(value)
+miax_pearlequities_esesm_v1_0_a.sequenced_message.display = function(value)
   return "Sequenced Message: "..value
 end
 
 -- Dissect: Sequenced Message
-miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.sequenced_message
+miax_pearlequities_esesm_v1_0_a.sequenced_message.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.sequenced_message.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = miax_pearlequities_esesm_v1_0_a_display.sequenced_message(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.sequenced_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.sequenced_message, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequenced Message Type
+miax_pearlequities_esesm_v1_0_a.sequenced_message_type = {}
+
 -- Size: Sequenced Message Type
-miax_pearlequities_esesm_v1_0_a_size_of.sequenced_message_type = 2
+miax_pearlequities_esesm_v1_0_a.sequenced_message_type.size = 2
 
 -- Display: Sequenced Message Type
-miax_pearlequities_esesm_v1_0_a_display.sequenced_message_type = function(value)
+miax_pearlequities_esesm_v1_0_a.sequenced_message_type.display = function(value)
   return "Sequenced Message Type: "..value
 end
 
 -- Dissect: Sequenced Message Type
-miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message_type = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.sequenced_message_type
+miax_pearlequities_esesm_v1_0_a.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.sequenced_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.sequenced_message_type(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.sequenced_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Matching Engine Id
+miax_pearlequities_esesm_v1_0_a.matching_engine_id = {}
+
 -- Size: Matching Engine Id
-miax_pearlequities_esesm_v1_0_a_size_of.matching_engine_id = 1
+miax_pearlequities_esesm_v1_0_a.matching_engine_id.size = 1
 
 -- Display: Matching Engine Id
-miax_pearlequities_esesm_v1_0_a_display.matching_engine_id = function(value)
+miax_pearlequities_esesm_v1_0_a.matching_engine_id.display = function(value)
   return "Matching Engine Id: "..value
 end
 
 -- Dissect: Matching Engine Id
-miax_pearlequities_esesm_v1_0_a_dissect.matching_engine_id = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.matching_engine_id
+miax_pearlequities_esesm_v1_0_a.matching_engine_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.matching_engine_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_pearlequities_esesm_v1_0_a_display.matching_engine_id(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.matching_engine_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.matching_engine_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number
+miax_pearlequities_esesm_v1_0_a.sequence_number = {}
+
 -- Size: Sequence Number
-miax_pearlequities_esesm_v1_0_a_size_of.sequence_number = 8
+miax_pearlequities_esesm_v1_0_a.sequence_number.size = 8
 
 -- Display: Sequence Number
-miax_pearlequities_esesm_v1_0_a_display.sequence_number = function(value)
+miax_pearlequities_esesm_v1_0_a.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-miax_pearlequities_esesm_v1_0_a_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.sequence_number
+miax_pearlequities_esesm_v1_0_a.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_pearlequities_esesm_v1_0_a_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequenced Data Packet
+miax_pearlequities_esesm_v1_0_a.sequenced_data_packet = {}
+
 -- Read runtime size of: Sequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_size_of.sequenced_data_packet = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Packet Length
@@ -1042,79 +1141,82 @@ miax_pearlequities_esesm_v1_0_a_size_of.sequenced_data_packet = function(buffer,
 end
 
 -- Display: Sequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_display.sequenced_data_packet = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = miax_pearlequities_esesm_v1_0_a_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = miax_pearlequities_esesm_v1_0_a.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
-  index, matching_engine_id = miax_pearlequities_esesm_v1_0_a_dissect.matching_engine_id(buffer, index, packet, parent)
+  index, matching_engine_id = miax_pearlequities_esesm_v1_0_a.matching_engine_id.dissect(buffer, index, packet, parent)
 
   -- Sequenced Message Type: 2 Byte Ascii String
-  index, sequenced_message_type = miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message_type(buffer, index, packet, parent)
+  index, sequenced_message_type = miax_pearlequities_esesm_v1_0_a.sequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Sequenced Message: 0 Byte
-  index, sequenced_message = miax_pearlequities_esesm_v1_0_a_dissect.sequenced_message(buffer, index, packet, parent)
+  index, sequenced_message = miax_pearlequities_esesm_v1_0_a.sequenced_message.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sequenced Data Packet
-miax_pearlequities_esesm_v1_0_a_dissect.sequenced_data_packet = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_sequenced_data_packet = miax_pearlequities_esesm_v1_0_a_size_of.sequenced_data_packet(buffer, offset)
+  local size_of_sequenced_data_packet = miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.sequenced_data_packet then
     local range = buffer(offset, size_of_sequenced_data_packet)
-    local display = miax_pearlequities_esesm_v1_0_a_display.sequenced_data_packet(buffer, packet, parent)
+    local display = miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.display(buffer, packet, parent)
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.sequenced_data_packet, range, display)
   end
 
-  miax_pearlequities_esesm_v1_0_a_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
 
   return offset + size_of_sequenced_data_packet
 end
 
+-- Payload
+miax_pearlequities_esesm_v1_0_a.payload = {}
+
 -- Calculate runtime size of: Payload
-miax_pearlequities_esesm_v1_0_a_size_of.payload = function(buffer, offset, packet_type)
+miax_pearlequities_esesm_v1_0_a.payload.size = function(buffer, offset, packet_type)
   -- Size of Sequenced Data Packet
   if packet_type == "s" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.sequenced_data_packet(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.size(buffer, offset)
   end
   -- Size of Unsequenced Data Packet
   if packet_type == "U" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.unsequenced_data_packet(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.size(buffer, offset)
   end
   -- Size of Login Request
   if packet_type == "l" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.login_request(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.login_request.size(buffer, offset)
   end
   -- Size of Login Response
   if packet_type == "r" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.login_response(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.login_response.size(buffer, offset)
   end
   -- Size of Synchronization Complete
   if packet_type == "c" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.synchronization_complete(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.synchronization_complete.size(buffer, offset)
   end
   -- Size of Retransmission Request
   if packet_type == "a" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.retransmission_request(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.retransmission_request.size(buffer, offset)
   end
   -- Size of Logout Request
   if packet_type == "X" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.logout_request(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.logout_request.size(buffer, offset)
   end
   -- Size of Goodbye Packet
   if packet_type == "G" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.goodbye_packet(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.goodbye_packet.size(buffer, offset)
   end
   -- Size of Trading Session Update
   if packet_type == "u" then
@@ -1130,50 +1232,50 @@ miax_pearlequities_esesm_v1_0_a_size_of.payload = function(buffer, offset, packe
   end
   -- Size of Test Packet
   if packet_type == "T" then
-    return miax_pearlequities_esesm_v1_0_a_size_of.test_packet(buffer, offset)
+    return miax_pearlequities_esesm_v1_0_a.test_packet.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-miax_pearlequities_esesm_v1_0_a_display.payload = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-miax_pearlequities_esesm_v1_0_a_dissect.payload_branches = function(buffer, offset, packet, parent, packet_type)
+miax_pearlequities_esesm_v1_0_a.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Sequenced Data Packet
   if packet_type == "s" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.sequenced_data_packet(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unsequenced Data Packet
   if packet_type == "U" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.unsequenced_data_packet(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Request
   if packet_type == "l" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.login_request(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.login_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response
   if packet_type == "r" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.login_response(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.login_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Synchronization Complete
   if packet_type == "c" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.synchronization_complete(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.synchronization_complete.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request
   if packet_type == "a" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.retransmission_request(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.retransmission_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
   if packet_type == "X" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.logout_request(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Goodbye Packet
   if packet_type == "G" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.goodbye_packet(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.goodbye_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Session Update
   if packet_type == "u" then
@@ -1186,37 +1288,40 @@ miax_pearlequities_esesm_v1_0_a_dissect.payload_branches = function(buffer, offs
   end
   -- Dissect Test Packet
   if packet_type == "T" then
-    return miax_pearlequities_esesm_v1_0_a_dissect.test_packet(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.test_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-miax_pearlequities_esesm_v1_0_a_dissect.payload = function(buffer, offset, packet, parent, packet_type)
+miax_pearlequities_esesm_v1_0_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   if not show.payload then
-    return miax_pearlequities_esesm_v1_0_a_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+    return miax_pearlequities_esesm_v1_0_a.payload.branches(buffer, offset, packet, parent, packet_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = miax_pearlequities_esesm_v1_0_a_size_of.payload(buffer, offset, packet_type)
+  local size = miax_pearlequities_esesm_v1_0_a.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = miax_pearlequities_esesm_v1_0_a_display.payload(buffer, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.payload.display(buffer, packet, parent)
   local element = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.payload, range, display)
 
-  return miax_pearlequities_esesm_v1_0_a_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+  return miax_pearlequities_esesm_v1_0_a.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
+-- Packet Type
+miax_pearlequities_esesm_v1_0_a.packet_type = {}
+
 -- Size: Packet Type
-miax_pearlequities_esesm_v1_0_a_size_of.packet_type = 1
+miax_pearlequities_esesm_v1_0_a.packet_type.size = 1
 
 -- Display: Packet Type
-miax_pearlequities_esesm_v1_0_a_display.packet_type = function(value)
+miax_pearlequities_esesm_v1_0_a.packet_type.display = function(value)
   if value == "s" then
     return "Packet Type: Sequenced Data Packet (s)"
   end
@@ -1258,121 +1363,130 @@ miax_pearlequities_esesm_v1_0_a_display.packet_type = function(value)
 end
 
 -- Dissect: Packet Type
-miax_pearlequities_esesm_v1_0_a_dissect.packet_type = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.packet_type
+miax_pearlequities_esesm_v1_0_a.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.packet_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_pearlequities_esesm_v1_0_a_display.packet_type(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Length
+miax_pearlequities_esesm_v1_0_a.packet_length = {}
+
 -- Size: Packet Length
-miax_pearlequities_esesm_v1_0_a_size_of.packet_length = 2
+miax_pearlequities_esesm_v1_0_a.packet_length.size = 2
 
 -- Display: Packet Length
-miax_pearlequities_esesm_v1_0_a_display.packet_length = function(value)
+miax_pearlequities_esesm_v1_0_a.packet_length.display = function(value)
   return "Packet Length: "..value
 end
 
 -- Dissect: Packet Length
-miax_pearlequities_esesm_v1_0_a_dissect.packet_length = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_esesm_v1_0_a_size_of.packet_length
+miax_pearlequities_esesm_v1_0_a.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_esesm_v1_0_a.packet_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_pearlequities_esesm_v1_0_a_display.packet_length(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_esesm_v1_0_a.packet_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+miax_pearlequities_esesm_v1_0_a.packet_header = {}
+
 -- Calculate size of: Packet Header
-miax_pearlequities_esesm_v1_0_a_size_of.packet_header = function(buffer, offset)
+miax_pearlequities_esesm_v1_0_a.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.packet_length
+  index = index + miax_pearlequities_esesm_v1_0_a.packet_length.size
 
-  index = index + miax_pearlequities_esesm_v1_0_a_size_of.packet_type
+  index = index + miax_pearlequities_esesm_v1_0_a.packet_type.size
 
   return index
 end
 
 -- Display: Packet Header
-miax_pearlequities_esesm_v1_0_a_display.packet_header = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-miax_pearlequities_esesm_v1_0_a_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = miax_pearlequities_esesm_v1_0_a_dissect.packet_length(buffer, index, packet, parent)
+  index, packet_length = miax_pearlequities_esesm_v1_0_a.packet_length.dissect(buffer, index, packet, parent)
 
   -- Packet Type: 1 Byte Ascii String Enum with 12 values
-  index, packet_type = miax_pearlequities_esesm_v1_0_a_dissect.packet_type(buffer, index, packet, parent)
+  index, packet_type = miax_pearlequities_esesm_v1_0_a.packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-miax_pearlequities_esesm_v1_0_a_dissect.packet_header = function(buffer, offset, packet, parent)
+miax_pearlequities_esesm_v1_0_a.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.packet_header, buffer(offset, 0))
-    local index = miax_pearlequities_esesm_v1_0_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = miax_pearlequities_esesm_v1_0_a.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_esesm_v1_0_a_display.packet_header(packet, parent, length)
+    local display = miax_pearlequities_esesm_v1_0_a.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_esesm_v1_0_a_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return miax_pearlequities_esesm_v1_0_a.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Esesm Tcp Packet
+miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet = {}
+
 -- Display: Esesm Tcp Packet
-miax_pearlequities_esesm_v1_0_a_display.esesm_tcp_packet = function(packet, parent, length)
+miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Esesm Tcp Packet
-miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet_fields = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
   local index = offset
 
   -- Packet Header: Struct of 2 fields
-  index, packet_header = miax_pearlequities_esesm_v1_0_a_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = miax_pearlequities_esesm_v1_0_a.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 12 branches
-  index = miax_pearlequities_esesm_v1_0_a_dissect.payload(buffer, index, packet, parent, packet_type)
+  index = miax_pearlequities_esesm_v1_0_a.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
 -- Dissect: Esesm Tcp Packet
-miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
   local index = offset + size_of_esesm_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
   if show.esesm_tcp_packet then
     parent = parent:add(omi_miax_pearlequities_esesm_v1_0_a.fields.esesm_tcp_packet, buffer(offset, 0))
-    local current = miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local current = miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
     parent:set_len(size_of_esesm_tcp_packet)
-    local display = miax_pearlequities_esesm_v1_0_a_display.esesm_tcp_packet(buffer, packet, parent)
+    local display = miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet_fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
 
     return index
   end
@@ -1384,7 +1498,7 @@ local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < miax_pearlequities_esesm_v1_0_a_size_of.packet_header(buffer, index) then
+  if remaining < miax_pearlequities_esesm_v1_0_a.packet_header.size(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -1399,8 +1513,11 @@ local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
+-- Packet
+miax_pearlequities_esesm_v1_0_a.packet = {}
+
 -- Dissect Packet
-miax_pearlequities_esesm_v1_0_a_dissect.packet = function(buffer, packet, parent)
+miax_pearlequities_esesm_v1_0_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Esesm Tcp Packet
@@ -1413,7 +1530,7 @@ miax_pearlequities_esesm_v1_0_a_dissect.packet = function(buffer, packet, parent
     local available, size_of_esesm_tcp_packet = esesm_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = miax_pearlequities_esesm_v1_0_a_dissect.esesm_tcp_packet(buffer, index, packet, parent, size_of_esesm_tcp_packet)
+      index = miax_pearlequities_esesm_v1_0_a.esesm_tcp_packet.dissect(buffer, index, packet, parent, size_of_esesm_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -1443,7 +1560,7 @@ function omi_miax_pearlequities_esesm_v1_0_a.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_pearlequities_esesm_v1_0_a, buffer(), omi_miax_pearlequities_esesm_v1_0_a.description, "("..buffer:len().." Bytes)")
-  return miax_pearlequities_esesm_v1_0_a_dissect.packet(buffer, packet, protocol)
+  return miax_pearlequities_esesm_v1_0_a.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

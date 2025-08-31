@@ -7,12 +7,12 @@
 -- Nyse Arca Options TopFeed Pillar 1.2.c Protocol
 local omi_nyse_arca_options_topfeed_pillar_v1_2_c = Proto("Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.Lua", "Nyse Arca Options TopFeed Pillar 1.2.c")
 
+-- Protocol table
+local nyse_arca_options_topfeed_pillar_v1_2_c = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local nyse_arca_options_topfeed_pillar_v1_2_c_display = {}
-local nyse_arca_options_topfeed_pillar_v1_2_c_dissect = {}
-local nyse_arca_options_topfeed_pillar_v1_2_c_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -350,248 +350,278 @@ end
 -- Dissect Nyse Arca Options TopFeed Pillar 1.2.c
 -----------------------------------------------------------------------
 
+-- Total Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.total_volume = {}
+
 -- Size: Total Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.size = 4
 
 -- Display: Total Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.total_volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.display = function(value)
   return "Total Volume: "..value
 end
 
 -- Dissect: Total Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_volume
+nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.total_volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Close
+nyse_arca_options_topfeed_pillar_v1_2_c.close = {}
+
 -- Size: Close
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.close = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.close.size = 4
 
 -- Display: Close
-nyse_arca_options_topfeed_pillar_v1_2_c_display.close = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.close.display = function(value)
   return "Close: "..value
 end
 
 -- Dissect: Close
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.close = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.close
+nyse_arca_options_topfeed_pillar_v1_2_c.close.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.close.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.close(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.close.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.close, range, value, display)
 
   return offset + length, value
 end
 
+-- Open
+nyse_arca_options_topfeed_pillar_v1_2_c.open = {}
+
 -- Size: Open
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.open = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.open.size = 4
 
 -- Display: Open
-nyse_arca_options_topfeed_pillar_v1_2_c_display.open = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.open.display = function(value)
   return "Open: "..value
 end
 
 -- Dissect: Open
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.open = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.open
+nyse_arca_options_topfeed_pillar_v1_2_c.open.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.open.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.open(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.open.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.open, range, value, display)
 
   return offset + length, value
 end
 
+-- Low Price
+nyse_arca_options_topfeed_pillar_v1_2_c.low_price = {}
+
 -- Size: Low Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.low_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.low_price.size = 4
 
 -- Display: Low Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.low_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.low_price.display = function(value)
   return "Low Price: "..value
 end
 
 -- Dissect: Low Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.low_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.low_price
+nyse_arca_options_topfeed_pillar_v1_2_c.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.low_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.low_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.low_price, range, value, display)
 
   return offset + length, value
 end
 
+-- High Price
+nyse_arca_options_topfeed_pillar_v1_2_c.high_price = {}
+
 -- Size: High Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.high_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.high_price.size = 4
 
 -- Display: High Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.high_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.high_price.display = function(value)
   return "High Price: "..value
 end
 
 -- Dissect: High Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.high_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.high_price
+nyse_arca_options_topfeed_pillar_v1_2_c.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.high_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.high_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.high_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Series Index
+nyse_arca_options_topfeed_pillar_v1_2_c.series_index = {}
+
 -- Size: Series Index
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size = 4
 
 -- Display: Series Index
-nyse_arca_options_topfeed_pillar_v1_2_c_display.series_index = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_index.display = function(value)
   return "Series Index: "..value
 end
 
 -- Dissect: Series Index
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.series_index(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.series_index, range, value, display)
 
   return offset + length, value
 end
 
+-- Source Time Ns
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns = {}
+
 -- Size: Source Time Ns
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size = 4
 
 -- Display: Source Time Ns
-nyse_arca_options_topfeed_pillar_v1_2_c_display.source_time_ns = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.display = function(value)
   return "Source Time Ns: "..value
 end
 
 -- Dissect: Source Time Ns
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.source_time_ns(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.source_time_ns, range, value, display)
 
   return offset + length, value
 end
 
+-- Source Time
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time = {}
+
 -- Size: Source Time
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size = 4
 
 -- Display: Source Time
-nyse_arca_options_topfeed_pillar_v1_2_c_display.source_time = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time.display = function(value)
   return "Source Time: "..value
 end
 
 -- Dissect: Source Time
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.source_time(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.source_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Outright Series Summary Message
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message = {}
+
 -- Calculate size of: Outright Series Summary Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.outright_series_summary_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.high_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.high_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.low_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.low_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.open
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.open.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.close
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.close.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.size
 
   return index
 end
 
 -- Display: Outright Series Summary Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.outright_series_summary_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Outright Series Summary Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- High Price: 4 Byte Signed Fixed Width Integer
-  index, high_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.high_price(buffer, index, packet, parent)
+  index, high_price = nyse_arca_options_topfeed_pillar_v1_2_c.high_price.dissect(buffer, index, packet, parent)
 
   -- Low Price: 4 Byte Signed Fixed Width Integer
-  index, low_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.low_price(buffer, index, packet, parent)
+  index, low_price = nyse_arca_options_topfeed_pillar_v1_2_c.low_price.dissect(buffer, index, packet, parent)
 
   -- Open: 4 Byte Signed Fixed Width Integer
-  index, open = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.open(buffer, index, packet, parent)
+  index, open = nyse_arca_options_topfeed_pillar_v1_2_c.open.dissect(buffer, index, packet, parent)
 
   -- Close: 4 Byte Signed Fixed Width Integer
-  index, close = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.close(buffer, index, packet, parent)
+  index, close = nyse_arca_options_topfeed_pillar_v1_2_c.close.dissect(buffer, index, packet, parent)
 
   -- Total Volume: 4 Byte Unsigned Fixed Width Integer
-  index, total_volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = nyse_arca_options_topfeed_pillar_v1_2_c.total_volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Series Summary Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.dissect = function(buffer, offset, packet, parent)
   if show.outright_series_summary_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.outright_series_summary_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.outright_series_summary_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Rfq Status
+nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status = {}
+
 -- Size: Rfq Status
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.rfq_status = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.size = 1
 
 -- Display: Rfq Status
-nyse_arca_options_topfeed_pillar_v1_2_c_display.rfq_status = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.display = function(value)
   if value == "O" then
     return "Rfq Status: Start (O)"
   end
@@ -603,102 +633,117 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.rfq_status = function(value)
 end
 
 -- Dissect: Rfq Status
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.rfq_status = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.rfq_status
+nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.rfq_status(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.rfq_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Id
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_id = {}
+
 -- Size: Auction Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_id = 8
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.size = 8
 
 -- Display: Auction Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.display = function(value)
   return "Auction Id: "..value
 end
 
 -- Dissect: Auction Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_id
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Participant
+nyse_arca_options_topfeed_pillar_v1_2_c.participant = {}
+
 -- Size: Participant
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.participant = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.participant.size = 4
 
 -- Display: Participant
-nyse_arca_options_topfeed_pillar_v1_2_c_display.participant = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.participant.display = function(value)
   return "Participant: "..value
 end
 
 -- Dissect: Participant
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.participant = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.participant
+nyse_arca_options_topfeed_pillar_v1_2_c.participant.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.participant.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.participant(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.participant.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.participant, range, value, display)
 
   return offset + length, value
 end
 
+-- Working Price
+nyse_arca_options_topfeed_pillar_v1_2_c.working_price = {}
+
 -- Size: Working Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.working_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.working_price.size = 4
 
 -- Display: Working Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.working_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.working_price.display = function(value)
   return "Working Price: "..value
 end
 
 -- Dissect: Working Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.working_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.working_price
+nyse_arca_options_topfeed_pillar_v1_2_c.working_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.working_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.working_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.working_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Total Quantity
+nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity = {}
+
 -- Size: Total Quantity
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_quantity = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.size = 4
 
 -- Display: Total Quantity
-nyse_arca_options_topfeed_pillar_v1_2_c_display.total_quantity = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.display = function(value)
   return "Total Quantity: "..value
 end
 
 -- Dissect: Total Quantity
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_quantity = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_quantity
+nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.total_quantity(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.total_quantity, range, value, display)
 
   return offset + length, value
 end
 
+-- Capacity
+nyse_arca_options_topfeed_pillar_v1_2_c.capacity = {}
+
 -- Size: Capacity
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.capacity = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.capacity.size = 1
 
 -- Display: Capacity
-nyse_arca_options_topfeed_pillar_v1_2_c_display.capacity = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.capacity.display = function(value)
   if value == " " then
     return "Capacity: Not Specified (<whitespace>)"
   end
@@ -722,22 +767,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.capacity = function(value)
 end
 
 -- Dissect: Capacity
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.capacity = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.capacity
+nyse_arca_options_topfeed_pillar_v1_2_c.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.capacity.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.capacity(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.capacity, range, value, display)
 
   return offset + length, value
 end
 
+-- Type
+nyse_arca_options_topfeed_pillar_v1_2_c.type = {}
+
 -- Size: Type
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.type = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.type.size = 1
 
 -- Display: Type
-nyse_arca_options_topfeed_pillar_v1_2_c_display.type = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.type.display = function(value)
   if value == "P" then
     return "Type: Price Improvement (P)"
   end
@@ -758,22 +806,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.type = function(value)
 end
 
 -- Dissect: Type
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.type = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.type
+nyse_arca_options_topfeed_pillar_v1_2_c.type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.type(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.type, range, value, display)
 
   return offset + length, value
 end
 
+-- Side
+nyse_arca_options_topfeed_pillar_v1_2_c.side = {}
+
 -- Size: Side
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.side = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.side.size = 1
 
 -- Display: Side
-nyse_arca_options_topfeed_pillar_v1_2_c_display.side = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.side.display = function(value)
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -785,139 +836,148 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.side = function(value)
 end
 
 -- Dissect: Side
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.side = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.side
+nyse_arca_options_topfeed_pillar_v1_2_c.side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.side(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.side, range, value, display)
 
   return offset + length, value
 end
 
+-- Series Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num = {}
+
 -- Size: Series Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size = 4
 
 -- Display: Series Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.series_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.display = function(value)
   return "Series Seq Num: "..value
 end
 
 -- Dissect: Series Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.series_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.series_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Series Rfq Message
+nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message = {}
+
 -- Calculate size of: Series Rfq Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_rfq_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.side
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.side.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.type
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.type.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.capacity
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.capacity.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_quantity
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.working_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.working_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.participant
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.participant.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.rfq_status
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.size
 
   return index
 end
 
 -- Display: Series Rfq Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.series_rfq_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Series Rfq Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num(buffer, index, packet, parent)
+  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.side(buffer, index, packet, parent)
+  index, side = nyse_arca_options_topfeed_pillar_v1_2_c.side.dissect(buffer, index, packet, parent)
 
   -- Type: 1 Byte Ascii String Enum with 5 values
-  index, type = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.type(buffer, index, packet, parent)
+  index, type = nyse_arca_options_topfeed_pillar_v1_2_c.type.dissect(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 6 values
-  index, capacity = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.capacity(buffer, index, packet, parent)
+  index, capacity = nyse_arca_options_topfeed_pillar_v1_2_c.capacity.dissect(buffer, index, packet, parent)
 
   -- Total Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, total_quantity = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_quantity(buffer, index, packet, parent)
+  index, total_quantity = nyse_arca_options_topfeed_pillar_v1_2_c.total_quantity.dissect(buffer, index, packet, parent)
 
   -- Working Price: 4 Byte Signed Fixed Width Integer
-  index, working_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.working_price(buffer, index, packet, parent)
+  index, working_price = nyse_arca_options_topfeed_pillar_v1_2_c.working_price.dissect(buffer, index, packet, parent)
 
   -- Participant: 4 Byte Unsigned Fixed Width Integer
-  index, participant = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.participant(buffer, index, packet, parent)
+  index, participant = nyse_arca_options_topfeed_pillar_v1_2_c.participant.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = nyse_arca_options_topfeed_pillar_v1_2_c.auction_id.dissect(buffer, index, packet, parent)
 
   -- Rfq Status: 1 Byte Ascii String Enum with 2 values
-  index, rfq_status = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.rfq_status(buffer, index, packet, parent)
+  index, rfq_status = nyse_arca_options_topfeed_pillar_v1_2_c.rfq_status.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Series Rfq Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.dissect = function(buffer, offset, packet, parent)
   if show.series_rfq_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.series_rfq_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.series_rfq_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Auction Status
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_status = {}
+
 -- Size: Auction Status
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_status = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.size = 1
 
 -- Display: Auction Status
-nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_status = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.display = function(value)
   if value == 0 then
     return "Auction Status: Usual (0)"
   end
@@ -932,142 +992,163 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_status = function(value)
 end
 
 -- Dissect: Auction Status
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_status = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_status
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_status(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.auction_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Lower Collar
+nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar = {}
+
 -- Size: Lower Collar
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.lower_collar = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.size = 4
 
 -- Display: Lower Collar
-nyse_arca_options_topfeed_pillar_v1_2_c_display.lower_collar = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.display = function(value)
   return "Lower Collar: "..value
 end
 
 -- Dissect: Lower Collar
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.lower_collar = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.lower_collar
+nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.lower_collar(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.lower_collar, range, value, display)
 
   return offset + length, value
 end
 
+-- Upper Collar
+nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar = {}
+
 -- Size: Upper Collar
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.upper_collar = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.size = 4
 
 -- Display: Upper Collar
-nyse_arca_options_topfeed_pillar_v1_2_c_display.upper_collar = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.display = function(value)
   return "Upper Collar: "..value
 end
 
 -- Dissect: Upper Collar
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.upper_collar = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.upper_collar
+nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.upper_collar(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.upper_collar, range, value, display)
 
   return offset + length, value
 end
 
+-- Indicative Match Price
+nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price = {}
+
 -- Size: Indicative Match Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.indicative_match_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.size = 4
 
 -- Display: Indicative Match Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.indicative_match_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.display = function(value)
   return "Indicative Match Price: "..value
 end
 
 -- Dissect: Indicative Match Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.indicative_match_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.indicative_match_price
+nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.indicative_match_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.indicative_match_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 4
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4 = {}
+
 -- Size: Reserved 4
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_4 = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size = 4
 
 -- Display: Reserved 4
-nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_4 = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.display = function(value)
   return "Reserved 4: "..value
 end
 
 -- Dissect: Reserved 4
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_4 = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_4
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_4(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Interest Clearing Price
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price = {}
+
 -- Size: Auction Interest Clearing Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_interest_clearing_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.size = 4
 
 -- Display: Auction Interest Clearing Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_interest_clearing_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.display = function(value)
   return "Auction Interest Clearing Price: "..value
 end
 
 -- Dissect: Auction Interest Clearing Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_interest_clearing_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_interest_clearing_price
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_interest_clearing_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.auction_interest_clearing_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Continuous Book Clearing Price
+nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price = {}
+
 -- Size: Continuous Book Clearing Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.continuous_book_clearing_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.size = 4
 
 -- Display: Continuous Book Clearing Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.continuous_book_clearing_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.display = function(value)
   return "Continuous Book Clearing Price: "..value
 end
 
 -- Dissect: Continuous Book Clearing Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.continuous_book_clearing_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.continuous_book_clearing_price
+nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.continuous_book_clearing_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.continuous_book_clearing_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Imbalance Side
+nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side = {}
+
 -- Size: Imbalance Side
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.imbalance_side = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.size = 1
 
 -- Display: Imbalance Side
-nyse_arca_options_topfeed_pillar_v1_2_c_display.imbalance_side = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.display = function(value)
   if value == "B" then
     return "Imbalance Side: Buy (B)"
   end
@@ -1082,22 +1163,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.imbalance_side = function(value)
 end
 
 -- Dissect: Imbalance Side
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.imbalance_side = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.imbalance_side
+nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.imbalance_side(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.imbalance_side, range, value, display)
 
   return offset + length, value
 end
 
+-- Auction Type
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_type = {}
+
 -- Size: Auction Type
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_type = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.size = 1
 
 -- Display: Auction Type
-nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_type = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.display = function(value)
   if value == "O" then
     return "Auction Type: Opening (O)"
   end
@@ -1109,249 +1193,270 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_type = function(value)
 end
 
 -- Dissect: Auction Type
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_type = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_type
+nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.auction_type(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 2
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2 = {}
+
 -- Size: Reserved 2
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_2 = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.size = 2
 
 -- Display: Reserved 2
-nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_2 = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.display = function(value)
   return "Reserved 2: "..value
 end
 
 -- Dissect: Reserved 2
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_2
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_2(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.reserved_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Imbalance Qty
+nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty = {}
+
 -- Size: Market Imbalance Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_imbalance_qty = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.size = 4
 
 -- Display: Market Imbalance Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_display.market_imbalance_qty = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.display = function(value)
   return "Market Imbalance Qty: "..value
 end
 
 -- Dissect: Market Imbalance Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_imbalance_qty = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_imbalance_qty
+nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.market_imbalance_qty(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.market_imbalance_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Total Imbalance Qty
+nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty = {}
+
 -- Size: Total Imbalance Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_imbalance_qty = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.size = 4
 
 -- Display: Total Imbalance Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_display.total_imbalance_qty = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.display = function(value)
   return "Total Imbalance Qty: "..value
 end
 
 -- Dissect: Total Imbalance Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_imbalance_qty = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_imbalance_qty
+nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.total_imbalance_qty(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.total_imbalance_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Paired Qty
+nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty = {}
+
 -- Size: Paired Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.paired_qty = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.size = 4
 
 -- Display: Paired Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_display.paired_qty = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.display = function(value)
   return "Paired Qty: "..value
 end
 
 -- Dissect: Paired Qty
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.paired_qty = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.paired_qty
+nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.paired_qty(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.paired_qty, range, value, display)
 
   return offset + length, value
 end
 
+-- Options Imbalance Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message = {}
+
 -- Calculate size of: Options Imbalance Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_imbalance_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_4
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.paired_qty
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_imbalance_qty
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_imbalance_qty
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_2
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_type
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.imbalance_side
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.continuous_book_clearing_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_interest_clearing_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_4
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.indicative_match_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.upper_collar
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.lower_collar
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.auction_status
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.size
 
   return index
 end
 
 -- Display: Options Imbalance Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.options_imbalance_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Options Imbalance Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num(buffer, index, packet, parent)
+  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
-  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_4(buffer, index, packet, parent)
+  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Paired Qty: 4 Byte Unsigned Fixed Width Integer
-  index, paired_qty = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.paired_qty(buffer, index, packet, parent)
+  index, paired_qty = nyse_arca_options_topfeed_pillar_v1_2_c.paired_qty.dissect(buffer, index, packet, parent)
 
   -- Total Imbalance Qty: 4 Byte Unsigned Fixed Width Integer
-  index, total_imbalance_qty = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_imbalance_qty(buffer, index, packet, parent)
+  index, total_imbalance_qty = nyse_arca_options_topfeed_pillar_v1_2_c.total_imbalance_qty.dissect(buffer, index, packet, parent)
 
   -- Market Imbalance Qty: 4 Byte Unsigned Fixed Width Integer
-  index, market_imbalance_qty = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_imbalance_qty(buffer, index, packet, parent)
+  index, market_imbalance_qty = nyse_arca_options_topfeed_pillar_v1_2_c.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_2.dissect(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 2 values
-  index, auction_type = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = nyse_arca_options_topfeed_pillar_v1_2_c.auction_type.dissect(buffer, index, packet, parent)
 
   -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, imbalance_side = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.imbalance_side(buffer, index, packet, parent)
+  index, imbalance_side = nyse_arca_options_topfeed_pillar_v1_2_c.imbalance_side.dissect(buffer, index, packet, parent)
 
   -- Continuous Book Clearing Price: 4 Byte Signed Fixed Width Integer
-  index, continuous_book_clearing_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.continuous_book_clearing_price(buffer, index, packet, parent)
+  index, continuous_book_clearing_price = nyse_arca_options_topfeed_pillar_v1_2_c.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
 
   -- Auction Interest Clearing Price: 4 Byte Signed Fixed Width Integer
-  index, auction_interest_clearing_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_interest_clearing_price(buffer, index, packet, parent)
+  index, auction_interest_clearing_price = nyse_arca_options_topfeed_pillar_v1_2_c.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
-  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_4(buffer, index, packet, parent)
+  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: 4 Byte Signed Fixed Width Integer
-  index, indicative_match_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.indicative_match_price(buffer, index, packet, parent)
+  index, indicative_match_price = nyse_arca_options_topfeed_pillar_v1_2_c.indicative_match_price.dissect(buffer, index, packet, parent)
 
   -- Upper Collar: 4 Byte Signed Fixed Width Integer
-  index, upper_collar = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.upper_collar(buffer, index, packet, parent)
+  index, upper_collar = nyse_arca_options_topfeed_pillar_v1_2_c.upper_collar.dissect(buffer, index, packet, parent)
 
   -- Lower Collar: 4 Byte Signed Fixed Width Integer
-  index, lower_collar = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.lower_collar(buffer, index, packet, parent)
+  index, lower_collar = nyse_arca_options_topfeed_pillar_v1_2_c.lower_collar.dissect(buffer, index, packet, parent)
 
   -- Auction Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, auction_status = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.auction_status(buffer, index, packet, parent)
+  index, auction_status = nyse_arca_options_topfeed_pillar_v1_2_c.auction_status.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Imbalance Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.dissect = function(buffer, offset, packet, parent)
   if show.options_imbalance_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_imbalance_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_imbalance_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reserved 3
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3 = {}
+
 -- Size: Reserved 3
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_3 = 3
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.size = 3
 
 -- Display: Reserved 3
-nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_3 = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.display = function(value)
   return "Reserved 3: "..value
 end
 
 -- Dissect: Reserved 3
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_3 = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_3
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_3(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.reserved_3, range, value, display)
 
   return offset + length, value
 end
 
+-- Transaction
+nyse_arca_options_topfeed_pillar_v1_2_c.transaction = {}
+
 -- Size: Transaction
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.transaction = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.transaction.size = 1
 
 -- Display: Transaction
-nyse_arca_options_topfeed_pillar_v1_2_c_display.transaction = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.transaction.display = function(value)
   if value == "H" then
     return "Transaction: Opening Trade In Sequence (H)"
   end
@@ -1369,333 +1474,363 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.transaction = function(value)
 end
 
 -- Dissect: Transaction
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.transaction = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.transaction
+nyse_arca_options_topfeed_pillar_v1_2_c.transaction.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.transaction.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.transaction(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.transaction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.transaction, range, value, display)
 
   return offset + length, value
 end
 
+-- Correction Condition
+nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition = {}
+
 -- Calculate size of: Correction Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.correction_condition = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.transaction
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.transaction.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_3
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.size
 
   return index
 end
 
 -- Display: Correction Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_display.correction_condition = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Correction Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction: 1 Byte Ascii String Enum with 4 values
-  index, transaction = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.transaction(buffer, index, packet, parent)
+  index, transaction = nyse_arca_options_topfeed_pillar_v1_2_c.transaction.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: 3 Byte
-  index, reserved_3 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_3(buffer, index, packet, parent)
+  index, reserved_3 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Correction Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.dissect = function(buffer, offset, packet, parent)
   if show.correction_condition then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.correction_condition, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.correction_condition(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.volume = {}
+
 -- Size: Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.volume.size = 4
 
 -- Display: Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.volume.display = function(value)
   return "Volume: "..value
 end
 
 -- Dissect: Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.volume
+nyse_arca_options_topfeed_pillar_v1_2_c.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Price
+nyse_arca_options_topfeed_pillar_v1_2_c.price = {}
+
 -- Size: Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.price.size = 4
 
 -- Display: Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.price.display = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price
+nyse_arca_options_topfeed_pillar_v1_2_c.price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.price, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Id
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_id = {}
+
 -- Size: Trade Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.trade_id = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size = 4
 
 -- Display: Trade Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.trade_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.display = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.trade_id
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.trade_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Original Trade Id
+nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id = {}
+
 -- Size: Original Trade Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.original_trade_id = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size = 4
 
 -- Display: Original Trade Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.original_trade_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.display = function(value)
   return "Original Trade Id: "..value
 end
 
 -- Dissect: Original Trade Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.original_trade_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.original_trade_id
+nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.original_trade_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.original_trade_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Options Trade Correction Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message = {}
+
 -- Calculate size of: Options Trade Correction Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_trade_correction_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.original_trade_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.trade_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.volume.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.correction_condition(buffer, offset + index)
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Options Trade Correction Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_correction_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Options Trade Correction Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num(buffer, index, packet, parent)
+  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Original Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, original_trade_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.original_trade_id(buffer, index, packet, parent)
+  index, original_trade_id = nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.dissect(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price(buffer, index, packet, parent)
+  index, price = nyse_arca_options_topfeed_pillar_v1_2_c.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.volume(buffer, index, packet, parent)
+  index, volume = nyse_arca_options_topfeed_pillar_v1_2_c.volume.dissect(buffer, index, packet, parent)
 
   -- Correction Condition: Struct of 2 fields
-  index, correction_condition = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.correction_condition(buffer, index, packet, parent)
+  index, correction_condition = nyse_arca_options_topfeed_pillar_v1_2_c.correction_condition.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Trade Correction Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.dissect = function(buffer, offset, packet, parent)
   if show.options_trade_correction_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_correction_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_correction_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Options Trade Cancel Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message = {}
+
 -- Calculate size of: Options Trade Cancel Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_trade_cancel_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.original_trade_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.size
 
   return index
 end
 
 -- Display: Options Trade Cancel Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_cancel_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Options Trade Cancel Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num(buffer, index, packet, parent)
+  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Original Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, original_trade_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.original_trade_id(buffer, index, packet, parent)
+  index, original_trade_id = nyse_arca_options_topfeed_pillar_v1_2_c.original_trade_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Trade Cancel Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
   if show.options_trade_cancel_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_cancel_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_cancel_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Offical
+nyse_arca_options_topfeed_pillar_v1_2_c.offical = {}
+
 -- Size: Offical
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.offical = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.offical.size = 1
 
 -- Display: Offical
-nyse_arca_options_topfeed_pillar_v1_2_c_display.offical = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.offical.display = function(value)
   return "Offical: "..value
 end
 
 -- Dissect: Offical
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.offical = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.offical
+nyse_arca_options_topfeed_pillar_v1_2_c.offical.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.offical.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.offical(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.offical.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.offical, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 1
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1 = {}
+
 -- Size: Reserved 1
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_1 = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size = 1
 
 -- Display: Reserved 1
-nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_1 = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.display = function(value)
   return "Reserved 1: "..value
 end
 
 -- Dissect: Reserved 1
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_1
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_1(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Opening
+nyse_arca_options_topfeed_pillar_v1_2_c.opening = {}
+
 -- Size: Opening
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.opening = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.opening.size = 1
 
 -- Display: Opening
-nyse_arca_options_topfeed_pillar_v1_2_c_display.opening = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.opening.display = function(value)
   if value == " " then
     return "Opening: None (<whitespace>)"
   end
@@ -1710,22 +1845,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.opening = function(value)
 end
 
 -- Dissect: Opening
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.opening = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.opening
+nyse_arca_options_topfeed_pillar_v1_2_c.opening.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.opening.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.opening(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.opening.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.opening, range, value, display)
 
   return offset + length, value
 end
 
+-- Series
+nyse_arca_options_topfeed_pillar_v1_2_c.series = {}
+
 -- Size: Series
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.series.size = 1
 
 -- Display: Series
-nyse_arca_options_topfeed_pillar_v1_2_c_display.series = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.series.display = function(value)
   if value == "a" then
     return "Series: Cube (a)"
   end
@@ -1776,196 +1914,211 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.series = function(value)
 end
 
 -- Dissect: Series
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series
+nyse_arca_options_topfeed_pillar_v1_2_c.series.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.series.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.series(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.series.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.series, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Condition
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition = {}
+
 -- Calculate size of: Trade Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.trade_condition = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.opening
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.opening.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_1
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.offical
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.offical.size
 
   return index
 end
 
 -- Display: Trade Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_display.trade_condition = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Series: 1 Byte Ascii String Enum with 15 values
-  index, series = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series(buffer, index, packet, parent)
+  index, series = nyse_arca_options_topfeed_pillar_v1_2_c.series.dissect(buffer, index, packet, parent)
 
   -- Opening: 1 Byte Ascii String Enum with 3 values
-  index, opening = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.opening(buffer, index, packet, parent)
+  index, opening = nyse_arca_options_topfeed_pillar_v1_2_c.opening.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Offical: 1 Byte Ascii String
-  index, offical = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.offical(buffer, index, packet, parent)
+  index, offical = nyse_arca_options_topfeed_pillar_v1_2_c.offical.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.dissect = function(buffer, offset, packet, parent)
   if show.trade_condition then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.trade_condition, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.trade_condition(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Options Trade Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message = {}
+
 -- Calculate size of: Options Trade Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_trade_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.trade_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.volume.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.trade_condition(buffer, offset + index)
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Options Trade Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Options Trade Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num(buffer, index, packet, parent)
+  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = nyse_arca_options_topfeed_pillar_v1_2_c.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price(buffer, index, packet, parent)
+  index, price = nyse_arca_options_topfeed_pillar_v1_2_c.price.dissect(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.volume(buffer, index, packet, parent)
+  index, volume = nyse_arca_options_topfeed_pillar_v1_2_c.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Struct of 4 fields
-  index, trade_condition = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = nyse_arca_options_topfeed_pillar_v1_2_c.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Trade Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.dissect = function(buffer, offset, packet, parent)
   if show.options_trade_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_trade_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_trade_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Bid Customer Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume = {}
+
 -- Size: Bid Customer Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_customer_volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.size = 4
 
 -- Display: Bid Customer Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.bid_customer_volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.display = function(value)
   return "Bid Customer Volume: "..value
 end
 
 -- Dissect: Bid Customer Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.bid_customer_volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_customer_volume
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.bid_customer_volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.bid_customer_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Ask Customer Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume = {}
+
 -- Size: Ask Customer Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_customer_volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.size = 4
 
 -- Display: Ask Customer Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.ask_customer_volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.display = function(value)
   return "Ask Customer Volume: "..value
 end
 
 -- Dissect: Ask Customer Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ask_customer_volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_customer_volume
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.ask_customer_volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.ask_customer_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Quote Condition
+nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition = {}
+
 -- Size: Quote Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.quote_condition = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.size = 1
 
 -- Display: Quote Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_display.quote_condition = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.display = function(value)
   if value == "1" then
     return "Quote Condition: Nyse Equities (1)"
   end
@@ -2001,194 +2154,212 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.quote_condition = function(value
 end
 
 -- Dissect: Quote Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.quote_condition = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.quote_condition
+nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.quote_condition(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
 
+-- Bid Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume = {}
+
 -- Size: Bid Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.size = 4
 
 -- Display: Bid Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.bid_volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.display = function(value)
   return "Bid Volume: "..value
 end
 
 -- Dissect: Bid Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.bid_volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_volume
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.bid_volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.bid_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Bid Price
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_price = {}
+
 -- Size: Bid Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.size = 4
 
 -- Display: Bid Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.bid_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.display = function(value)
   return "Bid Price: "..value
 end
 
 -- Dissect: Bid Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.bid_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_price
+nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.bid_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Ask Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume = {}
+
 -- Size: Ask Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.size = 4
 
 -- Display: Ask Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.ask_volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.display = function(value)
   return "Ask Volume: "..value
 end
 
 -- Dissect: Ask Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ask_volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_volume
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.ask_volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.ask_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Ask Price
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_price = {}
+
 -- Size: Ask Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.size = 4
 
 -- Display: Ask Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.ask_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.display = function(value)
   return "Ask Price: "..value
 end
 
 -- Dissect: Ask Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ask_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_price
+nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.ask_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Options Quote Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message = {}
+
 -- Calculate size of: Options Quote Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_quote_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.quote_condition
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_1
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ask_customer_volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.bid_customer_volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.size
 
   return index
 end
 
 -- Display: Options Quote Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.options_quote_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Options Quote Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num(buffer, index, packet, parent)
+  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Ask Price: 4 Byte Signed Fixed Width Integer
-  index, ask_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = nyse_arca_options_topfeed_pillar_v1_2_c.ask_price.dissect(buffer, index, packet, parent)
 
   -- Ask Volume: 4 Byte Unsigned Fixed Width Integer
-  index, ask_volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ask_volume(buffer, index, packet, parent)
+  index, ask_volume = nyse_arca_options_topfeed_pillar_v1_2_c.ask_volume.dissect(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
-  index, bid_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = nyse_arca_options_topfeed_pillar_v1_2_c.bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
-  index, bid_volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.bid_volume(buffer, index, packet, parent)
+  index, bid_volume = nyse_arca_options_topfeed_pillar_v1_2_c.bid_volume.dissect(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 10 values
-  index, quote_condition = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nyse_arca_options_topfeed_pillar_v1_2_c.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Ask Customer Volume: 4 Byte Unsigned Fixed Width Integer
-  index, ask_customer_volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ask_customer_volume(buffer, index, packet, parent)
+  index, ask_customer_volume = nyse_arca_options_topfeed_pillar_v1_2_c.ask_customer_volume.dissect(buffer, index, packet, parent)
 
   -- Bid Customer Volume: 4 Byte Unsigned Fixed Width Integer
-  index, bid_customer_volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.bid_customer_volume(buffer, index, packet, parent)
+  index, bid_customer_volume = nyse_arca_options_topfeed_pillar_v1_2_c.bid_customer_volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Quote Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.dissect = function(buffer, offset, packet, parent)
   if show.options_quote_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_quote_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_quote_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Halt Condition
+nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition = {}
+
 -- Size: Halt Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.halt_condition = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size = 1
 
 -- Display: Halt Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_display.halt_condition = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.display = function(value)
   if value == "~" then
     return "Halt Condition: Security Not Delayed Or Halted (~)"
   end
@@ -2242,22 +2413,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.halt_condition = function(value)
 end
 
 -- Dissect: Halt Condition
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.halt_condition = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.halt_condition
+nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.halt_condition(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
 
+-- Market State
+nyse_arca_options_topfeed_pillar_v1_2_c.market_state = {}
+
 -- Size: Market State
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_state = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size = 1
 
 -- Display: Market State
-nyse_arca_options_topfeed_pillar_v1_2_c_display.market_state = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.market_state.display = function(value)
   if value == "P" then
     return "Market State: Preopening (P)"
   end
@@ -2278,22 +2452,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.market_state = function(value)
 end
 
 -- Dissect: Market State
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_state = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_state
+nyse_arca_options_topfeed_pillar_v1_2_c.market_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.market_state(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.market_state, range, value, display)
 
   return offset + length, value
 end
 
+-- Series Status
+nyse_arca_options_topfeed_pillar_v1_2_c.series_status = {}
+
 -- Size: Series Status
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_status = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.series_status.size = 1
 
 -- Display: Series Status
-nyse_arca_options_topfeed_pillar_v1_2_c_display.series_status = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_status.display = function(value)
   if value == "4" then
     return "Series Status: Trading Halt (4)"
   end
@@ -2320,94 +2497,100 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.series_status = function(value)
 end
 
 -- Dissect: Series Status
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_status = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_status
+nyse_arca_options_topfeed_pillar_v1_2_c.series_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.series_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.series_status(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.series_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.series_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Options Status Message
+nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message = {}
+
 -- Calculate size of: Options Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_status_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_status
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_status.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_state
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.halt_condition
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size
 
   return index
 end
 
 -- Display: Options Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.options_status_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Options Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_seq_num(buffer, index, packet, parent)
+  index, series_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Series Status: 1 Byte Ascii String Enum with 7 values
-  index, series_status = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_status(buffer, index, packet, parent)
+  index, series_status = nyse_arca_options_topfeed_pillar_v1_2_c.series_status.dissect(buffer, index, packet, parent)
 
   -- Market State: 1 Byte Ascii String Enum with 5 values
-  index, market_state = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_state(buffer, index, packet, parent)
+  index, market_state = nyse_arca_options_topfeed_pillar_v1_2_c.market_state.dissect(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String Enum with 16 values
-  index, halt_condition = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.dissect = function(buffer, offset, packet, parent)
   if show.options_status_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.options_status_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.options_status_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Closing Only Indicator
+nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator = {}
+
 -- Size: Closing Only Indicator
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.closing_only_indicator = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.size = 1
 
 -- Display: Closing Only Indicator
-nyse_arca_options_topfeed_pillar_v1_2_c_display.closing_only_indicator = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.display = function(value)
   if value == "0" then
     return "Closing Only Indicator: Standard Series (0)"
   end
@@ -2419,42 +2602,48 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.closing_only_indicator = functio
 end
 
 -- Dissect: Closing Only Indicator
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.closing_only_indicator = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.closing_only_indicator
+nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.closing_only_indicator(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.closing_only_indicator, range, value, display)
 
   return offset + length, value
 end
 
+-- Strike Price
+nyse_arca_options_topfeed_pillar_v1_2_c.strike_price = {}
+
 -- Size: Strike Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.strike_price = 10
+nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.size = 10
 
 -- Display: Strike Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.strike_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.display = function(value)
   return "Strike Price: "..value
 end
 
 -- Dissect: Strike Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.strike_price
+nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.strike_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Put Or Call
+nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call = {}
+
 -- Size: Put Or Call
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.put_or_call = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.size = 1
 
 -- Display: Put Or Call
-nyse_arca_options_topfeed_pillar_v1_2_c_display.put_or_call = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.display = function(value)
   if value == 0 then
     return "Put Or Call: Put (0)"
   end
@@ -2466,62 +2655,71 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.put_or_call = function(value)
 end
 
 -- Dissect: Put Or Call
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.put_or_call = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.put_or_call
+nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.put_or_call(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.put_or_call, range, value, display)
 
   return offset + length, value
 end
 
+-- Maturity Date
+nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date = {}
+
 -- Size: Maturity Date
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.maturity_date = 6
+nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.size = 6
 
 -- Display: Maturity Date
-nyse_arca_options_topfeed_pillar_v1_2_c_display.maturity_date = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.display = function(value)
   return "Maturity Date: "..value
 end
 
 -- Dissect: Maturity Date
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.maturity_date = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.maturity_date
+nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.maturity_date(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
 
+-- Contract Multiplier
+nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier = {}
+
 -- Size: Contract Multiplier
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.contract_multiplier = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.size = 2
 
 -- Display: Contract Multiplier
-nyse_arca_options_topfeed_pillar_v1_2_c_display.contract_multiplier = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.display = function(value)
   return "Contract Multiplier: "..value
 end
 
 -- Dissect: Contract Multiplier
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.contract_multiplier = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.contract_multiplier
+nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.contract_multiplier(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.contract_multiplier, range, value, display)
 
   return offset + length, value
 end
 
+-- Price Scale Code
+nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code = {}
+
 -- Size: Price Scale Code
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_scale_code = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size = 1
 
 -- Display: Price Scale Code
-nyse_arca_options_topfeed_pillar_v1_2_c_display.price_scale_code = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.display = function(value)
   if value == 6 then
     return "Price Scale Code: Low Priced Securities (6)"
   end
@@ -2536,122 +2734,140 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.price_scale_code = function(valu
 end
 
 -- Dissect: Price Scale Code
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_scale_code = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_scale_code
+nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.price_scale_code(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.price_scale_code, range, value, display)
 
   return offset + length, value
 end
 
+-- Underlying Index
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index = {}
+
 -- Size: Underlying Index
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.underlying_index = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.size = 4
 
 -- Display: Underlying Index
-nyse_arca_options_topfeed_pillar_v1_2_c_display.underlying_index = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.display = function(value)
   return "Underlying Index: "..value
 end
 
 -- Dissect: Underlying Index
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.underlying_index = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.underlying_index
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.underlying_index(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.underlying_index, range, value, display)
 
   return offset + length, value
 end
 
+-- Underlying Symbol
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol = {}
+
 -- Size: Underlying Symbol
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.underlying_symbol = 11
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.size = 11
 
 -- Display: Underlying Symbol
-nyse_arca_options_topfeed_pillar_v1_2_c_display.underlying_symbol = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.display = function(value)
   return "Underlying Symbol: "..value
 end
 
 -- Dissect: Underlying Symbol
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.underlying_symbol
+nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.underlying_symbol(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Option Symbol Root
+nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root = {}
+
 -- Size: Option Symbol Root
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.option_symbol_root = 6
+nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.size = 6
 
 -- Display: Option Symbol Root
-nyse_arca_options_topfeed_pillar_v1_2_c_display.option_symbol_root = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.display = function(value)
   return "Option Symbol Root: "..value
 end
 
 -- Dissect: Option Symbol Root
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.option_symbol_root = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.option_symbol_root
+nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.option_symbol_root(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.option_symbol_root, range, value, display)
 
   return offset + length, value
 end
 
+-- System Id
+nyse_arca_options_topfeed_pillar_v1_2_c.system_id = {}
+
 -- Size: System Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.system_id = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size = 1
 
 -- Display: System Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.system_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.system_id.display = function(value)
   return "System Id: "..value
 end
 
 -- Dissect: System Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.system_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.system_id
+nyse_arca_options_topfeed_pillar_v1_2_c.system_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.system_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.system_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Id
+nyse_arca_options_topfeed_pillar_v1_2_c.market_id = {}
+
 -- Size: Market Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_id = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size = 2
 
 -- Display: Market Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.market_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.market_id.display = function(value)
   return "Market Id: "..value
 end
 
 -- Dissect: Market Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_id
+nyse_arca_options_topfeed_pillar_v1_2_c.market_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.market_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.market_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.market_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Series Type
+nyse_arca_options_topfeed_pillar_v1_2_c.series_type = {}
+
 -- Size: Series Type
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_type = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.series_type.size = 1
 
 -- Display: Series Type
-nyse_arca_options_topfeed_pillar_v1_2_c_display.series_type = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.series_type.display = function(value)
   if value == 0 then
     return "Series Type: Standard (0)"
   end
@@ -2666,286 +2882,310 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.series_type = function(value)
 end
 
 -- Dissect: Series Type
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_type = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_type
+nyse_arca_options_topfeed_pillar_v1_2_c.series_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.series_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.series_type(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.series_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.series_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Outright Series Index Mapping Message
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message = {}
+
 -- Calculate size of: Outright Series Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.outright_series_index_mapping_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_type
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.series_type.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.system_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.option_symbol_root
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.underlying_symbol
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.underlying_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_scale_code
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.contract_multiplier
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.maturity_date
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.put_or_call
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.strike_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.closing_only_indicator
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_1
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
 
   return index
 end
 
 -- Display: Outright Series Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.outright_series_index_mapping_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Outright Series Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_arca_options_topfeed_pillar_v1_2_c.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, series_type = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_type(buffer, index, packet, parent)
+  index, series_type = nyse_arca_options_topfeed_pillar_v1_2_c.series_type.dissect(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer
-  index, market_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_id(buffer, index, packet, parent)
+  index, market_id = nyse_arca_options_topfeed_pillar_v1_2_c.market_id.dissect(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index, system_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.system_id(buffer, index, packet, parent)
+  index, system_id = nyse_arca_options_topfeed_pillar_v1_2_c.system_id.dissect(buffer, index, packet, parent)
 
   -- Option Symbol Root: 6 Byte Ascii String
-  index, option_symbol_root = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.option_symbol_root(buffer, index, packet, parent)
+  index, option_symbol_root = nyse_arca_options_topfeed_pillar_v1_2_c.option_symbol_root.dissect(buffer, index, packet, parent)
 
   -- Underlying Symbol: 11 Byte Ascii String
-  index, underlying_symbol = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = nyse_arca_options_topfeed_pillar_v1_2_c.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index, underlying_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.underlying_index(buffer, index, packet, parent)
+  index, underlying_index = nyse_arca_options_topfeed_pillar_v1_2_c.underlying_index.dissect(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, price_scale_code = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Contract Multiplier: 2 Byte Unsigned Fixed Width Integer
-  index, contract_multiplier = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.contract_multiplier(buffer, index, packet, parent)
+  index, contract_multiplier = nyse_arca_options_topfeed_pillar_v1_2_c.contract_multiplier.dissect(buffer, index, packet, parent)
 
   -- Maturity Date: 6 Byte Ascii String
-  index, maturity_date = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = nyse_arca_options_topfeed_pillar_v1_2_c.maturity_date.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, put_or_call = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.put_or_call(buffer, index, packet, parent)
+  index, put_or_call = nyse_arca_options_topfeed_pillar_v1_2_c.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Strike Price: 10 Byte Ascii String
-  index, strike_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = nyse_arca_options_topfeed_pillar_v1_2_c.strike_price.dissect(buffer, index, packet, parent)
 
   -- Closing Only Indicator: 1 Byte Ascii String Enum with 2 values
-  index, closing_only_indicator = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.closing_only_indicator(buffer, index, packet, parent)
+  index, closing_only_indicator = nyse_arca_options_topfeed_pillar_v1_2_c.closing_only_indicator.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Series Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.dissect = function(buffer, offset, packet, parent)
   if show.outright_series_index_mapping_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.outright_series_index_mapping_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.outright_series_index_mapping_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Last Symbol Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num = {}
+
 -- Size: Last Symbol Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.last_symbol_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.size = 4
 
 -- Display: Last Symbol Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.last_symbol_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.display = function(value)
   return "Last Symbol Seq Num: "..value
 end
 
 -- Dissect: Last Symbol Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.last_symbol_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.last_symbol_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.last_symbol_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.last_symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Last Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num = {}
+
 -- Size: Last Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.last_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.size = 4
 
 -- Display: Last Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.last_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.display = function(value)
   return "Last Seq Num: "..value
 end
 
 -- Dissect: Last Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.last_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.last_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.last_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.last_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Total Refresh Pkts
+nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts = {}
+
 -- Size: Total Refresh Pkts
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_refresh_pkts = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.size = 2
 
 -- Display: Total Refresh Pkts
-nyse_arca_options_topfeed_pillar_v1_2_c_display.total_refresh_pkts = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.display = function(value)
   return "Total Refresh Pkts: "..value
 end
 
 -- Dissect: Total Refresh Pkts
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_refresh_pkts = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_refresh_pkts
+nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.total_refresh_pkts(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.total_refresh_pkts, range, value, display)
 
   return offset + length, value
 end
 
+-- Current Refresh Pkt
+nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt = {}
+
 -- Size: Current Refresh Pkt
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.current_refresh_pkt = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.size = 2
 
 -- Display: Current Refresh Pkt
-nyse_arca_options_topfeed_pillar_v1_2_c_display.current_refresh_pkt = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.display = function(value)
   return "Current Refresh Pkt: "..value
 end
 
 -- Dissect: Current Refresh Pkt
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.current_refresh_pkt = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.current_refresh_pkt
+nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.current_refresh_pkt(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.current_refresh_pkt, range, value, display)
 
   return offset + length, value
 end
 
+-- Refresh Header Message
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message = {}
+
 -- Calculate size of: Refresh Header Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.refresh_header_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.current_refresh_pkt
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.total_refresh_pkts
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.last_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.last_symbol_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.size
 
   return index
 end
 
 -- Display: Refresh Header Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.refresh_header_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Refresh Header Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
-  index, current_refresh_pkt = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.current_refresh_pkt(buffer, index, packet, parent)
+  index, current_refresh_pkt = nyse_arca_options_topfeed_pillar_v1_2_c.current_refresh_pkt.dissect(buffer, index, packet, parent)
 
   -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
-  index, total_refresh_pkts = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.total_refresh_pkts(buffer, index, packet, parent)
+  index, total_refresh_pkts = nyse_arca_options_topfeed_pillar_v1_2_c.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
   -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, last_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.last_seq_num(buffer, index, packet, parent)
+  index, last_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.last_seq_num.dissect(buffer, index, packet, parent)
 
   -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, last_symbol_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.last_symbol_seq_num(buffer, index, packet, parent)
+  index, last_symbol_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.last_symbol_seq_num.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Refresh Header Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.dissect = function(buffer, offset, packet, parent)
   if show.refresh_header_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.refresh_header_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Session State
+nyse_arca_options_topfeed_pillar_v1_2_c.session_state = {}
+
 -- Size: Session State
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.session_state = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.session_state.size = 1
 
 -- Display: Session State
-nyse_arca_options_topfeed_pillar_v1_2_c_display.session_state = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.session_state.display = function(value)
   return "Session State: "..value
 end
 
 -- Dissect: Session State
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.session_state = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.session_state
+nyse_arca_options_topfeed_pillar_v1_2_c.session_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.session_state.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.session_state(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.session_state, range, value, display)
 
   return offset + length, value
 end
 
+-- Ssr State
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state = {}
+
 -- Size: Ssr State
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_state = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.size = 1
 
 -- Display: Ssr State
-nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_state = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.display = function(value)
   if value == "~" then
     return "Ssr State: No Short Sale Restriction In Effect (~)"
   end
@@ -2957,62 +3197,71 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_state = function(value)
 end
 
 -- Dissect: Ssr State
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ssr_state = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_state
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_state(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.ssr_state, range, value, display)
 
   return offset + length, value
 end
 
+-- Time
+nyse_arca_options_topfeed_pillar_v1_2_c.time = {}
+
 -- Size: Time
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.time = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.time.size = 4
 
 -- Display: Time
-nyse_arca_options_topfeed_pillar_v1_2_c_display.time = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.time.display = function(value)
   return "Time: "..value
 end
 
 -- Dissect: Time
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.time
+nyse_arca_options_topfeed_pillar_v1_2_c.time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.time(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.time, range, value, display)
 
   return offset + length, value
 end
 
+-- Ssr Triggering Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume = {}
+
 -- Size: Ssr Triggering Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_triggering_volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.size = 4
 
 -- Display: Ssr Triggering Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_triggering_volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.display = function(value)
   return "Ssr Triggering Volume: "..value
 end
 
 -- Dissect: Ssr Triggering Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ssr_triggering_volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_triggering_volume
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_triggering_volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.ssr_triggering_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Ssr Triggering Exchange Id
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id = {}
+
 -- Size: Ssr Triggering Exchange Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_triggering_exchange_id = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_triggering_exchange_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.display = function(value)
   if value == "A" then
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
@@ -3081,62 +3330,71 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_triggering_exchange_id = fun
 end
 
 -- Dissect: Ssr Triggering Exchange Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ssr_triggering_exchange_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_triggering_exchange_id
+nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.ssr_triggering_exchange_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.ssr_triggering_exchange_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Price 2
+nyse_arca_options_topfeed_pillar_v1_2_c.price_2 = {}
+
 -- Size: Price 2
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_2 = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.price_2.size = 4
 
 -- Display: Price 2
-nyse_arca_options_topfeed_pillar_v1_2_c_display.price_2 = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.price_2.display = function(value)
   return "Price 2: "..value
 end
 
 -- Dissect: Price 2
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_2 = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_2
+nyse_arca_options_topfeed_pillar_v1_2_c.price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.price_2.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.price_2(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.price_2, range, value, display)
 
   return offset + length, value
 end
 
+-- Price 1
+nyse_arca_options_topfeed_pillar_v1_2_c.price_1 = {}
+
 -- Size: Price 1
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_1 = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.price_1.size = 4
 
 -- Display: Price 1
-nyse_arca_options_topfeed_pillar_v1_2_c_display.price_1 = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.price_1.display = function(value)
   return "Price 1: "..value
 end
 
 -- Dissect: Price 1
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_1 = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_1
+nyse_arca_options_topfeed_pillar_v1_2_c.price_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.price_1.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.price_1(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.price_1, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Status
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status = {}
+
 -- Size: Security Status
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_status = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status.size = 1
 
 -- Display: Security Status
-nyse_arca_options_topfeed_pillar_v1_2_c_display.security_status = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status.display = function(value)
   if value == "4" then
     return "Security Status: Trading Halt (4)"
   end
@@ -3184,589 +3442,637 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.security_status = function(value
 end
 
 -- Dissect: Security Status
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_status
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.security_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.security_status(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.security_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num = {}
+
 -- Size: Symbol Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.size = 4
 
 -- Display: Symbol Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.display = function(value)
   return "Symbol Seq Num: "..value
 end
 
 -- Dissect: Symbol Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Index
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index = {}
+
 -- Size: Symbol Index
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size = 4
 
 -- Display: Symbol Index
-nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.display = function(value)
   return "Symbol Index: "..value
 end
 
 -- Dissect: Symbol Index
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_index, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Status Message
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message = {}
+
 -- Calculate size of: Security Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_status_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_status
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.security_status.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.halt_condition
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_4
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_1
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_1.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_2
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_2.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_triggering_exchange_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_triggering_volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.ssr_state
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_state
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_state.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.session_state
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.session_state.size
 
   return index
 end
 
 -- Display: Security Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.security_status_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Security Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 14 values
-  index, security_status = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status(buffer, index, packet, parent)
+  index, security_status = nyse_arca_options_topfeed_pillar_v1_2_c.security_status.dissect(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String Enum with 16 values
-  index, halt_condition = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = nyse_arca_options_topfeed_pillar_v1_2_c.halt_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
-  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_4(buffer, index, packet, parent)
+  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Price 1: 4 Byte Unsigned Fixed Width Integer
-  index, price_1 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_1(buffer, index, packet, parent)
+  index, price_1 = nyse_arca_options_topfeed_pillar_v1_2_c.price_1.dissect(buffer, index, packet, parent)
 
   -- Price 2: 4 Byte Unsigned Fixed Width Integer
-  index, price_2 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_2(buffer, index, packet, parent)
+  index, price_2 = nyse_arca_options_topfeed_pillar_v1_2_c.price_2.dissect(buffer, index, packet, parent)
 
   -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 21 values
-  index, ssr_triggering_exchange_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ssr_triggering_exchange_id(buffer, index, packet, parent)
+  index, ssr_triggering_exchange_id = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
 
   -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
-  index, ssr_triggering_volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ssr_triggering_volume(buffer, index, packet, parent)
+  index, ssr_triggering_volume = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
-  index, time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time(buffer, index, packet, parent)
+  index, time = nyse_arca_options_topfeed_pillar_v1_2_c.time.dissect(buffer, index, packet, parent)
 
   -- Ssr State: 1 Byte Ascii String Enum with 2 values
-  index, ssr_state = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.ssr_state(buffer, index, packet, parent)
+  index, ssr_state = nyse_arca_options_topfeed_pillar_v1_2_c.ssr_state.dissect(buffer, index, packet, parent)
 
   -- Market State: 1 Byte Ascii String Enum with 5 values
-  index, market_state = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_state(buffer, index, packet, parent)
+  index, market_state = nyse_arca_options_topfeed_pillar_v1_2_c.market_state.dissect(buffer, index, packet, parent)
 
   -- Session State: 1 Byte Unsigned Fixed Width Integer
-  index, session_state = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.session_state(buffer, index, packet, parent)
+  index, session_state = nyse_arca_options_topfeed_pillar_v1_2_c.session_state.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Security Status Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.dissect = function(buffer, offset, packet, parent)
   if show.security_status_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.security_status_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.security_status_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Next Source Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num = {}
+
 -- Size: Next Source Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.next_source_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.size = 4
 
 -- Display: Next Source Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.next_source_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.display = function(value)
   return "Next Source Seq Num: "..value
 end
 
 -- Dissect: Next Source Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.next_source_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.next_source_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.next_source_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.next_source_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Clear Message
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message = {}
+
 -- Calculate size of: Symbol Clear Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_clear_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.next_source_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.size
 
   return index
 end
 
 -- Display: Symbol Clear Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_clear_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Symbol Clear Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Next Source Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, next_source_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.next_source_seq_num(buffer, index, packet, parent)
+  index, next_source_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.next_source_seq_num.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Clear Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
   if show.symbol_clear_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_clear_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_clear_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Channel Id
+nyse_arca_options_topfeed_pillar_v1_2_c.channel_id = {}
+
 -- Size: Channel Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size = 1
 
 -- Display: Channel Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.channel_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.display = function(value)
   return "Channel Id: "..value
 end
 
 -- Dissect: Channel Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.channel_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id
+nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.channel_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Product Id
+nyse_arca_options_topfeed_pillar_v1_2_c.product_id = {}
+
 -- Size: Product Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size = 1
 
 -- Display: Product Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.product_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.product_id.display = function(value)
   return "Product Id: "..value
 end
 
 -- Dissect: Product Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.product_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id
+nyse_arca_options_topfeed_pillar_v1_2_c.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.product_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.product_id, range, value, display)
 
   return offset + length, value
 end
 
+-- End Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num = {}
+
 -- Size: End Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.end_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size = 4
 
 -- Display: End Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.end_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.display = function(value)
   return "End Seq Num: "..value
 end
 
 -- Dissect: End Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.end_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.end_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.end_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.end_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Begin Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num = {}
+
 -- Size: Begin Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.begin_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size = 4
 
 -- Display: Begin Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.begin_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.display = function(value)
   return "Begin Seq Num: "..value
 end
 
 -- Dissect: Begin Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.begin_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.begin_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.begin_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.begin_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Unavailable Message
+nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message = {}
+
 -- Calculate size of: Message Unavailable Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_unavailable_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.begin_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.end_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
 
   return index
 end
 
 -- Display: Message Unavailable Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.message_unavailable_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Unavailable Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, begin_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.begin_seq_num(buffer, index, packet, parent)
+  index, begin_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.dissect(buffer, index, packet, parent)
 
   -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, end_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.end_seq_num(buffer, index, packet, parent)
+  index, end_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.dissect(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Unavailable Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
   if show.message_unavailable_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message_unavailable_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Source Id
+nyse_arca_options_topfeed_pillar_v1_2_c.source_id = {}
+
 -- Size: Source Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_id = 10
+nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size = 10
 
 -- Display: Source Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.source_id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.source_id.display = function(value)
   return "Source Id: "..value
 end
 
 -- Dissect: Source Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_id
+nyse_arca_options_topfeed_pillar_v1_2_c.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.source_id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.source_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.source_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Refresh Request Message
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message = {}
+
 -- Calculate size of: Refresh Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.refresh_request_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
 
   return index
 end
 
 -- Display: Refresh Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.refresh_request_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Refresh Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: 10 Byte Ascii String
-  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_id(buffer, index, packet, parent)
+  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c.source_id.dissect(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Refresh Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.dissect = function(buffer, offset, packet, parent)
   if show.refresh_request_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.refresh_request_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Retransmit Method
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method = {}
+
 -- Size: Retransmit Method
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.retransmit_method = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.size = 1
 
 -- Display: Retransmit Method
-nyse_arca_options_topfeed_pillar_v1_2_c_display.retransmit_method = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.display = function(value)
   return "Retransmit Method: "..value
 end
 
 -- Dissect: Retransmit Method
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmit_method = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.retransmit_method
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.retransmit_method(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.retransmit_method, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Index Mapping Request Message
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message = {}
+
 -- Calculate size of: Symbol Index Mapping Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index_mapping_request_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.retransmit_method
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.size
 
   return index
 end
 
 -- Display: Symbol Index Mapping Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index_mapping_request_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Symbol Index Mapping Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: 10 Byte Ascii String
-  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_id(buffer, index, packet, parent)
+  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c.source_id.dissect(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.dissect(buffer, index, packet, parent)
 
   -- Retransmit Method: 1 Byte Unsigned Fixed Width Integer
-  index, retransmit_method = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmit_method(buffer, index, packet, parent)
+  index, retransmit_method = nyse_arca_options_topfeed_pillar_v1_2_c.retransmit_method.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Index Mapping Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_request_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index_mapping_request_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Heartbeat Response Message
+nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message = {}
+
 -- Calculate size of: Heartbeat Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.heartbeat_response_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
 
   return index
 end
 
 -- Display: Heartbeat Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.heartbeat_response_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Heartbeat Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Id: 10 Byte Ascii String
-  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_id(buffer, index, packet, parent)
+  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c.source_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Heartbeat Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
   if show.heartbeat_response_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.heartbeat_response_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Status
+nyse_arca_options_topfeed_pillar_v1_2_c.status = {}
+
 -- Size: Status
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.status = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.status.size = 1
 
 -- Display: Status
-nyse_arca_options_topfeed_pillar_v1_2_c_display.status = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.status.display = function(value)
   if value == "0" then
     return "Status: Accepted (0)"
   end
@@ -3802,196 +4108,211 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.status = function(value)
 end
 
 -- Dissect: Status
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.status = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.status
+nyse_arca_options_topfeed_pillar_v1_2_c.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.status(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.status, range, value, display)
 
   return offset + length, value
 end
 
+-- Request Seq Num
+nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num = {}
+
 -- Size: Request Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.request_seq_num = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.size = 4
 
 -- Display: Request Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_display.request_seq_num = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.display = function(value)
   return "Request Seq Num: "..value
 end
 
 -- Dissect: Request Seq Num
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_seq_num = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.request_seq_num
+nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.request_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.request_seq_num, range, value, display)
 
   return offset + length, value
 end
 
+-- Request Response Message
+nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message = {}
+
 -- Calculate size of: Request Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.request_response_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.request_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.begin_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.end_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.status
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.status.size
 
   return index
 end
 
 -- Display: Request Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.request_response_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Request Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Request Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, request_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_seq_num(buffer, index, packet, parent)
+  index, request_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.request_seq_num.dissect(buffer, index, packet, parent)
 
   -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, begin_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.begin_seq_num(buffer, index, packet, parent)
+  index, begin_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.dissect(buffer, index, packet, parent)
 
   -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, end_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.end_seq_num(buffer, index, packet, parent)
+  index, end_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.dissect(buffer, index, packet, parent)
 
   -- Source Id: 10 Byte Ascii String
-  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_id(buffer, index, packet, parent)
+  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c.source_id.dissect(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.dissect(buffer, index, packet, parent)
 
   -- Status: 1 Byte Ascii String Enum with 10 values
-  index, status = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.status(buffer, index, packet, parent)
+  index, status = nyse_arca_options_topfeed_pillar_v1_2_c.status.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Request Response Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.dissect = function(buffer, offset, packet, parent)
   if show.request_response_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.request_response_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Retransmission Request Message
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message = {}
+
 -- Calculate size of: Retransmission Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.retransmission_request_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.begin_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.end_seq_num
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
 
   return index
 end
 
 -- Display: Retransmission Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.retransmission_request_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Retransmission Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, begin_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.begin_seq_num(buffer, index, packet, parent)
+  index, begin_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.begin_seq_num.dissect(buffer, index, packet, parent)
 
   -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, end_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.end_seq_num(buffer, index, packet, parent)
+  index, end_seq_num = nyse_arca_options_topfeed_pillar_v1_2_c.end_seq_num.dissect(buffer, index, packet, parent)
 
   -- Source Id: 10 Byte Ascii String
-  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_id(buffer, index, packet, parent)
+  index, source_id = nyse_arca_options_topfeed_pillar_v1_2_c.source_id.dissect(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Retransmission Request Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
   if show.retransmission_request_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.retransmission_request_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reserved 6
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6 = {}
+
 -- Size: Reserved 6
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_6 = 6
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.size = 6
 
 -- Display: Reserved 6
-nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_6 = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.display = function(value)
   return "Reserved 6: "..value
 end
 
 -- Dissect: Reserved 6
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_6 = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_6
+nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.reserved_6(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.reserved_6, range, value, display)
 
   return offset + length, value
 end
 
+-- Round Lot
+nyse_arca_options_topfeed_pillar_v1_2_c.round_lot = {}
+
 -- Size: Round Lot
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.round_lot = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.size = 1
 
 -- Display: Round Lot
-nyse_arca_options_topfeed_pillar_v1_2_c_display.round_lot = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.display = function(value)
   if value == "Y" then
     return "Round Lot: Yes (Y)"
   end
@@ -4003,22 +4324,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.round_lot = function(value)
 end
 
 -- Dissect: Round Lot
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.round_lot = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.round_lot
+nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.round_lot(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.round_lot, range, value, display)
 
   return offset + length, value
 end
 
+-- Price Resolution
+nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution = {}
+
 -- Size: Price Resolution
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_resolution = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_arca_options_topfeed_pillar_v1_2_c_display.price_resolution = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.display = function(value)
   if value == 0 then
     return "Price Resolution: All Penny (0)"
   end
@@ -4033,82 +4357,94 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.price_resolution = function(valu
 end
 
 -- Dissect: Price Resolution
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_resolution = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_resolution
+nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.price_resolution(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.price_resolution, range, value, display)
 
   return offset + length, value
 end
 
+-- Prev Close Volume
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume = {}
+
 -- Size: Prev Close Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.prev_close_volume = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.size = 4
 
 -- Display: Prev Close Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_display.prev_close_volume = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.display = function(value)
   return "Prev Close Volume: "..value
 end
 
 -- Dissect: Prev Close Volume
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.prev_close_volume = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.prev_close_volume
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.prev_close_volume(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.prev_close_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Prev Close Price
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price = {}
+
 -- Size: Prev Close Price
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.prev_close_price = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.size = 4
 
 -- Display: Prev Close Price
-nyse_arca_options_topfeed_pillar_v1_2_c_display.prev_close_price = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.display = function(value)
   return "Prev Close Price: "..value
 end
 
 -- Dissect: Prev Close Price
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.prev_close_price = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.prev_close_price
+nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.prev_close_price(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.prev_close_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Lot Size
+nyse_arca_options_topfeed_pillar_v1_2_c.lot_size = {}
+
 -- Size: Lot Size
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.lot_size = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.size = 2
 
 -- Display: Lot Size
-nyse_arca_options_topfeed_pillar_v1_2_c_display.lot_size = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.display = function(value)
   return "Lot Size: "..value
 end
 
 -- Dissect: Lot Size
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.lot_size = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.lot_size
+nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.lot_size(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.lot_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Security Type
+nyse_arca_options_topfeed_pillar_v1_2_c.security_type = {}
+
 -- Size: Security Type
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_type = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.security_type.size = 1
 
 -- Display: Security Type
-nyse_arca_options_topfeed_pillar_v1_2_c_display.security_type = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.security_type.display = function(value)
   if value == "A" then
     return "Security Type: Adr (A)"
   end
@@ -4162,22 +4498,25 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.security_type = function(value)
 end
 
 -- Dissect: Security Type
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_type = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_type
+nyse_arca_options_topfeed_pillar_v1_2_c.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.security_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.security_type(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.security_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Exchange Code
+nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code = {}
+
 -- Size: Exchange Code
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.exchange_code = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.size = 1
 
 -- Display: Exchange Code
-nyse_arca_options_topfeed_pillar_v1_2_c_display.exchange_code = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.display = function(value)
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -4207,483 +4546,504 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.exchange_code = function(value)
 end
 
 -- Dissect: Exchange Code
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.exchange_code = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.exchange_code
+nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.exchange_code(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.exchange_code, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol = {}
+
 -- Size: Symbol
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol = 11
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol.size = 11
 
 -- Display: Symbol
-nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol.display = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.symbol.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol Index Mapping Message
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message = {}
+
 -- Calculate size of: Symbol Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index_mapping_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.symbol.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_1
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.market_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.market_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.system_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.system_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.exchange_code
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_scale_code
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_type
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.security_type.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.lot_size
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.prev_close_price
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.prev_close_volume
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.price_resolution
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.round_lot
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_6
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.size
 
   return index
 end
 
 -- Display: Symbol Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index_mapping_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Symbol Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: 11 Byte Ascii String
-  index, symbol = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = nyse_arca_options_topfeed_pillar_v1_2_c.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer
-  index, market_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.market_id(buffer, index, packet, parent)
+  index, market_id = nyse_arca_options_topfeed_pillar_v1_2_c.market_id.dissect(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index, system_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.system_id(buffer, index, packet, parent)
+  index, system_id = nyse_arca_options_topfeed_pillar_v1_2_c.system_id.dissect(buffer, index, packet, parent)
 
   -- Exchange Code: 1 Byte Ascii String Enum with 8 values
-  index, exchange_code = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.exchange_code(buffer, index, packet, parent)
+  index, exchange_code = nyse_arca_options_topfeed_pillar_v1_2_c.exchange_code.dissect(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, price_scale_code = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = nyse_arca_options_topfeed_pillar_v1_2_c.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Security Type: 1 Byte Ascii String Enum with 16 values
-  index, security_type = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_type(buffer, index, packet, parent)
+  index, security_type = nyse_arca_options_topfeed_pillar_v1_2_c.security_type.dissect(buffer, index, packet, parent)
 
   -- Lot Size: 2 Byte Unsigned Fixed Width Integer
-  index, lot_size = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.lot_size(buffer, index, packet, parent)
+  index, lot_size = nyse_arca_options_topfeed_pillar_v1_2_c.lot_size.dissect(buffer, index, packet, parent)
 
   -- Prev Close Price: 4 Byte Unsigned Fixed Width Integer
-  index, prev_close_price = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.prev_close_price(buffer, index, packet, parent)
+  index, prev_close_price = nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_price.dissect(buffer, index, packet, parent)
 
   -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
-  index, prev_close_volume = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.prev_close_volume(buffer, index, packet, parent)
+  index, prev_close_volume = nyse_arca_options_topfeed_pillar_v1_2_c.prev_close_volume.dissect(buffer, index, packet, parent)
 
   -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, price_resolution = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.price_resolution(buffer, index, packet, parent)
+  index, price_resolution = nyse_arca_options_topfeed_pillar_v1_2_c.price_resolution.dissect(buffer, index, packet, parent)
 
   -- Round Lot: 1 Byte Ascii String Enum with 2 values
-  index, round_lot = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.round_lot(buffer, index, packet, parent)
+  index, round_lot = nyse_arca_options_topfeed_pillar_v1_2_c.round_lot.dissect(buffer, index, packet, parent)
 
   -- Reserved 6: 6 Byte
-  index, reserved_6 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_6(buffer, index, packet, parent)
+  index, reserved_6 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_6.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Index Mapping Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
   if show.symbol_index_mapping_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.symbol_index_mapping_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Id
+nyse_arca_options_topfeed_pillar_v1_2_c.id = {}
+
 -- Size: Id
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.id = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.id.size = 4
 
 -- Display: Id
-nyse_arca_options_topfeed_pillar_v1_2_c_display.id = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.id.display = function(value)
   return "Id: "..value
 end
 
 -- Dissect: Id
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.id = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.id
+nyse_arca_options_topfeed_pillar_v1_2_c.id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.id(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.id, range, value, display)
 
   return offset + length, value
 end
 
+-- Time Reference Message
+nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message = {}
+
 -- Calculate size of: Time Reference Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.time_reference_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.reserved_4
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
   return index
 end
 
 -- Display: Time Reference Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.time_reference_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Time Reference Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Id: 4 Byte Unsigned Fixed Width Integer
-  index, id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.id(buffer, index, packet, parent)
+  index, id = nyse_arca_options_topfeed_pillar_v1_2_c.id.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
-  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.reserved_4(buffer, index, packet, parent)
+  index, reserved_4 = nyse_arca_options_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Time Reference Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.dissect = function(buffer, offset, packet, parent)
   if show.time_reference_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.time_reference_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.time_reference_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Sequence Number Reset Message
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message = {}
+
 -- Calculate size of: Sequence Number Reset Message
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.sequence_number_reset_message = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.source_time_ns
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.product_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.product_id.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.channel_id
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.size
 
   return index
 end
 
 -- Display: Sequence Number Reset Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.sequence_number_reset_message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Sequence Number Reset Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_arca_options_topfeed_pillar_v1_2_c.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arca_options_topfeed_pillar_v1_2_c.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_arca_options_topfeed_pillar_v1_2_c.product_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_arca_options_topfeed_pillar_v1_2_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sequence Number Reset Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
   if show.sequence_number_reset_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.sequence_number_reset_message(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Payload
+nyse_arca_options_topfeed_pillar_v1_2_c.payload = {}
+
 -- Calculate runtime size of: Payload
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.payload = function(buffer, offset, message_type)
+nyse_arca_options_topfeed_pillar_v1_2_c.payload.size = function(buffer, offset, message_type)
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.sequence_number_reset_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.size(buffer, offset)
   end
   -- Size of Time Reference Message
   if message_type == 2 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.time_reference_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.size(buffer, offset)
   end
   -- Size of Symbol Index Mapping Message
   if message_type == 3 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index_mapping_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.size(buffer, offset)
   end
   -- Size of Retransmission Request Message
   if message_type == 10 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.retransmission_request_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.size(buffer, offset)
   end
   -- Size of Request Response Message
   if message_type == 11 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.request_response_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.size(buffer, offset)
   end
   -- Size of Heartbeat Response Message
   if message_type == 12 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.heartbeat_response_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.size(buffer, offset)
   end
   -- Size of Symbol Index Mapping Request Message
   if message_type == 13 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_index_mapping_request_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.size(buffer, offset)
   end
   -- Size of Refresh Request Message
   if message_type == 15 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.refresh_request_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.size(buffer, offset)
   end
   -- Size of Message Unavailable Message
   if message_type == 31 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_unavailable_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.size(buffer, offset)
   end
   -- Size of Symbol Clear Message
   if message_type == 32 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.symbol_clear_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.size(buffer, offset)
   end
   -- Size of Security Status Message
   if message_type == 34 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.security_status_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.size(buffer, offset)
   end
   -- Size of Refresh Header Message
   if message_type == 35 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.refresh_header_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.size(buffer, offset)
   end
   -- Size of Outright Series Index Mapping Message
   if message_type == 50 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.outright_series_index_mapping_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.size(buffer, offset)
   end
   -- Size of Options Status Message
   if message_type == 51 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_status_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.size(buffer, offset)
   end
   -- Size of Options Quote Message
   if message_type == 340 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_quote_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.size(buffer, offset)
   end
   -- Size of Options Trade Message
   if message_type == 320 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_trade_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.size(buffer, offset)
   end
   -- Size of Options Trade Cancel Message
   if message_type == 322 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_trade_cancel_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.size(buffer, offset)
   end
   -- Size of Options Trade Correction Message
   if message_type == 322 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_trade_correction_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.size(buffer, offset)
   end
   -- Size of Options Imbalance Message
   if message_type == 305 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.options_imbalance_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.size(buffer, offset)
   end
   -- Size of Series Rfq Message
   if message_type == 307 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.series_rfq_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.size(buffer, offset)
   end
   -- Size of Outright Series Summary Message
   if message_type == 323 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_size_of.outright_series_summary_message(buffer, offset)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-nyse_arca_options_topfeed_pillar_v1_2_c_display.payload = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nyse_arca_options_topfeed_pillar_v1_2_c.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number_reset_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Time Reference Message
   if message_type == 2 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.time_reference_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.time_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Index Mapping Message
   if message_type == 3 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request Message
   if message_type == 10 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.retransmission_request_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.retransmission_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Request Response Message
   if message_type == 11 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.request_response_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.request_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Response Message
   if message_type == 12 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.heartbeat_response_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.heartbeat_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Index Mapping Request Message
   if message_type == 13 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_index_mapping_request_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Request Message
   if message_type == 15 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_request_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.refresh_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Message Unavailable Message
   if message_type == 31 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_unavailable_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.message_unavailable_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Clear Message
   if message_type == 32 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.symbol_clear_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.symbol_clear_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Security Status Message
   if message_type == 34 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.security_status_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.security_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Header Message
   if message_type == 35 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.refresh_header_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.refresh_header_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Outright Series Index Mapping Message
   if message_type == 50 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_index_mapping_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Status Message
   if message_type == 51 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_status_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Quote Message
   if message_type == 340 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_quote_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Trade Message
   if message_type == 320 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Trade Cancel Message
   if message_type == 322 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_cancel_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_cancel_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Trade Correction Message
   if message_type == 322 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_trade_correction_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_trade_correction_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Imbalance Message
   if message_type == 305 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.options_imbalance_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.options_imbalance_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Series Rfq Message
   if message_type == 307 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.series_rfq_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.series_rfq_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Outright Series Summary Message
   if message_type == 323 then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.outright_series_summary_message(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.outright_series_summary_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.payload = function(buffer, offset, packet, parent, message_type)
+nyse_arca_options_topfeed_pillar_v1_2_c.payload.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.payload.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.payload(buffer, offset, message_type)
+  local size = nyse_arca_options_topfeed_pillar_v1_2_c.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.payload(buffer, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.payload.display(buffer, packet, parent)
   local element = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.payload, range, display)
 
-  return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nyse_arca_options_topfeed_pillar_v1_2_c.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Message Type
+nyse_arca_options_topfeed_pillar_v1_2_c.message_type = {}
+
 -- Size: Message Type
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_type = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.message_type.size = 2
 
 -- Display: Message Type
-nyse_arca_options_topfeed_pillar_v1_2_c_display.message_type = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_type.display = function(value)
   if value == 1 then
     return "Message Type: Sequence Number Reset Message (1)"
   end
@@ -4752,91 +5112,100 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_type
+nyse_arca_options_topfeed_pillar_v1_2_c.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.message_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message_type(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Size
+nyse_arca_options_topfeed_pillar_v1_2_c.message_size = {}
+
 -- Size: Message Size
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_size = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.message_size.size = 2
 
 -- Display: Message Size
-nyse_arca_options_topfeed_pillar_v1_2_c_display.message_size = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_size.display = function(value)
   return "Message Size: "..value
 end
 
 -- Dissect: Message Size
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_size = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_size
+nyse_arca_options_topfeed_pillar_v1_2_c.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.message_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message_size(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.message_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+nyse_arca_options_topfeed_pillar_v1_2_c.message_header = {}
+
 -- Calculate size of: Message Header
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_header = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_size
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.message_size.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_type
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-nyse_arca_options_topfeed_pillar_v1_2_c_display.message_header = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_size(buffer, index, packet, parent)
+  index, message_size = nyse_arca_options_topfeed_pillar_v1_2_c.message_size.dissect(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 21 values
-  index, message_type = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nyse_arca_options_topfeed_pillar_v1_2_c.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_header, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message_header(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+nyse_arca_options_topfeed_pillar_v1_2_c.message = {}
+
 -- Display: Message
-nyse_arca_options_topfeed_pillar_v1_2_c_display.message = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+nyse_arca_options_topfeed_pillar_v1_2_c.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -4846,123 +5215,138 @@ nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_fields = function(buffer
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nyse_arca_options_topfeed_pillar_v1_2_c.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
   -- Payload: Runtime Type with 21 branches
-  index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.payload(buffer, index, packet, parent, message_type)
+  index = nyse_arca_options_topfeed_pillar_v1_2_c.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+nyse_arca_options_topfeed_pillar_v1_2_c.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message, buffer(offset, 0))
-    local current = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = nyse_arca_options_topfeed_pillar_v1_2_c.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message(buffer, packet, parent)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    nyse_arca_options_topfeed_pillar_v1_2_c.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Nanoseconds
+nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds = {}
+
 -- Size: Nanoseconds
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.nanoseconds = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.size = 4
 
 -- Display: Nanoseconds
-nyse_arca_options_topfeed_pillar_v1_2_c_display.nanoseconds = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.display = function(value)
   return "Nanoseconds: "..value
 end
 
 -- Dissect: Nanoseconds
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.nanoseconds
+nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.nanoseconds(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+nyse_arca_options_topfeed_pillar_v1_2_c.timestamp = {}
+
 -- Size: Timestamp
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.timestamp = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.size = 4
 
 -- Display: Timestamp
-nyse_arca_options_topfeed_pillar_v1_2_c_display.timestamp = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.display = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.timestamp
+nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.timestamp(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number = {}
+
 -- Size: Sequence Number
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.sequence_number = 4
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.size = 4
 
 -- Display: Sequence Number
-nyse_arca_options_topfeed_pillar_v1_2_c_display.sequence_number = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.sequence_number
+nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Count
+nyse_arca_options_topfeed_pillar_v1_2_c.message_count = {}
+
 -- Size: Message Count
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_count = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.message_count.size = 1
 
 -- Display: Message Count
-nyse_arca_options_topfeed_pillar_v1_2_c_display.message_count = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_count
+nyse_arca_options_topfeed_pillar_v1_2_c.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.message_count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.message_count(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Delivery Flag
+nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag = {}
+
 -- Size: Delivery Flag
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.delivery_flag = 1
+nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_arca_options_topfeed_pillar_v1_2_c_display.delivery_flag = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.display = function(value)
   if value == 1 then
     return "Delivery Flag: Heartbeat (1)"
   end
@@ -5001,110 +5385,119 @@ nyse_arca_options_topfeed_pillar_v1_2_c_display.delivery_flag = function(value)
 end
 
 -- Dissect: Delivery Flag
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.delivery_flag = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.delivery_flag
+nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.delivery_flag(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Size
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_size = {}
+
 -- Size: Packet Size
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.packet_size = 2
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.size = 2
 
 -- Display: Packet Size
-nyse_arca_options_topfeed_pillar_v1_2_c_display.packet_size = function(value)
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.display = function(value)
   return "Packet Size: "..value
 end
 
 -- Dissect: Packet Size
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_topfeed_pillar_v1_2_c_size_of.packet_size
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.packet_size(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_header = {}
+
 -- Calculate size of: Packet Header
-nyse_arca_options_topfeed_pillar_v1_2_c_size_of.packet_header = function(buffer, offset)
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.packet_size
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.delivery_flag
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.message_count
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.message_count.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.sequence_number
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.timestamp
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.size
 
-  index = index + nyse_arca_options_topfeed_pillar_v1_2_c_size_of.nanoseconds
+  index = index + nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.size
 
   return index
 end
 
 -- Display: Packet Header
-nyse_arca_options_topfeed_pillar_v1_2_c_display.packet_header = function(packet, parent, length)
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = nyse_arca_options_topfeed_pillar_v1_2_c.packet_size.dissect(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, delivery_flag = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.delivery_flag(buffer, index, packet, parent)
+  index, delivery_flag = nyse_arca_options_topfeed_pillar_v1_2_c.delivery_flag.dissect(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = nyse_arca_options_topfeed_pillar_v1_2_c.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = nyse_arca_options_topfeed_pillar_v1_2_c.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nyse_arca_options_topfeed_pillar_v1_2_c.timestamp.dissect(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nyse_arca_options_topfeed_pillar_v1_2_c.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header = function(buffer, offset, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c.fields.packet_header, buffer(offset, 0))
-    local index = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arca_options_topfeed_pillar_v1_2_c_display.packet_header(packet, parent, length)
+    local display = nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+nyse_arca_options_topfeed_pillar_v1_2_c.packet = {}
+
 -- Dissect Packet
-nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet = function(buffer, packet, parent)
+nyse_arca_options_topfeed_pillar_v1_2_c.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 6 fields
-  index, packet_header = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nyse_arca_options_topfeed_pillar_v1_2_c.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -5116,7 +5509,7 @@ nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet = function(buffer, packet
     local message_size = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = nyse_arca_options_topfeed_pillar_v1_2_c_dissect.message(buffer, index, packet, parent, message_size)
+    index, message = nyse_arca_options_topfeed_pillar_v1_2_c.message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index
@@ -5139,7 +5532,7 @@ function omi_nyse_arca_options_topfeed_pillar_v1_2_c.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_arca_options_topfeed_pillar_v1_2_c, buffer(), omi_nyse_arca_options_topfeed_pillar_v1_2_c.description, "("..buffer:len().." Bytes)")
-  return nyse_arca_options_topfeed_pillar_v1_2_c_dissect.packet(buffer, packet, protocol)
+  return nyse_arca_options_topfeed_pillar_v1_2_c.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

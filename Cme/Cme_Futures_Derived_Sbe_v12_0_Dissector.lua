@@ -7,12 +7,12 @@
 -- Cme Futures Derived Sbe 12.0 Protocol
 local omi_cme_futures_derived_sbe_v12_0 = Proto("Cme.Futures.Derived.Sbe.v12.0.Lua", "Cme Futures Derived Sbe 12.0")
 
+-- Protocol table
+local cme_futures_derived_sbe_v12_0 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local cme_futures_derived_sbe_v12_0_display = {}
-local cme_futures_derived_sbe_v12_0_dissect = {}
-local cme_futures_derived_sbe_v12_0_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -210,11 +210,14 @@ end
 -- Dissect Cme Futures Derived Sbe 12.0
 -----------------------------------------------------------------------
 
+-- Security Trading Event
+cme_futures_derived_sbe_v12_0.security_trading_event = {}
+
 -- Size: Security Trading Event
-cme_futures_derived_sbe_v12_0_size_of.security_trading_event = 1
+cme_futures_derived_sbe_v12_0.security_trading_event.size = 1
 
 -- Display: Security Trading Event
-cme_futures_derived_sbe_v12_0_display.security_trading_event = function(value)
+cme_futures_derived_sbe_v12_0.security_trading_event.display = function(value)
   if value == 4 then
     return "Security Trading Event: Global Day Roll (4)"
   end
@@ -223,22 +226,25 @@ cme_futures_derived_sbe_v12_0_display.security_trading_event = function(value)
 end
 
 -- Dissect: Security Trading Event
-cme_futures_derived_sbe_v12_0_dissect.security_trading_event = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.security_trading_event
+cme_futures_derived_sbe_v12_0.security_trading_event.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.security_trading_event.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.security_trading_event(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.security_trading_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.security_trading_event, range, value, display)
 
   return offset + length, value
 end
 
+-- Transact Time
+cme_futures_derived_sbe_v12_0.transact_time = {}
+
 -- Size: Transact Time
-cme_futures_derived_sbe_v12_0_size_of.transact_time = 8
+cme_futures_derived_sbe_v12_0.transact_time.size = 8
 
 -- Display: Transact Time
-cme_futures_derived_sbe_v12_0_display.transact_time = function(value)
+cme_futures_derived_sbe_v12_0.transact_time.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -247,69 +253,75 @@ cme_futures_derived_sbe_v12_0_display.transact_time = function(value)
 end
 
 -- Dissect: Transact Time
-cme_futures_derived_sbe_v12_0_dissect.transact_time = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.transact_time
+cme_futures_derived_sbe_v12_0.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_futures_derived_sbe_v12_0_display.transact_time(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.transact_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Global Day Roll
+cme_futures_derived_sbe_v12_0.global_day_roll = {}
+
 -- Calculate size of: Global Day Roll
-cme_futures_derived_sbe_v12_0_size_of.global_day_roll = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.global_day_roll.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.transact_time
+  index = index + cme_futures_derived_sbe_v12_0.transact_time.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.security_trading_event
+  index = index + cme_futures_derived_sbe_v12_0.security_trading_event.size
 
   return index
 end
 
 -- Display: Global Day Roll
-cme_futures_derived_sbe_v12_0_display.global_day_roll = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.global_day_roll.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Global Day Roll
-cme_futures_derived_sbe_v12_0_dissect.global_day_roll_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.global_day_roll.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index, transact_time = cme_futures_derived_sbe_v12_0_dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = cme_futures_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Security Trading Event: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index, security_trading_event = cme_futures_derived_sbe_v12_0_dissect.security_trading_event(buffer, index, packet, parent)
+  index, security_trading_event = cme_futures_derived_sbe_v12_0.security_trading_event.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Global Day Roll
-cme_futures_derived_sbe_v12_0_dissect.global_day_roll = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.global_day_roll.dissect = function(buffer, offset, packet, parent)
   if show.global_day_roll then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.global_day_roll_fields(buffer, offset, packet, parent)
+    local index = cme_futures_derived_sbe_v12_0.global_day_roll.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.global_day_roll(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.global_day_roll.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.global_day_roll_fields(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.global_day_roll.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Aggressor Side
+cme_futures_derived_sbe_v12_0.aggressor_side = {}
+
 -- Size: Aggressor Side
-cme_futures_derived_sbe_v12_0_size_of.aggressor_side = 1
+cme_futures_derived_sbe_v12_0.aggressor_side.size = 1
 
 -- Display: Aggressor Side
-cme_futures_derived_sbe_v12_0_display.aggressor_side = function(value)
+cme_futures_derived_sbe_v12_0.aggressor_side.display = function(value)
   if value == 255 then
     return "Aggressor Side: No Value"
   end
@@ -324,22 +336,25 @@ cme_futures_derived_sbe_v12_0_display.aggressor_side = function(value)
 end
 
 -- Dissect: Aggressor Side
-cme_futures_derived_sbe_v12_0_dissect.aggressor_side = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.aggressor_side
+cme_futures_derived_sbe_v12_0.aggressor_side.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.aggressor_side.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.aggressor_side(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.aggressor_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.aggressor_side, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Session Id
+cme_futures_derived_sbe_v12_0.trading_session_id = {}
+
 -- Size: Trading Session Id
-cme_futures_derived_sbe_v12_0_size_of.trading_session_id = 1
+cme_futures_derived_sbe_v12_0.trading_session_id.size = 1
 
 -- Display: Trading Session Id
-cme_futures_derived_sbe_v12_0_display.trading_session_id = function(value)
+cme_futures_derived_sbe_v12_0.trading_session_id.display = function(value)
   if value == 255 then
     return "Trading Session Id: No Value"
   end
@@ -366,22 +381,25 @@ cme_futures_derived_sbe_v12_0_display.trading_session_id = function(value)
 end
 
 -- Dissect: Trading Session Id
-cme_futures_derived_sbe_v12_0_dissect.trading_session_id = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.trading_session_id
+cme_futures_derived_sbe_v12_0.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.trading_session_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.trading_session_id(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.trading_session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Open Close Settl Flag
+cme_futures_derived_sbe_v12_0.open_close_settl_flag = {}
+
 -- Size: Open Close Settl Flag
-cme_futures_derived_sbe_v12_0_size_of.open_close_settl_flag = 1
+cme_futures_derived_sbe_v12_0.open_close_settl_flag.size = 1
 
 -- Display: Open Close Settl Flag
-cme_futures_derived_sbe_v12_0_display.open_close_settl_flag = function(value)
+cme_futures_derived_sbe_v12_0.open_close_settl_flag.display = function(value)
   if value == 0 then
     return "Open Close Settl Flag: Current Day (0)"
   end
@@ -393,22 +411,25 @@ cme_futures_derived_sbe_v12_0_display.open_close_settl_flag = function(value)
 end
 
 -- Dissect: Open Close Settl Flag
-cme_futures_derived_sbe_v12_0_dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.open_close_settl_flag
+cme_futures_derived_sbe_v12_0.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.open_close_settl_flag.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.open_close_settl_flag(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.open_close_settl_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.open_close_settl_flag, range, value, display)
 
   return offset + length, value
 end
 
+-- Md Entry Time
+cme_futures_derived_sbe_v12_0.md_entry_time = {}
+
 -- Size: Md Entry Time
-cme_futures_derived_sbe_v12_0_size_of.md_entry_time = 8
+cme_futures_derived_sbe_v12_0.md_entry_time.size = 8
 
 -- Display: Md Entry Time
-cme_futures_derived_sbe_v12_0_display.md_entry_time = function(value)
+cme_futures_derived_sbe_v12_0.md_entry_time.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -417,22 +438,25 @@ cme_futures_derived_sbe_v12_0_display.md_entry_time = function(value)
 end
 
 -- Dissect: Md Entry Time
-cme_futures_derived_sbe_v12_0_dissect.md_entry_time = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.md_entry_time
+cme_futures_derived_sbe_v12_0.md_entry_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.md_entry_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_futures_derived_sbe_v12_0_display.md_entry_time(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.md_entry_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Md Entry Size
+cme_futures_derived_sbe_v12_0.md_entry_size = {}
+
 -- Size: Md Entry Size
-cme_futures_derived_sbe_v12_0_size_of.md_entry_size = 8
+cme_futures_derived_sbe_v12_0.md_entry_size.size = 8
 
 -- Display: Md Entry Size
-cme_futures_derived_sbe_v12_0_display.md_entry_size = function(value)
+cme_futures_derived_sbe_v12_0.md_entry_size.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Md Entry Size: No Value"
@@ -442,22 +466,25 @@ cme_futures_derived_sbe_v12_0_display.md_entry_size = function(value)
 end
 
 -- Dissect: Md Entry Size
-cme_futures_derived_sbe_v12_0_dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.md_entry_size
+cme_futures_derived_sbe_v12_0.md_entry_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.md_entry_size.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_futures_derived_sbe_v12_0_display.md_entry_size(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.md_entry_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Md Entry Px
+cme_futures_derived_sbe_v12_0.md_entry_px = {}
+
 -- Size: Md Entry Px
-cme_futures_derived_sbe_v12_0_size_of.md_entry_px = 8
+cme_futures_derived_sbe_v12_0.md_entry_px.size = 8
 
 -- Display: Md Entry Px
-cme_futures_derived_sbe_v12_0_display.md_entry_px = function(value)
+cme_futures_derived_sbe_v12_0.md_entry_px.display = function(value)
   return "Md Entry Px: "..value
 end
 
@@ -467,23 +494,26 @@ translate.md_entry_px = function(raw)
 end
 
 -- Dissect: Md Entry Px
-cme_futures_derived_sbe_v12_0_dissect.md_entry_px = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.md_entry_px
+cme_futures_derived_sbe_v12_0.md_entry_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.md_entry_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.md_entry_px(raw)
-  local display = cme_futures_derived_sbe_v12_0_display.md_entry_px(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.md_entry_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_px, range, value, display)
 
   return offset + length, value
 end
 
+-- Md Entry Type Ticker Entry Type
+cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type = {}
+
 -- Size: Md Entry Type Ticker Entry Type
-cme_futures_derived_sbe_v12_0_size_of.md_entry_type_ticker_entry_type = 1
+cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size = 1
 
 -- Display: Md Entry Type Ticker Entry Type
-cme_futures_derived_sbe_v12_0_display.md_entry_type_ticker_entry_type = function(value)
+cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Md Entry Type Ticker Entry Type: No Value"
@@ -530,8 +560,8 @@ cme_futures_derived_sbe_v12_0_display.md_entry_type_ticker_entry_type = function
 end
 
 -- Dissect: Md Entry Type Ticker Entry Type
-cme_futures_derived_sbe_v12_0_dissect.md_entry_type_ticker_entry_type = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.md_entry_type_ticker_entry_type
+cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -542,41 +572,44 @@ cme_futures_derived_sbe_v12_0_dissect.md_entry_type_ticker_entry_type = function
     value = range:string()
   end
 
-  local display = cme_futures_derived_sbe_v12_0_display.md_entry_type_ticker_entry_type(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_type_ticker_entry_type, range, value, display)
 
   return offset + length, value
 end
 
+-- M D Snapshot Refresh Ticker Group
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group = {}
+
 -- Calculate size of: M D Snapshot Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_ticker_group = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_type_ticker_entry_type
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_px
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_size
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_time
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.open_close_settl_flag
+  index = index + cme_futures_derived_sbe_v12_0.open_close_settl_flag.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.trading_session_id
+  index = index + cme_futures_derived_sbe_v12_0.trading_session_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.aggressor_side
+  index = index + cme_futures_derived_sbe_v12_0.aggressor_side.size
 
   return index
 end
 
 -- Display: M D Snapshot Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_ticker_group = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Snapshot Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
   local index = offset
 
   -- Implicit M D Snapshot Refresh Ticker Group Index
@@ -586,139 +619,151 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields =
   end
 
   -- Md Entry Type Ticker Entry Type: 1 Byte Ascii String Enum with 12 values
-  index, md_entry_type_ticker_entry_type = cme_futures_derived_sbe_v12_0_dissect.md_entry_type_ticker_entry_type(buffer, index, packet, parent)
+  index, md_entry_type_ticker_entry_type = cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_derived_sbe_v12_0_dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cme_futures_derived_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_entry_size = cme_futures_derived_sbe_v12_0_dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = cme_futures_derived_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
-  index, md_entry_time = cme_futures_derived_sbe_v12_0_dissect.md_entry_time(buffer, index, packet, parent)
+  index, md_entry_time = cme_futures_derived_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, open_close_settl_flag = cme_futures_derived_sbe_v12_0_dissect.open_close_settl_flag(buffer, index, packet, parent)
+  index, open_close_settl_flag = cme_futures_derived_sbe_v12_0.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, trading_session_id = cme_futures_derived_sbe_v12_0_dissect.trading_session_id(buffer, index, packet, parent)
+  index, trading_session_id = cme_futures_derived_sbe_v12_0.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, aggressor_side = cme_futures_derived_sbe_v12_0_dissect.aggressor_side(buffer, index, packet, parent)
+  index, aggressor_side = cme_futures_derived_sbe_v12_0.aggressor_side.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: M D Snapshot Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.dissect = function(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
   if show.m_d_snapshot_refresh_ticker_group then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+    local index = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_ticker_group(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group_fields(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+    return cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_ticker_group_index)
   end
 end
 
+-- Num In Group uint 8
+cme_futures_derived_sbe_v12_0.num_in_group_uint_8 = {}
+
 -- Size: Num In Group uint 8
-cme_futures_derived_sbe_v12_0_size_of.num_in_group_uint_8 = 1
+cme_futures_derived_sbe_v12_0.num_in_group_uint_8.size = 1
 
 -- Display: Num In Group uint 8
-cme_futures_derived_sbe_v12_0_display.num_in_group_uint_8 = function(value)
+cme_futures_derived_sbe_v12_0.num_in_group_uint_8.display = function(value)
   return "Num In Group uint 8: "..value
 end
 
 -- Dissect: Num In Group uint 8
-cme_futures_derived_sbe_v12_0_dissect.num_in_group_uint_8 = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.num_in_group_uint_8
+cme_futures_derived_sbe_v12_0.num_in_group_uint_8.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.num_in_group_uint_8.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.num_in_group_uint_8(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.num_in_group_uint_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.num_in_group_uint_8, range, value, display)
 
   return offset + length, value
 end
 
+-- Block Length
+cme_futures_derived_sbe_v12_0.block_length = {}
+
 -- Size: Block Length
-cme_futures_derived_sbe_v12_0_size_of.block_length = 2
+cme_futures_derived_sbe_v12_0.block_length.size = 2
 
 -- Display: Block Length
-cme_futures_derived_sbe_v12_0_display.block_length = function(value)
+cme_futures_derived_sbe_v12_0.block_length.display = function(value)
   return "Block Length: "..value
 end
 
 -- Dissect: Block Length
-cme_futures_derived_sbe_v12_0_dissect.block_length = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.block_length
+cme_futures_derived_sbe_v12_0.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.block_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.block_length(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.block_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.block_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Group Size
+cme_futures_derived_sbe_v12_0.group_size = {}
+
 -- Calculate size of: Group Size
-cme_futures_derived_sbe_v12_0_size_of.group_size = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.group_size.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.block_length
+  index = index + cme_futures_derived_sbe_v12_0.block_length.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.num_in_group_uint_8
+  index = index + cme_futures_derived_sbe_v12_0.num_in_group_uint_8.size
 
   return index
 end
 
 -- Display: Group Size
-cme_futures_derived_sbe_v12_0_display.group_size = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.group_size.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Group Size
-cme_futures_derived_sbe_v12_0_dissect.group_size_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.group_size.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index, block_length = cme_futures_derived_sbe_v12_0_dissect.block_length(buffer, index, packet, parent)
+  index, block_length = cme_futures_derived_sbe_v12_0.block_length.dissect(buffer, index, packet, parent)
 
   -- Num In Group uint 8: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group_uint_8 = cme_futures_derived_sbe_v12_0_dissect.num_in_group_uint_8(buffer, index, packet, parent)
+  index, num_in_group_uint_8 = cme_futures_derived_sbe_v12_0.num_in_group_uint_8.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Group Size
-cme_futures_derived_sbe_v12_0_dissect.group_size = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.group_size.dissect = function(buffer, offset, packet, parent)
   if show.group_size then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.group_size, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.group_size_fields(buffer, offset, packet, parent)
+    local index = cme_futures_derived_sbe_v12_0.group_size.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.group_size(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.group_size.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.group_size_fields(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.group_size.fields(buffer, offset, packet, parent)
   end
 end
 
+-- M D Snapshot Refresh Ticker Groups
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups = {}
+
 -- Calculate size of: M D Snapshot Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_ticker_groups = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.group_size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_snapshot_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -728,86 +773,95 @@ cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_ticker_groups = funct
 end
 
 -- Display: M D Snapshot Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_ticker_groups = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Snapshot Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_derived_sbe_v12_0_dissect.group_size(buffer, index, packet, parent)
+  index, group_size = cme_futures_derived_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- Repeating: M D Snapshot Refresh Ticker Group
   for m_d_snapshot_refresh_ticker_group_index = 1, num_in_group_uint_8 do
-    index, m_d_snapshot_refresh_ticker_group = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_group(buffer, index, packet, parent, m_d_snapshot_refresh_ticker_group_index)
+    index, m_d_snapshot_refresh_ticker_group = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_group.dissect(buffer, index, packet, parent, m_d_snapshot_refresh_ticker_group_index)
   end
 
   return index
 end
 
 -- Dissect: M D Snapshot Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.m_d_snapshot_refresh_ticker_groups then
-    local length = cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_ticker_groups(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_ticker_groups(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.fields(buffer, offset, packet, parent)
 end
 
+-- Security Id
+cme_futures_derived_sbe_v12_0.security_id = {}
+
 -- Size: Security Id
-cme_futures_derived_sbe_v12_0_size_of.security_id = 4
+cme_futures_derived_sbe_v12_0.security_id.size = 4
 
 -- Display: Security Id
-cme_futures_derived_sbe_v12_0_display.security_id = function(value)
+cme_futures_derived_sbe_v12_0.security_id.display = function(value)
   return "Security Id: "..value
 end
 
 -- Dissect: Security Id
-cme_futures_derived_sbe_v12_0_dissect.security_id = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.security_id
+cme_futures_derived_sbe_v12_0.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.security_id.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = cme_futures_derived_sbe_v12_0_display.security_id(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.security_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.security_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Guid
+cme_futures_derived_sbe_v12_0.instrument_guid = {}
+
 -- Size: Instrument Guid
-cme_futures_derived_sbe_v12_0_size_of.instrument_guid = 8
+cme_futures_derived_sbe_v12_0.instrument_guid.size = 8
 
 -- Display: Instrument Guid
-cme_futures_derived_sbe_v12_0_display.instrument_guid = function(value)
+cme_futures_derived_sbe_v12_0.instrument_guid.display = function(value)
   return "Instrument Guid: "..value
 end
 
 -- Dissect: Instrument Guid
-cme_futures_derived_sbe_v12_0_dissect.instrument_guid = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.instrument_guid
+cme_futures_derived_sbe_v12_0.instrument_guid.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.instrument_guid.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_futures_derived_sbe_v12_0_display.instrument_guid(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.instrument_guid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.instrument_guid, range, value, display)
 
   return offset + length, value
 end
 
+-- Symbol
+cme_futures_derived_sbe_v12_0.symbol = {}
+
 -- Size: Symbol
-cme_futures_derived_sbe_v12_0_size_of.symbol = 20
+cme_futures_derived_sbe_v12_0.symbol.size = 20
 
 -- Display: Symbol
-cme_futures_derived_sbe_v12_0_display.symbol = function(value)
+cme_futures_derived_sbe_v12_0.symbol.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Symbol: No Value"
@@ -817,8 +871,8 @@ cme_futures_derived_sbe_v12_0_display.symbol = function(value)
 end
 
 -- Dissect: Symbol
-cme_futures_derived_sbe_v12_0_dissect.symbol = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.symbol
+cme_futures_derived_sbe_v12_0.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.symbol.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -832,18 +886,21 @@ cme_futures_derived_sbe_v12_0_dissect.symbol = function(buffer, offset, packet, 
     value = range:string()
   end
 
-  local display = cme_futures_derived_sbe_v12_0_display.symbol(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.symbol, range, value, display)
 
   return offset + length, value
 end
 
+-- Financial Instrument Full Name
+cme_futures_derived_sbe_v12_0.financial_instrument_full_name = {}
+
 -- Size: Financial Instrument Full Name
-cme_futures_derived_sbe_v12_0_size_of.financial_instrument_full_name = 35
+cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size = 35
 
 -- Display: Financial Instrument Full Name
-cme_futures_derived_sbe_v12_0_display.financial_instrument_full_name = function(value)
+cme_futures_derived_sbe_v12_0.financial_instrument_full_name.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Financial Instrument Full Name: No Value"
@@ -853,8 +910,8 @@ cme_futures_derived_sbe_v12_0_display.financial_instrument_full_name = function(
 end
 
 -- Dissect: Financial Instrument Full Name
-cme_futures_derived_sbe_v12_0_dissect.financial_instrument_full_name = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.financial_instrument_full_name
+cme_futures_derived_sbe_v12_0.financial_instrument_full_name.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -868,85 +925,94 @@ cme_futures_derived_sbe_v12_0_dissect.financial_instrument_full_name = function(
     value = range:string()
   end
 
-  local display = cme_futures_derived_sbe_v12_0_display.financial_instrument_full_name(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.financial_instrument_full_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.financial_instrument_full_name, range, value, display)
 
   return offset + length, value
 end
 
+-- Match Event Indicator
+cme_futures_derived_sbe_v12_0.match_event_indicator = {}
+
+-- Md Snapshot Refresh Ticker
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker = {}
+
 -- Calculate size of: Md Snapshot Refresh Ticker
-cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_ticker = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.transact_time
+  index = index + cme_futures_derived_sbe_v12_0.transact_time.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.match_event_indicator
+  index = index + cme_futures_derived_sbe_v12_0.match_event_indicator.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.financial_instrument_full_name
+  index = index + cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.symbol
+  index = index + cme_futures_derived_sbe_v12_0.symbol.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.instrument_guid
+  index = index + cme_futures_derived_sbe_v12_0.instrument_guid.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.security_id
+  index = index + cme_futures_derived_sbe_v12_0.security_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_ticker_groups(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Md Snapshot Refresh Ticker
-cme_futures_derived_sbe_v12_0_display.md_snapshot_refresh_ticker = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Md Snapshot Refresh Ticker
-cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_ticker_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index, transact_time = cme_futures_derived_sbe_v12_0_dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = cme_futures_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
-  index, match_event_indicator = cme_futures_derived_sbe_v12_0_dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = cme_futures_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: 35 Byte Ascii String
-  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0_dissect.financial_instrument_full_name(buffer, index, packet, parent)
+  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index, symbol = cme_futures_derived_sbe_v12_0_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cme_futures_derived_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
-  index, instrument_guid = cme_futures_derived_sbe_v12_0_dissect.instrument_guid(buffer, index, packet, parent)
+  index, instrument_guid = cme_futures_derived_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
-  index, security_id = cme_futures_derived_sbe_v12_0_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cme_futures_derived_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
   -- M D Snapshot Refresh Ticker Groups: Struct of 2 fields
-  index, m_d_snapshot_refresh_ticker_groups = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_ticker_groups(buffer, index, packet, parent)
+  index, m_d_snapshot_refresh_ticker_groups = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_ticker_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Md Snapshot Refresh Ticker
-cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_ticker = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.md_snapshot_refresh_ticker then
-    local length = cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_ticker(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.md_snapshot_refresh_ticker(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_ticker, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_ticker_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.fields(buffer, offset, packet, parent)
 end
 
+-- Md Entry Type Spectrum Entry Type
+cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type = {}
+
 -- Size: Md Entry Type Spectrum Entry Type
-cme_futures_derived_sbe_v12_0_size_of.md_entry_type_spectrum_entry_type = 1
+cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size = 1
 
 -- Display: Md Entry Type Spectrum Entry Type
-cme_futures_derived_sbe_v12_0_display.md_entry_type_spectrum_entry_type = function(value)
+cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
     return "Md Entry Type Spectrum Entry Type: No Value"
@@ -963,8 +1029,8 @@ cme_futures_derived_sbe_v12_0_display.md_entry_type_spectrum_entry_type = functi
 end
 
 -- Dissect: Md Entry Type Spectrum Entry Type
-cme_futures_derived_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.md_entry_type_spectrum_entry_type
+cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -975,35 +1041,38 @@ cme_futures_derived_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type = functi
     value = range:string()
   end
 
-  local display = cme_futures_derived_sbe_v12_0_display.md_entry_type_spectrum_entry_type(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type, range, value, display)
 
   return offset + length, value
 end
 
+-- M D Snapshot Refresh Spectrum Group
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group = {}
+
 -- Calculate size of: M D Snapshot Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_spectrum_group = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_type_spectrum_entry_type
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_px
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_size
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_time
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
 
   return index
 end
 
 -- Display: M D Snapshot Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_spectrum_group = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Snapshot Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.fields = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
   local index = offset
 
   -- Implicit M D Snapshot Refresh Spectrum Group Index
@@ -1013,43 +1082,46 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields
   end
 
   -- Md Entry Type Spectrum Entry Type: 1 Byte Ascii String Enum with 2 values
-  index, md_entry_type_spectrum_entry_type = cme_futures_derived_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type(buffer, index, packet, parent)
+  index, md_entry_type_spectrum_entry_type = cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_derived_sbe_v12_0_dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cme_futures_derived_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_entry_size = cme_futures_derived_sbe_v12_0_dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = cme_futures_derived_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
-  index, md_entry_time = cme_futures_derived_sbe_v12_0_dissect.md_entry_time(buffer, index, packet, parent)
+  index, md_entry_time = cme_futures_derived_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: M D Snapshot Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.dissect = function(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
   if show.m_d_snapshot_refresh_spectrum_group then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+    local index = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_spectrum_group(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group_fields(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+    return cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
   end
 end
 
+-- M D Snapshot Refresh Spectrum Groups
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups = {}
+
 -- Calculate size of: M D Snapshot Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_spectrum_groups = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.group_size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_snapshot_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1059,144 +1131,150 @@ cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_spectrum_groups = fun
 end
 
 -- Display: M D Snapshot Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_spectrum_groups = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Snapshot Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_derived_sbe_v12_0_dissect.group_size(buffer, index, packet, parent)
+  index, group_size = cme_futures_derived_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- Repeating: M D Snapshot Refresh Spectrum Group
   for m_d_snapshot_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
-    index, m_d_snapshot_refresh_spectrum_group = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_group(buffer, index, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
+    index, m_d_snapshot_refresh_spectrum_group = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_group.dissect(buffer, index, packet, parent, m_d_snapshot_refresh_spectrum_group_index)
   end
 
   return index
 end
 
 -- Dissect: M D Snapshot Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.m_d_snapshot_refresh_spectrum_groups then
-    local length = cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_spectrum_groups(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_snapshot_refresh_spectrum_groups(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.fields(buffer, offset, packet, parent)
 end
 
+-- Md Snapshot Refresh Spectrum
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum = {}
+
 -- Calculate size of: Md Snapshot Refresh Spectrum
-cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_spectrum = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.transact_time
+  index = index + cme_futures_derived_sbe_v12_0.transact_time.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.match_event_indicator
+  index = index + cme_futures_derived_sbe_v12_0.match_event_indicator.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.financial_instrument_full_name
+  index = index + cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.symbol
+  index = index + cme_futures_derived_sbe_v12_0.symbol.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.instrument_guid
+  index = index + cme_futures_derived_sbe_v12_0.instrument_guid.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.security_id
+  index = index + cme_futures_derived_sbe_v12_0.security_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.m_d_snapshot_refresh_spectrum_groups(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Md Snapshot Refresh Spectrum
-cme_futures_derived_sbe_v12_0_display.md_snapshot_refresh_spectrum = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Md Snapshot Refresh Spectrum
-cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_spectrum_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index, transact_time = cme_futures_derived_sbe_v12_0_dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = cme_futures_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
-  index, match_event_indicator = cme_futures_derived_sbe_v12_0_dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = cme_futures_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: 35 Byte Ascii String
-  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0_dissect.financial_instrument_full_name(buffer, index, packet, parent)
+  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index, symbol = cme_futures_derived_sbe_v12_0_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cme_futures_derived_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
-  index, instrument_guid = cme_futures_derived_sbe_v12_0_dissect.instrument_guid(buffer, index, packet, parent)
+  index, instrument_guid = cme_futures_derived_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
-  index, security_id = cme_futures_derived_sbe_v12_0_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cme_futures_derived_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
   -- M D Snapshot Refresh Spectrum Groups: Struct of 2 fields
-  index, m_d_snapshot_refresh_spectrum_groups = cme_futures_derived_sbe_v12_0_dissect.m_d_snapshot_refresh_spectrum_groups(buffer, index, packet, parent)
+  index, m_d_snapshot_refresh_spectrum_groups = cme_futures_derived_sbe_v12_0.m_d_snapshot_refresh_spectrum_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Md Snapshot Refresh Spectrum
-cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_spectrum = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.md_snapshot_refresh_spectrum then
-    local length = cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_spectrum(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.md_snapshot_refresh_spectrum(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_snapshot_refresh_spectrum, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_spectrum_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.fields(buffer, offset, packet, parent)
 end
 
+-- M D Incremental Refresh Ticker Group
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group = {}
+
 -- Calculate size of: M D Incremental Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_ticker_group = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_type_ticker_entry_type
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.security_id
+  index = index + cme_futures_derived_sbe_v12_0.security_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.symbol
+  index = index + cme_futures_derived_sbe_v12_0.symbol.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.instrument_guid
+  index = index + cme_futures_derived_sbe_v12_0.instrument_guid.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.financial_instrument_full_name
+  index = index + cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_px
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_size
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_time
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.open_close_settl_flag
+  index = index + cme_futures_derived_sbe_v12_0.open_close_settl_flag.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.trading_session_id
+  index = index + cme_futures_derived_sbe_v12_0.trading_session_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.aggressor_side
+  index = index + cme_futures_derived_sbe_v12_0.aggressor_side.size
 
   return index
 end
 
 -- Display: M D Incremental Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_ticker_group = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Incremental Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
   local index = offset
 
   -- Implicit M D Incremental Refresh Ticker Group Index
@@ -1206,64 +1284,67 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_field
   end
 
   -- Md Entry Type Ticker Entry Type: 1 Byte Ascii String Enum with 12 values
-  index, md_entry_type_ticker_entry_type = cme_futures_derived_sbe_v12_0_dissect.md_entry_type_ticker_entry_type(buffer, index, packet, parent)
+  index, md_entry_type_ticker_entry_type = cme_futures_derived_sbe_v12_0.md_entry_type_ticker_entry_type.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
-  index, security_id = cme_futures_derived_sbe_v12_0_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cme_futures_derived_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index, symbol = cme_futures_derived_sbe_v12_0_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cme_futures_derived_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
-  index, instrument_guid = cme_futures_derived_sbe_v12_0_dissect.instrument_guid(buffer, index, packet, parent)
+  index, instrument_guid = cme_futures_derived_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: 35 Byte Ascii String
-  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0_dissect.financial_instrument_full_name(buffer, index, packet, parent)
+  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_derived_sbe_v12_0_dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cme_futures_derived_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_entry_size = cme_futures_derived_sbe_v12_0_dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = cme_futures_derived_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
-  index, md_entry_time = cme_futures_derived_sbe_v12_0_dissect.md_entry_time(buffer, index, packet, parent)
+  index, md_entry_time = cme_futures_derived_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, open_close_settl_flag = cme_futures_derived_sbe_v12_0_dissect.open_close_settl_flag(buffer, index, packet, parent)
+  index, open_close_settl_flag = cme_futures_derived_sbe_v12_0.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, trading_session_id = cme_futures_derived_sbe_v12_0_dissect.trading_session_id(buffer, index, packet, parent)
+  index, trading_session_id = cme_futures_derived_sbe_v12_0.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, aggressor_side = cme_futures_derived_sbe_v12_0_dissect.aggressor_side(buffer, index, packet, parent)
+  index, aggressor_side = cme_futures_derived_sbe_v12_0.aggressor_side.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: M D Incremental Refresh Ticker Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
   if show.m_d_incremental_refresh_ticker_group then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_group, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
+    local index = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_ticker_group(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
+    return cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_ticker_group_index)
   end
 end
 
+-- M D Incremental Refresh Ticker Groups
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups = {}
+
 -- Calculate size of: M D Incremental Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_ticker_groups = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.group_size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1273,118 +1354,124 @@ cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_ticker_groups = fu
 end
 
 -- Display: M D Incremental Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_ticker_groups = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Incremental Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_derived_sbe_v12_0_dissect.group_size(buffer, index, packet, parent)
+  index, group_size = cme_futures_derived_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- Repeating: M D Incremental Refresh Ticker Group
   for m_d_incremental_refresh_ticker_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_ticker_group = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_group(buffer, index, packet, parent, m_d_incremental_refresh_ticker_group_index)
+    index, m_d_incremental_refresh_ticker_group = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_ticker_group_index)
   end
 
   return index
 end
 
 -- Dissect: M D Incremental Refresh Ticker Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_ticker_groups then
-    local length = cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_ticker_groups(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_ticker_groups(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_ticker_groups, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.fields(buffer, offset, packet, parent)
 end
 
+-- Md Incremental Refresh Ticker
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker = {}
+
 -- Calculate size of: Md Incremental Refresh Ticker
-cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_ticker = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.transact_time
+  index = index + cme_futures_derived_sbe_v12_0.transact_time.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.match_event_indicator
+  index = index + cme_futures_derived_sbe_v12_0.match_event_indicator.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_ticker_groups(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Md Incremental Refresh Ticker
-cme_futures_derived_sbe_v12_0_display.md_incremental_refresh_ticker = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Md Incremental Refresh Ticker
-cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_ticker_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index, transact_time = cme_futures_derived_sbe_v12_0_dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = cme_futures_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
-  index, match_event_indicator = cme_futures_derived_sbe_v12_0_dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = cme_futures_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Ticker Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_ticker_groups = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_ticker_groups(buffer, index, packet, parent)
+  index, m_d_incremental_refresh_ticker_groups = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_ticker_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Md Incremental Refresh Ticker
-cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_ticker = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_ticker then
-    local length = cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_ticker(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.md_incremental_refresh_ticker(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_ticker, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_ticker_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.fields(buffer, offset, packet, parent)
 end
 
+-- M D Incremental Refresh Spectrum Group
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group = {}
+
 -- Calculate size of: M D Incremental Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_spectrum_group = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_type_spectrum_entry_type
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.financial_instrument_full_name
+  index = index + cme_futures_derived_sbe_v12_0.financial_instrument_full_name.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.symbol
+  index = index + cme_futures_derived_sbe_v12_0.symbol.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.instrument_guid
+  index = index + cme_futures_derived_sbe_v12_0.instrument_guid.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.security_id
+  index = index + cme_futures_derived_sbe_v12_0.security_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_px
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_px.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_size
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_size.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.md_entry_time
+  index = index + cme_futures_derived_sbe_v12_0.md_entry_time.size
 
   return index
 end
 
 -- Display: M D Incremental Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_spectrum_group = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Incremental Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
   local index = offset
 
   -- Implicit M D Incremental Refresh Spectrum Group Index
@@ -1394,55 +1481,58 @@ cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fie
   end
 
   -- Md Entry Type Spectrum Entry Type: 1 Byte Ascii String Enum with 2 values
-  index, md_entry_type_spectrum_entry_type = cme_futures_derived_sbe_v12_0_dissect.md_entry_type_spectrum_entry_type(buffer, index, packet, parent)
+  index, md_entry_type_spectrum_entry_type = cme_futures_derived_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: 35 Byte Ascii String
-  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0_dissect.financial_instrument_full_name(buffer, index, packet, parent)
+  index, financial_instrument_full_name = cme_futures_derived_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String
-  index, symbol = cme_futures_derived_sbe_v12_0_dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cme_futures_derived_sbe_v12_0.symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Guid: 8 Byte Unsigned Fixed Width Integer
-  index, instrument_guid = cme_futures_derived_sbe_v12_0_dissect.instrument_guid(buffer, index, packet, parent)
+  index, instrument_guid = cme_futures_derived_sbe_v12_0.instrument_guid.dissect(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Signed Fixed Width Integer
-  index, security_id = cme_futures_derived_sbe_v12_0_dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cme_futures_derived_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: 8 Byte Signed Fixed Width Integer
-  index, md_entry_px = cme_futures_derived_sbe_v12_0_dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cme_futures_derived_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
 
   -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_entry_size = cme_futures_derived_sbe_v12_0_dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = cme_futures_derived_sbe_v12_0.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Md Entry Time: 8 Byte Unsigned Fixed Width Integer
-  index, md_entry_time = cme_futures_derived_sbe_v12_0_dissect.md_entry_time(buffer, index, packet, parent)
+  index, md_entry_time = cme_futures_derived_sbe_v12_0.md_entry_time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: M D Incremental Refresh Spectrum Group
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
   if show.m_d_incremental_refresh_spectrum_group then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_group, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+    local index = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_spectrum_group(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group_fields(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+    return cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_spectrum_group_index)
   end
 end
 
+-- M D Incremental Refresh Spectrum Groups
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups = {}
+
 -- Calculate size of: M D Incremental Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_spectrum_groups = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.group_size(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.group_size.size(buffer, offset + index)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -1452,217 +1542,235 @@ cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_spectrum_groups = 
 end
 
 -- Display: M D Incremental Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_spectrum_groups = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: M D Incremental Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
-  index, group_size = cme_futures_derived_sbe_v12_0_dissect.group_size(buffer, index, packet, parent)
+  index, group_size = cme_futures_derived_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group uint 8
   local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- Repeating: M D Incremental Refresh Spectrum Group
   for m_d_incremental_refresh_spectrum_group_index = 1, num_in_group_uint_8 do
-    index, m_d_incremental_refresh_spectrum_group = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_group(buffer, index, packet, parent, m_d_incremental_refresh_spectrum_group_index)
+    index, m_d_incremental_refresh_spectrum_group = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_spectrum_group_index)
   end
 
   return index
 end
 
 -- Dissect: M D Incremental Refresh Spectrum Groups
-cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.m_d_incremental_refresh_spectrum_groups then
-    local length = cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_spectrum_groups(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.m_d_incremental_refresh_spectrum_groups(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.m_d_incremental_refresh_spectrum_groups, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.fields(buffer, offset, packet, parent)
 end
 
+-- Md Incremental Refresh Spectrum
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum = {}
+
 -- Calculate size of: Md Incremental Refresh Spectrum
-cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_spectrum = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.transact_time
+  index = index + cme_futures_derived_sbe_v12_0.transact_time.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.match_event_indicator
+  index = index + cme_futures_derived_sbe_v12_0.match_event_indicator.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.m_d_incremental_refresh_spectrum_groups(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.size(buffer, offset + index)
 
   return index
 end
 
 -- Display: Md Incremental Refresh Spectrum
-cme_futures_derived_sbe_v12_0_display.md_incremental_refresh_spectrum = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Md Incremental Refresh Spectrum
-cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_spectrum_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index, transact_time = cme_futures_derived_sbe_v12_0_dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = cme_futures_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
   -- Match Event Indicator
-  index, match_event_indicator = cme_futures_derived_sbe_v12_0_dissect.match_event_indicator(buffer, index, packet, parent)
+  index, match_event_indicator = cme_futures_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Spectrum Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_spectrum_groups = cme_futures_derived_sbe_v12_0_dissect.m_d_incremental_refresh_spectrum_groups(buffer, index, packet, parent)
+  index, m_d_incremental_refresh_spectrum_groups = cme_futures_derived_sbe_v12_0.m_d_incremental_refresh_spectrum_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Md Incremental Refresh Spectrum
-cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_spectrum = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.md_incremental_refresh_spectrum then
-    local length = cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_spectrum(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.md_incremental_refresh_spectrum(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_spectrum_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.fields(buffer, offset, packet, parent)
 end
 
+-- Admin Heartbeat
+cme_futures_derived_sbe_v12_0.admin_heartbeat = {}
+
+-- Payload
+cme_futures_derived_sbe_v12_0.payload = {}
+
 -- Calculate runtime size of: Payload
-cme_futures_derived_sbe_v12_0_size_of.payload = function(buffer, offset, template_id)
+cme_futures_derived_sbe_v12_0.payload.size = function(buffer, offset, template_id)
   -- Size of Admin Heartbeat
   if template_id == 302 then
     return 0
   end
   -- Size of Md Incremental Refresh Spectrum
   if template_id == 303 then
-    return cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_spectrum(buffer, offset)
+    return cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.size(buffer, offset)
   end
   -- Size of Md Incremental Refresh Ticker
   if template_id == 304 then
-    return cme_futures_derived_sbe_v12_0_size_of.md_incremental_refresh_ticker(buffer, offset)
+    return cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.size(buffer, offset)
   end
   -- Size of Md Snapshot Refresh Spectrum
   if template_id == 305 then
-    return cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_spectrum(buffer, offset)
+    return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.size(buffer, offset)
   end
   -- Size of Md Snapshot Refresh Ticker
   if template_id == 306 then
-    return cme_futures_derived_sbe_v12_0_size_of.md_snapshot_refresh_ticker(buffer, offset)
+    return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.size(buffer, offset)
   end
   -- Size of Global Day Roll
   if template_id == 307 then
-    return cme_futures_derived_sbe_v12_0_size_of.global_day_roll(buffer, offset)
+    return cme_futures_derived_sbe_v12_0.global_day_roll.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-cme_futures_derived_sbe_v12_0_display.payload = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-cme_futures_derived_sbe_v12_0_dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
+cme_futures_derived_sbe_v12_0.payload.branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
   if template_id == 302 then
   end
   -- Dissect Md Incremental Refresh Spectrum
   if template_id == 303 then
-    return cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_spectrum(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.md_incremental_refresh_spectrum.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Md Incremental Refresh Ticker
   if template_id == 304 then
-    return cme_futures_derived_sbe_v12_0_dissect.md_incremental_refresh_ticker(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.md_incremental_refresh_ticker.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Md Snapshot Refresh Spectrum
   if template_id == 305 then
-    return cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_spectrum(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_spectrum.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Md Snapshot Refresh Ticker
   if template_id == 306 then
-    return cme_futures_derived_sbe_v12_0_dissect.md_snapshot_refresh_ticker(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.md_snapshot_refresh_ticker.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Global Day Roll
   if template_id == 307 then
-    return cme_futures_derived_sbe_v12_0_dissect.global_day_roll(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.global_day_roll.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-cme_futures_derived_sbe_v12_0_dissect.payload = function(buffer, offset, packet, parent, template_id)
+cme_futures_derived_sbe_v12_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return cme_futures_derived_sbe_v12_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+    return cme_futures_derived_sbe_v12_0.payload.branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = cme_futures_derived_sbe_v12_0_size_of.payload(buffer, offset, template_id)
+  local size = cme_futures_derived_sbe_v12_0.payload.size(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = cme_futures_derived_sbe_v12_0_display.payload(buffer, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.payload.display(buffer, packet, parent)
   local element = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.payload, range, display)
 
-  return cme_futures_derived_sbe_v12_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+  return cme_futures_derived_sbe_v12_0.payload.branches(buffer, offset, packet, parent, template_id)
 end
 
+-- Version
+cme_futures_derived_sbe_v12_0.version = {}
+
 -- Size: Version
-cme_futures_derived_sbe_v12_0_size_of.version = 2
+cme_futures_derived_sbe_v12_0.version.size = 2
 
 -- Display: Version
-cme_futures_derived_sbe_v12_0_display.version = function(value)
+cme_futures_derived_sbe_v12_0.version.display = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-cme_futures_derived_sbe_v12_0_dissect.version = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.version
+cme_futures_derived_sbe_v12_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.version.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.version(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.version, range, value, display)
 
   return offset + length, value
 end
 
+-- Schema Id
+cme_futures_derived_sbe_v12_0.schema_id = {}
+
 -- Size: Schema Id
-cme_futures_derived_sbe_v12_0_size_of.schema_id = 2
+cme_futures_derived_sbe_v12_0.schema_id.size = 2
 
 -- Display: Schema Id
-cme_futures_derived_sbe_v12_0_display.schema_id = function(value)
+cme_futures_derived_sbe_v12_0.schema_id.display = function(value)
   return "Schema Id: "..value
 end
 
 -- Dissect: Schema Id
-cme_futures_derived_sbe_v12_0_dissect.schema_id = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.schema_id
+cme_futures_derived_sbe_v12_0.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.schema_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.schema_id(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.schema_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Template Id
+cme_futures_derived_sbe_v12_0.template_id = {}
+
 -- Size: Template Id
-cme_futures_derived_sbe_v12_0_size_of.template_id = 2
+cme_futures_derived_sbe_v12_0.template_id.size = 2
 
 -- Display: Template Id
-cme_futures_derived_sbe_v12_0_display.template_id = function(value)
+cme_futures_derived_sbe_v12_0.template_id.display = function(value)
   if value == 302 then
     return "Template Id: Admin Heartbeat (302)"
   end
@@ -1686,152 +1794,164 @@ cme_futures_derived_sbe_v12_0_display.template_id = function(value)
 end
 
 -- Dissect: Template Id
-cme_futures_derived_sbe_v12_0_dissect.template_id = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.template_id
+cme_futures_derived_sbe_v12_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.template_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.template_id(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.template_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.template_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+cme_futures_derived_sbe_v12_0.message_header = {}
+
 -- Calculate size of: Message Header
-cme_futures_derived_sbe_v12_0_size_of.message_header = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.block_length
+  index = index + cme_futures_derived_sbe_v12_0.block_length.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.template_id
+  index = index + cme_futures_derived_sbe_v12_0.template_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.schema_id
+  index = index + cme_futures_derived_sbe_v12_0.schema_id.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.version
+  index = index + cme_futures_derived_sbe_v12_0.version.size
 
   return index
 end
 
 -- Display: Message Header
-cme_futures_derived_sbe_v12_0_display.message_header = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-cme_futures_derived_sbe_v12_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index, block_length = cme_futures_derived_sbe_v12_0_dissect.block_length(buffer, index, packet, parent)
+  index, block_length = cme_futures_derived_sbe_v12_0.block_length.dissect(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, template_id = cme_futures_derived_sbe_v12_0_dissect.template_id(buffer, index, packet, parent)
+  index, template_id = cme_futures_derived_sbe_v12_0.template_id.dissect(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
-  index, schema_id = cme_futures_derived_sbe_v12_0_dissect.schema_id(buffer, index, packet, parent)
+  index, schema_id = cme_futures_derived_sbe_v12_0.schema_id.dissect(buffer, index, packet, parent)
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index, version = cme_futures_derived_sbe_v12_0_dissect.version(buffer, index, packet, parent)
+  index, version = cme_futures_derived_sbe_v12_0.version.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-cme_futures_derived_sbe_v12_0_dissect.message_header = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message_header, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = cme_futures_derived_sbe_v12_0.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.message_header(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.message_header_fields(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message Size
+cme_futures_derived_sbe_v12_0.message_size = {}
+
 -- Size: Message Size
-cme_futures_derived_sbe_v12_0_size_of.message_size = 2
+cme_futures_derived_sbe_v12_0.message_size.size = 2
 
 -- Display: Message Size
-cme_futures_derived_sbe_v12_0_display.message_size = function(value)
+cme_futures_derived_sbe_v12_0.message_size.display = function(value)
   return "Message Size: "..value
 end
 
 -- Dissect: Message Size
-cme_futures_derived_sbe_v12_0_dissect.message_size = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.message_size
+cme_futures_derived_sbe_v12_0.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.message_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.message_size(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.message_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Message
+cme_futures_derived_sbe_v12_0.message = {}
+
 -- Calculate size of: Message
-cme_futures_derived_sbe_v12_0_size_of.message = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.message_size
+  index = index + cme_futures_derived_sbe_v12_0.message_size.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.message_header(buffer, offset + index)
+  index = index + cme_futures_derived_sbe_v12_0.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 6, 2):le_uint()
-  index = index + cme_futures_derived_sbe_v12_0_size_of.payload(buffer, payload_offset, payload_type)
+  index = index + cme_futures_derived_sbe_v12_0.payload.size(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-cme_futures_derived_sbe_v12_0_display.message = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-cme_futures_derived_sbe_v12_0_dissect.message_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_futures_derived_sbe_v12_0_dissect.message_size(buffer, index, packet, parent)
+  index, message_size = cme_futures_derived_sbe_v12_0.message_size.dissect(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
-  index, message_header = cme_futures_derived_sbe_v12_0_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cme_futures_derived_sbe_v12_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
   -- Payload: Runtime Type with 6 branches
-  index = cme_futures_derived_sbe_v12_0_dissect.payload(buffer, index, packet, parent, template_id)
+  index = cme_futures_derived_sbe_v12_0.payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
 -- Dissect: Message
-cme_futures_derived_sbe_v12_0_dissect.message = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = cme_futures_derived_sbe_v12_0_size_of.message(buffer, offset)
+    local length = cme_futures_derived_sbe_v12_0.message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = cme_futures_derived_sbe_v12_0_display.message(buffer, packet, parent)
+    local display = cme_futures_derived_sbe_v12_0.message.display(buffer, packet, parent)
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message, range, display)
   end
 
-  return cme_futures_derived_sbe_v12_0_dissect.message_fields(buffer, offset, packet, parent)
+  return cme_futures_derived_sbe_v12_0.message.fields(buffer, offset, packet, parent)
 end
 
+-- Sending Time
+cme_futures_derived_sbe_v12_0.sending_time = {}
+
 -- Size: Sending Time
-cme_futures_derived_sbe_v12_0_size_of.sending_time = 8
+cme_futures_derived_sbe_v12_0.sending_time.size = 8
 
 -- Display: Sending Time
-cme_futures_derived_sbe_v12_0_display.sending_time = function(value)
+cme_futures_derived_sbe_v12_0.sending_time.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -1840,97 +1960,106 @@ cme_futures_derived_sbe_v12_0_display.sending_time = function(value)
 end
 
 -- Dissect: Sending Time
-cme_futures_derived_sbe_v12_0_dissect.sending_time = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.sending_time
+cme_futures_derived_sbe_v12_0.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_futures_derived_sbe_v12_0_display.sending_time(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.sending_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Sequence Number
+cme_futures_derived_sbe_v12_0.message_sequence_number = {}
+
 -- Size: Message Sequence Number
-cme_futures_derived_sbe_v12_0_size_of.message_sequence_number = 4
+cme_futures_derived_sbe_v12_0.message_sequence_number.size = 4
 
 -- Display: Message Sequence Number
-cme_futures_derived_sbe_v12_0_display.message_sequence_number = function(value)
+cme_futures_derived_sbe_v12_0.message_sequence_number.display = function(value)
   return "Message Sequence Number: "..value
 end
 
 -- Dissect: Message Sequence Number
-cme_futures_derived_sbe_v12_0_dissect.message_sequence_number = function(buffer, offset, packet, parent)
-  local length = cme_futures_derived_sbe_v12_0_size_of.message_sequence_number
+cme_futures_derived_sbe_v12_0.message_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_derived_sbe_v12_0.message_sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_futures_derived_sbe_v12_0_display.message_sequence_number(value, buffer, offset, packet, parent)
+  local display = cme_futures_derived_sbe_v12_0.message_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_derived_sbe_v12_0.fields.message_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Binary Packet Header
+cme_futures_derived_sbe_v12_0.binary_packet_header = {}
+
 -- Calculate size of: Binary Packet Header
-cme_futures_derived_sbe_v12_0_size_of.binary_packet_header = function(buffer, offset)
+cme_futures_derived_sbe_v12_0.binary_packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.message_sequence_number
+  index = index + cme_futures_derived_sbe_v12_0.message_sequence_number.size
 
-  index = index + cme_futures_derived_sbe_v12_0_size_of.sending_time
+  index = index + cme_futures_derived_sbe_v12_0.sending_time.size
 
   return index
 end
 
 -- Display: Binary Packet Header
-cme_futures_derived_sbe_v12_0_display.binary_packet_header = function(packet, parent, length)
+cme_futures_derived_sbe_v12_0.binary_packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Binary Packet Header
-cme_futures_derived_sbe_v12_0_dissect.binary_packet_header_fields = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.binary_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_futures_derived_sbe_v12_0_dissect.message_sequence_number(buffer, index, packet, parent)
+  index, message_sequence_number = cme_futures_derived_sbe_v12_0.message_sequence_number.dissect(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index, sending_time = cme_futures_derived_sbe_v12_0_dissect.sending_time(buffer, index, packet, parent)
+  index, sending_time = cme_futures_derived_sbe_v12_0.sending_time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Binary Packet Header
-cme_futures_derived_sbe_v12_0_dissect.binary_packet_header = function(buffer, offset, packet, parent)
+cme_futures_derived_sbe_v12_0.binary_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.binary_packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_futures_derived_sbe_v12_0.fields.binary_packet_header, buffer(offset, 0))
-    local index = cme_futures_derived_sbe_v12_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    local index = cme_futures_derived_sbe_v12_0.binary_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_futures_derived_sbe_v12_0_display.binary_packet_header(packet, parent, length)
+    local display = cme_futures_derived_sbe_v12_0.binary_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_futures_derived_sbe_v12_0_dissect.binary_packet_header_fields(buffer, offset, packet, parent)
+    return cme_futures_derived_sbe_v12_0.binary_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+cme_futures_derived_sbe_v12_0.packet = {}
+
 -- Dissect Packet
-cme_futures_derived_sbe_v12_0_dissect.packet = function(buffer, packet, parent)
+cme_futures_derived_sbe_v12_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Binary Packet Header: Struct of 2 fields
-  index, binary_packet_header = cme_futures_derived_sbe_v12_0_dissect.binary_packet_header(buffer, index, packet, parent)
+  index, binary_packet_header = cme_futures_derived_sbe_v12_0.binary_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index, message = cme_futures_derived_sbe_v12_0_dissect.message(buffer, index, packet, parent)
+    index, message = cme_futures_derived_sbe_v12_0.message.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -1953,7 +2082,7 @@ function omi_cme_futures_derived_sbe_v12_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_futures_derived_sbe_v12_0, buffer(), omi_cme_futures_derived_sbe_v12_0.description, "("..buffer:len().." Bytes)")
-  return cme_futures_derived_sbe_v12_0_dissect.packet(buffer, packet, protocol)
+  return cme_futures_derived_sbe_v12_0.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

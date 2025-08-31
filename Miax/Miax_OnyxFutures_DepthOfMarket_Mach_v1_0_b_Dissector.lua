@@ -7,12 +7,12 @@
 -- Miax OnyxFutures DepthOfMarket Mach 1.0.b Protocol
 local omi_miax_onyxfutures_depthofmarket_mach_v1_0_b = Proto("Miax.OnyxFutures.DepthOfMarket.Mach.v1.0.b.Lua", "Miax OnyxFutures DepthOfMarket Mach 1.0.b")
 
+-- Protocol table
+local miax_onyxfutures_depthofmarket_mach_v1_0_b = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local miax_onyxfutures_depthofmarket_mach_v1_0_b_display = {}
-local miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect = {}
-local miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -273,31 +273,37 @@ end
 -- Dissect Miax OnyxFutures DepthOfMarket Mach 1.0.b
 -----------------------------------------------------------------------
 
+-- Size
+miax_onyxfutures_depthofmarket_mach_v1_0_b.size = {}
+
 -- Size: Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.size = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.size.size = 4
 
 -- Display: Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.size = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.size.display = function(value)
   return "Size: "..value
 end
 
 -- Dissect: Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.size
+miax_onyxfutures_depthofmarket_mach_v1_0_b.size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.size(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.size, range, value, display)
 
   return offset + length, value
 end
 
+-- Price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.price = {}
+
 -- Size: Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.price = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.price.size = 8
 
 -- Display: Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.price = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.price.display = function(value)
   return "Price: "..value
 end
 
@@ -307,103 +313,118 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.price(raw)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.price(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.price, range, value, display)
 
   return offset + length, value
 end
 
+-- Correction Number
+miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number = {}
+
 -- Size: Correction Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.correction_number = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.size = 1
 
 -- Display: Correction Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.correction_number = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.display = function(value)
   return "Correction Number: "..value
 end
 
 -- Dissect: Correction Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.correction_number = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.correction_number
+miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.correction_number(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.correction_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id = {}
+
 -- Size: Trade Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_id = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.size = 8
 
 -- Display: Trade Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trade_id = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.display = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trade_id(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trade_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id = {}
+
 -- Size: Instrument Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size = 4
 
 -- Display: Instrument Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_id = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.display = function(value)
   return "Instrument Id: "..value
 end
 
 -- Dissect: Instrument Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_id(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Date
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date = {}
+
 -- Size: Trade Date
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_date = 2
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.size = 2
 
 -- Display: Trade Date
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trade_date = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.display = function(value)
   return "Trade Date: "..value
 end
 
 -- Dissect: Trade Date
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_date
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trade_date(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trade_date, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp = {}
+
 -- Size: Timestamp
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size = 8
 
 -- Display: Timestamp
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.timestamp = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -412,94 +433,100 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.timestamp = function(value)
 end
 
 -- Dissect: Timestamp
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.timestamp(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Trade Cancel Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message = {}
+
 -- Calculate size of: Trade Cancel Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_cancel_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_date
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.correction_number
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.size.size
 
   return index
 end
 
 -- Display: Trade Cancel Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trade_cancel_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Date
-  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Trade Id: BinaryU
-  index, trade_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.dissect(buffer, index, packet, parent)
 
   -- Correction Number: BinaryU
-  index, correction_number = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.correction_number(buffer, index, packet, parent)
+  index, correction_number = miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
-  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
+  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b.price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
-  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
+  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b.size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancel Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
   if show.trade_cancel_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trade_cancel_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trade_cancel_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Aggressor Side
+miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side = {}
+
 -- Size: Aggressor Side
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.aggressor_side = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side.size = 1
 
 -- Display: Aggressor Side
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.aggressor_side = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side.display = function(value)
   if value == "B" then
     return "Aggressor Side: Buy (B)"
   end
@@ -514,221 +541,245 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.aggressor_side = function(val
 end
 
 -- Dissect: Aggressor Side
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.aggressor_side = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.aggressor_side
+miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.aggressor_side(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.aggressor_side, range, value, display)
 
   return offset + length, value
 end
 
+-- Sell Order Id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id = {}
+
 -- Size: Sell Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.sell_order_id = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id.size = 8
 
 -- Display: Sell Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.sell_order_id = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id.display = function(value)
   return "Sell Order Id: "..value
 end
 
 -- Dissect: Sell Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.sell_order_id = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.sell_order_id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.sell_order_id(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.sell_order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Buy Order Id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id = {}
+
 -- Size: Buy Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.buy_order_id = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id.size = 8
 
 -- Display: Buy Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.buy_order_id = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id.display = function(value)
   return "Buy Order Id: "..value
 end
 
 -- Dissect: Buy Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.buy_order_id = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.buy_order_id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.buy_order_id(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.buy_order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Execution Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message = {}
+
 -- Calculate size of: Order Execution Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_execution_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_date
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.buy_order_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.sell_order_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.aggressor_side
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.correction_number
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.size.size
 
   return index
 end
 
 -- Display: Order Execution Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_execution_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Execution Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_execution_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Date
-  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Buy Order Id: BinaryU
-  index, buy_order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.buy_order_id(buffer, index, packet, parent)
+  index, buy_order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.buy_order_id.dissect(buffer, index, packet, parent)
 
   -- Sell Order Id: BinaryU
-  index, sell_order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.sell_order_id(buffer, index, packet, parent)
+  index, sell_order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.sell_order_id.dissect(buffer, index, packet, parent)
 
   -- Aggressor Side: Alphanumeric
-  index, aggressor_side = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.aggressor_side(buffer, index, packet, parent)
+  index, aggressor_side = miax_onyxfutures_depthofmarket_mach_v1_0_b.aggressor_side.dissect(buffer, index, packet, parent)
 
   -- Trade Id: BinaryU
-  index, trade_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_id.dissect(buffer, index, packet, parent)
 
   -- Correction Number: BinaryU
-  index, correction_number = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.correction_number(buffer, index, packet, parent)
+  index, correction_number = miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
-  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
+  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b.price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
-  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
+  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b.size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Execution Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_execution_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.dissect = function(buffer, offset, packet, parent)
   if show.order_execution_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_execution_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_execution_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_execution_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id = {}
+
 -- Size: Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_id = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.size = 8
 
 -- Display: Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_id = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.display = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_id = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_id(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Delete Order Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message = {}
+
 -- Calculate size of: Delete Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.delete_order_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.size
 
   return index
 end
 
 -- Display: Delete Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.delete_order_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Delete Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
-  index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Delete Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.dissect = function(buffer, offset, packet, parent)
   if show.delete_order_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.delete_order_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.delete_order_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Position
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_position = {}
+
+-- Unused 7
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unused_7 = {}
+
+-- Modify Flags
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags = {}
+
 -- Size: Modify Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_flags = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.size = 1
 
 -- Display: Modify Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.modify_flags = function(buffer, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.display = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Position flag set?
@@ -740,7 +791,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.modify_flags = function(buffe
 end
 
 -- Dissect Bit Fields: Modify Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags_bits = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits = function(buffer, offset, packet, parent)
 
   -- Unused 7: 7 Bit
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused_7, buffer(offset, 1))
@@ -750,91 +801,97 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags_bits = function(
 end
 
 -- Dissect: Modify Flags
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.dissect = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.modify_flags(range, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.display(range, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_flags, range, display)
 
   if show.modify_flags then
-    miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags_bits(buffer, offset, packet, element)
+    miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
+-- Modify Order Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message = {}
+
 -- Calculate size of: Modify Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_order_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.size.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_flags
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.size
 
   return index
 end
 
 -- Display: Modify Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.modify_order_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Modify Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
-  index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
-  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
+  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b.price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
-  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
+  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b.size.dissect(buffer, index, packet, parent)
 
   -- Modify Flags: Struct of 2 fields
-  index, modify_flags = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_flags(buffer, index, packet, parent)
+  index, modify_flags = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.dissect = function(buffer, offset, packet, parent)
   if show.modify_order_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.modify_order_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.modify_order_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Side
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side = {}
+
 -- Size: Order Side
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_side = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side.size = 1
 
 -- Display: Order Side
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_side = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side.display = function(value)
   if value == "B" then
     return "Order Side: Buy (B)"
   end
@@ -846,22 +903,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_side = function(value)
 end
 
 -- Dissect: Order Side
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_side = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_side
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_side(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_side, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type = {}
+
 -- Size: Order Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type.size = 1
 
 -- Display: Order Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type.display = function(value)
   if value == "S" then
     return "Order Type: Simple Order (S)"
   end
@@ -876,295 +936,316 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_type = function(value)
 end
 
 -- Dissect: Order Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.order_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Add Order Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message = {}
+
 -- Calculate size of: Add Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.add_order_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_side
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.size.size
 
   return index
 end
 
 -- Display: Add Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.add_order_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Add Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.add_order_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Type: Alphanumeric
-  index, order_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_type(buffer, index, packet, parent)
+  index, order_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_type.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
-  index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_id.dissect(buffer, index, packet, parent)
 
   -- Order Side: Alphanumeric
-  index, order_side = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_side(buffer, index, packet, parent)
+  index, order_side = miax_onyxfutures_depthofmarket_mach_v1_0_b.order_side.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
-  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.price(buffer, index, packet, parent)
+  index, price = miax_onyxfutures_depthofmarket_mach_v1_0_b.price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
-  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.size(buffer, index, packet, parent)
+  index, size = miax_onyxfutures_depthofmarket_mach_v1_0_b.size.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.add_order_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.dissect = function(buffer, offset, packet, parent)
   if show.add_order_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.add_order_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.add_order_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.add_order_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Instrument Clear Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message = {}
+
 -- Calculate size of: Instrument Clear Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_clear_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
   return index
 end
 
 -- Display: Instrument Clear Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_clear_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Instrument Clear Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_clear_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Clear Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_clear_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.dissect = function(buffer, offset, packet, parent)
   if show.instrument_clear_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_clear_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_clear_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_clear_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_clear_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Total Volume
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume = {}
+
 -- Size: Total Volume
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.total_volume = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.size = 4
 
 -- Display: Total Volume
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.total_volume = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.display = function(value)
   return "Total Volume: "..value
 end
 
 -- Dissect: Total Volume
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.total_volume
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.total_volume(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
 
+-- Total Volume Update Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message = {}
+
 -- Calculate size of: Total Volume Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.total_volume_update_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_date
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.total_volume
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.size
 
   return index
 end
 
 -- Display: Total Volume Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.total_volume_update_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Total Volume Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume_update_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Date
-  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Total Volume: BinaryU
-  index, total_volume = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Total Volume Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume_update_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.dissect = function(buffer, offset, packet, parent)
   if show.total_volume_update_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.total_volume_update_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume_update_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.total_volume_update_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume_update_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Open Interest Quantity
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity = {}
+
 -- Size: Open Interest Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.open_interest_quantity = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.size = 4
 
 -- Display: Open Interest Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.open_interest_quantity = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.display = function(value)
   return "Open Interest Quantity: "..value
 end
 
 -- Dissect: Open Interest Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_quantity = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.open_interest_quantity
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.open_interest_quantity(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.open_interest_quantity, range, value, display)
 
   return offset + length, value
 end
 
+-- Open Interest Update Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message = {}
+
 -- Calculate size of: Open Interest Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.open_interest_update_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_date
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.open_interest_quantity
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.size
 
   return index
 end
 
 -- Display: Open Interest Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.open_interest_update_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Open Interest Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_update_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Date
-  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Open Interest Quantity: BinaryU
-  index, open_interest_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_quantity(buffer, index, packet, parent)
+  index, open_interest_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Open Interest Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_update_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.dissect = function(buffer, offset, packet, parent)
   if show.open_interest_update_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.open_interest_update_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_update_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.open_interest_update_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_update_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Settlement Price Type Calc Method
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method = {}
+
 -- Size: Settlement Price Type Calc Method
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_type_calc_method = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.size = 1
 
 -- Display: Settlement Price Type Calc Method
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_type_calc_method = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.display = function(value)
   if value == "A" then
     return "Settlement Price Type Calc Method: Actual (A)"
   end
@@ -1176,22 +1257,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_type_calc_me
 end
 
 -- Dissect: Settlement Price Type Calc Method
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type_calc_method = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_type_calc_method
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_type_calc_method(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.settlement_price_type_calc_method, range, value, display)
 
   return offset + length, value
 end
 
+-- Settlement Price Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type = {}
+
 -- Size: Settlement Price Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type.size = 1
 
 -- Display: Settlement Price Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type.display = function(value)
   if value == "D" then
     return "Settlement Price Type: Daily (D)"
   end
@@ -1203,22 +1287,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_type = funct
 end
 
 -- Dissect: Settlement Price Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.settlement_price_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Settlement Price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price = {}
+
 -- Size: Settlement Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.size = 8
 
 -- Display: Settlement Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.display = function(value)
   return "Settlement Price: "..value
 end
 
@@ -1228,110 +1315,119 @@ translate.settlement_price = function(raw)
 end
 
 -- Dissect: Settlement Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.settlement_price(raw)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.settlement_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Settlement Price Update Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message = {}
+
 -- Calculate size of: Settlement Price Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_update_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_date
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_type_calc_method
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.size
 
   return index
 end
 
 -- Display: Settlement Price Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_update_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Settlement Price Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_update_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Trade Date: Date
-  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_date.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Settlement Price: Price9S
-  index, settlement_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price(buffer, index, packet, parent)
+  index, settlement_price = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.dissect(buffer, index, packet, parent)
 
   -- Settlement Price Type: Alphanumeric
-  index, settlement_price_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type(buffer, index, packet, parent)
+  index, settlement_price_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type.dissect(buffer, index, packet, parent)
 
   -- Settlement Price Type Calc Method: Alphanumeric
-  index, settlement_price_type_calc_method = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type_calc_method(buffer, index, packet, parent)
+  index, settlement_price_type_calc_method = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Settlement Price Update Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_update_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.dissect = function(buffer, offset, packet, parent)
   if show.settlement_price_update_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.settlement_price_update_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_update_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_price_update_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_update_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Opening Match Quantity
+miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity = {}
+
 -- Size: Opening Match Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.opening_match_quantity = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity.size = 4
 
 -- Display: Opening Match Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.opening_match_quantity = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity.display = function(value)
   return "Opening Match Quantity: "..value
 end
 
 -- Dissect: Opening Match Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.opening_match_quantity = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.opening_match_quantity
+miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.opening_match_quantity(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.opening_match_quantity, range, value, display)
 
   return offset + length, value
 end
 
+-- Anticipated Opening Price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price = {}
+
 -- Size: Anticipated Opening Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.anticipated_opening_price = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.size = 8
 
 -- Display: Anticipated Opening Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.anticipated_opening_price = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.display = function(value)
   return "Anticipated Opening Price: "..value
 end
 
@@ -1341,80 +1437,86 @@ translate.anticipated_opening_price = function(raw)
 end
 
 -- Dissect: Anticipated Opening Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.anticipated_opening_price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.anticipated_opening_price(raw)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.anticipated_opening_price(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Anticipated Opening Price Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message = {}
+
 -- Calculate size of: Anticipated Opening Price Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.anticipated_opening_price_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.anticipated_opening_price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.opening_match_quantity
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity.size
 
   return index
 end
 
 -- Display: Anticipated Opening Price Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.anticipated_opening_price_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Anticipated Opening Price Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Anticipated Opening Price: Price9S
-  index, anticipated_opening_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price(buffer, index, packet, parent)
+  index, anticipated_opening_price = miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.dissect(buffer, index, packet, parent)
 
   -- Opening Match Quantity: BinaryU
-  index, opening_match_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.opening_match_quantity(buffer, index, packet, parent)
+  index, opening_match_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b.opening_match_quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Anticipated Opening Price Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.dissect = function(buffer, offset, packet, parent)
   if show.anticipated_opening_price_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.anticipated_opening_price_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Market State
+miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state = {}
+
 -- Size: Market State
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.market_state = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.size = 1
 
 -- Display: Market State
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.market_state = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.display = function(value)
   if value == 1 then
     return "Market State: Pre Opening (1)"
   end
@@ -1432,22 +1534,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.market_state = function(value
 end
 
 -- Dissect: Market State
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.market_state = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.market_state
+miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.market_state(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.market_state, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Status
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status = {}
+
 -- Size: Trading Status
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_status = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.size = 1
 
 -- Display: Trading Status
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_status = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.display = function(value)
   if value == 1 then
     return "Trading Status: Pre Open (1)"
   end
@@ -1471,79 +1576,85 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_status = function(val
 end
 
 -- Dissect: Trading Status
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_status
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_status(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Trading Status Notification Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message = {}
+
 -- Calculate size of: Instrument Trading Status Notification Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_trading_status_notification_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_status
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.market_state
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.size
 
   return index
 end
 
 -- Display: Instrument Trading Status Notification Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_trading_status_notification_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Instrument Trading Status Notification Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Trading Status: BinaryU
-  index, trading_status = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.dissect(buffer, index, packet, parent)
 
   -- Market State: BinaryU
-  index, market_state = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.market_state(buffer, index, packet, parent)
+  index, market_state = miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Trading Status Notification Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.dissect = function(buffer, offset, packet, parent)
   if show.instrument_trading_status_notification_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_trading_status_notification_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_trading_status_notification_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- System Status
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status = {}
+
 -- Size: System Status
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.system_status = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status.size = 1
 
 -- Display: System Status
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.system_status = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status.display = function(value)
   if value == "S" then
     return "System Status: Start Of System Hours (S)"
   end
@@ -1561,196 +1672,217 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.system_status = function(valu
 end
 
 -- Dissect: System Status
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_status = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.system_status
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.system_status(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.system_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id = {}
+
 -- Size: Session Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.session_id = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.size = 1
 
 -- Display: Session Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.session_id = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.display = function(value)
   return "Session Id: "..value
 end
 
 -- Dissect: Session Id
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.session_id = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.session_id
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.session_id(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.session_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Dom Version
+miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version = {}
+
 -- Size: Dom Version
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.dom_version = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version.size = 8
 
 -- Display: Dom Version
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.dom_version = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version.display = function(value)
   return "Dom Version: "..value
 end
 
 -- Dissect: Dom Version
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.dom_version = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.dom_version
+miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.dom_version(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.dom_version, range, value, display)
 
   return offset + length, value
 end
 
+-- System State Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message = {}
+
 -- Calculate size of: System State Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.system_state_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.dom_version
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.session_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.system_status
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status.size
 
   return index
 end
 
 -- Display: System State Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.system_state_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: System State Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Dom Version: Alphanumeric
-  index, dom_version = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.dom_version(buffer, index, packet, parent)
+  index, dom_version = miax_onyxfutures_depthofmarket_mach_v1_0_b.dom_version.dissect(buffer, index, packet, parent)
 
   -- Session Id: BinaryU
-  index, session_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.session_id(buffer, index, packet, parent)
+  index, session_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.dissect(buffer, index, packet, parent)
 
   -- System Status: Alphanumeric
-  index, system_status = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_status(buffer, index, packet, parent)
+  index, system_status = miax_onyxfutures_depthofmarket_mach_v1_0_b.system_status.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System State Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.dissect = function(buffer, offset, packet, parent)
   if show.system_state_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.system_state_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.system_state_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reserved 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8 = {}
+
 -- Size: Reserved 8
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_8 = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.size = 8
 
 -- Display: Reserved 8
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.reserved_8 = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.display = function(value)
   return "Reserved 8: "..value
 end
 
 -- Dissect: Reserved 8
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_8 = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.reserved_8(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
 
+-- Maturity Month Year
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year = {}
+
 -- Size: Maturity Month Year
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.size = 4
 
 -- Display: Maturity Month Year
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maturity_month_year = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.display = function(value)
   return "Maturity Month Year: "..value
 end
 
 -- Dissect: Maturity Month Year
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maturity_month_year(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maturity_month_year, range, value, display)
 
   return offset + length, value
 end
 
+-- Leg Ratio
+miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio = {}
+
 -- Size: Leg Ratio
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.leg_ratio = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio.size = 4
 
 -- Display: Leg Ratio
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.leg_ratio = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio.display = function(value)
   return "Leg Ratio: "..value
 end
 
 -- Dissect: Leg Ratio
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.leg_ratio = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.leg_ratio
+miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.leg_ratio(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.leg_ratio, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Leg
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg = {}
+
 -- Calculate size of: Instrument Leg
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_leg = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.leg_ratio
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_8
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.size
 
   return index
 end
 
 -- Display: Instrument Leg
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_leg = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Instrument Leg
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg_fields = function(buffer, offset, packet, parent, instrument_leg_index)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.fields = function(buffer, offset, packet, parent, instrument_leg_index)
   local index = offset
 
   -- Implicit Instrument Leg Index
@@ -1760,83 +1892,92 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg_fields = funct
   end
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio: BinaryS
-  index, leg_ratio = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = miax_onyxfutures_depthofmarket_mach_v1_0_b.leg_ratio.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: BinaryU
-  index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year(buffer, index, packet, parent)
+  index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.dissect(buffer, index, packet, parent)
 
   -- Reserved 8: BinaryU
-  index, reserved_8 = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_8(buffer, index, packet, parent)
+  index, reserved_8 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_8.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Leg
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg = function(buffer, offset, packet, parent, instrument_leg_index)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.dissect = function(buffer, offset, packet, parent, instrument_leg_index)
   if show.instrument_leg then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg_fields(buffer, offset, packet, parent, instrument_leg_index)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.fields(buffer, offset, packet, parent, instrument_leg_index)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_leg(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg_fields(buffer, offset, packet, parent, instrument_leg_index)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.fields(buffer, offset, packet, parent, instrument_leg_index)
   end
 end
 
+-- Number Of Legs
+miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs = {}
+
 -- Size: Number Of Legs
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.number_of_legs = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.size = 1
 
 -- Display: Number Of Legs
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.number_of_legs = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.display = function(value)
   return "Number Of Legs: "..value
 end
 
 -- Dissect: Number Of Legs
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.number_of_legs = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.number_of_legs
+miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.number_of_legs(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.number_of_legs, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 16
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16 = {}
+
 -- Size: Reserved 16
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_16 = 16
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.size = 16
 
 -- Display: Reserved 16
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.reserved_16 = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.display = function(value)
   return "Reserved 16: "..value
 end
 
 -- Dissect: Reserved 16
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_16 = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_16
+miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.reserved_16(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.reserved_16, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Collar Variation
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation = {}
+
 -- Size: Trading Collar Variation
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.size = 8
 
 -- Display: Trading Collar Variation
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_collar_variation = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.display = function(value)
   return "Trading Collar Variation: "..value
 end
 
@@ -1846,23 +1987,26 @@ translate.trading_collar_variation = function(raw)
 end
 
 -- Dissect: Trading Collar Variation
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.trading_collar_variation(raw)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_collar_variation(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trading_collar_variation, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Collar Variation Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type = {}
+
 -- Size: Trading Collar Variation Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.size = 1
 
 -- Display: Trading Collar Variation Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_collar_variation_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.display = function(value)
   if value == "D" then
     return "Trading Collar Variation Type: Product Dollar Collar Value (D)"
   end
@@ -1883,42 +2027,48 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_collar_variation_type
 end
 
 -- Dissect: Trading Collar Variation Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.trading_collar_variation_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trading_collar_variation_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Unit Of Measure Quantity
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity = {}
+
 -- Size: Unit Of Measure Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure_quantity = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.size = 4
 
 -- Display: Unit Of Measure Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.unit_of_measure_quantity = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.display = function(value)
   return "Unit Of Measure Quantity: "..value
 end
 
 -- Dissect: Unit Of Measure Quantity
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure_quantity = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure_quantity
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.unit_of_measure_quantity(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure_quantity, range, value, display)
 
   return offset + length, value
 end
 
+-- Unit Of Measure
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure = {}
+
 -- Size: Unit Of Measure
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure = 5
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.size = 5
 
 -- Display: Unit Of Measure
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.unit_of_measure = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.display = function(value)
   if value == "BU" then
     return "Unit Of Measure: Bushels (BU)"
   end
@@ -1930,22 +2080,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.unit_of_measure = function(va
 end
 
 -- Dissect: Unit Of Measure
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure
+miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.unit_of_measure(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure, range, value, display)
 
   return offset + length, value
 end
 
+-- Tick
+miax_onyxfutures_depthofmarket_mach_v1_0_b.tick = {}
+
 -- Size: Tick
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.tick = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.size = 8
 
 -- Display: Tick
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.tick = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.display = function(value)
   return "Tick: "..value
 end
 
@@ -1955,63 +2108,72 @@ translate.tick = function(raw)
 end
 
 -- Dissect: Tick
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.tick = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.tick
+miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.tick(raw)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.tick(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.tick, range, value, display)
 
   return offset + length, value
 end
 
+-- Maximum Size
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size = {}
+
 -- Size: Maximum Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maximum_size = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.size = 4
 
 -- Display: Maximum Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maximum_size = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.display = function(value)
   return "Maximum Size: "..value
 end
 
 -- Dissect: Maximum Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maximum_size = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maximum_size
+miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.maximum_size(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maximum_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Minimum Size
+miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size = {}
+
 -- Size: Minimum Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.minimum_size = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.size = 4
 
 -- Display: Minimum Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.minimum_size = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.display = function(value)
   return "Minimum Size: "..value
 end
 
 -- Dissect: Minimum Size
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.minimum_size = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.minimum_size
+miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.minimum_size(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.minimum_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Match Algorithm
+miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm = {}
+
 -- Size: Match Algorithm
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.match_algorithm = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.size = 1
 
 -- Display: Match Algorithm
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.match_algorithm = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.display = function(value)
   if value == "P" then
     return "Match Algorithm: Price Then Time (P)"
   end
@@ -2020,22 +2182,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.match_algorithm = function(va
 end
 
 -- Dissect: Match Algorithm
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.match_algorithm = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.match_algorithm
+miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.match_algorithm(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.match_algorithm, range, value, display)
 
   return offset + length, value
 end
 
+-- Settlement Currency
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency = {}
+
 -- Size: Settlement Currency
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_currency = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.size = 1
 
 -- Display: Settlement Currency
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_currency = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.display = function(value)
   if value == "U" then
     return "Settlement Currency: Usd (U)"
   end
@@ -2044,22 +2209,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_currency = functio
 end
 
 -- Dissect: Settlement Currency
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_currency = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_currency
+miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.settlement_currency(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.settlement_currency, range, value, display)
 
   return offset + length, value
 end
 
+-- Currency
+miax_onyxfutures_depthofmarket_mach_v1_0_b.currency = {}
+
 -- Size: Currency
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.currency = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.size = 1
 
 -- Display: Currency
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.currency = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.display = function(value)
   if value == "USD" then
     return "Currency: U (USD)"
   end
@@ -2068,22 +2236,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.currency = function(value)
 end
 
 -- Dissect: Currency
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.currency = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.currency
+miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.currency(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.currency, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type = {}
+
 -- Size: Instrument Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.size = 1
 
 -- Display: Instrument Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.display = function(value)
   if value == "F" then
     return "Instrument Type: Futures (F)"
   end
@@ -2092,22 +2263,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_type = function(va
 end
 
 -- Dissect: Instrument Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Id Source
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source = {}
+
 -- Size: Instrument Id Source
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id_source = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.size = 1
 
 -- Display: Instrument Id Source
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_id_source = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.display = function(value)
   if value == "E" then
     return "Instrument Id Source: Exchange (E)"
   end
@@ -2116,22 +2290,25 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_id_source = functi
 end
 
 -- Dissect: Instrument Id Source
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id_source = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id_source
+miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.instrument_id_source(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_id_source, range, value, display)
 
   return offset + length, value
 end
 
+-- Exchange
+miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange = {}
+
 -- Size: Exchange
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.exchange = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.size = 4
 
 -- Display: Exchange
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.exchange = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.display = function(value)
   if value == "XMGE" then
     return "Exchange: Miax Futures Exchange (XMGE)"
   end
@@ -2140,82 +2317,94 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.exchange = function(value)
 end
 
 -- Dissect: Exchange
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.exchange = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.exchange
+miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.exchange(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.exchange, range, value, display)
 
   return offset + length, value
 end
 
+-- Spread Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type = {}
+
 -- Size: Spread Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.spread_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type.size = 1
 
 -- Display: Spread Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.spread_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type.display = function(value)
   return "Spread Type: "..value
 end
 
 -- Dissect: Spread Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.spread_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.spread_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.spread_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.spread_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Product Group Code
+miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code = {}
+
 -- Size: Product Group Code
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.product_group_code = 6
+miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.size = 6
 
 -- Display: Product Group Code
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.product_group_code = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.display = function(value)
   return "Product Group Code: "..value
 end
 
 -- Dissect: Product Group Code
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.product_group_code = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.product_group_code
+miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.product_group_code(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.product_group_code, range, value, display)
 
   return offset + length, value
 end
 
+-- Underlying Asset
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset = {}
+
 -- Size: Underlying Asset
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset = 4
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.size = 4
 
 -- Display: Underlying Asset
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.underlying_asset = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.display = function(value)
   return "Underlying Asset: "..value
 end
 
 -- Dissect: Underlying Asset
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.underlying_asset(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.underlying_asset, range, value, display)
 
   return offset + length, value
 end
 
+-- Underlying Asset Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type = {}
+
 -- Size: Underlying Asset Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.size = 1
 
 -- Display: Underlying Asset Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.underlying_asset_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.display = function(value)
   if value == "E" then
     return "Underlying Asset Type: Equity Index (E)"
   end
@@ -2227,62 +2416,65 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.underlying_asset_type = funct
 end
 
 -- Dissect: Underlying Asset Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.underlying_asset_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.underlying_asset_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Complex Instrument Definition Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message = {}
+
 -- Calculate size of: Complex Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.complex_instrument_definition_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.product_group_code
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.spread_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.exchange
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id_source
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.currency
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_currency
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.match_algorithm
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.minimum_size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maximum_size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.tick
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure_quantity
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_16
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.number_of_legs
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.size
 
   -- Calculate field size from count
   local instrument_leg_count = buffer(offset + index - 1, 1):le_uint()
@@ -2292,103 +2484,106 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.complex_instrument_definition
 end
 
 -- Display: Complex Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.complex_instrument_definition_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Complex Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Underlying Asset Type: Alphanumeric
-  index, underlying_asset_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset_type(buffer, index, packet, parent)
+  index, underlying_asset_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.dissect(buffer, index, packet, parent)
 
   -- Underlying Asset: Alphanumeric
-  index, underlying_asset = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset(buffer, index, packet, parent)
+  index, underlying_asset = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.dissect(buffer, index, packet, parent)
 
   -- Product Group Code: Alphanumeric
-  index, product_group_code = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.product_group_code(buffer, index, packet, parent)
+  index, product_group_code = miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.dissect(buffer, index, packet, parent)
 
   -- Spread Type: Alphanumeric
-  index, spread_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.spread_type(buffer, index, packet, parent)
+  index, spread_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.spread_type.dissect(buffer, index, packet, parent)
 
   -- Exchange: Alphanumeric
-  index, exchange = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.exchange(buffer, index, packet, parent)
+  index, exchange = miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.dissect(buffer, index, packet, parent)
 
   -- Instrument Id Source: Alphanumeric
-  index, instrument_id_source = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id_source(buffer, index, packet, parent)
+  index, instrument_id_source = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.dissect(buffer, index, packet, parent)
 
   -- Instrument Type: Alphanumeric
-  index, instrument_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Currency: Alphanumeric
-  index, currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.currency(buffer, index, packet, parent)
+  index, currency = miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.dissect(buffer, index, packet, parent)
 
   -- Settlement Currency: Alphanumeric
-  index, settlement_currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_currency(buffer, index, packet, parent)
+  index, settlement_currency = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.dissect(buffer, index, packet, parent)
 
   -- Match Algorithm: Alphanumeric
-  index, match_algorithm = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.match_algorithm(buffer, index, packet, parent)
+  index, match_algorithm = miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.dissect(buffer, index, packet, parent)
 
   -- Minimum Size: BinaryU
-  index, minimum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.minimum_size(buffer, index, packet, parent)
+  index, minimum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.dissect(buffer, index, packet, parent)
 
   -- Maximum Size: BinaryU
-  index, maximum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maximum_size(buffer, index, packet, parent)
+  index, maximum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.dissect(buffer, index, packet, parent)
 
   -- Tick: Price9S
-  index, tick = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.tick(buffer, index, packet, parent)
+  index, tick = miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.dissect(buffer, index, packet, parent)
 
   -- Unit Of Measure: Alphanumeric
-  index, unit_of_measure = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure(buffer, index, packet, parent)
+  index, unit_of_measure = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.dissect(buffer, index, packet, parent)
 
   -- Unit Of Measure Quantity: BinaryU
-  index, unit_of_measure_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure_quantity(buffer, index, packet, parent)
+  index, unit_of_measure_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.dissect(buffer, index, packet, parent)
 
   -- Trading Collar Variation Type: Alphanumeric
-  index, trading_collar_variation_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation_type(buffer, index, packet, parent)
+  index, trading_collar_variation_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.dissect(buffer, index, packet, parent)
 
   -- Trading Collar Variation: Price9S
-  index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation(buffer, index, packet, parent)
+  index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
-  index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_16(buffer, index, packet, parent)
+  index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.dissect(buffer, index, packet, parent)
 
   -- Number Of Legs: BinaryU
-  index, number_of_legs = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.number_of_legs(buffer, index, packet, parent)
+  index, number_of_legs = miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Instrument Leg
   for instrument_leg_index = 1, number_of_legs do
-    index, instrument_leg = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_leg(buffer, index, packet, parent, instrument_leg_index)
+    index, instrument_leg = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_leg.dissect(buffer, index, packet, parent, instrument_leg_index)
   end
 
   return index
 end
 
 -- Dissect: Complex Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.complex_instrument_definition_message then
-    local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.complex_instrument_definition_message(buffer, offset)
+    local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.complex_instrument_definition_message(buffer, packet, parent)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.display(buffer, packet, parent)
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.complex_instrument_definition_message, range, display)
   end
 
-  return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message_fields(buffer, offset, packet, parent)
+  return miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.fields(buffer, offset, packet, parent)
 end
 
+-- Low Limit Price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price = {}
+
 -- Size: Low Limit Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.low_limit_price = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price.size = 8
 
 -- Display: Low Limit Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.low_limit_price = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price.display = function(value)
   return "Low Limit Price: "..value
 end
 
@@ -2398,23 +2593,26 @@ translate.low_limit_price = function(raw)
 end
 
 -- Dissect: Low Limit Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.low_limit_price = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.low_limit_price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.low_limit_price(raw)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.low_limit_price(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.low_limit_price, range, value, display)
 
   return offset + length, value
 end
 
+-- High Limit Price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price = {}
+
 -- Size: High Limit Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.high_limit_price = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price.size = 8
 
 -- Display: High Limit Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.high_limit_price = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price.display = function(value)
   return "High Limit Price: "..value
 end
 
@@ -2424,339 +2622,348 @@ translate.high_limit_price = function(raw)
 end
 
 -- Dissect: High Limit Price
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.high_limit_price = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.high_limit_price
+miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.high_limit_price(raw)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.high_limit_price(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.high_limit_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Simple Instrument Definition Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message = {}
+
 -- Calculate size of: Simple Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.simple_instrument_definition_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.timestamp
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.underlying_asset
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.product_group_code
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.exchange
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_id_source
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maturity_month_year
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.currency
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_currency
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.match_algorithm
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.minimum_size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.maximum_size
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.tick
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.unit_of_measure_quantity
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_type_calc_method
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.total_volume
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.open_interest_quantity
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.high_limit_price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.low_limit_price
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trading_collar_variation
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.reserved_16
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.size
 
   return index
 end
 
 -- Display: Simple Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.simple_instrument_definition_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Simple Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: NanoTime
-  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_onyxfutures_depthofmarket_mach_v1_0_b.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: BinaryU
-  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Underlying Asset Type: Alphanumeric
-  index, underlying_asset_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset_type(buffer, index, packet, parent)
+  index, underlying_asset_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset_type.dissect(buffer, index, packet, parent)
 
   -- Underlying Asset: Alphanumeric
-  index, underlying_asset = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.underlying_asset(buffer, index, packet, parent)
+  index, underlying_asset = miax_onyxfutures_depthofmarket_mach_v1_0_b.underlying_asset.dissect(buffer, index, packet, parent)
 
   -- Product Group Code: Alphanumeric
-  index, product_group_code = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.product_group_code(buffer, index, packet, parent)
+  index, product_group_code = miax_onyxfutures_depthofmarket_mach_v1_0_b.product_group_code.dissect(buffer, index, packet, parent)
 
   -- Exchange: Alphanumeric
-  index, exchange = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.exchange(buffer, index, packet, parent)
+  index, exchange = miax_onyxfutures_depthofmarket_mach_v1_0_b.exchange.dissect(buffer, index, packet, parent)
 
   -- Instrument Id Source: Alphanumeric
-  index, instrument_id_source = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_id_source(buffer, index, packet, parent)
+  index, instrument_id_source = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_id_source.dissect(buffer, index, packet, parent)
 
   -- Instrument Type: Alphanumeric
-  index, instrument_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_type.dissect(buffer, index, packet, parent)
 
   -- Maturity Month Year: BinaryU
-  index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maturity_month_year(buffer, index, packet, parent)
+  index, maturity_month_year = miax_onyxfutures_depthofmarket_mach_v1_0_b.maturity_month_year.dissect(buffer, index, packet, parent)
 
   -- Currency: Alphanumeric
-  index, currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.currency(buffer, index, packet, parent)
+  index, currency = miax_onyxfutures_depthofmarket_mach_v1_0_b.currency.dissect(buffer, index, packet, parent)
 
   -- Settlement Currency: Alphanumeric
-  index, settlement_currency = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_currency(buffer, index, packet, parent)
+  index, settlement_currency = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_currency.dissect(buffer, index, packet, parent)
 
   -- Match Algorithm: Alphanumeric
-  index, match_algorithm = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.match_algorithm(buffer, index, packet, parent)
+  index, match_algorithm = miax_onyxfutures_depthofmarket_mach_v1_0_b.match_algorithm.dissect(buffer, index, packet, parent)
 
   -- Minimum Size: BinaryU
-  index, minimum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.minimum_size(buffer, index, packet, parent)
+  index, minimum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b.minimum_size.dissect(buffer, index, packet, parent)
 
   -- Maximum Size: BinaryU
-  index, maximum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.maximum_size(buffer, index, packet, parent)
+  index, maximum_size = miax_onyxfutures_depthofmarket_mach_v1_0_b.maximum_size.dissect(buffer, index, packet, parent)
 
   -- Tick: Price9S
-  index, tick = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.tick(buffer, index, packet, parent)
+  index, tick = miax_onyxfutures_depthofmarket_mach_v1_0_b.tick.dissect(buffer, index, packet, parent)
 
   -- Unit Of Measure: Alphanumeric
-  index, unit_of_measure = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure(buffer, index, packet, parent)
+  index, unit_of_measure = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure.dissect(buffer, index, packet, parent)
 
   -- Unit Of Measure Quantity: BinaryU
-  index, unit_of_measure_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.unit_of_measure_quantity(buffer, index, packet, parent)
+  index, unit_of_measure_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b.unit_of_measure_quantity.dissect(buffer, index, packet, parent)
 
   -- Settlement Price: Price9S
-  index, settlement_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price(buffer, index, packet, parent)
+  index, settlement_price = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price.dissect(buffer, index, packet, parent)
 
   -- Settlement Price Type Calc Method: Alphanumeric
-  index, settlement_price_type_calc_method = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_type_calc_method(buffer, index, packet, parent)
+  index, settlement_price_type_calc_method = miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_type_calc_method.dissect(buffer, index, packet, parent)
 
   -- Total Volume: BinaryU
-  index, total_volume = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume.dissect(buffer, index, packet, parent)
 
   -- Open Interest Quantity: BinaryU
-  index, open_interest_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_quantity(buffer, index, packet, parent)
+  index, open_interest_quantity = miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_quantity.dissect(buffer, index, packet, parent)
 
   -- High Limit Price: Price9S
-  index, high_limit_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.high_limit_price(buffer, index, packet, parent)
+  index, high_limit_price = miax_onyxfutures_depthofmarket_mach_v1_0_b.high_limit_price.dissect(buffer, index, packet, parent)
 
   -- Low Limit Price: Price9S
-  index, low_limit_price = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.low_limit_price(buffer, index, packet, parent)
+  index, low_limit_price = miax_onyxfutures_depthofmarket_mach_v1_0_b.low_limit_price.dissect(buffer, index, packet, parent)
 
   -- Trading Collar Variation Type: Alphanumeric
-  index, trading_collar_variation_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation_type(buffer, index, packet, parent)
+  index, trading_collar_variation_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation_type.dissect(buffer, index, packet, parent)
 
   -- Trading Collar Variation: Price9S
-  index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trading_collar_variation(buffer, index, packet, parent)
+  index, trading_collar_variation = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_collar_variation.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
-  index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.reserved_16(buffer, index, packet, parent)
+  index, reserved_16 = miax_onyxfutures_depthofmarket_mach_v1_0_b.reserved_16.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Simple Instrument Definition Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
   if show.simple_instrument_definition_message then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.simple_instrument_definition_message, buffer(offset, 0))
-    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields(buffer, offset, packet, parent)
+    local index = miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.simple_instrument_definition_message(packet, parent, length)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message_fields(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Data
+miax_onyxfutures_depthofmarket_mach_v1_0_b.data = {}
+
 -- Calculate runtime size of: Data
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.data = function(buffer, offset, message_type)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.data.size = function(buffer, offset, message_type)
   -- Size of Simple Instrument Definition Message
   if message_type == 1 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.simple_instrument_definition_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.size(buffer, offset)
   end
   -- Size of Complex Instrument Definition Message
   if message_type == 2 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.complex_instrument_definition_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.size(buffer, offset)
   end
   -- Size of System State Message
   if message_type == 3 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.system_state_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.size(buffer, offset)
   end
   -- Size of Instrument Trading Status Notification Message
   if message_type == 4 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_trading_status_notification_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.size(buffer, offset)
   end
   -- Size of Anticipated Opening Price Message
   if message_type == 5 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.anticipated_opening_price_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.size(buffer, offset)
   end
   -- Size of Settlement Price Update Message
   if message_type == 6 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.settlement_price_update_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.size(buffer, offset)
   end
   -- Size of Open Interest Update Message
   if message_type == 7 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.open_interest_update_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.size(buffer, offset)
   end
   -- Size of Total Volume Update Message
   if message_type == 8 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.total_volume_update_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.size(buffer, offset)
   end
   -- Size of Instrument Clear Message
   if message_type == 9 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.instrument_clear_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.size(buffer, offset)
   end
   -- Size of Add Order Message
   if message_type == 10 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.add_order_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.size(buffer, offset)
   end
   -- Size of Modify Order Message
   if message_type == 11 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.modify_order_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.size(buffer, offset)
   end
   -- Size of Delete Order Message
   if message_type == 12 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.delete_order_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.size(buffer, offset)
   end
   -- Size of Order Execution Message
   if message_type == 13 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.order_execution_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.size(buffer, offset)
   end
   -- Size of Trade Cancel Message
   if message_type == 14 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.trade_cancel_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Data
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.data = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.data.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Data
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.data_branches = function(buffer, offset, packet, parent, message_type)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.data.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Simple Instrument Definition Message
   if message_type == 1 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.simple_instrument_definition_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Complex Instrument Definition Message
   if message_type == 2 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.complex_instrument_definition_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
   if message_type == 3 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.system_state_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.system_state_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Trading Status Notification Message
   if message_type == 4 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_trading_status_notification_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_trading_status_notification_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Anticipated Opening Price Message
   if message_type == 5 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.anticipated_opening_price_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Settlement Price Update Message
   if message_type == 6 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.settlement_price_update_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.settlement_price_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Open Interest Update Message
   if message_type == 7 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.open_interest_update_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.open_interest_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Total Volume Update Message
   if message_type == 8 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.total_volume_update_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.total_volume_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Clear Message
   if message_type == 9 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.instrument_clear_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.instrument_clear_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message
   if message_type == 10 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.add_order_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.add_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Message
   if message_type == 11 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.modify_order_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
   if message_type == 12 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.delete_order_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.delete_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Execution Message
   if message_type == 13 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.order_execution_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.order_execution_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
   if message_type == 14 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.trade_cancel_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Data
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.data = function(buffer, offset, packet, parent, message_type)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.data then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.data_branches(buffer, offset, packet, parent, message_type)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.data.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.data(buffer, offset, message_type)
+  local size = miax_onyxfutures_depthofmarket_mach_v1_0_b.data.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.data(buffer, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.data.display(buffer, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.data, range, display)
 
-  return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.data_branches(buffer, offset, packet, parent, message_type)
+  return miax_onyxfutures_depthofmarket_mach_v1_0_b.data.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Message Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type = {}
+
 -- Size: Message Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type.size = 1
 
 -- Display: Message Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.message_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type.display = function(value)
   if value == 1 then
     return "Message Type: Simple Instrument Definition Message (1)"
   end
@@ -2804,19 +3011,22 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.message_type = function(value
 end
 
 -- Dissect: Message Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.message_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Application Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message = {}
+
 -- Read runtime size of: Application Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.application_message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Packet Length
@@ -2826,110 +3036,119 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.application_message = functio
 end
 
 -- Display: Application Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.application_message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Application Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message_fields = function(buffer, offset, packet, parent, size_of_application_message)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
-  index, message_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 14 branches
-  index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.data(buffer, index, packet, parent, message_type)
+  index = miax_onyxfutures_depthofmarket_mach_v1_0_b.data.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Application Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.dissect = function(buffer, offset, packet, parent)
   -- Parse runtime size
-  local size_of_application_message = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.application_message(buffer, offset)
+  local size_of_application_message = miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.size(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.application_message then
     local range = buffer(offset, size_of_application_message)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.application_message(buffer, packet, parent)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.display(buffer, packet, parent)
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.application_message, range, display)
   end
 
-  miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message_fields(buffer, offset, packet, parent, size_of_application_message)
+  miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
 
   return offset + size_of_application_message
 end
 
+-- Payload
+miax_onyxfutures_depthofmarket_mach_v1_0_b.payload = {}
+
 -- Calculate runtime size of: Payload
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.payload = function(buffer, offset, packet_type)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.size = function(buffer, offset, packet_type)
   -- Size of Application Message
   if packet_type == 3 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.application_message(buffer, offset)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.payload = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.payload_branches = function(buffer, offset, packet, parent, packet_type)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.application_message(buffer, offset, packet, parent)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.payload = function(buffer, offset, packet, parent, packet_type)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   if not show.payload then
-    return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.branches(buffer, offset, packet, parent, packet_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.payload(buffer, offset, packet_type)
+  local size = miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.size(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.payload(buffer, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.display(buffer, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.payload, range, display)
 
-  return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+  return miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.branches(buffer, offset, packet, parent, packet_type)
 end
 
+-- Session Number
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number = {}
+
 -- Size: Session Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.session_number = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.size = 1
 
 -- Display: Session Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.session_number = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.display = function(value)
   return "Session Number: "..value
 end
 
 -- Dissect: Session Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.session_number = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.session_number
+miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.session_number(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.session_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type = {}
+
 -- Size: Packet Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.packet_type = 1
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.size = 1
 
 -- Display: Packet Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.packet_type = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.display = function(value)
   if value == 0 then
     return "Packet Type: Heartbeat (0)"
   end
@@ -2947,119 +3166,131 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_display.packet_type = function(value)
 end
 
 -- Dissect: Packet Type
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet_type = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.packet_type
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.packet_type(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Length
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length = {}
+
 -- Size: Packet Length
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.packet_length = 2
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.size = 2
 
 -- Display: Packet Length
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.packet_length = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.display = function(value)
   return "Packet Length: "..value
 end
 
 -- Dissect: Packet Length
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet_length = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.packet_length
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.packet_length(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number = {}
+
 -- Size: Sequence Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.sequence_number = 8
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.size = 8
 
 -- Display: Sequence Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.sequence_number = function(value)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.sequence_number
+miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Message
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message = {}
+
 -- Calculate size of: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message = function(buffer, offset)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.sequence_number
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.packet_length
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.packet_type
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.size
 
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.session_number
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):uint()
-  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.payload(buffer, payload_offset, payload_type)
+  index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.size(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_display.message = function(packet, parent, length)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message_fields = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = miax_onyxfutures_depthofmarket_mach_v1_0_b.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet_length(buffer, index, packet, parent)
+  index, packet_length = miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_length.dissect(buffer, index, packet, parent)
 
   -- Packet Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, packet_type = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet_type(buffer, index, packet, parent)
+  index, packet_type = miax_onyxfutures_depthofmarket_mach_v1_0_b.packet_type.dissect(buffer, index, packet, parent)
 
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
-  index, session_number = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.session_number(buffer, index, packet, parent)
+  index, session_number = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.dissect(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 1 branches
-  index = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.payload(buffer, index, packet, parent, packet_type)
+  index = miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
 -- Dissect: Message
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message = function(buffer, offset, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = miax_onyxfutures_depthofmarket_mach_v1_0_b_size_of.message(buffer, offset)
+    local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b_display.message(buffer, packet, parent)
+    local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.message.display(buffer, packet, parent)
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.message, range, display)
   end
 
-  return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message_fields(buffer, offset, packet, parent)
+  return miax_onyxfutures_depthofmarket_mach_v1_0_b.message.fields(buffer, offset, packet, parent)
 end
 
+-- Packet
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet = {}
+
 -- Dissect Packet
-miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet = function(buffer, packet, parent)
+miax_onyxfutures_depthofmarket_mach_v1_0_b.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Message
@@ -3067,7 +3298,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet = function(buffer, pac
 
   -- Message: Struct of 5 fields
   while index < end_of_payload do
-    index, message = miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.message(buffer, index, packet, parent)
+    index, message = miax_onyxfutures_depthofmarket_mach_v1_0_b.message.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -3090,7 +3321,7 @@ function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.dissector(buffer, packet
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b, buffer(), omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.description, "("..buffer:len().." Bytes)")
-  return miax_onyxfutures_depthofmarket_mach_v1_0_b_dissect.packet(buffer, packet, protocol)
+  return miax_onyxfutures_depthofmarket_mach_v1_0_b.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

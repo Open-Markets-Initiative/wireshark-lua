@@ -7,12 +7,12 @@
 -- Lseg TradeEcho Level2 Gtp 24.4 Protocol
 local omi_lseg_tradeecho_level2_gtp_v24_4 = Proto("Lseg.TradeEcho.Level2.Gtp.v24.4.Lua", "Lseg TradeEcho Level2 Gtp 24.4")
 
+-- Protocol table
+local lseg_tradeecho_level2_gtp_v24_4 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local lseg_tradeecho_level2_gtp_v24_4_display = {}
-local lseg_tradeecho_level2_gtp_v24_4_dissect = {}
-local lseg_tradeecho_level2_gtp_v24_4_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -194,11 +194,14 @@ end
 -- Dissect Lseg TradeEcho Level2 Gtp 24.4
 -----------------------------------------------------------------------
 
+-- Venue Of Publication
+lseg_tradeecho_level2_gtp_v24_4.venue_of_publication = {}
+
 -- Size: Venue Of Publication
-lseg_tradeecho_level2_gtp_v24_4_size_of.venue_of_publication = 4
+lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.size = 4
 
 -- Display: Venue Of Publication
-lseg_tradeecho_level2_gtp_v24_4_display.venue_of_publication = function(value)
+lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.display = function(value)
   if value == "ECHO" then
     return "Venue Of Publication: Published Under Uk Regulation (ECHO)"
   end
@@ -210,62 +213,71 @@ lseg_tradeecho_level2_gtp_v24_4_display.venue_of_publication = function(value)
 end
 
 -- Dissect: Venue Of Publication
-lseg_tradeecho_level2_gtp_v24_4_dissect.venue_of_publication = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.venue_of_publication
+lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.venue_of_publication(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.venue_of_publication, range, value, display)
 
   return offset + length, value
 end
 
+-- Currency
+lseg_tradeecho_level2_gtp_v24_4.currency = {}
+
 -- Size: Currency
-lseg_tradeecho_level2_gtp_v24_4_size_of.currency = 3
+lseg_tradeecho_level2_gtp_v24_4.currency.size = 3
 
 -- Display: Currency
-lseg_tradeecho_level2_gtp_v24_4_display.currency = function(value)
+lseg_tradeecho_level2_gtp_v24_4.currency.display = function(value)
   return "Currency: "..value
 end
 
 -- Dissect: Currency
-lseg_tradeecho_level2_gtp_v24_4_dissect.currency = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.currency
+lseg_tradeecho_level2_gtp_v24_4.currency.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.currency.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.currency(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.currency, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 10
+lseg_tradeecho_level2_gtp_v24_4.reserved_10 = {}
+
 -- Size: Reserved 10
-lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_10 = 10
+lseg_tradeecho_level2_gtp_v24_4.reserved_10.size = 10
 
 -- Display: Reserved 10
-lseg_tradeecho_level2_gtp_v24_4_display.reserved_10 = function(value)
+lseg_tradeecho_level2_gtp_v24_4.reserved_10.display = function(value)
   return "Reserved 10: "..value
 end
 
 -- Dissect: Reserved 10
-lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_10 = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_10
+lseg_tradeecho_level2_gtp_v24_4.reserved_10.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.reserved_10.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_10(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_10, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Book Type
+lseg_tradeecho_level2_gtp_v24_4.order_book_type = {}
+
 -- Size: Order Book Type
-lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type = 1
+lseg_tradeecho_level2_gtp_v24_4.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_tradeecho_level2_gtp_v24_4_display.order_book_type = function(value)
+lseg_tradeecho_level2_gtp_v24_4.order_book_type.display = function(value)
   if value == 1 then
     return "Order Book Type: Si Quote Book (1)"
   end
@@ -277,62 +289,71 @@ lseg_tradeecho_level2_gtp_v24_4_display.order_book_type = function(value)
 end
 
 -- Dissect: Order Book Type
-lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type
+lseg_tradeecho_level2_gtp_v24_4.order_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.order_book_type(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_book_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Participant
+lseg_tradeecho_level2_gtp_v24_4.participant = {}
+
 -- Size: Participant
-lseg_tradeecho_level2_gtp_v24_4_size_of.participant = 11
+lseg_tradeecho_level2_gtp_v24_4.participant.size = 11
 
 -- Display: Participant
-lseg_tradeecho_level2_gtp_v24_4_display.participant = function(value)
+lseg_tradeecho_level2_gtp_v24_4.participant.display = function(value)
   return "Participant: "..value
 end
 
 -- Dissect: Participant
-lseg_tradeecho_level2_gtp_v24_4_dissect.participant = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.participant
+lseg_tradeecho_level2_gtp_v24_4.participant.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.participant.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.participant(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.participant.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.participant, range, value, display)
 
   return offset + length, value
 end
 
+-- Source Venue
+lseg_tradeecho_level2_gtp_v24_4.source_venue = {}
+
 -- Size: Source Venue
-lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue = 2
+lseg_tradeecho_level2_gtp_v24_4.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_tradeecho_level2_gtp_v24_4_display.source_venue = function(value)
+lseg_tradeecho_level2_gtp_v24_4.source_venue.display = function(value)
   return "Source Venue: "..value
 end
 
 -- Dissect: Source Venue
-lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue
+lseg_tradeecho_level2_gtp_v24_4.source_venue.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.source_venue.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.source_venue(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.source_venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.source_venue, range, value, display)
 
   return offset + length, value
 end
 
+-- Yield
+lseg_tradeecho_level2_gtp_v24_4.yield = {}
+
 -- Size: Yield
-lseg_tradeecho_level2_gtp_v24_4_size_of.yield = 8
+lseg_tradeecho_level2_gtp_v24_4.yield.size = 8
 
 -- Display: Yield
-lseg_tradeecho_level2_gtp_v24_4_display.yield = function(value)
+lseg_tradeecho_level2_gtp_v24_4.yield.display = function(value)
   return "Yield: "..value
 end
 
@@ -342,23 +363,26 @@ translate.yield = function(raw)
 end
 
 -- Dissect: Yield
-lseg_tradeecho_level2_gtp_v24_4_dissect.yield = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.yield
+lseg_tradeecho_level2_gtp_v24_4.yield.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.yield.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.yield(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.yield(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.yield.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.yield, range, value, display)
 
   return offset + length, value
 end
 
+-- Price
+lseg_tradeecho_level2_gtp_v24_4.price = {}
+
 -- Size: Price
-lseg_tradeecho_level2_gtp_v24_4_size_of.price = 8
+lseg_tradeecho_level2_gtp_v24_4.price.size = 8
 
 -- Display: Price
-lseg_tradeecho_level2_gtp_v24_4_display.price = function(value)
+lseg_tradeecho_level2_gtp_v24_4.price.display = function(value)
   return "Price: "..value
 end
 
@@ -368,43 +392,49 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-lseg_tradeecho_level2_gtp_v24_4_dissect.price = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.price
+lseg_tradeecho_level2_gtp_v24_4.price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.price(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.price(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.price, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument
+lseg_tradeecho_level2_gtp_v24_4.instrument = {}
+
 -- Size: Instrument
-lseg_tradeecho_level2_gtp_v24_4_size_of.instrument = 8
+lseg_tradeecho_level2_gtp_v24_4.instrument.size = 8
 
 -- Display: Instrument
-lseg_tradeecho_level2_gtp_v24_4_display.instrument = function(value)
+lseg_tradeecho_level2_gtp_v24_4.instrument.display = function(value)
   return "Instrument: "..value
 end
 
 -- Dissect: Instrument
-lseg_tradeecho_level2_gtp_v24_4_dissect.instrument = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.instrument
+lseg_tradeecho_level2_gtp_v24_4.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.instrument.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.instrument(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.instrument.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument, range, value, display)
 
   return offset + length, value
 end
 
+-- Size
+lseg_tradeecho_level2_gtp_v24_4.size = {}
+
 -- Size: Size
-lseg_tradeecho_level2_gtp_v24_4_size_of.size = 8
+lseg_tradeecho_level2_gtp_v24_4.size.size = 8
 
 -- Display: Size
-lseg_tradeecho_level2_gtp_v24_4_display.size = function(value)
+lseg_tradeecho_level2_gtp_v24_4.size.display = function(value)
   return "Size: "..value
 end
 
@@ -414,23 +444,26 @@ translate.size = function(raw)
 end
 
 -- Dissect: Size
-lseg_tradeecho_level2_gtp_v24_4_dissect.size = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.size
+lseg_tradeecho_level2_gtp_v24_4.size.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.size.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.size(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.size(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.size, range, value, display)
 
   return offset + length, value
 end
 
+-- Side
+lseg_tradeecho_level2_gtp_v24_4.side = {}
+
 -- Size: Side
-lseg_tradeecho_level2_gtp_v24_4_size_of.side = 1
+lseg_tradeecho_level2_gtp_v24_4.side.size = 1
 
 -- Display: Side
-lseg_tradeecho_level2_gtp_v24_4_display.side = function(value)
+lseg_tradeecho_level2_gtp_v24_4.side.display = function(value)
   if value == "B" then
     return "Side: Buy Order (B)"
   end
@@ -442,42 +475,48 @@ lseg_tradeecho_level2_gtp_v24_4_display.side = function(value)
 end
 
 -- Dissect: Side
-lseg_tradeecho_level2_gtp_v24_4_dissect.side = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.side
+lseg_tradeecho_level2_gtp_v24_4.side.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.side(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.side, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Id
+lseg_tradeecho_level2_gtp_v24_4.order_id = {}
+
 -- Size: Order Id
-lseg_tradeecho_level2_gtp_v24_4_size_of.order_id = 8
+lseg_tradeecho_level2_gtp_v24_4.order_id.size = 8
 
 -- Display: Order Id
-lseg_tradeecho_level2_gtp_v24_4_display.order_id = function(value)
+lseg_tradeecho_level2_gtp_v24_4.order_id.display = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-lseg_tradeecho_level2_gtp_v24_4_dissect.order_id = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.order_id
+lseg_tradeecho_level2_gtp_v24_4.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.order_id(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+lseg_tradeecho_level2_gtp_v24_4.timestamp = {}
+
 -- Size: Timestamp
-lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp = 8
+lseg_tradeecho_level2_gtp_v24_4.timestamp.size = 8
 
 -- Display: Timestamp
-lseg_tradeecho_level2_gtp_v24_4_display.timestamp = function(value)
+lseg_tradeecho_level2_gtp_v24_4.timestamp.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -486,186 +525,195 @@ lseg_tradeecho_level2_gtp_v24_4_display.timestamp = function(value)
 end
 
 -- Dissect: Timestamp
-lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp
+lseg_tradeecho_level2_gtp_v24_4.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.timestamp(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Systematic Internaliser Quotes
+lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes = {}
+
 -- Calculate size of: Systematic Internaliser Quotes
-lseg_tradeecho_level2_gtp_v24_4_size_of.systematic_internaliser_quotes = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp
+  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.order_id
+  index = index + lseg_tradeecho_level2_gtp_v24_4.order_id.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.side
+  index = index + lseg_tradeecho_level2_gtp_v24_4.side.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.size
+  index = index + lseg_tradeecho_level2_gtp_v24_4.size.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.instrument
+  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.price
+  index = index + lseg_tradeecho_level2_gtp_v24_4.price.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.yield
+  index = index + lseg_tradeecho_level2_gtp_v24_4.yield.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue
+  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type
+  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.participant
+  index = index + lseg_tradeecho_level2_gtp_v24_4.participant.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type
+  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_10
+  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_10.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.currency
+  index = index + lseg_tradeecho_level2_gtp_v24_4.currency.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.venue_of_publication
+  index = index + lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.size
 
   return index
 end
 
 -- Display: Systematic Internaliser Quotes
-lseg_tradeecho_level2_gtp_v24_4_display.systematic_internaliser_quotes = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Systematic Internaliser Quotes
-lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = lseg_tradeecho_level2_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = lseg_tradeecho_level2_gtp_v24_4_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lseg_tradeecho_level2_gtp_v24_4.order_id.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = lseg_tradeecho_level2_gtp_v24_4_dissect.side(buffer, index, packet, parent)
+  index, side = lseg_tradeecho_level2_gtp_v24_4.side.dissect(buffer, index, packet, parent)
 
   -- Size: 8 Byte Unsigned Fixed Width Integer
-  index, size = lseg_tradeecho_level2_gtp_v24_4_dissect.size(buffer, index, packet, parent)
+  index, size = lseg_tradeecho_level2_gtp_v24_4.size.dissect(buffer, index, packet, parent)
 
   -- Instrument: 8 Byte Unsigned Fixed Width Integer
-  index, instrument = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument(buffer, index, packet, parent)
+  index, instrument = lseg_tradeecho_level2_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = lseg_tradeecho_level2_gtp_v24_4_dissect.price(buffer, index, packet, parent)
+  index, price = lseg_tradeecho_level2_gtp_v24_4.price.dissect(buffer, index, packet, parent)
 
   -- Yield: 8 Byte Signed Fixed Width Integer
-  index, yield = lseg_tradeecho_level2_gtp_v24_4_dissect.yield(buffer, index, packet, parent)
+  index, yield = lseg_tradeecho_level2_gtp_v24_4.yield.dissect(buffer, index, packet, parent)
 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
-  index, source_venue = lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
+  index, source_venue = lseg_tradeecho_level2_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
   -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
+  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
 
   -- Participant: 11 Byte Ascii String
-  index, participant = lseg_tradeecho_level2_gtp_v24_4_dissect.participant(buffer, index, packet, parent)
+  index, participant = lseg_tradeecho_level2_gtp_v24_4.participant.dissect(buffer, index, packet, parent)
 
   -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
+  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: 10 Byte
-  index, reserved_10 = lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_10(buffer, index, packet, parent)
+  index, reserved_10 = lseg_tradeecho_level2_gtp_v24_4.reserved_10.dissect(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = lseg_tradeecho_level2_gtp_v24_4_dissect.currency(buffer, index, packet, parent)
+  index, currency = lseg_tradeecho_level2_gtp_v24_4.currency.dissect(buffer, index, packet, parent)
 
   -- Venue Of Publication: 4 Byte Ascii String Enum with 2 values
-  index, venue_of_publication = lseg_tradeecho_level2_gtp_v24_4_dissect.venue_of_publication(buffer, index, packet, parent)
+  index, venue_of_publication = lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Systematic Internaliser Quotes
-lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.dissect = function(buffer, offset, packet, parent)
   if show.systematic_internaliser_quotes then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.systematic_internaliser_quotes, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.systematic_internaliser_quotes(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Order Book Clear
+lseg_tradeecho_level2_gtp_v24_4.order_book_clear = {}
+
 -- Calculate size of: Order Book Clear
-lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_clear = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.order_book_clear.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp
+  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue
+  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.instrument
+  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type
+  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
 
   return index
 end
 
 -- Display: Order Book Clear
-lseg_tradeecho_level2_gtp_v24_4_display.order_book_clear = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.order_book_clear.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Book Clear
-lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.order_book_clear.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = lseg_tradeecho_level2_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
-  index, source_venue = lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
+  index, source_venue = lseg_tradeecho_level2_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
   -- Instrument: 8 Byte Unsigned Fixed Width Integer
-  index, instrument = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument(buffer, index, packet, parent)
+  index, instrument = lseg_tradeecho_level2_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
 
   -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
+  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Book Clear
-lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.order_book_clear.dissect = function(buffer, offset, packet, parent)
   if show.order_book_clear then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_book_clear, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.order_book_clear.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.order_book_clear(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.order_book_clear.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.order_book_clear.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Transaction Time
+lseg_tradeecho_level2_gtp_v24_4.transaction_time = {}
+
 -- Size: Transaction Time
-lseg_tradeecho_level2_gtp_v24_4_size_of.transaction_time = 8
+lseg_tradeecho_level2_gtp_v24_4.transaction_time.size = 8
 
 -- Display: Transaction Time
-lseg_tradeecho_level2_gtp_v24_4_display.transaction_time = function(value)
+lseg_tradeecho_level2_gtp_v24_4.transaction_time.display = function(value)
   -- Parse unix timestamp
   local seconds = math.floor(value:tonumber()/1000000000)
   local nanoseconds = value:tonumber()%1000000000
@@ -674,22 +722,25 @@ lseg_tradeecho_level2_gtp_v24_4_display.transaction_time = function(value)
 end
 
 -- Dissect: Transaction Time
-lseg_tradeecho_level2_gtp_v24_4_dissect.transaction_time = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.transaction_time
+lseg_tradeecho_level2_gtp_v24_4.transaction_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.transaction_time(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.transaction_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.transaction_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Previous Quantity
+lseg_tradeecho_level2_gtp_v24_4.previous_quantity = {}
+
 -- Size: Previous Quantity
-lseg_tradeecho_level2_gtp_v24_4_size_of.previous_quantity = 8
+lseg_tradeecho_level2_gtp_v24_4.previous_quantity.size = 8
 
 -- Display: Previous Quantity
-lseg_tradeecho_level2_gtp_v24_4_display.previous_quantity = function(value)
+lseg_tradeecho_level2_gtp_v24_4.previous_quantity.display = function(value)
   return "Previous Quantity: "..value
 end
 
@@ -699,23 +750,26 @@ translate.previous_quantity = function(raw)
 end
 
 -- Dissect: Previous Quantity
-lseg_tradeecho_level2_gtp_v24_4_dissect.previous_quantity = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.previous_quantity
+lseg_tradeecho_level2_gtp_v24_4.previous_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.previous_quantity.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.previous_quantity(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.previous_quantity(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.previous_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.previous_quantity, range, value, display)
 
   return offset + length, value
 end
 
+-- Previous Price
+lseg_tradeecho_level2_gtp_v24_4.previous_price = {}
+
 -- Size: Previous Price
-lseg_tradeecho_level2_gtp_v24_4_size_of.previous_price = 8
+lseg_tradeecho_level2_gtp_v24_4.previous_price.size = 8
 
 -- Display: Previous Price
-lseg_tradeecho_level2_gtp_v24_4_display.previous_price = function(value)
+lseg_tradeecho_level2_gtp_v24_4.previous_price.display = function(value)
   return "Previous Price: "..value
 end
 
@@ -725,125 +779,134 @@ translate.previous_price = function(raw)
 end
 
 -- Dissect: Previous Price
-lseg_tradeecho_level2_gtp_v24_4_dissect.previous_price = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.previous_price
+lseg_tradeecho_level2_gtp_v24_4.previous_price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.previous_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.previous_price(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.previous_price(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.previous_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.previous_price, range, value, display)
 
   return offset + length, value
 end
 
+-- Order Delete
+lseg_tradeecho_level2_gtp_v24_4.order_delete = {}
+
 -- Calculate size of: Order Delete
-lseg_tradeecho_level2_gtp_v24_4_size_of.order_delete = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.order_delete.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp
+  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.order_id
+  index = index + lseg_tradeecho_level2_gtp_v24_4.order_id.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.instrument
+  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.side
+  index = index + lseg_tradeecho_level2_gtp_v24_4.side.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type
+  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue
+  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.previous_price
+  index = index + lseg_tradeecho_level2_gtp_v24_4.previous_price.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.previous_quantity
+  index = index + lseg_tradeecho_level2_gtp_v24_4.previous_quantity.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.transaction_time
+  index = index + lseg_tradeecho_level2_gtp_v24_4.transaction_time.size
 
   return index
 end
 
 -- Display: Order Delete
-lseg_tradeecho_level2_gtp_v24_4_display.order_delete = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.order_delete.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Order Delete
-lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.order_delete.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = lseg_tradeecho_level2_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = lseg_tradeecho_level2_gtp_v24_4_dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lseg_tradeecho_level2_gtp_v24_4.order_id.dissect(buffer, index, packet, parent)
 
   -- Instrument: 8 Byte Unsigned Fixed Width Integer
-  index, instrument = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument(buffer, index, packet, parent)
+  index, instrument = lseg_tradeecho_level2_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = lseg_tradeecho_level2_gtp_v24_4_dissect.side(buffer, index, packet, parent)
+  index, side = lseg_tradeecho_level2_gtp_v24_4.side.dissect(buffer, index, packet, parent)
 
   -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
+  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
-  index, source_venue = lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
+  index, source_venue = lseg_tradeecho_level2_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
   -- Previous Price: 8 Byte Signed Fixed Width Integer
-  index, previous_price = lseg_tradeecho_level2_gtp_v24_4_dissect.previous_price(buffer, index, packet, parent)
+  index, previous_price = lseg_tradeecho_level2_gtp_v24_4.previous_price.dissect(buffer, index, packet, parent)
 
   -- Previous Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, previous_quantity = lseg_tradeecho_level2_gtp_v24_4_dissect.previous_quantity(buffer, index, packet, parent)
+  index, previous_quantity = lseg_tradeecho_level2_gtp_v24_4.previous_quantity.dissect(buffer, index, packet, parent)
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = lseg_tradeecho_level2_gtp_v24_4_dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = lseg_tradeecho_level2_gtp_v24_4.transaction_time.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Delete
-lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.order_delete.dissect = function(buffer, offset, packet, parent)
   if show.order_delete then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_delete, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.order_delete.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.order_delete(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.order_delete.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.order_delete.fields(buffer, offset, packet, parent)
   end
 end
 
+-- New End Time
+lseg_tradeecho_level2_gtp_v24_4.new_end_time = {}
+
 -- Size: New End Time
-lseg_tradeecho_level2_gtp_v24_4_size_of.new_end_time = 6
+lseg_tradeecho_level2_gtp_v24_4.new_end_time.size = 6
 
 -- Display: New End Time
-lseg_tradeecho_level2_gtp_v24_4_display.new_end_time = function(value)
+lseg_tradeecho_level2_gtp_v24_4.new_end_time.display = function(value)
   return "New End Time: "..value
 end
 
 -- Dissect: New End Time
-lseg_tradeecho_level2_gtp_v24_4_dissect.new_end_time = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.new_end_time
+lseg_tradeecho_level2_gtp_v24_4.new_end_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.new_end_time.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.new_end_time(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.new_end_time, range, value, display)
 
   return offset + length, value
 end
 
+-- Session Change Reason
+lseg_tradeecho_level2_gtp_v24_4.session_change_reason = {}
+
 -- Size: Session Change Reason
-lseg_tradeecho_level2_gtp_v24_4_size_of.session_change_reason = 1
+lseg_tradeecho_level2_gtp_v24_4.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_tradeecho_level2_gtp_v24_4_display.session_change_reason = function(value)
+lseg_tradeecho_level2_gtp_v24_4.session_change_reason.display = function(value)
   if value == 0 then
     return "Session Change Reason: Scheduled Transition (0)"
   end
@@ -852,22 +915,25 @@ lseg_tradeecho_level2_gtp_v24_4_display.session_change_reason = function(value)
 end
 
 -- Dissect: Session Change Reason
-lseg_tradeecho_level2_gtp_v24_4_dissect.session_change_reason = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.session_change_reason
+lseg_tradeecho_level2_gtp_v24_4.session_change_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.session_change_reason.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.session_change_reason(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.session_change_reason, range, value, display)
 
   return offset + length, value
 end
 
+-- Trading Status
+lseg_tradeecho_level2_gtp_v24_4.trading_status = {}
+
 -- Size: Trading Status
-lseg_tradeecho_level2_gtp_v24_4_size_of.trading_status = 1
+lseg_tradeecho_level2_gtp_v24_4.trading_status.size = 1
 
 -- Display: Trading Status
-lseg_tradeecho_level2_gtp_v24_4_display.trading_status = function(value)
+lseg_tradeecho_level2_gtp_v24_4.trading_status.display = function(value)
   if value == "1" then
     return "Trading Status: Inactive Or Underlying Suspended (1)"
   end
@@ -885,114 +951,123 @@ lseg_tradeecho_level2_gtp_v24_4_display.trading_status = function(value)
 end
 
 -- Dissect: Trading Status
-lseg_tradeecho_level2_gtp_v24_4_dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.trading_status
+lseg_tradeecho_level2_gtp_v24_4.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.trading_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.trading_status(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Status
+lseg_tradeecho_level2_gtp_v24_4.instrument_status = {}
+
 -- Calculate size of: Instrument Status
-lseg_tradeecho_level2_gtp_v24_4_size_of.instrument_status = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.instrument_status.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp
+  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.instrument
+  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue
+  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.trading_status
+  index = index + lseg_tradeecho_level2_gtp_v24_4.trading_status.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.session_change_reason
+  index = index + lseg_tradeecho_level2_gtp_v24_4.session_change_reason.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.new_end_time
+  index = index + lseg_tradeecho_level2_gtp_v24_4.new_end_time.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_type
+  index = index + lseg_tradeecho_level2_gtp_v24_4.order_book_type.size
 
   return index
 end
 
 -- Display: Instrument Status
-lseg_tradeecho_level2_gtp_v24_4_display.instrument_status = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.instrument_status.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Instrument Status
-lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.instrument_status.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = lseg_tradeecho_level2_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument: 8 Byte Unsigned Fixed Width Integer
-  index, instrument = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument(buffer, index, packet, parent)
+  index, instrument = lseg_tradeecho_level2_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
-  index, source_venue = lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
+  index, source_venue = lseg_tradeecho_level2_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 4 values
-  index, trading_status = lseg_tradeecho_level2_gtp_v24_4_dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = lseg_tradeecho_level2_gtp_v24_4.trading_status.dissect(buffer, index, packet, parent)
 
   -- Session Change Reason: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index, session_change_reason = lseg_tradeecho_level2_gtp_v24_4_dissect.session_change_reason(buffer, index, packet, parent)
+  index, session_change_reason = lseg_tradeecho_level2_gtp_v24_4.session_change_reason.dissect(buffer, index, packet, parent)
 
   -- New End Time: 6 Byte Ascii String
-  index, new_end_time = lseg_tradeecho_level2_gtp_v24_4_dissect.new_end_time(buffer, index, packet, parent)
+  index, new_end_time = lseg_tradeecho_level2_gtp_v24_4.new_end_time.dissect(buffer, index, packet, parent)
 
   -- Order Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_type(buffer, index, packet, parent)
+  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Status
-lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.instrument_status.dissect = function(buffer, offset, packet, parent)
   if show.instrument_status then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument_status, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.instrument_status.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.instrument_status(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.instrument_status.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_status.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Reserved 25
+lseg_tradeecho_level2_gtp_v24_4.reserved_25 = {}
+
 -- Size: Reserved 25
-lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_25 = 25
+lseg_tradeecho_level2_gtp_v24_4.reserved_25.size = 25
 
 -- Display: Reserved 25
-lseg_tradeecho_level2_gtp_v24_4_display.reserved_25 = function(value)
+lseg_tradeecho_level2_gtp_v24_4.reserved_25.display = function(value)
   return "Reserved 25: "..value
 end
 
 -- Dissect: Reserved 25
-lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_25 = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_25
+lseg_tradeecho_level2_gtp_v24_4.reserved_25.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.reserved_25.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_25(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.reserved_25.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_25, range, value, display)
 
   return offset + length, value
 end
 
+-- Average Daily Turnover
+lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover = {}
+
 -- Size: Average Daily Turnover
-lseg_tradeecho_level2_gtp_v24_4_size_of.average_daily_turnover = 8
+lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.size = 8
 
 -- Display: Average Daily Turnover
-lseg_tradeecho_level2_gtp_v24_4_display.average_daily_turnover = function(value)
+lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.display = function(value)
   return "Average Daily Turnover: "..value
 end
 
@@ -1002,83 +1077,95 @@ translate.average_daily_turnover = function(raw)
 end
 
 -- Dissect: Average Daily Turnover
-lseg_tradeecho_level2_gtp_v24_4_dissect.average_daily_turnover = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.average_daily_turnover
+lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.average_daily_turnover(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.average_daily_turnover(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.average_daily_turnover, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 5
+lseg_tradeecho_level2_gtp_v24_4.reserved_5 = {}
+
 -- Size: Reserved 5
-lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_5 = 5
+lseg_tradeecho_level2_gtp_v24_4.reserved_5.size = 5
 
 -- Display: Reserved 5
-lseg_tradeecho_level2_gtp_v24_4_display.reserved_5 = function(value)
+lseg_tradeecho_level2_gtp_v24_4.reserved_5.display = function(value)
   return "Reserved 5: "..value
 end
 
 -- Dissect: Reserved 5
-lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_5 = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_5
+lseg_tradeecho_level2_gtp_v24_4.reserved_5.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.reserved_5.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_5(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.reserved_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_5, range, value, display)
 
   return offset + length, value
 end
 
+-- Reserved 23
+lseg_tradeecho_level2_gtp_v24_4.reserved_23 = {}
+
 -- Size: Reserved 23
-lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_23 = 23
+lseg_tradeecho_level2_gtp_v24_4.reserved_23.size = 23
 
 -- Display: Reserved 23
-lseg_tradeecho_level2_gtp_v24_4_display.reserved_23 = function(value)
+lseg_tradeecho_level2_gtp_v24_4.reserved_23.display = function(value)
   return "Reserved 23: "..value
 end
 
 -- Dissect: Reserved 23
-lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_23 = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_23
+lseg_tradeecho_level2_gtp_v24_4.reserved_23.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.reserved_23.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.reserved_23(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.reserved_23.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.reserved_23, range, value, display)
 
   return offset + length, value
 end
 
+-- Segment
+lseg_tradeecho_level2_gtp_v24_4.segment = {}
+
 -- Size: Segment
-lseg_tradeecho_level2_gtp_v24_4_size_of.segment = 6
+lseg_tradeecho_level2_gtp_v24_4.segment.size = 6
 
 -- Display: Segment
-lseg_tradeecho_level2_gtp_v24_4_display.segment = function(value)
+lseg_tradeecho_level2_gtp_v24_4.segment.display = function(value)
   return "Segment: "..value
 end
 
 -- Dissect: Segment
-lseg_tradeecho_level2_gtp_v24_4_dissect.segment = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.segment
+lseg_tradeecho_level2_gtp_v24_4.segment.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.segment.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.segment(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.segment, range, value, display)
 
   return offset + length, value
 end
 
+-- Static Circuit Breaker Tolerances
+lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances = {}
+
 -- Size: Static Circuit Breaker Tolerances
-lseg_tradeecho_level2_gtp_v24_4_size_of.static_circuit_breaker_tolerances = 8
+lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.size = 8
 
 -- Display: Static Circuit Breaker Tolerances
-lseg_tradeecho_level2_gtp_v24_4_display.static_circuit_breaker_tolerances = function(value)
+lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.display = function(value)
   return "Static Circuit Breaker Tolerances: "..value
 end
 
@@ -1088,23 +1175,26 @@ translate.static_circuit_breaker_tolerances = function(raw)
 end
 
 -- Dissect: Static Circuit Breaker Tolerances
-lseg_tradeecho_level2_gtp_v24_4_dissect.static_circuit_breaker_tolerances = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.static_circuit_breaker_tolerances
+lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.static_circuit_breaker_tolerances(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.static_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
 
+-- Dynamic Circuit Breaker Tolerances
+lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances = {}
+
 -- Size: Dynamic Circuit Breaker Tolerances
-lseg_tradeecho_level2_gtp_v24_4_size_of.dynamic_circuit_breaker_tolerances = 8
+lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.size = 8
 
 -- Display: Dynamic Circuit Breaker Tolerances
-lseg_tradeecho_level2_gtp_v24_4_display.dynamic_circuit_breaker_tolerances = function(value)
+lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.display = function(value)
   return "Dynamic Circuit Breaker Tolerances: "..value
 end
 
@@ -1114,23 +1204,26 @@ translate.dynamic_circuit_breaker_tolerances = function(raw)
 end
 
 -- Dissect: Dynamic Circuit Breaker Tolerances
-lseg_tradeecho_level2_gtp_v24_4_dissect.dynamic_circuit_breaker_tolerances = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.dynamic_circuit_breaker_tolerances
+lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.dynamic_circuit_breaker_tolerances(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.dynamic_circuit_breaker_tolerances(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances, range, value, display)
 
   return offset + length, value
 end
 
+-- Price Band Tolerances
+lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances = {}
+
 -- Size: Price Band Tolerances
-lseg_tradeecho_level2_gtp_v24_4_size_of.price_band_tolerances = 8
+lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.size = 8
 
 -- Display: Price Band Tolerances
-lseg_tradeecho_level2_gtp_v24_4_display.price_band_tolerances = function(value)
+lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.display = function(value)
   return "Price Band Tolerances: "..value
 end
 
@@ -1140,63 +1233,81 @@ translate.price_band_tolerances = function(raw)
 end
 
 -- Dissect: Price Band Tolerances
-lseg_tradeecho_level2_gtp_v24_4_dissect.price_band_tolerances = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.price_band_tolerances
+lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.price_band_tolerances(raw)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.price_band_tolerances(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.price_band_tolerances, range, value, display)
 
   return offset + length, value
 end
 
+-- Tick Id
+lseg_tradeecho_level2_gtp_v24_4.tick_id = {}
+
 -- Size: Tick Id
-lseg_tradeecho_level2_gtp_v24_4_size_of.tick_id = 2
+lseg_tradeecho_level2_gtp_v24_4.tick_id.size = 2
 
 -- Display: Tick Id
-lseg_tradeecho_level2_gtp_v24_4_display.tick_id = function(value)
+lseg_tradeecho_level2_gtp_v24_4.tick_id.display = function(value)
   return "Tick Id: "..value
 end
 
 -- Dissect: Tick Id
-lseg_tradeecho_level2_gtp_v24_4_dissect.tick_id = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.tick_id
+lseg_tradeecho_level2_gtp_v24_4.tick_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.tick_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.tick_id(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.tick_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Venue Instrument Id
+lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id = {}
+
 -- Size: Venue Instrument Id
-lseg_tradeecho_level2_gtp_v24_4_size_of.venue_instrument_id = 11
+lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.size = 11
 
 -- Display: Venue Instrument Id
-lseg_tradeecho_level2_gtp_v24_4_display.venue_instrument_id = function(value)
+lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.display = function(value)
   return "Venue Instrument Id: "..value
 end
 
 -- Dissect: Venue Instrument Id
-lseg_tradeecho_level2_gtp_v24_4_dissect.venue_instrument_id = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.venue_instrument_id
+lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.venue_instrument_id(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.venue_instrument_id, range, value, display)
 
   return offset + length, value
 end
 
+-- Unused 6
+lseg_tradeecho_level2_gtp_v24_4.unused_6 = {}
+
+-- Off Book
+lseg_tradeecho_level2_gtp_v24_4.off_book = {}
+
+-- Si Quote Book
+lseg_tradeecho_level2_gtp_v24_4.si_quote_book = {}
+
+-- Allowed Book Types
+lseg_tradeecho_level2_gtp_v24_4.allowed_book_types = {}
+
 -- Size: Allowed Book Types
-lseg_tradeecho_level2_gtp_v24_4_size_of.allowed_book_types = 1
+lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.size = 1
 
 -- Display: Allowed Book Types
-lseg_tradeecho_level2_gtp_v24_4_display.allowed_book_types = function(buffer, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.display = function(buffer, packet, parent)
   local display = ""
 
   -- Is Si Quote Book flag set?
@@ -1212,7 +1323,7 @@ lseg_tradeecho_level2_gtp_v24_4_display.allowed_book_types = function(buffer, pa
 end
 
 -- Dissect Bit Fields: Allowed Book Types
-lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types_bits = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.bits = function(buffer, offset, packet, parent)
 
   -- Si Quote Book: 1 Bit
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.si_quote_book, buffer(offset, 1))
@@ -1225,161 +1336,170 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types_bits = function(buffe
 end
 
 -- Dissect: Allowed Book Types
-lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.dissect = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.allowed_book_types(range, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.display(range, packet, parent)
   local element = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.allowed_book_types, range, display)
 
   if show.allowed_book_types then
-    lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types_bits(buffer, offset, packet, element)
+    lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
+-- Isin
+lseg_tradeecho_level2_gtp_v24_4.isin = {}
+
 -- Size: Isin
-lseg_tradeecho_level2_gtp_v24_4_size_of.isin = 12
+lseg_tradeecho_level2_gtp_v24_4.isin.size = 12
 
 -- Display: Isin
-lseg_tradeecho_level2_gtp_v24_4_display.isin = function(value)
+lseg_tradeecho_level2_gtp_v24_4.isin.display = function(value)
   return "Isin: "..value
 end
 
 -- Dissect: Isin
-lseg_tradeecho_level2_gtp_v24_4_dissect.isin = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.isin
+lseg_tradeecho_level2_gtp_v24_4.isin.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.isin.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.isin(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.isin, range, value, display)
 
   return offset + length, value
 end
 
+-- Instrument Directory
+lseg_tradeecho_level2_gtp_v24_4.instrument_directory = {}
+
 -- Calculate size of: Instrument Directory
-lseg_tradeecho_level2_gtp_v24_4_size_of.instrument_directory = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.instrument_directory.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp
+  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.instrument
+  index = index + lseg_tradeecho_level2_gtp_v24_4.instrument.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.isin
+  index = index + lseg_tradeecho_level2_gtp_v24_4.isin.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.allowed_book_types
+  index = index + lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue
+  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.venue_instrument_id
+  index = index + lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.tick_id
+  index = index + lseg_tradeecho_level2_gtp_v24_4.tick_id.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.price_band_tolerances
+  index = index + lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.dynamic_circuit_breaker_tolerances
+  index = index + lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.static_circuit_breaker_tolerances
+  index = index + lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.segment
+  index = index + lseg_tradeecho_level2_gtp_v24_4.segment.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_23
+  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_23.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.currency
+  index = index + lseg_tradeecho_level2_gtp_v24_4.currency.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_5
+  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_5.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.average_daily_turnover
+  index = index + lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.reserved_25
+  index = index + lseg_tradeecho_level2_gtp_v24_4.reserved_25.size
 
   return index
 end
 
 -- Display: Instrument Directory
-lseg_tradeecho_level2_gtp_v24_4_display.instrument_directory = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.instrument_directory.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Instrument Directory
-lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.instrument_directory.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = lseg_tradeecho_level2_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Instrument: 8 Byte Unsigned Fixed Width Integer
-  index, instrument = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument(buffer, index, packet, parent)
+  index, instrument = lseg_tradeecho_level2_gtp_v24_4.instrument.dissect(buffer, index, packet, parent)
 
   -- Isin: 12 Byte Ascii String
-  index, isin = lseg_tradeecho_level2_gtp_v24_4_dissect.isin(buffer, index, packet, parent)
+  index, isin = lseg_tradeecho_level2_gtp_v24_4.isin.dissect(buffer, index, packet, parent)
 
   -- Allowed Book Types: Struct of 3 fields
-  index, allowed_book_types = lseg_tradeecho_level2_gtp_v24_4_dissect.allowed_book_types(buffer, index, packet, parent)
+  index, allowed_book_types = lseg_tradeecho_level2_gtp_v24_4.allowed_book_types.dissect(buffer, index, packet, parent)
 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
-  index, source_venue = lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
+  index, source_venue = lseg_tradeecho_level2_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
   -- Venue Instrument Id: 11 Byte Ascii String
-  index, venue_instrument_id = lseg_tradeecho_level2_gtp_v24_4_dissect.venue_instrument_id(buffer, index, packet, parent)
+  index, venue_instrument_id = lseg_tradeecho_level2_gtp_v24_4.venue_instrument_id.dissect(buffer, index, packet, parent)
 
   -- Tick Id: 2 Byte Ascii String
-  index, tick_id = lseg_tradeecho_level2_gtp_v24_4_dissect.tick_id(buffer, index, packet, parent)
+  index, tick_id = lseg_tradeecho_level2_gtp_v24_4.tick_id.dissect(buffer, index, packet, parent)
 
   -- Price Band Tolerances: 8 Byte Signed Fixed Width Integer
-  index, price_band_tolerances = lseg_tradeecho_level2_gtp_v24_4_dissect.price_band_tolerances(buffer, index, packet, parent)
+  index, price_band_tolerances = lseg_tradeecho_level2_gtp_v24_4.price_band_tolerances.dissect(buffer, index, packet, parent)
 
   -- Dynamic Circuit Breaker Tolerances: 8 Byte Signed Fixed Width Integer
-  index, dynamic_circuit_breaker_tolerances = lseg_tradeecho_level2_gtp_v24_4_dissect.dynamic_circuit_breaker_tolerances(buffer, index, packet, parent)
+  index, dynamic_circuit_breaker_tolerances = lseg_tradeecho_level2_gtp_v24_4.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
   -- Static Circuit Breaker Tolerances: 8 Byte Signed Fixed Width Integer
-  index, static_circuit_breaker_tolerances = lseg_tradeecho_level2_gtp_v24_4_dissect.static_circuit_breaker_tolerances(buffer, index, packet, parent)
+  index, static_circuit_breaker_tolerances = lseg_tradeecho_level2_gtp_v24_4.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
   -- Segment: 6 Byte Ascii String
-  index, segment = lseg_tradeecho_level2_gtp_v24_4_dissect.segment(buffer, index, packet, parent)
+  index, segment = lseg_tradeecho_level2_gtp_v24_4.segment.dissect(buffer, index, packet, parent)
 
   -- Reserved 23: 23 Byte
-  index, reserved_23 = lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_23(buffer, index, packet, parent)
+  index, reserved_23 = lseg_tradeecho_level2_gtp_v24_4.reserved_23.dissect(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = lseg_tradeecho_level2_gtp_v24_4_dissect.currency(buffer, index, packet, parent)
+  index, currency = lseg_tradeecho_level2_gtp_v24_4.currency.dissect(buffer, index, packet, parent)
 
   -- Reserved 5: 5 Byte
-  index, reserved_5 = lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_5(buffer, index, packet, parent)
+  index, reserved_5 = lseg_tradeecho_level2_gtp_v24_4.reserved_5.dissect(buffer, index, packet, parent)
 
   -- Average Daily Turnover: 8 Byte Signed Fixed Width Integer
-  index, average_daily_turnover = lseg_tradeecho_level2_gtp_v24_4_dissect.average_daily_turnover(buffer, index, packet, parent)
+  index, average_daily_turnover = lseg_tradeecho_level2_gtp_v24_4.average_daily_turnover.dissect(buffer, index, packet, parent)
 
   -- Reserved 25: 25 Byte
-  index, reserved_25 = lseg_tradeecho_level2_gtp_v24_4_dissect.reserved_25(buffer, index, packet, parent)
+  index, reserved_25 = lseg_tradeecho_level2_gtp_v24_4.reserved_25.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Instrument Directory
-lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.instrument_directory.dissect = function(buffer, offset, packet, parent)
   if show.instrument_directory then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.instrument_directory, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.instrument_directory.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.instrument_directory(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.instrument_directory.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_directory.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Event Code
+lseg_tradeecho_level2_gtp_v24_4.event_code = {}
+
 -- Size: Event Code
-lseg_tradeecho_level2_gtp_v24_4_size_of.event_code = 1
+lseg_tradeecho_level2_gtp_v24_4.event_code.size = 1
 
 -- Display: Event Code
-lseg_tradeecho_level2_gtp_v24_4_display.event_code = function(value)
+lseg_tradeecho_level2_gtp_v24_4.event_code.display = function(value)
   if value == "T" then
     return "Event Code: Start Of Open (T)"
   end
@@ -1394,159 +1514,168 @@ lseg_tradeecho_level2_gtp_v24_4_display.event_code = function(value)
 end
 
 -- Dissect: Event Code
-lseg_tradeecho_level2_gtp_v24_4_dissect.event_code = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.event_code
+lseg_tradeecho_level2_gtp_v24_4.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.event_code.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.event_code(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.event_code, range, value, display)
 
   return offset + length, value
 end
 
+-- System Event
+lseg_tradeecho_level2_gtp_v24_4.system_event = {}
+
 -- Calculate size of: System Event
-lseg_tradeecho_level2_gtp_v24_4_size_of.system_event = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.system_event.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.timestamp
+  index = index + lseg_tradeecho_level2_gtp_v24_4.timestamp.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.event_code
+  index = index + lseg_tradeecho_level2_gtp_v24_4.event_code.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.source_venue
+  index = index + lseg_tradeecho_level2_gtp_v24_4.source_venue.size
 
   return index
 end
 
 -- Display: System Event
-lseg_tradeecho_level2_gtp_v24_4_display.system_event = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.system_event.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: System Event
-lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.system_event.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp = lseg_tradeecho_level2_gtp_v24_4_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = lseg_tradeecho_level2_gtp_v24_4.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 3 values
-  index, event_code = lseg_tradeecho_level2_gtp_v24_4_dissect.event_code(buffer, index, packet, parent)
+  index, event_code = lseg_tradeecho_level2_gtp_v24_4.event_code.dissect(buffer, index, packet, parent)
 
   -- Source Venue: 2 Byte Unsigned Fixed Width Integer
-  index, source_venue = lseg_tradeecho_level2_gtp_v24_4_dissect.source_venue(buffer, index, packet, parent)
+  index, source_venue = lseg_tradeecho_level2_gtp_v24_4.source_venue.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Event
-lseg_tradeecho_level2_gtp_v24_4_dissect.system_event = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.system_event.dissect = function(buffer, offset, packet, parent)
   if show.system_event then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.system_event, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.system_event.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.system_event(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.system_event.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.system_event_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.system_event.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Payload
+lseg_tradeecho_level2_gtp_v24_4.payload = {}
+
 -- Calculate runtime size of: Payload
-lseg_tradeecho_level2_gtp_v24_4_size_of.payload = function(buffer, offset, message_type)
+lseg_tradeecho_level2_gtp_v24_4.payload.size = function(buffer, offset, message_type)
   -- Size of System Event
   if message_type == 0x53 then
-    return lseg_tradeecho_level2_gtp_v24_4_size_of.system_event(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.system_event.size(buffer, offset)
   end
   -- Size of Instrument Directory
   if message_type == 0x70 then
-    return lseg_tradeecho_level2_gtp_v24_4_size_of.instrument_directory(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_directory.size(buffer, offset)
   end
   -- Size of Instrument Status
   if message_type == 0x48 then
-    return lseg_tradeecho_level2_gtp_v24_4_size_of.instrument_status(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_status.size(buffer, offset)
   end
   -- Size of Order Delete
   if message_type == 0x44 then
-    return lseg_tradeecho_level2_gtp_v24_4_size_of.order_delete(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.order_delete.size(buffer, offset)
   end
   -- Size of Order Book Clear
   if message_type == 0x79 then
-    return lseg_tradeecho_level2_gtp_v24_4_size_of.order_book_clear(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.order_book_clear.size(buffer, offset)
   end
   -- Size of Systematic Internaliser Quotes
   if message_type == 0x47 then
-    return lseg_tradeecho_level2_gtp_v24_4_size_of.systematic_internaliser_quotes(buffer, offset)
+    return lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.size(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-lseg_tradeecho_level2_gtp_v24_4_display.payload = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.payload.display = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-lseg_tradeecho_level2_gtp_v24_4_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+lseg_tradeecho_level2_gtp_v24_4.payload.branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event
   if message_type == 0x53 then
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.system_event(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.system_event.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Directory
   if message_type == 0x70 then
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_directory(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_directory.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Instrument Status
   if message_type == 0x48 then
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.instrument_status(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.instrument_status.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Delete
   if message_type == 0x44 then
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_delete(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.order_delete.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Book Clear
   if message_type == 0x79 then
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.order_book_clear(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.order_book_clear.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Systematic Internaliser Quotes
   if message_type == 0x47 then
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.systematic_internaliser_quotes(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-lseg_tradeecho_level2_gtp_v24_4_dissect.payload = function(buffer, offset, packet, parent, message_type)
+lseg_tradeecho_level2_gtp_v24_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return lseg_tradeecho_level2_gtp_v24_4.payload.branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = lseg_tradeecho_level2_gtp_v24_4_size_of.payload(buffer, offset, message_type)
+  local size = lseg_tradeecho_level2_gtp_v24_4.payload.size(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.payload(buffer, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.payload.display(buffer, packet, parent)
   local element = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.payload, range, display)
 
-  return lseg_tradeecho_level2_gtp_v24_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return lseg_tradeecho_level2_gtp_v24_4.payload.branches(buffer, offset, packet, parent, message_type)
 end
 
+-- Message Type
+lseg_tradeecho_level2_gtp_v24_4.message_type = {}
+
 -- Size: Message Type
-lseg_tradeecho_level2_gtp_v24_4_size_of.message_type = 1
+lseg_tradeecho_level2_gtp_v24_4.message_type.size = 1
 
 -- Display: Message Type
-lseg_tradeecho_level2_gtp_v24_4_display.message_type = function(value)
+lseg_tradeecho_level2_gtp_v24_4.message_type.display = function(value)
   if value == 0x53 then
     return "Message Type: System Event (0x53)"
   end
@@ -1570,105 +1699,114 @@ lseg_tradeecho_level2_gtp_v24_4_display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-lseg_tradeecho_level2_gtp_v24_4_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.message_type
+lseg_tradeecho_level2_gtp_v24_4.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.message_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.message_type(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Length
+lseg_tradeecho_level2_gtp_v24_4.message_length = {}
+
 -- Size: Message Length
-lseg_tradeecho_level2_gtp_v24_4_size_of.message_length = 1
+lseg_tradeecho_level2_gtp_v24_4.message_length.size = 1
 
 -- Display: Message Length
-lseg_tradeecho_level2_gtp_v24_4_display.message_length = function(value)
+lseg_tradeecho_level2_gtp_v24_4.message_length.display = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-lseg_tradeecho_level2_gtp_v24_4_dissect.message_length = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.message_length
+lseg_tradeecho_level2_gtp_v24_4.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.message_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.message_length(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_length, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+lseg_tradeecho_level2_gtp_v24_4.message_header = {}
+
 -- Calculate size of: Message Header
-lseg_tradeecho_level2_gtp_v24_4_size_of.message_header = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.message_length
+  index = index + lseg_tradeecho_level2_gtp_v24_4.message_length.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.message_type
+  index = index + lseg_tradeecho_level2_gtp_v24_4.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-lseg_tradeecho_level2_gtp_v24_4_display.message_header = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
-  index, message_length = lseg_tradeecho_level2_gtp_v24_4_dissect.message_length(buffer, index, packet, parent)
+  index, message_length = lseg_tradeecho_level2_gtp_v24_4.message_length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, message_type = lseg_tradeecho_level2_gtp_v24_4_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = lseg_tradeecho_level2_gtp_v24_4.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-lseg_tradeecho_level2_gtp_v24_4_dissect.message_header = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_header, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.message_header(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.message_header_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+lseg_tradeecho_level2_gtp_v24_4.message = {}
+
 -- Calculate size of: Message
-lseg_tradeecho_level2_gtp_v24_4_size_of.message = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.message_header(buffer, offset + index)
+  index = index + lseg_tradeecho_level2_gtp_v24_4.message_header.size(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 1, 1):uint()
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.payload(buffer, payload_offset, payload_type)
+  index = index + lseg_tradeecho_level2_gtp_v24_4.payload.size(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-lseg_tradeecho_level2_gtp_v24_4_display.message = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-lseg_tradeecho_level2_gtp_v24_4_dissect.message_fields = function(buffer, offset, packet, parent, message_index)
+lseg_tradeecho_level2_gtp_v24_4.message.fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -1678,180 +1816,198 @@ lseg_tradeecho_level2_gtp_v24_4_dissect.message_fields = function(buffer, offset
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = lseg_tradeecho_level2_gtp_v24_4_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = lseg_tradeecho_level2_gtp_v24_4.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 6 branches
-  index = lseg_tradeecho_level2_gtp_v24_4_dissect.payload(buffer, index, packet, parent, message_type)
+  index = lseg_tradeecho_level2_gtp_v24_4.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-lseg_tradeecho_level2_gtp_v24_4_dissect.message = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.message.dissect = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = lseg_tradeecho_level2_gtp_v24_4_size_of.message(buffer, offset)
+    local length = lseg_tradeecho_level2_gtp_v24_4.message.size(buffer, offset)
     local range = buffer(offset, length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.message(buffer, packet, parent)
+    local display = lseg_tradeecho_level2_gtp_v24_4.message.display(buffer, packet, parent)
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message, range, display)
   end
 
-  return lseg_tradeecho_level2_gtp_v24_4_dissect.message_fields(buffer, offset, packet, parent)
+  return lseg_tradeecho_level2_gtp_v24_4.message.fields(buffer, offset, packet, parent)
 end
 
+-- Sequence Number
+lseg_tradeecho_level2_gtp_v24_4.sequence_number = {}
+
 -- Size: Sequence Number
-lseg_tradeecho_level2_gtp_v24_4_size_of.sequence_number = 4
+lseg_tradeecho_level2_gtp_v24_4.sequence_number.size = 4
 
 -- Display: Sequence Number
-lseg_tradeecho_level2_gtp_v24_4_display.sequence_number = function(value)
+lseg_tradeecho_level2_gtp_v24_4.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-lseg_tradeecho_level2_gtp_v24_4_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.sequence_number
+lseg_tradeecho_level2_gtp_v24_4.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Market Data Group
+lseg_tradeecho_level2_gtp_v24_4.market_data_group = {}
+
 -- Size: Market Data Group
-lseg_tradeecho_level2_gtp_v24_4_size_of.market_data_group = 1
+lseg_tradeecho_level2_gtp_v24_4.market_data_group.size = 1
 
 -- Display: Market Data Group
-lseg_tradeecho_level2_gtp_v24_4_display.market_data_group = function(value)
+lseg_tradeecho_level2_gtp_v24_4.market_data_group.display = function(value)
   return "Market Data Group: "..value
 end
 
 -- Dissect: Market Data Group
-lseg_tradeecho_level2_gtp_v24_4_dissect.market_data_group = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.market_data_group
+lseg_tradeecho_level2_gtp_v24_4.market_data_group.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.market_data_group.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.market_data_group(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.market_data_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.market_data_group, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Count
+lseg_tradeecho_level2_gtp_v24_4.message_count = {}
+
 -- Size: Message Count
-lseg_tradeecho_level2_gtp_v24_4_size_of.message_count = 1
+lseg_tradeecho_level2_gtp_v24_4.message_count.size = 1
 
 -- Display: Message Count
-lseg_tradeecho_level2_gtp_v24_4_display.message_count = function(value)
+lseg_tradeecho_level2_gtp_v24_4.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-lseg_tradeecho_level2_gtp_v24_4_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.message_count
+lseg_tradeecho_level2_gtp_v24_4.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.message_count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.message_count(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Length
+lseg_tradeecho_level2_gtp_v24_4.length = {}
+
 -- Size: Length
-lseg_tradeecho_level2_gtp_v24_4_size_of.length = 2
+lseg_tradeecho_level2_gtp_v24_4.length.size = 2
 
 -- Display: Length
-lseg_tradeecho_level2_gtp_v24_4_display.length = function(value)
+lseg_tradeecho_level2_gtp_v24_4.length.display = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-lseg_tradeecho_level2_gtp_v24_4_dissect.length = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2_gtp_v24_4_size_of.length
+lseg_tradeecho_level2_gtp_v24_4.length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_tradeecho_level2_gtp_v24_4_display.length(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2_gtp_v24_4.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.length, range, value, display)
 
   return offset + length, value
 end
 
+-- Unit Header
+lseg_tradeecho_level2_gtp_v24_4.unit_header = {}
+
 -- Calculate size of: Unit Header
-lseg_tradeecho_level2_gtp_v24_4_size_of.unit_header = function(buffer, offset)
+lseg_tradeecho_level2_gtp_v24_4.unit_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.length
+  index = index + lseg_tradeecho_level2_gtp_v24_4.length.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.message_count
+  index = index + lseg_tradeecho_level2_gtp_v24_4.message_count.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.market_data_group
+  index = index + lseg_tradeecho_level2_gtp_v24_4.market_data_group.size
 
-  index = index + lseg_tradeecho_level2_gtp_v24_4_size_of.sequence_number
+  index = index + lseg_tradeecho_level2_gtp_v24_4.sequence_number.size
 
   return index
 end
 
 -- Display: Unit Header
-lseg_tradeecho_level2_gtp_v24_4_display.unit_header = function(packet, parent, length)
+lseg_tradeecho_level2_gtp_v24_4.unit_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Unit Header
-lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.unit_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = lseg_tradeecho_level2_gtp_v24_4_dissect.length(buffer, index, packet, parent)
+  index, length = lseg_tradeecho_level2_gtp_v24_4.length.dissect(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = lseg_tradeecho_level2_gtp_v24_4_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = lseg_tradeecho_level2_gtp_v24_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Market Data Group: 1 Byte Ascii String
-  index, market_data_group = lseg_tradeecho_level2_gtp_v24_4_dissect.market_data_group(buffer, index, packet, parent)
+  index, market_data_group = lseg_tradeecho_level2_gtp_v24_4.market_data_group.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = lseg_tradeecho_level2_gtp_v24_4_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = lseg_tradeecho_level2_gtp_v24_4.sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unit Header
-lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header = function(buffer, offset, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.unit_header.dissect = function(buffer, offset, packet, parent)
   if show.unit_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.unit_header, buffer(offset, 0))
-    local index = lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    local index = lseg_tradeecho_level2_gtp_v24_4.unit_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = lseg_tradeecho_level2_gtp_v24_4_display.unit_header(packet, parent, length)
+    local display = lseg_tradeecho_level2_gtp_v24_4.unit_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header_fields(buffer, offset, packet, parent)
+    return lseg_tradeecho_level2_gtp_v24_4.unit_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+lseg_tradeecho_level2_gtp_v24_4.packet = {}
+
 -- Dissect Packet
-lseg_tradeecho_level2_gtp_v24_4_dissect.packet = function(buffer, packet, parent)
+lseg_tradeecho_level2_gtp_v24_4.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Unit Header: Struct of 4 fields
-  index, unit_header = lseg_tradeecho_level2_gtp_v24_4_dissect.unit_header(buffer, index, packet, parent)
+  index, unit_header = lseg_tradeecho_level2_gtp_v24_4.unit_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index, message = lseg_tradeecho_level2_gtp_v24_4_dissect.message(buffer, index, packet, parent, message_index)
+    index, message = lseg_tradeecho_level2_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_index)
   end
 
   return index
@@ -1874,7 +2030,7 @@ function omi_lseg_tradeecho_level2_gtp_v24_4.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_lseg_tradeecho_level2_gtp_v24_4, buffer(), omi_lseg_tradeecho_level2_gtp_v24_4.description, "("..buffer:len().." Bytes)")
-  return lseg_tradeecho_level2_gtp_v24_4_dissect.packet(buffer, packet, protocol)
+  return lseg_tradeecho_level2_gtp_v24_4.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

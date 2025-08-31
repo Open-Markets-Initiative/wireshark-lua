@@ -7,12 +7,12 @@
 -- Nyse Options CommonClient Pillar 2.6 Protocol
 local omi_nyse_options_commonclient_pillar_v2_6 = Proto("Nyse.Options.CommonClient.Pillar.v2.6.Lua", "Nyse Options CommonClient Pillar 2.6")
 
+-- Protocol table
+local nyse_options_commonclient_pillar_v2_6 = {}
+
 -- Component Tables
 local show = {}
 local format = {}
-local nyse_options_commonclient_pillar_v2_6_display = {}
-local nyse_options_commonclient_pillar_v2_6_dissect = {}
-local nyse_options_commonclient_pillar_v2_6_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -86,116 +86,131 @@ end
 -- Dissect Nyse Options CommonClient Pillar 2.6
 -----------------------------------------------------------------------
 
+-- Payload
+nyse_options_commonclient_pillar_v2_6.payload = {}
+
 -- Display: Payload
-nyse_options_commonclient_pillar_v2_6_display.payload = function(value)
+nyse_options_commonclient_pillar_v2_6.payload.display = function(value)
   return "Payload: "..value
 end
 
 -- Dissect runtime sized field: Payload
-nyse_options_commonclient_pillar_v2_6_dissect.payload = function(buffer, offset, packet, parent, size)
+nyse_options_commonclient_pillar_v2_6.payload.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_commonclient_pillar_v2_6_display.payload(value, buffer, offset, packet, parent, size)
+  local display = nyse_options_commonclient_pillar_v2_6.payload.display(value, buffer, offset, packet, parent, size)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.payload, range, value, display)
 
   return offset + size
 end
 
+-- Message Type
+nyse_options_commonclient_pillar_v2_6.message_type = {}
+
 -- Size: Message Type
-nyse_options_commonclient_pillar_v2_6_size_of.message_type = 2
+nyse_options_commonclient_pillar_v2_6.message_type.size = 2
 
 -- Display: Message Type
-nyse_options_commonclient_pillar_v2_6_display.message_type = function(value)
+nyse_options_commonclient_pillar_v2_6.message_type.display = function(value)
   return "Message Type: "..value
 end
 
 -- Dissect: Message Type
-nyse_options_commonclient_pillar_v2_6_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.message_type
+nyse_options_commonclient_pillar_v2_6.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.message_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.message_type(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.message_type, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Size
+nyse_options_commonclient_pillar_v2_6.message_size = {}
+
 -- Size: Message Size
-nyse_options_commonclient_pillar_v2_6_size_of.message_size = 2
+nyse_options_commonclient_pillar_v2_6.message_size.size = 2
 
 -- Display: Message Size
-nyse_options_commonclient_pillar_v2_6_display.message_size = function(value)
+nyse_options_commonclient_pillar_v2_6.message_size.display = function(value)
   return "Message Size: "..value
 end
 
 -- Dissect: Message Size
-nyse_options_commonclient_pillar_v2_6_dissect.message_size = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.message_size
+nyse_options_commonclient_pillar_v2_6.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.message_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.message_size(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.message_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.message_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Header
+nyse_options_commonclient_pillar_v2_6.message_header = {}
+
 -- Calculate size of: Message Header
-nyse_options_commonclient_pillar_v2_6_size_of.message_header = function(buffer, offset)
+nyse_options_commonclient_pillar_v2_6.message_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.message_size
+  index = index + nyse_options_commonclient_pillar_v2_6.message_size.size
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.message_type
+  index = index + nyse_options_commonclient_pillar_v2_6.message_type.size
 
   return index
 end
 
 -- Display: Message Header
-nyse_options_commonclient_pillar_v2_6_display.message_header = function(packet, parent, length)
+nyse_options_commonclient_pillar_v2_6.message_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message Header
-nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields = function(buffer, offset, packet, parent)
+nyse_options_commonclient_pillar_v2_6.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = nyse_options_commonclient_pillar_v2_6_dissect.message_size(buffer, index, packet, parent)
+  index, message_size = nyse_options_commonclient_pillar_v2_6.message_size.dissect(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer
-  index, message_type = nyse_options_commonclient_pillar_v2_6_dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nyse_options_commonclient_pillar_v2_6.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-nyse_options_commonclient_pillar_v2_6_dissect.message_header = function(buffer, offset, packet, parent)
+nyse_options_commonclient_pillar_v2_6.message_header.dissect = function(buffer, offset, packet, parent)
   if show.message_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.message_header, buffer(offset, 0))
-    local index = nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    local index = nyse_options_commonclient_pillar_v2_6.message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_options_commonclient_pillar_v2_6_display.message_header(packet, parent, length)
+    local display = nyse_options_commonclient_pillar_v2_6.message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_commonclient_pillar_v2_6_dissect.message_header_fields(buffer, offset, packet, parent)
+    return nyse_options_commonclient_pillar_v2_6.message_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Message
+nyse_options_commonclient_pillar_v2_6.message = {}
+
 -- Display: Message
-nyse_options_commonclient_pillar_v2_6_display.message = function(packet, parent, length)
+nyse_options_commonclient_pillar_v2_6.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-nyse_options_commonclient_pillar_v2_6_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+nyse_options_commonclient_pillar_v2_6.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -205,7 +220,7 @@ nyse_options_commonclient_pillar_v2_6_dissect.message_fields = function(buffer, 
   end
 
   -- Message Header: Struct of 2 fields
-  index, message_header = nyse_options_commonclient_pillar_v2_6_dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nyse_options_commonclient_pillar_v2_6.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Size
   local message_size = buffer(index - 4, 2):le_uint()
@@ -214,117 +229,132 @@ nyse_options_commonclient_pillar_v2_6_dissect.message_fields = function(buffer, 
   local size_of_payload = message_size - 4
 
   -- Payload: 0 Byte
-  index, payload = nyse_options_commonclient_pillar_v2_6_dissect.payload(buffer, index, packet, parent, size_of_payload)
+  index, payload = nyse_options_commonclient_pillar_v2_6.payload.dissect(buffer, index, packet, parent, size_of_payload)
 
   return index
 end
 
 -- Dissect: Message
-nyse_options_commonclient_pillar_v2_6_dissect.message = function(buffer, offset, packet, parent, size_of_message, message_index)
+nyse_options_commonclient_pillar_v2_6.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
   if show.message then
     parent = parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.message, buffer(offset, 0))
-    local current = nyse_options_commonclient_pillar_v2_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local current = nyse_options_commonclient_pillar_v2_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
-    local display = nyse_options_commonclient_pillar_v2_6_display.message(buffer, packet, parent)
+    local display = nyse_options_commonclient_pillar_v2_6.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_options_commonclient_pillar_v2_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message, message_index)
+    nyse_options_commonclient_pillar_v2_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
   end
 end
 
+-- Nanoseconds
+nyse_options_commonclient_pillar_v2_6.nanoseconds = {}
+
 -- Size: Nanoseconds
-nyse_options_commonclient_pillar_v2_6_size_of.nanoseconds = 4
+nyse_options_commonclient_pillar_v2_6.nanoseconds.size = 4
 
 -- Display: Nanoseconds
-nyse_options_commonclient_pillar_v2_6_display.nanoseconds = function(value)
+nyse_options_commonclient_pillar_v2_6.nanoseconds.display = function(value)
   return "Nanoseconds: "..value
 end
 
 -- Dissect: Nanoseconds
-nyse_options_commonclient_pillar_v2_6_dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.nanoseconds
+nyse_options_commonclient_pillar_v2_6.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.nanoseconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.nanoseconds(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.nanoseconds.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
 
+-- Timestamp
+nyse_options_commonclient_pillar_v2_6.timestamp = {}
+
 -- Size: Timestamp
-nyse_options_commonclient_pillar_v2_6_size_of.timestamp = 4
+nyse_options_commonclient_pillar_v2_6.timestamp.size = 4
 
 -- Display: Timestamp
-nyse_options_commonclient_pillar_v2_6_display.timestamp = function(value)
+nyse_options_commonclient_pillar_v2_6.timestamp.display = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-nyse_options_commonclient_pillar_v2_6_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.timestamp
+nyse_options_commonclient_pillar_v2_6.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.timestamp(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
 
+-- Sequence Number
+nyse_options_commonclient_pillar_v2_6.sequence_number = {}
+
 -- Size: Sequence Number
-nyse_options_commonclient_pillar_v2_6_size_of.sequence_number = 4
+nyse_options_commonclient_pillar_v2_6.sequence_number.size = 4
 
 -- Display: Sequence Number
-nyse_options_commonclient_pillar_v2_6_display.sequence_number = function(value)
+nyse_options_commonclient_pillar_v2_6.sequence_number.display = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-nyse_options_commonclient_pillar_v2_6_dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.sequence_number
+nyse_options_commonclient_pillar_v2_6.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.sequence_number(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
 
+-- Message Count
+nyse_options_commonclient_pillar_v2_6.message_count = {}
+
 -- Size: Message Count
-nyse_options_commonclient_pillar_v2_6_size_of.message_count = 1
+nyse_options_commonclient_pillar_v2_6.message_count.size = 1
 
 -- Display: Message Count
-nyse_options_commonclient_pillar_v2_6_display.message_count = function(value)
+nyse_options_commonclient_pillar_v2_6.message_count.display = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-nyse_options_commonclient_pillar_v2_6_dissect.message_count = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.message_count
+nyse_options_commonclient_pillar_v2_6.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.message_count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.message_count(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.message_count, range, value, display)
 
   return offset + length, value
 end
 
+-- Delivery Flag
+nyse_options_commonclient_pillar_v2_6.delivery_flag = {}
+
 -- Size: Delivery Flag
-nyse_options_commonclient_pillar_v2_6_size_of.delivery_flag = 1
+nyse_options_commonclient_pillar_v2_6.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_options_commonclient_pillar_v2_6_display.delivery_flag = function(value)
+nyse_options_commonclient_pillar_v2_6.delivery_flag.display = function(value)
   if value == 1 then
     return "Delivery Flag: Heartbeat (1)"
   end
@@ -363,110 +393,119 @@ nyse_options_commonclient_pillar_v2_6_display.delivery_flag = function(value)
 end
 
 -- Dissect: Delivery Flag
-nyse_options_commonclient_pillar_v2_6_dissect.delivery_flag = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.delivery_flag
+nyse_options_commonclient_pillar_v2_6.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.delivery_flag.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.delivery_flag(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Size
+nyse_options_commonclient_pillar_v2_6.packet_size = {}
+
 -- Size: Packet Size
-nyse_options_commonclient_pillar_v2_6_size_of.packet_size = 2
+nyse_options_commonclient_pillar_v2_6.packet_size.size = 2
 
 -- Display: Packet Size
-nyse_options_commonclient_pillar_v2_6_display.packet_size = function(value)
+nyse_options_commonclient_pillar_v2_6.packet_size.display = function(value)
   return "Packet Size: "..value
 end
 
 -- Dissect: Packet Size
-nyse_options_commonclient_pillar_v2_6_dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6_size_of.packet_size
+nyse_options_commonclient_pillar_v2_6.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.packet_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6_display.packet_size(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.packet_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.packet_size, range, value, display)
 
   return offset + length, value
 end
 
+-- Packet Header
+nyse_options_commonclient_pillar_v2_6.packet_header = {}
+
 -- Calculate size of: Packet Header
-nyse_options_commonclient_pillar_v2_6_size_of.packet_header = function(buffer, offset)
+nyse_options_commonclient_pillar_v2_6.packet_header.size = function(buffer, offset)
   local index = 0
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.packet_size
+  index = index + nyse_options_commonclient_pillar_v2_6.packet_size.size
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.delivery_flag
+  index = index + nyse_options_commonclient_pillar_v2_6.delivery_flag.size
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.message_count
+  index = index + nyse_options_commonclient_pillar_v2_6.message_count.size
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.sequence_number
+  index = index + nyse_options_commonclient_pillar_v2_6.sequence_number.size
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.timestamp
+  index = index + nyse_options_commonclient_pillar_v2_6.timestamp.size
 
-  index = index + nyse_options_commonclient_pillar_v2_6_size_of.nanoseconds
+  index = index + nyse_options_commonclient_pillar_v2_6.nanoseconds.size
 
   return index
 end
 
 -- Display: Packet Header
-nyse_options_commonclient_pillar_v2_6_display.packet_header = function(packet, parent, length)
+nyse_options_commonclient_pillar_v2_6.packet_header.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nyse_options_commonclient_pillar_v2_6.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = nyse_options_commonclient_pillar_v2_6_dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = nyse_options_commonclient_pillar_v2_6.packet_size.dissect(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, delivery_flag = nyse_options_commonclient_pillar_v2_6_dissect.delivery_flag(buffer, index, packet, parent)
+  index, delivery_flag = nyse_options_commonclient_pillar_v2_6.delivery_flag.dissect(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = nyse_options_commonclient_pillar_v2_6_dissect.message_count(buffer, index, packet, parent)
+  index, message_count = nyse_options_commonclient_pillar_v2_6.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nyse_options_commonclient_pillar_v2_6_dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = nyse_options_commonclient_pillar_v2_6.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_options_commonclient_pillar_v2_6_dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nyse_options_commonclient_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_options_commonclient_pillar_v2_6_dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nyse_options_commonclient_pillar_v2_6.nanoseconds.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-nyse_options_commonclient_pillar_v2_6_dissect.packet_header = function(buffer, offset, packet, parent)
+nyse_options_commonclient_pillar_v2_6.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.packet_header then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.packet_header, buffer(offset, 0))
-    local index = nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, parent)
+    local index = nyse_options_commonclient_pillar_v2_6.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_options_commonclient_pillar_v2_6_display.packet_header(packet, parent, length)
+    local display = nyse_options_commonclient_pillar_v2_6.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_options_commonclient_pillar_v2_6_dissect.packet_header_fields(buffer, offset, packet, parent)
+    return nyse_options_commonclient_pillar_v2_6.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
+-- Packet
+nyse_options_commonclient_pillar_v2_6.packet = {}
+
 -- Dissect Packet
-nyse_options_commonclient_pillar_v2_6_dissect.packet = function(buffer, packet, parent)
+nyse_options_commonclient_pillar_v2_6.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 6 fields
-  index, packet_header = nyse_options_commonclient_pillar_v2_6_dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nyse_options_commonclient_pillar_v2_6.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -478,7 +517,7 @@ nyse_options_commonclient_pillar_v2_6_dissect.packet = function(buffer, packet, 
     local message_size = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Message
-    index, message = nyse_options_commonclient_pillar_v2_6_dissect.message(buffer, index, packet, parent, message_size)
+    index, message = nyse_options_commonclient_pillar_v2_6.message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index
@@ -501,7 +540,7 @@ function omi_nyse_options_commonclient_pillar_v2_6.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_options_commonclient_pillar_v2_6, buffer(), omi_nyse_options_commonclient_pillar_v2_6.description, "("..buffer:len().." Bytes)")
-  return nyse_options_commonclient_pillar_v2_6_dissect.packet(buffer, packet, protocol)
+  return nyse_options_commonclient_pillar_v2_6.packet.dissect(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
